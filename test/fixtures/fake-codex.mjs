@@ -25,7 +25,14 @@ createInterface({ input: process.stdin, crlfDelay: Infinity }).on("line", line =
   if (request.method === "account/read") return send({ id: request.id, result: { account: { type: "chatgpt" } } });
   if (request.method === "model/list") return send({ id: request.id, result: { data: [{ id: "astra", model: "gpt-6-astra", supportedReasoningEfforts: [{ reasoningEffort: "xhigh" }, { reasoningEffort: "ultra" }] }], nextCursor: null } });
   if (request.method === "account/rateLimits/read") return send({ id: request.id, result: { rateLimits: { rateLimitReachedType: null } } });
-  if (request.method === "turn/start") return send({ id: request.id, result: { turn: { id: "turn-1", status: "completed", items: [{ type: "agentMessage", text: replyFor(request.params?.input?.[0]?.text ?? "") }] } } });
+  if (request.method === "turn/start") {
+    const prompt = request.params?.input?.[0]?.text ?? "";
+    if (prompt.includes("Wait for the notification")) {
+      send({ id: request.id, result: { turn: { id: "turn-1", status: "inProgress" } } });
+      return setTimeout(() => send({ method: "turn/completed", params: { threadId: "isolated-thread", turn: { id: "turn-1", status: "completed", items: [{ type: "agentMessage", text: replyFor(prompt) }] } } }), 10);
+    }
+    return send({ id: request.id, result: { turn: { id: "turn-1", status: "completed", items: [{ type: "agentMessage", text: replyFor(prompt) }] } } });
+  }
   if (request.method === "thread/unsubscribe") return send({ id: request.id, result: {} });
   send({ id: request.id, error: { message: "unknown_method" } });
 });
