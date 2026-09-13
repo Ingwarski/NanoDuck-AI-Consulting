@@ -36,7 +36,7 @@ export function createConsultationService({ store, provider }) {
         await store.appendAgentMessage(conversationId, runState.generation, { role: "System", body: code, sources: [] });
         await store.finishRun(conversationId, runState.generation, "failed");
       }
-    } finally { controllers.delete(conversationId); }
+    } finally { if (controllers.get(conversationId) === controller) controllers.delete(conversationId); }
   };
   return Object.freeze({
     async start(conversationId, runState) { void run(conversationId, runState); },

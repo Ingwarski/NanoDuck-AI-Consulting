@@ -25,3 +25,30 @@ test("sensitive current-topic questions do not enable public web research", asyn
   assert.equal(calls.length, 5);
   assert.equal(calls.every(call => call.research === false), true);
 });
+
+test("a late stopped run cannot unregister the newer run controller", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we change the offer?", clientRequestId: "controller-replacement-0001" }, defaultSettings);
+  const calls = []; const deferred = [];
+  const provider = {
+    invoke(input) {
+      calls.push(input);
+      return new Promise(resolve => deferred.push(resolve));
+    }
+  };
+  const service = createConsultationService({ store, provider });
+  await service.start(conversation.id, accepted.run);
+  await waitFor(() => calls.length === 1);
+  await service.stop(conversation.id);
+  assert.equal((await store.run(conversation.id))?.status, "stopped");
+  const resumed = await service.continue(conversation.id);
+  assert.ok(resumed);
+  await waitFor(() => calls.length === 2);
+  deferred[0]({ ok: false, code: "cancelled" });
+  await new Promise(resolve => setImmediate(resolve));
+  assert.equal(calls[1].signal.aborted, false);
+  await service.stop(conversation.id);
+  assert.equal(calls[1].signal.aborted, true);
+  deferred[1]({ ok: false, code: "cancelled" });
+});
