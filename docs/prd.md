@@ -2,6 +2,10 @@
 
 13 September 2026 · Revision 3 · Authority: current [product-idea.md](product-idea.md) · Working language: English
 
+## Product identity
+
+Use **NanoDuck Consulting Group** as the app name, following the product idea. The SVG brand mark and palette belong to the design brief. Product behavior, IDs and security obligations are unchanged; the legacy GoDaddy target keeps its existing name.
+
 ## Problem Statement
 
 The single owner needs useful advice, real expert challenge and an inspectable record on phone or desktop. The reported weak points are messenger operations, ceremonial agent exchanges, repeated connection setup and rejected visual design. The replacement should reduce the effort of reaching a decision; this specification does not claim to identify every production incident cause.

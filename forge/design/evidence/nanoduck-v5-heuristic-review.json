@@ -1,0 +1,40 @@
+{
+  "reviewer": "Codex root",
+  "observed_at": "2026-09-13T20:27:31.414953+00:00",
+  "method": "Scoped H2/H4/H6/H8 expert review of brand delta against existing H1-H10 design plan. Other behavior retains prior evidence, not a new full heuristic-suite execution.",
+  "result": "passed_for_inspected_design_delta",
+  "coverage": [
+    {
+      "heuristic_id": "H2",
+      "actual_observation": "Exact owner-requested name is readable on navigation and sign-in."
+    },
+    {
+      "heuristic_id": "H4",
+      "actual_observation": "Brand control retains Discussion destination and accessible full name; mobile navigation still closes after destination selection."
+    },
+    {
+      "heuristic_id": "H6",
+      "actual_observation": "Warm yellow retains written Head Consultant name and HC initials; logo never substitutes for navigation labels."
+    },
+    {
+      "heuristic_id": "H8",
+      "actual_observation": "Compact original SVG and two-line wordmark fit 320px; logo has no animation, external assets or added settings."
+    }
+  ],
+  "source_hashes": {
+    "docs/design-brief.md": "3523f9a5f7af0daaab75d8e5b508eedfebc23ea4502f3d5fb93c898cc2f7b24b",
+    "docs/qa-checklist.md": "beac156a1a96cdf9175570233e4f53a5f72b1dea178aa2be0cf63a7b6a98a1a0"
+  },
+  "prior_h1_h10_review": {
+    "path": "forge/design/evidence/electric-v4-heuristic-review.json",
+    "content_hash": "012c1401f2f24f709f3c7c12ee7b85622d9984bd4aa9d997ce5a9ce3f4e778b5"
+  },
+  "findings": [],
+  "representative_user_validation": "not_run; existing design-brief deferral retained",
+  "limitations": [
+    "Brand and colour design revision only; no production authentication, AI, research, recording, storage or deployment.",
+    "54 responsive observations cover sign-in, discussion and Settings at six widths across three candidates. The full 44-state sequence and interaction suite were not rerun for this presentation-only delta.",
+    "No representative-user, VoiceOver, physical keyboard, forced-colors or full WCAG/security/performance validation.",
+    "Screenshots were inspected inline using CUA; no exported raster capture is claimed."
+  ]
+}

@@ -2,7 +2,7 @@ import http from 'node:http';
 import { readFile } from 'node:fs/promises';
 
 const repository = new URL('../', import.meta.url);
-const shared = 'forge/design/candidate-sets/web-electric-20260913/v4/shared/';
+const shared = 'forge/design/candidate-sets/web-nanoduck-20260913/v5/shared/';
 const types = { html: 'text/html', css: 'text/css', js: 'text/javascript', json: 'application/json', svg: 'image/svg+xml' };
 const port = Number(process.env.PORT || 4328);
 function assetFor(pathname) {
@@ -15,7 +15,7 @@ function assetFor(pathname) {
 }
 const server = http.createServer(async (req, res) => {
   const pathname = new URL(req.url, 'http://localhost').pathname;
-  if ((pathname === '/' || pathname === '/index.html') && ['GET', 'HEAD'].includes(req.method)) { res.writeHead(302, { Location: '/a/v4/', 'Cache-Control': 'no-store' }); res.end(); return; }
+  if ((pathname === '/' || pathname === '/index.html') && ['GET', 'HEAD'].includes(req.method)) { res.writeHead(302, { Location: '/a/v5/', 'Cache-Control': 'no-store' }); res.end(); return; }
   const path = assetFor(pathname);
   if (!path || !['GET', 'HEAD'].includes(req.method)) { res.writeHead(404); res.end('Not found'); return; }
   try {

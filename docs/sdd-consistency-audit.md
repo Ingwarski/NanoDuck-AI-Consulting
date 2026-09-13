@@ -1,6 +1,8 @@
 # SDD consistency audit
 
-Current revision: Electric v4 follows the owner's explicit selection and colour request. Design-brief ownership covers the HappyPro reference and new tokens; architecture, DoD and QA revalidated affected source bindings. Product/security intent remains unchanged. The [current audit receipt](../forge/design/evidence/electric-v4-sdd-audit.json) records checks and preserved history. [Verification](verification.md) separates the latest visual evidence from prior runs. No whole-design approval or implementation authorization is inferred; 82 formal checks remain prepared / not_run.
+Current revision: NanoDuck Electric v5 records the owner-requested name, SVG logo and warmer Head yellow. Product-idea/PRD identity and the coupled context/terms bundle were reconciled; downstream owners revalidated in dependency order. No behavior or security obligation changed. The [current audit receipt](../forge/design/evidence/nanoduck-v5-sdd-audit.json) records checks and immutable history. [Verification](verification.md) separates current branding observations from prior runs. Whole-design approval remains pending; all 82 formal checks remain prepared / not_run.
+
+The prior Electric v4 audit remains preserved in [its own receipt](../forge/design/evidence/electric-v4-sdd-audit.json).
 
 The earlier combined v3 audit is preserved in [its own receipt](../forge/design/evidence/hybrid-v3-sdd-audit.json).
 

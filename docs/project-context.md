@@ -8,7 +8,7 @@ Working language is English, from the owner's latest substantive request. Produc
 
 ## Product and user
 
-Personal AI Consulting Group is a private decision-support and coaching product for one existing owner. The owner is both user and decision maker. They want substantive consultant/Critic exchanges, practical outcomes and inspectable evidence, with little operational effort. Their rejection of the old UI and request for bold alternatives are direct feedback, not representative-user research.
+NanoDuck Consulting Group is a private decision-support and coaching product for one existing owner. The owner is both user and decision maker. They want substantive consultant/Critic exchanges, practical outcomes and inspectable evidence, with little operational effort. Their rejection of the old UI and request for bold alternatives are direct feedback, not representative-user research.
 
 The seven PRD use cases cover entry, consultation, interruption, history, Settings, dictation and research. No additional persona, audience segment or commercial service is assumed.
 
@@ -29,8 +29,8 @@ Source code is public. Conversation content, audio, attachments, identity data a
 ## Assumptions, risks and open questions
 
 - Floating navigation means a conventional bar that stays available while scrolling; arbitrary dragging is not required. This is a reversible interpretation of the correction.
-- The owner has requested a combined dark layout from Ember and Cobalt, with three agent-colour palettes using the same fictional task and interaction coverage. Normal sign-in lasts 24 hours under the PRD session rule. No candidate has been approved.
+- The owner has requested a combined dark layout from Ember and Cobalt, with Electric selected after three agent-colour palettes using the same fictional task and interaction coverage; the latest request adds the NanoDuck name, SVG mark and slightly warmer Head yellow. Normal sign-in lasts 24 hours under the PRD session rule. No candidate has been approved.
 - Cross-browser recording/transcription, current saved settings, identity assurance and hosting recovery need actual implementation evidence. Their absence blocks production claims, not the design comparison.
 - High-stakes decision support and voice/privacy flows need representative-owner validation before release. The present work is expert design/review, not user research.
 
-No material intent question blocks the three-option design comparison. Architecture owns unresolved implementation parameters and returns any new product boundary to the PRD owner.
+No material intent question blocks the selected design refinement. Architecture owns unresolved implementation parameters and returns any new product boundary to the PRD owner.

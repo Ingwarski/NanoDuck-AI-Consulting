@@ -1,8 +1,18 @@
 # Verification record
 
-13 September 2026 · Selected Electric colour refinement · Design review only
+13 September 2026 · NanoDuck Electric brand refinement · Design review only
 
-## Current Electric v4 colour revision
+## Current NanoDuck Electric v5 revision
+
+The owner requested **NanoDuck Consulting Group**, an SVG logo, then a slightly warmer Head Consultant yellow. The original local duck mark appears in floating navigation, sign-in and the favicon; full naming remains visible on mobile. Electric Head yellow is `#ffd45a`, shared by the beak. Existing HappyPro blue, raspberry Critic and other agent colours remain.
+
+Actual browser evidence: 54 reflow observations across sign-in, Discussion and Settings at 320/390/430/768/1280/1440px across A/B/C. None showed page overflow or a failed logo load. All three exact v5 URLs were opened in existing Safari tabs and branded Discussion screenshots inspected. Electric sign-in was inspected in Safari and at 320px; mobile Menu → Settings → branded Discussion control was exercised. Original model/reasoning/pace values remain visible. No console warnings/errors appeared in the final in-app walkthrough.
+
+[Electric evidence](../forge/design/evidence/a-v5-visual-qa.json), [Solar reference](../forge/design/evidence/b-v5-visual-qa.json), [Prismatic reference](../forge/design/evidence/c-v5-visual-qa.json) and [scoped heuristic review](../forge/design/evidence/nanoduck-v5-heuristic-review.json) record their actual limits. Source comparison confirms that app.js changed only sign-in branding markup. The full 44-state and interaction suite was not rerun or relabelled for this branding change. Prior versions and evidence remain immutable.
+
+The 12 canonical artifacts retain their domain owners and source bindings; context/terms remain coupled. All 82 formal checks remain prepared / not_run. Whole-design approval and production implementation remain pending.
+
+## Historical Electric v4 colour revision
 
 The owner selected Electric and requested HappyPro blue for the main heading and important accents, raspberry Critic and clear yellow Head Consultant. Product violet and Operations turquoise complete the palette. This is a new immutable colour revision, not a whole-design approval or production implementation.
 

@@ -3,14 +3,14 @@
   "working_language": "en",
   "recorded_date": "2026-09-13",
   "authority": {
-    "current_intent": "Owner design-first reset and SDD integrity requirements, combined Ember/Cobalt layout, 24-hour app sessions, then selection of Electric with HappyPro blue, yellow Head and raspberry Critic on 2026-09-13",
+    "current_intent": "Owner design-first reset and SDD integrity requirements, combined Ember/Cobalt layout, 24-hour app sessions, then selection of Electric with HappyPro blue, yellow Head and raspberry Critic on 2026-09-13; then owner-requested NanoDuck Consulting Group SVG branding and warmer Head yellow",
     "source_mode": "existing-file",
     "design_approval": "awaiting-whole-design-review",
     "production_implementation": "not-in-scope"
   },
   "current_brief": {
     "path": "docs/product-idea.md",
-    "sha256": "1395a5d9d5372377d26c97ad5302390f287f4094b8bca20ff74e8e6478065a4e"
+    "sha256": "d1b84acfb8ca577cfdf391c2d07ed5c9f82396537053c382d6b24a2eaf344e3a"
   },
   "design_traceability": [
     {

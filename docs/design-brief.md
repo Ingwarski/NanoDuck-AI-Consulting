@@ -1,4 +1,4 @@
-# Electric direction with HappyPro blue
+# NanoDuck Consulting Group — Electric design
 
 13 September 2026 · Codex design executor · Electric selected for refinement; revised baseline proposed
 
@@ -8,14 +8,14 @@ The owner rejected the prior green editorial candidate and requested a modern, b
 
 | Material | Path / URL | Required | Purpose and access |
 |---|---|---|---|
-| MAT-01 | `docs/prd.md` · SHA-256 `f6f5e829f5178edadea69ba6f25f1367b8c8a748deb3c8e99f876aa77588c218` | true | Current specification; resolved filesystem read |
-| MAT-02 | `docs/project-context.md` · SHA-256 `79259e112e56775b2239f52494d8adf69b05f0dc68910a7f8114a626068e4968` | true | Current specification; resolved filesystem read |
-| MAT-03 | `docs/canonical-terms.md` · SHA-256 `c2ae3f6d972c469aa1b6f07a2914f4d21be6778e4057cb3182b393c5d2548b3e` | true | Current specification; resolved filesystem read |
+| MAT-01 | `docs/prd.md` · SHA-256 `f64c68933074651e3d3377bdb2dc075836e957d0d189dfe02cfef8782dbdbb94` | true | Current specification; resolved filesystem read |
+| MAT-02 | `docs/project-context.md` · SHA-256 `f58df4f19c846ec7f571170f4c32250e57efeb3fbbda97ed1d2b37c6f80a9eec` | true | Current specification; resolved filesystem read |
+| MAT-03 | `docs/canonical-terms.md` · SHA-256 `9c2f3444cc96a71af50bbf63c376c7e492df61021543fb4474dbb3492100e61a` | true | Current specification; resolved filesystem read |
 | MAT-04 | `docs/guardrails.md` · SHA-256 `1fdc65f719f013b799907296756812b08e1cdc15355203ccc062d4e40d83ddcc` | true | Current specification; resolved filesystem read |
 | MAT-05 | `docs/user-journey.md` · SHA-256 `c9dc1f25d3ee1795dfa889c124e3e6d9eaf8bf563f05466f81e401b66d7e1dd6` | true | Current specification; resolved filesystem read |
 | MAT-06 | `docs/screen-map.md` · SHA-256 `e9fe4d212a575844c813eaa91aec405bdd3107cabf0b7117896016ccea7c6f9e` | true | Current specification; resolved filesystem read |
 | MAT-07 | `docs/wireframes.md` · SHA-256 `6141cf91dc4b787cfe47455327464cca70a6cba3ef1858984b8aa5b404a9f11c` | true | Current specification; resolved filesystem read |
-| MAT-08 | `docs/product-idea.md` · SHA-256 `1395a5d9d5372377d26c97ad5302390f287f4094b8bca20ff74e8e6478065a4e` | true | Current specification; resolved filesystem read |
+| MAT-08 | `docs/product-idea.md` · SHA-256 `d1b84acfb8ca577cfdf391c2d07ed5c9f82396537053c382d6b24a2eaf344e3a` | true | Current specification; resolved filesystem read |
 | MAT-09 | `prototype/index.html` · SHA-256 `e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5` | false | Rejected visual/copy evidence; resolved filesystem read |
 | MAT-10 | `prototype/styles.css` · SHA-256 `ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925` | false | Rejected visual/copy evidence; resolved filesystem read |
 | MAT-11 | `prototype/app.js` · SHA-256 `b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54` | false | Rejected visual/copy evidence; resolved filesystem read |
@@ -41,6 +41,15 @@ The owner rejected the prior green editorial candidate and requested a modern, b
 | MAT-31 | `forge/design/candidates/c/v3/index.html` · SHA-256 `1c939ae7e898a0556967c14b68b9ce1eb85d8bb607adc8925229cfc87de0bfde` | true | Frozen v3 source: Electric is selected; Solar/Prismatic retained as unchosen comparison references; resolved filesystem read |
 | MAT-32 | `forge/design/candidates/c/v3/styles.css` · SHA-256 `9fbfe5bbdba0f113aa8cdbeefde8ee3e323b53e3feabfb08fc02bf6f78d1b08d` | true | Frozen v3 source: Electric is selected; Solar/Prismatic retained as unchosen comparison references; resolved filesystem read |
 | MAT-33 | `forge/design/candidates/c/v3/app.js` · SHA-256 `e1e7e19a734b20523cca8102b79592adecdc60e4301db718711579a639815813` | true | Frozen v3 source: Electric is selected; Solar/Prismatic retained as unchosen comparison references; resolved filesystem read |
+| MAT-34 | `forge/design/candidates/a/v4/index.html` · SHA-256 `8c53c498a24752b3148128cb6222ae876cd80c590022549b15312020e4e4b0e5` | true | Frozen prior appearance and behavior; filesystem read; brand/warm-yellow revision only |
+| MAT-35 | `forge/design/candidates/a/v4/styles.css` · SHA-256 `2866de66a89226113f4501b6d5c2e8fc0c2dbdf83c6bf5aaacd210a803744ea6` | true | Frozen prior appearance and behavior; filesystem read; brand/warm-yellow revision only |
+| MAT-36 | `forge/design/candidates/a/v4/app.js` · SHA-256 `dee23e1b92cea7c32f260a2236be8d0ef2be7290ebff18ab577ccf2b56864d45` | true | Frozen prior appearance and behavior; filesystem read; brand/warm-yellow revision only |
+| MAT-37 | `forge/design/candidates/b/v4/index.html` · SHA-256 `8aef33ec6d4bfd92a83c74b51f9dfea21c4df67985bf72956217408cfb2e87fb` | true | Frozen prior appearance and behavior; filesystem read; brand/warm-yellow revision only |
+| MAT-38 | `forge/design/candidates/b/v4/styles.css` · SHA-256 `78c41e2317e371acc0c801521495141756be097445ae8fbc39772809ea5ecbc1` | true | Frozen prior appearance and behavior; filesystem read; brand/warm-yellow revision only |
+| MAT-39 | `forge/design/candidates/b/v4/app.js` · SHA-256 `e0cc8f42267675184442bb05c6a208d3a0b034b0364fcd50b896e54e203db2a7` | true | Frozen prior appearance and behavior; filesystem read; brand/warm-yellow revision only |
+| MAT-40 | `forge/design/candidates/c/v4/index.html` · SHA-256 `6035df0d0e80832f3941af05a79157e3dcebf281778bdc9fb426d1e03a71acd2` | true | Frozen prior appearance and behavior; filesystem read; brand/warm-yellow revision only |
+| MAT-41 | `forge/design/candidates/c/v4/styles.css` · SHA-256 `9fbfe5bbdba0f113aa8cdbeefde8ee3e323b53e3feabfb08fc02bf6f78d1b08d` | true | Frozen prior appearance and behavior; filesystem read; brand/warm-yellow revision only |
+| MAT-42 | `forge/design/candidates/c/v4/app.js` · SHA-256 `e1e7e19a734b20523cca8102b79592adecdc60e4301db718711579a639815813` | true | Frozen prior appearance and behavior; filesystem read; brand/warm-yellow revision only |
 
 Required sources are available. The previous prototype is avoidance evidence only; there is no approved visual system to inherit. The local model catalog is a content-free read of model/list, not deployed preferences or execution entitlement. External references are read-only guidance, not assets or required network dependencies.
 
@@ -53,6 +62,8 @@ Let the owner follow an intelligent discussion, challenge a claim and make a del
 | Decision | Basis and consequence |
 |---|---|
 | Combined layout | Latest owner revision: Ember black theme, avatar/message formatting and local tabs inside Cobalt centered chat/composer geometry. No design approval inferred. |
+| Brand identity | Owner-requested NanoDuck Consulting Group. Original SVG duck silhouette in HappyPro blue with a warm-yellow beak, light-blue wing and dark eye. Two-line wordmark keeps the full name visible on mobile. Apply the mark in floating navigation, sign-in and favicon. Decorative mark beside readable name has empty alt; the navigation control retains its explicit accessible name. No external image/font requests. |
+| Warmer yellow | Latest owner correction replaces the previous lemony Head yellow with the warmer Head token below; the beak shares it. |
 | Selected Electric refinement | Owner selected Electric and requested HappyPro blue for the main heading/important accents, raspberry Critic and clear yellow Head Consultant. Product violet and Operations turquoise complete the palette. Layout and behavior stay the same. |
 | Unchosen Solar reference | Preserved gold/coral/lilac and rose comparison reference. It is not the selected product direction. |
 | Unchosen Prismatic reference | Preserved gold/cyan/lavender and orchid comparison reference. It is not the selected product direction. |
@@ -61,9 +72,9 @@ Let the owner follow an intelligent discussion, challenge a claim and make a del
 | Composer | Cobalt width and sticky geometry; icon-only microphone with accessible name, attachment action and a bright Send button that cannot shrink or become transparent. |
 | Review controls | State and locale fixtures appear only in an explicit inspection URL, outside the normal preview; no Review states control exists in the app. Palette comparison belongs to the external review shell. |
 | Session access | PRD owns the 24-hour app session. A concise Settings description may explain it; this prototype does not authenticate or prove elapsed-time persistence. |
-| Version history | Original Cobalt/Ember/Prism versions remain frozen history. Combined v3 remains frozen. Electric v4 receives a new immutable identity for this colour revision; equivalent-scope unchosen references remain available for comparison history. |
+| Version history | Original Cobalt/Ember/Prism versions remain frozen history. Combined v3 remains frozen. Electric v4 remains frozen. Branded Electric v5 receives a new immutable identity; equivalent-scope unchosen references remain available for comparison history. |
 
-The candidate names are design labels, not product renames. Electric was selected by the user; the requested colour revision is not yet an approved whole-design baseline. This is styling only: no changed roles, privileges, data exposure, integrations or security obligations.
+Electric, Solar and Prismatic are design labels; NanoDuck Consulting Group is the owner-confirmed product name. Electric was selected by the user; the requested colour revision is not yet an approved whole-design baseline. This is styling only: no changed roles, privileges, data exposure, integrations or security obligations.
 
 ## Design spine
 
@@ -83,15 +94,15 @@ Token proposals are recorded once here. Individual candidate styles consume thes
 | Local tabs | Ember transparent tabs, plain counts, muted inactive text and active accent with a 3px underline; keyboard/ARIA behavior retained. |
 | Targets and shapes | 44px minimum primary controls; Send at least 48px high and 100px wide; input 16px; 4/8/12/16/24/32px spacing. |
 
-| Role | Selected Electric v4 | Unchosen Solar | Unchosen Prismatic |
+| Role | Selected Electric v5 | Unchosen Solar | Unchosen Prismatic |
 |---|---|---|---|
 | You | `#bbc7dd` | `#d9d4cb` | `#ced1e0` |
-| Head | `#ffe14a` | `#ffc166` | `#e4c66b` |
+| Head | `#ffd45a` | `#ffc166` | `#e4c66b` |
 | Product | `#b39aff` | `#ff9470` | `#7fdee2` |
 | Operations | `#5bd8cd` | `#d0b1ff` | `#bdb0ff` |
 | Critic | `#ea4779` | `#ff7f95` | `#ef97ea` |
 
-Use role colour on names, avatar fills and restrained quote/edge accents; keep written role names and dark avatar initials. Critic retains a distinct left border. Colour alone never identifies a role. Electric role-text contrast against the dark surface is at least 4.74:1; white button text against primary blue is 4.75:1. The darkest heading-gradient stop is 3.15:1 against the canvas, suitable only for large heading text; smaller text uses the light-blue accent. Other headings on raised surfaces use that light tint. These are limited token calculations, not full accessibility conformance. Forced-colors mode restores system-colour text without the gradient. No production palette-setting feature is introduced.
+Use role colour on names, avatar fills and restrained quote/edge accents; keep written role names and dark avatar initials. Critic retains a distinct left border. Colour alone never identifies a role. Electric role-text contrast against the dark surface is at least 4.74:1; white button text against primary blue is 4.75:1. The darkest heading-gradient stop is 3.15:1 against the canvas, suitable only for large heading text; smaller text uses the light-blue accent. Other headings on raised surfaces use that light tint. These are limited token calculations, not full accessibility conformance. Forced-colors mode restores system-colour text without the gradient. No production palette-setting feature is introduced. The duck mark uses the Electric primary blue, small-accent wing, Head-yellow beak and avatar-ink eye. It is an original vector drawing, not a copied external asset. The mark occupies 40px in navigation (36px on mobile); the wordmark remains two readable lines without hiding Consulting Group.
 
 ## Experience spine
 

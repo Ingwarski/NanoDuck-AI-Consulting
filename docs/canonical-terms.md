@@ -4,7 +4,8 @@ Working language: English. Product content: English and Ukrainian; role names an
 
 | Term | Meaning and usage | Avoid |
 |---|---|---|
-| Personal AI Consulting Group | Full product name; Consulting Group is a short wordmark only. | Implying a new product name or human firm |
+| NanoDuck Consulting Group | Exact current product name; NanoDuck and Consulting Group may form two lines of one wordmark. | Personal AI Consulting Group as current UI branding; implying a human firm |
+| Personal AI Consulting Group | Historical name of the existing GoDaddy app; retain it only for legacy evidence and exact deployment targeting. | Renaming or broadening the deployment target |
 | Settings | Literal navigation label for models, reasoning, speed and account actions. | Your space; Preferences as the destination name |
 | Head Consultant | Separately invoked coordinator and final synthesis author. | A fictional human partner |
 | Consultant / specialist | Separate AI context with a relevant assignment. | Several role labels on one completion |

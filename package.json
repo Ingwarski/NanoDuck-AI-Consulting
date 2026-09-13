@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Design-stage prototype for Personal AI Consulting Group. No live AI or authentication.",
+  "description": "Design-stage prototype for NanoDuck Consulting Group. No live AI or authentication.",
   "scripts": {
     "start": "node scripts/serve-prototype.mjs",
     "check": "node scripts/check-artifacts.mjs"
