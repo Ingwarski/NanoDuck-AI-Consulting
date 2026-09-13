@@ -133,6 +133,13 @@ test("the authenticated discussion preserves a separate Consultant, Critic and r
     assert.deepEqual(detail.events[1].sources.map(source => ({ title: source.title, url: source.url, claim: source.claim, publishedAt: source.publishedAt })), [{ title: "Buyer evidence", url: "https://example.com/buyer-evidence", claim: "Buyer willingness must be measured before positioning.", publishedAt: "2026-09-01" }]);
     assert.match(detail.events[1].sources[0].retrievedAt, /^\d{4}-\d{2}-\d{2}T/u);
     assert.equal(detail.events.some(event => event.role === "System"), false);
+    const exported = await fetch(`${origin}/api/conversations/${conversationId}/export`, { headers: { cookie } });
+    assert.equal(exported.status, 200);
+    assert.match(exported.headers.get("content-disposition"), /nanoduck-/u);
+    assert.deepEqual((await exported.json()).messages.map(event => event.role), detail.events.map(event => event.role));
+    assert.equal((await fetch(`${origin}/api/conversations/${conversationId}`, { method: "DELETE", headers })).status, 204);
+    assert.equal((await fetch(`${origin}/api/conversations/${conversationId}`, { headers: { cookie } })).status, 404);
+    assert.deepEqual((await (await fetch(`${origin}/api/conversations`, { headers: { cookie } })).json()).conversations, []);
   } finally {
     child.kill("SIGTERM");
     await once(child, "exit").catch(() => {});

@@ -43,6 +43,8 @@ test("source links accept only public HTTPS destinations", () => {
   assert.equal(safeExternalUrl("https://127.0.0.1/private"), undefined);
   assert.equal(safeExternalUrl("https://169.254.169.254/latest"), undefined);
   assert.equal(safeExternalUrl("https://localhost/private"), undefined);
+  assert.equal(safeExternalUrl("https://[::1]/private"), undefined);
+  assert.equal(safeExternalUrl("https://[fd00::1]/private"), undefined);
 });
 
 test("development cookies remain usable on localhost while production uses host-only secure cookies", async () => {
