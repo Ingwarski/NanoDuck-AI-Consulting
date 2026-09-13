@@ -11,7 +11,8 @@ const key = Buffer.alloc(32, 7);
 test("encrypted message values authenticate before decryption", () => {
   const encrypted = encryptText("Private decision context", key);
   assert.equal(decryptText(encrypted, key), "Private decision context");
-  assert.throws(() => decryptText({ ...encrypted, tag: `${encrypted.tag.slice(0, -1)}A` }, key));
+  const alteredCiphertext = `${encrypted.ciphertext[0] === "A" ? "B" : "A"}${encrypted.ciphertext.slice(1)}`;
+  assert.throws(() => decryptText({ ...encrypted, ciphertext: alteredCiphertext }, key));
 });
 
 test("accepted owner messages are idempotent and a stopped run fences later agent output", async () => {
