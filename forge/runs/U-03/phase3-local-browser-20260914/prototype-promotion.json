@@ -14,7 +14,7 @@
   "started_at": "2026-09-14T00:45:49+03:00",
   "completed_at": "2026-09-14T01:06:00+03:00",
   "base_commit": "f99744d603b4e27cb7e89eccde2f12b9652e8a01",
-  "head_commit": "92f6d71b20912fd5e819513a687e46993ada23d1",
+  "head_commit": "37214606849f44df6a194f01eaf7b21f63222d4c",
   "path_mappings": [
     {
       "source": "forge/design/candidates/a/v8/index.html",
@@ -35,7 +35,7 @@
       "destination": "src/client/app.js",
       "strategy": "reimplement",
       "source_hash": "d7ac2287ce8496772592d42d134fc530affcb9147f0a7641655a56c6cf83775f",
-      "destination_hash": "d82be073e87cfe0bae935dd101163d50f8edde4ea64612e28daf415388f8ef06"
+      "destination_hash": "8d6e646ef47d06b123cec8d8e6a0cee5f7f9c24630bc2b17e97a26559a5a5715"
     },
     {
       "source": "forge/design/candidates/a/v8/nanoduck.svg",
@@ -59,12 +59,13 @@
     "public/styles.css",
     "src/client/app.js"
   ],
-  "patch_hash": "ab0f2f035c1c96fe60aa62ef0c5c75b374dcb2918e2fdc1f074f84b0fd8c46c7",
+  "patch_hash": "2caafb6702aa3ffa3a815e9311be9c243873ccfbdbe0bfc123ae80a239284c2d",
   "adaptations": [
     "Removed candidate comparison, version and inspection scaffolding.",
     "Replaced simulated messages and client fixtures with authenticated server routes and persisted consultation events.",
     "Connected the preserved model, reasoning and pace selectors to server-side validated preferences.",
-    "Preserved the approved dark Electric tokens, message hierarchy, tabs, floating desktop navigation, mobile menu and corrected SVG bytes."
+    "Preserved the approved dark Electric tokens, message hierarchy, tabs, floating desktop navigation, mobile menu and corrected SVG bytes.",
+    "Kept the Sources tab within the approved surface while deduplicating repeated evidence and showing retrieval/publication metadata."
   ],
   "variances": [
     "The sign-in, consent, provider-unavailable and persisted-event states are production behavior absent from the frozen prototype.",
