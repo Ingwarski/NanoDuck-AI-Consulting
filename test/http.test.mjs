@@ -1,8 +1,11 @@
 import assert from "node:assert/strict";
 import { once } from "node:events";
+import { mkdtemp, rm, writeFile } from "node:fs/promises";
 import { createServer } from "node:http";
+import { tmpdir } from "node:os";
 import { spawn } from "node:child_process";
 import test from "node:test";
+import { fileURLToPath } from "node:url";
 
 const reservePort = async () => {
   const server = createServer();
@@ -71,5 +74,65 @@ test("the local HTTP flow protects data, saves settings and preserves an unavail
   } finally {
     child.kill("SIGTERM");
     await once(child, "exit").catch(() => {});
+  }
+});
+
+test("the authenticated discussion preserves a separate Consultant, Critic and revision exchange", async () => {
+  const port = await reservePort();
+  const directory = await mkdtemp(`${tmpdir()}/nanoduck-http-provider-`);
+  const authPath = `${directory}/auth.json`;
+  const codexCommand = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));
+  await writeFile(authPath, "{}", { mode: 0o600 });
+  const child = spawn(globalThis.process.execPath, ["src/server/index.mjs"], {
+    cwd: process.cwd(),
+    env: {
+      ...globalThis.process.env,
+      NODE_ENV: "development",
+      DEV_OWNER_EMAIL: "owner@local.test",
+      PORT: String(port),
+      CODEX_APP_SERVER_AUTH_PATH: authPath,
+      CODEX_APP_SERVER_COMMAND: codexCommand
+    },
+    stdio: "ignore"
+  });
+  const origin = `http://127.0.0.1:${port}`;
+  try {
+    await waitFor(async () => {
+      try { return (await fetch(`${origin}/healthz`)).ok; } catch { return false; }
+    });
+    const signIn = await fetch(`${origin}/api/auth/development`, { method: "POST" });
+    const cookie = signIn.headers.get("set-cookie").split(";", 1)[0];
+    const session = await (await fetch(`${origin}/api/session`, { headers: { cookie } })).json();
+    const headers = { cookie, "x-csrf-token": session.csrfToken, "content-type": "application/json" };
+    await fetch(`${origin}/api/consent`, { method: "POST", headers });
+    const created = await (await fetch(`${origin}/api/conversations`, { method: "POST", headers })).json();
+    const conversationId = created.conversation.id;
+    const accepted = await fetch(`${origin}/api/conversations/${conversationId}/messages`, {
+      method: "POST",
+      headers,
+      body: JSON.stringify({ body: "How should we position this offer?", clientRequestId: "provider-exchange-0001" })
+    });
+    assert.equal(accepted.status, 202);
+    const detail = await waitFor(async () => {
+      const response = await fetch(`${origin}/api/conversations/${conversationId}`, { headers: { cookie } });
+      const value = await response.json();
+      return value.run?.status === "complete" ? value : undefined;
+    });
+    assert.deepEqual(detail.events.map(event => [event.role, event.recipient]), [
+      ["owner", null],
+      ["Head Consultant", "Consultant"],
+      ["Strategy Consultant", "Critic"],
+      ["Critic", "Strategy Consultant"],
+      ["Strategy Consultant", "Head Consultant"],
+      ["Head Consultant", null]
+    ]);
+    assert.match(detail.events[3].body, /assumes those buyers will take calls/u);
+    assert.match(detail.events[4].body, /recruit calls from a defined prospect list/u);
+    assert.match(detail.events[5].body, /measure interview acceptance/u);
+    assert.equal(detail.events.some(event => event.role === "System"), false);
+  } finally {
+    child.kill("SIGTERM");
+    await once(child, "exit").catch(() => {});
+    await rm(directory, { recursive: true, force: true });
   }
 });
