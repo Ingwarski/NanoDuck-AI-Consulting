@@ -14,7 +14,7 @@
   "started_at": "2026-09-14T00:45:49+03:00",
   "completed_at": "2026-09-14T01:06:00+03:00",
   "base_commit": "f99744d603b4e27cb7e89eccde2f12b9652e8a01",
-  "head_commit": "b612a56ec950611f60c858f148cd736ee2b74a69",
+  "head_commit": "a8e603fddbbb1931bcddf7ddc823e148a62ebf91",
   "path_mappings": [
     {
       "source": "forge/design/candidates/a/v8/index.html",
@@ -35,7 +35,7 @@
       "destination": "src/client/app.js",
       "strategy": "reimplement",
       "source_hash": "d7ac2287ce8496772592d42d134fc530affcb9147f0a7641655a56c6cf83775f",
-      "destination_hash": "d52ff67f0765373735f5dbf1819332efd5735cf706a7145796dd5d34aeb9b850"
+      "destination_hash": "bd54150bf2aae01e7fb87c06294904ff53d31414800355d610eb66bec2dd922d"
     },
     {
       "source": "forge/design/candidates/a/v8/nanoduck.svg",
@@ -59,7 +59,7 @@
     "public/styles.css",
     "src/client/app.js"
   ],
-  "patch_hash": "e98dac4f178466a4f4731e3ede1b82821c8a1814530aa5246b98df3974c4a0e4",
+  "patch_hash": "1ed36bc9b5fbe0518d7cfccfa4add6b83108ccc1ad1241769caba524dc291965",
   "adaptations": [
     "Removed candidate comparison, version and inspection scaffolding.",
     "Replaced simulated messages and client fixtures with authenticated server routes and persisted consultation events.",
@@ -80,7 +80,7 @@
     {
       "kind": "visual",
       "path": "forge/runs/U-03/phase3-local-browser-20260914/visual-evidence.json",
-      "content_hash": "4f5f63586b2c0abef6aa33496532ee9df36f6316261db58d4abc3225269a3fa7"
+      "content_hash": "9fb48aee112d5154d286fd1c69fed21bb513e9fbe70dacf80a157c00e2f5f861"
     }
   ],
   "verification_status": "blocked",

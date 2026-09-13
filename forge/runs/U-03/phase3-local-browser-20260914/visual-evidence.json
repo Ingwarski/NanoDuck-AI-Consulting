@@ -15,7 +15,8 @@
     "local development sign-in reaches the consent surface and then a blank real discussion",
     "the discussion surface exposes Ember-style Discussion, Outcome and Sources tabs, a visible Send button and an icon-only microphone control",
     "Settings exposes preserved gpt-6-astra model and xhigh/ultra reasoning selectors, plus Balanced pace and the absolute session expiry",
-    "Conversations shows the persisted local consultation with Export and Delete controls"
+    "Conversations shows the persisted local consultation with Export and Delete controls",
+    "A browser reload retained the signed local session and returned to an unsaved New consultation without creating an empty record"
   ],
   "finding": "No visual blocker observed in the checked desktop surfaces. Responsive, assistive-technology and representative-user evidence remains pending U-08."
 }
