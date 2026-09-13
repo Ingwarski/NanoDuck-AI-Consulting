@@ -1,10 +1,16 @@
 # Verification record
 
-13 September 2026 · A/B/C v1 · Design review only
+13 September 2026 · SDD reconciliation and A/B/C version history · Design review only
 
-The three current candidates are frozen in [the SDD manifest](../forge/sdd-manifest.json), with separate visible-browser and visual-QA receipts. No design has been approved and no production implementation or GoDaddy change has occurred.
+The active A/B/C v2 copies are frozen in [the SDD manifest](../forge/sdd-manifest.json) against the corrected SDD. Their HTML/CSS/JavaScript bytes and render-tree hashes exactly equal v1. Original v1 receipts remain historical and unchanged. No design has been approved and no production implementation or GoDaddy change has occurred.
 
-## Actual browser observations
+## Current v2 revalidation
+
+All three new URLs rendered in the Codex in-app browser; Settings navigation and preserved Astra/xhigh, Astra/ultra and Balanced selections were checked, with no warning/error console entries. The comparison links and embedded views resolve to v2. The existing v1 visual/interaction and heuristic observations are reused only through recorded exact render equality; the full walkthrough was not repeated or relabelled.
+
+The separate Safari review required by the selected external-default review surface is **blocked because the Mac is locked**. The v2 browser receipts record that blocker, not a successful open. Whole-design review readiness remains blocked until the Mac is unlocked and those exact URLs are visibly checked. See the [consistency audit](sdd-consistency-audit.md).
+
+## Historical v1 browser observations
 
 | Scope | Result |
 |---|---|
@@ -23,7 +29,7 @@ The three current candidates are frozen in [the SDD manifest](../forge/sdd-manif
 | Locales | Full English and representative Ukrainian discussion/transcript fixtures rendered; role names remain English. This is not full Ukrainian interface localization. |
 | Console | No warnings or errors in the final active-tab walkthrough of all three candidates. |
 
-## Evidence
+## Historical v1 evidence
 
 | Candidate | Visible Safari receipt | Visual/interaction QA |
 |---|---|---|
@@ -35,7 +41,7 @@ The [H1–H10 rule-based review](../forge/design/evidence/heuristic-review.json)
 
 `npm run check` checks JavaScript syntax, local Markdown links, public path hygiene and static HTML references. The localhost server serves only named preview assets, rejects unrelated repository paths/POST requests, blocks outbound connections through CSP and denies microphone/camera/geolocation through Permissions Policy. These are prototype-serving observations, not a production security audit.
 
-The SDD checker passed after all pre-design documents and after `prototype-candidates`. Its guarantee is source/metadata/stage integrity, not semantic correctness or production readiness. The 82 formal QA definitions remain prepared; this browser review does not mark the complete implementation/release suite as passed.
+For v1, the SDD checker passed after all pre-design documents and after `prototype-candidates`. The current canonical document audit also passes; the v2 candidate-stage check remains blocked by the missing successful Safari receipts. Its guarantee is source/metadata/stage integrity, not semantic correctness or production readiness. The 82 formal QA definitions remain prepared; this browser review does not mark the complete implementation/release suite as passed.
 
 ## Limits and next boundary
 

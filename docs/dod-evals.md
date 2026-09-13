@@ -31,11 +31,11 @@ All FR-01.1–01.2, FR-02.1–02.8, FR-03.1–03.6, FR-04.1–04.3, FR-05.1–05
 
 Each executed result records gate/check ID, exact evaluated revision or candidate/version, source/baseline hashes, executor, timestamp, route/state/viewport/content fixture, evidence kind/path/hash, observed result, findings and rerun rule. Store definition and execution status separately. Allowed execution statuses are not_run, passed, failed, blocked, deferred and not_applicable with a source-backed reason where applicable. Prepared means the check is specified, not that its runtime prerequisites exist or it has executed.
 
-Before approval, record Binding Status: pending_baseline; do not invent a Baseline ID, target or approval. Concrete QA IDs will be indexed bidirectionally after authoring. At release, every applicable required gate and blocking finding must be closed with fresh evidence. Do not relabel an advisory failure as passed.
+Before approval, record Binding Status: pending_baseline; do not invent a Baseline ID, target or approval. The orchestrator binds concrete QA IDs bidirectionally from the QA owner return; this later index is not a DoD-authoring prerequisite. At release, every applicable required gate and blocking finding must be closed with fresh evidence. Do not relabel an advisory failure as passed.
 
 ## Failure and blocker classification
 
-Use the PRD/source P0–P3 distinction: P0 catastrophic harm and P1 broken primary journeys block; P2 blocks when it affects a required gate, supported scope or material accessibility/security/privacy/data integrity, otherwise it may be advisory; P3 polish is advisory. Every finding states applicability, source, evidence, severity, release effect and rationale. Missing runtime evidence blocks the corresponding release claim, not unrelated design exploration.
+Use the exact [PRD canonical severity and release-effect definition](prd.md#canonical-finding-severity-and-release-effect); this document does not maintain a competing shorthand scale. Every finding states applicability, source, evidence, severity, release effect and rationale. Missing runtime evidence blocks the corresponding release claim, not unrelated design exploration.
 
 ## PR, merge and completion rules
 
@@ -43,4 +43,4 @@ Commit/push reviewed design artifacts to the already authorized public repositor
 
 ## Out of scope and open questions
 
-No tests, security scan, provider generation, microphone capture, deployment or data deletion is executed by this owner. Real provider/host evidence, technical parameter values and representative-user sessions remain named future prerequisites. Design comparison and the owner decision are still pending.
+No tests, security scan, provider generation, microphone capture, deployment or data deletion is executed by this owner. Real provider/host evidence, technical parameter values and representative-user sessions remain named future prerequisites. Prototype comparison evidence is a later evaluation lookup; whole-design approval remains pending. These gate definitions do not claim that a prototype walkthrough passes production checks.

@@ -1,6 +1,6 @@
 # Product requirements
 
-13 September 2026 · Revision 1 · Authority: [product-idea.md](product-idea.md), revision 2 · Working language: English
+13 September 2026 · Revision 2 · Authority: current [product-idea.md](product-idea.md) · Working language: English
 
 ## Problem Statement
 
@@ -30,7 +30,7 @@ Obligations and acceptance: FR-01.1, FR-01.2, NFR-10.1–NFR-10.3; AC-001
 Jobs: JOB-001. Actors: Owner; Head; selected specialists; Critic; selected model providers.
 Trigger: Owner submits a substantive question or a direct question. Goal: Receive an evidence-aware decision or an explicitly unresolved issue.
 Preconditions: Signed in; ordinary AI processing consent established; selected settings available; no second active consultation.
-Success path: 1. Owner submits text with optional supported attachments. 2. System confirms accepted work. 3. Head answers directly or assigns separate relevant contexts; an optional focused interview asks one question at a time. 4. Consultants exchange addressed business messages and Critic responds to material weaknesses. 5. Head gives the conclusion and next actions.
+Success path: 1. Owner submits text with optional supported attachments. 2. System confirms accepted work. 3. Head answers directly or assigns separate relevant contexts, honoring an explicit Critic request with a separate Critic invocation even for a simple question; an optional focused interview asks one question at a time. 4. Consultants exchange addressed business messages and Critic responds to material weaknesses. 5. Head gives the conclusion and next actions.
 Alternates/recovery: A missing material fact gets one bounded question or an explicit assumption. Provider/research failure preserves confirmed work. Sound advice may receive agreement without a manufactured challenge; unresolved disagreement stays provisional.
 Postconditions: Full confirmed discussion and conclusion are saved; no external business action is taken automatically.
 Authority/privacy: Only selected providers receive permitted content; AI roles never imply human employment. Sensitive transfers and consequential external actions require specific permission.
@@ -101,7 +101,7 @@ Obligations and acceptance: FR-04.1–FR-04.3, NFR-12.1, NFR-12.3; AC-008
 |---|---|---|
 | FR-02.1 | Text submission receives a distinguishable accepted state; an unsent draft never appears accepted. | UC-002 |
 | FR-02.2 | An owner can attach an image or PDF within documented safe type/size limits. | UC-002 |
-| FR-02.3 | Simple questions receive a direct answer; substantive or explicitly requested team work uses relevant specialists, normally 2–5 subject to the selected speed cap. | UC-002 |
+| FR-02.3 | Simple questions receive a direct answer unless the owner explicitly requests Critic; that request invokes the separate Critic even for a simple question and does not require an unnecessary specialist team. Substantive or explicitly requested team work uses relevant specialists, normally 2–5 subject to the selected speed cap. | UC-002 |
 | FR-02.4 | Every participating consultant and Critic is a separate actual invocation/context with a distinct assignment. | UC-002 |
 | FR-02.5 | A material Critic objection receives a relevant consultant response or revision; warranted agreement is permitted immediately. | UC-002 |
 | FR-02.6 | Consensus is stated only when Head, participating specialists and Critic agree on the same recommendation; otherwise the conclusion names the unresolved issue. | UC-002 |
@@ -295,6 +295,17 @@ Before migration, obtain a content-free saved-settings snapshot, including inact
 
 All three design candidates cover the same use cases and recovery states, including interactive model/reasoning selection and the complete voice lifecycle. Differences must be substantial design directions, not three palette swaps. The floating bar remains available on scroll and is not arbitrarily draggable. A 44 CSS px touch target is the design default; WCAG 2.2 AA minimum-target rules are distinct. Longer calculations are allowed; the proposed 60–140-word ordinary-reply target never permits truncation of an actual message.
 
+## Canonical finding severity and release effect
+
+The SDD verification contract supplies this shared scale. Severity and release effect are separate fields; downstream owners reference this definition.
+
+- **P0:** catastrophic actual or imminent severe harm, or system-wide unusability; blocking.
+- **P1:** a broken primary journey, core capability, release invariant or high-impact requirement without an acceptable workaround for material supported scope; blocking.
+- **P2:** a localized meaningful defect, gap, regression or drift. Blocking only for a required gate, critical journey, applicable accessibility/security/privacy/legal/payment/data-integrity requirement, supported device/viewport, approved hierarchy or interaction meaning, or combined P1 impact; otherwise advisory. Payment obligations remain excluded from this product.
+- **P3:** low-impact polish with no material effect on behavior, comprehension, accessibility, trust or completion; advisory.
+
+Each finding needs applicability, source, evidence and rationale. This scale does not evaluate release or create product scope.
+
 ## Testing Decisions and Minimum End-to-End Acceptance Scenarios
 
 Use the highest practical external seam: authenticated browser through the intended service and actual provider/test fixture boundaries. Mark fixture/prototype evidence separately from production evidence. Prepared checks remain not run until executed. No screenshot or document checker proves runtime performance, security, recovery, actual multi-agent exchange or cross-browser release support.
@@ -302,7 +313,7 @@ Use the highest practical external seam: authenticated browser through the inten
 | Scenario | Minimum observable allowed and denied outcomes |
 |---|---|
 | AC-001 — Owner entry (UC-001) | Known owner signs in and resumes; cancelled, forged, replayed and non-owner callbacks expose no record. First consent is explicit; unchanged scope does not prompt repeatedly. Sign-out/expiry denies the old session. |
-| AC-002 — Useful exchange (UC-002) | Simple question is direct; substantive question produces separate invocations, a material objection and response/revision. A sound scenario permits reasoned agreement. No single completion can pass as several agents. |
+| AC-002 — Useful exchange (UC-002) | Simple question is direct; an explicit Critic request invokes the separate Critic even for that simple question. Explicit team requests are honored. A substantive question produces separate invocations, a material objection and response/revision. A sound scenario permits reasoned agreement. No single completion can pass as several agents. |
 | AC-003 — Honest outcome (UC-002) | Head's conclusion matches actual agreement or clearly names uncertainty, evidence, risk and no more than three actions. English role names coexist with the established session language. |
 | AC-004 — Interruption (UC-003) | Accepted message survives refresh/offline/server restart; duplicate retry yields one confirmed response. Stop rejects a late result; Continue resumes context; New cannot create a concurrent second run. Measure stated timing/continuation targets. |
 | AC-005 — Private record (UC-004) | Open/export returns the whole selected record; cancel deletion is inert; confirmed deletion affects only its record/attachments. Guessed identifiers and revoked sessions reveal nothing. Isolated restore respects deletion decisions. |
@@ -316,8 +327,8 @@ Use the highest practical external seam: authenticated browser through the inten
 
 ## Open Questions and Resolution Owners
 
-No unresolved product-intent choice blocks the three-candidate design work. Architecture must resolve current saved model values/catalog/entitlements, supported browser audio/transcription combinations, provider reauthorization, Google assurance, session/resource parameters, safe file processing, isolated service credentials, restore objectives and GoDaddy lifecycle/storage/streaming evidence before affected implementation checks can be prepared. The operational owner and incident/update/deletion procedures must be named before release; no invented recovery objective or security deadline is adopted here. A conflict requiring new user behavior returns to the product-idea owner instead of being silently waived.
+No unresolved product-intent choice blocks the three-candidate design work. Architecture must resolve current saved model values/catalog/entitlements, supported browser audio/transcription combinations, provider reauthorization, Google assurance, session/resource parameters, safe file processing, isolated service credentials, restore objectives and GoDaddy lifecycle/storage/streaming evidence before affected implementation checks can be executed. The operational owner and incident/update/deletion procedures must be named before release; no invented recovery objective or security deadline is adopted here. A conflict requiring new user behavior returns to the product-idea owner instead of being silently waived.
 
 ## Source Notes
 
-The complete revision-2 product brief is the sole product authority consumed for this PRD. Its owner corrections authorize voice, explicit model/reasoning controls, Settings and three bold designs. Historical code/model evidence is inherited only as qualified by that brief; this owner did not claim a fresh runtime observation. Supplemental security requirements derive from the pinned offline OWASP ASVS 5.0.0 catalog (SHA-256 `bcdbec214d70abcfad9284a31d4f9e5134305831d628aad3aa85d7e26626cb35`) and the skill's security-authoring, accessibility and lifecycle rules. ASVS requirements are copyright OWASP contributors under CC-BY-SA-4.0; this document paraphrases requirements and references their IDs rather than reproducing the catalog. Catalog: [OWASP ASVS v5.0.0](https://github.com/OWASP/ASVS/tree/v5.0.0).
+The current product brief is the sole product authority consumed for this PRD. Its owner corrections authorize voice, explicit model/reasoning controls, Settings and three bold designs. Historical code/model evidence is inherited only as qualified by that brief; this owner did not claim a fresh runtime observation. Supplemental security requirements derive from the pinned offline OWASP ASVS 5.0.0 catalog (SHA-256 `bcdbec214d70abcfad9284a31d4f9e5134305831d628aad3aa85d7e26626cb35`) and the skill's security-authoring, accessibility and lifecycle rules. ASVS requirements are copyright OWASP contributors under CC-BY-SA-4.0; this document paraphrases requirements and references their IDs rather than reproducing the catalog. Catalog: [OWASP ASVS v5.0.0](https://github.com/OWASP/ASVS/tree/v5.0.0).

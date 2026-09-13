@@ -1,0 +1,141 @@
+{
+  "observed_at": "2026-09-13T14:56:12.449657+00:00",
+  "executor": "Codex root with separate read-only intent and design auditors",
+  "scope": "SDD ownership/dependency/semantic reconciliation; no production execution",
+  "contract": {
+    "repository_revision": "408af3af8ba1d5690544796afb8dd2f5a2d06de0",
+    "machine_contract_sha256": "4515dd5f26655e74a15571af42dc290eb9c967fc4df719aaa70dbf320db05fa8",
+    "skill_sha256": "4e6b39106f5c4f55b2219c754caa5a5e68e676f71d6320bfc7100856b560d476"
+  },
+  "source_hashes": {
+    "docs/product-idea.md": "fc34aca4e41a1c27918b7b81e8f03a02a8c0df4c522ec5b0e6a1d95e7c584180",
+    "docs/prd.md": "cc3689c4a13d02e9b127d3f3f8150be0bb8a39f4d271736d4081f3b8ab3056e7",
+    "docs/project-context.md": "bf6bb224197b526552438988178f2a1dc30a93f4e30a733fb59a298c2ef586ca",
+    "docs/canonical-terms.md": "5383b1162ea0b0ae1f72724c981e388b07088780cf32a46bf6c00ef6e02842ce",
+    "docs/guardrails.md": "978d555906d446d86d565d4563017eea706e879e1c66a24ece8f13983f48dbae",
+    "docs/user-journey.md": "8e476f4b7832bb18e97877b1e4df706c7190b26f52ce40253983fd6ffc669f27",
+    "docs/screen-map.md": "8a99ff80a7e79ab26b536d58a2533965ca7e5e5f5989191b718dfb02db370b7f",
+    "docs/wireframes.md": "7ef1e539e589e29641e2910f8bf23802d523a448365d2ea6ecb8dbd2957aabce",
+    "docs/design-brief.md": "e2a9b6423f89619a9d8b00369cf69f9ea2737abf623154ecc5ae1644b046bdf2",
+    "docs/architecture.md": "fa8b2a5f110802db860a8c5f1d81d9e18ab72ed2f71256a8cbb28aa3ba21b869",
+    "docs/dod-evals.md": "4c705c9494294f9e1a171cf377633e017d26128a7ada08e19ffc2a80a6b1541d",
+    "docs/qa-checklist.md": "8b86f386ba43e5cb0d7203f2617eeae991eb5c14605ffc40b23b04b2909bf448"
+  },
+  "canonical_artifacts": 12,
+  "owner_dependency_dispatch_checks": "passed; owner, required-before, output identity and all declared consumption verified",
+  "installed_local_resources_resolved": 30,
+  "security_obligations": 17,
+  "formal_checks": {
+    "count": 82,
+    "definition_status": "prepared",
+    "execution_status": "not_run"
+  },
+  "checks": [
+    {
+      "arguments": [
+        "--audit"
+      ],
+      "exit_code": 0,
+      "record": {
+        "result": "passed",
+        "node": "audit",
+        "mode": "audit",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "dod-evals",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "qa-checklist",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    },
+    {
+      "arguments": [
+        "--after",
+        "qa-checklist"
+      ],
+      "exit_code": 0,
+      "record": {
+        "result": "passed",
+        "node": "qa-checklist",
+        "mode": "after",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "dod-evals",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "qa-checklist",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    },
+    {
+      "arguments": [
+        "--after",
+        "prototype-candidates"
+      ],
+      "exit_code": 1,
+      "record": {
+        "result": "blocked",
+        "node": "prototype-candidates",
+        "mode": "after",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "dod-evals",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "qa-checklist",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [
+          {
+            "code": "browser_receipt",
+            "target": "design",
+            "detail": "candidate observation has not passed"
+          }
+        ],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    },
+    {
+      "check": "preserved_v1_candidate_and_receipt_bytes",
+      "result": "passed"
+    }
+  ],
+  "candidate_scope": "v2 exact rendering equality; new in-app URL/Settings observations only; original v1 broader evidence retains its time/scope",
+  "remaining_blocker": "Mac locked; native Safari v2 review requires user unlock",
+  "implementation_authorized": false,
+  "godaddy_operations": []
+}

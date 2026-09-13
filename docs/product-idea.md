@@ -1,6 +1,6 @@
 # Personal AI Consulting Group
 
-Current product brief · 13 September 2026 · Browser replacement · Revision 2
+Current product brief · 13 September 2026 · Browser replacement · Revision 3
 
 ## Purpose
 
@@ -29,7 +29,7 @@ The primary user is the existing single owner, working across phone, tablet and 
 | JOB-006 — Capture a thought | When typing on a phone is inconvenient, dictate a thought, review its transcript and choose what to send. Current alternative: type the whole request. | Start/stop/cancel voice capture; edit the transcript before sending; retain the existing typed draft when permission or transcription fails. | Explicit owner correction; confirmed. |
 | JOB-005 — Understand limits | When a provider limit affects work, know what is available and what action is needed. | Real quota/reset information where available; no invented per-session charge or connection warning for an unused provider. | Retained usage truth and simplified daily workflow; confirmed. |
 
-These jobs map to the start/consult/steer/revisit/account workflow below. Formal use-case and implementation mapping belongs to the later specification phase.
+These jobs map to the start/consult/steer/revisit/account workflow below. The PRD owns formal use-case mapping; the development plan owns implementation mapping after design approval.
 
 ## Everyday workflow
 
@@ -113,9 +113,9 @@ The existing **Personal AI Consulting Group** app and its own database may be er
 
 ## Design inputs and open evidence
 
-Design materials are supplied: the rejected existing `prototype/`, old Candidate B files, settings UI and the owner’s explicit corrections. They establish what to avoid, not an approved visual baseline. Remove the decorative “Room for a different point of view” slogan and “Your space” label. Replace green editorial styling with three meaningfully different, modern, bold full-product candidates. All need a standard floating desktop navigation bar and a mobile hamburger menu. “Floating” is interpreted as a bar that remains available while scrolling, without arbitrary dragging. No additional design materials are required or assumed. The new [interactive prototype](../prototype/index.html) is an illustrative design candidate with fictional conversation data; it performs no AI calls, authentication or database writes. The initial green editorial candidate is rejected and retained only as history. Codex is the selected executor. The three new candidates require one whole-design selection/approval under the requested SDD workflow.
+Design materials are supplied: the rejected existing `prototype/`, old Candidate B files, settings UI and the owner’s explicit corrections. They establish what to avoid, not an approved visual baseline. Remove the decorative “Room for a different point of view” slogan and “Your space” label. Replace green editorial styling with three meaningfully different, modern, bold full-product candidates. All need a standard floating desktop navigation bar and a mobile hamburger menu. “Floating” is interpreted as a bar that remains available while scrolling, without arbitrary dragging. No additional design materials are required or assumed. The [initial interactive prototype](../prototype/index.html) is rejected historical material with fictional data. The [current candidate inventory](../README.md#compare-the-three-designs) is a later review reference, not an upstream source of product intent. Current candidates simulate interactions without AI calls, authentication or database writes. Codex is the selected executor. The three new candidates require one whole-design selection/approval under the requested SDD workflow.
 
-Open evidence is limited to the current saved model snapshot, browser audio/transcription compatibility, supported provider reauthorization and GoDaddy runtime/storage/streaming verification for the later implementation. These do not prevent reviewing this brief and candidate. The simpler architecture is a proposal in [architecture.md](architecture.md), not production readiness.
+Open evidence is limited to the current saved model snapshot, browser audio/transcription compatibility, supported provider reauthorization and GoDaddy runtime/storage/streaming verification for the later implementation. These do not prevent reviewing this brief and the three candidates. The simpler architecture is a later proposal in [architecture.md](architecture.md), not an intake prerequisite or production readiness.
 
 ## Product scope
 

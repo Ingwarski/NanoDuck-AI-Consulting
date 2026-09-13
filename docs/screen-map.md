@@ -6,7 +6,7 @@
 
 ## Screen inventory and journey-to-screen trace
 
-Routes are candidate-local fragment destinations, not production API commitments. All entry points retain the candidate base URL. Desktop floating navigation exposes Discussion, Conversations, Settings and New; mobile exposes those destinations through a labelled hamburger menu. Outcome and Sources remain local consultation views.
+Routes identify canonical user-facing surface locations; overlay states may retain the originating fragment. They are not a claim that every frozen candidate uses an identical hash, nor production API commitments. All entry points retain the candidate base URL. Desktop floating navigation exposes Discussion, Conversations, Settings and New; mobile exposes those destinations through a labelled hamburger menu. Outcome and Sources remain local consultation views.
 
 | Surface | Route | Use cases | Journey | Requirement |
 |---|---|---|---|---|
@@ -71,6 +71,10 @@ These states apply to all three candidates. Cancellation returns to the prior su
 | ST-43 | S-09 | `closed` | `#menu` · UC-001, UC-003, UC-005 |
 | ST-44 | S-09 | `open` | `#menu` · UC-001, UC-003, UC-005 |
 
+## Observed prototype route mapping
+
+The frozen v1 candidates implement the same inventory with these navigation-location differences. Cobalt uses `#new` for ST-05/ST-06 and retains `#discussion` for the ST-43/ST-44 menu fixtures. Successful deletion (ST-40) returns to `#history` in all three. Prism retains `#discussion` while presenting ST-39/ST-41/ST-42 record-action overlays. Canonical table locations identify each surface; they do not require a fragment change for a dialog or disclosure. These are observations of existing design simulations, not additional product scope or upstream implementation authority.
+
 ## Transitions and closure
 
 J-01 resolves through S-01 to S-02; the navigation surface S-09 never grants identity. J-02 enters S-05 only after explicit voice choice; Stop leads through transcription to editable review, Use transcript returns to the composer, and Send remains a separate action. Cancel/denied/interrupted voice returns to the preserved draft. An invalid attachment stays at S-02 with a removable filename/error.
@@ -83,4 +87,4 @@ Security boundaries: NFR-10.1–10.3 remain enforced by the later trusted servic
 
 ## Open questions
 
-No material surface gap remains. Exact production path naming and runtime support are architecture concerns. Design candidates simulate this inventory and do not prove production behavior.
+No material surface gap remains. The screen-map owner retains user-facing route and navigation-location reconciliation. Architecture owns API/runtime paths, hosting and runtime support; it must return any user-facing route change to this owner. Design candidates simulate this inventory and do not prove production behavior.

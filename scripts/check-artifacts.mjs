@@ -14,6 +14,17 @@ async function files(dir) {
   return result;
 }
 const errors = [], inventory = await files(root);
+const manifest = JSON.parse(await readFile(join(root, 'forge/sdd-manifest.json'), 'utf8'));
+const active = manifest.prototype_candidates;
+const archived = (manifest.prototype_candidate_history || []).map(entry => entry.candidate);
+const indexedEntries = new Set([...active, ...archived].map(entry => `${entry.prototype_source_root}/index.html`));
+if (active.length !== 3 || new Set(active.map(entry => entry.candidate_id)).size !== 3) {
+  errors.push('Expected exactly three distinct active design candidates in the manifest');
+}
+for (const name of indexedEntries) {
+  try { await access(join(root, name)); }
+  catch { errors.push(`Missing indexed candidate entry: ${name}`); }
+}
 let scripts = 0, documents = 0, candidates = 0;
 for (const path of inventory) {
   if (!/\.(md|html|css|js|mjs|json)$/.test(path)) continue;
@@ -41,11 +52,14 @@ for (const path of inventory) {
     }
   }
   if (/^forge\/design\/candidates\//.test(name)) {
-    if (path.endsWith('/index.html')) candidates++;
+    if (path.endsWith('/index.html')) {
+      candidates++;
+      if (!indexedEntries.has(name)) errors.push(`${name}: candidate is absent from active and historical indexes`);
+    }
     if (/\.(js|html)$/.test(path) && /\b(fetch\s*\(|XMLHttpRequest|WebSocket|localStorage|sessionStorage|getUserMedia\s*\(|new\s+MediaRecorder|new\s+SpeechRecognition)/.test(source)) errors.push(`${name}: live-service, recording or persistence API in design candidate`);
     if (path.endsWith('.html') && /\bon[a-z]+\s*=|\bstyle\s*=|<script\b(?![^>]*\bsrc=)/i.test(source)) errors.push(`${name}: inline executable/style content conflicts with preview CSP`);
   }
 }
-if (candidates !== 3) errors.push(`Expected three candidate entry pages; found ${candidates}`);
+if (candidates !== indexedEntries.size) errors.push(`Indexed ${indexedEntries.size} candidate entry pages; found ${candidates}`);
 if (errors.length) { console.error(errors.join('\n')); process.exitCode = 1; }
-else console.log(`Passed: ${documents} Markdown files, ${scripts} JavaScript syntax checks, ${candidates} candidate entry pages; links, public paths and static HTML references. Runtime flows require browser review.`);
+else console.log(`Passed: ${documents} Markdown files, ${scripts} JavaScript syntax checks, ${active.length} active candidates and ${candidates} total versioned entry pages; links, public paths and static HTML references. Runtime flows require browser review.`);

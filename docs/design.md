@@ -54,7 +54,7 @@ All colors and layout decisions are proposed, not an established brand kit. Core
 
 Run `npm start`, then open the localhost address printed by the server. The prototype also works as static files. No install step or external service is required.
 
-Review sign-in/consent, new draft, fictional discussion, addressed Critic response, source detail, outcome, follow-up, history/preferences, export/delete, Stop/Continue and each exceptional state. Compare widths 320, 390, 430, 768, 1280 and 1440 CSS pixels. See [verification.md](verification.md) for actual results and limits.
+Review sign-in/consent, new draft, fictional discussion, addressed Critic response, source detail, outcome, follow-up, history/preferences, export/delete, Stop/Continue and each exceptional state. Compare widths 320, 390, 430, 768, 1280 and 1440 CSS pixels. See [initial verification](archive/verification-initial.md) for this rejected candidate's actual results and limits.
 
 The owner has not approved this design. A later implementation request must identify the accepted direction and resolve the recorded implementation-evidence gaps. This deliverable is an exploratory design candidate, not a completed full SDD pipeline or a production baseline.
 

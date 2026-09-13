@@ -33,4 +33,4 @@ Source code is public. Conversation content, audio, attachments, identity data a
 - Cross-browser recording/transcription, current saved settings, identity assurance and hosting recovery need actual implementation evidence. Their absence blocks production claims, not the design comparison.
 - High-stakes decision support and voice/privacy flows need representative-owner validation before release. The present work is expert design/review, not user research.
 
-No material intent question remains before generating the three options. Later architecture must resolve implementation parameters and return any new product boundary to the PRD owner.
+No material intent question blocks the three-option design comparison. Architecture owns unresolved implementation parameters and returns any new product boundary to the PRD owner.

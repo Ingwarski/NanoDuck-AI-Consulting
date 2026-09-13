@@ -8,14 +8,14 @@ The owner rejected the prior green editorial candidate and requested a modern, b
 
 | Material | Path / URL | Required | Purpose and access |
 |---|---|---|---|
-| MAT-01 | `docs/prd.md` · SHA-256 `5fac81f663f3aae7a9ea0784708834a659782c5a4042a6a165fa1a1d51463bcd` | true | Current specification; resolved filesystem read |
-| MAT-02 | `docs/project-context.md` · SHA-256 `9a97c6d98e6e3abea0adee0311c3aa1c340667e8398117169a09cb71d3eb9cc3` | true | Current specification; resolved filesystem read |
+| MAT-01 | `docs/prd.md` · SHA-256 `cc3689c4a13d02e9b127d3f3f8150be0bb8a39f4d271736d4081f3b8ab3056e7` | true | Current specification; resolved filesystem read |
+| MAT-02 | `docs/project-context.md` · SHA-256 `bf6bb224197b526552438988178f2a1dc30a93f4e30a733fb59a298c2ef586ca` | true | Current specification; resolved filesystem read |
 | MAT-03 | `docs/canonical-terms.md` · SHA-256 `5383b1162ea0b0ae1f72724c981e388b07088780cf32a46bf6c00ef6e02842ce` | true | Current specification; resolved filesystem read |
 | MAT-04 | `docs/guardrails.md` · SHA-256 `978d555906d446d86d565d4563017eea706e879e1c66a24ece8f13983f48dbae` | true | Current specification; resolved filesystem read |
 | MAT-05 | `docs/user-journey.md` · SHA-256 `8e476f4b7832bb18e97877b1e4df706c7190b26f52ce40253983fd6ffc669f27` | true | Current specification; resolved filesystem read |
-| MAT-06 | `docs/screen-map.md` · SHA-256 `efe1525bec298dde8c775a7a22f54e361630f36f361efebadfac519303409da8` | true | Current specification; resolved filesystem read |
+| MAT-06 | `docs/screen-map.md` · SHA-256 `8a99ff80a7e79ab26b536d58a2533965ca7e5e5f5989191b718dfb02db370b7f` | true | Current specification; resolved filesystem read |
 | MAT-07 | `docs/wireframes.md` · SHA-256 `7ef1e539e589e29641e2910f8bf23802d523a448365d2ea6ecb8dbd2957aabce` | true | Current specification; resolved filesystem read |
-| MAT-08 | `docs/product-idea.md` · SHA-256 `2c75762cb77db7004865b215d7daa52a6924823008d5908c306f18cab8ad3f03` | true | Current specification; resolved filesystem read |
+| MAT-08 | `docs/product-idea.md` · SHA-256 `fc34aca4e41a1c27918b7b81e8f03a02a8c0df4c522ec5b0e6a1d95e7c584180` | true | Current specification; resolved filesystem read |
 | MAT-09 | `prototype/index.html` · SHA-256 `e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5` | false | Rejected visual/copy evidence; resolved filesystem read |
 | MAT-10 | `prototype/styles.css` · SHA-256 `ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925` | false | Rejected visual/copy evidence; resolved filesystem read |
 | MAT-11 | `prototype/app.js` · SHA-256 `b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54` | false | Rejected visual/copy evidence; resolved filesystem read |
@@ -78,7 +78,7 @@ All candidate UI is explicitly labelled as a design preview with fictional conte
 
 ## Heuristic review plan
 
-Scope is the existing owner, all JOBs/UCs and J-01–J-07 as mapped by the screen inventory, at mobile and desktop widths. Each row is **covered in the plan, not yet executed**. Actual findings belong to the QA evidence, with P0–P3 severity and separate blocking/advisory effect.
+Scope is the existing owner, all JOBs/UCs and J-01–J-07 as mapped by the screen inventory, at mobile and desktop widths. Each row defines planned coverage. The [recorded v1 heuristic review](../forge/design/evidence/heuristic-review.json) contains an executed H1–H10 prototype walkthrough and closed findings. It is later review evidence, not representative-user validation or a pass of every formal QA check. Actual findings belong to QA evidence, with P0–P3 severity and separate blocking/advisory effect.
 
 | Heuristic | Scope and expected behavior | Planned evidence |
 |---|---|---|
@@ -101,10 +101,10 @@ No representative-user session has been conducted. Pre-approval observation is d
 
 ## Approved Visual Baseline
 
-Status: proposed. No selected candidate, Baseline ID or approval receipt exists. Candidates A/B/C v1 will be frozen after verification with source-tree and visual-target hashes. The immutable interactive mockup is the durable visual target; browser captures/observations document its actual rendering. One explicit whole-design decision selects a specific candidate/version, after which this section is reconciled and the approved architecture/DoD/QA passes occur before planning.
+Status: proposed. No selected candidate, Baseline ID or approval receipt exists. The original A/B/C v1 candidates are frozen with source-tree and visual-target hashes and recorded prototype observations. The manifest and [current inventory](../README.md#compare-the-three-designs) identify active review versions; a source reconciliation creates a new version without overwriting v1 or its receipts. The immutable interactive mockup is the durable visual target; browser captures/observations document its actual rendering. One explicit whole-design decision selects a specific candidate/version, after which this section is reconciled and the approved architecture/DoD/QA passes occur before planning.
 
 ## Validation report and open questions
 
 Mechanical review: nine surfaces and all screen-map states resolve to the seven use cases; tokens and component/recovery rules resolve; source inventory is available; heuristic and user-validation plans are separate. No blocking document-coverage finding.
 
-Judgment review: three distinct directions, actual task copy, conventional controls and explicit simulation boundaries replace the rejected treatment. Remaining risk is visual/interaction execution quality and unobserved owner task completion; candidate verification must resolve actual layout/control defects before comparison. Runtime, live catalog/entitlement and host compatibility remain implementation evidence, not visual-approval prerequisites.
+Judgment review: three distinct directions, actual task copy, conventional controls and explicit simulation boundaries replace the rejected treatment. The recorded v1 comparison resolved its reported layout/control findings within the inspected prototype scope. Owner task completion remains unobserved, and later revisions require evidence matched to their exact source and rendering identity. Runtime, live catalog/entitlement and host compatibility remain implementation evidence, not visual-approval prerequisites.

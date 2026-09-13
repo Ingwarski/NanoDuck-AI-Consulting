@@ -2,7 +2,7 @@
 
 ## Source references and execution status
 
-Current PRD, context/terms, guardrails, journey, screen map, wireframes, design brief and architecture/DoD supply the definitions below. **Checks prepared; tests not run. Release readiness: not_evaluated.** No Baseline ID exists; visual binding remains pending_baseline. Runtime prerequisites and parameters named in architecture must be supplied before implementation execution. A prepared check does not imply those prerequisites already exist.
+Current PRD, context/terms, guardrails, journey, screen map, wireframes, design brief and architecture/DoD supply the definitions below. **Formal checks prepared; indexed executions remain not_run. Release readiness: not_evaluated.** A separately recorded prototype walkthrough exists within the limited scope below; authoring this checklist does not execute the formal suite. No Baseline ID exists; visual binding remains pending_baseline. Runtime prerequisites and parameters named in architecture must be supplied before implementation execution. A prepared check does not imply those prerequisites already exist.
 
 All checks are required/applicable unless an explicit exception is recorded. User group: the sole owner. Default viewport matrix: 320/390/430/768/1280/1440 CSS px; supported-browser release checks use Safari/Chrome/Firefox/Edge. Each check identifies its narrower scope. Findings, severity, release effect, recommendation, executor and actual evidence are unassessed until a run is recorded. Every failure uses the wireframe recovery sequence.
 
@@ -14,7 +14,7 @@ All checks are required/applicable unless an explicit exception is recorded. Use
 | QA-R02 | FR-01.2; UC-001 | Exercise the referenced use-case path and verify: Initial ordinary AI-processing consent is concise, explicit and reused until its scope changes. | `product_functional_requirements` · implementation |
 | QA-R03 | FR-02.1; UC-002 | Exercise the referenced use-case path and verify: Text submission receives a distinguishable accepted state; an unsent draft never appears accepted. | `product_functional_requirements` · implementation |
 | QA-R04 | FR-02.2; UC-002 | Exercise the referenced use-case path and verify: An owner can attach an image or PDF within documented safe type/size limits. | `product_functional_requirements` · implementation |
-| QA-R05 | FR-02.3; UC-002 | Exercise the referenced use-case path and verify: Simple questions receive a direct answer; substantive or explicitly requested team work uses relevant specialists, normally 2–5 subject to the selected speed cap. | `product_functional_requirements` · implementation |
+| QA-R05 | FR-02.3; UC-002 | Exercise the referenced use-case path and verify: Simple questions receive a direct answer unless the owner explicitly requests Critic; verify a separate Critic invocation for that simple case without an unnecessary specialist team. Substantive or explicitly requested team work uses relevant specialists, normally 2–5 subject to the selected speed cap. | `product_functional_requirements` · implementation |
 | QA-R06 | FR-02.4; UC-002 | Exercise the referenced use-case path and verify: Every participating consultant and Critic is a separate actual invocation/context with a distinct assignment. | `product_functional_requirements` · implementation |
 | QA-R07 | FR-02.5; UC-002 | Exercise the referenced use-case path and verify: A material Critic objection receives a relevant consultant response or revision; warranted agreement is permitted immediately. | `product_functional_requirements` · implementation |
 | QA-R08 | FR-02.6; UC-002 | Exercise the referenced use-case path and verify: Consensus is stated only when Head, participating specialists and Critic agree on the same recommendation; otherwise the conclusion names the unresolved issue. | `product_functional_requirements` · implementation |
@@ -122,7 +122,9 @@ Each run records check ID, candidate/version or implementation revision, source/
 
 ## Execution evidence and history
 
-No execution results are claimed by this authoring pass. Later authorized candidate walkthroughs are stored under forge/design/evidence and can be bound here without rewriting the definitions; runtime checks remain not_run. Prior exploratory-prototype observations are historical and do not verify the new candidates.
+The separately authorized v1 candidate walkthrough is recorded in the [verification report](verification.md) and the [H1–H10 review](../forge/design/evidence/heuristic-review.json). The three visual records cover all 44 rendered states and selected interactions: [Cobalt](../forge/design/evidence/a-v1-visual-qa.json), [Ember](../forge/design/evidence/b-v1-visual-qa.json), [Prism](../forge/design/evidence/c-v1-visual-qa.json). These are partial supporting observations for QA-S01–QA-S09 and QA-H01–QA-H10, not full executions of their broader every-control, accessibility and browser obligations. None of the 82 indexed checks is promoted to passed by this reconciliation. Runtime checks remain not_run. The rejected initial prototype has separate historical evidence and does not verify these three candidates.
+
+A later candidate version may reuse only specifically applicable observations when exact render-tree equality is verified and recorded; retain the original executor, time and scope. New URL/browser observations receive new receipts. The clarified explicit-Critic acceptance in QA-R05 requires later actual-provider evidence and is not proved by a scripted conversation.
 
 ## Evidence limits, release readiness and open questions
 

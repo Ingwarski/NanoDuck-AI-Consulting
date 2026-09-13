@@ -25,9 +25,11 @@ npm start
 
 Open the localhost URL shown in the terminal for the side-by-side interactive comparison.
 
-- [A — Cobalt](http://127.0.0.1:4328/a/v1/): white and electric blue, an open central discussion.
-- [B — Ember](http://127.0.0.1:4328/b/v1/): charcoal and orange, with a desktop decision rail.
-- [C — Prism](http://127.0.0.1:4328/c/v1/): violet, bold geometry and yellow Critic accents.
+- [A — Cobalt](http://127.0.0.1:4328/a/v2/): white and electric blue, an open central discussion.
+- [B — Ember](http://127.0.0.1:4328/b/v2/): charcoal and orange, with a desktop decision rail.
+- [C — Prism](http://127.0.0.1:4328/c/v2/): violet, bold geometry and yellow Critic accents.
+
+Current copies are v2, bound to the corrected SDD and visually identical to preserved v1. The document/ownership audit passes; final Safari revalidation is waiting for the Mac to be unlocked. See the [audit record](docs/sdd-consistency-audit.md).
 
 All three include a floating desktop menu, mobile hamburger, literal Settings, model and reasoning selectors, and an editable simulated voice transcript. The review state selector exposes 44 states. English and Ukrainian discussion fixtures are included. Typing does not call an AI provider; microphone flows use sample data. Drafts and preferences stay in page memory and disappear on reload.
 
