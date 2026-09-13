@@ -29,6 +29,8 @@ npm run dev
 
 Open [NanoDuck locally](http://127.0.0.1:3000/). Development mode exposes a local-only owner sign-in. Production mode requires a Google owner subject, HTTPS origin, MySQL connection, data/session keys, and a mounted Codex app-server authentication file. Use [`.env.example`](.env.example) to see variable names; do not commit values.
 
+Before connecting a target runtime, run `node src/server/preflight.mjs`. It performs only the managed Codex account, model-catalog and rate-limit inspection; it does not start a model turn, contact MySQL or change GoDaddy.
+
 The owner selected Electric and requested colours from [HappyPro Academy](https://happypro.academy/): its blue and large-heading gradient, with warmer yellow Head Consultant, raspberry Critic, violet Product and turquoise Operations. The black Ember/Cobalt composition and behavior stay the same.
 
 [Download the SVG logo](forge/design/candidates/a/v8/nanoduck.svg). The dark-interface mark appears in navigation, sign-in and the favicon. [Original charcoal-outline SVG](forge/design/candidates/a/v8/nanoduck-original.svg) is also included.
