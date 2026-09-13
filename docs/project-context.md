@@ -29,7 +29,7 @@ Source code is public. Conversation content, audio, attachments, identity data a
 ## Assumptions, risks and open questions
 
 - Floating navigation means a conventional bar that stays available while scrolling; arbitrary dragging is not required. This is a reversible interpretation of the correction.
-- The owner has requested a combined dark layout from Ember and Cobalt, with Electric selected after three agent-colour palettes using the same fictional task and interaction coverage; the latest request adds the NanoDuck name, SVG mark and slightly warmer Head yellow. Normal sign-in lasts 24 hours under the PRD session rule. No candidate has been approved.
+- The owner has requested a combined dark layout from Ember and Cobalt, with Electric selected after three agent-colour palettes using the same fictional task and interaction coverage; the latest request adds the NanoDuck name, SVG mark and slightly warmer Head yellow. Normal sign-in lasts 24 hours under the PRD session rule. The owner approved Electric A v8 on 14 September 2026; downstream planning is authorized, implementation remains gated.
 - Cross-browser recording/transcription, current saved settings, identity assurance and hosting recovery need actual implementation evidence. Their absence blocks production claims, not the design comparison.
 - High-stakes decision support and voice/privacy flows need representative-owner validation before release. The present work is expert design/review, not user research.
 

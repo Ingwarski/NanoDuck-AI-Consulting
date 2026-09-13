@@ -2,12 +2,13 @@
 
 A simpler, private, mobile-first browser product for genuine consultant and Critic discussion, live research and practical decisions.
 
-**Current phase: review, product brief and interactive design.** There is no production backend, real authentication, AI integration or database in this repository. No GoDaddy resource has been changed.
+**Electric A v8 is approved; the development plan is complete. The pipeline awaits a separate implementation prompt.** There is no production backend, real authentication, AI integration or database in this repository. No GoDaddy resource has been changed.
 
 - [Product idea](docs/product-idea.md) — the recreated current brief.
 -  — findings and all legacy decision dispositions.
-- [Proposed architecture](docs/architecture.md) — one Node app, one database, durable consultation work.
+- [Reconciled architecture](docs/architecture.md) — one Node app, one database, durable consultation work.
 - [Models to preserve](docs/model-settings.md) — exact recorded values and evidence limits.
+- [Development plan](docs/development-plan.md) — 8 implementation units, complete requirement/state coverage and release evidence.
 - [Design brief](docs/design-brief.md) — NanoDuck identity, Electric palette and experience rules.
 - [Screen map](docs/screen-map.md) — 9 surfaces and 44 review states.
 - [SDD manifest](forge/sdd-manifest.json) — source hashes, traceability and design-stage progress.
@@ -17,7 +18,7 @@ A simpler, private, mobile-first browser product for genuine consultant and Crit
 
 <a id="compare-the-three-designs"></a>
 
-## Review the selected Electric design
+## Approved Electric design
 
 Requires Node.js 22 or newer. No dependencies or installation step.
 
@@ -29,13 +30,13 @@ The localhost root opens [NanoDuck Electric v8](http://127.0.0.1:4328/a/v8/) dir
 
 [Download the SVG logo](forge/design/candidates/a/v8/nanoduck.svg). The dark-interface mark appears in navigation, sign-in and the favicon. [Original charcoal-outline SVG](forge/design/candidates/a/v8/nanoduck-original.svg) is also included.
 
-[The review page](http://127.0.0.1:4328/comparison/) shows the selected palette and retains links to the unchosen Solar/Prismatic references. Earlier v1–v7 files and receipts remain unchanged. This revision makes all nine node radii equal and separates the upper coloured segments by a clear gap; the revised whole-design baseline is still proposed. See [current verification](docs/verification.md).
+[The review page](http://127.0.0.1:4328/comparison/) shows the selected palette and retains links to the unchosen Solar/Prismatic references. Earlier v1–v7 files and receipts remain unchanged. This revision makes all nine node radii equal and separates the upper coloured segments by a clear gap; the complete Electric A v8 was explicitly approved on 14 September 2026. See [current verification](docs/verification.md).
 
 All three include a floating desktop menu, mobile hamburger, literal Settings, model and reasoning selectors, icon-only microphone, editable simulated voice transcript and a visible Send button. New sits above the workspace and remains available in Conversations; it is absent from global menus. Development inspection is hidden on normal pages; append `?inspect=1` to expose the 44 state fixtures. English and Ukrainian discussion fixtures are included.
 
 The specification requires a fixed 24-hour app session from sign-in, including inactivity and browser reopening, with immediate sign-out/revocation/security exceptions. Authentication is not implemented in this preview. Typing does not call an AI provider; microphone flows use sample data. Drafts and preferences stay in page memory and disappear on reload.
 
-The original green design in `prototype/` is rejected historical evidence. It is not an approved baseline. The pipeline awaits review of the revised Electric design before post-approval planning; production implementation still requires a separate explicit prompt.
+The original green design in `prototype/` is rejected historical evidence. It is not an approved baseline. Approved-design reconciliation and the development plan are complete; production implementation requires a separate explicit prompt. The canonical baseline and approval receipt are in the design brief.
 
 ```sh
 npm run check

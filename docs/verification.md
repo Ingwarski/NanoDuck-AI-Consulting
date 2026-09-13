@@ -1,8 +1,16 @@
 # Verification record
 
-13 September 2026 · NanoDuck Electric brand refinement · Design review only
+14 September 2026 · Approved Electric A v8 · Specification and planning verification
 
-## Current uniform-node logo v8 revision
+## Current design approval and development plan
+
+The owner explicitly accepted Electric A v8 on 14 September 2026. The [approval receipt](../forge/design/evidence/electric-v8-approval-20260914.json) binds the exact frozen target/tree and whole scope; [design brief](design-brief.md#approved-visual-baseline) is canonical. No frozen candidate or old evidence file was edited. The earlier observations below retain their original pre-approval status and limitations.
+
+The 13 canonical SDD artifacts have been reconciled in owner/dependency order, including architecture-approved → dod-evals-approved → qa-checklist-approved → development-plan. The [plan](development-plan.md) allocates all 59 requirement clauses, 44 states and 17 security clauses across 8 units with exact QA references, interfaces and bounded prototype promotion. The [current audit](../forge/design/evidence/electric-v8-approved-plan-audit-20260914.json) records the mechanical results, preserved history and implementation-gate denial.
+
+Formal QA remains **82 prepared / not_run**; all six release gates remain unevaluated. This turn executed document/provenance/integrity checks only. No new browser walkthrough, representative-user session, production test, live provider call, microphone capture or GoDaddy action is claimed. The pipeline is `awaiting-implementation-prompt`, with the current plan hash and baseline bound and no implementation authorization receipt.
+
+## Historical uniform-node logo v8 review — before approval
 
 The owner requires equal node radii and no contact between the yellow and orange crown segments. All nine nodes now use radius 2.5 SVG units. Upper nodes are centred at x=56.5 and x=64.5 on the same y=23.5, leaving a 3-unit edge gap. Separate yellow and orange paths contain no bridge. Both dark-interface and original-outline SVGs share the corrected geometry.
 

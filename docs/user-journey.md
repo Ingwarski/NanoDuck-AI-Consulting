@@ -32,4 +32,4 @@ Unknown or malicious sources cannot authorize a private transfer or external act
 
 ## Open questions
 
-The assumed phone/desktop scenarios and critical voice/control tasks still need representative-owner validation. No unsupported persona or new workflow is required for the three-candidate comparison.
+The assumed phone/desktop scenarios and critical voice/control tasks still need representative-owner validation. The approved Electric A v8 preserves this journey; representative-owner validation is still required before release.

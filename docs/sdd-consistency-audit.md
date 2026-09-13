@@ -1,6 +1,8 @@
 # SDD consistency audit
 
-Current revision: corrected supplied-logo v8. The owner requested equal node radii and a clear separation between the upper coloured segments. Design-brief owns the corrected source geometry; architecture, DoD and QA revalidated unchanged behavior/security obligations. The [current audit receipt](../forge/design/evidence/nanoduck-v8-sdd-audit.json) records checks and history integrity. Whole-design approval remains pending; 82 formal checks remain prepared / not_run.
+Current state: Electric A v8 approved and development plan validated, 14 September 2026. The [current audit receipt](../forge/design/evidence/electric-v8-approved-plan-audit-20260914.json) covers 13 owner artifacts, complete 59-clause/44-state/17-security coverage, coupled context/terms, exact source bindings and preserved frozen files. Architecture, DoD and QA passed their approved-baseline reconciliation before the plan. The implementation gate awaits a later explicit prompt; 82 formal checks remain prepared / not_run. No production or GoDaddy operation was performed.
+
+The pre-approval logo v8 audit remains historical in [its original receipt](../forge/design/evidence/nanoduck-v8-sdd-audit.json).
 
 The prior Electric v4 audit remains preserved in [its own receipt](../forge/design/evidence/electric-v4-sdd-audit.json).
 

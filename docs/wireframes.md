@@ -46,4 +46,4 @@ The following are deltas to the blueprints for every matching state in the scree
 
 ## Notes for design and open questions
 
-Use one-column reading and stacked fieldsets on phones; larger widths may reveal optional contextual information without duplicating the entire outcome. The current revision keeps Cobalt centered chat/composer geometry and Ember message formatting/local tabs across three role-colour palettes, following the owner feedback. Focus, errors, consent, voice privacy and destructive boundaries remain the same across them. No structural question blocks candidate generation; representative-owner validation remains pending.
+Use one-column reading and stacked fieldsets on phones; larger widths may reveal optional contextual information without duplicating the entire outcome. The current revision keeps Cobalt centered chat/composer geometry and Ember message formatting/local tabs across three role-colour palettes, following the owner feedback. Focus, errors, consent, voice privacy and destructive boundaries remain the same across them. The owner-approved Electric A v8 preserves this structure; representative-owner validation remains pending.

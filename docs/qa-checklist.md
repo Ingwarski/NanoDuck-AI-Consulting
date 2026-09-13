@@ -2,7 +2,7 @@
 
 ## Source references and execution status
 
-Current PRD, context/terms, guardrails, journey, screen map, wireframes, design brief and architecture/DoD supply the definitions below. **Formal checks prepared; indexed executions remain not_run. Release readiness: not_evaluated.** A separately recorded prototype walkthrough exists within the limited scope below; authoring this checklist does not execute the formal suite. No Baseline ID exists; visual binding remains pending_baseline. Runtime prerequisites and parameters named in architecture must be supplied before implementation execution. A prepared check does not imply those prerequisites already exist.
+Current PRD, context/terms, guardrails, journey, screen map, wireframes, design brief and architecture/DoD supply the definitions below. **Formal checks prepared; indexed executions remain not_run. Release readiness: not_evaluated.** A separately recorded prototype walkthrough exists within the limited scope below; authoring this checklist does not execute the formal suite. Visual binding: `nanoduck-electric-a-v8-20260914`, the exact target/tree and permitted variance in the design brief. Runtime prerequisites and parameters named in architecture must be supplied before implementation execution. A prepared check does not imply those prerequisites already exist.
 
 All checks are required/applicable unless an explicit exception is recorded. User group: the sole owner. Default viewport matrix: 320/390/430/768/1280/1440 CSS px; supported-browser release checks use Safari/Chrome/Firefox/Edge. Each check identifies its narrower scope. Findings, severity, release effect, recommendation, executor and actual evidence are unassessed until a run is recorded. Every failure uses the wireframe recovery sequence.
 
@@ -44,7 +44,7 @@ All checks are required/applicable unless an explicit exception is recorded. Use
 | QA-R32 | FR-07.5; UC-006 | Exercise the referenced use-case path and verify: Background capture is prevented and capture resources are released when recording ends. | `product_functional_requirements` · implementation |
 | QA-R33 | FR-08.1; UC-001, UC-003, UC-005 | Exercise the referenced use-case path and verify: Desktop navigation is a standard floating bar available while scrolling; mobile uses a labelled hamburger with Discussion, Conversations and Settings only. New remains above the chat and in Conversations. | `product_functional_requirements` · implementation |
 | QA-R34 | FR-08.2; UC-005 | Exercise the referenced use-case path and verify: The preference destination is literally labelled Settings; the rejected slogan and Your space label are removed. | `product_functional_requirements` · implementation |
-| QA-R35 | FR-08.3; UC-001, UC-002, UC-003, UC-004, UC-005, UC-006, UC-007 | Exercise the referenced use-case path and verify: The owner-requested combined black design uses Ember messages/local tabs and Cobalt chat/composer geometry, icon-only mic, a visible filled Send button and three expressive agent palettes; all required flows remain available and Review states is absent from the normal view. | `product_functional_requirements` · prototype |
+| QA-R35 | FR-08.3; UC-001, UC-002, UC-003, UC-004, UC-005, UC-006, UC-007 | Exercise the referenced use-case path and verify: The owner-requested combined black design uses Ember messages/local tabs and Cobalt chat/composer geometry, icon-only mic, a visible filled Send button and the approved Electric palette after the three-palette comparison; all required flows remain available and Review states is absent from the normal view. | `product_functional_requirements` · both |
 | QA-R36 | NFR-01.1; UC-003 | Exercise the referenced use-case path and verify: An acknowledged message survives browser refresh, network interruption and application restart. | `lifecycle_and_continuity` · implementation |
 | QA-R37 | NFR-01.2; UC-003 | Exercise the referenced use-case path and verify: Reconnect/retry cannot duplicate a confirmed reply or allow concurrent runs to corrupt the canonical record. | `lifecycle_and_continuity` · implementation |
 | QA-R38 | NFR-01.3; UC-003 | Exercise the referenced use-case path and verify: Retain ceilings of seven Critic messages per specialist and a ten-minute continuation boundary; limits never require filler or ceremonial rounds. | `lifecycle_and_continuity` · implementation |
@@ -72,7 +72,7 @@ All checks are required/applicable unless an explicit exception is recorded. Use
 
 ## Screen and state checks
 
-Run each candidate independently using fictional data. The separate inspection URL (`?inspect=1`) exposes state/locale fixtures without contacting live services. The normal preview and intended app omit Review states; verify New occupies its former workspace position and is absent from desktop/mobile menus. These checks do not pass production clauses.
+For historical comparison, run each candidate independently using fictional data. For implementation acceptance, run this same state inventory against the approved Electric baseline and the actual implemented application; simulated state switching cannot pass runtime obligations. The separate inspection URL (`?inspect=1`) exposes state/locale fixtures without contacting live services. The normal preview and intended app omit Review states; verify New occupies its former workspace position and is absent from desktop/mobile menus. Historical simulated checks do not pass production clauses. Implementation executions use actual controls and services, plus the corresponding clause/security checks. QA-S01–QA-S09 and QA-H01–QA-H10 apply to both prototype and implementation; retain their results separately.
 
 | Check | Source states and task | Expected evidence |
 |---|---|---|
@@ -95,7 +95,7 @@ Expert review is separate from visual captures and representative-user testing. 
 | QA-H01 | H1: Identify draft, accepted, active, paused, recording, transcription and save/delete feedback without misleading completion. | J-01–J-07; all relevant surfaces/UCs. Named reviewer, candidate scope, observations and classified findings. |
 | QA-H02 | H2: Use literal Settings, meaningful role/claim/action labels and readable English/Ukrainian fixture content; reject transport jargon and vague slogans. | J-01–J-07; all relevant surfaces/UCs. Named reviewer, candidate scope, observations and classified findings. |
 | QA-H03 | H3: Complete Stop, Continue, Cancel, transcript editing, close/Back and cancelled deletion without loss or traps. | J-01–J-07; all relevant surfaces/UCs. Named reviewer, candidate scope, observations and classified findings. |
-| QA-H04 | H4: Compare desktop floating navigation and mobile hamburger, fields and focus order across all three candidates. | J-01–J-07; all relevant surfaces/UCs. Named reviewer, candidate scope, observations and classified findings. |
+| QA-H04 | H4: Compare desktop floating navigation and mobile hamburger, fields and focus order across the approved Electric baseline and the implementation; retain earlier three-candidate comparisons as historical evidence. | J-01–J-07; all relevant surfaces/UCs. Named reviewer, candidate scope, observations and classified findings. |
 | QA-H05 | H5: Attempt invalid model/effort pairs, unconsented entry, repeat Send and voice/delete cancellation; prevent unintended actions. | J-01–J-07; all relevant surfaces/UCs. Named reviewer, candidate scope, observations and classified findings. |
 | QA-H06 | H6: Return to a conversation and identify its context, saved/current model values and supporting sources without recall. | J-01–J-07; all relevant surfaces/UCs. Named reviewer, candidate scope, observations and classified findings. |
 | QA-H07 | H7: Complete the simple novice path and repeated work with visible mic/navigation and keyboard alternatives; no unnecessary setup. | J-01–J-07; all relevant surfaces/UCs. Named reviewer, candidate scope, observations and classified findings. |
@@ -105,7 +105,7 @@ Expert review is separate from visual captures and representative-user testing. 
 
 ## Usability validation checks
 
-Not conducted. Owner availability before approval is unknown; the design brief records the pre-approval deferral risk and post-implementation release obligation. No AI agent is a representative participant.
+Not conducted. The owner approved the design without a recorded representative-user task session; the design brief records the pre-approval deferral risk and post-implementation release obligation. No AI agent is a representative participant.
 
 | Check | Owner task and trace | Success and timing |
 |---|---|---|
@@ -118,7 +118,7 @@ Not conducted. Owner availability before approval is unknown; the design brief r
 
 The checks mapped to NFR-02.1, NFR-02.2 and NFR-02.3 must be checked against their actual source IDs, not assumed from ordinal numbers. For the selected Electric revision inspect the NanoDuck Consulting Group name, supplied outline-duck SVG in navigation/sign-in/favicon, light outline on dark surfaces and original charcoal-outline export, full mobile wordmark and its accessible navigation label. Inspect HappyPro blue controls/large heading, raspberry Critic, the warmer Head yellow and remaining role tokens from the design brief. Check every gradient stop against its actual heading surface, white Send text against blue, readable small blue accents, avatar initials and forced-colors fallback. Retain checks for icon-only microphone accessible name, New placement, agent identity without colour alone and Ember message/tab formatting. For all UI runs include 320px reflow, 200% text resizing, visible/unobscured focus, native select labels/states, dialog/menu keyboard behavior, primary touch targets, color contrast, reduced motion, forced colors and long English/Ukrainian content. Record device/browser and separate assistive-technology limitations. Do not infer WCAG conformance from screenshots.
 
-Each run records check ID, candidate/version or implementation revision, source/target hashes, executor, time, fixture/state/route/viewport, evidence kind/path/hash, result and findings with P0–P3 severity and blocking/advisory rationale. Baseline fidelity requires the actual later approved target and permitted variance. Security evidence must come from the actual trusted boundary, not hidden/disabled controls.
+Each run records check ID, candidate/version or implementation revision, source/target hashes, executor, time, fixture/state/route/viewport, evidence kind/path/hash, result and findings with P0–P3 severity and blocking/advisory rationale. Baseline fidelity requires the approved Electric A v8 target and permitted variance in the design brief. Security evidence must come from the actual trusted boundary, not hidden/disabled controls.
 
 ## Execution evidence and history
 
@@ -128,4 +128,4 @@ A later candidate version may reuse only specifically applicable observations wh
 
 ## Evidence limits, release readiness and open questions
 
-Release readiness: not_evaluated. Full production authentication, provider execution, transcription, durability, security, cross-device operation, deployment and restore are unimplemented. Architecture must resolve current catalog/entitlement, audio formats, host behavior and technical parameters before affected runs. Representative-user and assistive-technology validation remain required evidence, not implied success. Design approval and a separate implementation prompt remain pending.
+Release readiness: not_evaluated. Full production authentication, provider execution, transcription, durability, security, cross-device operation, deployment and restore are unimplemented. Architecture must resolve current catalog/entitlement, audio formats, host behavior and technical parameters before affected runs. Representative-user and assistive-technology validation remain required evidence, not implied success. Design approval is recorded; a separate implementation prompt remains pending.

@@ -2,7 +2,7 @@
 
 ## Source references and verification profile
 
-Current PRD, context/terms, guardrails, journey, screen map, wireframes, design brief and architecture define this profile. This document defines gates; it does not execute tests. **Definition status: prepared. Release readiness: not_evaluated.** Visual binding is pending an approved baseline; concrete QA memberships are bound only after the QA owner creates them.
+Current PRD, context/terms, guardrails, journey, screen map, wireframes, design brief and architecture define this profile. This document defines gates; it does not execute tests. **Definition status: prepared. Release readiness: not_evaluated.** Visual binding is `nanoduck-electric-a-v8-20260914`, using the target/tree hashes and permitted variance in the design brief. Existing QA memberships remain prepared and will be rebound by the QA owner in the following pass.
 
 ## Definition of done model
 
@@ -31,7 +31,7 @@ All FR-01.1–01.2, FR-02.1–02.8, FR-03.1–03.6, FR-04.1–04.3, FR-05.1–05
 
 Each executed result records gate/check ID, exact evaluated revision or candidate/version, source/baseline hashes, executor, timestamp, route/state/viewport/content fixture, evidence kind/path/hash, observed result, findings and rerun rule. Store definition and execution status separately. Allowed execution statuses are not_run, passed, failed, blocked, deferred and not_applicable with a source-backed reason where applicable. Prepared means the check is specified, not that its runtime prerequisites exist or it has executed.
 
-Before approval, record Binding Status: pending_baseline; do not invent a Baseline ID, target or approval. The orchestrator binds concrete QA IDs bidirectionally from the QA owner return; this later index is not a DoD-authoring prerequisite. At release, every applicable required gate and blocking finding must be closed with fresh evidence. Do not relabel an advisory failure as passed.
+Binding Status: approved_baseline; `nanoduck-electric-a-v8-20260914` is the actual owner-approved target. Approval does not execute any check. The orchestrator binds concrete QA IDs bidirectionally from the QA owner return; this later index is not a DoD-authoring prerequisite. At release, every applicable required gate and blocking finding must be closed with fresh evidence. Do not relabel an advisory failure as passed.
 
 ## Failure and blocker classification
 
@@ -39,8 +39,8 @@ Use the exact [PRD canonical severity and release-effect definition](prd.md#cano
 
 ## PR, merge and completion rules
 
-Commit/push reviewed design artifacts to the already authorized public repository only after public-content and local checks. The existing artifact checker is limited to links/path hygiene/syntax; it does not prove the gates above. No production merge or deployment policy is invented. The approved design must later reconcile architecture/DoD/QA before the development plan; a separate later user prompt authorizes implementation.
+Commit/push reviewed design artifacts to the already authorized public repository only after public-content and local checks. The existing artifact checker is limited to links/path hygiene/syntax; it does not prove the gates above. No production merge or deployment policy is invented. Architecture and this DoD have been reconciled with the approved design; QA reconciliation must complete before the development plan; a separate later user prompt authorizes implementation.
 
 ## Out of scope and open questions
 
-No tests, security scan, provider generation, microphone capture, deployment or data deletion is executed by this owner. Real provider/host evidence, technical parameter values and representative-user sessions remain named future prerequisites. Prototype comparison evidence is a later evaluation lookup; whole-design approval remains pending. These gate definitions do not claim that a prototype walkthrough passes production checks.
+No tests, security scan, provider generation, microphone capture, deployment or data deletion is executed by this owner. Real provider/host evidence, technical parameter values and representative-user sessions remain named future prerequisites. Prototype comparison evidence is a later evaluation lookup; whole-design approval is recorded; production and representative-user evidence remain pending. These gate definitions do not claim that a prototype walkthrough passes production checks.

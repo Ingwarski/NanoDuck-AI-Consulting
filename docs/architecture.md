@@ -1,6 +1,6 @@
 # Proposed architecture
 
-Design-stage proposal, 13 September 2026. Production implementation is not authorized in this phase.
+Approved-design reconciliation, 14 September 2026. Production implementation is not authorized in this phase.
 
 ## One application with durable work
 
@@ -53,7 +53,7 @@ Checked 13 September 2026: [Codex configuration](https://learn.chatgpt.com/docs/
 
 ## Current drivers and source references
 
-This reconciliation consumes the current PRD, context/terms, guardrails, journey, screen map, wireframes and combined-layout design brief with the selected Electric colour refinement and retained comparison references. The prior one-app/one-database proposal above remains. The owner now explicitly requires voice and functioning Settings selectors; no production source is added. There is no approved baseline yet, so approved-design reconciliation remains a later pass.
+This reconciliation consumes the current PRD, context/terms, guardrails, journey, screen map, wireframes and combined-layout design brief with the selected Electric colour refinement and retained comparison references. The prior one-app/one-database proposal above remains. The owner now explicitly requires voice and functioning Settings selectors; no production source is added. Validated against `nanoduck-electric-a-v8-20260914`, the exact Electric A v8 target/tree and scope in the design brief. Its approval adds no service, database, role privilege or data exposure; the one-app architecture covers all nine surfaces and 44 states.
 
 ## Module and boundary map
 
@@ -107,7 +107,7 @@ The earlier messenger-removal and single-store decisions remain. Voice adds a br
 
 Operational responsibility belongs to the product owner and the later authorized implementation operator, not to a fictional support team. Before production release they must record actual session/resource configuration, recovery objectives, backup/deletion propagation, incident access and risk-based dependency remediation timing. Performance measurement uses the existing product targets and subscription ceilings, not an invented availability SLA. Restore must run in isolation and must not touch another GoDaddy app.
 
-The choice among A/B/C changes presentation. Any approved voice, data-exposure or control-flow change is reconciled through the PRD/architecture before planning. Unverified settings, exact audio compatibility, provider authorization and GoDaddy lifecycle/storage/streaming remain named implementation evidence gaps. They do not prove a blocked or successful deployment because none is attempted in this phase.
+Electric A v8 is now the approved presentation baseline; unchosen B/C are retained references. Any approved voice, data-exposure or control-flow change is reconciled through the PRD/architecture before planning. Unverified settings, exact audio compatibility, provider authorization and GoDaddy lifecycle/storage/streaming remain named implementation evidence gaps. They do not prove a blocked or successful deployment because none is attempted in this phase.
 
 ## Additional external capability references
 

@@ -1,6 +1,6 @@
 # NanoDuck Consulting Group — Electric design
 
-13 September 2026 · Codex design executor · Electric selected for refinement; revised baseline proposed
+14 September 2026 · Codex design executor · Electric A v8 approved; canonical baseline below
 
 ## Source references and design source material inventory
 
@@ -64,7 +64,7 @@ The owner rejected the prior green editorial candidate and requested a modern, b
 | MAT-54 | `forge/design/candidates/c/v5/app.js` · SHA-256 `e10a0d15804f6568932dbbb4ac781e4e70c4ddf1c32b3b963fd3d47ddd88ec3f` | true | Frozen v5 source; replace only the invented logo and version label, preserving current behavior and layout |
 | MAT-55 | `forge/design/candidates/c/v5/nanoduck.svg` · SHA-256 `dc48e0cadefa0d8fe79cccebe6fbcc19f948bb4b92bbc4366603b575ce38e7fb` | true | Frozen v5 source; replace only the invented logo and version label, preserving current behavior and layout |
 
-Required sources are available. The previous prototype is avoidance evidence only; there is no approved visual system to inherit. The local model catalog is a content-free read of model/list, not deployed preferences or execution entitlement. External references are read-only guidance, not assets or required network dependencies.
+Required sources are available. The previous prototype is avoidance evidence only; that rejected system supplies no visual authority; the subsequently approved Electric A v8 is recorded below. The local model catalog is a content-free read of model/list, not deployed preferences or execution entitlement. External references are read-only guidance, not assets or required network dependencies.
 
 ## Product experience goal
 
@@ -74,7 +74,7 @@ Let the owner follow an intelligent discussion, challenge a claim and make a del
 
 | Decision | Basis and consequence |
 |---|---|
-| Combined layout | Latest owner revision: Ember black theme, avatar/message formatting and local tabs inside Cobalt centered chat/composer geometry. No design approval inferred. |
+| Combined layout | Latest owner revision: Ember black theme, avatar/message formatting and local tabs inside Cobalt centered chat/composer geometry. Subsequently accepted explicitly as Electric A v8. |
 | Brand identity | Owner-requested NanoDuck Consulting Group. Use the owner-supplied thin-outline duck mark, with its yellow and warm-red head/bill accents. Reconstruct it as vector paths and round nodes; do not substitute the earlier filled blue duck. On dark surfaces use a light outline; retain a separate original charcoal-outline SVG for light surfaces. Two-line wordmark keeps the full name visible on mobile. Apply the mark in floating navigation, sign-in and favicon. Decorative mark beside readable name has empty alt; the navigation control retains its explicit accessible name. No external image/font requests. |
 | Warmer yellow | Latest owner correction replaces the previous lemony Head yellow with the warmer Head token below; this affects Head Consultant only; the supplied logo retains its own yellow-to-red accents. |
 | Selected Electric refinement | Owner selected Electric and requested HappyPro blue for the main heading/important accents, raspberry Critic and clear yellow Head Consultant. Product violet and Operations turquoise complete the palette. Layout and behavior stay the same. |
@@ -87,7 +87,7 @@ Let the owner follow an intelligent discussion, challenge a claim and make a del
 | Session access | PRD owns the 24-hour app session. A concise Settings description may explain it; this prototype does not authenticate or prove elapsed-time persistence. |
 | Version history | Original Cobalt/Ember/Prism versions remain frozen history. Combined v3 remains frozen. Electric v4 remains frozen. Branded Electric v5 remains frozen with the superseded drawn logo. Electric v6 remains frozen as a rejected first reconstruction. Electric v7 remains frozen; v8 makes every node radius equal and separates the coloured crown segments; equivalent-scope unchosen references remain available for comparison history. |
 
-Electric, Solar and Prismatic are design labels; NanoDuck Consulting Group is the owner-confirmed product name. Electric was selected by the user; the requested colour revision is not yet an approved whole-design baseline. This is styling only: no changed roles, privileges, data exposure, integrations or security obligations.
+Electric, Solar and Prismatic are design labels; NanoDuck Consulting Group is the owner-confirmed product name. Electric was selected by the user; the complete Electric A v8 was explicitly accepted on 14 September 2026. This is styling only: no changed roles, privileges, data exposure, integrations or security obligations.
 
 ## Design spine
 
@@ -152,10 +152,18 @@ No representative-user session has been conducted. Pre-approval observation is d
 
 ## Approved Visual Baseline
 
-Status: proposed. The user selected Electric for refinement; no Baseline ID or whole-design approval receipt exists for the revised colours. The original A/B/C v1 candidates are frozen with source-tree and visual-target hashes and recorded prototype observations. The manifest and [current inventory](../README.md#compare-the-three-designs) identify active review versions; a source reconciliation creates a new version without overwriting v1 or its receipts. The immutable interactive mockup is the durable visual target; browser captures/observations document its actual rendering. One explicit whole-design decision selects a specific candidate/version, after which this section is reconciled and the approved architecture/DoD/QA passes occur before planning.
+Status: approved. Baseline ID: `nanoduck-electric-a-v8-20260914`. Selected candidate: **Electric A v8**, candidate set `web-nanoduck-equal-nodes-20260913`. Origin: Codex integrated Ember/Cobalt composition and vector reconstruction of the owner-supplied logo. This is the first approved replacement baseline; v1–v7 and unchosen B/C remain immutable history.
+
+- Durable visual target: `forge/design/candidates/a/v8/index.html`; SHA-256 `93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc`.
+- Frozen source root: `forge/design/candidates/a/v8`; tree hash `1de020dcfe48f3feb80db0e58ba911b821825b48730d32c72d9518ad512eb0d9`; algorithm `sdd-tree-sha256-v1`; render dependencies: none outside that root.
+- Approval: [owner receipt](../forge/design/evidence/electric-v8-approval-20260914.json), event `approve_design_baseline`, recorded 2026-09-13T21:34:53.939214+00:00. Exact approval quote: “OK. Design accepted.” The receipt time is the recording time in this active turn; the transport did not provide an exact message timestamp.
+- Whole-product scope: JOB-001–JOB-006; UC-001–UC-007; J-01–J-07; S-01–S-09; ST-01–ST-44; English/Ukrainian fixtures; 320, 390, 430, 768, 1280 and 1440 CSS px design coverage. Scope is an obligation, not evidence that every combination was observed. Current v8 receipts record the narrower actual observations and inherited evidence limits.
+- Presentation authority: black theme, Ember messages/local tabs, Cobalt geometry, the Electric tokens in the Design spine, NanoDuck identity and both corrected SVG exports. All nine nodes have radius 2.5; the yellow/orange crown paths have a 3-unit clear gap. The original JPEG remains a reference, not a recovered vector master.
+- Permitted variance: replace fictional task content and simulated state handlers with real data and functioning services; remove candidate/version/comparison/inspection scaffolding from production; preserve semantic roles, hierarchy, layout, tokens, visible controls and navigation. Browser font rasterization, content-driven wrapping, safe-area insets and required accessible states may vary without redesign. Any material visual, flow or token change returns to the design owner and requires an explicit accepted revision; no unrecorded overrides.
+- No production behavior, provider entitlement, representative-user task completion, WCAG conformance or release readiness is approved by this event. Prototype evidence stays scoped; all formal implementation checks remain unrun.
 
 ## Validation report and open questions
 
 Mechanical review: nine surfaces and all screen-map states resolve to the seven use cases; tokens and component/recovery rules resolve; source inventory is available; heuristic and user-validation plans are separate. No blocking document-coverage finding.
 
-Judgment review: the owner selected Electric and requested the HappyPro blue, raspberry and yellow refinement; both earlier comparison rounds remain historical. The recorded v1 comparison resolved its reported layout/control findings within the inspected prototype scope. Owner task completion remains unobserved, and later revisions require evidence matched to their exact source and rendering identity. Runtime, live catalog/entitlement and host compatibility remain implementation evidence, not visual-approval prerequisites.
+Judgment review: the owner selected Electric and requested the HappyPro blue, raspberry and yellow refinement; both earlier comparison rounds remain historical. The recorded v1 comparison resolved its reported layout/control findings within the inspected prototype scope. Whole-design acceptance is recorded below. Representative-owner task completion remains unobserved, and later revisions require evidence matched to their exact source and rendering identity. Runtime, live catalog/entitlement and host compatibility remain implementation evidence, not visual-approval prerequisites.

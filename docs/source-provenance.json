@@ -1,16 +1,16 @@
 {
-  "stage": "review-product-brief-design",
+  "stage": "approved-design-development-plan",
   "working_language": "en",
-  "recorded_date": "2026-09-13",
+  "recorded_date": "2026-09-14",
   "authority": {
-    "current_intent": "Owner design-first reset and SDD integrity requirements, combined Ember/Cobalt layout, 24-hour app sessions, then selection of Electric with HappyPro blue, yellow Head and raspberry Critic on 2026-09-13; then owner-requested NanoDuck Consulting Group SVG branding and warmer Head yellow; supplied actual logo replaces invented mark in v6; v7 corrects source-logo geometry after owner rejection of v6; v8 makes node radii uniform and separates the upper coloured segments",
+    "current_intent": "Owner design-first reset and SDD integrity requirements, combined Ember/Cobalt layout, 24-hour app sessions, then selection of Electric with HappyPro blue, yellow Head and raspberry Critic on 2026-09-13; then owner-requested NanoDuck Consulting Group SVG branding and warmer Head yellow; supplied actual logo replaces invented mark in v6; v7 corrects source-logo geometry after owner rejection of v6; v8 makes node radii uniform and separates the upper coloured segments; explicit whole-design approval of Electric A v8 and continuation through SDD planning on 2026-09-14",
     "source_mode": "existing-file",
-    "design_approval": "awaiting-whole-design-review",
-    "production_implementation": "not-in-scope"
+    "design_approval": "nanoduck-electric-a-v8-20260914",
+    "production_implementation": "awaiting-separate-implementation-prompt"
   },
   "current_brief": {
     "path": "docs/product-idea.md",
-    "sha256": "d1b84acfb8ca577cfdf391c2d07ed5c9f82396537053c382d6b24a2eaf344e3a"
+    "sha256": "122c7fed5979a0c8c298181c71fe73588c32859b689cb8d6d7dde80e7f41435e"
   },
   "design_traceability": [
     {
@@ -67,5 +67,6 @@
     "Prototype uses fictional data and no live services.",
     "Historical settings are not fresh saved-setting or entitlement evidence."
   ],
-  "current_pipeline_manifest": "forge/sdd-manifest.json"
+  "current_pipeline_manifest": "forge/sdd-manifest.json",
+  "approval_receipt": "forge/design/evidence/electric-v8-approval-20260914.json"
 }

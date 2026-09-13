@@ -22,7 +22,7 @@ Routes identify canonical user-facing surface locations; overlay states may reta
 
 ## Screen states
 
-These states apply to all three candidates. Cancellation returns to the prior surface and preserves its draft; it is a transition, not another empty screen. Loading/progress is visible only while a relevant operation is pending. Long English and Ukrainian discussion/draft fixtures exercise mixed scripts and wrapping.
+These states apply to the approved Electric A v8 and the retained comparison candidates; the same inventory is required in the implemented app. Cancellation returns to the prior surface and preserves its draft; it is a transition, not another empty screen. Loading/progress is visible only while a relevant operation is pending. Long English and Ukrainian discussion/draft fixtures exercise mixed scripts and wrapping.
 
 | State | Surface | Meaning / fixture key | Route and use cases |
 |---|---|---|---|
