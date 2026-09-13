@@ -41,6 +41,10 @@ export function loadConfig(environment = process.env) {
   if (mode === "production" && (typeof databaseUrl !== "string" || databaseUrl.length === 0)) {
     throw new Error("DATABASE_URL is required in production.");
   }
+  const databaseSslCaPath = environment.DATABASE_SSL_CA_PATH;
+  if (mode === "production" && (typeof databaseSslCaPath !== "string" || databaseSslCaPath.length === 0)) {
+    throw new Error("DATABASE_SSL_CA_PATH is required in production.");
+  }
   const ownerSubject = environment.OWNER_GOOGLE_SUBJECT;
   const googleClientId = environment.GOOGLE_CLIENT_ID;
   const googleClientSecret = environment.GOOGLE_CLIENT_SECRET;
@@ -57,6 +61,7 @@ export function loadConfig(environment = process.env) {
     port: positiveInteger(environment.PORT, 3000, "PORT"),
     origin,
     databaseUrl,
+    databaseSslCaPath,
     dataKey: decodedKey ?? createHash("sha256").update("nanoduck-development-data-key").digest(),
     sessionKey,
     sessionLifetimeSeconds: positiveInteger(environment.SESSION_ABSOLUTE_SECONDS, 86_400, "SESSION_ABSOLUTE_SECONDS"),

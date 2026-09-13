@@ -9,7 +9,7 @@ import { createConsultationService } from "./consultation.mjs";
 import { parseConversationId, parseMessage, parseSettings } from "./validation.mjs";
 
 const config = loadConfig();
-const store = config.databaseUrl ? await createMySqlStore(config.databaseUrl, config.dataKey) : createMemoryStore();
+const store = config.databaseUrl ? await createMySqlStore(config.databaseUrl, config.dataKey, config.databaseSslCaPath) : createMemoryStore();
 const auth = createAuth({ config, store });
 const provider = createCodexProvider(config);
 const consultation = createConsultationService({ store, provider });

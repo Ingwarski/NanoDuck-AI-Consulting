@@ -27,7 +27,7 @@ npm install
 npm run dev
 ```
 
-Open [NanoDuck locally](http://127.0.0.1:3000/). Development mode exposes a local-only owner sign-in. Production mode requires a Google owner subject, HTTPS origin, MySQL connection, data/session keys, and a mounted Codex app-server authentication file. Use [`.env.example`](.env.example) to see variable names; do not commit values.
+Open [NanoDuck locally](http://127.0.0.1:3000/). Development mode exposes a local-only owner sign-in. Production mode requires a Google owner subject, HTTPS origin, MySQL connection with a mounted TLS CA bundle, data/session keys, and a mounted Codex app-server authentication file. Use [`.env.example`](.env.example) to see variable names; do not commit values.
 
 Before connecting a target runtime, run `node src/server/preflight.mjs`. It performs only the managed Codex account, model-catalog and rate-limit inspection; it does not start a model turn, contact MySQL or change GoDaddy.
 

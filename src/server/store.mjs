@@ -1,4 +1,5 @@
 import { randomId, encryptText, decryptText } from "./crypto.mjs";
+import { readFile } from "node:fs/promises";
 
 const defaults = Object.freeze({
   headModel: "gpt-6-astra",
@@ -87,9 +88,11 @@ export function createMemoryStore() {
   });
 }
 
-export async function createMySqlStore(databaseUrl, dataKey) {
+export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath = undefined) {
   const { createPool } = await import("mysql2/promise");
-  const pool = createPool(databaseUrl);
+  const pool = databaseSslCaPath
+    ? createPool({ uri: databaseUrl, ssl: { ca: await readFile(databaseSslCaPath, "utf8"), rejectUnauthorized: true } })
+    : createPool(databaseUrl);
   const query = (statement, values = []) => pool.execute(statement, values);
   const decode = row => ({ id: row.id, role: row.role, recipient: row.recipient, body: decryptText({ iv: row.iv, ciphertext: row.ciphertext, tag: row.tag }, dataKey), sequence: row.sequence, createdAt: row.created_at, sources: JSON.parse(row.sources_json) });
   return Object.freeze({

@@ -3717,13 +3717,13 @@
     "architecture": {
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "architecture-approved-approval-20260913T213458400765",
+      "owner_invocation_id": "architecture-production-tls-reconciliation-20260914T020342",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "architecture-approved-approval-20260913T213458400765",
+      "source_version": "architecture-production-tls-reconciliation-20260914T020342",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3758,12 +3758,12 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "ed3199fe7971a75777c025e640031f5893a58f8384ab4f0b02b3705b4609328b",
+      "content_hash": "32663c216e37c11614ea8e13571a907ba11f6fdaab9a9520999a6d6e0bbe4c5f",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "explicit-approval-reconciliation",
-        "reviewed_at": "2026-09-13T21:34:58.474250+00:00",
+        "kind": "production-tls-reconciliation",
+        "reviewed_at": "2026-09-14T02:03:42+03:00",
         "executor": "Codex inline to-architecture"
       },
       "open_questions": [],
@@ -3837,19 +3837,19 @@
           "heading": "## Security enforcement map"
         }
       },
-      "supersedes": "architecture-equal-logo-nodes-20260913T204017649993",
+      "supersedes": "architecture-approved-approval-20260913T213458400765",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "dod-evals": {
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "dod-evals-approved-approval-20260913T213458977205",
+      "owner_invocation_id": "dod-evals-production-tls-reconciliation-20260914T020342",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "dod-evals-approved-approval-20260913T213458977205",
+      "source_version": "dod-evals-production-tls-reconciliation-20260914T020342",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3870,7 +3870,7 @@
         "docs/screen-map.md": "3d6b78860cd0e598c9a192ca7c26d2bd6d336b837c47c7c6d4d43e9d6fd23274",
         "docs/wireframes.md": "bfac68ee80d7ce6d618cc6fe3e568edbbb21431ff2c04960ffea66e2189abad4",
         "docs/design-brief.md": "329a55b4bf87b9a0911997ded20c99457e9ad5e30e920c3d035ca93fd571ea57",
-        "docs/architecture.md": "ed3199fe7971a75777c025e640031f5893a58f8384ab4f0b02b3705b4609328b"
+        "docs/architecture.md": "32663c216e37c11614ea8e13571a907ba11f6fdaab9a9520999a6d6e0bbe4c5f"
       },
       "dependencies": [
         "prd",
@@ -3887,8 +3887,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "explicit-approval-reconciliation",
-        "reviewed_at": "2026-09-13T21:34:59.050987+00:00",
+        "kind": "production-tls-reconciliation",
+        "reviewed_at": "2026-09-14T02:03:42+03:00",
         "executor": "Codex inline to-dod-evals"
       },
       "open_questions": [],
@@ -3962,19 +3962,19 @@
           "heading": "### Product security membership"
         }
       },
-      "supersedes": "dod-evals-equal-logo-nodes-20260913T204018155405",
+      "supersedes": "dod-evals-approved-approval-20260913T213458977205",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "qa-checklist": {
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "qa-checklist-implementation-evidence-phases-20260913T214329833719",
+      "owner_invocation_id": "qa-checklist-production-tls-reconciliation-20260914T020342",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "qa-checklist-implementation-evidence-phases-20260913T214329833719",
+      "source_version": "qa-checklist-production-tls-reconciliation-20260914T020342",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -4000,7 +4000,7 @@
         "docs/screen-map.md": "3d6b78860cd0e598c9a192ca7c26d2bd6d336b837c47c7c6d4d43e9d6fd23274",
         "docs/wireframes.md": "bfac68ee80d7ce6d618cc6fe3e568edbbb21431ff2c04960ffea66e2189abad4",
         "docs/design-brief.md": "329a55b4bf87b9a0911997ded20c99457e9ad5e30e920c3d035ca93fd571ea57",
-        "docs/architecture.md": "ed3199fe7971a75777c025e640031f5893a58f8384ab4f0b02b3705b4609328b",
+        "docs/architecture.md": "32663c216e37c11614ea8e13571a907ba11f6fdaab9a9520999a6d6e0bbe4c5f",
         "docs/dod-evals.md": "38de078c4c26e35e952adeb068212d92fcced5b7d239c1cbf2f2db6a8079050b",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
@@ -4023,8 +4023,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "implementation-evidence-phase-reconciliation",
-        "reviewed_at": "2026-09-13T21:43:29.901773+00:00",
+        "kind": "production-tls-reconciliation",
+        "reviewed_at": "2026-09-14T02:03:42+03:00",
         "executor": "Codex inline to-qa-checklist"
       },
       "open_questions": [],
@@ -5769,19 +5769,19 @@
           "heading": "## Product acceptance"
         }
       },
-      "supersedes": "qa-checklist-approved-approval-20260913T213459555937",
+      "supersedes": "qa-checklist-implementation-evidence-phases-20260913T214329833719",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "development-plan": {
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "development-plan-phase3-revalidated-20260914T010700",
+      "owner_invocation_id": "development-plan-production-tls-reconciliation-20260914T020342",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "development-plan-phase3-revalidated-20260914T010700",
+      "source_version": "development-plan-production-tls-reconciliation-20260914T020342",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -5813,7 +5813,7 @@
         "docs/screen-map.md": "3d6b78860cd0e598c9a192ca7c26d2bd6d336b837c47c7c6d4d43e9d6fd23274",
         "docs/wireframes.md": "bfac68ee80d7ce6d618cc6fe3e568edbbb21431ff2c04960ffea66e2189abad4",
         "docs/design-brief.md": "329a55b4bf87b9a0911997ded20c99457e9ad5e30e920c3d035ca93fd571ea57",
-        "docs/architecture.md": "ed3199fe7971a75777c025e640031f5893a58f8384ab4f0b02b3705b4609328b",
+        "docs/architecture.md": "32663c216e37c11614ea8e13571a907ba11f6fdaab9a9520999a6d6e0bbe4c5f",
         "docs/dod-evals.md": "38de078c4c26e35e952adeb068212d92fcced5b7d239c1cbf2f2db6a8079050b",
         "docs/qa-checklist.md": "5dbe19653186beb8a808919831f3948bf9b7d65eba6adcb57a79ab3e71494aeb",
         "docs/model-settings.md": "60bffb62f530b42e1a7bd516661b4619517efd95db1317bcc673c978e89141c4",
@@ -5843,11 +5843,11 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "implementation-evidence-phase-reconciliation",
-        "reviewed_at": "2026-09-14T01:07:00+03:00",
+        "kind": "production-tls-reconciliation",
+        "reviewed_at": "2026-09-14T02:03:42+03:00",
         "executor": "Codex inline to-development-plan phase-3 source revalidation"
       },
-      "supersedes": "development-plan-approval-20260913T214002747781",
+      "supersedes": "development-plan-phase3-revalidated-20260914T010700",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
       "traceability": {
         "definitions": [
@@ -7664,6 +7664,21 @@
       "baseline_id": "nanoduck-electric-a-v8-20260914",
       "development_plan_hash": "048c8d136d146a21490f5b2ec5563d481ffaa4e4846c0df6cd82f929e1694896",
       "implementation_authorized": false
+    },
+    {
+      "event": "production_tls_configuration_reconciled",
+      "at": "2026-09-14T02:03:42+03:00",
+      "architecture_invocation_id": "architecture-production-tls-reconciliation-20260914T020342",
+      "affected_artifacts": [
+        "architecture",
+        "dod-evals",
+        "qa-checklist",
+        "development-plan"
+      ],
+      "decision": "Production MySQL requires a mounted CA bundle and verified certificate; the active 24-hour session contract uses only its absolute deadline.",
+      "architecture_content_hash": "32663c216e37c11614ea8e13571a907ba11f6fdaab9a9520999a6d6e0bbe4c5f",
+      "development_plan_content_hash": "048c8d136d146a21490f5b2ec5563d481ffaa4e4846c0df6cd82f929e1694896",
+      "implementation_gate_effect": "unchanged: the approved baseline and development-plan bytes are unchanged"
     }
   ],
   "dispatches": {
@@ -7833,7 +7848,7 @@
       "consumed_source_fragments": {}
     },
     "architecture": {
-      "invocation_id": "architecture-approved-approval-20260913T213458400765",
+      "invocation_id": "architecture-production-tls-reconciliation-20260914T020342",
       "outputs": [
         "docs/architecture.md"
       ],
@@ -7852,7 +7867,7 @@
       "consumed_source_fragments": {}
     },
     "dod-evals": {
-      "invocation_id": "dod-evals-approved-approval-20260913T213458977205",
+      "invocation_id": "dod-evals-production-tls-reconciliation-20260914T020342",
       "outputs": [
         "docs/dod-evals.md"
       ],
@@ -7865,12 +7880,12 @@
         "docs/screen-map.md": "3d6b78860cd0e598c9a192ca7c26d2bd6d336b837c47c7c6d4d43e9d6fd23274",
         "docs/wireframes.md": "bfac68ee80d7ce6d618cc6fe3e568edbbb21431ff2c04960ffea66e2189abad4",
         "docs/design-brief.md": "329a55b4bf87b9a0911997ded20c99457e9ad5e30e920c3d035ca93fd571ea57",
-        "docs/architecture.md": "ed3199fe7971a75777c025e640031f5893a58f8384ab4f0b02b3705b4609328b"
+        "docs/architecture.md": "32663c216e37c11614ea8e13571a907ba11f6fdaab9a9520999a6d6e0bbe4c5f"
       },
       "consumed_source_fragments": {}
     },
     "qa-checklist": {
-      "invocation_id": "qa-checklist-implementation-evidence-phases-20260913T214329833719",
+      "invocation_id": "qa-checklist-production-tls-reconciliation-20260914T020342",
       "outputs": [
         "docs/qa-checklist.md"
       ],
@@ -7883,7 +7898,7 @@
         "docs/screen-map.md": "3d6b78860cd0e598c9a192ca7c26d2bd6d336b837c47c7c6d4d43e9d6fd23274",
         "docs/wireframes.md": "bfac68ee80d7ce6d618cc6fe3e568edbbb21431ff2c04960ffea66e2189abad4",
         "docs/design-brief.md": "329a55b4bf87b9a0911997ded20c99457e9ad5e30e920c3d035ca93fd571ea57",
-        "docs/architecture.md": "ed3199fe7971a75777c025e640031f5893a58f8384ab4f0b02b3705b4609328b",
+        "docs/architecture.md": "32663c216e37c11614ea8e13571a907ba11f6fdaab9a9520999a6d6e0bbe4c5f",
         "docs/dod-evals.md": "38de078c4c26e35e952adeb068212d92fcced5b7d239c1cbf2f2db6a8079050b",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
@@ -7893,7 +7908,7 @@
       "consumed_source_fragments": {}
     },
     "development-plan": {
-      "invocation_id": "development-plan-phase3-revalidated-20260914T010700",
+      "invocation_id": "development-plan-production-tls-reconciliation-20260914T020342",
       "outputs": [
         "docs/development-plan.md"
       ],
@@ -7906,7 +7921,7 @@
         "docs/screen-map.md": "3d6b78860cd0e598c9a192ca7c26d2bd6d336b837c47c7c6d4d43e9d6fd23274",
         "docs/wireframes.md": "bfac68ee80d7ce6d618cc6fe3e568edbbb21431ff2c04960ffea66e2189abad4",
         "docs/design-brief.md": "329a55b4bf87b9a0911997ded20c99457e9ad5e30e920c3d035ca93fd571ea57",
-        "docs/architecture.md": "ed3199fe7971a75777c025e640031f5893a58f8384ab4f0b02b3705b4609328b",
+        "docs/architecture.md": "32663c216e37c11614ea8e13571a907ba11f6fdaab9a9520999a6d6e0bbe4c5f",
         "docs/dod-evals.md": "38de078c4c26e35e952adeb068212d92fcced5b7d239c1cbf2f2db6a8079050b",
         "docs/qa-checklist.md": "5dbe19653186beb8a808919831f3948bf9b7d65eba6adcb57a79ab3e71494aeb",
         "docs/model-settings.md": "60bffb62f530b42e1a7bd516661b4619517efd95db1317bcc673c978e89141c4",

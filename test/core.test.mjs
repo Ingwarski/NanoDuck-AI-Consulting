@@ -57,7 +57,9 @@ test("development cookies remain usable on localhost while production uses host-
   assert.doesNotMatch(development.sessionCookie(localSession), /; Secure/u);
   assert.match(development.sessionCookie(localSession), /Max-Age=86400/u);
 
-  const production = createAuth({ config: loadConfig({ NODE_ENV: "production", APP_ORIGIN: "https://consulting.example.com", DATABASE_URL: "mysql://user:password@host/database", DATA_ENCRYPTION_KEY: Buffer.alloc(32, 2).toString("base64url"), SESSION_SIGNING_KEY: Buffer.alloc(32, 3).toString("base64url"), OWNER_GOOGLE_SUBJECT: "owner-subject", GOOGLE_CLIENT_ID: "client", GOOGLE_CLIENT_SECRET: "secret", CODEX_APP_SERVER_AUTH_PATH: "/run/secrets/codex-auth.json" }), store: createMemoryStore() });
+  const productionEnvironment = { NODE_ENV: "production", APP_ORIGIN: "https://consulting.example.com", DATABASE_URL: "mysql://user:password@host/database", DATABASE_SSL_CA_PATH: "/run/secrets/mysql-ca.pem", DATA_ENCRYPTION_KEY: Buffer.alloc(32, 2).toString("base64url"), SESSION_SIGNING_KEY: Buffer.alloc(32, 3).toString("base64url"), OWNER_GOOGLE_SUBJECT: "owner-subject", GOOGLE_CLIENT_ID: "client", GOOGLE_CLIENT_SECRET: "secret", CODEX_APP_SERVER_AUTH_PATH: "/run/secrets/codex-auth.json" };
+  assert.throws(() => loadConfig({ ...productionEnvironment, DATABASE_SSL_CA_PATH: "" }), /DATABASE_SSL_CA_PATH/u);
+  const production = createAuth({ config: loadConfig(productionEnvironment), store: createMemoryStore() });
   const productionSession = await production.developmentSignIn();
   assert.equal(productionSession, undefined);
   const manuallyCreated = { id: "session-id", expiresAt: new Date(Date.now() + 60_000).toISOString() };
