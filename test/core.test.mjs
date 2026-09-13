@@ -4,7 +4,7 @@ import { decryptText, encryptText } from "../src/server/crypto.mjs";
 import { createAuth } from "../src/server/auth.mjs";
 import { loadConfig } from "../src/server/config.mjs";
 import { createMemoryStore, defaultSettings } from "../src/server/store.mjs";
-import { parseMessage, parseSettings } from "../src/server/validation.mjs";
+import { parseMessage, parseSettings, safeExternalUrl } from "../src/server/validation.mjs";
 
 const key = Buffer.alloc(32, 7);
 
@@ -35,6 +35,14 @@ test("settings and message validation reject unsupported model values and malfor
   assert.equal(parseSettings({ ...defaultSettings, criticModel: "another-model" }), undefined);
   assert.equal(parseMessage({ body: "Question", clientRequestId: "short" }), undefined);
   assert.deepEqual(parseMessage({ body: " Question ", clientRequestId: "request-identifier-0002" }), { body: "Question", clientRequestId: "request-identifier-0002" });
+});
+
+test("source links accept only public HTTPS destinations", () => {
+  assert.equal(safeExternalUrl("https://example.com/report"), "https://example.com/report");
+  assert.equal(safeExternalUrl("http://example.com/report"), undefined);
+  assert.equal(safeExternalUrl("https://127.0.0.1/private"), undefined);
+  assert.equal(safeExternalUrl("https://169.254.169.254/latest"), undefined);
+  assert.equal(safeExternalUrl("https://localhost/private"), undefined);
 });
 
 test("development cookies remain usable on localhost while production uses host-only secure cookies", async () => {

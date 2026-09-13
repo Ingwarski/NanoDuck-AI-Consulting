@@ -110,7 +110,7 @@ test("the authenticated discussion preserves a separate Consultant, Critic and r
     const accepted = await fetch(`${origin}/api/conversations/${conversationId}/messages`, {
       method: "POST",
       headers,
-      body: JSON.stringify({ body: "How should we position this offer?", clientRequestId: "provider-exchange-0001" })
+      body: JSON.stringify({ body: "What is the current market evidence for positioning this offer?", clientRequestId: "provider-exchange-0001" })
     });
     assert.equal(accepted.status, 202);
     const detail = await waitFor(async () => {
@@ -129,6 +129,9 @@ test("the authenticated discussion preserves a separate Consultant, Critic and r
     assert.match(detail.events[3].body, /assumes those buyers will take calls/u);
     assert.match(detail.events[4].body, /recruit calls from a defined prospect list/u);
     assert.match(detail.events[5].body, /measure interview acceptance/u);
+    assert.equal(detail.events.every(event => !event.body.includes("nanoduck-source")), true);
+    assert.deepEqual(detail.events[1].sources.map(source => ({ title: source.title, url: source.url, claim: source.claim, publishedAt: source.publishedAt })), [{ title: "Buyer evidence", url: "https://example.com/buyer-evidence", claim: "Buyer willingness must be measured before positioning.", publishedAt: "2026-09-01" }]);
+    assert.match(detail.events[1].sources[0].retrievedAt, /^\d{4}-\d{2}-\d{2}T/u);
     assert.equal(detail.events.some(event => event.role === "System"), false);
   } finally {
     child.kill("SIGTERM");

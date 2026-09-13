@@ -15,6 +15,7 @@ const request = async (path, options = {}) => {
 
 const toast = message => { const item = $("#toast"); item.textContent = message; item.hidden = false; clearTimeout(toast.timer); toast.timer = setTimeout(() => { item.hidden = true; }, 4_000); };
 const formatTime = value => new Intl.DateTimeFormat(undefined, { hour: "numeric", minute: "2-digit" }).format(new Date(value));
+const formatDate = value => new Intl.DateTimeFormat(undefined, { dateStyle: "medium" }).format(new Date(value));
 const clear = element => { element.replaceChildren(); return element; };
 const node = (tag, attributes = {}, text) => { const item = document.createElement(tag); for (const [key, value] of Object.entries(attributes)) { if (key === "class") item.className = value; else if (key.startsWith("data-")) item.setAttribute(key, value); else item[key] = value; } if (text !== undefined) item.textContent = text; return item; };
 const id = () => crypto.randomUUID().replaceAll("-", "");
@@ -62,7 +63,7 @@ function renderEvents() {
 }
 
 function renderOutcome() { const target = clear($("#outcome")); const outcome = [...state.events].reverse().find(event => event.role === "Head Consultant"); if (outcome) target.append(node("h2", {}, "Current outcome"), node("p", {}, outcome.body)); else target.append(node("div", { class: "empty" }, "A conclusion appears after the discussion has earned one.")); }
-function renderSources() { const target = clear($("#sources")); const sources = state.events.flatMap(event => event.sources ?? []); if (!sources.length) { target.append(node("div", { class: "empty" }, "Sources appear here when live research materially informs the discussion.")); return; } for (const source of sources) { const card = node("article", { class: "source-card" }); card.append(node("a", { href: source.url, target: "_blank", rel: "noopener noreferrer" }, source.title), node("p", {}, source.claim)); target.append(card); } }
+function renderSources() { const target = clear($("#sources")); const sources = [...new Map(state.events.flatMap(event => event.sources ?? []).map(source => [source.url, source])).values()]; if (!sources.length) { target.append(node("div", { class: "empty" }, "Sources appear here when live research materially informs the discussion.")); return; } for (const source of sources) { const dates = [`Retrieved ${formatDate(source.retrievedAt)}`]; if (source.publishedAt) dates.push(`Published ${formatDate(source.publishedAt)}`); const card = node("article", { class: "source-card" }); card.append(node("a", { href: source.url, target: "_blank", rel: "noopener noreferrer" }, source.title), node("p", {}, source.claim), node("p", { class: "hint" }, dates.join(" · "))); target.append(card); } }
 
 async function loadConversation(conversationId) {
   const { data } = await request(`/api/conversations/${conversationId}`); state.conversation = data.conversation; state.events = data.events; state.run = data.run; renderEvents(); nav("discussion"); startPolling();

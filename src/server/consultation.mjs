@@ -4,7 +4,7 @@ const roleSettings = snapshot => Object.freeze({
   critic: { model: snapshot.criticModel, effort: snapshot.criticReasoning }
 });
 
-const needsResearch = text => /\b(current|latest|today|this year|202[4-9]|market|price|law|competitor|research|evidence|source)\b/iu.test(text);
+const needsResearch = text => /(?:\b(?:current|latest|today|this year|20(?:2[4-9]|3\d)|market|price|law|competitor|research|evidence|source)\b|https?:\/\/|\b(?:сьогодні|актуаль\p{L}*|поточн\p{L}*|ринок|ціна|закон\p{L}*|конкурент\p{L}*|дослідж\p{L}*|джерел\p{L}*)\b)/iu.test(text);
 const discussion = events => events.map(event => `${event.role}${event.recipient ? ` → ${event.recipient}` : ""}: ${event.body}`).join("\n\n").slice(-80_000);
 
 export function createConsultationService({ store, provider }) {
