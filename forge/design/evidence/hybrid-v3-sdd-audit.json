@@ -1,0 +1,133 @@
+{
+  "observed_at": "2026-09-13T19:21:03.198348+00:00",
+  "executor": "Codex root; inline domain owners and separate read-only intent auditor",
+  "scope": "Current combined v3 design; metadata, source integrity and ownership audit, not production execution",
+  "contract": {
+    "repository_revision": "408af3af8ba1d5690544796afb8dd2f5a2d06de0",
+    "machine_contract_sha256": "4515dd5f26655e74a15571af42dc290eb9c967fc4df719aaa70dbf320db05fa8",
+    "skill_sha256": "4e6b39106f5c4f55b2219c754caa5a5e68e676f71d6320bfc7100856b560d476"
+  },
+  "source_hashes": {
+    "docs/product-idea.md": "1395a5d9d5372377d26c97ad5302390f287f4094b8bca20ff74e8e6478065a4e",
+    "docs/prd.md": "f6f5e829f5178edadea69ba6f25f1367b8c8a748deb3c8e99f876aa77588c218",
+    "docs/project-context.md": "79259e112e56775b2239f52494d8adf69b05f0dc68910a7f8114a626068e4968",
+    "docs/canonical-terms.md": "c2ae3f6d972c469aa1b6f07a2914f4d21be6778e4057cb3182b393c5d2548b3e",
+    "docs/guardrails.md": "1fdc65f719f013b799907296756812b08e1cdc15355203ccc062d4e40d83ddcc",
+    "docs/user-journey.md": "c9dc1f25d3ee1795dfa889c124e3e6d9eaf8bf563f05466f81e401b66d7e1dd6",
+    "docs/screen-map.md": "e9fe4d212a575844c813eaa91aec405bdd3107cabf0b7117896016ccea7c6f9e",
+    "docs/wireframes.md": "6141cf91dc4b787cfe47455327464cca70a6cba3ef1858984b8aa5b404a9f11c",
+    "docs/design-brief.md": "98260a31dba0d00b13fd16ec48dc5a968cfea7fd0840fbe88f2427d1f4245761",
+    "docs/architecture.md": "3f900077228e4399dbe9508c89659834e8411cd554ee8eae4699edf6be1889d3",
+    "docs/dod-evals.md": "4c705c9494294f9e1a171cf377633e017d26128a7ada08e19ffc2a80a6b1541d",
+    "docs/qa-checklist.md": "3b3450ae5f839983c738d2180dfb433c1158b612cae9b682e2c5e30b4fa0b09d"
+  },
+  "canonical_artifacts": 12,
+  "consumed_source_bindings": 82,
+  "owner_dependency_dispatch_checks": "passed",
+  "coupled_context_terms_invocation": "passed",
+  "reachable_skill_resources_resolved": 14,
+  "historical_files_preserved": 38,
+  "formal_checks": {
+    "count": 82,
+    "definition_status": "prepared",
+    "execution_status": "not_run"
+  },
+  "checks": [
+    {
+      "arguments": [
+        "--audit"
+      ],
+      "exit_code": 0,
+      "record": {
+        "result": "passed",
+        "node": "audit",
+        "mode": "audit",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "dod-evals",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "qa-checklist",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    },
+    {
+      "arguments": [
+        "--after",
+        "prototype-candidates"
+      ],
+      "exit_code": 0,
+      "record": {
+        "result": "passed",
+        "node": "prototype-candidates",
+        "mode": "after",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "dod-evals",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "qa-checklist",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    },
+    {
+      "arguments": [
+        "--before",
+        "design-approval"
+      ],
+      "exit_code": 0,
+      "record": {
+        "result": "passed",
+        "node": "design-approval",
+        "mode": "before",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "dod-evals",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "qa-checklist",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    }
+  ],
+  "candidate_scope": "Three combined-layout v3 palettes, fresh Safari and responsive receipts; historical v1/v2 unchanged",
+  "remaining_action": "Owner may choose a palette and approve the whole combined design or request changes. No approval inferred.",
+  "implementation_authorized": false,
+  "godaddy_operations": []
+}

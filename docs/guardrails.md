@@ -6,7 +6,7 @@ Consume [PRD](prd.md), [project context](project-context.md) and [canonical term
 
 ## AI autonomy and allowed changes
 
-Complete reversible specification, three equivalent-scope design simulations, local browser checks and the already authorized public repository updates. Use fictional examples. Preserve the first rejected prototype as history while presenting the new candidate set. Resolve ordinary layout choices without repeated permission questions.
+Complete reversible specification, the three equivalent-scope design simulations, including the owner-requested combined-layout palette revision, local browser checks and the already authorized public repository updates. Use fictional examples. Preserve the first rejected prototype as history while presenting the new candidate set. Resolve ordinary layout choices without repeated permission questions.
 
 ## Forbidden changes and stops
 

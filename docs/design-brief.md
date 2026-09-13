@@ -1,4 +1,4 @@
-# Three bold directions
+# Combined dark direction and agent palettes
 
 13 September 2026 · Codex design executor · All candidates unapproved
 
@@ -8,14 +8,14 @@ The owner rejected the prior green editorial candidate and requested a modern, b
 
 | Material | Path / URL | Required | Purpose and access |
 |---|---|---|---|
-| MAT-01 | `docs/prd.md` · SHA-256 `cc3689c4a13d02e9b127d3f3f8150be0bb8a39f4d271736d4081f3b8ab3056e7` | true | Current specification; resolved filesystem read |
-| MAT-02 | `docs/project-context.md` · SHA-256 `bf6bb224197b526552438988178f2a1dc30a93f4e30a733fb59a298c2ef586ca` | true | Current specification; resolved filesystem read |
-| MAT-03 | `docs/canonical-terms.md` · SHA-256 `5383b1162ea0b0ae1f72724c981e388b07088780cf32a46bf6c00ef6e02842ce` | true | Current specification; resolved filesystem read |
-| MAT-04 | `docs/guardrails.md` · SHA-256 `978d555906d446d86d565d4563017eea706e879e1c66a24ece8f13983f48dbae` | true | Current specification; resolved filesystem read |
-| MAT-05 | `docs/user-journey.md` · SHA-256 `8e476f4b7832bb18e97877b1e4df706c7190b26f52ce40253983fd6ffc669f27` | true | Current specification; resolved filesystem read |
-| MAT-06 | `docs/screen-map.md` · SHA-256 `8a99ff80a7e79ab26b536d58a2533965ca7e5e5f5989191b718dfb02db370b7f` | true | Current specification; resolved filesystem read |
-| MAT-07 | `docs/wireframes.md` · SHA-256 `7ef1e539e589e29641e2910f8bf23802d523a448365d2ea6ecb8dbd2957aabce` | true | Current specification; resolved filesystem read |
-| MAT-08 | `docs/product-idea.md` · SHA-256 `fc34aca4e41a1c27918b7b81e8f03a02a8c0df4c522ec5b0e6a1d95e7c584180` | true | Current specification; resolved filesystem read |
+| MAT-01 | `docs/prd.md` · SHA-256 `f6f5e829f5178edadea69ba6f25f1367b8c8a748deb3c8e99f876aa77588c218` | true | Current specification; resolved filesystem read |
+| MAT-02 | `docs/project-context.md` · SHA-256 `79259e112e56775b2239f52494d8adf69b05f0dc68910a7f8114a626068e4968` | true | Current specification; resolved filesystem read |
+| MAT-03 | `docs/canonical-terms.md` · SHA-256 `c2ae3f6d972c469aa1b6f07a2914f4d21be6778e4057cb3182b393c5d2548b3e` | true | Current specification; resolved filesystem read |
+| MAT-04 | `docs/guardrails.md` · SHA-256 `1fdc65f719f013b799907296756812b08e1cdc15355203ccc062d4e40d83ddcc` | true | Current specification; resolved filesystem read |
+| MAT-05 | `docs/user-journey.md` · SHA-256 `c9dc1f25d3ee1795dfa889c124e3e6d9eaf8bf563f05466f81e401b66d7e1dd6` | true | Current specification; resolved filesystem read |
+| MAT-06 | `docs/screen-map.md` · SHA-256 `e9fe4d212a575844c813eaa91aec405bdd3107cabf0b7117896016ccea7c6f9e` | true | Current specification; resolved filesystem read |
+| MAT-07 | `docs/wireframes.md` · SHA-256 `6141cf91dc4b787cfe47455327464cca70a6cba3ef1858984b8aa5b404a9f11c` | true | Current specification; resolved filesystem read |
+| MAT-08 | `docs/product-idea.md` · SHA-256 `1395a5d9d5372377d26c97ad5302390f287f4094b8bca20ff74e8e6478065a4e` | true | Current specification; resolved filesystem read |
 | MAT-09 | `prototype/index.html` · SHA-256 `e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5` | false | Rejected visual/copy evidence; resolved filesystem read |
 | MAT-10 | `prototype/styles.css` · SHA-256 `ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925` | false | Rejected visual/copy evidence; resolved filesystem read |
 | MAT-11 | `prototype/app.js` · SHA-256 `b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54` | false | Rejected visual/copy evidence; resolved filesystem read |
@@ -23,6 +23,12 @@ The owner rejected the prior green editorial candidate and requested a modern, b
 | MAT-13 | https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder | false | Current primary platform guidance; read-only web access verified 13 September 2026; not a runtime asset |
 | MAT-14 | https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia | false | Current primary platform guidance; read-only web access verified 13 September 2026; not a runtime asset |
 | MAT-15 | https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/ | false | Current primary platform guidance; read-only web access verified 13 September 2026; not a runtime asset |
+| MAT-16 | `forge/design/candidates/a/v2/index.html` · SHA-256 `6f4f3150b3522d9b9bc39a3117b7c1f041654a67caf7459cca4ddcff59922eaa` | true | Inherited Cobalt design material; resolved filesystem read; historical source, not approval |
+| MAT-17 | `forge/design/candidates/a/v2/styles.css` · SHA-256 `fd9d8b22ec29a2b8eb58f7b41f55dfbbee60ecdb4d4b7667ab6eaf172dd9d9fe` | true | Inherited Cobalt design material; resolved filesystem read; historical source, not approval |
+| MAT-18 | `forge/design/candidates/a/v2/app.js` · SHA-256 `a869dd42c95740bf7da4802934c3cd6f8d2e2243795ee20925cd5ee19f474531` | true | Inherited Cobalt design material; resolved filesystem read; historical source, not approval |
+| MAT-19 | `forge/design/candidates/b/v2/index.html` · SHA-256 `31ed8e8dce5ca3967fc2283812b0cfc1fda246522c9c800113f14445e63e7791` | true | Inherited Ember design material; resolved filesystem read; historical source, not approval |
+| MAT-20 | `forge/design/candidates/b/v2/styles.css` · SHA-256 `d0d7e5f865e58e910e1b0f142356c3c780baa7aa173c00239508e8cbf8134bd8` | true | Inherited Ember design material; resolved filesystem read; historical source, not approval |
+| MAT-21 | `forge/design/candidates/b/v2/app.js` · SHA-256 `17e37807a032c5ea1660efca698e21dc8baf29a3c5344067470b6b44311f9b39` | true | Inherited Ember design material; resolved filesystem read; historical source, not approval |
 
 Required sources are available. The previous prototype is avoidance evidence only; there is no approved visual system to inherit. The local model catalog is a content-free read of model/list, not deployed preferences or execution entitlement. External references are read-only guidance, not assets or required network dependencies.
 
@@ -34,14 +40,16 @@ Let the owner follow an intelligent discussion, challenge a claim and make a del
 
 | Decision | Basis and consequence |
 |---|---|
-| Exactly three equivalent-scope candidates | Explicit correction and SDD workflow. All nine surfaces and their states remain comparable. |
-| A — Cobalt | Crisp light workspace, strong blue type/lines, compact horizontal context and an open central conversation. Best candidate for high-frequency reading. |
-| B — Ember | Near-black operational workspace with orange focus, denser discussion and a distinct contextual decision rail at desktop widths. Best for a focused dark environment. |
-| C — Prism | Violet editorial composition, emphatic geometry and a contrasting yellow highlight; a more expressive information layout and speaker treatment. Best for a distinctive product identity. |
-| Conventional floating navigation | Fixed/sticky horizontal destination bar on desktop; labelled hamburger disclosure on mobile. Remains reachable on scroll; no arbitrary drag behavior. |
-| Settings controls are functional simulations | Independent model/reasoning controls and optional Critic provider; exact initial recorded values. Save affects the simulated next run, Cancel preserves saved values. |
-| Voice is a complete flow | Mic affordance, explicit start, recording, Stop/Cancel, transcription, editable review and failure recovery. No real capture or provider call in candidates. |
-| Rejected design stays historical | New versioned candidates supersede the exploratory green prototype for comparison, without fabricating an old approval. |
+| Combined layout | Latest owner revision: Ember black theme, avatar/message formatting and local tabs inside Cobalt centered chat/composer geometry. No design approval inferred. |
+| Palette A — Electric | Per-role saturated cool colours with a pink Critic; same layout and flows as B/C. |
+| Palette B — Solar | Warmer gold/coral/lilac role accents with a rose Critic; same layout and flows as A/C. |
+| Palette C — Prismatic | Gold/cyan/lavender role accents with an orchid Critic; same layout and flows as A/B. |
+| Conventional floating navigation | Discussion, Conversations and Settings on desktop; labelled hamburger on mobile. New is outside these menus, in the workspace action row and Conversations. |
+| Settings controls | Independent model/reasoning controls and optional Critic provider; exact initial recorded values. Save affects only the next simulated run. |
+| Composer | Cobalt width and sticky geometry; icon-only microphone with accessible name, attachment action and a bright Send button that cannot shrink or become transparent. |
+| Review controls | State and locale fixtures appear only in an explicit inspection URL, outside the normal preview; no Review states control exists in the app. Palette comparison belongs to the external review shell. |
+| Session access | PRD owns the 24-hour app session. A concise Settings description may explain it; this prototype does not authenticate or prove elapsed-time persistence. |
+| Version history | Original Cobalt/Ember/Prism versions remain frozen history. The combined v3 revision has fresh source and rendering identities. |
 
 The candidate names identify options, not proposed product renames. Do not auto-select an option.
 
@@ -49,22 +57,25 @@ The candidate names identify options, not proposed product renames. Do not auto-
 
 Token proposals are recorded once here. Individual candidate styles consume these roles and may add named local component tokens within their immutable version. System font stacks avoid external font downloads or uncertain provenance.
 
-| Semantic token | A — Cobalt | B — Ember | C — Prism |
+| Shared token | Current proposal |
+|---|---|
+| Canvas / surfaces | `#101114` / `#18191f`; floating bar and composer use near-black surfaces. |
+| Body / muted / separators | `#f5f5f7` / `#b4b4bb` / `#3b3c45`. |
+| Primary action and active tab | `#ffb36b` with dark `#151114` text on filled buttons. This stays independent of agent palette. |
+| Chat/composer | Centered 950px reading column and sticky composer from Cobalt; one column on phones. |
+| Message format | Ember avatar plus content grid: 38px avatar, 16px gap, role/time/recipient header, neutral 16px message body at 1.65 line-height. No wide speaker rail or filled owner card. |
+| Local tabs | Ember transparent tabs, plain counts, muted inactive text and active accent with a 3px underline; keyboard/ARIA behavior retained. |
+| Targets and shapes | 44px minimum primary controls; Send at least 48px high and 100px wide; input 16px; 4/8/12/16/24/32px spacing. |
+
+| Role | A — Electric | B — Solar | C — Prismatic |
 |---|---|---|---|
-| Canvas | `#ffffff` | `#111217` | `#efebff` |
-| Primary ink | `#151b2b` | `#f5f5f7` | `#201334` |
-| Muted ink | `#657086` | `#b4b4bb` | `#625772` |
-| Primary accent | `#204dff` | `#ff7a45` | `#6330e7` |
-| Secondary emphasis | `#eaf0ff` | `#292329` | `#ffdb4f` |
-| Critic emphasis | `#b32250` | `#ff9b7d` | `#a32568` |
-| Main surface | `#f4f6fb` | `#1c1d24` | `#ffffff` |
-| Separator | `#d6ddea` | `#41424c` | `#c7bbdf` |
-| Typography | System sans-serif, confident compact heading | System sans-serif, compact technical labels only where useful | System sans-serif, heavy display weight with regular reading text |
-| Shape | 12–20px surfaces; pill navigation | 12–18px surfaces; restrained corners and fine borders | 6–16px surfaces; bolder ruled sections and deliberate asymmetry |
+| You | `#bbc7dd` | `#d9d4cb` | `#ced1e0` |
+| Head | `#7da8ff` | `#ffc166` | `#e4c66b` |
+| Product | `#b899ff` | `#ff9470` | `#7fdee2` |
+| Operations | `#6ee7f2` | `#d0b1ff` | `#bdb0ff` |
+| Critic | `#ff75b5` | `#ff7f95` | `#ef97ea` |
 
-Shared scale: body/input 16px on mobile; 14–16px metadata/body where suitable at desktop; actual-topic heading 30–52px; 4/8/12/16/24/32px spacing steps; minimum 44px primary touch controls. Keep full paragraph text readable and line length approximately 55–85 characters at desktop. Candidate canvases and topic headings must differ visibly beyond palette.
-
-Computed accent/background ratios are A 5.89, B 7.23, C 5.79; muted/background ratios A 4.98, B 9.07, C 5.76. These arithmetic checks cover only those pairs, not every component or WCAG conformance. Pair orange/yellow fills with dark text; verify actual candidate combinations in review.
+Use role colour on names, avatar fills and restrained quote/edge accents; keep written role names and dark avatar initials. Critic retains a distinct left border. Colour alone never identifies a role. Computed minimum role-text contrast against the surface is A 7.07:1, B 7.28:1 and C 8.59:1; these are limited token arithmetic, not a complete accessibility audit. Agent palettes do not change action colours or create a production palette-setting feature.
 
 ## Experience spine
 
@@ -74,7 +85,7 @@ The composer offers text, attachment and voice without hiding voice in Settings.
 
 Dialogs have a name, visible close/cancel, focus containment and return. Confirmation identifies the exact record. Sign-in and first-use consent are separate; consent is unchecked. Sources expose a direct link, supported claim and limit; sample references never claim a fresh research run. Outcome and full discussion remain separate views.
 
-All candidate UI is explicitly labelled as a design preview with fictional content. Preview state and locale controls belong to the review shell, not production Settings. No real microphone, authentication, network generation, private-data persistence or deployment behavior is implemented. Fixtures cover English and Ukrainian conversation/transcript content; role labels remain English. Mobile is one column; all candidates are compared at 320/390/430/768/1280/1440 CSS px. Reduced-motion and forced-colors behavior preserve textual state. Do not depend on animation, sound, color, hover or voice alone.
+All candidate UI is explicitly labelled as a design preview with fictional content. Preview state and locale controls are hidden from normal review and available only through a dedicated inspection URL; they are absent from production. New occupies their former position above the chat. No real microphone, authentication, network generation, private-data persistence or deployment behavior is implemented. Fixtures cover English and Ukrainian conversation/transcript content; role labels remain English. Mobile is one column; all candidates are compared at 320/390/430/768/1280/1440 CSS px. Reduced-motion and forced-colors behavior preserve textual state. Do not depend on animation, sound, color, hover or voice alone.
 
 ## Heuristic review plan
 
@@ -107,4 +118,4 @@ Status: proposed. No selected candidate, Baseline ID or approval receipt exists.
 
 Mechanical review: nine surfaces and all screen-map states resolve to the seven use cases; tokens and component/recovery rules resolve; source inventory is available; heuristic and user-validation plans are separate. No blocking document-coverage finding.
 
-Judgment review: three distinct directions, actual task copy, conventional controls and explicit simulation boundaries replace the rejected treatment. The recorded v1 comparison resolved its reported layout/control findings within the inspected prototype scope. Owner task completion remains unobserved, and later revisions require evidence matched to their exact source and rendering identity. Runtime, live catalog/entitlement and host compatibility remain implementation evidence, not visual-approval prerequisites.
+Judgment review: the owner has now requested the combined dark direction and three agent-colour palettes; the previous three-direction comparison remains historical. The recorded v1 comparison resolved its reported layout/control findings within the inspected prototype scope. Owner task completion remains unobserved, and later revisions require evidence matched to their exact source and rendering identity. Runtime, live catalog/entitlement and host compatibility remain implementation evidence, not visual-approval prerequisites.

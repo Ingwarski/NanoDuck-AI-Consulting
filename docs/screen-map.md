@@ -6,7 +6,7 @@
 
 ## Screen inventory and journey-to-screen trace
 
-Routes identify canonical user-facing surface locations; overlay states may retain the originating fragment. They are not a claim that every frozen candidate uses an identical hash, nor production API commitments. All entry points retain the candidate base URL. Desktop floating navigation exposes Discussion, Conversations, Settings and New; mobile exposes those destinations through a labelled hamburger menu. Outcome and Sources remain local consultation views.
+Routes identify canonical user-facing surface locations; overlay states may retain the originating fragment. They are not a claim that every frozen candidate uses an identical hash, nor production API commitments. All entry points retain the candidate base URL. Desktop floating navigation exposes Discussion, Conversations and Settings; mobile exposes those same destinations through a labelled hamburger menu. New is a contextual action above the chat and in Conversations, never a menu destination. Development state inspection is outside the normal preview, available only through an explicit inspection URL; it adds no product surface. Outcome and Sources remain local consultation views.
 
 | Surface | Route | Use cases | Journey | Requirement |
 |---|---|---|---|---|
@@ -79,7 +79,7 @@ The frozen v1 candidates implement the same inventory with these navigation-loca
 
 J-01 resolves through S-01 to S-02; the navigation surface S-09 never grants identity. J-02 enters S-05 only after explicit voice choice; Stop leads through transcription to editable review, Use transcript returns to the composer, and Send remains a separate action. Cancel/denied/interrupted voice returns to the preserved draft. An invalid attachment stays at S-02 with a removable filename/error.
 
-J-03 clarification and substantive exchange remain on S-02; no procedural stage screen is added. J-04 moves to S-06 and back to the originating claim. J-05 Stop/Continue preserves the same record, while New ends or pauses active work before establishing another. Offline, quota, provider-auth and system/research failure keep distinct recovery transitions. App expiry goes through S-01.
+J-03 clarification and substantive exchange remain on S-02; no procedural stage screen is added. J-04 moves to S-06 and back to the originating claim. J-05 Stop/Continue preserves the same record, while New ends or pauses active work before establishing another. Offline, quota, provider-auth and system/research failure keep distinct recovery transitions. App expiry at the PRD 24-hour boundary goes through S-01; explicit sign-out, revocation and security invalidation remain earlier exits.
 
 J-06 uses S-07 for the conclusion, S-03 to reopen history and S-08 for export/deletion. Delete cancellation is inert; success removes only the selected record and returns to empty history/new discussion. J-07 opens S-04, validates the edited combination and saves for future work; Cancel restores previous selections. Session-control confirmation leads to simulated reauthentication then revocation, never revealing credentials.
 

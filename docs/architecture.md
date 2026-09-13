@@ -51,9 +51,9 @@ The [deployment boundary](deployment-boundary.md) names the only allowed target.
 
 Checked 13 September 2026: [Codex configuration](https://learn.chatgpt.com/docs/config-file/config-reference) documents web-search configuration; [Codex App Server](https://learn.chatgpt.com/docs/app-server) documents managed authentication; [Claude Code authentication](https://code.claude.com/docs/en/authentication) documents subscription authorization for supported automation. These describe mechanisms; they do not verify the owner's current grant, quota, model entitlement or hosting compatibility.
 
-## Revision 2 drivers and source references
+## Current drivers and source references
 
-This reconciliation consumes the current PRD, context/terms, guardrails, journey, screen map, wireframes and three-direction design brief. The prior one-app/one-database proposal above remains. The owner now explicitly requires voice and functioning Settings selectors; no production source is added. There is no approved baseline yet, so approved-design reconciliation remains a later pass.
+This reconciliation consumes the current PRD, context/terms, guardrails, journey, screen map, wireframes and combined-layout design brief with three agent-colour palettes. The prior one-app/one-database proposal above remains. The owner now explicitly requires voice and functioning Settings selectors; no production source is added. There is no approved baseline yet, so approved-design reconciliation remains a later pass.
 
 ## Module and boundary map
 
@@ -75,7 +75,7 @@ Temporary audio is a separate short-lived input, not a permanent conversation at
 
 ## Configuration and binding contract
 
-Proposed deployment configuration names below are a boundary contract, not claims that they already exist in GoDaddy: `APP_ORIGIN`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `OWNER_GOOGLE_SUBJECT`, `DATABASE_URL`, `DATA_ENCRYPTION_KEY`, `SESSION_IDLE_SECONDS`, `SESSION_ABSOLUTE_SECONDS`, `MAX_ATTACHMENT_BYTES`, `MAX_AUDIO_SECONDS`. Secrets stay server-side; key material is not stored beside ciphertext. Resolve values and mapping to the actual host in the implementation preflight. Never commit their values or expose them in Settings.
+Proposed deployment configuration names below are a boundary contract, not claims that they already exist in GoDaddy: `APP_ORIGIN`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `OWNER_GOOGLE_SUBJECT`, `DATABASE_URL`, `DATA_ENCRYPTION_KEY`, `SESSION_IDLE_SECONDS`, `SESSION_ABSOLUTE_SECONDS`, `MAX_ATTACHMENT_BYTES`, `MAX_AUDIO_SECONDS`. Secrets stay server-side; key material is not stored beside ciphertext. Architecture maps the PRD 24-hour session behavior to `SESSION_IDLE_SECONDS=86400` and `SESSION_ABSOLUTE_SECONDS=86400`. Persist issued-at/expiry and revocation server-side, and use a persistent cookie capped to the same absolute deadline so browser reopening retains normal access; activity never extends that deadline. Resolve other values and host mapping in implementation preflight. Never commit secret values or expose credentials in Settings.
 
 Runtime remains one Node application plus the existing isolated provider subprocesses, targeting the observed GoDaddy Node 22 capability until reverified. Keep the provider package pins in the model record. Build outputs must contain only application assets/server artifacts and required runtime dependencies; exclude private records, `.git`, specifications, debug routes and local review helpers. The design preview uses static files and has no production deployment configuration.
 
@@ -84,7 +84,7 @@ Runtime remains one Node application plus the existing isolated provider subproc
 | PRD obligation | Mechanism and enforcement / evidence owner |
 |---|---|
 | NFR-10.1 | OIDC callback validates issuer/subject/audience/signature/lifetime/state/nonce and code flow; allowlist the configured owner. The implementation owner verifies Google's assurance behavior and source-documented fallback without an app MFA feature or compliance claim. |
-| NFR-10.2 | Server-side session records, cryptographically random cookies, renewal, expiry and revocation; reauthenticated session-control action. Define idle/absolute lifetimes and federated termination handling before session acceptance tests. |
+| NFR-10.2 | Server-side session records, cryptographically random cookies, renewal, expiry and revocation; reauthenticated session-control action. Apply the PRD 24-hour inactivity/absolute boundary, persistent cookie and server deadline; reject at expiry or earlier explicit termination. Define concurrency and federated termination handling before session acceptance tests. |
 | NFR-10.3 | Shared server authorization on every private read/mutation, attachment/export and run command; immutable fields are rejected rather than trusted from browser payloads. |
 | NFR-11.1 | Typed request envelopes, safe text/Markdown rendering, allowlisted URL schemes, parameterized queries and provider process arguments; no eval/template execution from user/model content. |
 | NFR-11.2 | Atomic idempotent acceptance, unique step commit, generation fencing and leases; bounded upload/audio/research requests and inherited run ceilings. The implementation owner sets resource limits from actual provider/runtime capacity. |

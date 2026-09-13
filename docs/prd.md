@@ -1,6 +1,6 @@
 # Product requirements
 
-13 September 2026 · Revision 2 · Authority: current [product-idea.md](product-idea.md) · Working language: English
+13 September 2026 · Revision 3 · Authority: current [product-idea.md](product-idea.md) · Working language: English
 
 ## Problem Statement
 
@@ -10,7 +10,7 @@ The single owner needs useful advice, real expert challenge and an inspectable r
 
 Sign in with the existing Google owner identity; describe or dictate a question; follow separate consultants and Critic; inspect fresh sources; stop, continue, export or revisit the record. Normal use requires no messenger or integration setup. The public repository contains source and fictional design data; deployed account content stays private.
 
-This delivery is **review, specification and three interactive design alternatives only**, with Codex as executor. No production backend, deployment or deletion is authorized by design approval. One whole-design selection precedes downstream planning; a later explicit implementation prompt is required. The use cases below define the intended product; a prototype demonstrates only clearly labelled simulated behavior and cannot prove actual agents, authentication, transcription, persistence or provider access.
+This delivery is **review, specification and interactive design only, now refining the presented alternatives into one combined layout with three agent-colour palettes**, with Codex as executor. No production backend, deployment or deletion is authorized by design approval. One whole-design selection precedes downstream planning; a later explicit implementation prompt is required. The use cases below define the intended product; a prototype demonstrates only clearly labelled simulated behavior and cannot prove actual agents, authentication, transcription, persistence or provider access.
 
 Actors are the existing owner, separately invoked AI roles, Google, selected subscription providers and public research services. There are no public registrants, tenants or billing customers. Each use case records its trust and permission boundaries; shared controls are defined once under Security Requirements.
 
@@ -21,7 +21,7 @@ Jobs: JOB-003. Actors: Owner; Google identity provider; application.
 Trigger: Open the app or return after session expiry. Goal: Reach private work with the existing owner identity.
 Preconditions: Owner identity is provisioned; ordinary AI-processing consent has not been assumed.
 Success path: 1. Owner chooses Google sign-in. 2. System validates the response and owner identity. 3. First use presents concise AI-processing consent; returning use restores the latest record or a new consultation. 4. Owner may sign out.
-Alternates/recovery: Cancel or denied identity exposes no private record. Expiry asks for sign-in without mislabelling provider authorization. A failed callback does not establish a session.
+Alternates/recovery: Cancel or denied identity exposes no private record. Expiry asks for sign-in without mislabelling provider authorization. A failed callback does not establish a session. Normal returning use, including inactivity and browser reopening, stays signed in for 24 hours after successful sign-in; sign-out, revocation and security invalidation remain immediate exceptions.
 Postconditions: Only the authorized owner has a session; accepted history survives sign-out.
 Authority/privacy: Authentication assertions are untrusted until validated; provider grants remain server-side. No public registration or extra app MFA.
 Obligations and acceptance: FR-01.1, FR-01.2, NFR-10.1–NFR-10.3; AC-001
@@ -92,7 +92,7 @@ Obligations and acceptance: FR-04.1–FR-04.3, NFR-12.1, NFR-12.3; AC-008
 
 | ID | Observable obligation | Use cases |
 |---|---|---|
-| FR-01.1 | Existing Google owner sign-in is the sole app-entry path; a returning owner reaches work without a connection checklist. | UC-001 |
+| FR-01.1 | Existing Google owner sign-in is the sole app-entry path; a returning owner reaches work without a connection checklist and remains signed in for the 24-hour lifetime in NFR-10.2. | UC-001 |
 | FR-01.2 | Initial ordinary AI-processing consent is concise, explicit and reused until its scope changes. | UC-001 |
 
 ### Useful consultation
@@ -117,7 +117,7 @@ Obligations and acceptance: FR-04.1–FR-04.3, NFR-12.1, NFR-12.3; AC-008
 | FR-03.3 | Owner context added during work is accepted into the same consultation without rewriting prior messages. | UC-003 |
 | FR-03.4 | Stop remains reachable during active work and prevents late work from becoming a newly visible result. | UC-003 |
 | FR-03.5 | Continue resumes a stopped or bounded consultation with its accepted context. | UC-003 |
-| FR-03.6 | New consultation creates a separate record while enforcing only one active consultation. | UC-003 |
+| FR-03.6 | New consultation creates a separate record while enforcing only one active consultation. New is available above the chat and in Conversations, and is absent from global desktop/mobile navigation. | UC-003 |
 
 ### Research
 
@@ -159,9 +159,9 @@ Obligations and acceptance: FR-04.1–FR-04.3, NFR-12.1, NFR-12.3; AC-008
 
 | ID | Observable obligation | Use cases |
 |---|---|---|
-| FR-08.1 | Desktop navigation is a standard floating bar available while scrolling; mobile navigation uses a labelled hamburger menu. | UC-001, UC-003, UC-005 |
+| FR-08.1 | Desktop navigation is a standard floating bar available while scrolling; mobile navigation uses a labelled hamburger menu. Both contain Discussion, Conversations and Settings; New remains a contextual action. | UC-001, UC-003, UC-005 |
 | FR-08.2 | The preference destination is literally labelled Settings; the rejected slogan and Your space label are removed. | UC-005 |
-| FR-08.3 | Codex delivers three meaningfully different, modern, bold interactive full-product candidates for one integrated design selection; the green editorial candidate is rejected history. | UC-001, UC-002, UC-003, UC-004, UC-005, UC-006, UC-007 |
+| FR-08.3 | The initial three distinct full-product candidates establish the comparison. The owner-requested next revision combines Ember black styling, message formatting and local tabs with Cobalt chat/composer layout, an icon-only microphone and clearly visible Send. Present three expressive agent-colour palettes with identical coverage for one integrated design selection. Review states is absent from the app and normal preview; inspection remains a separate development surface. | UC-001, UC-002, UC-003, UC-004, UC-005, UC-006, UC-007 |
 
 ### Continuity and bounded work
 
@@ -189,7 +189,7 @@ Applies to UC-001. Authenticate the configured Google identity using validated i
 ASVS: v5.0.0-6.1.1, v5.0.0-6.1.3, v5.0.0-6.3.1, v5.0.0-6.3.2, v5.0.0-6.3.3, v5.0.0-6.3.4, v5.0.0-6.8.2, v5.0.0-6.8.4, v5.0.0-9.1.1, v5.0.0-9.1.2, v5.0.0-9.1.3, v5.0.0-9.2.1, v5.0.0-9.2.2, v5.0.0-9.2.3, v5.0.0-10.1.1, v5.0.0-10.1.2, v5.0.0-10.2.1, v5.0.0-10.5.1, v5.0.0-10.5.2, v5.0.0-10.5.3, v5.0.0-10.5.4.
 
 ### NFR-10.2 — Session control
-Applies to UC-001, UC-005. Use server-verified, unguessable dynamic sessions renewed at authentication, with documented inactivity/absolute lifetimes, concurrency and federated termination rules. Sign-out/expiry/revocation invalidates further use; Settings permits the reauthenticated owner to view and revoke active sessions through one small security action. Operators can terminate compromised sessions. Evidence must show an invalidated token cannot read or mutate private state and an unrelated identity cannot revoke owner sessions. Architecture owns justified lifetime/concurrency values and identity-provider change handling before session checks are prepared.
+Applies to UC-001, UC-005. Use server-verified, unguessable dynamic sessions renewed at authentication, with a normal absolute lifetime of 24 hours from successful sign-in and no shorter inactivity timeout, plus documented concurrency and federated termination rules. Browser reopening and inactivity do not reset or shorten that lifetime; server-side revocation, explicit sign-out and security invalidation still apply immediately. Sign-out/expiry/revocation invalidates further use; Settings permits the reauthenticated owner to view and revoke active sessions through one small security action. Operators can terminate compromised sessions. Evidence must show an invalidated token cannot read or mutate private state and an unrelated identity cannot revoke owner sessions. The owner-requested 24-hour lifetime is fixed product intent. Architecture implements it and owns concurrency/federated termination details before session checks execute. For ASVS 7.1.1/7.3.1/7.3.2, the recorded rationale is uninterrupted daily use by the single private owner, with bounded absolute expiry and revocation; device access during that period remains a risk to assess alongside actual Google assurance. No NIST assurance or runtime compliance claim is made.
 ASVS: v5.0.0-7.1.1, v5.0.0-7.1.2, v5.0.0-7.1.3, v5.0.0-7.2.1, v5.0.0-7.2.2, v5.0.0-7.2.3, v5.0.0-7.2.4, v5.0.0-7.3.1, v5.0.0-7.3.2, v5.0.0-7.4.1, v5.0.0-7.4.2, v5.0.0-7.4.3, v5.0.0-7.4.4, v5.0.0-7.4.5, v5.0.0-7.5.2, v5.0.0-7.6.1, v5.0.0-7.6.2.
 
 ### NFR-10.3 — Private resource authorization
@@ -293,7 +293,7 @@ Every listed applicable control is an obligation above. Exclusions below are mec
 
 Before migration, obtain a content-free saved-settings snapshot, including inactive provider preferences. Recorded selections are Head/specialists Codex `gpt-6-astra` / `xhigh`, Critic Codex `gpt-6-astra` / `ultra`, and Balanced speed. Unknown inactive values stay unknown. Verify each exact provider/model/reasoning tuple separately; no reset to defaults. Preserve Codex `0.153.1` and Claude Code `2.1.258` in this phase. Architecture owns mechanisms; this PRD does not select a stack or build order.
 
-All three design candidates cover the same use cases and recovery states, including interactive model/reasoning selection and the complete voice lifecycle. Differences must be substantial design directions, not three palette swaps. The floating bar remains available on scroll and is not arbitrarily draggable. A 44 CSS px touch target is the design default; WCAG 2.2 AA minimum-target rules are distinct. Longer calculations are allowed; the proposed 60–140-word ordinary-reply target never permits truncation of an actual message.
+All three design candidates cover the same use cases and recovery states, including interactive model/reasoning selection and the complete voice lifecycle. The initial comparison used three substantial design directions. The owner now explicitly requests agent-palette alternatives within their combined layout; this narrower revision preserves full flow coverage. The floating bar remains available on scroll and is not arbitrarily draggable. A 44 CSS px touch target is the design default; WCAG 2.2 AA minimum-target rules are distinct. Longer calculations are allowed; the proposed 60–140-word ordinary-reply target never permits truncation of an actual message.
 
 ## Canonical finding severity and release effect
 
@@ -312,7 +312,7 @@ Use the highest practical external seam: authenticated browser through the inten
 
 | Scenario | Minimum observable allowed and denied outcomes |
 |---|---|
-| AC-001 — Owner entry (UC-001) | Known owner signs in and resumes; cancelled, forged, replayed and non-owner callbacks expose no record. First consent is explicit; unchanged scope does not prompt repeatedly. Sign-out/expiry denies the old session. |
+| AC-001 — Owner entry (UC-001) | Known owner signs in and resumes; cancelled, forged, replayed and non-owner callbacks expose no record. First consent is explicit; unchanged scope does not prompt repeatedly. Normal sessions remain usable just before 24 hours, including after inactivity/browser reopening; the 24-hour boundary expires them. Sign-out/revocation denies the old session immediately. |
 | AC-002 — Useful exchange (UC-002) | Simple question is direct; an explicit Critic request invokes the separate Critic even for that simple question. Explicit team requests are honored. A substantive question produces separate invocations, a material objection and response/revision. A sound scenario permits reasoned agreement. No single completion can pass as several agents. |
 | AC-003 — Honest outcome (UC-002) | Head's conclusion matches actual agreement or clearly names uncertainty, evidence, risk and no more than three actions. English role names coexist with the established session language. |
 | AC-004 — Interruption (UC-003) | Accepted message survives refresh/offline/server restart; duplicate retry yields one confirmed response. Stop rejects a late result; Continue resumes context; New cannot create a concurrent second run. Measure stated timing/continuation targets. |

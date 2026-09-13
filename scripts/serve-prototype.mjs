@@ -2,7 +2,7 @@ import http from 'node:http';
 import { readFile } from 'node:fs/promises';
 
 const repository = new URL('../', import.meta.url);
-const shared = 'forge/design/candidate-sets/web-bold-20260913/v2/shared/';
+const shared = 'forge/design/candidate-sets/web-hybrid-20260913/v3/shared/';
 const types = { html: 'text/html', css: 'text/css', js: 'text/javascript', json: 'application/json', svg: 'image/svg+xml' };
 const port = Number(process.env.PORT || 4328);
 function assetFor(pathname) {

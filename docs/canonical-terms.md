@@ -18,6 +18,9 @@ Working language: English. Product content: English and Ukrainian; role names an
 | Voice input | Deliberate microphone capture, then editable transcript review before Send. | Always listening, automatic submission |
 | Draft | Content not accepted by the server; prototype drafts exist only in page memory. | Saved conversation or submitted work |
 | Send | Explicitly accept the reviewed draft for consultation; simulated in candidates. | Implying a real provider call in a design sample |
+| New | Start a separate consultation from above the chat or Conversations; not a global menu destination. | Duplicate New navigation item |
+| Review states | Development-only prototype inspection, outside the normal preview and absent from the app. | A production menu or settings control |
+| App session | Owner access lasting 24 hours from sign-in under NFR-10.2, with explicit termination exceptions. | Confusing it with a consultation run or provider grant |
 | Stop / Continue | Interrupt current work / resume preserved context. | Deleting history or restarting silently |
 | Reconnect provider | Contextual recovery for an actual selected-provider grant failure. | A required integration setup panel |
 | Floating navigation | Conventional persistent desktop navigation bar; mobile uses a hamburger button and menu. | Arbitrarily draggable toolbars |

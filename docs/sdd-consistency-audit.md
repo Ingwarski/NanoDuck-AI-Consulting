@@ -1,10 +1,14 @@
 # SDD consistency audit
 
+Current revision: the combined v3 palette candidates and their 12 canonical sources pass the pipeline audit and candidate-stage check. Exact owners, dependency edges, source hashes and the coupled context/terms return remain intact. The [current machine audit receipt](../forge/design/evidence/hybrid-v3-sdd-audit.json) records 12 artifacts, 82 source bindings and preserved historical files. Fresh v3 Safari and responsive evidence is in [verification](verification.md); the earlier Mac-lock blocker below is historical. Design approval remains pending; 82 formal QA checks remain prepared / not_run.
+
+## Earlier v2 audit snapshot
+
 13 September 2026. Review of the corrected design-stage documents; this report records observations and does not own product requirements, architecture or approval.
 
 The 12 canonical pre-design documents pass the installed pipeline audit. Their owners, required-before edges, invocation/output identities and consumed-source hashes match the machine contract. The context and canonical-terms pair remains one invocation with two outputs. All 30 reachable installed skill/reference resources resolve. The pipeline skill repository remains clean and unchanged.
 
-## Corrections
+### Earlier corrections
 
 | Issue | Owning correction |
 |---|---|
@@ -22,7 +26,7 @@ The 12 canonical pre-design documents pass the installed pipeline audit. Their o
 
 Revalidation followed the required-before order. Stable JOB, UC, requirement, state, gate and check IDs were preserved; the 17 security obligations and pinned ASVS assessment were not weakened. Later references did not become creation dependencies. The original v1 candidate files, input snapshots and receipts remain preserved.
 
-## Verification and remaining boundary
+### Earlier verification and boundary
 
 - Canonical `sdd_check.py --audit`: **passed**, no issues or warnings.
 - Before/after owner checks: **passed** after current return metadata and the QA index were integrated.
@@ -32,4 +36,4 @@ Revalidation followed the required-before order. Stable JOB, UC, requirement, st
 - Formal QA: **82 prepared / not_run**. No production security, representative-user or release pass is claimed.
 - `prototype-candidates` after-check: **blocked only by `browser_receipt`**. The Mac is locked, so the required separate visible Safari review of v2 has not occurred. Successful v1 Safari receipts were not relabelled.
 
-Current operational evidence is in [the audit receipt](../forge/design/evidence/sdd-consistency-audit-20260913.json), [verification](verification.md) and [the manifest](../forge/sdd-manifest.json). Unlocking the Mac permits the remaining Safari check. Whole-design approval, post-approval reconciliation, planning and a later explicit implementation prompt remain separate steps. No GoDaddy operation was performed.
+The preserved v2 operational evidence is in [the audit receipt](../forge/design/evidence/sdd-consistency-audit-20260913.json), [verification](verification.md) and [the manifest](../forge/sdd-manifest.json). The Mac was subsequently unlocked; the user requested a new combined revision, and current v3 has its own successful Safari evidence. V2 was superseded without rewriting its blocked receipts. Whole-design approval, post-approval reconciliation, planning and a later explicit implementation prompt remain separate steps. No GoDaddy operation was performed.

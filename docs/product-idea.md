@@ -1,6 +1,6 @@
 # Personal AI Consulting Group
 
-Current product brief · 13 September 2026 · Browser replacement · Revision 3
+Current product brief · 13 September 2026 · Browser replacement · Revision 4
 
 ## Purpose
 
@@ -62,7 +62,7 @@ Use public, minimized queries. Do not send private business details or attachmen
 
 ## Login and preferences
 
-Normal use requires only owner sign-in. Provider grants are provisioned once for the deployment and refreshed automatically where supported. Model discovery and infrastructure diagnostics are operational responsibilities, outside the everyday settings journey.
+Normal use requires only owner sign-in. A normal app session remains valid for 24 hours from successful sign-in, including inactivity and closing/reopening the browser. Explicit sign-out, owner/operator revocation or security invalidation can end it sooner; the 24-hour boundary requires sign-in again. This is an app-access lifetime, distinct from a consultation run or provider grant. Provider grants are provisioned once for the deployment and refreshed automatically where supported. Model discovery and infrastructure diagnostics are operational responsibilities, outside the everyday settings journey.
 
 App login cannot create a ChatGPT/Claude subscription grant. If the selected provider truly requires reauthorization, show one contextual action beside the paused conversation and return to the same work afterward. A quota limit shows known reset information; a transient outage gets retry behavior. Do not ask the owner to reconnect for an unrelated failure or warn about an inactive Claude route.
 
@@ -113,7 +113,7 @@ The existing **Personal AI Consulting Group** app and its own database may be er
 
 ## Design inputs and open evidence
 
-Design materials are supplied: the rejected existing `prototype/`, old Candidate B files, settings UI and the owner’s explicit corrections. They establish what to avoid, not an approved visual baseline. Remove the decorative “Room for a different point of view” slogan and “Your space” label. Replace green editorial styling with three meaningfully different, modern, bold full-product candidates. All need a standard floating desktop navigation bar and a mobile hamburger menu. “Floating” is interpreted as a bar that remains available while scrolling, without arbitrary dragging. No additional design materials are required or assumed. The [initial interactive prototype](../prototype/index.html) is rejected historical material with fictional data. The [current candidate inventory](../README.md#compare-the-three-designs) is a later review reference, not an upstream source of product intent. Current candidates simulate interactions without AI calls, authentication or database writes. Codex is the selected executor. The three new candidates require one whole-design selection/approval under the requested SDD workflow.
+Design materials are supplied: the rejected existing `prototype/`, old Candidate B files, settings UI and the owner’s explicit corrections. They establish what to avoid, not an approved visual baseline. Remove the decorative “Room for a different point of view” slogan and “Your space” label. The initial three different full-product directions have been presented. The latest owner feedback requests a combined direction: black theme; Ember message formatting and Discussion/Outcome/Sources tabs; Cobalt chat/composer geometry; microphone icon without adjacent Voice text; a persistently visible Send button. Show three expressive agent-colour palettes within that shared composition. This iteration is a revision request, not whole-design approval. All need a standard floating desktop navigation bar and a mobile hamburger menu. “Floating” is interpreted as a bar that remains available while scrolling, without arbitrary dragging. Remove New conversation from desktop and hamburger navigation. Keep New in Conversations and add a New action above the chat where Review states previously sat. Review states is a development-only inspection feature and is absent from the app; any prototype inspection controls remain outside the normal app view. No additional design materials are required or assumed. The [initial interactive prototype](../prototype/index.html) is rejected historical material with fictional data. The [current candidate inventory](../README.md#compare-the-three-designs) is a later review reference, not an upstream source of product intent. Current candidates simulate interactions without AI calls, authentication or database writes. Codex is the selected executor. The three new candidates require one whole-design selection/approval under the requested SDD workflow.
 
 Open evidence is limited to the current saved model snapshot, browser audio/transcription compatibility, supported provider reauthorization and GoDaddy runtime/storage/streaming verification for the later implementation. These do not prevent reviewing this brief and the three candidates. The simpler architecture is a later proposal in [architecture.md](architecture.md), not an intake prerequisite or production readiness.
 

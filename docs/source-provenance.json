@@ -3,14 +3,14 @@
   "working_language": "en",
   "recorded_date": "2026-09-13",
   "authority": {
-    "current_intent": "Owner reset request, design-first scope, six design corrections and explicit Codex executor choice on 2026-09-13",
+    "current_intent": "Owner reset request, design-first scope, explicit Codex executor choice, SDD ownership requirements and latest combined Ember/Cobalt palette revision including 24-hour app sessions on 2026-09-13",
     "source_mode": "existing-file",
     "design_approval": "awaiting-whole-design-review",
     "production_implementation": "not-in-scope"
   },
   "current_brief": {
     "path": "docs/product-idea.md",
-    "sha256": "fc34aca4e41a1c27918b7b81e8f03a02a8c0df4c522ec5b0e6a1d95e7c584180"
+    "sha256": "1395a5d9d5372377d26c97ad5302390f287f4094b8bca20ff74e8e6478065a4e"
   },
   "design_traceability": [
     {

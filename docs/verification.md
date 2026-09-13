@@ -1,14 +1,39 @@
 # Verification record
 
-13 September 2026 · SDD reconciliation and A/B/C version history · Design review only
+13 September 2026 · Combined Ember/Cobalt design and agent palettes · Design review only
 
-The active A/B/C v2 copies are frozen in [the SDD manifest](../forge/sdd-manifest.json) against the corrected SDD. Their HTML/CSS/JavaScript bytes and render-tree hashes exactly equal v1. Original v1 receipts remain historical and unchanged. No design has been approved and no production implementation or GoDaddy change has occurred.
+The current A/B/C v3 candidates are Electric, Solar and Prismatic. Each has a black theme, Ember message formatting and Discussion/Outcome/Sources tabs, Cobalt centered chat/composer geometry, an icon-only microphone, contextual New and a visible Send button. The user explicitly requested this combination and palette iteration after the original three distinct designs. No design approval or production implementation is inferred.
 
-## Current v2 revalidation
+## Current v3 observations
 
-All three new URLs rendered in the Codex in-app browser; Settings navigation and preserved Astra/xhigh, Astra/ultra and Balanced selections were checked, with no warning/error console entries. The comparison links and embedded views resolve to v2. The existing v1 visual/interaction and heuristic observations are reused only through recorded exact render equality; the full walkthrough was not repeated or relabelled.
+| Scope | Actual result |
+|---|---|
+| Separate Safari review | Each final v3 URL opened in its own existing Safari design tab. Discussion and Settings screenshots inspected after the Safari select-size correction. The previous Mac-lock blocker no longer applies to the current revision. |
+| Responsive coverage | All 44 state fixtures rendered in each palette at 320px. Discussion and Settings checked at 320, 390, 430, 768, 1280 and 1440px in each palette. All 168 final observations had no horizontal page overflow. |
+| Main controls | Electric mobile menu contains only Discussion, Conversations and Settings; destination selection closes it. Workspace New and Conversations New both open the empty composer. No inspection controls appear on normal pages. |
+| Send and voice | Send has an explicit orange fill and dark text; measured about 102 × 48px on mobile and visibly present in all Safari screenshots. Electric microphone has no visible Voice text, retains its accessible name, and its sample transcript appends to an existing draft and returns focus without sending. Send explicitly adds to the sample only. |
+| Model settings | Original Head Astra/xhigh, Critic Codex Astra/ultra and Balanced defaults observed in all Safari candidates. Electric rejects unsupported GPT-5.5/ultra until a supported strength is explicitly chosen. Saving affects the next sample; the active example remains unchanged. |
+| Safari correction | Native selects initially rendered too small. Explicit appearance and CSS chevrons preserve native selection semantics while enforcing comfortable height. Final Safari Settings screenshots inspected in all candidates; Chromium measured about 47px. |
+| Tabs, consent and recovery | Electric ArrowRight selects/focuses Outcome; Solar Outcome and Sources inspected. Electric consent starts unchecked/entry disabled; explicit checking enables simulated entry. Five failure fixtures preserve the exact typed draft. |
+| Palettes and comparison | Role names/avatar initials preserve identity without colour alone. Agent colours differ; body text stays neutral. Three current iframe routes and swatches inspected, including 320px comparison reflow. |
+| 24-hour session rule | Product intent, PRD, architecture, journey and QA now require a fixed 24-hour session from sign-in, including inactivity and browser reopening. Immediate sign-out/revocation/security exceptions remain. The Settings copy describes the intention; no real session or elapsed-time test exists. |
+| Console | No warnings or errors in the final in-app-browser walkthrough. |
 
-The separate Safari review required by the selected external-default review surface is **blocked because the Mac is locked**. The v2 browser receipts record that blocker, not a successful open. Whole-design review readiness remains blocked until the Mac is unlocked and those exact URLs are visibly checked. See the [consistency audit](sdd-consistency-audit.md).
+Functional regression interactions were concentrated on Electric's shared behavior. All three received independent state rendering, responsive and Safari visual checks. English/Ukrainian discussion fixtures are available; Electric's Ukrainian rendering was inspected in this revision. This is not full interface localization or a representative-user session.
+
+| Candidate | Safari receipt | Visual/interaction evidence |
+|---|---|---|
+| A — Electric v3 | [Browser](../forge/design/evidence/a-v3-browser.json) | [Visual QA](../forge/design/evidence/a-v3-visual-qa.json) |
+| B — Solar v3 | [Browser](../forge/design/evidence/b-v3-browser.json) | [Visual QA](../forge/design/evidence/b-v3-visual-qa.json) |
+| C — Prismatic v3 | [Browser](../forge/design/evidence/c-v3-browser.json) | [Visual QA](../forge/design/evidence/c-v3-visual-qa.json) |
+
+The current [H1–H10 review](../forge/design/evidence/hybrid-v3-heuristic-review.json) is an explicit rule-based review, separate from browser and visual evidence. It records the closed Safari finding and the deferred representative-user validation. Final candidate tree, target, source and receipt hashes are frozen in [the manifest](../forge/sdd-manifest.json).
+
+The canonical SDD audit and candidate-stage checks pass. All 12 pre-design artifacts retain their required owners, dependency edges and exact consumed-source bindings. The coupled context/terms invocation remains intact. The 82 formal QA definitions remain **prepared / not_run**; this prototype walkthrough does not claim production security, accessibility conformance, performance or release acceptance.
+
+## Historical v2 reconciliation
+
+V2 was an exact rendering copy of v1 bound to corrected SDD inputs. Its in-app checks passed, but its required Safari check was blocked while the Mac was locked. Those receipts and frozen files remain unchanged historical evidence. V3 supersedes v2 through new files and fresh observations; it does not rewrite the blocked v2 results.
 
 ## Historical v1 browser observations
 
@@ -41,7 +66,7 @@ The [H1–H10 rule-based review](../forge/design/evidence/heuristic-review.json)
 
 `npm run check` checks JavaScript syntax, local Markdown links, public path hygiene and static HTML references. The localhost server serves only named preview assets, rejects unrelated repository paths/POST requests, blocks outbound connections through CSP and denies microphone/camera/geolocation through Permissions Policy. These are prototype-serving observations, not a production security audit.
 
-For v1, the SDD checker passed after all pre-design documents and after `prototype-candidates`. The current canonical document audit also passes; the v2 candidate-stage check remains blocked by the missing successful Safari receipts. Its guarantee is source/metadata/stage integrity, not semantic correctness or production readiness. The 82 formal QA definitions remain prepared; this browser review does not mark the complete implementation/release suite as passed.
+For v1, the SDD checker passed after all pre-design documents and after `prototype-candidates`. The historical v2 candidate-stage check stopped at missing Safari receipts. Current v3 checks are recorded above. The checker guarantees declared source/metadata/stage integrity, not semantic correctness or production readiness.
 
 ## Limits and next boundary
 
