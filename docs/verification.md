@@ -2,7 +2,21 @@
 
 13 September 2026 · NanoDuck Electric brand refinement · Design review only
 
-## Current NanoDuck Electric v5 revision
+## Current corrected-logo v7 revision
+
+The owner rejected v6 for extra circles and inaccurate line rounding. V7 was redrawn after inspecting a 10× enlargement of the supplied JPEG: three invented nodes removed, square neck/tip and crown/bill corners restored, lower body changed to a semicircular contour. Five dark endpoint nodes and four coloured nodes remain. Dark-interface and original charcoal-outline exports share geometry. The source is only 100px; no exact original vector master is claimed.
+
+Actual v7 evidence: 54 responsive observations across sign-in, Discussion and Settings at six widths for A/B/C, with no page overflow or missing logos. All three exact v7 pages were verified in existing Safari tabs and screenshots inspected. Electric mobile sign-in and the standalone original-outline SVG were inspected. App.js and styles.css are byte-identical to v6. [Current Electric evidence](../forge/design/evidence/a-v7-visual-qa.json) and [scoped logo review](../forge/design/evidence/nanoduck-v7-logo-review.json) record the limits. The full interaction suite and 82 formal checks remain unrun; no whole-design approval is inferred.
+
+## Historical supplied-logo v6 revision — rejected
+
+The owner supplied the actual logo after v5. A manual SVG reconstruction preserves its thin duck outline, round nodes and yellow-to-red head/bill accents. The dark interface uses light linework; a separate original charcoal-outline SVG is supplied for light surfaces. This is reconstructed from a 100px JPEG, not a recovered vector master. NanoDuck naming, warm Head yellow and all other app colours remain unchanged.
+
+Actual observations: 54 sign-in/Discussion/Settings reflow checks across three candidates at 320/390/430/768/1280/1440px; no page overflow or failed logo loads. Exact v6 pages opened in existing Safari tabs and navigation/favicon screenshots inspected. Electric mobile sign-in and the standalone original-outline SVG were also inspected. App.js and styles.css are byte-identical to v5; only the logo assets and HTML version labels change. No full state/interaction suite or formal QA run is claimed.
+
+[Electric evidence](../forge/design/evidence/a-v6-visual-qa.json), [Solar reference](../forge/design/evidence/b-v6-visual-qa.json), [Prismatic reference](../forge/design/evidence/c-v6-visual-qa.json) and [scoped logo review](../forge/design/evidence/nanoduck-v6-logo-review.json) preserve the evidence limits. Design brief and affected downstream owner checks pass. Earlier candidates/receipts remain immutable; 82 formal checks remain prepared / not_run, with whole-design approval still pending.
+
+## Historical NanoDuck Electric v5 revision
 
 The owner requested **NanoDuck Consulting Group**, an SVG logo, then a slightly warmer Head Consultant yellow. The original local duck mark appears in floating navigation, sign-in and the favicon; full naming remains visible on mobile. Electric Head yellow is `#ffd45a`, shared by the beak. Existing HappyPro blue, raspberry Critic and other agent colours remain.
 

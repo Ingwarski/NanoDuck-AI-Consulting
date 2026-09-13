@@ -1,6 +1,6 @@
 # SDD consistency audit
 
-Current revision: NanoDuck Electric v5 records the owner-requested name, SVG logo and warmer Head yellow. Product-idea/PRD identity and the coupled context/terms bundle were reconciled; downstream owners revalidated in dependency order. No behavior or security obligation changed. The [current audit receipt](../forge/design/evidence/nanoduck-v5-sdd-audit.json) records checks and immutable history. [Verification](verification.md) separates current branding observations from prior runs. Whole-design approval remains pending; all 82 formal checks remain prepared / not_run.
+Current revision: corrected supplied-logo v7. The owner rejected the first reconstruction for extra nodes and inaccurate rounding. Design-brief owns the corrected source geometry; architecture, DoD and QA revalidated unchanged behavior/security obligations. The [current audit receipt](../forge/design/evidence/nanoduck-v7-sdd-audit.json) records checks and history integrity. Whole-design approval remains pending; 82 formal checks remain prepared / not_run.
 
 The prior Electric v4 audit remains preserved in [its own receipt](../forge/design/evidence/electric-v4-sdd-audit.json).
 
