@@ -53,6 +53,7 @@ test("development cookies remain usable on localhost while production uses host-
   const localSession = await development.developmentSignIn();
   assert.match(development.sessionCookie(localSession), /^nanoduck-session=/u);
   assert.doesNotMatch(development.sessionCookie(localSession), /; Secure/u);
+  assert.match(development.sessionCookie(localSession), /Max-Age=86400/u);
 
   const production = createAuth({ config: loadConfig({ NODE_ENV: "production", APP_ORIGIN: "https://consulting.example.com", DATABASE_URL: "mysql://user:password@host/database", DATA_ENCRYPTION_KEY: Buffer.alloc(32, 2).toString("base64url"), SESSION_SIGNING_KEY: Buffer.alloc(32, 3).toString("base64url"), OWNER_GOOGLE_SUBJECT: "owner-subject", GOOGLE_CLIENT_ID: "client", GOOGLE_CLIENT_SECRET: "secret", CODEX_APP_SERVER_AUTH_PATH: "/run/secrets/codex-auth.json" }), store: createMemoryStore() });
   const productionSession = await production.developmentSignIn();

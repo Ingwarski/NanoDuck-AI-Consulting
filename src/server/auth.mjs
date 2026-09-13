@@ -4,8 +4,6 @@ import { randomId, secureEqual, sign } from "./crypto.mjs";
 
 const SESSION_COOKIE = "__Host-nanoduck-session";
 const FLOW_COOKIE = "__Host-nanoduck-oauth";
-const ONE_DAY_MS = 86_400_000;
-
 const encode = value => Buffer.from(JSON.stringify(value)).toString("base64url");
 const decode = value => {
   try { return JSON.parse(Buffer.from(value, "base64url").toString("utf8")); } catch { return undefined; }
@@ -33,7 +31,7 @@ export function createAuth({ config, store }) {
     if (!session || session.revokedAt || Date.parse(session.expiresAt) <= Date.now()) return undefined;
     return session;
   };
-  const sessionCookie = session => cookie(sessionCookieName, signValue(session.id), Math.max(0, Math.floor((Date.parse(session.expiresAt) - Date.now()) / 1000)), secure);
+  const sessionCookie = session => cookie(sessionCookieName, signValue(session.id), Math.max(0, Math.ceil((Date.parse(session.expiresAt) - Date.now()) / 1000)), secure);
   const createSession = async ownerSubject => {
     const issuedAt = new Date().toISOString();
     const session = { id: randomId(), ownerSubject, csrfToken: randomId(), consentedAt: null, issuedAt, expiresAt: new Date(Date.now() + config.sessionLifetimeSeconds * 1000).toISOString() };
