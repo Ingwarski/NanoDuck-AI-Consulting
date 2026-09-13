@@ -2,7 +2,13 @@
 
 13 September 2026 · NanoDuck Electric brand refinement · Design review only
 
-## Current corrected-logo v7 revision
+## Current uniform-node logo v8 revision
+
+The owner requires equal node radii and no contact between the yellow and orange crown segments. All nine nodes now use radius 2.5 SVG units. Upper nodes are centred at x=56.5 and x=64.5 on the same y=23.5, leaving a 3-unit edge gap. Separate yellow and orange paths contain no bridge. Both dark-interface and original-outline SVGs share the corrected geometry.
+
+Static XML assertions verified all six SVG exports have exactly nine equal-radius nodes. The standalone original-outline SVG was visually inspected. Actual browser evidence covers 27 sign-in/Discussion/Settings observations across A/B/C at measured CSS widths 320, 768 and 1280; no overflow or missing logos. Browser zoom was compensated and layout settled before measuring; initial calibration readings are not pass evidence. Exact v8 pages were shown and inspected in existing Safari tabs. App.js and styles.css remain byte-identical to v7. [Current Electric evidence](../forge/design/evidence/a-v8-visual-qa.json) and [scoped logo review](../forge/design/evidence/nanoduck-v8-logo-review.json) record the limited delta review. All 82 formal checks remain prepared / not_run; whole-design approval remains pending.
+
+## Historical corrected-logo v7 revision
 
 The owner rejected v6 for extra circles and inaccurate line rounding. V7 was redrawn after inspecting a 10× enlargement of the supplied JPEG: three invented nodes removed, square neck/tip and crown/bill corners restored, lower body changed to a semicircular contour. Five dark endpoint nodes and four coloured nodes remain. Dark-interface and original charcoal-outline exports share geometry. The source is only 100px; no exact original vector master is claimed.
 

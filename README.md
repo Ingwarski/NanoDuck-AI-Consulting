@@ -25,11 +25,11 @@ Requires Node.js 22 or newer. No dependencies or installation step.
 npm start
 ```
 
-The localhost root opens [NanoDuck Electric v7](http://127.0.0.1:4328/a/v7/) directly. The owner selected Electric and requested colours from [HappyPro Academy](https://happypro.academy/): its blue and large-heading gradient, with warmer yellow Head Consultant, raspberry Critic, violet Product and turquoise Operations. The black Ember/Cobalt composition and behavior stay the same.
+The localhost root opens [NanoDuck Electric v8](http://127.0.0.1:4328/a/v8/) directly. The owner selected Electric and requested colours from [HappyPro Academy](https://happypro.academy/): its blue and large-heading gradient, with warmer yellow Head Consultant, raspberry Critic, violet Product and turquoise Operations. The black Ember/Cobalt composition and behavior stay the same.
 
-[Download the SVG logo](forge/design/candidates/a/v7/nanoduck.svg). The dark-interface mark appears in navigation, sign-in and the favicon. [Original charcoal-outline SVG](forge/design/candidates/a/v7/nanoduck-original.svg) is also included.
+[Download the SVG logo](forge/design/candidates/a/v8/nanoduck.svg). The dark-interface mark appears in navigation, sign-in and the favicon. [Original charcoal-outline SVG](forge/design/candidates/a/v8/nanoduck-original.svg) is also included.
 
-[The review page](http://127.0.0.1:4328/comparison/) shows the selected palette and retains links to the unchosen Solar/Prismatic references. Earlier v1–v6 files and receipts remain unchanged. This revision corrects extra nodes and line rounding in the supplied-logo reconstruction; the revised whole-design baseline is still proposed. See [current verification](docs/verification.md).
+[The review page](http://127.0.0.1:4328/comparison/) shows the selected palette and retains links to the unchosen Solar/Prismatic references. Earlier v1–v7 files and receipts remain unchanged. This revision makes all nine node radii equal and separates the upper coloured segments by a clear gap; the revised whole-design baseline is still proposed. See [current verification](docs/verification.md).
 
 All three include a floating desktop menu, mobile hamburger, literal Settings, model and reasoning selectors, icon-only microphone, editable simulated voice transcript and a visible Send button. New sits above the workspace and remains available in Conversations; it is absent from global menus. Development inspection is hidden on normal pages; append `?inspect=1` to expose the 44 state fixtures. English and Ukrainian discussion fixtures are included.
 
