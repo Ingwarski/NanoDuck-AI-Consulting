@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "evidence_id": "u03-local-browser-20260914",
+  "kind": "visual",
+  "observed_at": "2026-09-14T01:04:00+03:00",
+  "executor": "authorized implementation operator",
+  "environment": "local Node development server, memory store, no provider credential",
+  "route": "http://127.0.0.1:3000/",
+  "viewport": {
+    "css_width": 1024,
+    "css_height": 768
+  },
+  "observed_states": [
+    "private sign-in shows the black Electric composition, floating desktop navigation, blue heading and supplied NanoDuck mark",
+    "local development sign-in reaches the consent surface and then a blank real discussion",
+    "the discussion surface exposes Ember-style Discussion, Outcome and Sources tabs, a visible Send button and an icon-only microphone control",
+    "Settings exposes preserved gpt-6-astra model and xhigh/ultra reasoning selectors, plus Balanced pace and the absolute session expiry",
+    "Conversations shows the persisted local consultation with Export and Delete controls"
+  ],
+  "finding": "No visual blocker observed in the checked desktop surfaces. Responsive, assistive-technology and representative-user evidence remains pending U-08."
+}

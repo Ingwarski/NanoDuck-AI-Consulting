@@ -5775,13 +5775,13 @@
     "development-plan": {
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "development-plan-implementation-evidence-phases-20260913T214330603042",
+      "owner_invocation_id": "development-plan-phase3-revalidated-20260914T010700",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "development-plan-implementation-evidence-phases-20260913T214330603042",
+      "source_version": "development-plan-phase3-revalidated-20260914T010700",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -5818,7 +5818,7 @@
         "docs/qa-checklist.md": "5dbe19653186beb8a808919831f3948bf9b7d65eba6adcb57a79ab3e71494aeb",
         "docs/model-settings.md": "60bffb62f530b42e1a7bd516661b4619517efd95db1317bcc673c978e89141c4",
         "docs/deployment-boundary.md": "3fa6f6f453db9640138be064961610bce4426253731062b51d6b29f350d97ff5",
-        "package.json": "c116a0f0bab51a6ac61ba884ad8aee1bfe5ffdd5699e3cdfb362dddb65126f16",
+        "package.json": "8c3af464dc7e73b59d11fed91e36cf2afae622961e62235f52c9085d9da1a537",
         "scripts/serve-prototype.mjs": "f1232082074d76e12713267d3bc10bd546a69f4a9a8836b5a073887f9c374b4d",
         "forge/design/candidates/a/v8/index.html": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
         "forge/design/candidates/a/v8/styles.css": "f8fd6e8832671b05dc8b7a2a034ee41fb2aad4f085468965feaf1c34a3b57d43",
@@ -5844,8 +5844,8 @@
         "result": "passed",
         "working_language": "en",
         "kind": "implementation-evidence-phase-reconciliation",
-        "reviewed_at": "2026-09-13T21:43:30.672652+00:00",
-        "executor": "Codex inline to-development-plan"
+        "reviewed_at": "2026-09-14T01:07:00+03:00",
+        "executor": "Codex inline to-development-plan phase-3 source revalidation"
       },
       "supersedes": "development-plan-approval-20260913T214002747781",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
@@ -7893,7 +7893,7 @@
       "consumed_source_fragments": {}
     },
     "development-plan": {
-      "invocation_id": "development-plan-implementation-evidence-phases-20260913T214330603042",
+      "invocation_id": "development-plan-phase3-revalidated-20260914T010700",
       "outputs": [
         "docs/development-plan.md"
       ],
@@ -7911,7 +7911,7 @@
         "docs/qa-checklist.md": "5dbe19653186beb8a808919831f3948bf9b7d65eba6adcb57a79ab3e71494aeb",
         "docs/model-settings.md": "60bffb62f530b42e1a7bd516661b4619517efd95db1317bcc673c978e89141c4",
         "docs/deployment-boundary.md": "3fa6f6f453db9640138be064961610bce4426253731062b51d6b29f350d97ff5",
-        "package.json": "c116a0f0bab51a6ac61ba884ad8aee1bfe5ffdd5699e3cdfb362dddb65126f16",
+        "package.json": "8c3af464dc7e73b59d11fed91e36cf2afae622961e62235f52c9085d9da1a537",
         "scripts/serve-prototype.mjs": "f1232082074d76e12713267d3bc10bd546a69f4a9a8836b5a073887f9c374b4d",
         "forge/design/candidates/a/v8/index.html": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
         "forge/design/candidates/a/v8/styles.css": "f8fd6e8832671b05dc8b7a2a034ee41fb2aad4f085468965feaf1c34a3b57d43",
@@ -97376,6 +97376,8 @@
   },
   "current_consistency_audit": "forge/design/evidence/electric-v8-approved-plan-audit-20260914.json",
   "active_baseline": {
+    "candidate_id": "a",
+    "version": "v8",
     "prototype_source_root": "forge/design/candidates/a/v8",
     "prototype_tree_hash": "1de020dcfe48f3feb80db0e58ba911b821825b48730d32c72d9518ad512eb0d9",
     "hash_algorithm": "sdd-tree-sha256-v1",
@@ -97391,5 +97393,43 @@
       "path": "forge/design/evidence/electric-v8-approval-20260914.json",
       "content_hash": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2"
     }
-  }
+  },
+  "prototype_promotions": [
+    {
+      "unit_id": "U-03",
+      "started_at": "2026-09-14T00:45:49+03:00",
+      "base_commit": "f99744d603b4e27cb7e89eccde2f12b9652e8a01",
+      "path_mappings": [
+        {
+          "source": "forge/design/candidates/a/v8/index.html",
+          "destination": "public/index.html",
+          "strategy": "adapt"
+        },
+        {
+          "source": "forge/design/candidates/a/v8/styles.css",
+          "destination": "public/styles.css",
+          "strategy": "adapt"
+        },
+        {
+          "source": "forge/design/candidates/a/v8/app.js",
+          "destination": "src/client/app.js",
+          "strategy": "reimplement"
+        },
+        {
+          "source": "forge/design/candidates/a/v8/nanoduck.svg",
+          "destination": "public/nanoduck.svg",
+          "strategy": "copy"
+        },
+        {
+          "source": "forge/design/candidates/a/v8/nanoduck-original.svg",
+          "destination": "public/nanoduck-original.svg",
+          "strategy": "copy"
+        }
+      ],
+      "receipt": {
+        "path": "forge/runs/U-03/phase3-local-browser-20260914/prototype-promotion.json",
+        "content_hash": "97d671b06a497a9b1b60a34467db9bd476a982cbaf3921537357f2266b28d898"
+      }
+    }
+  ]
 }
