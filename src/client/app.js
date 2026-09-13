@@ -28,7 +28,6 @@ function nav(page) {
   $("#mobile-nav").hidden = true; $("#menu").setAttribute("aria-expanded", "false");
   if (page === "conversations") void loadConversations();
   if (page === "settings") void loadSettings();
-  if (page === "discussion" && !state.conversation) void newConversation();
 }
 
 function showAuthenticated() { $("#sign-in").hidden = true; $("#consent").hidden = true; $("#app").hidden = false; nav("discussion"); }
@@ -81,7 +80,7 @@ async function loadConversations() {
 
 async function loadSettings() { const { data } = await request("/api/settings"); const settings = data.settings; $("#head-model").value = settings.headModel; $("#head-reasoning").value = settings.headReasoning; $("#critic-model").value = settings.criticModel; $("#critic-reasoning").value = settings.criticReasoning; $("#speed").value = settings.speed; $("#settings-status").textContent = data.provider === "configured" ? "Selected Codex route is configured for this runtime." : "Selected Codex route is unavailable on this runtime; saved preferences are preserved."; $("#session-expiry").textContent = `This session expires ${new Intl.DateTimeFormat(undefined, { dateStyle: "medium", timeStyle: "short" }).format(new Date(state.session.expiresAt))}. Activity does not extend the 24-hour boundary.`; }
 
-async function acceptMessage(event) { event.preventDefault(); const body = $("#message").value.trim(); if (!body || !state.conversation) return; try { const { data } = await request(`/api/conversations/${state.conversation.id}/messages`, { method: "POST", body: { body, clientRequestId: id() } }); $("#message").value = ""; if (state.conversation.title === "New consultation") state.conversation.title = body.slice(0, 72); state.events.push(data.message); state.run = data.run; renderEvents(); startPolling(); } catch (error) { toast(error.data?.error === "active_or_missing_conversation" ? "Wait for the current consultation or stop it first." : "Your message was not accepted."); } }
+async function acceptMessage(event) { event.preventDefault(); const body = $("#message").value.trim(); if (!body) return; if (!state.conversation) await newConversation(); if (!state.conversation) return; try { const { data } = await request(`/api/conversations/${state.conversation.id}/messages`, { method: "POST", body: { body, clientRequestId: id() } }); $("#message").value = ""; if (state.conversation.title === "New consultation") state.conversation.title = body.slice(0, 72); state.events.push(data.message); state.run = data.run; renderEvents(); startPolling(); } catch (error) { toast(error.data?.error === "active_or_missing_conversation" ? "Wait for the current consultation or stop it first." : "Your message was not accepted."); } }
 
 async function stop() { if (!state.conversation) return; const { data } = await request(`/api/conversations/${state.conversation.id}/stop`, { method: "POST" }); state.run = data.run; renderEvents(); }
 async function continueRun() { if (!state.conversation) return; const { data } = await request(`/api/conversations/${state.conversation.id}/continue`, { method: "POST" }); state.run = data.run; renderEvents(); startPolling(); }
