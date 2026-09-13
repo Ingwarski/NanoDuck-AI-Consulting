@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "run_id": "phase3-local-preflight-20260914",
+  "unit_id": "U-01",
+  "observed_at": "2026-09-14T01:12:00+03:00",
+  "execution_revision": "f5850fdcd41ba2dadc74d01f9e65cfd98d5345d1",
+  "executor": "authorized implementation operator",
+  "scope": "local workstation preflight only; no provider invocation, database connection, deployment, migration or GoDaddy operation",
+  "capabilities": [
+    {
+      "name": "controlled Codex app-server executable",
+      "status": "blocked",
+      "observation": "The configured controlled PATH did not resolve a codex executable. No subscription call was attempted."
+    },
+    {
+      "name": "provider authentication bootstrap",
+      "status": "blocked",
+      "observation": "CODEX_APP_SERVER_AUTH_PATH was not supplied to the local run, so the application truthfully exposes provider-unavailable rather than using an implicit account or fallback."
+    },
+    {
+      "name": "browser microphone capture",
+      "status": "partially_observed",
+      "observation": "The verified local UI exposes an explicit icon-only voice action and preserves typing on unavailable transcription. Supported MIME and the subscription transcription adapter remain unverified."
+    },
+    {
+      "name": "target MySQL and GoDaddy lifecycle",
+      "status": "not_run",
+      "observation": "No target runtime, database identity, exclusive-ownership inventory, environment configuration or deployment authorization was supplied; no connection was attempted."
+    }
+  ],
+  "result": "blocked",
+  "next_evidence": [
+    "Provide the target app's controlled Codex executable/auth bootstrap and run a content-free subscription plus restricted-research preflight.",
+    "Verify supported browser audio MIME against the existing subscription transcription adapter before enabling server transcription.",
+    "Inventory only the named GoDaddy consulting app and its exclusively owned database before any migration or reset."
+  ]
+}
