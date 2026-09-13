@@ -88,8 +88,8 @@ export function createMemoryStore() {
   });
 }
 
-export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath = undefined) {
-  const { createPool } = await import("mysql2/promise");
+export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath = undefined, driver = undefined) {
+  const { createPool } = driver ?? await import("mysql2/promise");
   const pool = databaseSslCaPath
     ? createPool({ uri: databaseUrl, ssl: { ca: await readFile(databaseSslCaPath, "utf8"), rejectUnauthorized: true } })
     : createPool(databaseUrl);
@@ -129,12 +129,37 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
       } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
     },
     async run(id) { const [rows] = await query("SELECT id,conversation_id,status,generation,snapshot_json,created_at,updated_at FROM nanoduck_runs WHERE conversation_id=? ORDER BY created_at DESC LIMIT 1", [id]); return rows.length ? { id: rows[0].id, conversationId: rows[0].conversation_id, status: rows[0].status, generation: rows[0].generation, snapshot: JSON.parse(rows[0].snapshot_json), createdAt: rows[0].created_at, updatedAt: rows[0].updated_at } : undefined; },
-    async appendAgentMessage(id, generation, item) { const run = await this.run(id); if (!run || run.status !== "active" || run.generation !== generation) return undefined; const events = await this.events(id); const encrypted = encryptText(item.body, dataKey); const message = { id: randomId(), role: item.role, recipient: item.recipient, body: item.body, sources: item.sources ?? [], sequence: events.length + 1, createdAt: now() }; const [result] = await query("INSERT INTO nanoduck_messages (id,conversation_id,role,recipient,ciphertext,iv,tag,sequence,created_at,sources_json) SELECT ?,?,?,?,?,?,?,?,?,? WHERE EXISTS (SELECT 1 FROM nanoduck_runs WHERE id=? AND status='active' AND generation=?)", [message.id,id,message.role,message.recipient ?? null,encrypted.ciphertext,encrypted.iv,encrypted.tag,message.sequence,message.createdAt,JSON.stringify(message.sources),run.id,generation]); return result.affectedRows ? publicMessage(message) : undefined; },
+    async appendAgentMessage(id, generation, item) {
+      const connection = await pool.getConnection();
+      try {
+        await connection.beginTransaction();
+        const [conversationRows] = await connection.execute("SELECT id FROM nanoduck_conversations WHERE id=? AND deleted_at IS NULL FOR UPDATE", [id]);
+        if (!conversationRows.length) { await connection.rollback(); return undefined; }
+        const [runRows] = await connection.execute("SELECT id,status,generation FROM nanoduck_runs WHERE conversation_id=? ORDER BY created_at DESC LIMIT 1 FOR UPDATE", [id]);
+        const run = runRows[0];
+        if (!run || run.status !== "active" || Number(run.generation) !== generation) { await connection.rollback(); return undefined; }
+        const [sequenceRows] = await connection.execute("SELECT COALESCE(MAX(sequence), 0) AS max_sequence FROM nanoduck_messages WHERE conversation_id=? FOR UPDATE", [id]);
+        const encrypted = encryptText(item.body, dataKey); const message = { id: randomId(), role: item.role, recipient: item.recipient, body: item.body, sources: item.sources ?? [], sequence: Number(sequenceRows[0].max_sequence) + 1, createdAt: now() };
+        await connection.execute("INSERT INTO nanoduck_messages (id,conversation_id,role,recipient,ciphertext,iv,tag,sequence,created_at,sources_json) VALUES (?,?,?,?,?,?,?,?,?,?)", [message.id,id,message.role,message.recipient ?? null,encrypted.ciphertext,encrypted.iv,encrypted.tag,message.sequence,message.createdAt,JSON.stringify(message.sources)]);
+        await connection.execute("UPDATE nanoduck_conversations SET updated_at=? WHERE id=? AND deleted_at IS NULL", [message.createdAt,id]);
+        await connection.execute("UPDATE nanoduck_runs SET updated_at=? WHERE id=? AND status='active' AND generation=?", [message.createdAt,run.id,generation]);
+        await connection.commit(); return publicMessage(message);
+      } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
+    },
     async finishRun(id, generation, status) { const [result] = await query("UPDATE nanoduck_runs SET status=?, updated_at=? WHERE conversation_id=? AND generation=? AND status='active'", [status, now(), id, generation]); return result.affectedRows === 1; },
     async stop(id) { const run = await this.run(id); if (!run || run.status !== "active") return undefined; const [result] = await query("UPDATE nanoduck_runs SET generation=generation+1,status='stopped',updated_at=? WHERE id=? AND generation=? AND status='active'", [now(),run.id,run.generation]); return result.affectedRows ? { ...run, generation: run.generation + 1, status: "stopped" } : undefined; },
     async continueRun(id) { const run = await this.run(id); if (!run || run.status !== "stopped") return undefined; const [result] = await query("UPDATE nanoduck_runs SET generation=generation+1,status='active',updated_at=? WHERE id=? AND generation=? AND status='stopped'", [now(),run.id,run.generation]); return result.affectedRows ? { ...run, generation: run.generation + 1, status: "active" } : undefined; },
     async exportConversation(id) { const conversation = await this.getConversation(id); return conversation ? { conversation, messages: await this.events(id) } : undefined; },
-    async deleteConversation(id) { const [result] = await query("UPDATE nanoduck_conversations SET deleted_at=?, updated_at=? WHERE id=? AND deleted_at IS NULL", [now(), now(), id]); if (result.affectedRows) await query("UPDATE nanoduck_runs SET generation=generation+1,status='deleted',updated_at=? WHERE conversation_id=? AND status IN ('active','stopped')", [now(),id]); return result.affectedRows === 1; },
+    async deleteConversation(id) {
+      const connection = await pool.getConnection(); const deletedAt = now();
+      try {
+        await connection.beginTransaction();
+        const [result] = await connection.execute("UPDATE nanoduck_conversations SET deleted_at=?, updated_at=? WHERE id=? AND deleted_at IS NULL", [deletedAt, deletedAt, id]);
+        if (result.affectedRows !== 1) { await connection.rollback(); return false; }
+        await connection.execute("UPDATE nanoduck_runs SET generation=generation+1,status='deleted',updated_at=? WHERE conversation_id=? AND status IN ('active','stopped')", [deletedAt,id]);
+        await connection.commit(); return true;
+      } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
+    },
     async close() { await pool.end(); }
   });
 }

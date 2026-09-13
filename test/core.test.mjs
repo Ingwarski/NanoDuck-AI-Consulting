@@ -3,7 +3,7 @@ import test from "node:test";
 import { decryptText, encryptText } from "../src/server/crypto.mjs";
 import { createAuth } from "../src/server/auth.mjs";
 import { loadConfig } from "../src/server/config.mjs";
-import { createMemoryStore, defaultSettings } from "../src/server/store.mjs";
+import { createMemoryStore, createMySqlStore, defaultSettings } from "../src/server/store.mjs";
 import { parseMessage, parseSettings, safeExternalUrl } from "../src/server/validation.mjs";
 
 const key = Buffer.alloc(32, 7);
@@ -30,6 +30,39 @@ test("accepted owner messages are idempotent and a stopped run fences later agen
   assert.equal(stopped.status, "stopped");
   assert.equal(await store.appendAgentMessage(conversation.id, first.run.generation, { role: "Critic", body: "Late output." }), undefined);
   assert.equal((await store.events(conversation.id)).length, 2);
+});
+
+test("MySQL agent writes and deletion serialize through the conversation lock", async () => {
+  const commands = []; let transactions = 0; let commits = 0; let releases = 0;
+  const connection = {
+    async beginTransaction() { transactions += 1; commands.push("BEGIN"); },
+    async commit() { commits += 1; commands.push("COMMIT"); },
+    async rollback() { commands.push("ROLLBACK"); },
+    release() { releases += 1; },
+    async execute(statement) {
+      commands.push(statement);
+      if (statement.startsWith("SELECT id FROM nanoduck_conversations")) return [[{ id: "conversation-id" }]];
+      if (statement.startsWith("SELECT id,status,generation FROM nanoduck_runs")) return [[{ id: "run-id", status: "active", generation: 3 }]];
+      if (statement.startsWith("SELECT COALESCE(MAX(sequence)")) return [[{ max_sequence: 4 }]];
+      if (statement.startsWith("INSERT INTO nanoduck_messages")) return [{ affectedRows: 1 }];
+      if (statement.startsWith("UPDATE nanoduck_conversations SET updated_at")) return [{ affectedRows: 1 }];
+      if (statement.startsWith("UPDATE nanoduck_runs SET updated_at")) return [{ affectedRows: 1 }];
+      if (statement.startsWith("UPDATE nanoduck_conversations SET deleted_at")) return [{ affectedRows: 1 }];
+      if (statement.startsWith("UPDATE nanoduck_runs SET generation")) return [{ affectedRows: 1 }];
+      throw new Error(`Unexpected statement: ${statement}`);
+    }
+  };
+  const store = await createMySqlStore("mysql://unused", key, undefined, { createPool: () => ({ getConnection: async () => connection, end: async () => {} }) });
+  const message = await store.appendAgentMessage("conversation-id", 3, { role: "Critic", body: "One material risk.", sources: [] });
+  assert.equal(message.sequence, 5);
+  assert.equal(await store.deleteConversation("conversation-id"), true);
+  assert.equal(transactions, 2);
+  assert.equal(commits, 2);
+  assert.equal(releases, 2);
+  assert.ok(commands.some(command => command.includes("nanoduck_conversations WHERE id=? AND deleted_at IS NULL FOR UPDATE")));
+  assert.ok(commands.some(command => command.includes("nanoduck_messages WHERE conversation_id=? FOR UPDATE")));
+  const deleteIndex = commands.findIndex(command => command.startsWith("UPDATE nanoduck_conversations SET deleted_at"));
+  assert.match(commands[deleteIndex + 1], /^UPDATE nanoduck_runs SET generation/u);
 });
 
 test("settings and message validation reject unsupported model values and malformed ids", () => {
