@@ -2,9 +2,9 @@
   "schema_version": 1,
   "evidence_id": "u03-local-browser-20260914",
   "kind": "visual",
-  "observed_at": "2026-09-14T01:04:00+03:00",
+  "observed_at": "2026-09-14T01:52:45+03:00",
   "executor": "authorized implementation operator",
-  "environment": "local Node development server, memory store, no provider credential",
+  "environment": "local Node development server, memory store and isolated fixture app-server; no live provider credential or GoDaddy target",
   "route": "http://127.0.0.1:3000/",
   "viewport": {
     "css_width": 1024,
@@ -16,7 +16,9 @@
     "the discussion surface exposes Ember-style Discussion, Outcome and Sources tabs, a visible Send button and an icon-only microphone control",
     "Settings exposes preserved gpt-6-astra model and xhigh/ultra reasoning selectors, plus Balanced pace and the absolute session expiry",
     "Conversations shows the persisted local consultation with Export and Delete controls",
-    "A browser reload retained the signed local session and returned to an unsaved New consultation without creating an empty record"
+    "A browser reload retained the signed local session and returned to an unsaved New consultation without creating an empty record",
+    "An isolated fixture consultation visibly completed Head Consultant → Strategy Consultant → Critic → Strategy Consultant revision → Head Consultant with natural role messages and no visible metadata marker",
+    "Sources showed one deduplicated direct link with its supported claim, retrieval date and publication date"
   ],
-  "finding": "No visual blocker observed in the checked desktop surfaces. Responsive, assistive-technology and representative-user evidence remains pending U-08."
+  "finding": "No visual blocker observed in the checked desktop surfaces. This fixture observation does not establish live provider research. Responsive, assistive-technology and representative-user evidence remains pending U-08."
 }
