@@ -1,0 +1,126 @@
+{
+  "observed_at": "2026-09-13T20:14:34.036797+00:00",
+  "scope": "Electric v4 styling revision and affected SDD owners",
+  "result": "passed",
+  "canonical_artifacts": 12,
+  "consumed_source_bindings": 92,
+  "owner_dependency_dispatch_checks": "passed",
+  "context_terms_coupling": "unchanged and valid",
+  "historical_files_preserved": 57,
+  "source_hashes": {
+    "docs/product-idea.md": "1395a5d9d5372377d26c97ad5302390f287f4094b8bca20ff74e8e6478065a4e",
+    "docs/prd.md": "f6f5e829f5178edadea69ba6f25f1367b8c8a748deb3c8e99f876aa77588c218",
+    "docs/project-context.md": "79259e112e56775b2239f52494d8adf69b05f0dc68910a7f8114a626068e4968",
+    "docs/canonical-terms.md": "c2ae3f6d972c469aa1b6f07a2914f4d21be6778e4057cb3182b393c5d2548b3e",
+    "docs/guardrails.md": "1fdc65f719f013b799907296756812b08e1cdc15355203ccc062d4e40d83ddcc",
+    "docs/user-journey.md": "c9dc1f25d3ee1795dfa889c124e3e6d9eaf8bf563f05466f81e401b66d7e1dd6",
+    "docs/screen-map.md": "e9fe4d212a575844c813eaa91aec405bdd3107cabf0b7117896016ccea7c6f9e",
+    "docs/wireframes.md": "6141cf91dc4b787cfe47455327464cca70a6cba3ef1858984b8aa5b404a9f11c",
+    "docs/design-brief.md": "ec241f624a1b3becd38d26ac92a95597ae1e1993d76a92377c956e04961b9216",
+    "docs/architecture.md": "cff291c7bf68952ab96b74b1c9ffe50f8c77f56203639702a6fd28548181d577",
+    "docs/dod-evals.md": "4c705c9494294f9e1a171cf377633e017d26128a7ada08e19ffc2a80a6b1541d",
+    "docs/qa-checklist.md": "4a34f0310efdff9439105f2de249848cd168e9e122b395212adc4d538c9ae2fa"
+  },
+  "checks": [
+    {
+      "arguments": [
+        "--audit"
+      ],
+      "exit_code": 0,
+      "record": {
+        "result": "passed",
+        "node": "audit",
+        "mode": "audit",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "dod-evals",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "qa-checklist",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    },
+    {
+      "arguments": [
+        "--after",
+        "prototype-candidates"
+      ],
+      "exit_code": 0,
+      "record": {
+        "result": "passed",
+        "node": "prototype-candidates",
+        "mode": "after",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "dod-evals",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "qa-checklist",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    },
+    {
+      "arguments": [
+        "--before",
+        "design-approval"
+      ],
+      "exit_code": 0,
+      "record": {
+        "result": "passed",
+        "node": "design-approval",
+        "mode": "before",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "dod-evals",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "qa-checklist",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    }
+  ],
+  "formal_checks": {
+    "count": 82,
+    "definition_status": "prepared",
+    "execution_status": "not_run"
+  },
+  "whole_design_approval": false,
+  "implementation_authorized": false,
+  "godaddy_operations": []
+}

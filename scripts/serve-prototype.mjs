@@ -2,11 +2,11 @@ import http from 'node:http';
 import { readFile } from 'node:fs/promises';
 
 const repository = new URL('../', import.meta.url);
-const shared = 'forge/design/candidate-sets/web-hybrid-20260913/v3/shared/';
+const shared = 'forge/design/candidate-sets/web-electric-20260913/v4/shared/';
 const types = { html: 'text/html', css: 'text/css', js: 'text/javascript', json: 'application/json', svg: 'image/svg+xml' };
 const port = Number(process.env.PORT || 4328);
 function assetFor(pathname) {
-  if (pathname === '/' || pathname === '/index.html') return `${shared}index.html`;
+  if (pathname === '/comparison/' || pathname === '/comparison/index.html') return `${shared}index.html`;
   if (pathname === '/comparison.css') return `${shared}comparison.css`;
   const candidate = pathname.match(/^\/([abc])\/(v[1-9]\d*)\/(index\.html|styles\.css|app\.js|[a-z0-9-]+\.(?:json|svg))?$/);
   if (candidate) return `forge/design/candidates/${candidate[1]}/${candidate[2]}/${candidate[3] || 'index.html'}`;
@@ -14,7 +14,9 @@ function assetFor(pathname) {
   return legacy ? `prototype/${legacy[1] || 'index.html'}` : null;
 }
 const server = http.createServer(async (req, res) => {
-  const path = assetFor(new URL(req.url, 'http://localhost').pathname);
+  const pathname = new URL(req.url, 'http://localhost').pathname;
+  if ((pathname === '/' || pathname === '/index.html') && ['GET', 'HEAD'].includes(req.method)) { res.writeHead(302, { Location: '/a/v4/', 'Cache-Control': 'no-store' }); res.end(); return; }
+  const path = assetFor(pathname);
   if (!path || !['GET', 'HEAD'].includes(req.method)) { res.writeHead(404); res.end('Not found'); return; }
   try {
     const body = await readFile(new URL(path, repository));

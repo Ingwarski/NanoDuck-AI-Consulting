@@ -53,7 +53,7 @@ Checked 13 September 2026: [Codex configuration](https://learn.chatgpt.com/docs/
 
 ## Current drivers and source references
 
-This reconciliation consumes the current PRD, context/terms, guardrails, journey, screen map, wireframes and combined-layout design brief with three agent-colour palettes. The prior one-app/one-database proposal above remains. The owner now explicitly requires voice and functioning Settings selectors; no production source is added. There is no approved baseline yet, so approved-design reconciliation remains a later pass.
+This reconciliation consumes the current PRD, context/terms, guardrails, journey, screen map, wireframes and combined-layout design brief with the selected Electric colour refinement and retained comparison references. The prior one-app/one-database proposal above remains. The owner now explicitly requires voice and functioning Settings selectors; no production source is added. There is no approved baseline yet, so approved-design reconciliation remains a later pass.
 
 ## Module and boundary map
 

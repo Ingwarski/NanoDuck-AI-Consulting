@@ -1,10 +1,32 @@
 # Verification record
 
-13 September 2026 · Combined Ember/Cobalt design and agent palettes · Design review only
+13 September 2026 · Selected Electric colour refinement · Design review only
 
-The current A/B/C v3 candidates are Electric, Solar and Prismatic. Each has a black theme, Ember message formatting and Discussion/Outcome/Sources tabs, Cobalt centered chat/composer geometry, an icon-only microphone, contextual New and a visible Send button. The user explicitly requested this combination and palette iteration after the original three distinct designs. No design approval or production implementation is inferred.
+## Current Electric v4 colour revision
 
-## Current v3 observations
+The owner selected Electric and requested HappyPro blue for the main heading and important accents, raspberry Critic and clear yellow Head Consultant. Product violet and Operations turquoise complete the palette. This is a new immutable colour revision, not a whole-design approval or production implementation.
+
+The live [HappyPro reference](../forge/design/evidence/happypro-blue-reference-20260913.json) records the actual browser-computed blue, headline gradient and direct HTTP stylesheet hash. Search-engine snapshots were not used as current colour evidence. The main blue is `#2e6fdc`; small blue labels use the site's lighter tint for legibility on black.
+
+| Check | Actual v4 observation |
+|---|---|
+| Selected Electric appearance | Safari discussion and Settings screenshots inspected; scrolled discussion shows yellow Head, violet Product, turquoise Operations and raspberry Critic. Blue headline, active tabs, primary actions, citations and Outcome surfaces replace the previous orange. |
+| Responsive/state coverage | All 44 state fixtures in each v4 record at 320px; Discussion and Settings at 320/390/430/768/1280/1440px. All 168 final observations had no horizontal page overflow. |
+| Colour contrast scope | Computed role-label minimum 4.74:1 against the dark surface; white Send text 4.75:1 against primary blue. Darkest gradient stop 3.15:1 on black, limited to large headings. Raised-surface headings use the readable light-blue tint. Avatar initials remain dark. These are scoped calculations, not WCAG certification. |
+| Controls and defaults | Electric mobile menu to Settings exercised. All candidates' original model/reasoning/pace defaults observed in Safari. Deletion fixture retains dark text on its separate danger fill. |
+| Behavior boundary | All three app.js files are byte-identical to v3. Existing behavior evidence retains its time and scope; no fresh full interaction-suite pass is claimed for this styling-only change. |
+| Reference options | Solar/Prismatic retained as unchosen references, with fresh version labels, source bindings, state/layout and Safari observations. They are not presented as a new choice over Electric. |
+| Console | No warning/error entries in the final in-app walkthrough. |
+
+Current receipts: [Electric browser](../forge/design/evidence/a-v4-browser.json), [Electric visual QA](../forge/design/evidence/a-v4-visual-qa.json), [Solar reference](../forge/design/evidence/b-v4-visual-qa.json), [Prismatic reference](../forge/design/evidence/c-v4-visual-qa.json). The [explicit H1–H10 delta review](../forge/design/evidence/electric-v4-heuristic-review.json) remains separate from visual and representative-user evidence.
+
+Design, architecture, DoD and QA owners reconciled the affected sources. Product/security obligations remain unchanged. All 82 formal QA definitions remain prepared / not_run; no production release, user study, assistive-technology or session-expiry result is claimed. Whole-design approval remains pending.
+
+## Historical v3 combined-layout revision
+
+The prior A/B/C v3 candidates were Electric, Solar and Prismatic. Each has a black theme, Ember message formatting and Discussion/Outcome/Sources tabs, Cobalt centered chat/composer geometry, an icon-only microphone, contextual New and a visible Send button. The user explicitly requested this combination and palette iteration after the original three distinct designs. No design approval or production implementation is inferred.
+
+### V3 observations
 
 | Scope | Actual result |
 |---|---|
@@ -27,7 +49,7 @@ Functional regression interactions were concentrated on Electric's shared behavi
 | B — Solar v3 | [Browser](../forge/design/evidence/b-v3-browser.json) | [Visual QA](../forge/design/evidence/b-v3-visual-qa.json) |
 | C — Prismatic v3 | [Browser](../forge/design/evidence/c-v3-browser.json) | [Visual QA](../forge/design/evidence/c-v3-visual-qa.json) |
 
-The current [H1–H10 review](../forge/design/evidence/hybrid-v3-heuristic-review.json) is an explicit rule-based review, separate from browser and visual evidence. It records the closed Safari finding and the deferred representative-user validation. Final candidate tree, target, source and receipt hashes are frozen in [the manifest](../forge/sdd-manifest.json).
+The v3 [H1–H10 review](../forge/design/evidence/hybrid-v3-heuristic-review.json) is an explicit rule-based review, separate from browser and visual evidence. It records the closed Safari finding and the deferred representative-user validation. Final candidate tree, target, source and receipt hashes are frozen in [the manifest](../forge/sdd-manifest.json).
 
 The canonical SDD audit and candidate-stage checks pass. All 12 pre-design artifacts retain their required owners, dependency edges and exact consumed-source bindings. The coupled context/terms invocation remains intact. The 82 formal QA definitions remain **prepared / not_run**; this prototype walkthrough does not claim production security, accessibility conformance, performance or release acceptance.
 
@@ -66,7 +88,7 @@ The [H1–H10 rule-based review](../forge/design/evidence/heuristic-review.json)
 
 `npm run check` checks JavaScript syntax, local Markdown links, public path hygiene and static HTML references. The localhost server serves only named preview assets, rejects unrelated repository paths/POST requests, blocks outbound connections through CSP and denies microphone/camera/geolocation through Permissions Policy. These are prototype-serving observations, not a production security audit.
 
-For v1, the SDD checker passed after all pre-design documents and after `prototype-candidates`. The historical v2 candidate-stage check stopped at missing Safari receipts. Current v3 checks are recorded above. The checker guarantees declared source/metadata/stage integrity, not semantic correctness or production readiness.
+For v1, the SDD checker passed after all pre-design documents and after `prototype-candidates`. The historical v2 candidate-stage check stopped at missing Safari receipts. V3 checks are recorded above; the latest colour revision has separate evidence. The checker guarantees declared source/metadata/stage integrity, not semantic correctness or production readiness.
 
 ## Limits and next boundary
 

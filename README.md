@@ -17,7 +17,7 @@ A simpler, private, mobile-first browser product for genuine consultant and Crit
 
 <a id="compare-the-three-designs"></a>
 
-## Compare the three agent palettes
+## Review the selected Electric design
 
 Requires Node.js 22 or newer. No dependencies or installation step.
 
@@ -25,19 +25,15 @@ Requires Node.js 22 or newer. No dependencies or installation step.
 npm start
 ```
 
-Open the localhost URL shown in the terminal for the side-by-side interactive comparison.
+The localhost root opens [refined Electric v4](http://127.0.0.1:4328/a/v4/) directly. The owner selected Electric and requested colours from [HappyPro Academy](https://happypro.academy/): its blue and large-heading gradient, with yellow Head Consultant, raspberry Critic, violet Product and turquoise Operations. The black Ember/Cobalt composition and behavior stay the same.
 
-- [A — Electric](http://127.0.0.1:4328/a/v3/): blue, violet and cyan with a pink Critic.
-- [B — Solar](http://127.0.0.1:4328/b/v3/): gold, coral and lilac with a rose Critic.
-- [C — Prismatic](http://127.0.0.1:4328/c/v3/): gold, aqua and lavender with an orchid Critic.
-
-Current candidates are v3: Ember's black theme, message formatting and Discussion/Outcome/Sources tabs combined with Cobalt's centered chat and composer. This palette iteration follows the user's explicit request after reviewing the original three distinct directions. V1/V2 files and receipts remain historical and unchanged. Fresh v3 Safari and responsive observations are recorded in [verification](docs/verification.md).
+[The review page](http://127.0.0.1:4328/comparison/) shows the selected palette and retains links to the unchosen Solar/Prismatic references. Earlier v1–v3 files and receipts remain unchanged. This selection includes a colour revision; the revised whole-design baseline is still proposed. See [current verification](docs/verification.md).
 
 All three include a floating desktop menu, mobile hamburger, literal Settings, model and reasoning selectors, icon-only microphone, editable simulated voice transcript and a visible Send button. New sits above the workspace and remains available in Conversations; it is absent from global menus. Development inspection is hidden on normal pages; append `?inspect=1` to expose the 44 state fixtures. English and Ukrainian discussion fixtures are included.
 
 The specification requires a fixed 24-hour app session from sign-in, including inactivity and browser reopening, with immediate sign-out/revocation/security exceptions. Authentication is not implemented in this preview. Typing does not call an AI provider; microphone flows use sample data. Drafts and preferences stay in page memory and disappear on reload.
 
-The original green design in `prototype/` is rejected historical evidence. It is not an approved baseline. The pipeline awaits one whole-design choice or revisions before post-approval planning; production implementation still requires a separate explicit prompt.
+The original green design in `prototype/` is rejected historical evidence. It is not an approved baseline. The pipeline awaits review of the revised Electric design before post-approval planning; production implementation still requires a separate explicit prompt.
 
 ```sh
 npm run check

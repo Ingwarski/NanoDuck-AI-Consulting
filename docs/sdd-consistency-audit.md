@@ -1,6 +1,8 @@
 # SDD consistency audit
 
-Current revision: the combined v3 palette candidates and their 12 canonical sources pass the pipeline audit and candidate-stage check. Exact owners, dependency edges, source hashes and the coupled context/terms return remain intact. The [current machine audit receipt](../forge/design/evidence/hybrid-v3-sdd-audit.json) records 12 artifacts, 82 source bindings and preserved historical files. Fresh v3 Safari and responsive evidence is in [verification](verification.md); the earlier Mac-lock blocker below is historical. Design approval remains pending; 82 formal QA checks remain prepared / not_run.
+Current revision: Electric v4 follows the owner's explicit selection and colour request. Design-brief ownership covers the HappyPro reference and new tokens; architecture, DoD and QA revalidated affected source bindings. Product/security intent remains unchanged. The [current audit receipt](../forge/design/evidence/electric-v4-sdd-audit.json) records checks and preserved history. [Verification](verification.md) separates the latest visual evidence from prior runs. No whole-design approval or implementation authorization is inferred; 82 formal checks remain prepared / not_run.
+
+The earlier combined v3 audit is preserved in [its own receipt](../forge/design/evidence/hybrid-v3-sdd-audit.json).
 
 ## Earlier v2 audit snapshot
 

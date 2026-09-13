@@ -1,6 +1,6 @@
-# Combined dark direction and agent palettes
+# Electric direction with HappyPro blue
 
-13 September 2026 · Codex design executor · All candidates unapproved
+13 September 2026 · Codex design executor · Electric selected for refinement; revised baseline proposed
 
 ## Source references and design source material inventory
 
@@ -29,6 +29,18 @@ The owner rejected the prior green editorial candidate and requested a modern, b
 | MAT-19 | `forge/design/candidates/b/v2/index.html` · SHA-256 `31ed8e8dce5ca3967fc2283812b0cfc1fda246522c9c800113f14445e63e7791` | true | Inherited Ember design material; resolved filesystem read; historical source, not approval |
 | MAT-20 | `forge/design/candidates/b/v2/styles.css` · SHA-256 `d0d7e5f865e58e910e1b0f142356c3c780baa7aa173c00239508e8cbf8134bd8` | true | Inherited Ember design material; resolved filesystem read; historical source, not approval |
 | MAT-21 | `forge/design/candidates/b/v2/app.js` · SHA-256 `17e37807a032c5ea1660efca698e21dc8baf29a3c5344067470b6b44311f9b39` | true | Inherited Ember design material; resolved filesystem read; historical source, not approval |
+| MAT-22 | `forge/design/evidence/happypro-blue-reference-20260913.json` · SHA-256 `786b649a970d6dd4a1e2f000764f433f77062ff752dd73d91a70eac656b165ea` | true | Live HappyPro computed colours and direct HTTP stylesheet hash; resolved read-only source observation |
+| MAT-23 | https://happypro.academy/ | true | Owner-named blue reference; actual public page inspected in CUA, resolved to /uk/; recorded in MAT-22 |
+| MAT-24 | https://happypro.academy/styles.css?v=20260907-register-menu-link-v1 | true | Observed public stylesheet URL, direct HTTP read; extracted blue values and content hash in MAT-22; not a runtime dependency |
+| MAT-25 | `forge/design/candidates/a/v3/index.html` · SHA-256 `b063662c6e8d386859aa32f85b9ccbaaa501db101f0975a3721970625b227a90` | true | Frozen v3 source: Electric is selected; Solar/Prismatic retained as unchosen comparison references; resolved filesystem read |
+| MAT-26 | `forge/design/candidates/a/v3/styles.css` · SHA-256 `9776de5eedafb00cbe4c7567fe5005394dc7ac769cda46dcc702ba67e54e30c7` | true | Frozen v3 source: Electric is selected; Solar/Prismatic retained as unchosen comparison references; resolved filesystem read |
+| MAT-27 | `forge/design/candidates/a/v3/app.js` · SHA-256 `dee23e1b92cea7c32f260a2236be8d0ef2be7290ebff18ab577ccf2b56864d45` | true | Frozen v3 source: Electric is selected; Solar/Prismatic retained as unchosen comparison references; resolved filesystem read |
+| MAT-28 | `forge/design/candidates/b/v3/index.html` · SHA-256 `45b25271474a50a77b27678b9db322b8ce2a67960f4dee4e6be3bc1ebb2cd411` | true | Frozen v3 source: Electric is selected; Solar/Prismatic retained as unchosen comparison references; resolved filesystem read |
+| MAT-29 | `forge/design/candidates/b/v3/styles.css` · SHA-256 `78c41e2317e371acc0c801521495141756be097445ae8fbc39772809ea5ecbc1` | true | Frozen v3 source: Electric is selected; Solar/Prismatic retained as unchosen comparison references; resolved filesystem read |
+| MAT-30 | `forge/design/candidates/b/v3/app.js` · SHA-256 `e0cc8f42267675184442bb05c6a208d3a0b034b0364fcd50b896e54e203db2a7` | true | Frozen v3 source: Electric is selected; Solar/Prismatic retained as unchosen comparison references; resolved filesystem read |
+| MAT-31 | `forge/design/candidates/c/v3/index.html` · SHA-256 `1c939ae7e898a0556967c14b68b9ce1eb85d8bb607adc8925229cfc87de0bfde` | true | Frozen v3 source: Electric is selected; Solar/Prismatic retained as unchosen comparison references; resolved filesystem read |
+| MAT-32 | `forge/design/candidates/c/v3/styles.css` · SHA-256 `9fbfe5bbdba0f113aa8cdbeefde8ee3e323b53e3feabfb08fc02bf6f78d1b08d` | true | Frozen v3 source: Electric is selected; Solar/Prismatic retained as unchosen comparison references; resolved filesystem read |
+| MAT-33 | `forge/design/candidates/c/v3/app.js` · SHA-256 `e1e7e19a734b20523cca8102b79592adecdc60e4301db718711579a639815813` | true | Frozen v3 source: Electric is selected; Solar/Prismatic retained as unchosen comparison references; resolved filesystem read |
 
 Required sources are available. The previous prototype is avoidance evidence only; there is no approved visual system to inherit. The local model catalog is a content-free read of model/list, not deployed preferences or execution entitlement. External references are read-only guidance, not assets or required network dependencies.
 
@@ -41,17 +53,17 @@ Let the owner follow an intelligent discussion, challenge a claim and make a del
 | Decision | Basis and consequence |
 |---|---|
 | Combined layout | Latest owner revision: Ember black theme, avatar/message formatting and local tabs inside Cobalt centered chat/composer geometry. No design approval inferred. |
-| Palette A — Electric | Per-role saturated cool colours with a pink Critic; same layout and flows as B/C. |
-| Palette B — Solar | Warmer gold/coral/lilac role accents with a rose Critic; same layout and flows as A/C. |
-| Palette C — Prismatic | Gold/cyan/lavender role accents with an orchid Critic; same layout and flows as A/B. |
+| Selected Electric refinement | Owner selected Electric and requested HappyPro blue for the main heading/important accents, raspberry Critic and clear yellow Head Consultant. Product violet and Operations turquoise complete the palette. Layout and behavior stay the same. |
+| Unchosen Solar reference | Preserved gold/coral/lilac and rose comparison reference. It is not the selected product direction. |
+| Unchosen Prismatic reference | Preserved gold/cyan/lavender and orchid comparison reference. It is not the selected product direction. |
 | Conventional floating navigation | Discussion, Conversations and Settings on desktop; labelled hamburger on mobile. New is outside these menus, in the workspace action row and Conversations. |
 | Settings controls | Independent model/reasoning controls and optional Critic provider; exact initial recorded values. Save affects only the next simulated run. |
 | Composer | Cobalt width and sticky geometry; icon-only microphone with accessible name, attachment action and a bright Send button that cannot shrink or become transparent. |
 | Review controls | State and locale fixtures appear only in an explicit inspection URL, outside the normal preview; no Review states control exists in the app. Palette comparison belongs to the external review shell. |
 | Session access | PRD owns the 24-hour app session. A concise Settings description may explain it; this prototype does not authenticate or prove elapsed-time persistence. |
-| Version history | Original Cobalt/Ember/Prism versions remain frozen history. The combined v3 revision has fresh source and rendering identities. |
+| Version history | Original Cobalt/Ember/Prism versions remain frozen history. Combined v3 remains frozen. Electric v4 receives a new immutable identity for this colour revision; equivalent-scope unchosen references remain available for comparison history. |
 
-The candidate names identify options, not proposed product renames. Do not auto-select an option.
+The candidate names are design labels, not product renames. Electric was selected by the user; the requested colour revision is not yet an approved whole-design baseline. This is styling only: no changed roles, privileges, data exposure, integrations or security obligations.
 
 ## Design spine
 
@@ -61,21 +73,25 @@ Token proposals are recorded once here. Individual candidate styles consume thes
 |---|---|
 | Canvas / surfaces | `#101114` / `#18191f`; floating bar and composer use near-black surfaces. |
 | Body / muted / separators | `#f5f5f7` / `#b4b4bb` / `#3b3c45`. |
-| Primary action and active tab | `#ffb36b` with dark `#151114` text on filled buttons. This stays independent of agent palette. |
+| Electric primary action / hover / foreground | HappyPro `#2e6fdc` / `#1f5fc5` / `#ffffff`; Send and other filled actions use the same blue. |
+| Electric large page heading | HappyPro gradient: `linear-gradient(135deg, #dceeff 0%, #8bb8f4 32%, #2e6fdc 66%, #1f5fc5 100%)`; restricted to large headings on the black canvas. |
+| Electric small accent / focus | `#8bb8f4`, the HappyPro gradient tint, for small text and focus rings; exact primary blue supplies structural borders and the selected-tab underline. |
+| Electric supporting accents | Citation/Outcome surfaces `#142034` / `#151f30`, border `#355483`; agent-avatar text `#151114`. |
+| Unchosen reference action | Solar/Prismatic retain their original `#ffb36b` action with `#151114` text as historical comparison treatments. |
 | Chat/composer | Centered 950px reading column and sticky composer from Cobalt; one column on phones. |
 | Message format | Ember avatar plus content grid: 38px avatar, 16px gap, role/time/recipient header, neutral 16px message body at 1.65 line-height. No wide speaker rail or filled owner card. |
 | Local tabs | Ember transparent tabs, plain counts, muted inactive text and active accent with a 3px underline; keyboard/ARIA behavior retained. |
 | Targets and shapes | 44px minimum primary controls; Send at least 48px high and 100px wide; input 16px; 4/8/12/16/24/32px spacing. |
 
-| Role | A — Electric | B — Solar | C — Prismatic |
+| Role | Selected Electric v4 | Unchosen Solar | Unchosen Prismatic |
 |---|---|---|---|
 | You | `#bbc7dd` | `#d9d4cb` | `#ced1e0` |
-| Head | `#7da8ff` | `#ffc166` | `#e4c66b` |
-| Product | `#b899ff` | `#ff9470` | `#7fdee2` |
-| Operations | `#6ee7f2` | `#d0b1ff` | `#bdb0ff` |
-| Critic | `#ff75b5` | `#ff7f95` | `#ef97ea` |
+| Head | `#ffe14a` | `#ffc166` | `#e4c66b` |
+| Product | `#b39aff` | `#ff9470` | `#7fdee2` |
+| Operations | `#5bd8cd` | `#d0b1ff` | `#bdb0ff` |
+| Critic | `#ea4779` | `#ff7f95` | `#ef97ea` |
 
-Use role colour on names, avatar fills and restrained quote/edge accents; keep written role names and dark avatar initials. Critic retains a distinct left border. Colour alone never identifies a role. Computed minimum role-text contrast against the surface is A 7.07:1, B 7.28:1 and C 8.59:1; these are limited token arithmetic, not a complete accessibility audit. Agent palettes do not change action colours or create a production palette-setting feature.
+Use role colour on names, avatar fills and restrained quote/edge accents; keep written role names and dark avatar initials. Critic retains a distinct left border. Colour alone never identifies a role. Electric role-text contrast against the dark surface is at least 4.74:1; white button text against primary blue is 4.75:1. The darkest heading-gradient stop is 3.15:1 against the canvas, suitable only for large heading text; smaller text uses the light-blue accent. Other headings on raised surfaces use that light tint. These are limited token calculations, not full accessibility conformance. Forced-colors mode restores system-colour text without the gradient. No production palette-setting feature is introduced.
 
 ## Experience spine
 
@@ -112,10 +128,10 @@ No representative-user session has been conducted. Pre-approval observation is d
 
 ## Approved Visual Baseline
 
-Status: proposed. No selected candidate, Baseline ID or approval receipt exists. The original A/B/C v1 candidates are frozen with source-tree and visual-target hashes and recorded prototype observations. The manifest and [current inventory](../README.md#compare-the-three-designs) identify active review versions; a source reconciliation creates a new version without overwriting v1 or its receipts. The immutable interactive mockup is the durable visual target; browser captures/observations document its actual rendering. One explicit whole-design decision selects a specific candidate/version, after which this section is reconciled and the approved architecture/DoD/QA passes occur before planning.
+Status: proposed. The user selected Electric for refinement; no Baseline ID or whole-design approval receipt exists for the revised colours. The original A/B/C v1 candidates are frozen with source-tree and visual-target hashes and recorded prototype observations. The manifest and [current inventory](../README.md#compare-the-three-designs) identify active review versions; a source reconciliation creates a new version without overwriting v1 or its receipts. The immutable interactive mockup is the durable visual target; browser captures/observations document its actual rendering. One explicit whole-design decision selects a specific candidate/version, after which this section is reconciled and the approved architecture/DoD/QA passes occur before planning.
 
 ## Validation report and open questions
 
 Mechanical review: nine surfaces and all screen-map states resolve to the seven use cases; tokens and component/recovery rules resolve; source inventory is available; heuristic and user-validation plans are separate. No blocking document-coverage finding.
 
-Judgment review: the owner has now requested the combined dark direction and three agent-colour palettes; the previous three-direction comparison remains historical. The recorded v1 comparison resolved its reported layout/control findings within the inspected prototype scope. Owner task completion remains unobserved, and later revisions require evidence matched to their exact source and rendering identity. Runtime, live catalog/entitlement and host compatibility remain implementation evidence, not visual-approval prerequisites.
+Judgment review: the owner selected Electric and requested the HappyPro blue, raspberry and yellow refinement; both earlier comparison rounds remain historical. The recorded v1 comparison resolved its reported layout/control findings within the inspected prototype scope. Owner task completion remains unobserved, and later revisions require evidence matched to their exact source and rendering identity. Runtime, live catalog/entitlement and host compatibility remain implementation evidence, not visual-approval prerequisites.
