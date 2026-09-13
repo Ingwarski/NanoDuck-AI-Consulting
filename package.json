@@ -1,0 +1,12 @@
+{
+  "name": "personal-ai-consulting-web-design",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Design-stage prototype for Personal AI Consulting Group. No live AI or authentication.",
+  "scripts": {
+    "start": "node scripts/serve-prototype.mjs",
+    "check": "node --check prototype/app.js && node --check scripts/serve-prototype.mjs && node scripts/check-artifacts.mjs"
+  },
+  "engines": { "node": ">=22" }
+}
