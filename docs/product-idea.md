@@ -1,6 +1,6 @@
 # Personal AI Consulting Group
 
-Current product brief · 13 September 2026 · Browser replacement
+Current product brief · 13 September 2026 · Browser replacement · Revision 2
 
 ## Purpose
 
@@ -10,7 +10,7 @@ The product succeeds when the owner makes a better decision with less effort. Op
 
 ## Authority and scope of this reset
 
-The owner's eight-part request on 13 September 2026 replaces the messenger channel, connection-heavy daily workflow and previous visual design. Their follow-up explicitly selects **review, product brief and design first**. This repository contains that work; implementation, deployment and data deletion are not performed in this phase.
+The owner's eight-part request on 13 September 2026 replaces the messenger channel, connection-heavy daily workflow and previous visual design. Their follow-up explicitly selects **review, product brief and design first**. The next correction requires three modern, bold alternatives using the SDD pipeline, floating desktop navigation with a mobile hamburger menu, the literal label Settings, working model/reasoning selectors and voice input. This repository contains that work; implementation, deployment and data deletion are not performed in this phase.
 
 The source code repository is public. The deployed product, account, conversations, attachments and provider credentials remain private. Public source availability does not create a multiuser service or authorize publication of the owner's history.
 
@@ -26,6 +26,7 @@ The primary user is the existing single owner, working across phone, tablet and 
 | JOB-002 — Follow and steer | When consultants work on my question, see their actual contributions, add context and stop or resume the work. | I can identify the disagreement, see a response or revision, and interrupt without losing accepted messages. | Existing control requirements and current request; confirmed. |
 | JOB-003 — Keep my preferences | When I return on any device, use the existing models and settings without reconnecting integrations. | Sign-in leads to a usable conversation; active runs keep their exact settings. | Current request; confirmed. |
 | JOB-004 — Return to the record | When I revisit a decision, recover the complete conversation and sources, and control its retention. | Open, export or delete a complete saved conversation; a reconnect does not duplicate replies. | Retained history/control requirements; confirmed. |
+| JOB-006 — Capture a thought | When typing on a phone is inconvenient, dictate a thought, review its transcript and choose what to send. Current alternative: type the whole request. | Start/stop/cancel voice capture; edit the transcript before sending; retain the existing typed draft when permission or transcription fails. | Explicit owner correction; confirmed. |
 | JOB-005 — Understand limits | When a provider limit affects work, know what is available and what action is needed. | Real quota/reset information where available; no invented per-session charge or connection warning for an unused provider. | Retained usage truth and simplified daily workflow; confirmed. |
 
 These jobs map to the start/consult/steer/revisit/account workflow below. Formal use-case and implementation mapping belongs to the later specification phase.
@@ -33,7 +34,7 @@ These jobs map to the start/consult/steer/revisit/account workflow below. Formal
 ## Everyday workflow
 
 1. **Sign in.** Use the existing Google owner identity. A returning owner opens the latest conversation or starts a new one. No messenger, browser extension, installation or connection checklist.
-2. **Describe the situation.** Write naturally and optionally attach an image or PDF. Head asks one material question only if its answer can change the recommendation. Preserve the optional focused interview: usually 1–3 questions, maximum five, one at a time, with a suggested answer or explicit assumption available.
+2. **Describe the situation.** Write naturally, dictate using the microphone, or optionally attach an image or PDF. Voice creates an editable transcript before sending; recording never starts automatically. Head asks one material question only if its answer can change the recommendation. Preserve the optional focused interview: usually 1–3 questions, maximum five, one at a time, with a suggested answer or explicit assumption available.
 3. **Work through the question.** A simple question gets a direct answer. A substantive consultation uses separate specialist agent contexts, different assignments and a separate Critic. An explicit request for Critic or a team is honored. The owner sees complete, addressed contributions as they are confirmed and can add context or stop.
 4. **Check evidence.** The team researches current claims when needed, without requiring the owner to ask for a special research mode. Sources are linked beside relevant claims and available together for inspection.
 5. **Act and revisit.** Head gives a self-contained conclusion, up to three practical actions, the main risk and a condition for revisiting the decision. Continue with the same context, start a new consultation or return later through history.
@@ -80,11 +81,11 @@ Preserve subscription use, no silent model/effort substitution, no API-key/PAYG 
 
 ## V1 boundary
 
-**Included:** a private responsive web app; existing owner Google sign-in without an app-specific MFA step; one active consultation; direct answers and substantive team discussion; retained specialist/coaching pool; text, images and PDF; live research; complete conversation history; export and whole-conversation deletion; Stop, Continue and New consultation; optional model/effort/provider/speed preferences; truthful quota/usage information; recovery across browser interruptions and server restart.
+**Included:** a private responsive web app; existing owner Google sign-in without an app-specific MFA step; one active consultation; direct answers and substantive team discussion; retained specialist/coaching pool; text, voice input, images and PDF; live research; complete conversation history; export and whole-conversation deletion; Stop, Continue and New consultation; optional model/effort/provider/speed preferences; truthful quota/usage information; recovery across browser interruptions and server restart.
 
 The retained specialist pool covers strategy, finance, operations, entrepreneurship, B2B/B2C sales, marketing, product, leadership, data and risk, plus the existing personal/coaching roles. These are AI roles, not claims of human employment, professional licensure or clinical care. Existing boundaries for high-stakes advice and explicit external-action permission remain.
 
-**Voice reconciliation:** current code contains OGG transcription while the old brief excludes voice. This review does not erase that capability or promise new browser microphone support. The design leaves attachment handling extensible; voice adoption and browser formats must be reconciled before implementation. Video and arbitrary file types are not silently added.
+**Voice input:** the owner’s explicit correction resolves the previous voice exclusion: microphone input is required in V1. Ask for microphone permission at first use, show recording clearly, allow Stop/Cancel, then show an editable transcript that is sent only by the owner. Permission denial, unavailable microphone, interrupted recording and failed transcription preserve the typed draft and offer retry or typing. Do not record in the background. Reuse the existing subscription-compatible transcription path where verified; browser audio formats and provider support remain implementation checks, not uncertainty about whether voice belongs in the product. Video and arbitrary file types are not added.
 
 ## Privacy, ownership and recovery
 
@@ -112,11 +113,13 @@ The existing **Personal AI Consulting Group** app and its own database may be er
 
 ## Design inputs and open evidence
 
-The old Candidate B files and current settings UI are available as evidence of what the owner rejects, not as a visual baseline. No additional design materials are required or assumed. The new [interactive prototype](../prototype/index.html) is an illustrative design candidate with fictional conversation data; it performs no AI calls, authentication or database writes. The proposed editorial visual style remains subject to owner review.
+Design materials are supplied: the rejected existing `prototype/`, old Candidate B files, settings UI and the owner’s explicit corrections. They establish what to avoid, not an approved visual baseline. Remove the decorative “Room for a different point of view” slogan and “Your space” label. Replace green editorial styling with three meaningfully different, modern, bold full-product candidates. All need a standard floating desktop navigation bar and a mobile hamburger menu. “Floating” is interpreted as a bar that remains available while scrolling, without arbitrary dragging. No additional design materials are required or assumed. The new [interactive prototype](../prototype/index.html) is an illustrative design candidate with fictional conversation data; it performs no AI calls, authentication or database writes. The initial green editorial candidate is rejected and retained only as history. Codex is the selected executor. The three new candidates require one whole-design selection/approval under the requested SDD workflow.
 
-Open evidence is limited to the current saved model snapshot, voice authority reconciliation, supported provider reauthorization and GoDaddy runtime/storage/streaming verification for the later implementation. These do not prevent reviewing this brief and candidate. The simpler architecture is a proposal in [architecture.md](architecture.md), not production readiness.
+Open evidence is limited to the current saved model snapshot, browser audio/transcription compatibility, supported provider reauthorization and GoDaddy runtime/storage/streaming verification for the later implementation. These do not prevent reviewing this brief and candidate. The simpler architecture is a proposal in [architecture.md](architecture.md), not production readiness.
 
-<!-- Internal SDD scope declaration: not application UI. -->
+## Product scope
+
+Internal SDD scope declaration, not application UI.
 ```json
 {"profile":"new_product","capabilities":{"ui":true,"api":true,"persistence":true,"payments":false,"sensitive_data":true}}
 ```

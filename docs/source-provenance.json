@@ -3,14 +3,14 @@
   "working_language": "en",
   "recorded_date": "2026-09-13",
   "authority": {
-    "current_intent": "Owner request and explicit review, product brief, and design first answer on 2026-09-13",
+    "current_intent": "Owner reset request, design-first scope, six design corrections and explicit Codex executor choice on 2026-09-13",
     "source_mode": "existing-file",
-    "design_approval": "pending-owner-review",
+    "design_approval": "awaiting-whole-design-review",
     "production_implementation": "not-in-scope"
   },
   "current_brief": {
     "path": "docs/product-idea.md",
-    "sha256": "a3beaa2aa22ad1739fb762a561ff6941aefe6b185173e8ebf67c367839e31e1f"
+    "sha256": "2c75762cb77db7004865b215d7daa52a6924823008d5908c306f18cab8ad3f03"
   },
   "design_traceability": [
     {
@@ -33,7 +33,7 @@
       "job_id": "JOB-003",
       "surfaces": [
         "Sign in",
-        "Preferences",
+        "Settings",
         "Access expired"
       ]
     },
@@ -50,13 +50,22 @@
       "job_id": "JOB-005",
       "surfaces": [
         "Quota reached",
-        "Preferences"
+        "Settings"
+      ]
+    },
+    {
+      "job_id": "JOB-006",
+      "surfaces": [
+        "Voice input",
+        "Editable transcript",
+        "Composer",
+        "Voice failure recovery"
       ]
     }
   ],
   "limits": [
     "Prototype uses fictional data and no live services.",
-    "Hashes identify consumed inputs; this is not a full SDD pipeline completion receipt.",
     "Historical settings are not fresh saved-setting or entitlement evidence."
-  ]
+  ],
+  "current_pipeline_manifest": "forge/sdd-manifest.json"
 }

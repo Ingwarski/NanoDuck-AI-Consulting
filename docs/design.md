@@ -1,6 +1,6 @@
-# Design candidate: a quiet advisory workspace
+# Archived initial candidate — rejected
 
-Unapproved interactive candidate · 13 September 2026. This is a frontend prototype with fictional examples, not production implementation.
+Historical record · 13 September 2026. The owner rejected this initial green design, sidebar, vague slogan and incomplete Settings/voice coverage. Current directions are defined in [design-brief.md](design-brief.md), with three new versioned candidates linked from [README](../README.md). The remainder of this document records the original proposal. This is a frontend prototype with fictional examples, not production implementation.
 
 ## Direction
 
