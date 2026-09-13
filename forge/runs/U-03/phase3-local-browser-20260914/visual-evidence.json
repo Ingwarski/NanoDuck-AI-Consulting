@@ -2,7 +2,7 @@
   "schema_version": 1,
   "evidence_id": "u03-local-browser-20260914",
   "kind": "visual",
-  "observed_at": "2026-09-14T01:52:45+03:00",
+  "observed_at": "2026-09-14T01:55:23+03:00",
   "executor": "authorized implementation operator",
   "environment": "local Node development server, memory store and isolated fixture app-server; no live provider credential or GoDaddy target",
   "route": "http://127.0.0.1:3000/",
@@ -18,7 +18,8 @@
     "Conversations shows the persisted local consultation with Export and Delete controls",
     "A browser reload retained the signed local session and returned to an unsaved New consultation without creating an empty record",
     "An isolated fixture consultation visibly completed Head Consultant → Strategy Consultant → Critic → Strategy Consultant revision → Head Consultant with natural role messages and no visible metadata marker",
-    "Sources showed one deduplicated direct link with its supported claim, retrieval date and publication date"
+    "Sources showed one deduplicated direct link with its supported claim, retrieval date and publication date",
+    "The composer omits a visible technical label while its textarea remains exposed to assistive technology as Your message"
   ],
   "finding": "No visual blocker observed in the checked desktop surfaces. This fixture observation does not establish live provider research. Responsive, assistive-technology and representative-user evidence remains pending U-08."
 }

@@ -14,14 +14,14 @@
   "started_at": "2026-09-14T00:45:49+03:00",
   "completed_at": "2026-09-14T01:06:00+03:00",
   "base_commit": "f99744d603b4e27cb7e89eccde2f12b9652e8a01",
-  "head_commit": "37214606849f44df6a194f01eaf7b21f63222d4c",
+  "head_commit": "85dbe693cfa89e495614413cb3bb53d0bb48f921",
   "path_mappings": [
     {
       "source": "forge/design/candidates/a/v8/index.html",
       "destination": "public/index.html",
       "strategy": "adapt",
       "source_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
-      "destination_hash": "f33daead1d288b54425ecfbebb528bf81a6135a05920393789064aa59b25e5a6"
+      "destination_hash": "1bd05bb04a3b3bc70f1239df2b0f52c824101bd0fa5464499b77c9adb7b10333"
     },
     {
       "source": "forge/design/candidates/a/v8/styles.css",
@@ -59,7 +59,7 @@
     "public/styles.css",
     "src/client/app.js"
   ],
-  "patch_hash": "2caafb6702aa3ffa3a815e9311be9c243873ccfbdbe0bfc123ae80a239284c2d",
+  "patch_hash": "0b9819287764ec512ecc690e29da476e5f04dc33afeef9aeb454d244d4efa477",
   "adaptations": [
     "Removed candidate comparison, version and inspection scaffolding.",
     "Replaced simulated messages and client fixtures with authenticated server routes and persisted consultation events.",
@@ -81,7 +81,7 @@
     {
       "kind": "visual",
       "path": "forge/runs/U-03/phase3-local-browser-20260914/visual-evidence.json",
-      "content_hash": "6a46e724c685387170c5ada4e143c36609036db2bf513fa5da166981c6f7e59c"
+      "content_hash": "819e87836fb392f820a919c8154d45289ea635e16ffe0a451d4de7d67280e874"
     }
   ],
   "verification_status": "blocked",
