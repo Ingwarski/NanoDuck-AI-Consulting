@@ -3,12 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Design-stage prototype for NanoDuck Consulting Group. No live AI or authentication.",
+  "description": "Private browser consulting application for NanoDuck Consulting Group.",
   "scripts": {
-    "start": "node scripts/serve-prototype.mjs",
-    "check": "node scripts/check-artifacts.mjs"
+    "start": "node src/server/index.mjs",
+    "dev": "NODE_ENV=development DEV_OWNER_EMAIL=owner@local.test node src/server/index.mjs",
+    "check": "node scripts/check-artifacts.mjs && node --test test/*.test.mjs",
+    "test": "node --test test/*.test.mjs",
+    "migrate": "node src/server/migrate.mjs"
   },
   "engines": {
     "node": ">=22"
+  },
+  "dependencies": {
+    "google-auth-library": "11.0.2",
+    "mysql2": "3.24.2"
   }
 }

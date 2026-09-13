@@ -1,0 +1,113 @@
+const state = { session: null, csrf: null, page: "discussion", tab: "discussion", conversation: null, events: [], run: null, poll: null, recorder: null, stream: null, chunks: [], voiceMode: "ready" };
+const $ = selector => document.querySelector(selector);
+const roleInitials = { owner: "YOU", "Head Consultant": "HC", "Strategy Consultant": "SC", Critic: "CR", System: "•" };
+
+const request = async (path, options = {}) => {
+  const headers = new Headers(options.headers);
+  if (state.csrf && !["GET", "HEAD"].includes(options.method ?? "GET")) headers.set("x-csrf-token", state.csrf);
+  if (options.body && typeof options.body !== "string" && !(options.body instanceof FormData) && !(options.body instanceof Blob)) { headers.set("content-type", "application/json"); options.body = JSON.stringify(options.body); }
+  const response = await fetch(path, { ...options, headers, credentials: "same-origin" });
+  if (response.status === 204) return { response, data: undefined };
+  const data = await response.json().catch(() => undefined);
+  if (!response.ok) throw Object.assign(new Error(data?.error ?? "request_failed"), { response, data });
+  return { response, data };
+};
+
+const toast = message => { const item = $("#toast"); item.textContent = message; item.hidden = false; clearTimeout(toast.timer); toast.timer = setTimeout(() => { item.hidden = true; }, 4_000); };
+const formatTime = value => new Intl.DateTimeFormat(undefined, { hour: "numeric", minute: "2-digit" }).format(new Date(value));
+const clear = element => { element.replaceChildren(); return element; };
+const node = (tag, attributes = {}, text) => { const item = document.createElement(tag); for (const [key, value] of Object.entries(attributes)) { if (key === "class") item.className = value; else if (key.startsWith("data-")) item.setAttribute(key, value); else item[key] = value; } if (text !== undefined) item.textContent = text; return item; };
+const id = () => crypto.randomUUID().replaceAll("-", "");
+
+function nav(page) {
+  state.page = page;
+  $("#discussion-page").hidden = page !== "discussion";
+  $("#conversations-page").hidden = page !== "conversations";
+  $("#settings-page").hidden = page !== "settings";
+  document.querySelectorAll("[data-nav]").forEach(button => button.setAttribute("aria-current", String(button.dataset.nav === page ? "page" : false)));
+  $("#mobile-nav").hidden = true; $("#menu").setAttribute("aria-expanded", "false");
+  if (page === "conversations") void loadConversations();
+  if (page === "settings") void loadSettings();
+  if (page === "discussion" && !state.conversation) void newConversation();
+}
+
+function showAuthenticated() { $("#sign-in").hidden = true; $("#consent").hidden = true; $("#app").hidden = false; nav("discussion"); }
+function showSignIn() { stopPolling(); $("#app").hidden = true; $("#consent").hidden = true; $("#sign-in").hidden = false; $("#development-sign-in").hidden = !state.session?.development; }
+function showConsent() { $("#sign-in").hidden = true; $("#app").hidden = true; $("#consent").hidden = false; }
+
+async function loadSession() {
+  const { data } = await request("/api/session"); state.session = data;
+  if (!data.authenticated) return showSignIn(); state.csrf = data.csrfToken;
+  if (!data.consented) return showConsent(); showAuthenticated();
+}
+
+function renderEvents() {
+  const thread = clear($("#thread"));
+  if (state.events.length === 0) {
+    const empty = node("div", { class: "empty" }); empty.append(node("h2", {}, "Bring in the decision."), node("p", {}, "Ask for a direct answer or a team discussion. The Critic challenges real weaknesses; it does not perform a ritual.")); thread.append(empty);
+  }
+  for (const event of state.events) {
+    const message = node("article", { class: "message", "data-role": event.role });
+    message.append(node("div", { class: "avatar", "aria-hidden": true }, roleInitials[event.role] ?? "AI"));
+    const content = node("div", { class: "message-content" }); const meta = node("div", { class: "message-meta" });
+    meta.append(node("strong", {}, event.role)); if (event.recipient) meta.append(node("small", {}, `→ ${event.recipient}`)); meta.append(node("time", { dateTime: event.createdAt }, formatTime(event.createdAt)));
+    content.append(meta, node("div", { class: "message-body" }, event.body));
+    if (event.sources?.length) { const links = node("div", { class: "source-links" }); for (const source of event.sources) { const link = node("a", { href: source.url, target: "_blank", rel: "noopener noreferrer" }, source.title); links.append(link); } content.append(links); }
+    message.append(content); thread.append(message);
+  }
+  const active = state.run?.status === "active"; $("#stop").hidden = !active; $("#continue").hidden = state.run?.status !== "stopped";
+  const labels = { active: "Consultants are working on the accepted question.", stopped: "Consultation stopped. Confirmed discussion is preserved.", complete: "Discussion complete.", failed: "Consultation needs attention. Confirmed discussion is preserved." };
+  $("#run-status").textContent = labels[state.run?.status] ?? "Describe the decision you want to make.";
+  $("#conversation-title").textContent = state.conversation?.title ?? "New consultation";
+  renderOutcome(); renderSources();
+}
+
+function renderOutcome() { const target = clear($("#outcome")); const outcome = [...state.events].reverse().find(event => event.role === "Head Consultant"); if (outcome) target.append(node("h2", {}, "Current outcome"), node("p", {}, outcome.body)); else target.append(node("div", { class: "empty" }, "A conclusion appears after the discussion has earned one.")); }
+function renderSources() { const target = clear($("#sources")); const sources = state.events.flatMap(event => event.sources ?? []); if (!sources.length) { target.append(node("div", { class: "empty" }, "Sources appear here when live research materially informs the discussion.")); return; } for (const source of sources) { const card = node("article", { class: "source-card" }); card.append(node("a", { href: source.url, target: "_blank", rel: "noopener noreferrer" }, source.title), node("p", {}, source.claim)); target.append(card); } }
+
+async function loadConversation(conversationId) {
+  const { data } = await request(`/api/conversations/${conversationId}`); state.conversation = data.conversation; state.events = data.events; state.run = data.run; renderEvents(); nav("discussion"); startPolling();
+}
+
+async function newConversation() { try { const { data } = await request("/api/conversations", { method: "POST" }); await loadConversation(data.conversation.id); $("#message").focus(); } catch { toast("Could not create a conversation."); } }
+async function loadConversations() {
+  const { data } = await request("/api/conversations"); const list = clear($("#conversation-list"));
+  if (!data.conversations.length) { list.append(node("div", { class: "empty" }, "No saved conversations yet.")); return; }
+  for (const conversation of data.conversations) {
+    const row = node("article", { class: "conversation-row" }); const open = node("button", {}, ""); open.append(node("h2", {}, conversation.title), node("small", {}, new Intl.DateTimeFormat(undefined, { dateStyle: "medium" }).format(new Date(conversation.updatedAt)))); open.addEventListener("click", () => void loadConversation(conversation.id));
+    const tools = node("span"); const exportButton = node("button", { class: "secondary" }, "Export"); exportButton.addEventListener("click", () => window.location.assign(`/api/conversations/${conversation.id}/export`)); const deleteButton = node("button", { class: "secondary" }, "Delete"); deleteButton.addEventListener("click", async () => { if (!confirm(`Delete “${conversation.title}”? This cannot be undone.`)) return; await request(`/api/conversations/${conversation.id}`, { method: "DELETE" }); if (state.conversation?.id === conversation.id) state.conversation = null; toast("Conversation deleted."); void loadConversations(); }); tools.append(exportButton, deleteButton); row.append(open, tools); list.append(row);
+  }
+}
+
+async function loadSettings() { const { data } = await request("/api/settings"); const settings = data.settings; $("#head-model").value = settings.headModel; $("#head-reasoning").value = settings.headReasoning; $("#critic-model").value = settings.criticModel; $("#critic-reasoning").value = settings.criticReasoning; $("#speed").value = settings.speed; $("#settings-status").textContent = data.provider === "configured" ? "Selected Codex route is configured for this runtime." : "Selected Codex route is unavailable on this runtime; saved preferences are preserved."; $("#session-expiry").textContent = `This session expires ${new Intl.DateTimeFormat(undefined, { dateStyle: "medium", timeStyle: "short" }).format(new Date(state.session.expiresAt))}. Activity does not extend the 24-hour boundary.`; }
+
+async function acceptMessage(event) { event.preventDefault(); const body = $("#message").value.trim(); if (!body || !state.conversation) return; try { const { data } = await request(`/api/conversations/${state.conversation.id}/messages`, { method: "POST", body: { body, clientRequestId: id() } }); $("#message").value = ""; if (state.conversation.title === "New consultation") state.conversation.title = body.slice(0, 72); state.events.push(data.message); state.run = data.run; renderEvents(); startPolling(); } catch (error) { toast(error.data?.error === "active_or_missing_conversation" ? "Wait for the current consultation or stop it first." : "Your message was not accepted."); } }
+
+async function stop() { if (!state.conversation) return; const { data } = await request(`/api/conversations/${state.conversation.id}/stop`, { method: "POST" }); state.run = data.run; renderEvents(); }
+async function continueRun() { if (!state.conversation) return; const { data } = await request(`/api/conversations/${state.conversation.id}/continue`, { method: "POST" }); state.run = data.run; renderEvents(); startPolling(); }
+function startPolling() { stopPolling(); if (state.run?.status !== "active") return; state.poll = setInterval(async () => { try { const { data } = await request(`/api/conversations/${state.conversation.id}`); state.events = data.events; state.run = data.run; renderEvents(); if (state.run?.status !== "active") stopPolling(); } catch { stopPolling(); } }, 2_000); }
+function stopPolling() { if (state.poll) clearInterval(state.poll); state.poll = null; }
+
+function setTab(tab) { state.tab = tab; document.querySelectorAll("[data-tab]").forEach(button => button.setAttribute("aria-selected", String(button.dataset.tab === tab))); $("#thread").hidden = tab !== "discussion"; $("#composer").hidden = tab !== "discussion"; $("#outcome").hidden = tab !== "outcome"; $("#sources").hidden = tab !== "sources"; }
+
+function releaseVoice() { if (state.recorder?.state === "recording") state.recorder.stop(); state.stream?.getTracks().forEach(track => track.stop()); state.stream = null; state.recorder = null; state.chunks = []; }
+function openVoice() { state.voiceMode = "ready"; $("#voice-heading").textContent = "Say what is on your mind."; $("#voice-copy").textContent = "Start recording, then review the transcript before you send it."; $("#voice-action").textContent = "Start recording"; $("#voice-transcript").hidden = true; $("#voice-timer").textContent = ""; $("#voice-dialog").showModal(); }
+async function voiceAction() {
+  if (state.voiceMode === "transcript") { const transcript = $("#voice-transcript").value.trim(); if (transcript) $("#message").value = [$("#message").value.trimEnd(), transcript].filter(Boolean).join("\n\n"); $("#voice-dialog").close(); return; }
+  try {
+    state.stream = await navigator.mediaDevices.getUserMedia({ audio: true }); state.recorder = new MediaRecorder(state.stream); state.chunks = []; state.voiceMode = "recording"; state.recorder.ondataavailable = event => state.chunks.push(event.data); state.recorder.onstop = () => void transcribe(); state.recorder.start(); $("#voice-heading").textContent = "Recording"; $("#voice-copy").textContent = "Stop when you are ready. Sending remains a separate action."; $("#voice-action").textContent = "Stop recording"; const started = Date.now(); state.voiceTimer = setInterval(() => { $("#voice-timer").textContent = `${Math.floor((Date.now() - started) / 60_000).toString().padStart(2, "0")}:${Math.floor(((Date.now() - started) / 1_000) % 60).toString().padStart(2, "0")}`; }, 250);
+  } catch { $("#voice-heading").textContent = "Microphone unavailable"; $("#voice-copy").textContent = "Your typed draft is unchanged. You can retry or type instead."; $("#voice-action").textContent = "Retry"; state.voiceMode = "ready"; }
+}
+async function transcribe() { clearInterval(state.voiceTimer); const blob = new Blob(state.chunks, { type: state.recorder?.mimeType || "audio/webm" }); state.stream?.getTracks().forEach(track => track.stop()); state.stream = null; state.recorder = null; $("#voice-heading").textContent = "Transcribing"; $("#voice-copy").textContent = "Your typed draft is preserved."; try { const { data } = await request("/api/voice/transcribe", { method: "POST", body: blob, headers: { "content-type": blob.type } }); $("#voice-transcript").value = data.transcript; $("#voice-transcript").hidden = false; $("#voice-action").textContent = "Use transcript"; state.voiceMode = "transcript"; } catch (error) { $("#voice-heading").textContent = "Voice transcription unavailable"; $("#voice-copy").textContent = error.data?.message ?? "Type instead; your draft is unchanged."; $("#voice-action").textContent = "Retry"; state.voiceMode = "ready"; } }
+
+$("#menu").addEventListener("click", () => { const menu = $("#mobile-nav"); menu.hidden = !menu.hidden; $("#menu").setAttribute("aria-expanded", String(!menu.hidden)); });
+document.addEventListener("click", event => { const button = event.target.closest("[data-nav]"); if (button) nav(button.dataset.nav); const tab = event.target.closest("[data-tab]"); if (tab) setTab(tab.dataset.tab); });
+$("#new-conversation").addEventListener("click", () => void newConversation()); $("#composer").addEventListener("submit", event => void acceptMessage(event)); $("#stop").addEventListener("click", () => void stop()); $("#continue").addEventListener("click", () => void continueRun());
+$("#google-sign-in").addEventListener("click", async () => { const { response } = await request("/auth/google/start", { method: "POST" }); location.assign(response.headers.get("location")); });
+$("#development-sign-in").addEventListener("click", async () => { await request("/api/auth/development", { method: "POST" }); await loadSession(); });
+$("#consent-check").addEventListener("change", event => { $("#consent-button").disabled = !event.target.checked; }); $("#consent-button").addEventListener("click", async () => { await request("/api/consent", { method: "POST" }); await loadSession(); });
+$("#settings-form").addEventListener("submit", async event => { event.preventDefault(); const settings = { headModel: $("#head-model").value, headReasoning: $("#head-reasoning").value, criticModel: $("#critic-model").value, criticReasoning: $("#critic-reasoning").value, speed: $("#speed").value }; await request("/api/settings", { method: "PUT", body: settings }); toast("Settings saved for future consultations."); });
+$("#sign-out").addEventListener("click", async () => { await request("/api/logout", { method: "POST" }); state.session = null; state.csrf = null; state.conversation = null; showSignIn(); });
+$("#voice").addEventListener("click", openVoice); $("#voice-action").addEventListener("click", event => { event.preventDefault(); if (state.voiceMode === "recording") { state.recorder?.stop(); return; } void voiceAction(); }); $("#voice-cancel").addEventListener("click", () => releaseVoice()); $("#voice-dialog").addEventListener("close", () => { clearInterval(state.voiceTimer); releaseVoice(); }); window.addEventListener("pagehide", () => { stopPolling(); releaseVoice(); });
+
+void loadSession().catch(() => toast("The app could not initialize."));

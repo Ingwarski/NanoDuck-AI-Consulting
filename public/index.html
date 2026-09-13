@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="referrer" content="no-referrer">
+  <link rel="icon" href="/nanoduck.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/client/app.js" defer></script>
+  <title>NanoDuck Consulting Group</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to discussion</a>
+  <header class="navbar">
+    <button class="brand" data-nav="discussion" aria-label="NanoDuck Consulting Group, discussion">
+      <img src="/nanoduck.svg" alt="" width="40" height="40">
+      <span>NanoDuck<small>Consulting Group</small></span>
+    </button>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <button data-nav="discussion">Discussion</button><button data-nav="conversations">Conversations</button><button data-nav="settings">Settings</button>
+    </nav>
+    <button id="menu" class="menu" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden>
+      <button data-nav="discussion">Discussion</button><button data-nav="conversations">Conversations</button><button data-nav="settings">Settings</button>
+    </nav>
+  </header>
+  <div class="workspace-actions"><span id="workspace-title">Private consulting</span><button id="new-conversation" class="new-action">+ New</button></div>
+  <main id="main" tabindex="-1">
+    <section id="sign-in" class="sign-in" hidden>
+      <div class="sign-in-art"><div class="brand-lockup"><img src="/nanoduck.svg" alt="" width="48" height="48"><span>NanoDuck<small>Consulting Group</small></span></div><h1>Your question.<br>Clearer thinking.</h1><div class="signal-lines" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>
+      <div class="sign-in-form"><p class="eyebrow">Private workspace</p><h2>Sign in.</h2><p>Bring a decision to your consultants. Follow the real discussion, inspect sources, and decide what to do next.</p><button id="google-sign-in" class="primary">Continue with Google <span aria-hidden="true">→</span></button><button id="development-sign-in" class="secondary" hidden>Open local development workspace</button><p class="hint">One sign-in. No connection checklist.</p></div>
+    </section>
+    <section id="consent" class="consent-card" hidden><p class="eyebrow">Before you begin</p><h1>Keep the work deliberate.</h1><p>Your selected AI providers process what you choose to send. Conversation records stay private to your account. Live research uses focused public queries.</p><label><input id="consent-check" type="checkbox"> I agree to this processing for my consultations.</label><button id="consent-button" class="primary" disabled>Open workspace</button></section>
+    <section id="app" hidden>
+      <section id="discussion-page" class="page">
+        <div class="topic"><p class="eyebrow">Discussion</p><h1 id="conversation-title">New consultation</h1><p id="run-status" class="status">Describe the decision you want to make.</p></div>
+        <div class="tabs" role="tablist" aria-label="Consultation views"><button role="tab" aria-selected="true" data-tab="discussion">Discussion</button><button role="tab" aria-selected="false" data-tab="outcome">Outcome</button><button role="tab" aria-selected="false" data-tab="sources">Sources</button></div>
+        <div id="thread" class="thread" aria-live="polite"></div>
+        <div id="outcome" class="panel" hidden></div><div id="sources" class="panel" hidden></div>
+        <form id="composer" class="composer"><div class="composer-top"><span id="draft-status">Draft is private until you send it.</span><span><button id="stop" type="button" class="compact" hidden>Stop</button><button id="continue" type="button" class="compact" hidden>Continue</button></span></div><label class="sr-only" for="message">Your message</label><textarea id="message" rows="3" placeholder="Describe the decision you need to make…"></textarea><div class="composer-tools"><span><button id="voice" type="button" class="icon" aria-label="Voice input" title="Voice input">⌁</button></span><button id="send" class="primary" type="submit">Send <span aria-hidden="true">→</span></button></div><p id="voice-status" class="hint"></p></form>
+      </section>
+      <section id="conversations-page" class="page" hidden><div class="page-intro"><p class="eyebrow">Conversations</p><h1>Return to the work.</h1><p>Complete confirmed discussions remain here until you delete them.</p></div><div id="conversation-list"></div></section>
+      <section id="settings-page" class="page" hidden><div class="page-intro"><p class="eyebrow">Settings</p><h1>Choose how future work runs.</h1><p>Active consultations retain their accepted model and reasoning settings.</p></div><form id="settings-form"><fieldset><legend>Head and specialists</legend><label>Model<select id="head-model"><option value="gpt-6-astra">gpt-6-astra</option></select></label><label>Reasoning<select id="head-reasoning"><option value="xhigh">xhigh</option><option value="ultra">ultra</option></select></label></fieldset><fieldset><legend>Critic</legend><label>Model<select id="critic-model"><option value="gpt-6-astra">gpt-6-astra</option></select></label><label>Reasoning<select id="critic-reasoning"><option value="ultra">ultra</option><option value="xhigh">xhigh</option></select></label></fieldset><fieldset><legend>Pace</legend><label>Speed<select id="speed"><option value="fast">Fast</option><option value="balanced">Balanced</option><option value="thorough">Thorough</option></select></label><p class="hint">Balanced uses the preserved team and time limits. Changes apply to later consultations.</p></fieldset><p id="settings-status" class="status"></p><button class="primary" type="submit">Save settings</button></form><div class="account"><h2>Session</h2><p id="session-expiry"></p><button id="sign-out" class="secondary">Sign out</button></div></section>
+    </section>
+  </main>
+  <dialog id="voice-dialog"><form method="dialog"><button class="close" aria-label="Close voice input">×</button><p class="eyebrow">Voice input</p><h2 id="voice-heading">Say what is on your mind.</h2><p id="voice-copy">Start recording, then review the transcript before you send it.</p><p id="voice-timer" class="voice-timer"></p><textarea id="voice-transcript" rows="5" hidden></textarea><div class="dialog-actions"><button id="voice-cancel" value="cancel" class="secondary">Cancel</button><button id="voice-action" value="default" class="primary">Start recording</button></div></form></dialog>
+  <div id="toast" role="status" hidden></div>
+</body>
+</html>
