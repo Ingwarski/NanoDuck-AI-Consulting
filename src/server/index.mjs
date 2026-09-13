@@ -11,7 +11,8 @@ import { parseConversationId, parseMessage, parseSettings } from "./validation.m
 const config = loadConfig();
 const store = config.databaseUrl ? await createMySqlStore(config.databaseUrl, config.dataKey) : createMemoryStore();
 const auth = createAuth({ config, store });
-const consultation = createConsultationService({ store, provider: createCodexProvider(config) });
+const provider = createCodexProvider(config);
+const consultation = createConsultationService({ store, provider });
 const publicDirectory = new URL("../../public/", import.meta.url).pathname;
 const clientApp = new URL("../client/app.js", import.meta.url).pathname;
 const mime = { ".html": "text/html; charset=utf-8", ".css": "text/css; charset=utf-8", ".js": "application/javascript; charset=utf-8", ".svg": "image/svg+xml", ".json": "application/json; charset=utf-8" };
@@ -71,8 +72,8 @@ const handler = async (request, response) => {
       const session = await auth.consent(request); return session ? send(response, 200, { consented: true }) : send(response, 403, { error: "consent_denied" });
     }
     if (request.method === "POST" && url.pathname === "/api/logout") { await auth.signOut(request); return empty(response, 204, { "set-cookie": auth.clearSessionCookie() }); }
-    if (request.method === "GET" && url.pathname === "/api/settings") { if (!await protectedSession(request, response)) return; return send(response, 200, { settings: await store.settings(), provider: config.readyForProvider ? "configured" : "unavailable" }); }
-    if (request.method === "PUT" && url.pathname === "/api/settings") { if (!await protectedSession(request, response, { csrf: true })) return; const next = parseSettings(await json(request)); return next ? send(response, 200, { settings: await store.saveSettings(next) }) : send(response, 422, { error: "invalid_settings" }); }
+    if (request.method === "GET" && url.pathname === "/api/settings") { if (!await protectedSession(request, response)) return; const capabilities = await provider.inspect(); return send(response, 200, { settings: await store.settings(), provider: capabilities.status, catalog: capabilities.models }); }
+    if (request.method === "PUT" && url.pathname === "/api/settings") { if (!await protectedSession(request, response, { csrf: true })) return; const capabilities = await provider.inspect(); const next = parseSettings(await json(request), capabilities.models); return next ? send(response, 200, { settings: await store.saveSettings(next) }) : send(response, 422, { error: "invalid_settings" }); }
     if (request.method === "GET" && url.pathname === "/api/conversations") { if (!await protectedSession(request, response)) return; return send(response, 200, { conversations: await store.listConversations() }); }
     if (request.method === "POST" && url.pathname === "/api/conversations") { if (!await protectedSession(request, response, { csrf: true })) return; return send(response, 201, { conversation: await store.createConversation() }); }
     if (request.method === "POST" && url.pathname === "/api/voice/transcribe") {

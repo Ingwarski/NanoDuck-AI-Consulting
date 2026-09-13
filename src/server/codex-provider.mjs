@@ -8,6 +8,8 @@ import { safeExternalUrl } from "./validation.mjs";
 
 const timeout = (milliseconds, label) => new Promise((_, reject) => setTimeout(() => reject(new Error(label)), milliseconds));
 const record = value => typeof value === "object" && value !== null && !Array.isArray(value);
+const preservedModel = "gpt-6-astra";
+const preservedEfforts = new Set(["xhigh", "ultra"]);
 
 class AppServerConnection {
   constructor(child, workspace, cleanup) {
@@ -73,7 +75,42 @@ function sourcesFrom(text) {
   return [...new Set(urls)].slice(0, 8).map(url => ({ url, title: new URL(url).hostname, claim: "Consultation source referenced by the model." }));
 }
 
+async function supportedCatalog(connection) {
+  const models = [];
+  let cursor;
+  for (let page = 0; page < 20; page += 1) {
+    const result = await connection.request("model/list", { limit: 100, includeHidden: true, ...(cursor ? { cursor } : {}) });
+    if (!record(result) || !Array.isArray(result.data)) throw new Error("invalid_catalog");
+    models.push(...result.data);
+    if (result.nextCursor === null || result.nextCursor === undefined) break;
+    if (typeof result.nextCursor !== "string" || !result.nextCursor || result.nextCursor === cursor) throw new Error("invalid_catalog");
+    cursor = result.nextCursor;
+  }
+  if (models.length > 2_000) throw new Error("invalid_catalog");
+  const astra = models.find(item => record(item) && item.model === preservedModel && typeof item.id === "string" && Array.isArray(item.supportedReasoningEfforts));
+  if (!record(astra)) return undefined;
+  const efforts = astra.supportedReasoningEfforts.flatMap(item => record(item) && typeof item.reasoningEffort === "string" && preservedEfforts.has(item.reasoningEffort) ? [item.reasoningEffort] : []);
+  return efforts.length ? Object.freeze([{ id: preservedModel, efforts: Object.freeze([...new Set(efforts)]) }]) : undefined;
+}
+
 export function createCodexProvider(config) {
+  const inspect = async () => {
+    if (!config.readyForProvider) return Object.freeze({ status: "unavailable", models: Object.freeze([]) });
+    let connection;
+    try {
+      connection = await startConnection(config);
+      const account = await connection.request("account/read", { refreshToken: false });
+      if (!record(account) || !record(account.account) || account.account.type !== "chatgpt") return Object.freeze({ status: "auth_required", models: Object.freeze([]) });
+      const [models, limits] = await Promise.all([supportedCatalog(connection), connection.request("account/rateLimits/read", {})]);
+      if (!models) return Object.freeze({ status: "incompatible", models: Object.freeze([]) });
+      const quotaBlocked = record(limits) && record(limits.rateLimits) && limits.rateLimits.rateLimitReachedType !== null && limits.rateLimits.rateLimitReachedType !== undefined;
+      return Object.freeze({ status: quotaBlocked ? "quota_blocked" : "ready", models });
+    } catch {
+      return Object.freeze({ status: "unavailable", models: Object.freeze([]) });
+    } finally {
+      await connection?.close().catch(() => {});
+    }
+  };
   const invoke = async ({ assignment, model, effort, evidence, research, signal }) => {
     if (!config.readyForProvider) return { ok: false, code: "provider_unavailable" };
     let connection; let threadId;
@@ -100,5 +137,5 @@ export function createCodexProvider(config) {
       await connection?.close().catch(() => {});
     }
   };
-  return Object.freeze({ invoke, id: () => randomId() });
+  return Object.freeze({ inspect, invoke, id: () => randomId() });
 }

@@ -12,13 +12,15 @@ export function parseMessage(value) {
   return Object.freeze({ body: body.body.trim(), clientRequestId: body.clientRequestId });
 }
 
-export function parseSettings(value) {
+export function parseSettings(value, catalog = undefined) {
   const body = parseJson(value);
   if (!body) return undefined;
   const validEfforts = new Set(["xhigh", "ultra"]);
   const validSpeed = new Set(["fast", "balanced", "thorough"]);
-  if (body.headModel !== "gpt-6-astra" || body.criticModel !== "gpt-6-astra" ||
-    !validEfforts.has(body.headReasoning) || !validEfforts.has(body.criticReasoning) || !validSpeed.has(body.speed)) return undefined;
+  const allowed = Array.isArray(catalog) && catalog.length
+    ? catalog.some(model => model?.id === body.headModel && model.id === body.criticModel && Array.isArray(model.efforts) && model.efforts.includes(body.headReasoning) && model.efforts.includes(body.criticReasoning))
+    : body.headModel === "gpt-6-astra" && body.criticModel === "gpt-6-astra" && validEfforts.has(body.headReasoning) && validEfforts.has(body.criticReasoning);
+  if (!allowed || !validSpeed.has(body.speed)) return undefined;
   return Object.freeze({ headModel: body.headModel, headReasoning: body.headReasoning, criticModel: body.criticModel, criticReasoning: body.criticReasoning, speed: body.speed });
 }
 

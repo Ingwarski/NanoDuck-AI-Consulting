@@ -13,6 +13,9 @@ createInterface({ input: process.stdin, crlfDelay: Infinity }).on("line", line =
     const safe = request.params?.cwd === process.env.HOME && request.params?.environments?.length === 0 && expectedFeatures.every(key => config?.features?.[key] === false);
     return safe ? send({ id: request.id, result: { model: request.params.model, thread: { id: "isolated-thread", model: request.params.model } } }) : send({ id: request.id, error: { message: "unsafe_thread" } });
   }
+  if (request.method === "account/read") return send({ id: request.id, result: { account: { type: "chatgpt" } } });
+  if (request.method === "model/list") return send({ id: request.id, result: { data: [{ id: "astra", model: "gpt-6-astra", supportedReasoningEfforts: [{ reasoningEffort: "xhigh" }, { reasoningEffort: "ultra" }] }], nextCursor: null } });
+  if (request.method === "account/rateLimits/read") return send({ id: request.id, result: { rateLimits: { rateLimitReachedType: null } } });
   if (request.method === "turn/start") return send({ id: request.id, result: { turn: { id: "turn-1", status: "completed", items: [{ type: "agentMessage", text: "A bounded answer." }] } } });
   if (request.method === "thread/unsubscribe") return send({ id: request.id, result: {} });
   send({ id: request.id, error: { message: "unknown_method" } });
