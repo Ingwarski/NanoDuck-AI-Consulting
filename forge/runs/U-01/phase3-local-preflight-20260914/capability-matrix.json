@@ -2,25 +2,30 @@
   "schema_version": 1,
   "run_id": "phase3-local-preflight-20260914",
   "unit_id": "U-01",
-  "observed_at": "2026-09-14T01:12:00+03:00",
-  "execution_revision": "f5850fdcd41ba2dadc74d01f9e65cfd98d5345d1",
-  "executor": "authorized implementation operator",
+  "observed_at": "2026-09-14T08:44:20.750Z",
+  "execution_revision": "669b104",
+  "executor": "Codex implementation operator",
   "scope": "local workstation preflight only; no provider invocation, database connection, deployment, migration or GoDaddy operation",
   "capabilities": [
     {
       "name": "controlled Codex app-server executable",
-      "status": "blocked",
-      "observation": "The configured controlled PATH did not resolve a codex executable. No subscription call was attempted."
+      "status": "ready",
+      "observation": "The controlled local Codex app-server executable initialized successfully. No model turn was started."
     },
     {
       "name": "provider authentication bootstrap",
-      "status": "blocked",
-      "observation": "CODEX_APP_SERVER_AUTH_PATH was not supplied to the local run, so the application truthfully exposes provider-unavailable rather than using an implicit account or fallback."
+      "status": "ready",
+      "observation": "A mounted local Codex auth file allowed only account, model-catalog and rate-limit inspection. The preflight returned ready; it did not read conversations or use a fallback."
     },
     {
-      "name": "browser microphone capture",
+      "name": "preserved Codex model tuples",
+      "status": "ready",
+      "observation": "Current model/list returned gpt-6-astra with xhigh and ultra reasoning efforts, matching the preserved Head/specialists and Critic tuples. This is catalog support, not an invocation proof."
+    },
+    {
+      "name": "browser-native Ukrainian recognition",
       "status": "partially_observed",
-      "observation": "The verified local UI exposes an explicit icon-only voice action and preserves typing on unavailable transcription. Supported MIME and the subscription transcription adapter remain unverified."
+      "observation": "The owner confirmed a Ukrainian result in current Safari and Chrome using the technical probe. The replacement app's dialog and Cancel path were then checked locally without activating the microphone. Mobile devices and full release QA remain unverified."
     },
     {
       "name": "target MySQL and GoDaddy lifecycle",
@@ -28,10 +33,11 @@
       "observation": "No target runtime, database identity, exclusive-ownership inventory, environment configuration or deployment authorization was supplied; no connection was attempted."
     }
   ],
-  "result": "blocked",
+  "result": "ready_for_local_provider_configuration",
   "next_evidence": [
-    "Provide the target app's controlled Codex executable/auth bootstrap and run a content-free subscription plus restricted-research preflight.",
-    "Verify supported browser audio MIME against the existing subscription transcription adapter before enabling server transcription.",
+    "Before a target-runtime connection, obtain the required fresh saved/effective-settings snapshot, including inactive preferences. Preserve unsupported values rather than substituting them.",
+    "Do not make a model turn or restricted-research call until the separate live-provider authorization is granted.",
+    "Run the browser-native recognition path on mobile Safari and Android Chrome before release.",
     "Inventory only the named GoDaddy consulting app and its exclusively owned database before any migration or reset."
   ]
 }

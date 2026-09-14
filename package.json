@@ -7,6 +7,7 @@
   "scripts": {
     "start": "node src/server/index.mjs",
     "dev": "NODE_ENV=development DEV_OWNER_EMAIL=owner@local.test node src/server/index.mjs",
+    "preflight": "node src/server/preflight.mjs",
     "check": "node scripts/check-artifacts.mjs && node --test test/*.test.mjs",
     "test": "node --test test/*.test.mjs",
     "migrate": "node src/server/migrate.mjs"
