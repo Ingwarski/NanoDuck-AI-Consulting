@@ -125,6 +125,36 @@ test("pre-conclusion Head advice is discarded in favour of a bounded specialist 
   assert.equal(events.at(-1).recipient, null);
 });
 
+test("role contributions are trimmed at complete sentences within their stated bounds", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "concise-role-bounds-0001" }, { ...defaultSettings, specialistCount: "1", discussionDepth: "1" });
+  const longMessage = "This is a decision-relevant sentence. ".repeat(200);
+  const provider = {
+    async invoke(input) {
+      if (input.outputKind === "head_task") return { ok: true, body: "<nanoduck-task>Assess the decision-critical evidence and material risk.</nanoduck-task>", sources: [] };
+      return { ok: true, body: longMessage, sources: [] };
+    }
+  };
+  const service = createConsultationService({ store, provider });
+  await service.start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  const events = await store.events(conversation.id);
+  const bounded = events.filter(event => event.role !== "owner" && event.role !== "System");
+  assert.deepEqual(bounded.map(event => [event.role, event.recipient]), [
+    ["Head Consultant", "Strategy Consultant"],
+    ["Strategy Consultant", "Critic"],
+    ["Critic", "Strategy Consultant"],
+    ["Strategy Consultant", "Critic"],
+    ["Head Consultant", null]
+  ]);
+  assert.equal(bounded[1].body.length <= 1_400, true);
+  assert.equal(bounded[2].body.length <= 1_000, true);
+  assert.equal(bounded[3].body.length <= 1_200, true);
+  assert.equal(bounded[4].body.length <= 2_000, true);
+  assert.equal(bounded.slice(1).every(event => /[.!?]$/u.test(event.body)), true);
+});
+
 test("discussion depth performs the requested number of Critic-specialist exchanges", async () => {
   const store = createMemoryStore();
   const conversation = await store.createConversation();

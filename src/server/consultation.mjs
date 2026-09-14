@@ -12,7 +12,7 @@ const needsDiscussion = text => {
   const explicitDiscussion = /\b(?:critic|consultant team|consulting team|positioning|this offer|decision|strategy|proposal)\b|критик|консиліум|команд.{0,8}консульт|позиціонув|пропозиці|рішенн|стратег/iu.test(question);
   return !directQuestion || explicitDiscussion;
 };
-const responseLength = "Keep this message focused on the point that can change the decision. Use only the reasoning, evidence limits and tradeoffs needed to make that point clear.";
+const responseLength = "Make one decision-relevant point, the evidence or uncertainty behind it, and a concrete next test where useful. Do not give a textbook explanation, generic motivational advice, fictional numeric scenarios, invented market facts, customer behavior or sources. If essential information is absent, name the missing condition instead of making it up.";
 const responseLanguage = text => {
   if (/\b(?:answer|respond|reply|write)\s+in\s+english\b|англійськ/iu.test(text)) return "English";
   if (/\b(?:answer|respond|reply|write)\s+in\s+ukrainian\b|українськ/iu.test(text)) return "Ukrainian";
@@ -52,6 +52,15 @@ const headTaskOutput = body => {
   const sentences = task.split(/[.!?]+/u).filter(Boolean);
   return task.length <= 420 && sentences.length <= 2 && imperative.test(task) && !ownerFacing.test(task) ? Object.freeze({ body: task }) : undefined;
 };
+const compactMessage = (body, maximumCharacters = 2_000) => {
+  const text = typeof body === "string" ? body.trim() : "";
+  if (text.length <= maximumCharacters) return text;
+  const excerpt = text.slice(0, maximumCharacters + 1);
+  const endings = [...excerpt.matchAll(/[.!?](?:\s|$)/gu)];
+  const ending = endings.at(-1);
+  return text.slice(0, ending ? (ending.index ?? 0) + 1 : maximumCharacters).trim();
+};
+const compactOutput = maximumCharacters => body => Object.freeze({ body: compactMessage(body, maximumCharacters) });
 const roleGuidance = Object.freeze({
   "Spiritual Consultant": "Work from evangelical Protestant doctrine: Jesus Christ is Lord and Saviour; His finished work is sufficient; salvation is by faith alone and cannot be lost. Do not introduce esoteric, occult, syncretic, manifestation or therapeutic claims.",
   Psychotherapist: "Use methods from the major classical psychotherapy schools and Internal Family Systems when appropriate. Do not claim human credentials, diagnose, replace clinical care, or handle an emergency without directing the owner to immediate local help."
@@ -119,11 +128,11 @@ export function createConsultationService({ store, provider }) {
       snapshot = Object.freeze({ ...snapshot, ...patch });
       if (!await store.updateRunSnapshot(conversationId, runState.generation, snapshot)) throw new Error("invalid_run_state");
     };
-    const invoke = async (step, transform = body => ({ body }), fallback = undefined) => {
+    const invoke = async (step, transform = undefined, fallback = undefined) => {
       if (!await isCurrent()) return undefined;
-      const result = await provider.invoke({ assignment: step.assignment, model: step.model, effort: step.effort, evidence: await current(), research: step.research, outputKind: step.outputKind, signal: controller.signal });
+      const result = await provider.invoke({ assignment: step.assignment, model: step.model, effort: step.effort, evidence: await current(), research: step.research, outputKind: step.outputKind, maximumCharacters: step.maximumCharacters, signal: controller.signal });
       if (!result.ok) throw new Error(result.code ?? "provider_unavailable");
-      const output = transform(result.body) ?? (fallback ? { body: fallback() } : undefined);
+      const output = (transform ?? compactOutput(step.maximumCharacters))(result.body) ?? (fallback ? { body: fallback() } : undefined);
       if (!output?.body) throw new Error("provider_contract");
       const committed = await store.appendAgentMessage(conversationId, runState.generation, { role: step.role, recipient: step.recipient, body: output.body, sources: output.sources ?? result.sources });
       if (!committed) throw new Error("invalid_run_state");
@@ -137,7 +146,7 @@ export function createConsultationService({ store, provider }) {
       if (ownerIndex < 0) throw new Error("invalid_run_state");
       let confirmed = first.events.slice(ownerIndex + 1);
       if (!needsDiscussion(first.owner)) {
-        const direct = { role: "Head Consultant", recipient: null, model: settings.head.model, effort: settings.head.effort, research, assignment: `You are the Head Consultant. Give a direct, self-contained answer to this simple question. Use a short example where it helps. Do not convene a consultant team or add process language. ${responseLength} ${language}` };
+        const direct = { role: "Head Consultant", recipient: null, model: settings.head.model, effort: settings.head.effort, research, outputKind: "head_direct", maximumCharacters: 1_200, assignment: `You are the Head Consultant. Give a direct, self-contained answer to this simple question. Use a short example where it helps. Do not convene a consultant team or add process language. Respect any requested answer format or sentence count. ${responseLength} ${language}` };
         if (confirmed.length > 1 || confirmed[0] && !matches(confirmed[0], direct)) throw new Error("invalid_run_state");
         if (!confirmed.length) await invoke(direct);
         await store.finishRun(conversationId, runState.generation, "complete");
@@ -175,6 +184,7 @@ export function createConsultationService({ store, provider }) {
           effort: settings.head.effort,
           research: false,
           outputKind: "head_task",
+          maximumCharacters: 420,
           assignment: `You are the Head Consultant. This is a private handoff to the ${specialist}, never an answer to the owner. Return exactly one XML wrapper and nothing else: <nanoduck-task>ONE OR TWO IMPERATIVE SENTENCES</nanoduck-task>. Begin the task with a direct action verb. Inside the wrapper, give the ${specialist} a concrete role-specific investigation for this decision. Do not answer the owner, state a position, recommend an action, list assumptions, explain the team, use first person, or use words such as recommendation or conclusion. ${language}`
         })),
         ...team.map(specialist => ({
@@ -183,7 +193,9 @@ export function createConsultationService({ store, provider }) {
           model: settings.consultant.model,
           effort: settings.consultant.effort,
           research,
-          assignment: `You are the ${specialist}. Answer the Head's task with your independent position for the Critic. State only the conclusion, evidence or test that matters from your discipline, and the material uncertainty. Address the Critic directly. Do not ask another specialist to act, speak for the Head or add ceremony.${guidanceFor(specialist)} ${responseLength} ${language}`
+          outputKind: "specialist_position",
+          maximumCharacters: 1_400,
+          assignment: `You are the ${specialist}. Answer the Head's task with an independent position for the Critic in no more than 180 words. State the decision-relevant conclusion, its evidence or test, and the material uncertainty. Address the Critic directly. Do not restate the question, ask another specialist to act, speak for the Head or add ceremony.${guidanceFor(specialist)} ${responseLength} ${language}`
         }))
       ];
       for (let index = 0; index < initial.length; index += 1) {
@@ -200,8 +212,8 @@ export function createConsultationService({ store, provider }) {
       let consensusReached = automaticDepth && snapshot.consiliumReached === true;
       for (let exchange = 1; exchange <= maximumDepth; exchange += 1) {
         const specialist = team[(exchange - 1) % team.length];
-        const challenge = { role: "Critic", recipient: specialist, model: settings.critic.model, effort: settings.critic.effort, research, assignment: `You are the Critic. Challenge only material gaps, unsupported claims, risks or false certainty in the actual discussion. Address the ${specialist} directly and remain constructive. This is exchange ${exchange}. ${responseLength} ${language}` };
-        const reply = { role: specialist, recipient: "Critic", model: settings.consultant.model, effort: settings.consultant.effort, research, assignment: `You are the ${specialist}. Respond directly to the Critic's actual concern and account for the whole discussion. Revise your position where warranted; explain a grounded disagreement where not. Do not repeat your earlier message.${guidanceFor(specialist)} ${automaticDepth ? " End with exactly [CONSILIUM: REACHED] only if the whole team and Critic now share a supported recommendation or bounded uncertainty; otherwise end with exactly [CONSILIUM: CONTINUE]." : ""} ${responseLength} ${language}` };
+        const challenge = { role: "Critic", recipient: specialist, model: settings.critic.model, effort: settings.critic.effort, research, outputKind: "critic_challenge", maximumCharacters: 1_000, assignment: `You are the Critic. In no more than 130 words, challenge one material gap, unsupported claim, risk or false certainty in the actual discussion. Ask for the decision-critical evidence or condition that would resolve it. Address the ${specialist} directly and remain constructive. Do not restate the discussion. This is exchange ${exchange}. ${responseLength} ${language}` };
+        const reply = { role: specialist, recipient: "Critic", model: settings.consultant.model, effort: settings.consultant.effort, research, outputKind: "specialist_reply", maximumCharacters: 1_200, assignment: `You are the ${specialist}. In no more than 160 words, respond directly to the Critic's actual concern and account for the whole discussion. Revise your position where warranted; explain a grounded disagreement where not, and state the next evidence threshold or action. Do not repeat your earlier message.${guidanceFor(specialist)} ${automaticDepth ? " End with exactly [CONSILIUM: REACHED] only if the whole team and Critic now share a supported recommendation or bounded uncertainty; otherwise end with exactly [CONSILIUM: CONTINUE]." : ""} ${responseLength} ${language}` };
         const existingChallenge = confirmed[cursor];
         if (existingChallenge) { if (!matches(existingChallenge, challenge)) throw new Error("invalid_run_state"); }
         else await invoke(challenge);
@@ -209,7 +221,10 @@ export function createConsultationService({ store, provider }) {
         let replyOutcome;
         const existingReply = confirmed[cursor];
         if (existingReply) { if (!matches(existingReply, reply)) throw new Error("invalid_run_state"); }
-        else replyOutcome = await invoke(reply, automaticDepth ? consensusMarker : body => ({ body }));
+        else replyOutcome = await invoke(reply, automaticDepth ? body => {
+          const marked = consensusMarker(body);
+          return Object.freeze({ ...marked, body: compactMessage(marked.body, reply.maximumCharacters) });
+        } : compactOutput(reply.maximumCharacters));
         cursor += 1;
         if (automaticDepth) {
           if (completedDepth < exchange) {
@@ -221,7 +236,7 @@ export function createConsultationService({ store, provider }) {
         }
       }
       confirmed = (await current()).events.slice(ownerIndex + 1);
-      const conclusion = { role: "Head Consultant", recipient: null, model: settings.head.model, effort: settings.head.effort, research, assignment: `You are the Head Consultant. Write the only owner-facing synthesis after the actual specialist and Critic discussion. Do not introduce a fresh position or reopen task assignment. Give a self-contained recommendation or clearly bounded uncertainty, no more than three next actions, the main risk and a revisit condition. State agreement only if the actual messages support it. ${responseLength} ${language}` };
+      const conclusion = { role: "Head Consultant", recipient: null, model: settings.head.model, effort: settings.head.effort, research, outputKind: "head_final", maximumCharacters: 2_000, assignment: `You are the Head Consultant. Write the only owner-facing synthesis after the actual specialist and Critic discussion in no more than 260 words. Do not introduce a fresh position or reopen task assignment. Give a self-contained recommendation or clearly bounded uncertainty, no more than three next actions, the main risk and a revisit condition. State agreement only if the actual messages support it. ${responseLength} ${language}` };
       if (confirmed[cursor]) {
         if (!matches(confirmed[cursor], conclusion) || confirmed.length !== cursor + 1) throw new Error("invalid_run_state");
       } else await invoke(conclusion);

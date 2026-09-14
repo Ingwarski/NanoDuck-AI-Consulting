@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "unit": "U-04",
+  "run_id": "phase3-response-quality-20260915",
+  "executed_at": "2026-09-14T21:31:33Z",
+  "executor": "Codex local implementation runner",
+  "revision_base": "7955e2b",
+  "baseline_id": "nanoduck-electric-a-v8-20260914",
+  "development_plan_hash": "0965d4b966cdffbc5165cb1f0cb95d5a7412e205df3978a6c5d05a714280784b",
+  "scope": "Apply role-specific concise-message contracts and sentence-preserving bounds in the local consultation coordinator. No GoDaddy application, database, migration, reset, deletion, deployment or external upload was contacted.",
+  "checks": [
+    {
+      "name": "deterministic concise-message bounds",
+      "evidence": "test/consultation.test.mjs",
+      "observed": "A long provider message is committed for one specialist, Critic, specialist revision and final Head synthesis only after each role-specific maximum is applied at a completed sentence.",
+      "result": "passed",
+      "limit": "The controlled seam cannot establish that every provider response is decision-useful."
+    },
+    {
+      "name": "real local provider discussion",
+      "evidence": "isolated local HTTP consultation through the actual local Codex app-server",
+      "observed": "A one-specialist, one-exchange consultation completed in this order: Head Consultant -> Strategy Consultant task (338 characters); Strategy Consultant -> Critic position (1265); Critic -> Strategy Consultant challenge (655); Strategy Consultant -> Critic revision (1028); Head Consultant -> owner synthesis (1474). The specialist proposed a narrowly scoped paid pilot; Critic challenged causal attribution; the specialist tightened the evidence threshold before the final synthesis. All visible messages stayed within their configured bounds and the Head gave no owner-facing opinion before the final synthesis.",
+      "result": "passed",
+      "limit": "One synthetic local question does not establish answer quality for every topic, live deployment, GoDaddy hosting or formal release QA."
+    },
+    {
+      "name": "regression suite",
+      "evidence": "npm test",
+      "observed": "38 Node tests passed, including the authenticated two-specialist HTTP discussion and the new sentence-bound test.",
+      "result": "passed",
+      "limit": "The suite does not replace the prepared release QA and DoD gates."
+    }
+  ],
+  "formal_release_status": {
+    "canonical_qa": "82 prepared / not_run",
+    "release_readiness": "not_evaluated"
+  },
+  "release_effect": "not_release_evidence",
+  "source_hashes": {
+    "docs/architecture.md": "8f21d390ad5ea6098b6c21a948124b231b8443c38318ca0c04a20e08af426cea",
+    "docs/dod-evals.md": "7185b953bb55e4894cb03a8785e7c21cfcd06533a3407b2309ed451908625ad9",
+    "docs/qa-checklist.md": "232052a917e3056c9dc5c7209eafe443a8a41773cf784a8ddd635c84ceb21f84",
+    "docs/development-plan.md": "0965d4b966cdffbc5165cb1f0cb95d5a7412e205df3978a6c5d05a714280784b",
+    "src/server/consultation.mjs": "08f342acdf9a3e2eeb847efd4349f0e8f7041cc1c499b249e01dc0f801a958df",
+    "src/server/codex-provider.mjs": "c7eadd83392ab055394ecd4b7f3c0652d38ca27086f62724ca2d18b6c336243b",
+    "test/consultation.test.mjs": "fdbad8de7f330c5869006147484c9d2d36c587b9bf765dfa4a833e22fd8588dc",
+    "test/fixtures/fake-codex.mjs": "436096690da56e181a6cb39a21e4b3b91c2d7ce3d775f5fa966457bd5e5ebc9d"
+  }
+}

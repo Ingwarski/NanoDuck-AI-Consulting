@@ -8,8 +8,8 @@ const replyFor = prompt => {
   if (prompt.includes("Return exactly [TEAM: N]")) answer = "[TEAM: 3]";
   else if (prompt.includes("Give only a concise, concrete task")) answer = "Assess the buyer evidence and name the one test that would change the decision.";
   else if (prompt.includes("Answer the Head's task")) answer = "The position is viable only if a defined buyer has an urgent problem; test that through targeted interviews before committing.";
-  else if (prompt.includes("Challenge only material gaps")) answer = "That recommendation assumes those buyers will take calls; test their willingness before treating the interviews as evidence.";
-  else if (prompt.includes("Respond directly to the Critic")) answer = "I accept the gap: recruit calls from a defined prospect list and record acceptance rate before drawing the conclusion.";
+  else if (prompt.includes("challenge one material gap")) answer = "That recommendation assumes those buyers will take calls; test their willingness before treating the interviews as evidence.";
+  else if (prompt.includes("respond directly to the Critic")) answer = "I accept the gap: recruit calls from a defined prospect list and record acceptance rate before drawing the conclusion.";
   else if (prompt.includes("only owner-facing synthesis")) answer = "Start with a narrow buyer list, measure interview acceptance, then decide whether the position has evidence.";
   if (prompt.includes("Return a prohibited source")) return `${answer}\n<nanoduck-source>{\"title\":\"Как это работает\",\"url\":\"https://example.su/buyer-evidence\",\"claim\":\"Это запрещенный источник.\",\"publishedAt\":\"2026-09-01\"}</nanoduck-source>`;
   if (prompt.includes("Return prohibited prose")) return "Как это работает?";
