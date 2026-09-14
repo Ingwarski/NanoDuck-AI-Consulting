@@ -21,6 +21,15 @@ test("live research keeps source metadata out of natural agent prose", async () 
   assert.match(result.sources[0].retrievedAt, /^\d{4}-\d{2}-\d{2}T/u);
 });
 
+test("prohibited source hosts, language and provider prose never reach a consultation", async () => {
+  const command = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));
+  const provider = createCodexProvider({ readyForProvider: true, codexCommand: command, codexAuthPath: undefined });
+  const source = await provider.invoke({ assignment: "Return a prohibited source.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: true, signal: new AbortController().signal });
+  assert.deepEqual(source, { ok: true, body: "A bounded answer.", sources: [] });
+  const prose = await provider.invoke({ assignment: "Return prohibited prose.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: false, signal: new AbortController().signal });
+  assert.deepEqual(prose, { ok: false, code: "language_policy" });
+});
+
 test("a completed provider notification clears its deadline waiter", async () => {
   const command = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));
   const provider = createCodexProvider({ readyForProvider: true, codexCommand: command, codexAuthPath: undefined });

@@ -105,7 +105,7 @@ Obligations and acceptance: FR-04.1–FR-04.3, NFR-12.1, NFR-12.3; AC-008
 |---|---|---|
 | FR-02.1 | Text submission receives a distinguishable accepted state; an unsent draft never appears accepted. | UC-002 |
 | FR-02.2 | An owner can attach an image or PDF within documented safe type/size limits. | UC-002 |
-| FR-02.3 | Simple questions receive a direct answer unless the owner explicitly requests Critic; that request invokes the separate Critic even for a simple question and does not require an unnecessary specialist team. Substantive or explicitly requested team work uses relevant specialists, normally 2–5 subject to the selected speed cap. | UC-002 |
+| FR-02.3 | Simple questions receive a direct answer unless the owner explicitly requests Critic; that request invokes the separate Critic even for a simple question and does not require an unnecessary specialist team. Substantive or explicitly requested team work uses relevant permitted specialists: one in Fast, two in Balanced and three in Thorough. Leadership Consultant and esoteric roles are excluded. Spiritual Consultant applies the specified evangelical Protestant doctrine; Psychotherapist may use major classical psychotherapy schools and Internal Family Systems within the stated non-clinical/emergency boundary. | UC-002 |
 | FR-02.4 | Every participating consultant and Critic is a separate actual invocation/context with a distinct assignment. | UC-002 |
 | FR-02.5 | A material Critic objection receives a relevant consultant response or revision; warranted agreement is permitted immediately. | UC-002 |
 | FR-02.6 | Consensus is stated only when Head, participating specialists and Critic agree on the same recommendation; otherwise the conclusion names the unresolved issue. | UC-002 |
@@ -117,7 +117,7 @@ Obligations and acceptance: FR-04.1–FR-04.3, NFR-12.1, NFR-12.3; AC-008
 | ID | Observable obligation | Use cases |
 |---|---|---|
 | FR-03.1 | Full submitted business messages appear in canonical order with role, recipient where relevant and time; routine protocol paragraphs are omitted. | UC-002 |
-| FR-03.2 | The first substantive request sets session language; explicit changes win and role names remain English. | UC-002 |
+| FR-03.2 | The first substantive request sets English or Ukrainian session language; an explicit supported-language change wins and role names remain English. Russian and Belarusian language and terminology are rejected in owner input, generated content and saved source metadata. | UC-002 |
 | FR-03.3 | Owner context added during work is accepted into the same consultation without rewriting prior messages. | UC-003 |
 | FR-03.4 | Stop remains reachable during active work and prevents late work from becoming a newly visible result. | UC-003 |
 | FR-03.5 | Continue resumes a stopped or bounded consultation with its accepted context. | UC-003 |
@@ -128,7 +128,7 @@ Obligations and acceptance: FR-04.1–FR-04.3, NFR-12.1, NFR-12.3; AC-008
 | ID | Observable obligation | Use cases |
 |---|---|---|
 | FR-04.1 | Current claims and material uncertainty can trigger live public research without a special owner keyword. | UC-007 |
-| FR-04.2 | Each cited source records title, direct URL, supported claim, retrieval time and publication date when available; the owner can inspect it. | UC-007 |
+| FR-04.2 | Each cited source records title, direct URL, supported claim, retrieval time and publication date when available; the owner can inspect it. Only English or Ukrainian sources are eligible. Russian/Belarusian language, terminology and URLs, including `.ru`, `.by`, `.su` and Cyrillic equivalents, are rejected. | UC-007 |
 | FR-04.3 | Claude Critic can request and receive targeted team evidence through the existing Codex research capability without silently changing the selected provider. | UC-007 |
 
 ### Settings and limits
@@ -137,7 +137,7 @@ Obligations and acceptance: FR-04.1–FR-04.3, NFR-12.1, NFR-12.3; AC-008
 |---|---|---|
 | FR-05.1 | Settings exposes functioning model and reasoning selectors separately for Head/specialists and Critic, including the optional Critic provider, using only the current supported catalog. | UC-005 |
 | FR-05.2 | Saved changes apply to future runs; each active run retains the exact provider/model/reasoning/speed snapshot used at acceptance. | UC-005 |
-| FR-05.3 | Speed preserves Fast/Balanced/Thorough caps and concurrency 2/3/5 and the 540,000 ms provider budget. | UC-005 |
+| FR-05.3 | Speed preserves one/two/three selected-specialist caps for Fast/Balanced/Thorough and the 540,000 ms provider budget. | UC-005 |
 | FR-05.4 | Usage presents real known quota/reset information or explicitly unavailable information; it never invents a per-session charge. | UC-005 |
 | FR-05.5 | Only a genuine authorization failure for the selected provider offers contextual reauthorization; quota and outage show their actual next action. | UC-005 |
 

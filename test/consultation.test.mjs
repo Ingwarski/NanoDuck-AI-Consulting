@@ -94,6 +94,26 @@ test("a Ukrainian finance question assigns the Finance Consultant and directs th
   ]);
 });
 
+test("spiritual and psychotherapy questions use their bounded specialist roles", async () => {
+  const cases = [
+    ["How should I think about salvation through faith in Christ?", "Spiritual Consultant", /evangelical Protestant doctrine/u],
+    ["Could IFS help me understand this recurring anxiety?", "Psychotherapist", /Internal Family Systems/u]
+  ];
+  for (const [body, role, guidance] of cases) {
+    const store = createMemoryStore();
+    const conversation = await store.createConversation();
+    const accepted = await store.acceptMessage(conversation.id, { body, clientRequestId: `role-routing-${role.replaceAll(" ", "-").toLowerCase()}-0001` }, { ...defaultSettings, speed: "fast" });
+    const calls = [];
+    const provider = { async invoke(input) { calls.push(input); return { ok: true, body: "A qualified answer.", sources: [] }; } };
+    const service = createConsultationService({ store, provider });
+    await service.start(conversation.id, accepted.run);
+    await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+    assert.match(calls[0].assignment, new RegExp(role, "u"));
+    assert.match(calls[1].assignment, guidance);
+    assert.equal(calls.some(call => call.assignment.includes("Leadership Consultant")), false);
+  }
+});
+
 test("the first accepted owner message keeps the consultation language for later work", async () => {
   const store = createMemoryStore();
   const conversation = await store.createConversation();

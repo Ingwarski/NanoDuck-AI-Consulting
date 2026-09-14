@@ -1,6 +1,6 @@
 # SDD consistency audit
 
-Current state: Electric A v8 approved and development plan validated, 14 September 2026. The [current audit receipt](../forge/design/evidence/electric-v8-approved-plan-audit-20260914.json) covers 13 owner artifacts, complete 59-clause/44-state/17-security coverage, coupled context/terms, exact source bindings and preserved frozen files. Architecture, DoD and QA passed their approved-baseline reconciliation before the plan. The owner later explicitly authorized Phase 3, and the local browser-native voice boundary has been implemented under the current plan. The 82 formal checks remain prepared / not_run; production and GoDaddy operations remain unperformed.
+Current state: Electric A v8 remains the approved visual baseline. On 14 September 2026, all 13 active owner artifacts were revalidated in dependency order after the role and language/source-policy correction; the manifest binds their current hashes, the preserved frozen baseline and the renewed Phase 3 prompt receipt. The prior [approved-plan audit receipt](../forge/design/evidence/electric-v8-approved-plan-audit-20260914.json) remains historical evidence for its earlier source set. The owner authorized local Phase 3 work; browser-native voice and the role/language/source enforcement are implemented locally. The 82 formal checks remain prepared / not_run; production and GoDaddy operations remain unperformed.
 
 The pre-approval logo v8 audit remains historical in [its original receipt](../forge/design/evidence/nanoduck-v8-sdd-audit.json).
 

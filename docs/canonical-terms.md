@@ -1,6 +1,6 @@
 # Canonical terms
 
-Working language: English. Product content: English and Ukrainian; role names and model IDs remain English by the product brief. Sources: [product idea](product-idea.md), [PRD](prd.md).
+Working language: English. Product content and source metadata: English and Ukrainian only; role names and model IDs remain English by the product brief. Russian and Belarusian language, terminology, sources and URLs are prohibited. Sources: [product idea](product-idea.md), [PRD](prd.md).
 
 | Term | Meaning and usage | Avoid |
 |---|---|---|
@@ -9,6 +9,9 @@ Working language: English. Product content: English and Ukrainian; role names an
 | Settings | Literal navigation label for models, reasoning, speed and account actions. | Your space; Preferences as the destination name |
 | Head Consultant | Separately invoked coordinator and final synthesis author. | A fictional human partner |
 | Consultant / specialist | Separate AI context with a relevant assignment. | Several role labels on one completion |
+| Spiritual Consultant | AI specialist using evangelical Protestant doctrine: Jesus Christ as Lord and Saviour, finished work, salvation by faith alone and salvation that cannot be lost. | Esoteric, occult, syncretic, manifestation or therapeutic claims |
+| Psychotherapist | AI specialist that may use major classical psychotherapy schools and Internal Family Systems, without diagnosing or replacing clinical/emergency care. | A licensed human clinician or emergency service |
+| Prohibited language/source | Russian and Belarusian language, terminology, sources and URLs including `.ru`, `.by`, `.su` and Cyrillic equivalents; reject before storing/displaying. | Treating a source as acceptable because its domain uses another TLD |
 | Critic | Separate AI role that challenges material weaknesses and can agree when warranted. | Forced opposition or automatic approval |
 | Discussion | Complete confirmed, ordered business messages. | Hidden reasoning, tool logs, service announcements |
 | Outcome | Recommendation or unresolved question, risk and up to three next actions. | Consensus when participants have not agreed |

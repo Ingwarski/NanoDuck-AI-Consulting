@@ -124,6 +124,8 @@ test("settings and message validation reject unsupported model values and malfor
   assert.equal(parseSettings({ ...defaultSettings, criticModel: "another-model" }), undefined);
   assert.equal(parseMessage({ body: "Question", clientRequestId: "short" }), undefined);
   assert.deepEqual(parseMessage({ body: " Question ", clientRequestId: "request-identifier-0002" }), { body: "Question", clientRequestId: "request-identifier-0002" });
+  assert.equal(parseMessage({ body: "Как это работает?", clientRequestId: "language-policy-request-0001" }), undefined);
+  assert.equal(parseMessage({ body: "Як гэта працуе?", clientRequestId: "language-policy-request-0002" }), undefined);
 });
 
 test("source links accept only public HTTPS destinations", () => {
@@ -134,6 +136,11 @@ test("source links accept only public HTTPS destinations", () => {
   assert.equal(safeExternalUrl("https://localhost/private"), undefined);
   assert.equal(safeExternalUrl("https://[::1]/private"), undefined);
   assert.equal(safeExternalUrl("https://[fd00::1]/private"), undefined);
+  assert.equal(safeExternalUrl("https://example.ru/report"), undefined);
+  assert.equal(safeExternalUrl("https://example.by/report"), undefined);
+  assert.equal(safeExternalUrl("https://example.su/report"), undefined);
+  assert.equal(safeExternalUrl("https://example.рф/report"), undefined);
+  assert.equal(safeExternalUrl("https://example.бел/report"), undefined);
 });
 
 test("development cookies remain usable on localhost while production uses host-only secure cookies", async () => {

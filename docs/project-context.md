@@ -4,7 +4,7 @@
 
 ## Language and vocabulary
 
-Working language is English, from the owner's latest substantive request. Product conversations support English and Ukrainian; the first substantive request sets the language and explicit changes win. Role names and provider/model identifiers remain English. The [canonical terms](canonical-terms.md) distinguish product labels from internal mechanisms.
+Working language is English, from the owner's latest substantive request. Product conversations and source metadata support English and Ukrainian only; the first substantive request sets the language and an explicit supported-language change wins. Russian and Belarusian language, terminology, sources and URLs are prohibited, including `.ru`, `.by`, `.su` and Cyrillic equivalents. Role names and provider/model identifiers remain English. The [canonical terms](canonical-terms.md) distinguish product labels from internal mechanisms.
 
 ## Product and user
 

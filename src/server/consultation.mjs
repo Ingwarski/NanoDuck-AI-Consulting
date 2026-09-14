@@ -22,6 +22,11 @@ const responseLanguage = text => {
   if (/\b(?:answer|respond|reply|write)\s+in\s+ukrainian\b|українськ/iu.test(text)) return "Ukrainian";
   return /[А-Яа-яІіЇїЄєҐґ]/u.test(text) ? "Ukrainian" : "English";
 };
+const roleGuidance = Object.freeze({
+  "Spiritual Consultant": "Work from evangelical Protestant doctrine: Jesus Christ is Lord and Saviour; His finished work is sufficient; salvation is by faith alone and cannot be lost. Do not introduce esoteric, occult, syncretic, manifestation or therapeutic claims.",
+  Psychotherapist: "Use methods from the major classical psychotherapy schools and Internal Family Systems when appropriate. Do not claim human credentials, diagnose, replace clinical care, or handle an emergency without directing the owner to immediate local help."
+});
+const guidanceFor = role => roleGuidance[role] ? ` ${roleGuidance[role]}` : "";
 const specialistFor = text => {
   const subject = text.toLocaleLowerCase();
   const matches = pattern => pattern.test(subject);
@@ -31,7 +36,8 @@ const specialistFor = text => {
   if (matches(/\b(sales|pipeline|prospect|conversion|b2b|b2c)\b|продаж|лійк|потенційн.{0,8}клієнт|конверс/iu)) return "Sales Consultant";
   if (matches(/\b(marketing|campaign|audience|traffic|brand|advertising)\b|маркетинг|кампан|аудитор|трафік|бренд|реклам/iu)) return "Marketing Consultant";
   if (matches(/\b(product|feature|roadmap|retention|user experience)\b|продукт|функц|роудмап|утриман|досвід користувач/iu)) return "Product Consultant";
-  if (matches(/\b(leadership|manager|hiring|organization|culture)\b|лідер|керівник|найм|організа|культур/iu)) return "Leadership Consultant";
+  if (matches(/\b(spiritual|faith|christ|christian|gospel|church|salvation|prayer|scripture|bible)\b|духов|віра|христ|євангел|спасін|молит|біблі/iu)) return "Spiritual Consultant";
+  if (matches(/\b(psychotherapy|psychotherapist|therapy|therapist|mental health|trauma|ifs|internal family systems|anxiety|depression|relationship)\b|психотерап|психолог|терапі|менталь|травм|тривог|депрес|внутрішн.{0,8}сімейн|стосунк/iu)) return "Psychotherapist";
   return "Strategy Consultant";
 };
 const specialistTeam = (text, speed) => {
@@ -43,7 +49,8 @@ const specialistTeam = (text, speed) => {
     "Sales Consultant": ["Marketing Consultant", "Finance Consultant"],
     "Marketing Consultant": ["Product Consultant", "Sales Consultant"],
     "Product Consultant": ["Marketing Consultant", "Operations Consultant"],
-    "Leadership Consultant": ["Operations Consultant", "Strategy Consultant"],
+    "Spiritual Consultant": ["Psychotherapist", "Strategy Consultant"],
+    Psychotherapist: ["Strategy Consultant", "Spiritual Consultant"],
     "Risk Consultant": ["Strategy Consultant", "Finance Consultant"]
   };
   const count = speed === "thorough" ? 3 : speed === "balanced" ? 2 : 1;
@@ -77,8 +84,8 @@ export function createConsultationService({ store, provider }) {
           model: settings.consultant.model,
           effort: settings.consultant.effort,
           assignment: index === 0
-            ? `You are the ${specialist}. Develop one concrete position that directly helps the owner decide. Address the Head's framing, use evidence where useful, and avoid ceremony. ${pace} ${language}`
-            : `You are the ${specialist}. Examine the preceding consultant's position from your discipline. Add a concrete constraint, alternative or test that can change the decision. Address that consultant directly and avoid ceremony. ${pace} ${language}`
+            ? `You are the ${specialist}. Develop one concrete position that directly helps the owner decide. Address the Head's framing, use evidence where useful, and avoid ceremony.${guidanceFor(specialist)} ${pace} ${language}`
+            : `You are the ${specialist}. Examine the preceding consultant's position from your discipline. Add a concrete constraint, alternative or test that can change the decision. Address that consultant directly and avoid ceremony.${guidanceFor(specialist)} ${pace} ${language}`
         })),
         { role: "Critic", recipient: primary, model: settings.critic.model, effort: settings.critic.effort, assignment: `You are the Critic. Challenge only material gaps, unsupported claims, risks or false certainty in the actual discussion. If the position is sound, say why. Address the ${primary} directly and remain constructive. ${pace} ${language}` },
         { role: primary, recipient: "Head Consultant", model: settings.consultant.model, effort: settings.consultant.effort, assignment: `You are the ${primary}. Respond directly to the Critic's actual concern and account for the other consultant contributions. Revise your position where warranted; explain a grounded disagreement where not. Do not repeat your earlier message. ${pace} ${language}` },
@@ -95,7 +102,7 @@ export function createConsultationService({ store, provider }) {
       await store.finishRun(conversationId, runState.generation, "complete");
     } catch (error) {
       if (!controller.signal.aborted) {
-        const code = error.message === "provider_unavailable" ? "The selected Codex subscription is unavailable. Your question remains saved." : "The consultation paused before a confirmed response. Your saved discussion remains available.";
+        const code = error.message === "provider_unavailable" ? "The selected Codex subscription is unavailable. Your question remains saved." : error.message === "language_policy" ? "A response did not meet the English/Ukrainian language policy. Your question remains saved." : "The consultation paused before a confirmed response. Your saved discussion remains available.";
         await store.appendAgentMessage(conversationId, runState.generation, { role: "System", body: code, sources: [] });
         await store.finishRun(conversationId, runState.generation, "failed");
       }

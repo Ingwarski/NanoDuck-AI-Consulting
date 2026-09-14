@@ -6,7 +6,7 @@ import { createMemoryStore, createMySqlStore } from "./store.mjs";
 import { createAuth } from "./auth.mjs";
 import { createCodexProvider } from "./codex-provider.mjs";
 import { createConsultationService } from "./consultation.mjs";
-import { parseConversationId, parseMessage, parseSettings } from "./validation.mjs";
+import { messageError, parseConversationId, parseMessage, parseSettings } from "./validation.mjs";
 
 const config = loadConfig();
 const store = config.databaseUrl ? await createMySqlStore(config.databaseUrl, config.dataKey, config.databaseSslCaPath) : createMemoryStore();
@@ -76,7 +76,7 @@ const handler = async (request, response) => {
       const [, conversationId, action] = matched; if (!parseConversationId(conversationId)) return send(response, 404, { error: "not_found" });
       if (!await protectedSession(request, response, { csrf: request.method !== "GET" })) return;
       if (request.method === "GET" && !action) { const conversation = await store.getConversation(conversationId); return conversation ? send(response, 200, { conversation, run: await store.run(conversationId), events: await store.events(conversationId, Number(url.searchParams.get("after") ?? 0)) }) : send(response, 404, { error: "not_found" }); }
-      if (request.method === "POST" && action === "messages") { const input = parseMessage(await json(request)); if (!input) return send(response, 422, { error: "invalid_message" }); const accepted = await store.acceptMessage(conversationId, input, await store.settings()); if (!accepted) return send(response, 409, { error: "active_or_missing_conversation" }); await consultation.start(conversationId, accepted.run); return send(response, 202, accepted); }
+      if (request.method === "POST" && action === "messages") { const raw = await json(request); const input = parseMessage(raw); if (!input) return send(response, 422, { error: messageError(raw) }); const accepted = await store.acceptMessage(conversationId, input, await store.settings()); if (!accepted) return send(response, 409, { error: "active_or_missing_conversation" }); await consultation.start(conversationId, accepted.run); return send(response, 202, accepted); }
       if (request.method === "POST" && action === "stop") { const run = await consultation.stop(conversationId); return run ? send(response, 200, { run }) : send(response, 409, { error: "no_active_run" }); }
       if (request.method === "POST" && action === "continue") { const run = await consultation.continue(conversationId); return run ? send(response, 202, { run }) : send(response, 409, { error: "not_stopped" }); }
       if (request.method === "GET" && action === "export") { const exported = await store.exportConversation(conversationId); return exported ? send(response, 200, exported, { "content-disposition": `attachment; filename="nanoduck-${conversationId}.json"` }) : send(response, 404, { error: "not_found" }); }

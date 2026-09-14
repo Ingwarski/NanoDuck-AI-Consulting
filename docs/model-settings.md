@@ -32,6 +32,6 @@ The current source pins `@openai/codex` to `0.153.1` and `@anthropic-ai/claude-c
 
 Preserve independent consultant settings and Critic provider/branch settings, the selected preset, and immutable effective settings for a running consultation. Changing preferences affects future runs. Keep the no-API-key/PAYG/automatic-credit/Claude-Fast-Mode rule.
 
-Current speed policies (`src/settings/speed-policy.ts:57–75`) use specialist caps/concurrency 2/3/5 for fast/balanced/thorough, one configured critique-revision cycle and a 540,000 ms provider budget. The adaptive router separately limits Critic messages to seven per specialist; the single policy field does not describe the entire current discussion loop.
+The legacy source policies (`src/settings/speed-policy.ts:57–75`) used specialist caps/concurrency 2/3/5 for fast/balanced/thorough. The NanoDuck implementation deliberately simplifies this to one/two/three selected specialists while preserving the 540,000 ms provider budget and the ceiling of seven Critic messages per specialist. The single pace field still does not describe the entire discussion loop.
 
 Before cutover, verify each exact active `(provider, model, effort)` separately without private conversation content. The existing Astra entitlement probe at xhigh supports catalog compatibility but is not an invocation proof. If an exact selection cannot run, preserve it, report the limitation and obtain a decision; never substitute a model/effort just to pass readiness.

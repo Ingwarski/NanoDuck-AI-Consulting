@@ -10,6 +10,9 @@ const replyFor = prompt => {
   else if (prompt.includes("Challenge only material gaps")) answer = "That recommendation assumes those buyers will take calls; test their willingness before treating the interviews as evidence.";
   else if (prompt.includes("Respond directly to the Critic")) answer = "I accept the gap: recruit calls from a defined prospect list and record acceptance rate before drawing the conclusion.";
   else if (prompt.includes("Close the discussion")) answer = "Start with a narrow buyer list, measure interview acceptance, then decide whether the position has evidence.";
+  if (prompt.includes("Return a prohibited source")) return `${answer}\n<nanoduck-source>{\"title\":\"Как это работает\",\"url\":\"https://example.su/buyer-evidence\",\"claim\":\"Это запрещенный источник.\",\"publishedAt\":\"2026-09-01\"}</nanoduck-source>`;
+  if (prompt.includes("Return prohibited prose")) return "Как это работает?";
+  if (prompt.includes("Use live public web research") && !prompt.includes("Use only English or Ukrainian sources")) return "The source language policy is missing.";
   return prompt.includes("Use live public web research") ? `${answer}\n<nanoduck-source>{\"title\":\"Buyer evidence\",\"url\":\"https://example.com/buyer-evidence\",\"claim\":\"Buyer willingness must be measured before positioning.\",\"publishedAt\":\"2026-09-01\"}</nanoduck-source>` : answer;
 };
 
