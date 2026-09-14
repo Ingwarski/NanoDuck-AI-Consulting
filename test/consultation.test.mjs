@@ -69,6 +69,21 @@ test("the saved Pace changes the consultation instruction without changing the m
   assert.equal(calls.every(call => call.model === "gpt-6-astra" && call.effort === "xhigh"), true);
 });
 
+test("Ultra runs five distinct complementary specialists", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "ultra-team-00000001" }, { ...defaultSettings, speed: "ultra" });
+  const calls = [];
+  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: "A qualified answer.", sources: [] }; } };
+  const service = createConsultationService({ store, provider });
+  await service.start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  assert.match(calls[0].assignment, /Strategy Consultant, Finance Consultant, Operations Consultant, Product Consultant, Risk Consultant/u);
+  assert.match(calls[0].assignment, /up to about 320 words/u);
+  assert.equal(calls.length, 9);
+  assert.deepEqual(calls.slice(1, 6).map(call => call.assignment.match(/^You are the (.+?)\./u)?.[1]), ["Strategy Consultant", "Finance Consultant", "Operations Consultant", "Product Consultant", "Risk Consultant"]);
+});
+
 test("a Ukrainian finance question assigns the Finance Consultant and directs the Critic reply", async () => {
   const store = createMemoryStore();
   const conversation = await store.createConversation();

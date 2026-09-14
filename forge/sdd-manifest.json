@@ -8,13 +8,13 @@
     "product-idea": {
       "path": "docs/product-idea.md",
       "owner_skill": "to-product-idea",
-      "owner_invocation_id": "product-idea-role-language-policy-reconciliation-20260914T163600",
+      "owner_invocation_id": "product-idea-ultra-pace-reconciliation-20260914T170000",
       "declared_output_set": [
         "docs/product-idea.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "product-idea-role-language-policy-reconciliation-20260914T163600",
+      "source_version": "product-idea-ultra-pace-reconciliation-20260914T170000",
       "source_usage": {
         "docs/model-settings.md": "full",
         "docs/deployment-boundary.md": "full",
@@ -22,18 +22,18 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "full"
       },
       "source_hashes": {
-        "docs/model-settings.md": "ae06fba0d7b4d28e482513882400fd506ed10f944e128d3b0bcdab26869acbb8",
+        "docs/model-settings.md": "ab51eaab14f28f58f911db9e3ae25b064631e6c2b13b6bda52ac82d5bb101b8c",
         "docs/deployment-boundary.md": "a1df221d2533117142df567589ad6df6c110591e95c054d5fbb383003c9f0d6f",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2"
       },
       "dependencies": [],
-      "content_hash": "549737b0649e78346d2ea48297fa0bab71f29ba41f89a26cebfd4b53699c0529",
+      "content_hash": "653047a83e4aae39db2fc2522fe4f47952adf2b6a2072e71f496cf64a91cf97f",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "role-language-policy-reconciliation",
-        "reviewed_at": "2026-09-14T16:36:00+03:00",
+        "kind": "ultra-pace-reconciliation",
+        "reviewed_at": "2026-09-14T17:00:00+03:00",
         "executor": "Codex inline to-product-idea"
       },
       "open_questions": [],
@@ -101,28 +101,28 @@
     "prd": {
       "path": "docs/prd.md",
       "owner_skill": "to-sdd-prd",
-      "owner_invocation_id": "prd-role-language-policy-reconciliation-20260914T163700",
+      "owner_invocation_id": "prd-ultra-pace-reconciliation-20260914T170100",
       "declared_output_set": [
         "docs/prd.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "prd-role-language-policy-reconciliation-20260914T163700",
+      "source_version": "prd-ultra-pace-reconciliation-20260914T170100",
       "source_usage": {
         "docs/product-idea.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "549737b0649e78346d2ea48297fa0bab71f29ba41f89a26cebfd4b53699c0529"
+        "docs/product-idea.md": "653047a83e4aae39db2fc2522fe4f47952adf2b6a2072e71f496cf64a91cf97f"
       },
       "dependencies": [
         "product-idea"
       ],
-      "content_hash": "a7b16d2ef4346f7dc95be382c1a5164f70c322ec03b5e4965e409fb145699212",
+      "content_hash": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "role-language-policy-reconciliation",
-        "reviewed_at": "2026-09-14T16:37:00+03:00",
+        "kind": "ultra-pace-reconciliation",
+        "reviewed_at": "2026-09-14T17:00:00+03:00",
         "executor": "Codex inline to-sdd-prd"
       },
       "open_questions": [],
@@ -2338,21 +2338,21 @@
     "project-context": {
       "path": "docs/project-context.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "project-context-role-language-policy-reconciliation-20260914T163800",
+      "owner_invocation_id": "project-context-ultra-pace-reconciliation-20260914T170200",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "project-context-role-language-policy-reconciliation-20260914T163800",
+      "source_version": "project-context-ultra-pace-reconciliation-20260914T170200",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "549737b0649e78346d2ea48297fa0bab71f29ba41f89a26cebfd4b53699c0529",
-        "docs/prd.md": "a7b16d2ef4346f7dc95be382c1a5164f70c322ec03b5e4965e409fb145699212"
+        "docs/product-idea.md": "653047a83e4aae39db2fc2522fe4f47952adf2b6a2072e71f496cf64a91cf97f",
+        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e"
       },
       "dependencies": [
         "product-idea",
@@ -2362,8 +2362,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "role-language-policy-reconciliation",
-        "reviewed_at": "2026-09-14T16:38:00+03:00",
+        "kind": "ultra-pace-reconciliation",
+        "reviewed_at": "2026-09-14T17:00:00+03:00",
         "executor": "Codex inline to-project-context"
       },
       "open_questions": [],
@@ -2372,32 +2372,32 @@
     "canonical-terms": {
       "path": "docs/canonical-terms.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "project-context-role-language-policy-reconciliation-20260914T163800",
+      "owner_invocation_id": "project-context-ultra-pace-reconciliation-20260914T170200",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "project-context-role-language-policy-reconciliation-20260914T163800",
+      "source_version": "project-context-ultra-pace-reconciliation-20260914T170200",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "549737b0649e78346d2ea48297fa0bab71f29ba41f89a26cebfd4b53699c0529",
-        "docs/prd.md": "a7b16d2ef4346f7dc95be382c1a5164f70c322ec03b5e4965e409fb145699212"
+        "docs/product-idea.md": "653047a83e4aae39db2fc2522fe4f47952adf2b6a2072e71f496cf64a91cf97f",
+        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "297c1205db526194bfc2f349b327485cad751bb5affebd7c41c5dbbe37f5eb64",
+      "content_hash": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "role-language-policy-reconciliation",
-        "reviewed_at": "2026-09-14T16:38:00+03:00",
+        "kind": "ultra-pace-reconciliation",
+        "reviewed_at": "2026-09-14T17:00:00+03:00",
         "executor": "Codex inline to-project-context"
       },
       "open_questions": [],
@@ -2406,22 +2406,22 @@
     "guardrails": {
       "path": "docs/guardrails.md",
       "owner_skill": "to-guardrails",
-      "owner_invocation_id": "guardrails-role-language-policy-reconciliation-20260914T163900",
+      "owner_invocation_id": "guardrails-ultra-pace-reconciliation-20260914T170300",
       "declared_output_set": [
         "docs/guardrails.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "guardrails-role-language-policy-reconciliation-20260914T163900",
+      "source_version": "guardrails-ultra-pace-reconciliation-20260914T170300",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
         "docs/canonical-terms.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "a7b16d2ef4346f7dc95be382c1a5164f70c322ec03b5e4965e409fb145699212",
+        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
         "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "297c1205db526194bfc2f349b327485cad751bb5affebd7c41c5dbbe37f5eb64"
+        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94"
       },
       "dependencies": [
         "prd",
@@ -2432,8 +2432,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "role-language-policy-reconciliation",
-        "reviewed_at": "2026-09-14T16:39:00+03:00",
+        "kind": "ultra-pace-reconciliation",
+        "reviewed_at": "2026-09-14T17:00:00+03:00",
         "executor": "Codex inline to-guardrails"
       },
       "open_questions": [],
@@ -2442,13 +2442,13 @@
     "user-journey": {
       "path": "docs/user-journey.md",
       "owner_skill": "to-user-journey",
-      "owner_invocation_id": "user-journey-role-language-policy-reconciliation-20260914T164000",
+      "owner_invocation_id": "user-journey-ultra-pace-reconciliation-20260914T170400",
       "declared_output_set": [
         "docs/user-journey.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "user-journey-role-language-policy-reconciliation-20260914T164000",
+      "source_version": "user-journey-ultra-pace-reconciliation-20260914T170400",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2456,9 +2456,9 @@
         "docs/guardrails.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "a7b16d2ef4346f7dc95be382c1a5164f70c322ec03b5e4965e409fb145699212",
+        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
         "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "297c1205db526194bfc2f349b327485cad751bb5affebd7c41c5dbbe37f5eb64",
+        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678"
       },
       "dependencies": [
@@ -2471,8 +2471,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "role-language-policy-reconciliation",
-        "reviewed_at": "2026-09-14T16:40:00+03:00",
+        "kind": "ultra-pace-reconciliation",
+        "reviewed_at": "2026-09-14T17:00:00+03:00",
         "executor": "Codex inline to-user-journey"
       },
       "open_questions": [],
@@ -2481,13 +2481,13 @@
     "screen-map": {
       "path": "docs/screen-map.md",
       "owner_skill": "to-screen-map",
-      "owner_invocation_id": "screen-map-role-language-policy-reconciliation-20260914T164100",
+      "owner_invocation_id": "screen-map-ultra-pace-reconciliation-20260914T170500",
       "declared_output_set": [
         "docs/screen-map.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "screen-map-role-language-policy-reconciliation-20260914T164100",
+      "source_version": "screen-map-ultra-pace-reconciliation-20260914T170500",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2499,9 +2499,9 @@
         "forge/design/candidates/c/v1/app.js": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "a7b16d2ef4346f7dc95be382c1a5164f70c322ec03b5e4965e409fb145699212",
+        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
         "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "297c1205db526194bfc2f349b327485cad751bb5affebd7c41c5dbbe37f5eb64",
+        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678",
         "docs/user-journey.md": "6f015be4408b9f04f5b57e5eba038f6da60e6c8b44fcf27597e0d4cbc3e05dc1",
         "forge/design/candidates/a/v1/app.js": "a869dd42c95740bf7da4802934c3cd6f8d2e2243795ee20925cd5ee19f474531",
@@ -2519,8 +2519,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "role-language-policy-reconciliation",
-        "reviewed_at": "2026-09-14T16:41:00+03:00",
+        "kind": "ultra-pace-reconciliation",
+        "reviewed_at": "2026-09-14T17:00:00+03:00",
         "executor": "Codex inline to-screen-map"
       },
       "open_questions": [],
@@ -3534,13 +3534,13 @@
     "wireframes": {
       "path": "docs/wireframes.md",
       "owner_skill": "to-wireframes",
-      "owner_invocation_id": "wireframes-role-language-policy-reconciliation-20260914T164200",
+      "owner_invocation_id": "wireframes-ultra-pace-reconciliation-20260914T170600",
       "declared_output_set": [
         "docs/wireframes.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "wireframes-role-language-policy-reconciliation-20260914T164200",
+      "source_version": "wireframes-ultra-pace-reconciliation-20260914T170600",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3550,9 +3550,9 @@
         "docs/screen-map.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "a7b16d2ef4346f7dc95be382c1a5164f70c322ec03b5e4965e409fb145699212",
+        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
         "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "297c1205db526194bfc2f349b327485cad751bb5affebd7c41c5dbbe37f5eb64",
+        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678",
         "docs/user-journey.md": "6f015be4408b9f04f5b57e5eba038f6da60e6c8b44fcf27597e0d4cbc3e05dc1",
         "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d"
@@ -3569,8 +3569,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "role-language-policy-reconciliation",
-        "reviewed_at": "2026-09-14T16:42:00+03:00",
+        "kind": "ultra-pace-reconciliation",
+        "reviewed_at": "2026-09-14T17:00:00+03:00",
         "executor": "Codex inline to-wireframes"
       },
       "open_questions": [],
@@ -3579,13 +3579,13 @@
     "design-brief": {
       "path": "docs/design-brief.md",
       "owner_skill": "to-design-brief",
-      "owner_invocation_id": "design-brief-role-language-policy-reconciliation-20260914T164300",
+      "owner_invocation_id": "design-brief-ultra-pace-reconciliation-20260914T170700",
       "declared_output_set": [
         "docs/design-brief.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "design-brief-role-language-policy-reconciliation-20260914T164300",
+      "source_version": "design-brief-ultra-pace-reconciliation-20260914T170700",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3641,14 +3641,14 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "a7b16d2ef4346f7dc95be382c1a5164f70c322ec03b5e4965e409fb145699212",
+        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
         "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "297c1205db526194bfc2f349b327485cad751bb5affebd7c41c5dbbe37f5eb64",
+        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678",
         "docs/user-journey.md": "6f015be4408b9f04f5b57e5eba038f6da60e6c8b44fcf27597e0d4cbc3e05dc1",
         "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
         "docs/wireframes.md": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
-        "docs/product-idea.md": "549737b0649e78346d2ea48297fa0bab71f29ba41f89a26cebfd4b53699c0529",
+        "docs/product-idea.md": "653047a83e4aae39db2fc2522fe4f47952adf2b6a2072e71f496cf64a91cf97f",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "prototype/styles.css": "ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925",
         "prototype/app.js": "b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54",
@@ -3707,8 +3707,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "role-language-policy-reconciliation",
-        "reviewed_at": "2026-09-14T16:43:00+03:00",
+        "kind": "ultra-pace-reconciliation",
+        "reviewed_at": "2026-09-14T17:00:00+03:00",
         "executor": "Codex inline to-design-brief"
       },
       "open_questions": [],
@@ -3717,13 +3717,13 @@
     "architecture": {
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "architecture-role-language-policy-reconciliation-20260914T164400",
+      "owner_invocation_id": "architecture-ultra-pace-reconciliation-20260914T170800",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "architecture-role-language-policy-reconciliation-20260914T164400",
+      "source_version": "architecture-ultra-pace-reconciliation-20260914T170800",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3738,15 +3738,15 @@
         "forge/runs/U-06/browser-speech-uk-20260914/README.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "a7b16d2ef4346f7dc95be382c1a5164f70c322ec03b5e4965e409fb145699212",
+        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
         "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "297c1205db526194bfc2f349b327485cad751bb5affebd7c41c5dbbe37f5eb64",
+        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678",
         "docs/user-journey.md": "6f015be4408b9f04f5b57e5eba038f6da60e6c8b44fcf27597e0d4cbc3e05dc1",
         "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
         "docs/wireframes.md": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
         "docs/design-brief.md": "b47ccb5ad51070554e006d07370f8b43a8c03b1d255031814eed8b56aa0c235e",
-        "docs/model-settings.md": "ae06fba0d7b4d28e482513882400fd506ed10f944e128d3b0bcdab26869acbb8",
+        "docs/model-settings.md": "ab51eaab14f28f58f911db9e3ae25b064631e6c2b13b6bda52ac82d5bb101b8c",
         "docs/deployment-boundary.md": "a1df221d2533117142df567589ad6df6c110591e95c054d5fbb383003c9f0d6f",
         "forge/runs/U-06/browser-speech-uk-20260914/README.md": "972494cb2d1dda8ae431f34bd2896eb6d5cb4642c838ae0b171d17ac931913d6"
       },
@@ -3764,8 +3764,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "role-language-policy-reconciliation",
-        "reviewed_at": "2026-09-14T16:44:00+03:00",
+        "kind": "ultra-pace-reconciliation",
+        "reviewed_at": "2026-09-14T17:00:00+03:00",
         "executor": "Codex inline to-architecture"
       },
       "open_questions": [],
@@ -3845,13 +3845,13 @@
     "dod-evals": {
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "dod-evals-role-language-policy-reconciliation-20260914T164500",
+      "owner_invocation_id": "dod-evals-ultra-pace-reconciliation-20260914T170900",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "dod-evals-role-language-policy-reconciliation-20260914T164500",
+      "source_version": "dod-evals-ultra-pace-reconciliation-20260914T170900",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3864,9 +3864,9 @@
         "docs/architecture.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "a7b16d2ef4346f7dc95be382c1a5164f70c322ec03b5e4965e409fb145699212",
+        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
         "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "297c1205db526194bfc2f349b327485cad751bb5affebd7c41c5dbbe37f5eb64",
+        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678",
         "docs/user-journey.md": "6f015be4408b9f04f5b57e5eba038f6da60e6c8b44fcf27597e0d4cbc3e05dc1",
         "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
@@ -3889,8 +3889,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "role-language-policy-reconciliation",
-        "reviewed_at": "2026-09-14T16:45:00+03:00",
+        "kind": "ultra-pace-reconciliation",
+        "reviewed_at": "2026-09-14T17:00:00+03:00",
         "executor": "Codex inline to-dod-evals"
       },
       "open_questions": [],
@@ -3970,13 +3970,13 @@
     "qa-checklist": {
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "qa-checklist-role-language-policy-reconciliation-20260914T164600",
+      "owner_invocation_id": "qa-checklist-ultra-pace-reconciliation-20260914T171000",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "qa-checklist-role-language-policy-reconciliation-20260914T164600",
+      "source_version": "qa-checklist-ultra-pace-reconciliation-20260914T171000",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3994,9 +3994,9 @@
         "forge/design/evidence/c-v1-visual-qa.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "a7b16d2ef4346f7dc95be382c1a5164f70c322ec03b5e4965e409fb145699212",
+        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
         "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "297c1205db526194bfc2f349b327485cad751bb5affebd7c41c5dbbe37f5eb64",
+        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678",
         "docs/user-journey.md": "6f015be4408b9f04f5b57e5eba038f6da60e6c8b44fcf27597e0d4cbc3e05dc1",
         "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
@@ -4021,12 +4021,12 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "ef4d38d808d29dac0afa7fa68788771506aac5c51c736875acaa29b5bd389b26",
+      "content_hash": "b2776589e66ed618860c6364d0502b542e7b9b1237215bb54cce0f2886dbf789",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "role-language-policy-reconciliation",
-        "reviewed_at": "2026-09-14T16:46:00+03:00",
+        "kind": "ultra-pace-reconciliation",
+        "reviewed_at": "2026-09-14T17:00:00+03:00",
         "executor": "Codex inline to-qa-checklist"
       },
       "open_questions": [],
@@ -5777,13 +5777,13 @@
     "development-plan": {
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "development-plan-role-language-policy-reconciliation-20260914T164700",
+      "owner_invocation_id": "development-plan-ultra-pace-reconciliation-20260914T171100",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "development-plan-role-language-policy-reconciliation-20260914T164700",
+      "source_version": "development-plan-ultra-pace-reconciliation-20260914T171100",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -5807,9 +5807,9 @@
         "forge/design/candidates/a/v8/app.js": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "a7b16d2ef4346f7dc95be382c1a5164f70c322ec03b5e4965e409fb145699212",
+        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
         "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "297c1205db526194bfc2f349b327485cad751bb5affebd7c41c5dbbe37f5eb64",
+        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678",
         "docs/user-journey.md": "6f015be4408b9f04f5b57e5eba038f6da60e6c8b44fcf27597e0d4cbc3e05dc1",
         "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
@@ -5817,8 +5817,8 @@
         "docs/design-brief.md": "b47ccb5ad51070554e006d07370f8b43a8c03b1d255031814eed8b56aa0c235e",
         "docs/architecture.md": "7e6e6a56f843de366c58f6dcd5057acc7d3961d3471aaf4ed6cd8faf1e3ab857",
         "docs/dod-evals.md": "d6ba33818e146ca1fe7b64457ee956f21e9eb2d518d248761339fe3441594ef7",
-        "docs/qa-checklist.md": "ef4d38d808d29dac0afa7fa68788771506aac5c51c736875acaa29b5bd389b26",
-        "docs/model-settings.md": "ae06fba0d7b4d28e482513882400fd506ed10f944e128d3b0bcdab26869acbb8",
+        "docs/qa-checklist.md": "b2776589e66ed618860c6364d0502b542e7b9b1237215bb54cce0f2886dbf789",
+        "docs/model-settings.md": "ab51eaab14f28f58f911db9e3ae25b064631e6c2b13b6bda52ac82d5bb101b8c",
         "docs/deployment-boundary.md": "a1df221d2533117142df567589ad6df6c110591e95c054d5fbb383003c9f0d6f",
         "package.json": "5c73e4457a72a4c03684cb4a3f928b5061de6f9d3e6317bc6b04616a6af93bc9",
         "scripts/serve-prototype.mjs": "f1232082074d76e12713267d3bc10bd546a69f4a9a8836b5a073887f9c374b4d",
@@ -5841,12 +5841,12 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "ea33b60a5626bd7a62873c8a00cd8c0d2e5c4b6b837c4555b7868543ba51b454",
+      "content_hash": "ec0d51774b3fc0529aab7ed95a854ea5c49289c564d044c797f209fbe906e3fd",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "role-language-policy-reconciliation",
-        "reviewed_at": "2026-09-14T16:44:30+03:00",
+        "kind": "ultra-pace-reconciliation",
+        "reviewed_at": "2026-09-14T17:00:00+03:00",
         "executor": "Codex inline to-development-plan"
       },
       "supersedes": "development-plan-phase3-revalidated-20260914T010700",
@@ -7540,18 +7540,18 @@
   ],
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "ea33b60a5626bd7a62873c8a00cd8c0d2e5c4b6b837c4555b7868543ba51b454",
+    "development_plan_hash": "ec0d51774b3fc0529aab7ed95a854ea5c49289c564d044c797f209fbe906e3fd",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-13T21:43:31.093504+00:00",
-    "prompt_id": "impl-20260914-role-language-policy",
-    "prompt_received_at": "2026-09-14T16:44:01+03:00",
-    "released_at": "2026-09-14T16:44:01+03:00",
+    "prompt_id": "impl-20260914-ultra-pace",
+    "prompt_received_at": "2026-09-14T17:00:00+03:00",
+    "released_at": "2026-09-14T17:00:00+03:00",
     "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
     "prompt_receipt": {
-      "path": "forge/runs/implementation-prompt-20260914-role-language-policy.json",
-      "content_hash": "bf0649e5b71db266d6577ed05015df93128730d62a8e01e7f5f605da4cf77833"
+      "path": "forge/runs/implementation-prompt-20260914-ultra-pace.json",
+      "content_hash": "b327f3cb5bc4b22c2adde58e1477daeb8cb7ad4a7a570ec06d249097ab2507f1"
     },
-    "reason": "The user explicitly continued Phase 3 with a role and language/source-policy correction. Current saved active Codex settings remain preserved. Deployment, live provider connection and GoDaddy data reset remain outside this authorization."
+    "reason": "The user explicitly continued Phase 3 with the Fast/Balanced/Thorough/Ultra specialist allocation. Current saved active Codex settings remain preserved. Deployment, live provider connection and GoDaddy data reset remain outside this authorization."
   },
   "input_requests": [],
   "last_resume_event": {
@@ -7685,12 +7685,12 @@
   ],
   "dispatches": {
     "product-idea": {
-      "invocation_id": "product-idea-role-language-policy-reconciliation-20260914T163600",
+      "invocation_id": "product-idea-ultra-pace-reconciliation-20260914T170000",
       "outputs": [
         "docs/product-idea.md"
       ],
       "source_hashes": {
-        "docs/model-settings.md": "ae06fba0d7b4d28e482513882400fd506ed10f944e128d3b0bcdab26869acbb8",
+        "docs/model-settings.md": "ab51eaab14f28f58f911db9e3ae25b064631e6c2b13b6bda52ac82d5bb101b8c",
         "docs/deployment-boundary.md": "a1df221d2533117142df567589ad6df6c110591e95c054d5fbb383003c9f0d6f",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2"
@@ -7698,73 +7698,73 @@
       "consumed_source_fragments": {}
     },
     "prd": {
-      "invocation_id": "prd-role-language-policy-reconciliation-20260914T163700",
+      "invocation_id": "prd-ultra-pace-reconciliation-20260914T170100",
       "outputs": [
         "docs/prd.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "549737b0649e78346d2ea48297fa0bab71f29ba41f89a26cebfd4b53699c0529"
+        "docs/product-idea.md": "653047a83e4aae39db2fc2522fe4f47952adf2b6a2072e71f496cf64a91cf97f"
       },
       "consumed_source_fragments": {}
     },
     "project-context": {
-      "invocation_id": "project-context-role-language-policy-reconciliation-20260914T163800",
+      "invocation_id": "project-context-ultra-pace-reconciliation-20260914T170200",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "549737b0649e78346d2ea48297fa0bab71f29ba41f89a26cebfd4b53699c0529",
-        "docs/prd.md": "a7b16d2ef4346f7dc95be382c1a5164f70c322ec03b5e4965e409fb145699212"
+        "docs/product-idea.md": "653047a83e4aae39db2fc2522fe4f47952adf2b6a2072e71f496cf64a91cf97f",
+        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e"
       },
       "consumed_source_fragments": {}
     },
     "canonical-terms": {
-      "invocation_id": "project-context-role-language-policy-reconciliation-20260914T163800",
+      "invocation_id": "project-context-ultra-pace-reconciliation-20260914T170200",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "549737b0649e78346d2ea48297fa0bab71f29ba41f89a26cebfd4b53699c0529",
-        "docs/prd.md": "a7b16d2ef4346f7dc95be382c1a5164f70c322ec03b5e4965e409fb145699212"
+        "docs/product-idea.md": "653047a83e4aae39db2fc2522fe4f47952adf2b6a2072e71f496cf64a91cf97f",
+        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e"
       },
       "consumed_source_fragments": {}
     },
     "guardrails": {
-      "invocation_id": "guardrails-role-language-policy-reconciliation-20260914T163900",
+      "invocation_id": "guardrails-ultra-pace-reconciliation-20260914T170300",
       "outputs": [
         "docs/guardrails.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "a7b16d2ef4346f7dc95be382c1a5164f70c322ec03b5e4965e409fb145699212",
+        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
         "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "297c1205db526194bfc2f349b327485cad751bb5affebd7c41c5dbbe37f5eb64"
+        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94"
       },
       "consumed_source_fragments": {}
     },
     "user-journey": {
-      "invocation_id": "user-journey-role-language-policy-reconciliation-20260914T164000",
+      "invocation_id": "user-journey-ultra-pace-reconciliation-20260914T170400",
       "outputs": [
         "docs/user-journey.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "a7b16d2ef4346f7dc95be382c1a5164f70c322ec03b5e4965e409fb145699212",
+        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
         "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "297c1205db526194bfc2f349b327485cad751bb5affebd7c41c5dbbe37f5eb64",
+        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678"
       },
       "consumed_source_fragments": {}
     },
     "screen-map": {
-      "invocation_id": "screen-map-role-language-policy-reconciliation-20260914T164100",
+      "invocation_id": "screen-map-ultra-pace-reconciliation-20260914T170500",
       "outputs": [
         "docs/screen-map.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "a7b16d2ef4346f7dc95be382c1a5164f70c322ec03b5e4965e409fb145699212",
+        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
         "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "297c1205db526194bfc2f349b327485cad751bb5affebd7c41c5dbbe37f5eb64",
+        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678",
         "docs/user-journey.md": "6f015be4408b9f04f5b57e5eba038f6da60e6c8b44fcf27597e0d4cbc3e05dc1",
         "forge/design/candidates/a/v1/app.js": "a869dd42c95740bf7da4802934c3cd6f8d2e2243795ee20925cd5ee19f474531",
@@ -7774,14 +7774,14 @@
       "consumed_source_fragments": {}
     },
     "wireframes": {
-      "invocation_id": "wireframes-role-language-policy-reconciliation-20260914T164200",
+      "invocation_id": "wireframes-ultra-pace-reconciliation-20260914T170600",
       "outputs": [
         "docs/wireframes.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "a7b16d2ef4346f7dc95be382c1a5164f70c322ec03b5e4965e409fb145699212",
+        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
         "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "297c1205db526194bfc2f349b327485cad751bb5affebd7c41c5dbbe37f5eb64",
+        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678",
         "docs/user-journey.md": "6f015be4408b9f04f5b57e5eba038f6da60e6c8b44fcf27597e0d4cbc3e05dc1",
         "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d"
@@ -7789,19 +7789,19 @@
       "consumed_source_fragments": {}
     },
     "design-brief": {
-      "invocation_id": "design-brief-role-language-policy-reconciliation-20260914T164300",
+      "invocation_id": "design-brief-ultra-pace-reconciliation-20260914T170700",
       "outputs": [
         "docs/design-brief.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "a7b16d2ef4346f7dc95be382c1a5164f70c322ec03b5e4965e409fb145699212",
+        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
         "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "297c1205db526194bfc2f349b327485cad751bb5affebd7c41c5dbbe37f5eb64",
+        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678",
         "docs/user-journey.md": "6f015be4408b9f04f5b57e5eba038f6da60e6c8b44fcf27597e0d4cbc3e05dc1",
         "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
         "docs/wireframes.md": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
-        "docs/product-idea.md": "549737b0649e78346d2ea48297fa0bab71f29ba41f89a26cebfd4b53699c0529",
+        "docs/product-idea.md": "653047a83e4aae39db2fc2522fe4f47952adf2b6a2072e71f496cf64a91cf97f",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "prototype/styles.css": "ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925",
         "prototype/app.js": "b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54",
@@ -7850,34 +7850,34 @@
       "consumed_source_fragments": {}
     },
     "architecture": {
-      "invocation_id": "architecture-role-language-policy-reconciliation-20260914T164400",
+      "invocation_id": "architecture-ultra-pace-reconciliation-20260914T170800",
       "outputs": [
         "docs/architecture.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "a7b16d2ef4346f7dc95be382c1a5164f70c322ec03b5e4965e409fb145699212",
+        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
         "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "297c1205db526194bfc2f349b327485cad751bb5affebd7c41c5dbbe37f5eb64",
+        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678",
         "docs/user-journey.md": "6f015be4408b9f04f5b57e5eba038f6da60e6c8b44fcf27597e0d4cbc3e05dc1",
         "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
         "docs/wireframes.md": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
         "docs/design-brief.md": "b47ccb5ad51070554e006d07370f8b43a8c03b1d255031814eed8b56aa0c235e",
-        "docs/model-settings.md": "ae06fba0d7b4d28e482513882400fd506ed10f944e128d3b0bcdab26869acbb8",
+        "docs/model-settings.md": "ab51eaab14f28f58f911db9e3ae25b064631e6c2b13b6bda52ac82d5bb101b8c",
         "docs/deployment-boundary.md": "a1df221d2533117142df567589ad6df6c110591e95c054d5fbb383003c9f0d6f",
         "forge/runs/U-06/browser-speech-uk-20260914/README.md": "972494cb2d1dda8ae431f34bd2896eb6d5cb4642c838ae0b171d17ac931913d6"
       },
       "consumed_source_fragments": {}
     },
     "dod-evals": {
-      "invocation_id": "dod-evals-role-language-policy-reconciliation-20260914T164500",
+      "invocation_id": "dod-evals-ultra-pace-reconciliation-20260914T170900",
       "outputs": [
         "docs/dod-evals.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "a7b16d2ef4346f7dc95be382c1a5164f70c322ec03b5e4965e409fb145699212",
+        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
         "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "297c1205db526194bfc2f349b327485cad751bb5affebd7c41c5dbbe37f5eb64",
+        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678",
         "docs/user-journey.md": "6f015be4408b9f04f5b57e5eba038f6da60e6c8b44fcf27597e0d4cbc3e05dc1",
         "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
@@ -7888,14 +7888,14 @@
       "consumed_source_fragments": {}
     },
     "qa-checklist": {
-      "invocation_id": "qa-checklist-role-language-policy-reconciliation-20260914T164600",
+      "invocation_id": "qa-checklist-ultra-pace-reconciliation-20260914T171000",
       "outputs": [
         "docs/qa-checklist.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "a7b16d2ef4346f7dc95be382c1a5164f70c322ec03b5e4965e409fb145699212",
+        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
         "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "297c1205db526194bfc2f349b327485cad751bb5affebd7c41c5dbbe37f5eb64",
+        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678",
         "docs/user-journey.md": "6f015be4408b9f04f5b57e5eba038f6da60e6c8b44fcf27597e0d4cbc3e05dc1",
         "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
@@ -7911,14 +7911,14 @@
       "consumed_source_fragments": {}
     },
     "development-plan": {
-      "invocation_id": "development-plan-role-language-policy-reconciliation-20260914T164700",
+      "invocation_id": "development-plan-ultra-pace-reconciliation-20260914T171100",
       "outputs": [
         "docs/development-plan.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "a7b16d2ef4346f7dc95be382c1a5164f70c322ec03b5e4965e409fb145699212",
+        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
         "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "297c1205db526194bfc2f349b327485cad751bb5affebd7c41c5dbbe37f5eb64",
+        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678",
         "docs/user-journey.md": "6f015be4408b9f04f5b57e5eba038f6da60e6c8b44fcf27597e0d4cbc3e05dc1",
         "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
@@ -7926,8 +7926,8 @@
         "docs/design-brief.md": "b47ccb5ad51070554e006d07370f8b43a8c03b1d255031814eed8b56aa0c235e",
         "docs/architecture.md": "7e6e6a56f843de366c58f6dcd5057acc7d3961d3471aaf4ed6cd8faf1e3ab857",
         "docs/dod-evals.md": "d6ba33818e146ca1fe7b64457ee956f21e9eb2d518d248761339fe3441594ef7",
-        "docs/qa-checklist.md": "ef4d38d808d29dac0afa7fa68788771506aac5c51c736875acaa29b5bd389b26",
-        "docs/model-settings.md": "ae06fba0d7b4d28e482513882400fd506ed10f944e128d3b0bcdab26869acbb8",
+        "docs/qa-checklist.md": "b2776589e66ed618860c6364d0502b542e7b9b1237215bb54cce0f2886dbf789",
+        "docs/model-settings.md": "ab51eaab14f28f58f911db9e3ae25b064631e6c2b13b6bda52ac82d5bb101b8c",
         "docs/deployment-boundary.md": "a1df221d2533117142df567589ad6df6c110591e95c054d5fbb383003c9f0d6f",
         "package.json": "5c73e4457a72a4c03684cb4a3f928b5061de6f9d3e6317bc6b04616a6af93bc9",
         "scripts/serve-prototype.mjs": "f1232082074d76e12713267d3bc10bd546a69f4a9a8836b5a073887f9c374b4d",
@@ -60060,7 +60060,7 @@
     "release_readiness": "not_evaluated",
     "source_hashes": {
       "docs/dod-evals.md": "d6ba33818e146ca1fe7b64457ee956f21e9eb2d518d248761339fe3441594ef7",
-      "docs/qa-checklist.md": "ef4d38d808d29dac0afa7fa68788771506aac5c51c736875acaa29b5bd389b26"
+      "docs/qa-checklist.md": "b2776589e66ed618860c6364d0502b542e7b9b1237215bb54cce0f2886dbf789"
     },
     "gates": [
       {

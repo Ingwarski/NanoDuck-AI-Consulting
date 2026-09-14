@@ -15,7 +15,8 @@ const needsDiscussion = text => {
 const paceInstruction = speed => ({
   fast: "Keep this message to about 80 words and focus on the decision-changing point.",
   balanced: "Keep this message to about 150 words and include only the reasoning needed for the next decision.",
-  thorough: "Use up to about 260 words when needed to make assumptions, evidence limits and tradeoffs clear."
+  thorough: "Use up to about 260 words when needed to make assumptions, evidence limits and tradeoffs clear.",
+  ultra: "Use up to about 320 words when needed to make the decision, evidence limits and tradeoffs clear."
 }[speed] ?? "Keep this message to about 150 words and include only the reasoning needed for the next decision.");
 const responseLanguage = text => {
   if (/\b(?:answer|respond|reply|write)\s+in\s+english\b|англійськ/iu.test(text)) return "English";
@@ -43,18 +44,18 @@ const specialistFor = text => {
 const specialistTeam = (text, speed) => {
   const primary = specialistFor(text);
   const complements = {
-    "Strategy Consultant": ["Finance Consultant", "Operations Consultant"],
-    "Finance Consultant": ["Strategy Consultant", "Risk Consultant"],
-    "Operations Consultant": ["Strategy Consultant", "Product Consultant"],
-    "Sales Consultant": ["Marketing Consultant", "Finance Consultant"],
-    "Marketing Consultant": ["Product Consultant", "Sales Consultant"],
-    "Product Consultant": ["Marketing Consultant", "Operations Consultant"],
-    "Spiritual Consultant": ["Psychotherapist", "Strategy Consultant"],
-    Psychotherapist: ["Strategy Consultant", "Spiritual Consultant"],
-    "Risk Consultant": ["Strategy Consultant", "Finance Consultant"]
+    "Strategy Consultant": ["Finance Consultant", "Operations Consultant", "Product Consultant", "Risk Consultant"],
+    "Finance Consultant": ["Strategy Consultant", "Risk Consultant", "Sales Consultant", "Operations Consultant"],
+    "Operations Consultant": ["Strategy Consultant", "Product Consultant", "Finance Consultant", "Risk Consultant"],
+    "Sales Consultant": ["Marketing Consultant", "Finance Consultant", "Strategy Consultant", "Product Consultant"],
+    "Marketing Consultant": ["Product Consultant", "Sales Consultant", "Strategy Consultant", "Finance Consultant"],
+    "Product Consultant": ["Marketing Consultant", "Operations Consultant", "Strategy Consultant", "Finance Consultant"],
+    "Spiritual Consultant": ["Psychotherapist", "Strategy Consultant", "Risk Consultant", "Product Consultant"],
+    Psychotherapist: ["Spiritual Consultant", "Strategy Consultant", "Product Consultant", "Risk Consultant"],
+    "Risk Consultant": ["Strategy Consultant", "Finance Consultant", "Operations Consultant", "Product Consultant"]
   };
-  const count = speed === "thorough" ? 3 : speed === "balanced" ? 2 : 1;
-  return [primary, ...(complements[primary] ?? [])].slice(0, count);
+  const count = ({ fast: 1, balanced: 2, thorough: 3, ultra: 5 })[speed] ?? 2;
+  return [...new Set([primary, ...(complements[primary] ?? [])])].slice(0, count);
 };
 
 export function createConsultationService({ store, provider }) {

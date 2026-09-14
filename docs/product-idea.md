@@ -46,7 +46,7 @@ These jobs map to the start/consult/steer/revisit/account workflow below. The PR
 ## What real discussion means
 
 - Each participating consultant and Critic is a separately invoked AI agent/context. A single completion labelled with several roles is not a consilium.
-- Head chooses relevant specialists from the permitted pool, normally one to three for a substantive team consultation: one in Fast, two in Balanced and three in Thorough. Each receives distinct work; do not launch the entire pool by default.
+- Head chooses relevant specialists from the permitted pool for a substantive team consultation: one in Fast, two in Balanced, three in Thorough and five in Ultra. Each receives distinct work; do not launch the entire pool by default.
 - Start from independent positions, then exchange specific claims, objections, questions, evidence and revisions. Critic challenges the material weakness; the relevant consultant answers that challenge. Agreement is allowed immediately when warranted. Do not manufacture conflict or praise.
 - Each ordinary reply should develop one useful point. A proposed writing target is 60–140 words, with longer calculations or explanations when necessary. This guides generation; it is not permission to truncate or rewrite an actual submitted message.
 - Display the full submitted business messages in canonical order, with role, addressed recipient when relevant and time. Hidden model reasoning, credentials and technical tool logs are not conversation content.
@@ -81,7 +81,7 @@ App login cannot create a ChatGPT/Claude subscription grant. If the selected pro
 
 A current content-free read confirms the active Codex settings above. The inactive Claude branch remains unknown and must not be replaced with defaults. Independently verify each exact active provider/model/effort combination before cutover; Astra/xhigh catalog evidence alone is not an execution proof.
 
-Preserve subscription use, no silent model/effort substitution, no API-key/PAYG fallback, no automatic usage credits and no Claude Fast Mode. Current provider package pins are Codex `0.153.1` and Claude Code `2.1.258`; this implementation uses one/two/three selected specialists for Fast/Balanced/Thorough and a 540,000 ms provider budget. Model settings and orchestration limits are separate concerns.
+Preserve subscription use, no silent model/effort substitution, no API-key/PAYG fallback, no automatic usage credits and no Claude Fast Mode. Current provider package pins are Codex `0.153.1` and Claude Code `2.1.258`; this implementation uses one/two/three/five selected specialists for Fast/Balanced/Thorough/Ultra and a 540,000 ms provider budget. Model settings and orchestration limits are separate concerns.
 
 ## V1 boundary
 

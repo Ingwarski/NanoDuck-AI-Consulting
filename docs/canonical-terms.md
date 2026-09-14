@@ -18,7 +18,7 @@ Working language: English. Product content and source metadata: English and Ukra
 | Sources | Direct evidence links, claims, freshness and limitations. | Invented research or unsupported certainty |
 | Model | Selected provider model, kept separately for consultants and Critic. | An invented capability list |
 | Reasoning strength | User-facing selection of supported provider effort. Labels: Low, Medium, High, Extra high, Maximum, Ultra where actually supported. | Quietly mapping an unsupported value to a default |
-| Conversation pace | Fast, Balanced or Thorough orchestration preset. | Treating speed as a model or reasoning selection |
+| Conversation pace | Fast, Balanced, Thorough or Ultra orchestration preset: one, two, three or five relevant specialists. | Treating speed as a model or reasoning selection |
 | Voice input | Deliberate browser-native speech recognition, then editable transcript review before Send. Safari and Chrome may process speech through their recognition service after Start; NanoDuck receives no audio. | Always listening, recording upload, automatic submission |
 | Draft | Content not accepted by the server; prototype drafts exist only in page memory. | Saved conversation or submitted work |
 | Send | Explicitly accept the reviewed draft for consultation; simulated in candidates. | Implying a real provider call in a design sample |

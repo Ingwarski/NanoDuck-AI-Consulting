@@ -121,6 +121,7 @@ test("MySQL acceptance holds the owner lock before allowing an active run", asyn
 
 test("settings and message validation reject unsupported model values and malformed ids", () => {
   assert.deepEqual(parseSettings({ ...defaultSettings, speed: "fast" }), { ...defaultSettings, speed: "fast" });
+  assert.deepEqual(parseSettings({ ...defaultSettings, speed: "ultra" }), { ...defaultSettings, speed: "ultra" });
   assert.equal(parseSettings({ ...defaultSettings, criticModel: "another-model" }), undefined);
   assert.equal(parseMessage({ body: "Question", clientRequestId: "short" }), undefined);
   assert.deepEqual(parseMessage({ body: " Question ", clientRequestId: "request-identifier-0002" }), { body: "Question", clientRequestId: "request-identifier-0002" });
