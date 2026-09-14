@@ -75,11 +75,11 @@ App login cannot create a ChatGPT/Claude subscription grant. If the selected pro
 | Role/setting | Last recorded selection | Evidence status |
 |---|---|---|
 | Head and specialists | Codex, `gpt-6-astra`, `xhigh` | Existing repository's live-review record dated 7 September 2026. |
-| Critic | Codex, `gpt-6-astra`, `ultra` | Same recorded observation; **not** the `xhigh` code default. |
+| Critic | Codex, `gpt-6-astra`, `xhigh` | Current authenticated settings read on 14 September 2026; the old screen's catalog was stale/unavailable, but its saved raw value was exact. |
 | Speed | Balanced (`збалансовано`) | Same recorded observation. |
 | Optional Critic route | Claude Code, preserving its separately saved model/effort if selected | Supported in current system; saved inactive values not established by this review. |
 
-A fresh content-free read of saved settings is required before migration, including inactive branch preferences. Do not replace unknown values with defaults. Independently verify the exact active provider/model/effort combinations; Astra/xhigh evidence alone is not execution proof for Astra/ultra.
+A current content-free read confirms the active Codex settings above. The inactive Claude branch remains unknown and must not be replaced with defaults. Independently verify each exact active provider/model/effort combination before cutover; Astra/xhigh catalog evidence alone is not an execution proof.
 
 Preserve subscription use, no silent model/effort substitution, no API-key/PAYG fallback, no automatic usage credits and no Claude Fast Mode. Current provider package pins are Codex `0.153.1` and Claude Code `2.1.258`; this design phase does not upgrade them. The implemented fast/balanced/thorough policies use 2/3/5 specialist caps/concurrency and a 540,000 ms provider budget. Model settings and orchestration limits are separate concerns.
 

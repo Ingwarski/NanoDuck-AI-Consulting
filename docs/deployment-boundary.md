@@ -1,10 +1,10 @@
 # Deployment boundary
 
-Design/review only, 13 September 2026. No GoDaddy changes were made.
+Read-only boundary audit updated 14 September 2026. No GoDaddy changes were made.
 
-The user permits erasure of this app and its database to use the replacement. Their later scope answer keeps this task at review, product brief and design. Therefore erasure is deferred until the replacement phase; it is not required to deliver this design.
+The user permits erasure of this app and its database to use the replacement. This read-only audit does not perform that erasure. Any reset, migration, publication or credential change remains a separately authorized action after the replacement cutover package is ready.
 
-Before the eventual reset, the implementer must read the current model settings without exporting conversation content, verify the selected provider grants can be recovered or reauthorized, and identify the database and exact tables owned solely by this application. This review did not inspect a database identifier or prove that every attached table belongs to this app. No executable DROP statement or deletion command is provided because that boundary is unverified.
+The current saved active Codex model settings have been read without exporting conversation content: Head/specialists and Critic both use `gpt-6-astra` / `xhigh`, with Balanced speed. The inactive Claude branch remains unknown. Before the eventual reset, verify selected-provider grants can be recovered or reauthorized and use the approved replacement cutover package to target only the nine recorded tables. No executable DROP statement or deletion command is provided because reset is outside this audit.
 
 Other GoDaddy apps, their data, shared/unidentified tables, domains and credentials are outside scope. If attachment or ownership is ambiguous, stop that deletion and ask about the exact ambiguous resource. Do not interpret an app attachment as ownership of everything in a database.
 

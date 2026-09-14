@@ -20,7 +20,7 @@
     {
       "name": "preserved Codex model tuples",
       "status": "ready",
-      "observation": "Current model/list returned gpt-6-astra with xhigh and ultra reasoning efforts, matching the preserved Head/specialists and Critic tuples. This is catalog support, not an invocation proof."
+      "observation": "Current model/list returned gpt-6-astra with xhigh and ultra reasoning efforts. The current saved Head/specialists and Critic tuples are both gpt-6-astra/xhigh. This is catalog support, not an invocation proof."
     },
     {
       "name": "browser-native Ukrainian recognition",
@@ -29,13 +29,17 @@
     },
     {
       "name": "target MySQL and GoDaddy lifecycle",
-      "status": "not_run",
-      "observation": "No target runtime, database identity, exclusive-ownership inventory, environment configuration or deployment authorization was supplied; no connection was attempted."
+      "status": "partially_observed"
+    },
+    {
+      "name": "current saved/effective active Codex settings",
+      "status": "partially_observed",
+      "observation": "An authenticated read-only Settings-screen observation found Head/specialists Codex gpt-6-astra/xhigh, Critic Codex gpt-6-astra/xhigh and Balanced speed. The catalog display was stale/unavailable, but saved raw active values were exact. Inactive Claude preferences were not exposed and remain unknown. No model turn or settings mutation occurred."
     }
   ],
   "result": "ready_for_local_provider_configuration",
   "next_evidence": [
-    "Before a target-runtime connection, obtain the required fresh saved/effective-settings snapshot, including inactive preferences. Preserve unsupported values rather than substituting them.",
+    "Before a target-runtime connection, separately verify the currently saved active Codex tuple by an allowed invocation; retain the unknown inactive Claude branch rather than substituting it.",
     "Do not make a model turn or restricted-research call until the separate live-provider authorization is granted.",
     "Run the browser-native recognition path on mobile Safari and Android Chrome before release.",
     "Inventory only the named GoDaddy consulting app and its exclusively owned database before any migration or reset."

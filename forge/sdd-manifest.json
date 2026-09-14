@@ -8,13 +8,13 @@
     "product-idea": {
       "path": "docs/product-idea.md",
       "owner_skill": "to-product-idea",
-      "owner_invocation_id": "product-idea-capability-revalidation-20260914T104500",
+      "owner_invocation_id": "product-idea-live-settings-reconciliation-20260914T131000",
       "declared_output_set": [
         "docs/product-idea.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "product-idea-capability-revalidation-20260914T104500",
+      "source_version": "product-idea-live-settings-reconciliation-20260914T131000",
       "source_usage": {
         "docs/model-settings.md": "full",
         "docs/deployment-boundary.md": "full",
@@ -22,18 +22,18 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "full"
       },
       "source_hashes": {
-        "docs/model-settings.md": "28de8bcc9b57280da2759fef32271eed73ebaef3dbb1a344b2fb9f2f503b4576",
-        "docs/deployment-boundary.md": "3fa6f6f453db9640138be064961610bce4426253731062b51d6b29f350d97ff5",
+        "docs/model-settings.md": "968f99151cc002529e9717ff177247829be4bf7067974bd4832cf4a14c166ad7",
+        "docs/deployment-boundary.md": "a1df221d2533117142df567589ad6df6c110591e95c054d5fbb383003c9f0d6f",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2"
       },
       "dependencies": [],
-      "content_hash": "bacb922117e1bc9364045771e0fa14814c4968c28a460f02f9fd52f1ad8e0f46",
+      "content_hash": "1e395db0b24af64cc6dfb3154bcf69585363c2acb979d81b3630a378160d985e",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "capability-evidence-revalidation",
-        "reviewed_at": "2026-09-14T10:47:00Z",
+        "kind": "live-settings-reconciliation",
+        "reviewed_at": "2026-09-14T13:21:00+00:00",
         "executor": "Codex inline to-product-idea"
       },
       "open_questions": [],
@@ -101,28 +101,28 @@
     "prd": {
       "path": "docs/prd.md",
       "owner_skill": "to-sdd-prd",
-      "owner_invocation_id": "prd-browser-speech-reconciliation-20260914T100200",
+      "owner_invocation_id": "prd-live-settings-reconciliation-20260914T131100",
       "declared_output_set": [
         "docs/prd.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "prd-browser-speech-reconciliation-20260914T100200",
+      "source_version": "prd-live-settings-reconciliation-20260914T131100",
       "source_usage": {
         "docs/product-idea.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "bacb922117e1bc9364045771e0fa14814c4968c28a460f02f9fd52f1ad8e0f46"
+        "docs/product-idea.md": "1e395db0b24af64cc6dfb3154bcf69585363c2acb979d81b3630a378160d985e"
       },
       "dependencies": [
         "product-idea"
       ],
-      "content_hash": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
+      "content_hash": "942af923eb72095c7e481e99cc34342fd028391e101a56609d52cc12a65601df",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "browser-speech-terminology-reconciliation",
-        "reviewed_at": "2026-09-14T10:12:00Z",
+        "kind": "live-settings-reconciliation",
+        "reviewed_at": "2026-09-14T13:21:00+00:00",
         "executor": "Codex inline to-sdd-prd"
       },
       "open_questions": [],
@@ -2338,32 +2338,32 @@
     "project-context": {
       "path": "docs/project-context.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "project-context-browser-speech-reconciliation-20260914T100300",
+      "owner_invocation_id": "project-context-live-settings-reconciliation-20260914T131200",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "project-context-browser-speech-reconciliation-20260914T100300",
+      "source_version": "project-context-live-settings-reconciliation-20260914T131200",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "bacb922117e1bc9364045771e0fa14814c4968c28a460f02f9fd52f1ad8e0f46",
-        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150"
+        "docs/product-idea.md": "1e395db0b24af64cc6dfb3154bcf69585363c2acb979d81b3630a378160d985e",
+        "docs/prd.md": "942af923eb72095c7e481e99cc34342fd028391e101a56609d52cc12a65601df"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+      "content_hash": "5f7d36f3267b192c63ddbd0795124b194ee272dcc7e47dd3095fddbd9227f7ca",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "browser-speech-terminology-reconciliation",
-        "reviewed_at": "2026-09-14T10:12:00Z",
+        "kind": "live-settings-reconciliation",
+        "reviewed_at": "2026-09-14T13:21:00+00:00",
         "executor": "Codex inline to-project-context"
       },
       "open_questions": [],
@@ -2372,21 +2372,21 @@
     "canonical-terms": {
       "path": "docs/canonical-terms.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "project-context-browser-speech-reconciliation-20260914T100300",
+      "owner_invocation_id": "project-context-live-settings-reconciliation-20260914T131200",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "project-context-browser-speech-reconciliation-20260914T100300",
+      "source_version": "project-context-live-settings-reconciliation-20260914T131200",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "bacb922117e1bc9364045771e0fa14814c4968c28a460f02f9fd52f1ad8e0f46",
-        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150"
+        "docs/product-idea.md": "1e395db0b24af64cc6dfb3154bcf69585363c2acb979d81b3630a378160d985e",
+        "docs/prd.md": "942af923eb72095c7e481e99cc34342fd028391e101a56609d52cc12a65601df"
       },
       "dependencies": [
         "product-idea",
@@ -2396,8 +2396,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "browser-speech-terminology-reconciliation",
-        "reviewed_at": "2026-09-14T10:12:00Z",
+        "kind": "live-settings-reconciliation",
+        "reviewed_at": "2026-09-14T13:21:00+00:00",
         "executor": "Codex inline to-project-context"
       },
       "open_questions": [],
@@ -2406,21 +2406,21 @@
     "guardrails": {
       "path": "docs/guardrails.md",
       "owner_skill": "to-guardrails",
-      "owner_invocation_id": "guardrails-browser-speech-reconciliation-20260914T100400",
+      "owner_invocation_id": "guardrails-live-settings-reconciliation-20260914T131300",
       "declared_output_set": [
         "docs/guardrails.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "guardrails-browser-speech-reconciliation-20260914T100400",
+      "source_version": "guardrails-live-settings-reconciliation-20260914T131300",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
         "docs/canonical-terms.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
-        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/prd.md": "942af923eb72095c7e481e99cc34342fd028391e101a56609d52cc12a65601df",
+        "docs/project-context.md": "5f7d36f3267b192c63ddbd0795124b194ee272dcc7e47dd3095fddbd9227f7ca",
         "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a"
       },
       "dependencies": [
@@ -2432,8 +2432,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "browser-speech-terminology-reconciliation",
-        "reviewed_at": "2026-09-14T10:12:00Z",
+        "kind": "live-settings-reconciliation",
+        "reviewed_at": "2026-09-14T13:21:00+00:00",
         "executor": "Codex inline to-guardrails"
       },
       "open_questions": [],
@@ -2442,13 +2442,13 @@
     "user-journey": {
       "path": "docs/user-journey.md",
       "owner_skill": "to-user-journey",
-      "owner_invocation_id": "user-journey-browser-speech-reconciliation-20260914T100500",
+      "owner_invocation_id": "user-journey-live-settings-reconciliation-20260914T131400",
       "declared_output_set": [
         "docs/user-journey.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "user-journey-browser-speech-reconciliation-20260914T100500",
+      "source_version": "user-journey-live-settings-reconciliation-20260914T131400",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2456,8 +2456,8 @@
         "docs/guardrails.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
-        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/prd.md": "942af923eb72095c7e481e99cc34342fd028391e101a56609d52cc12a65601df",
+        "docs/project-context.md": "5f7d36f3267b192c63ddbd0795124b194ee272dcc7e47dd3095fddbd9227f7ca",
         "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
         "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6"
       },
@@ -2471,8 +2471,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "browser-speech-terminology-reconciliation",
-        "reviewed_at": "2026-09-14T10:12:00Z",
+        "kind": "live-settings-reconciliation",
+        "reviewed_at": "2026-09-14T13:21:00+00:00",
         "executor": "Codex inline to-user-journey"
       },
       "open_questions": [],
@@ -2481,13 +2481,13 @@
     "screen-map": {
       "path": "docs/screen-map.md",
       "owner_skill": "to-screen-map",
-      "owner_invocation_id": "screen-map-browser-speech-reconciliation-20260914T100600",
+      "owner_invocation_id": "screen-map-live-settings-reconciliation-20260914T131500",
       "declared_output_set": [
         "docs/screen-map.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "screen-map-browser-speech-reconciliation-20260914T100600",
+      "source_version": "screen-map-live-settings-reconciliation-20260914T131500",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2499,8 +2499,8 @@
         "forge/design/candidates/c/v1/app.js": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
-        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/prd.md": "942af923eb72095c7e481e99cc34342fd028391e101a56609d52cc12a65601df",
+        "docs/project-context.md": "5f7d36f3267b192c63ddbd0795124b194ee272dcc7e47dd3095fddbd9227f7ca",
         "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
         "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6",
         "docs/user-journey.md": "34521287feb1f97481c5bb528dce30d043d03dc1f1aa6e36b703f69c62e50f3d",
@@ -2519,8 +2519,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "browser-speech-terminology-reconciliation",
-        "reviewed_at": "2026-09-14T10:12:00Z",
+        "kind": "live-settings-reconciliation",
+        "reviewed_at": "2026-09-14T13:21:00+00:00",
         "executor": "Codex inline to-screen-map"
       },
       "open_questions": [],
@@ -3534,13 +3534,13 @@
     "wireframes": {
       "path": "docs/wireframes.md",
       "owner_skill": "to-wireframes",
-      "owner_invocation_id": "wireframes-browser-speech-reconciliation-20260914T100700",
+      "owner_invocation_id": "wireframes-live-settings-reconciliation-20260914T131600",
       "declared_output_set": [
         "docs/wireframes.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "wireframes-browser-speech-reconciliation-20260914T100700",
+      "source_version": "wireframes-live-settings-reconciliation-20260914T131600",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3550,8 +3550,8 @@
         "docs/screen-map.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
-        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/prd.md": "942af923eb72095c7e481e99cc34342fd028391e101a56609d52cc12a65601df",
+        "docs/project-context.md": "5f7d36f3267b192c63ddbd0795124b194ee272dcc7e47dd3095fddbd9227f7ca",
         "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
         "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6",
         "docs/user-journey.md": "34521287feb1f97481c5bb528dce30d043d03dc1f1aa6e36b703f69c62e50f3d",
@@ -3569,8 +3569,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "browser-speech-terminology-reconciliation",
-        "reviewed_at": "2026-09-14T10:12:00Z",
+        "kind": "live-settings-reconciliation",
+        "reviewed_at": "2026-09-14T13:21:00+00:00",
         "executor": "Codex inline to-wireframes"
       },
       "open_questions": [],
@@ -3579,13 +3579,13 @@
     "design-brief": {
       "path": "docs/design-brief.md",
       "owner_skill": "to-design-brief",
-      "owner_invocation_id": "design-brief-browser-speech-reconciliation-20260914T100800",
+      "owner_invocation_id": "design-brief-live-settings-reconciliation-20260914T131700",
       "declared_output_set": [
         "docs/design-brief.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "design-brief-browser-speech-reconciliation-20260914T100800",
+      "source_version": "design-brief-live-settings-reconciliation-20260914T131700",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3641,14 +3641,14 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
-        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/prd.md": "942af923eb72095c7e481e99cc34342fd028391e101a56609d52cc12a65601df",
+        "docs/project-context.md": "5f7d36f3267b192c63ddbd0795124b194ee272dcc7e47dd3095fddbd9227f7ca",
         "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
         "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6",
         "docs/user-journey.md": "34521287feb1f97481c5bb528dce30d043d03dc1f1aa6e36b703f69c62e50f3d",
         "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
         "docs/wireframes.md": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
-        "docs/product-idea.md": "bacb922117e1bc9364045771e0fa14814c4968c28a460f02f9fd52f1ad8e0f46",
+        "docs/product-idea.md": "1e395db0b24af64cc6dfb3154bcf69585363c2acb979d81b3630a378160d985e",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "prototype/styles.css": "ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925",
         "prototype/app.js": "b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54",
@@ -3707,8 +3707,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "browser-speech-terminology-reconciliation",
-        "reviewed_at": "2026-09-14T10:12:00Z",
+        "kind": "live-settings-reconciliation",
+        "reviewed_at": "2026-09-14T13:21:00+00:00",
         "executor": "Codex inline to-design-brief"
       },
       "open_questions": [],
@@ -3717,13 +3717,13 @@
     "architecture": {
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "architecture-capability-revalidation-20260914T104600",
+      "owner_invocation_id": "architecture-live-settings-reconciliation-20260914T131800",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "architecture-capability-revalidation-20260914T104600",
+      "source_version": "architecture-live-settings-reconciliation-20260914T131800",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3738,16 +3738,16 @@
         "forge/runs/U-06/browser-speech-uk-20260914/README.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
-        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/prd.md": "942af923eb72095c7e481e99cc34342fd028391e101a56609d52cc12a65601df",
+        "docs/project-context.md": "5f7d36f3267b192c63ddbd0795124b194ee272dcc7e47dd3095fddbd9227f7ca",
         "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
         "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6",
         "docs/user-journey.md": "34521287feb1f97481c5bb528dce30d043d03dc1f1aa6e36b703f69c62e50f3d",
         "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
         "docs/wireframes.md": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
         "docs/design-brief.md": "b47ccb5ad51070554e006d07370f8b43a8c03b1d255031814eed8b56aa0c235e",
-        "docs/model-settings.md": "28de8bcc9b57280da2759fef32271eed73ebaef3dbb1a344b2fb9f2f503b4576",
-        "docs/deployment-boundary.md": "3fa6f6f453db9640138be064961610bce4426253731062b51d6b29f350d97ff5",
+        "docs/model-settings.md": "968f99151cc002529e9717ff177247829be4bf7067974bd4832cf4a14c166ad7",
+        "docs/deployment-boundary.md": "a1df221d2533117142df567589ad6df6c110591e95c054d5fbb383003c9f0d6f",
         "forge/runs/U-06/browser-speech-uk-20260914/README.md": "972494cb2d1dda8ae431f34bd2896eb6d5cb4642c838ae0b171d17ac931913d6"
       },
       "dependencies": [
@@ -3764,8 +3764,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "capability-evidence-revalidation",
-        "reviewed_at": "2026-09-14T10:47:00Z",
+        "kind": "live-settings-reconciliation",
+        "reviewed_at": "2026-09-14T13:21:00+00:00",
         "executor": "Codex inline to-architecture"
       },
       "open_questions": [],
@@ -3845,13 +3845,13 @@
     "dod-evals": {
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "dod-evals-browser-speech-reconciliation-20260914T101000",
+      "owner_invocation_id": "dod-evals-live-settings-reconciliation-20260914T131900",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "dod-evals-browser-speech-reconciliation-20260914T101000",
+      "source_version": "dod-evals-live-settings-reconciliation-20260914T131900",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3864,8 +3864,8 @@
         "docs/architecture.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
-        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/prd.md": "942af923eb72095c7e481e99cc34342fd028391e101a56609d52cc12a65601df",
+        "docs/project-context.md": "5f7d36f3267b192c63ddbd0795124b194ee272dcc7e47dd3095fddbd9227f7ca",
         "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
         "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6",
         "docs/user-journey.md": "34521287feb1f97481c5bb528dce30d043d03dc1f1aa6e36b703f69c62e50f3d",
@@ -3889,8 +3889,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "browser-speech-terminology-reconciliation",
-        "reviewed_at": "2026-09-14T10:12:00Z",
+        "kind": "live-settings-reconciliation",
+        "reviewed_at": "2026-09-14T13:21:00+00:00",
         "executor": "Codex inline to-dod-evals"
       },
       "open_questions": [],
@@ -3970,13 +3970,13 @@
     "qa-checklist": {
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "qa-checklist-browser-speech-reconciliation-20260914T101100",
+      "owner_invocation_id": "qa-checklist-live-settings-reconciliation-20260914T132000",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "qa-checklist-browser-speech-reconciliation-20260914T101100",
+      "source_version": "qa-checklist-live-settings-reconciliation-20260914T132000",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3994,8 +3994,8 @@
         "forge/design/evidence/c-v1-visual-qa.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
-        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/prd.md": "942af923eb72095c7e481e99cc34342fd028391e101a56609d52cc12a65601df",
+        "docs/project-context.md": "5f7d36f3267b192c63ddbd0795124b194ee272dcc7e47dd3095fddbd9227f7ca",
         "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
         "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6",
         "docs/user-journey.md": "34521287feb1f97481c5bb528dce30d043d03dc1f1aa6e36b703f69c62e50f3d",
@@ -4025,8 +4025,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "browser-speech-terminology-reconciliation",
-        "reviewed_at": "2026-09-14T10:12:00Z",
+        "kind": "live-settings-reconciliation",
+        "reviewed_at": "2026-09-14T13:21:00+00:00",
         "executor": "Codex inline to-qa-checklist"
       },
       "open_questions": [],
@@ -5777,13 +5777,13 @@
     "development-plan": {
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "development-plan-capability-revalidation-20260914T104700",
+      "owner_invocation_id": "development-plan-live-settings-reconciliation-20260914T132100",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "development-plan-capability-revalidation-20260914T104700",
+      "source_version": "development-plan-live-settings-reconciliation-20260914T132100",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -5807,8 +5807,8 @@
         "forge/design/candidates/a/v8/app.js": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
-        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/prd.md": "942af923eb72095c7e481e99cc34342fd028391e101a56609d52cc12a65601df",
+        "docs/project-context.md": "5f7d36f3267b192c63ddbd0795124b194ee272dcc7e47dd3095fddbd9227f7ca",
         "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
         "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6",
         "docs/user-journey.md": "34521287feb1f97481c5bb528dce30d043d03dc1f1aa6e36b703f69c62e50f3d",
@@ -5818,8 +5818,8 @@
         "docs/architecture.md": "94ff2064bfa4ab5774bd649fab0b2dc605012c1fbf06a572ce069a4cc35bd4d7",
         "docs/dod-evals.md": "d6ba33818e146ca1fe7b64457ee956f21e9eb2d518d248761339fe3441594ef7",
         "docs/qa-checklist.md": "432d912fb96a3ca8e2e2ab97a11bc49462874192e619005c8ebd62d093291c22",
-        "docs/model-settings.md": "28de8bcc9b57280da2759fef32271eed73ebaef3dbb1a344b2fb9f2f503b4576",
-        "docs/deployment-boundary.md": "3fa6f6f453db9640138be064961610bce4426253731062b51d6b29f350d97ff5",
+        "docs/model-settings.md": "968f99151cc002529e9717ff177247829be4bf7067974bd4832cf4a14c166ad7",
+        "docs/deployment-boundary.md": "a1df221d2533117142df567589ad6df6c110591e95c054d5fbb383003c9f0d6f",
         "package.json": "5c73e4457a72a4c03684cb4a3f928b5061de6f9d3e6317bc6b04616a6af93bc9",
         "scripts/serve-prototype.mjs": "f1232082074d76e12713267d3bc10bd546a69f4a9a8836b5a073887f9c374b4d",
         "forge/design/candidates/a/v8/index.html": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
@@ -5841,12 +5841,12 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "dc9039fe3a5b33f55c79b798443d87d75c40fc9d88b053780b6c22d12275db5c",
+      "content_hash": "ca9538f0171a4d4c308d44bb259f46cf08e7db72fa0612aab3f18c53d993c639",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "capability-evidence-revalidation",
-        "reviewed_at": "2026-09-14T10:47:00Z",
+        "kind": "live-settings-reconciliation",
+        "reviewed_at": "2026-09-14T13:21:00+00:00",
         "executor": "Codex inline to-development-plan"
       },
       "supersedes": "development-plan-phase3-revalidated-20260914T010700",
@@ -7540,7 +7540,7 @@
   ],
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "dc9039fe3a5b33f55c79b798443d87d75c40fc9d88b053780b6c22d12275db5c",
+    "development_plan_hash": "ca9538f0171a4d4c308d44bb259f46cf08e7db72fa0612aab3f18c53d993c639",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-13T21:43:31.093504+00:00",
     "prompt_id": "impl-20260914-nanoduck-phase3",
@@ -7551,7 +7551,7 @@
       "path": "forge/runs/implementation-prompt-20260914.json",
       "content_hash": "d57913236a24476525ee3b0311442675e7830f5c4dca132f34c9bc35bc4d1049"
     },
-    "reason": "The user explicitly authorized Phase 3 and confirmed the browser-native Ukrainian speech path during implementation. Deployment, live provider connection and GoDaddy data reset remain outside this authorization."
+    "reason": "The user explicitly authorized Phase 3. Current saved active Codex settings were reconciled after a read-only GoDaddy audit. Deployment, live provider connection and GoDaddy data reset remain outside this authorization."
   },
   "input_requests": [],
   "last_resume_event": {
@@ -7685,85 +7685,85 @@
   ],
   "dispatches": {
     "product-idea": {
-      "invocation_id": "product-idea-capability-revalidation-20260914T104500",
+      "invocation_id": "product-idea-live-settings-reconciliation-20260914T131000",
       "outputs": [
         "docs/product-idea.md"
       ],
       "source_hashes": {
-        "docs/model-settings.md": "28de8bcc9b57280da2759fef32271eed73ebaef3dbb1a344b2fb9f2f503b4576",
-        "docs/deployment-boundary.md": "3fa6f6f453db9640138be064961610bce4426253731062b51d6b29f350d97ff5",
+        "docs/model-settings.md": "968f99151cc002529e9717ff177247829be4bf7067974bd4832cf4a14c166ad7",
+        "docs/deployment-boundary.md": "a1df221d2533117142df567589ad6df6c110591e95c054d5fbb383003c9f0d6f",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2"
       },
       "consumed_source_fragments": {}
     },
     "prd": {
-      "invocation_id": "prd-browser-speech-reconciliation-20260914T100200",
+      "invocation_id": "prd-live-settings-reconciliation-20260914T131100",
       "outputs": [
         "docs/prd.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "bacb922117e1bc9364045771e0fa14814c4968c28a460f02f9fd52f1ad8e0f46"
+        "docs/product-idea.md": "1e395db0b24af64cc6dfb3154bcf69585363c2acb979d81b3630a378160d985e"
       },
       "consumed_source_fragments": {}
     },
     "project-context": {
-      "invocation_id": "project-context-browser-speech-reconciliation-20260914T100300",
+      "invocation_id": "project-context-live-settings-reconciliation-20260914T131200",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "bacb922117e1bc9364045771e0fa14814c4968c28a460f02f9fd52f1ad8e0f46",
-        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150"
+        "docs/product-idea.md": "1e395db0b24af64cc6dfb3154bcf69585363c2acb979d81b3630a378160d985e",
+        "docs/prd.md": "942af923eb72095c7e481e99cc34342fd028391e101a56609d52cc12a65601df"
       },
       "consumed_source_fragments": {}
     },
     "canonical-terms": {
-      "invocation_id": "project-context-browser-speech-reconciliation-20260914T100300",
+      "invocation_id": "project-context-live-settings-reconciliation-20260914T131200",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "bacb922117e1bc9364045771e0fa14814c4968c28a460f02f9fd52f1ad8e0f46",
-        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150"
+        "docs/product-idea.md": "1e395db0b24af64cc6dfb3154bcf69585363c2acb979d81b3630a378160d985e",
+        "docs/prd.md": "942af923eb72095c7e481e99cc34342fd028391e101a56609d52cc12a65601df"
       },
       "consumed_source_fragments": {}
     },
     "guardrails": {
-      "invocation_id": "guardrails-browser-speech-reconciliation-20260914T100400",
+      "invocation_id": "guardrails-live-settings-reconciliation-20260914T131300",
       "outputs": [
         "docs/guardrails.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
-        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/prd.md": "942af923eb72095c7e481e99cc34342fd028391e101a56609d52cc12a65601df",
+        "docs/project-context.md": "5f7d36f3267b192c63ddbd0795124b194ee272dcc7e47dd3095fddbd9227f7ca",
         "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a"
       },
       "consumed_source_fragments": {}
     },
     "user-journey": {
-      "invocation_id": "user-journey-browser-speech-reconciliation-20260914T100500",
+      "invocation_id": "user-journey-live-settings-reconciliation-20260914T131400",
       "outputs": [
         "docs/user-journey.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
-        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/prd.md": "942af923eb72095c7e481e99cc34342fd028391e101a56609d52cc12a65601df",
+        "docs/project-context.md": "5f7d36f3267b192c63ddbd0795124b194ee272dcc7e47dd3095fddbd9227f7ca",
         "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
         "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6"
       },
       "consumed_source_fragments": {}
     },
     "screen-map": {
-      "invocation_id": "screen-map-browser-speech-reconciliation-20260914T100600",
+      "invocation_id": "screen-map-live-settings-reconciliation-20260914T131500",
       "outputs": [
         "docs/screen-map.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
-        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/prd.md": "942af923eb72095c7e481e99cc34342fd028391e101a56609d52cc12a65601df",
+        "docs/project-context.md": "5f7d36f3267b192c63ddbd0795124b194ee272dcc7e47dd3095fddbd9227f7ca",
         "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
         "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6",
         "docs/user-journey.md": "34521287feb1f97481c5bb528dce30d043d03dc1f1aa6e36b703f69c62e50f3d",
@@ -7774,13 +7774,13 @@
       "consumed_source_fragments": {}
     },
     "wireframes": {
-      "invocation_id": "wireframes-browser-speech-reconciliation-20260914T100700",
+      "invocation_id": "wireframes-live-settings-reconciliation-20260914T131600",
       "outputs": [
         "docs/wireframes.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
-        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/prd.md": "942af923eb72095c7e481e99cc34342fd028391e101a56609d52cc12a65601df",
+        "docs/project-context.md": "5f7d36f3267b192c63ddbd0795124b194ee272dcc7e47dd3095fddbd9227f7ca",
         "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
         "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6",
         "docs/user-journey.md": "34521287feb1f97481c5bb528dce30d043d03dc1f1aa6e36b703f69c62e50f3d",
@@ -7789,19 +7789,19 @@
       "consumed_source_fragments": {}
     },
     "design-brief": {
-      "invocation_id": "design-brief-browser-speech-reconciliation-20260914T100800",
+      "invocation_id": "design-brief-live-settings-reconciliation-20260914T131700",
       "outputs": [
         "docs/design-brief.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
-        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/prd.md": "942af923eb72095c7e481e99cc34342fd028391e101a56609d52cc12a65601df",
+        "docs/project-context.md": "5f7d36f3267b192c63ddbd0795124b194ee272dcc7e47dd3095fddbd9227f7ca",
         "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
         "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6",
         "docs/user-journey.md": "34521287feb1f97481c5bb528dce30d043d03dc1f1aa6e36b703f69c62e50f3d",
         "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
         "docs/wireframes.md": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
-        "docs/product-idea.md": "bacb922117e1bc9364045771e0fa14814c4968c28a460f02f9fd52f1ad8e0f46",
+        "docs/product-idea.md": "1e395db0b24af64cc6dfb3154bcf69585363c2acb979d81b3630a378160d985e",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "prototype/styles.css": "ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925",
         "prototype/app.js": "b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54",
@@ -7850,33 +7850,33 @@
       "consumed_source_fragments": {}
     },
     "architecture": {
-      "invocation_id": "architecture-capability-revalidation-20260914T104600",
+      "invocation_id": "architecture-live-settings-reconciliation-20260914T131800",
       "outputs": [
         "docs/architecture.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
-        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/prd.md": "942af923eb72095c7e481e99cc34342fd028391e101a56609d52cc12a65601df",
+        "docs/project-context.md": "5f7d36f3267b192c63ddbd0795124b194ee272dcc7e47dd3095fddbd9227f7ca",
         "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
         "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6",
         "docs/user-journey.md": "34521287feb1f97481c5bb528dce30d043d03dc1f1aa6e36b703f69c62e50f3d",
         "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
         "docs/wireframes.md": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
         "docs/design-brief.md": "b47ccb5ad51070554e006d07370f8b43a8c03b1d255031814eed8b56aa0c235e",
-        "docs/model-settings.md": "28de8bcc9b57280da2759fef32271eed73ebaef3dbb1a344b2fb9f2f503b4576",
-        "docs/deployment-boundary.md": "3fa6f6f453db9640138be064961610bce4426253731062b51d6b29f350d97ff5",
+        "docs/model-settings.md": "968f99151cc002529e9717ff177247829be4bf7067974bd4832cf4a14c166ad7",
+        "docs/deployment-boundary.md": "a1df221d2533117142df567589ad6df6c110591e95c054d5fbb383003c9f0d6f",
         "forge/runs/U-06/browser-speech-uk-20260914/README.md": "972494cb2d1dda8ae431f34bd2896eb6d5cb4642c838ae0b171d17ac931913d6"
       },
       "consumed_source_fragments": {}
     },
     "dod-evals": {
-      "invocation_id": "dod-evals-browser-speech-reconciliation-20260914T101000",
+      "invocation_id": "dod-evals-live-settings-reconciliation-20260914T131900",
       "outputs": [
         "docs/dod-evals.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
-        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/prd.md": "942af923eb72095c7e481e99cc34342fd028391e101a56609d52cc12a65601df",
+        "docs/project-context.md": "5f7d36f3267b192c63ddbd0795124b194ee272dcc7e47dd3095fddbd9227f7ca",
         "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
         "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6",
         "docs/user-journey.md": "34521287feb1f97481c5bb528dce30d043d03dc1f1aa6e36b703f69c62e50f3d",
@@ -7888,13 +7888,13 @@
       "consumed_source_fragments": {}
     },
     "qa-checklist": {
-      "invocation_id": "qa-checklist-browser-speech-reconciliation-20260914T101100",
+      "invocation_id": "qa-checklist-live-settings-reconciliation-20260914T132000",
       "outputs": [
         "docs/qa-checklist.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
-        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/prd.md": "942af923eb72095c7e481e99cc34342fd028391e101a56609d52cc12a65601df",
+        "docs/project-context.md": "5f7d36f3267b192c63ddbd0795124b194ee272dcc7e47dd3095fddbd9227f7ca",
         "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
         "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6",
         "docs/user-journey.md": "34521287feb1f97481c5bb528dce30d043d03dc1f1aa6e36b703f69c62e50f3d",
@@ -7911,13 +7911,13 @@
       "consumed_source_fragments": {}
     },
     "development-plan": {
-      "invocation_id": "development-plan-capability-revalidation-20260914T104700",
+      "invocation_id": "development-plan-live-settings-reconciliation-20260914T132100",
       "outputs": [
         "docs/development-plan.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
-        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/prd.md": "942af923eb72095c7e481e99cc34342fd028391e101a56609d52cc12a65601df",
+        "docs/project-context.md": "5f7d36f3267b192c63ddbd0795124b194ee272dcc7e47dd3095fddbd9227f7ca",
         "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
         "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6",
         "docs/user-journey.md": "34521287feb1f97481c5bb528dce30d043d03dc1f1aa6e36b703f69c62e50f3d",
@@ -7927,8 +7927,8 @@
         "docs/architecture.md": "94ff2064bfa4ab5774bd649fab0b2dc605012c1fbf06a572ce069a4cc35bd4d7",
         "docs/dod-evals.md": "d6ba33818e146ca1fe7b64457ee956f21e9eb2d518d248761339fe3441594ef7",
         "docs/qa-checklist.md": "432d912fb96a3ca8e2e2ab97a11bc49462874192e619005c8ebd62d093291c22",
-        "docs/model-settings.md": "28de8bcc9b57280da2759fef32271eed73ebaef3dbb1a344b2fb9f2f503b4576",
-        "docs/deployment-boundary.md": "3fa6f6f453db9640138be064961610bce4426253731062b51d6b29f350d97ff5",
+        "docs/model-settings.md": "968f99151cc002529e9717ff177247829be4bf7067974bd4832cf4a14c166ad7",
+        "docs/deployment-boundary.md": "a1df221d2533117142df567589ad6df6c110591e95c054d5fbb383003c9f0d6f",
         "package.json": "5c73e4457a72a4c03684cb4a3f928b5061de6f9d3e6317bc6b04616a6af93bc9",
         "scripts/serve-prototype.mjs": "f1232082074d76e12713267d3bc10bd546a69f4a9a8836b5a073887f9c374b4d",
         "forge/design/candidates/a/v8/index.html": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",

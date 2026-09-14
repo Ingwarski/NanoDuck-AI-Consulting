@@ -5,7 +5,7 @@ const defaults = Object.freeze({
   headModel: "gpt-6-astra",
   headReasoning: "xhigh",
   criticModel: "gpt-6-astra",
-  criticReasoning: "ultra",
+  criticReasoning: "xhigh",
   speed: "balanced"
 });
 

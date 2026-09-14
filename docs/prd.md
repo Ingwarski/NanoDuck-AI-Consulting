@@ -295,7 +295,7 @@ Every listed applicable control is an obligation above. Exclusions below are mec
 
 ## Product-level Implementation Decisions
 
-Before migration, obtain a content-free saved-settings snapshot, including inactive provider preferences. Recorded selections are Head/specialists Codex `gpt-6-astra` / `xhigh`, Critic Codex `gpt-6-astra` / `ultra`, and Balanced speed. Unknown inactive values stay unknown. Verify each exact provider/model/reasoning tuple separately; no reset to defaults. Preserve Codex `0.153.1` and Claude Code `2.1.258` in this phase. Architecture owns mechanisms; this PRD does not select a stack or build order.
+The authenticated 14 September content-free settings read confirms Head/specialists Codex `gpt-6-astra` / `xhigh`, Critic Codex `gpt-6-astra` / `xhigh`, and Balanced speed. The inactive provider branch remains unknown. Verify each exact active provider/model/reasoning tuple separately before cutover; no reset to defaults. Preserve Codex `0.153.1` and Claude Code `2.1.258` in this phase. Architecture owns mechanisms; this PRD does not select a stack or build order.
 
 All three design candidates cover the same use cases and recovery states, including interactive model/reasoning selection and the complete voice lifecycle. The initial comparison used three substantial design directions. The owner subsequently selected and approved Electric A v8 within that combined layout; its full flow coverage is retained. The floating bar remains available on scroll and is not arbitrarily draggable. A 44 CSS px touch target is the design default; WCAG 2.2 AA minimum-target rules are distinct. Longer calculations are allowed; the proposed 60–140-word ordinary-reply target never permits truncation of an actual message.
 

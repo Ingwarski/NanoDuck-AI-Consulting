@@ -6,6 +6,16 @@ import { loadConfig } from "../src/server/config.mjs";
 import { createMemoryStore, createMySqlStore, defaultSettings } from "../src/server/store.mjs";
 import { parseMessage, parseSettings, safeExternalUrl } from "../src/server/validation.mjs";
 
+test("new consultations default to the current saved Codex settings", () => {
+  assert.deepEqual(defaultSettings, {
+    headModel: "gpt-6-astra",
+    headReasoning: "xhigh",
+    criticModel: "gpt-6-astra",
+    criticReasoning: "xhigh",
+    speed: "balanced"
+  });
+});
+
 const key = Buffer.alloc(32, 7);
 
 test("encrypted message values authenticate before decryption", () => {

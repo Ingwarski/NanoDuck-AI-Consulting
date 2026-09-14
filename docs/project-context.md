@@ -18,7 +18,7 @@ Phone browsers are primary; tablet and desktop complete the same tasks. The desi
 
 Only the existing named GoDaddy consulting app is a possible later deployment target. Its exact storage/lifecycle and provider compatibility remain technical verification work. Phase 3 implements and tests the local browser application; it does not deploy, connect to live providers or change a GoDaddy database.
 
-Preserve recorded Astra/xhigh for Head/specialists and Astra/ultra for Critic, Balanced speed and the existing subscription constraints. The historical values are not fresh deployed settings. Supported choices are catalog-driven; a prototype may use a clearly identified catalog fixture.
+Preserve the current saved Astra/xhigh setting for Head/specialists and Critic, Balanced speed and the existing subscription constraints. A dated 7 September Critic/ultra record is historical and does not override the authenticated 14 September setting read. Supported choices are catalog-driven; a prototype may use a clearly identified catalog fixture.
 
 ## Scope and ownership
 
