@@ -15,7 +15,8 @@ const waitFor = async (predicate, milliseconds = 1_000) => {
 
 const validHeadTask = assignment => {
   const anchor = /exact case anchor: “([^”]+)”/u.exec(assignment)?.[1] ?? "decision";
-  return `<nanoduck-task>Analyze ${anchor} from the assigned perspective and identify the decisive evidence.</nanoduck-task>`;
+  const detail = /exact decision detail: “([^”]+)”/u.exec(assignment)?.[1];
+  return `<nanoduck-task>Analyze ${anchor}${detail ? ` and ${detail}` : ""} from the assigned perspective and identify the decisive evidence.</nanoduck-task>`;
 };
 const successfulBody = (input, body = "A qualified answer.") => input.outputKind === "head_task" ? validHeadTask(input.assignment) : body;
 
@@ -134,7 +135,7 @@ test("invalid Head tasks are retried and fall back to a case-bound specialist br
   assert.equal(events.at(-1).recipient, null);
 });
 
-test("a malformed BTC Head task keeps the BTC decision and recipient-specific focus", async () => {
+test("a generic BTC-only Head task retains the decision detail and recipient-specific focus", async () => {
   const store = createMemoryStore();
   const conversation = await store.createConversation();
   const body = "I have $100 and its equivalent in BTC. The market is bearish and unpredictable. Should I buy more BTC, sell, or hold?";
@@ -143,7 +144,7 @@ test("a malformed BTC Head task keeps the BTC decision and recipient-specific fo
   const provider = {
     async invoke(input) {
       calls.push(input);
-      return { ok: true, body: input.outputKind === "head_task" ? "I recommend buying immediately." : successfulBody(input), sources: [] };
+      return { ok: true, body: input.outputKind === "head_task" ? "<nanoduck-task>Analyze BTC from the assigned perspective and identify the decisive evidence.</nanoduck-task>" : successfulBody(input), sources: [] };
     }
   };
   const service = createConsultationService({ store, provider });
@@ -153,6 +154,7 @@ test("a malformed BTC Head task keeps the BTC decision and recipient-specific fo
   const tasks = events.filter(event => event.role === "Head Consultant" && event.recipient);
   assert.equal(calls.filter(call => call.outputKind === "head_task").length, 4);
   assert.equal(tasks.every(task => task.body.includes("BTC")), true);
+  assert.equal(tasks.every(task => /market|bearish|unpredictable|buy|sell|hold/u.test(task.body)), true);
   assert.match(tasks[0].body, /actual options/u);
   assert.match(tasks[1].body, /exposure, affordability or loss-limit/u);
   assert.equal(calls[4].assignment.includes(`Your assigned Head brief is exactly:\nBegin assigned brief\n${tasks[0].body}\nEnd assigned brief`), true);

@@ -4,7 +4,7 @@
   "run_id": "phase3-case-bound-head-handoffs-20260915",
   "executor": "Codex local implementation runner",
   "baseline_id": "nanoduck-electric-a-v8-20260914",
-  "scope": "Correct visible Head-to-specialist handoffs so they are case-specific, retry once when malformed or generic, bind each committed task to its named specialist, and preserve the existing Head -> specialist -> Critic topology. No GoDaddy application, database, migration, reset, deletion, deployment or external upload was contacted.",
+  "scope": "Correct visible Head-to-specialist handoffs so they repeat two concrete decision details, retry once when malformed or generic, bind each committed task to its named specialist, and preserve the existing Head -> specialist -> Critic topology. No GoDaddy application, database, migration, reset, deletion, deployment or external upload was contacted.",
   "required_topology": [
     "Head Consultant -> each selected specialist: task only",
     "each selected specialist -> Critic: independent initial position",
@@ -15,13 +15,13 @@
     {
       "name": "case-specific Head handoff",
       "evidence": "test/consultation.test.mjs",
-      "observed": "Every accepted Head task must contain an anchor from the owner decision. Invalid, owner-facing or generic output is retried once; the final safe fallback contains the stated decision and a recipient-specific focus instead of a static role template.",
+      "observed": "Every accepted Head task must contain a case anchor and a second detail from the owner decision. Invalid, owner-facing or generic output is retried once; the final safe fallback contains the stated decision and a recipient-specific focus instead of a static role template.",
       "result": "passed"
     },
     {
       "name": "BTC routing regression",
       "evidence": "test/consultation.test.mjs",
-      "observed": "For the reported BTC buy/sell/hold decision, malformed Head output yields visible Strategy and Finance briefs that retain BTC and their different decision focus. Each specialist provider call contains only its exact committed Head brief as its assigned task.",
+      "observed": "For the reported BTC buy/sell/hold decision, a wrapper-valid but generic BTC-only Head task is rejected. Its visible Strategy and Finance fallback briefs retain BTC, another decision detail and their different decision focus. Each specialist provider call contains only its exact committed Head brief as its assigned task.",
       "result": "passed"
     },
     {

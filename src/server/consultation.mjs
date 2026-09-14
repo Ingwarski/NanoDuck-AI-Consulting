@@ -23,12 +23,14 @@ const taskExcerpt = (question, maximumLength = 180) => {
   const clipped = plain.length > maximumLength ? `${plain.slice(0, maximumLength - 1).trimEnd()}…` : plain;
   return clipped.replace(/[.!?]+$/u, "").trim() || "the stated decision";
 };
+const ignoredTaskTerms = new Set(["about", "after", "against", "also", "are", "been", "could", "does", "from", "have", "how", "into", "more", "next", "should", "that", "their", "there", "these", "this", "what", "when", "which", "with", "would", "your", "які", "для", "про", "так", "цей", "цією", "що", "як"]);
+const decisionTerms = question => [...new Set((String(question ?? "").match(/[\p{L}\p{N}]{3,}/gu) ?? []).filter(token => !ignoredTaskTerms.has(token.toLocaleLowerCase())))];
 const taskAnchor = question => {
-  const tokens = String(question ?? "").match(/[\p{L}\p{N}]{3,}/gu) ?? [];
-  const ignored = new Set(["about", "after", "against", "also", "are", "been", "could", "does", "from", "have", "how", "into", "more", "should", "that", "their", "there", "these", "this", "what", "when", "which", "with", "would", "your", "які", "для", "про", "так", "цей", "цією", "що", "як"]);
+  const tokens = decisionTerms(question);
   const uppercase = tokens.find(token => /^(?:[A-Z]{3,}|[А-ЯІЇЄҐ]{3,})$/u.test(token));
-  return uppercase ?? tokens.find(token => !ignored.has(token.toLocaleLowerCase())) ?? tokens[0] ?? "decision";
+  return uppercase ?? tokens[0] ?? "decision";
 };
+const taskDetail = (question, anchor) => decisionTerms(question).find(token => token.toLocaleLowerCase() !== anchor.toLocaleLowerCase());
 const taskFallbackFocus = Object.freeze({
   English: Object.freeze({
     "Strategy Consultant": "Separate the actual options and name the condition that should choose among them.",
@@ -60,7 +62,7 @@ const headTaskFallback = (specialist, question, language) => {
     ? `Проаналізуй це рішення з позиції ${specialist}: «${excerpt}». ${focus}`
     : `Analyze this decision as the ${specialist}: “${excerpt}”. ${focus}`;
 };
-const headTaskOutput = (body, anchor) => {
+const headTaskOutput = (body, anchor, detail) => {
   const match = /^\s*<nanoduck-task>\s*([\s\S]*?)\s*<\/nanoduck-task>\s*$/iu.exec(body);
   if (!match) return undefined;
   const task = match[1].replace(/\s+/gu, " ").trim();
@@ -68,7 +70,8 @@ const headTaskOutput = (body, anchor) => {
   const ownerFacing = /(?:\b(?:i|we|owner|user|recommend(?:ation)?|conclusion)\b|власник|користувач|рекоменд\p{L}*|виснов\p{L}*)/iu;
   const sentences = task.split(/[.!?]+/u).filter(Boolean);
   const caseSpecific = typeof anchor === "string" && anchor.length > 0 && task.toLocaleLowerCase().includes(anchor.toLocaleLowerCase());
-  return task.length <= 420 && sentences.length <= 2 && imperative.test(task) && !ownerFacing.test(task) && caseSpecific ? Object.freeze({ body: task }) : undefined;
+  const detailSpecific = !detail || task.toLocaleLowerCase().includes(detail.toLocaleLowerCase());
+  return task.length <= 420 && sentences.length <= 2 && imperative.test(task) && !ownerFacing.test(task) && caseSpecific && detailSpecific ? Object.freeze({ body: task }) : undefined;
 };
 const compactMessage = (body, maximumCharacters = 2_000) => {
   const text = typeof body === "string" ? body.trim() : "";
@@ -165,11 +168,12 @@ export function createConsultationService({ store, provider }) {
       };
       let result = await request(step.assignment);
       if (!result) return undefined;
-      let output = headTaskOutput(result.body, step.caseAnchor);
+      let output = headTaskOutput(result.body, step.caseAnchor, step.caseDetail);
       if (!output) {
-        result = await request(`${step.assignment}\n\nYour prior output could not be committed. Return a replacement that follows the wrapper exactly and includes the exact case anchor “${step.caseAnchor}”. Do not write any other text.`);
+        const detailInstruction = step.caseDetail ? ` and the exact decision detail “${step.caseDetail}”` : "";
+        result = await request(`${step.assignment}\n\nYour prior output could not be committed. Return a replacement that follows the wrapper exactly and includes the exact case anchor “${step.caseAnchor}”${detailInstruction}. Do not write any other text.`);
         if (!result) return undefined;
-        output = headTaskOutput(result.body, step.caseAnchor);
+        output = headTaskOutput(result.body, step.caseAnchor, step.caseDetail);
       }
       const committedOutput = output ?? Object.freeze({ body: headTaskFallback(step.recipient, question, language) });
       const committed = await store.appendAgentMessage(conversationId, runState.generation, { role: step.role, recipient: step.recipient, body: committedOutput.body, sources: output?.sources ?? result.sources });
@@ -215,6 +219,7 @@ export function createConsultationService({ store, provider }) {
       }
       const team = candidates.slice(0, selected);
       const caseAnchor = taskAnchor(first.owner);
+      const caseDetail = taskDetail(first.owner, caseAnchor);
       const headTasks = team.map(specialist => ({
           role: "Head Consultant",
           recipient: specialist,
@@ -224,7 +229,8 @@ export function createConsultationService({ store, provider }) {
           outputKind: "head_task",
           maximumCharacters: 420,
           caseAnchor,
-          assignment: `You are the Head Consultant. This is a handoff to the ${specialist}, never an answer to the owner. Return exactly one XML wrapper and nothing else: <nanoduck-task>ONE OR TWO IMPERATIVE SENTENCES</nanoduck-task>. Begin the task with a direct action verb. Inside the wrapper, give the ${specialist} a concrete role-specific investigation for this decision. Include this exact case anchor: “${caseAnchor}”. Do not answer the owner, state a position, recommend an action, list assumptions, explain the team, use first person, or use words such as recommendation or conclusion. ${language}`
+          caseDetail,
+          assignment: `You are the Head Consultant. This is a handoff to the ${specialist}, never an answer to the owner. Return exactly one XML wrapper and nothing else: <nanoduck-task>ONE OR TWO IMPERATIVE SENTENCES</nanoduck-task>. Begin the task with a direct action verb. Inside the wrapper, give the ${specialist} a concrete role-specific investigation for this decision. Include this exact case anchor: “${caseAnchor}”.${caseDetail ? ` Also include this exact decision detail: “${caseDetail}”.` : ""} Do not answer the owner, state a position, recommend an action, list assumptions, explain the team, use first person, or use words such as recommendation or conclusion. ${language}`
         }));
       for (let index = 0; index < headTasks.length; index += 1) {
         const existing = confirmed[index];

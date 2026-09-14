@@ -28,7 +28,7 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2"
       },
       "dependencies": [],
-      "content_hash": "4492a0af488ba719bb0f65251878a03a64f5a05bd6caae5c1652387dc312960d",
+      "content_hash": "bf9375faae05a49b2875627a58ad17ff081fddf326aa6e9ef61e07c0ee5e3175",
       "validation": {
         "result": "passed",
         "working_language": "en",
@@ -112,12 +112,12 @@
         "docs/product-idea.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "4492a0af488ba719bb0f65251878a03a64f5a05bd6caae5c1652387dc312960d"
+        "docs/product-idea.md": "bf9375faae05a49b2875627a58ad17ff081fddf326aa6e9ef61e07c0ee5e3175"
       },
       "dependencies": [
         "product-idea"
       ],
-      "content_hash": "26fe6a392f8851e810eb44d517675ad8ac309c4e679cb5fdd12dfb65a7af4339",
+      "content_hash": "6da5a69d63a1076da226649dfd45280d0abcd7fa302d7130c7fb2a95163fe94b",
       "validation": {
         "result": "passed",
         "working_language": "en",
@@ -2365,8 +2365,8 @@
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "4492a0af488ba719bb0f65251878a03a64f5a05bd6caae5c1652387dc312960d",
-        "docs/prd.md": "26fe6a392f8851e810eb44d517675ad8ac309c4e679cb5fdd12dfb65a7af4339"
+        "docs/product-idea.md": "bf9375faae05a49b2875627a58ad17ff081fddf326aa6e9ef61e07c0ee5e3175",
+        "docs/prd.md": "6da5a69d63a1076da226649dfd45280d0abcd7fa302d7130c7fb2a95163fe94b"
       },
       "dependencies": [
         "product-idea",
@@ -2399,14 +2399,14 @@
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "4492a0af488ba719bb0f65251878a03a64f5a05bd6caae5c1652387dc312960d",
-        "docs/prd.md": "26fe6a392f8851e810eb44d517675ad8ac309c4e679cb5fdd12dfb65a7af4339"
+        "docs/product-idea.md": "bf9375faae05a49b2875627a58ad17ff081fddf326aa6e9ef61e07c0ee5e3175",
+        "docs/prd.md": "6da5a69d63a1076da226649dfd45280d0abcd7fa302d7130c7fb2a95163fe94b"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "4c859128bd3bee34be11158d9e3ee7ba7636556eb8ce3119196315d1553629d9",
+      "content_hash": "908dddd94af203a613122d8e514ed38e64041bd8a54b8507b6848683b8790e3f",
       "validation": {
         "result": "passed",
         "working_language": "en",
@@ -2433,9 +2433,9 @@
         "docs/canonical-terms.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "26fe6a392f8851e810eb44d517675ad8ac309c4e679cb5fdd12dfb65a7af4339",
+        "docs/prd.md": "6da5a69d63a1076da226649dfd45280d0abcd7fa302d7130c7fb2a95163fe94b",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "4c859128bd3bee34be11158d9e3ee7ba7636556eb8ce3119196315d1553629d9"
+        "docs/canonical-terms.md": "908dddd94af203a613122d8e514ed38e64041bd8a54b8507b6848683b8790e3f"
       },
       "dependencies": [
         "prd",
@@ -2470,9 +2470,9 @@
         "docs/guardrails.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "26fe6a392f8851e810eb44d517675ad8ac309c4e679cb5fdd12dfb65a7af4339",
+        "docs/prd.md": "6da5a69d63a1076da226649dfd45280d0abcd7fa302d7130c7fb2a95163fe94b",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "4c859128bd3bee34be11158d9e3ee7ba7636556eb8ce3119196315d1553629d9",
+        "docs/canonical-terms.md": "908dddd94af203a613122d8e514ed38e64041bd8a54b8507b6848683b8790e3f",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041"
       },
       "dependencies": [
@@ -2481,7 +2481,7 @@
         "canonical-terms",
         "guardrails"
       ],
-      "content_hash": "bde55202f9ffe86f404edbddaa8ec81589be227864d5547d252fe412f2f886f8",
+      "content_hash": "d80ee88df5cbde55b681b7f4ad98f19acbc438d385b018db0a7850a17814bbd5",
       "validation": {
         "result": "passed",
         "working_language": "en",
@@ -2513,11 +2513,11 @@
         "forge/design/candidates/c/v1/app.js": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "26fe6a392f8851e810eb44d517675ad8ac309c4e679cb5fdd12dfb65a7af4339",
+        "docs/prd.md": "6da5a69d63a1076da226649dfd45280d0abcd7fa302d7130c7fb2a95163fe94b",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "4c859128bd3bee34be11158d9e3ee7ba7636556eb8ce3119196315d1553629d9",
+        "docs/canonical-terms.md": "908dddd94af203a613122d8e514ed38e64041bd8a54b8507b6848683b8790e3f",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041",
-        "docs/user-journey.md": "bde55202f9ffe86f404edbddaa8ec81589be227864d5547d252fe412f2f886f8",
+        "docs/user-journey.md": "d80ee88df5cbde55b681b7f4ad98f19acbc438d385b018db0a7850a17814bbd5",
         "forge/design/candidates/a/v1/app.js": "a869dd42c95740bf7da4802934c3cd6f8d2e2243795ee20925cd5ee19f474531",
         "forge/design/candidates/b/v1/app.js": "17e37807a032c5ea1660efca698e21dc8baf29a3c5344067470b6b44311f9b39",
         "forge/design/candidates/c/v1/app.js": "f64ab8a6962cc700c8087803d33ecda68884da78158ea0e5547235c6d4fff530"
@@ -3564,11 +3564,11 @@
         "docs/screen-map.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "26fe6a392f8851e810eb44d517675ad8ac309c4e679cb5fdd12dfb65a7af4339",
+        "docs/prd.md": "6da5a69d63a1076da226649dfd45280d0abcd7fa302d7130c7fb2a95163fe94b",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "4c859128bd3bee34be11158d9e3ee7ba7636556eb8ce3119196315d1553629d9",
+        "docs/canonical-terms.md": "908dddd94af203a613122d8e514ed38e64041bd8a54b8507b6848683b8790e3f",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041",
-        "docs/user-journey.md": "bde55202f9ffe86f404edbddaa8ec81589be227864d5547d252fe412f2f886f8",
+        "docs/user-journey.md": "d80ee88df5cbde55b681b7f4ad98f19acbc438d385b018db0a7850a17814bbd5",
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51"
       },
       "dependencies": [
@@ -3655,14 +3655,14 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "26fe6a392f8851e810eb44d517675ad8ac309c4e679cb5fdd12dfb65a7af4339",
+        "docs/prd.md": "6da5a69d63a1076da226649dfd45280d0abcd7fa302d7130c7fb2a95163fe94b",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "4c859128bd3bee34be11158d9e3ee7ba7636556eb8ce3119196315d1553629d9",
+        "docs/canonical-terms.md": "908dddd94af203a613122d8e514ed38e64041bd8a54b8507b6848683b8790e3f",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041",
-        "docs/user-journey.md": "bde55202f9ffe86f404edbddaa8ec81589be227864d5547d252fe412f2f886f8",
+        "docs/user-journey.md": "d80ee88df5cbde55b681b7f4ad98f19acbc438d385b018db0a7850a17814bbd5",
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51",
         "docs/wireframes.md": "e4421b28906eb78359efc559edd26a47e5e80c734a52178694f59540cfaa3fb5",
-        "docs/product-idea.md": "4492a0af488ba719bb0f65251878a03a64f5a05bd6caae5c1652387dc312960d",
+        "docs/product-idea.md": "bf9375faae05a49b2875627a58ad17ff081fddf326aa6e9ef61e07c0ee5e3175",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "prototype/styles.css": "ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925",
         "prototype/app.js": "b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54",
@@ -3752,11 +3752,11 @@
         "forge/runs/U-06/browser-speech-uk-20260914/README.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "26fe6a392f8851e810eb44d517675ad8ac309c4e679cb5fdd12dfb65a7af4339",
+        "docs/prd.md": "6da5a69d63a1076da226649dfd45280d0abcd7fa302d7130c7fb2a95163fe94b",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "4c859128bd3bee34be11158d9e3ee7ba7636556eb8ce3119196315d1553629d9",
+        "docs/canonical-terms.md": "908dddd94af203a613122d8e514ed38e64041bd8a54b8507b6848683b8790e3f",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041",
-        "docs/user-journey.md": "bde55202f9ffe86f404edbddaa8ec81589be227864d5547d252fe412f2f886f8",
+        "docs/user-journey.md": "d80ee88df5cbde55b681b7f4ad98f19acbc438d385b018db0a7850a17814bbd5",
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51",
         "docs/wireframes.md": "e4421b28906eb78359efc559edd26a47e5e80c734a52178694f59540cfaa3fb5",
         "docs/design-brief.md": "c4abf634becc5757bd8f3fda67aa7aa92d83cf4093985f8415294e8ec4d6d8c4",
@@ -3774,7 +3774,7 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "a1c1d5a738707c6cc3f325b7af32d8cf72550fe9356937c47e763722d1d84588",
+      "content_hash": "f3af63af3e372d8fd8ebc888dcb7949860e7b8b9f473bf02221ecf29841b53f8",
       "validation": {
         "result": "passed",
         "working_language": "en",
@@ -3878,15 +3878,15 @@
         "docs/architecture.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "26fe6a392f8851e810eb44d517675ad8ac309c4e679cb5fdd12dfb65a7af4339",
+        "docs/prd.md": "6da5a69d63a1076da226649dfd45280d0abcd7fa302d7130c7fb2a95163fe94b",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "4c859128bd3bee34be11158d9e3ee7ba7636556eb8ce3119196315d1553629d9",
+        "docs/canonical-terms.md": "908dddd94af203a613122d8e514ed38e64041bd8a54b8507b6848683b8790e3f",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041",
-        "docs/user-journey.md": "bde55202f9ffe86f404edbddaa8ec81589be227864d5547d252fe412f2f886f8",
+        "docs/user-journey.md": "d80ee88df5cbde55b681b7f4ad98f19acbc438d385b018db0a7850a17814bbd5",
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51",
         "docs/wireframes.md": "e4421b28906eb78359efc559edd26a47e5e80c734a52178694f59540cfaa3fb5",
         "docs/design-brief.md": "c4abf634becc5757bd8f3fda67aa7aa92d83cf4093985f8415294e8ec4d6d8c4",
-        "docs/architecture.md": "a1c1d5a738707c6cc3f325b7af32d8cf72550fe9356937c47e763722d1d84588"
+        "docs/architecture.md": "f3af63af3e372d8fd8ebc888dcb7949860e7b8b9f473bf02221ecf29841b53f8"
       },
       "dependencies": [
         "prd",
@@ -3899,7 +3899,7 @@
         "design-brief",
         "architecture"
       ],
-      "content_hash": "8ed9122e17050bb44edc08da5fedc68e7bdadb435f977e0acc5d7e34f3d07102",
+      "content_hash": "9e28858563e2ce4e732ce90331e73675877c368df4d03f66600f527ab554578f",
       "validation": {
         "result": "passed",
         "working_language": "en",
@@ -4008,16 +4008,16 @@
         "forge/design/evidence/c-v1-visual-qa.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "26fe6a392f8851e810eb44d517675ad8ac309c4e679cb5fdd12dfb65a7af4339",
+        "docs/prd.md": "6da5a69d63a1076da226649dfd45280d0abcd7fa302d7130c7fb2a95163fe94b",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "4c859128bd3bee34be11158d9e3ee7ba7636556eb8ce3119196315d1553629d9",
+        "docs/canonical-terms.md": "908dddd94af203a613122d8e514ed38e64041bd8a54b8507b6848683b8790e3f",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041",
-        "docs/user-journey.md": "bde55202f9ffe86f404edbddaa8ec81589be227864d5547d252fe412f2f886f8",
+        "docs/user-journey.md": "d80ee88df5cbde55b681b7f4ad98f19acbc438d385b018db0a7850a17814bbd5",
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51",
         "docs/wireframes.md": "e4421b28906eb78359efc559edd26a47e5e80c734a52178694f59540cfaa3fb5",
         "docs/design-brief.md": "c4abf634becc5757bd8f3fda67aa7aa92d83cf4093985f8415294e8ec4d6d8c4",
-        "docs/architecture.md": "a1c1d5a738707c6cc3f325b7af32d8cf72550fe9356937c47e763722d1d84588",
-        "docs/dod-evals.md": "8ed9122e17050bb44edc08da5fedc68e7bdadb435f977e0acc5d7e34f3d07102",
+        "docs/architecture.md": "f3af63af3e372d8fd8ebc888dcb7949860e7b8b9f473bf02221ecf29841b53f8",
+        "docs/dod-evals.md": "9e28858563e2ce4e732ce90331e73675877c368df4d03f66600f527ab554578f",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
         "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
@@ -4035,7 +4035,7 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "504417441a94293e6ca48444a57177eca85cc6fb6b159427d2c802f193532588",
+      "content_hash": "ba6730e29b5d654c8c548da54000816598046e1669fc746e815d8d6632dbe47f",
       "validation": {
         "result": "passed",
         "working_language": "en",
@@ -5821,17 +5821,17 @@
         "forge/design/candidates/a/v8/app.js": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "26fe6a392f8851e810eb44d517675ad8ac309c4e679cb5fdd12dfb65a7af4339",
+        "docs/prd.md": "6da5a69d63a1076da226649dfd45280d0abcd7fa302d7130c7fb2a95163fe94b",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "4c859128bd3bee34be11158d9e3ee7ba7636556eb8ce3119196315d1553629d9",
+        "docs/canonical-terms.md": "908dddd94af203a613122d8e514ed38e64041bd8a54b8507b6848683b8790e3f",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041",
-        "docs/user-journey.md": "bde55202f9ffe86f404edbddaa8ec81589be227864d5547d252fe412f2f886f8",
+        "docs/user-journey.md": "d80ee88df5cbde55b681b7f4ad98f19acbc438d385b018db0a7850a17814bbd5",
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51",
         "docs/wireframes.md": "e4421b28906eb78359efc559edd26a47e5e80c734a52178694f59540cfaa3fb5",
         "docs/design-brief.md": "c4abf634becc5757bd8f3fda67aa7aa92d83cf4093985f8415294e8ec4d6d8c4",
-        "docs/architecture.md": "a1c1d5a738707c6cc3f325b7af32d8cf72550fe9356937c47e763722d1d84588",
-        "docs/dod-evals.md": "8ed9122e17050bb44edc08da5fedc68e7bdadb435f977e0acc5d7e34f3d07102",
-        "docs/qa-checklist.md": "504417441a94293e6ca48444a57177eca85cc6fb6b159427d2c802f193532588",
+        "docs/architecture.md": "f3af63af3e372d8fd8ebc888dcb7949860e7b8b9f473bf02221ecf29841b53f8",
+        "docs/dod-evals.md": "9e28858563e2ce4e732ce90331e73675877c368df4d03f66600f527ab554578f",
+        "docs/qa-checklist.md": "ba6730e29b5d654c8c548da54000816598046e1669fc746e815d8d6632dbe47f",
         "docs/model-settings.md": "86801751744742aa44a41b9f6d5c5192eabd22423323c83bdbddec431e47b4d5",
         "docs/deployment-boundary.md": "e57776bcde6bb00d6dceb6200e02303124cfdf4f1272c72eb474b50a3949df83",
         "package.json": "09ee36e63b46084b99ec90a6793a50ff5e36c466bd46faf2b6da802f55089343",
@@ -5855,7 +5855,7 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "9680ff9d8bc9d888d704304c20035bc61c34782fb33d6fed2aad76bc4e14c6b4",
+      "content_hash": "b452e01d7b64d2e7652dcbb08618bcf3a4f2ae4c5398113ac6a52e017e8253ff",
       "validation": {
         "result": "passed",
         "working_language": "en",
@@ -7554,7 +7554,7 @@
   ],
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "9680ff9d8bc9d888d704304c20035bc61c34782fb33d6fed2aad76bc4e14c6b4",
+    "development_plan_hash": "b452e01d7b64d2e7652dcbb08618bcf3a4f2ae4c5398113ac6a52e017e8253ff",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-14T20:13:37+03:00",
     "prompt_id": "impl-20260915-case-bound-head-handoffs",
@@ -7563,7 +7563,7 @@
     "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
     "prompt_receipt": {
       "path": "forge/runs/implementation-prompt-20260915-case-bound-head-handoffs.json",
-      "content_hash": "5a1ea8f9d12faf65a4149ba5c421a82bca1abe979f6a85a5faccd12a3af5d12e"
+      "content_hash": "246b71cd7c898048438febf8b6f31d72d6dfd2850b6542e69463eac3eb51c887"
     },
     "reason": "Active Phase 3 implementation continuation and the owner-reported generic Head-task failure authorize the U-04 routing correction. Local implementation, deterministic checks and local browser verification are authorized; deployment, GoDaddy data operations and external changes remain outside authorization."
   },
@@ -7906,7 +7906,7 @@
         "docs/prd.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "4492a0af488ba719bb0f65251878a03a64f5a05bd6caae5c1652387dc312960d"
+        "docs/product-idea.md": "bf9375faae05a49b2875627a58ad17ff081fddf326aa6e9ef61e07c0ee5e3175"
       },
       "consumed_source_fragments": {}
     },
@@ -7917,8 +7917,8 @@
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "4492a0af488ba719bb0f65251878a03a64f5a05bd6caae5c1652387dc312960d",
-        "docs/prd.md": "26fe6a392f8851e810eb44d517675ad8ac309c4e679cb5fdd12dfb65a7af4339"
+        "docs/product-idea.md": "bf9375faae05a49b2875627a58ad17ff081fddf326aa6e9ef61e07c0ee5e3175",
+        "docs/prd.md": "6da5a69d63a1076da226649dfd45280d0abcd7fa302d7130c7fb2a95163fe94b"
       },
       "consumed_source_fragments": {}
     },
@@ -7929,8 +7929,8 @@
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "4492a0af488ba719bb0f65251878a03a64f5a05bd6caae5c1652387dc312960d",
-        "docs/prd.md": "26fe6a392f8851e810eb44d517675ad8ac309c4e679cb5fdd12dfb65a7af4339"
+        "docs/product-idea.md": "bf9375faae05a49b2875627a58ad17ff081fddf326aa6e9ef61e07c0ee5e3175",
+        "docs/prd.md": "6da5a69d63a1076da226649dfd45280d0abcd7fa302d7130c7fb2a95163fe94b"
       },
       "consumed_source_fragments": {}
     },
@@ -7940,9 +7940,9 @@
         "docs/guardrails.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "26fe6a392f8851e810eb44d517675ad8ac309c4e679cb5fdd12dfb65a7af4339",
+        "docs/prd.md": "6da5a69d63a1076da226649dfd45280d0abcd7fa302d7130c7fb2a95163fe94b",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "4c859128bd3bee34be11158d9e3ee7ba7636556eb8ce3119196315d1553629d9"
+        "docs/canonical-terms.md": "908dddd94af203a613122d8e514ed38e64041bd8a54b8507b6848683b8790e3f"
       },
       "consumed_source_fragments": {}
     },
@@ -7952,9 +7952,9 @@
         "docs/user-journey.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "26fe6a392f8851e810eb44d517675ad8ac309c4e679cb5fdd12dfb65a7af4339",
+        "docs/prd.md": "6da5a69d63a1076da226649dfd45280d0abcd7fa302d7130c7fb2a95163fe94b",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "4c859128bd3bee34be11158d9e3ee7ba7636556eb8ce3119196315d1553629d9",
+        "docs/canonical-terms.md": "908dddd94af203a613122d8e514ed38e64041bd8a54b8507b6848683b8790e3f",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041"
       },
       "consumed_source_fragments": {}
@@ -7965,11 +7965,11 @@
         "docs/screen-map.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "26fe6a392f8851e810eb44d517675ad8ac309c4e679cb5fdd12dfb65a7af4339",
+        "docs/prd.md": "6da5a69d63a1076da226649dfd45280d0abcd7fa302d7130c7fb2a95163fe94b",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "4c859128bd3bee34be11158d9e3ee7ba7636556eb8ce3119196315d1553629d9",
+        "docs/canonical-terms.md": "908dddd94af203a613122d8e514ed38e64041bd8a54b8507b6848683b8790e3f",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041",
-        "docs/user-journey.md": "bde55202f9ffe86f404edbddaa8ec81589be227864d5547d252fe412f2f886f8",
+        "docs/user-journey.md": "d80ee88df5cbde55b681b7f4ad98f19acbc438d385b018db0a7850a17814bbd5",
         "forge/design/candidates/a/v1/app.js": "a869dd42c95740bf7da4802934c3cd6f8d2e2243795ee20925cd5ee19f474531",
         "forge/design/candidates/b/v1/app.js": "17e37807a032c5ea1660efca698e21dc8baf29a3c5344067470b6b44311f9b39",
         "forge/design/candidates/c/v1/app.js": "f64ab8a6962cc700c8087803d33ecda68884da78158ea0e5547235c6d4fff530"
@@ -7982,11 +7982,11 @@
         "docs/wireframes.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "26fe6a392f8851e810eb44d517675ad8ac309c4e679cb5fdd12dfb65a7af4339",
+        "docs/prd.md": "6da5a69d63a1076da226649dfd45280d0abcd7fa302d7130c7fb2a95163fe94b",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "4c859128bd3bee34be11158d9e3ee7ba7636556eb8ce3119196315d1553629d9",
+        "docs/canonical-terms.md": "908dddd94af203a613122d8e514ed38e64041bd8a54b8507b6848683b8790e3f",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041",
-        "docs/user-journey.md": "bde55202f9ffe86f404edbddaa8ec81589be227864d5547d252fe412f2f886f8",
+        "docs/user-journey.md": "d80ee88df5cbde55b681b7f4ad98f19acbc438d385b018db0a7850a17814bbd5",
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51"
       },
       "consumed_source_fragments": {}
@@ -7997,14 +7997,14 @@
         "docs/design-brief.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "26fe6a392f8851e810eb44d517675ad8ac309c4e679cb5fdd12dfb65a7af4339",
+        "docs/prd.md": "6da5a69d63a1076da226649dfd45280d0abcd7fa302d7130c7fb2a95163fe94b",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "4c859128bd3bee34be11158d9e3ee7ba7636556eb8ce3119196315d1553629d9",
+        "docs/canonical-terms.md": "908dddd94af203a613122d8e514ed38e64041bd8a54b8507b6848683b8790e3f",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041",
-        "docs/user-journey.md": "bde55202f9ffe86f404edbddaa8ec81589be227864d5547d252fe412f2f886f8",
+        "docs/user-journey.md": "d80ee88df5cbde55b681b7f4ad98f19acbc438d385b018db0a7850a17814bbd5",
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51",
         "docs/wireframes.md": "e4421b28906eb78359efc559edd26a47e5e80c734a52178694f59540cfaa3fb5",
-        "docs/product-idea.md": "4492a0af488ba719bb0f65251878a03a64f5a05bd6caae5c1652387dc312960d",
+        "docs/product-idea.md": "bf9375faae05a49b2875627a58ad17ff081fddf326aa6e9ef61e07c0ee5e3175",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "prototype/styles.css": "ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925",
         "prototype/app.js": "b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54",
@@ -8058,11 +8058,11 @@
         "docs/architecture.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "26fe6a392f8851e810eb44d517675ad8ac309c4e679cb5fdd12dfb65a7af4339",
+        "docs/prd.md": "6da5a69d63a1076da226649dfd45280d0abcd7fa302d7130c7fb2a95163fe94b",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "4c859128bd3bee34be11158d9e3ee7ba7636556eb8ce3119196315d1553629d9",
+        "docs/canonical-terms.md": "908dddd94af203a613122d8e514ed38e64041bd8a54b8507b6848683b8790e3f",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041",
-        "docs/user-journey.md": "bde55202f9ffe86f404edbddaa8ec81589be227864d5547d252fe412f2f886f8",
+        "docs/user-journey.md": "d80ee88df5cbde55b681b7f4ad98f19acbc438d385b018db0a7850a17814bbd5",
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51",
         "docs/wireframes.md": "e4421b28906eb78359efc559edd26a47e5e80c734a52178694f59540cfaa3fb5",
         "docs/design-brief.md": "c4abf634becc5757bd8f3fda67aa7aa92d83cf4093985f8415294e8ec4d6d8c4",
@@ -8078,15 +8078,15 @@
         "docs/dod-evals.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "26fe6a392f8851e810eb44d517675ad8ac309c4e679cb5fdd12dfb65a7af4339",
+        "docs/prd.md": "6da5a69d63a1076da226649dfd45280d0abcd7fa302d7130c7fb2a95163fe94b",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "4c859128bd3bee34be11158d9e3ee7ba7636556eb8ce3119196315d1553629d9",
+        "docs/canonical-terms.md": "908dddd94af203a613122d8e514ed38e64041bd8a54b8507b6848683b8790e3f",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041",
-        "docs/user-journey.md": "bde55202f9ffe86f404edbddaa8ec81589be227864d5547d252fe412f2f886f8",
+        "docs/user-journey.md": "d80ee88df5cbde55b681b7f4ad98f19acbc438d385b018db0a7850a17814bbd5",
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51",
         "docs/wireframes.md": "e4421b28906eb78359efc559edd26a47e5e80c734a52178694f59540cfaa3fb5",
         "docs/design-brief.md": "c4abf634becc5757bd8f3fda67aa7aa92d83cf4093985f8415294e8ec4d6d8c4",
-        "docs/architecture.md": "a1c1d5a738707c6cc3f325b7af32d8cf72550fe9356937c47e763722d1d84588"
+        "docs/architecture.md": "f3af63af3e372d8fd8ebc888dcb7949860e7b8b9f473bf02221ecf29841b53f8"
       },
       "consumed_source_fragments": {}
     },
@@ -8096,16 +8096,16 @@
         "docs/qa-checklist.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "26fe6a392f8851e810eb44d517675ad8ac309c4e679cb5fdd12dfb65a7af4339",
+        "docs/prd.md": "6da5a69d63a1076da226649dfd45280d0abcd7fa302d7130c7fb2a95163fe94b",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "4c859128bd3bee34be11158d9e3ee7ba7636556eb8ce3119196315d1553629d9",
+        "docs/canonical-terms.md": "908dddd94af203a613122d8e514ed38e64041bd8a54b8507b6848683b8790e3f",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041",
-        "docs/user-journey.md": "bde55202f9ffe86f404edbddaa8ec81589be227864d5547d252fe412f2f886f8",
+        "docs/user-journey.md": "d80ee88df5cbde55b681b7f4ad98f19acbc438d385b018db0a7850a17814bbd5",
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51",
         "docs/wireframes.md": "e4421b28906eb78359efc559edd26a47e5e80c734a52178694f59540cfaa3fb5",
         "docs/design-brief.md": "c4abf634becc5757bd8f3fda67aa7aa92d83cf4093985f8415294e8ec4d6d8c4",
-        "docs/architecture.md": "a1c1d5a738707c6cc3f325b7af32d8cf72550fe9356937c47e763722d1d84588",
-        "docs/dod-evals.md": "8ed9122e17050bb44edc08da5fedc68e7bdadb435f977e0acc5d7e34f3d07102",
+        "docs/architecture.md": "f3af63af3e372d8fd8ebc888dcb7949860e7b8b9f473bf02221ecf29841b53f8",
+        "docs/dod-evals.md": "9e28858563e2ce4e732ce90331e73675877c368df4d03f66600f527ab554578f",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
         "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
@@ -8119,17 +8119,17 @@
         "docs/development-plan.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "26fe6a392f8851e810eb44d517675ad8ac309c4e679cb5fdd12dfb65a7af4339",
+        "docs/prd.md": "6da5a69d63a1076da226649dfd45280d0abcd7fa302d7130c7fb2a95163fe94b",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "4c859128bd3bee34be11158d9e3ee7ba7636556eb8ce3119196315d1553629d9",
+        "docs/canonical-terms.md": "908dddd94af203a613122d8e514ed38e64041bd8a54b8507b6848683b8790e3f",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041",
-        "docs/user-journey.md": "bde55202f9ffe86f404edbddaa8ec81589be227864d5547d252fe412f2f886f8",
+        "docs/user-journey.md": "d80ee88df5cbde55b681b7f4ad98f19acbc438d385b018db0a7850a17814bbd5",
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51",
         "docs/wireframes.md": "e4421b28906eb78359efc559edd26a47e5e80c734a52178694f59540cfaa3fb5",
         "docs/design-brief.md": "c4abf634becc5757bd8f3fda67aa7aa92d83cf4093985f8415294e8ec4d6d8c4",
-        "docs/architecture.md": "a1c1d5a738707c6cc3f325b7af32d8cf72550fe9356937c47e763722d1d84588",
-        "docs/dod-evals.md": "8ed9122e17050bb44edc08da5fedc68e7bdadb435f977e0acc5d7e34f3d07102",
-        "docs/qa-checklist.md": "504417441a94293e6ca48444a57177eca85cc6fb6b159427d2c802f193532588",
+        "docs/architecture.md": "f3af63af3e372d8fd8ebc888dcb7949860e7b8b9f473bf02221ecf29841b53f8",
+        "docs/dod-evals.md": "9e28858563e2ce4e732ce90331e73675877c368df4d03f66600f527ab554578f",
+        "docs/qa-checklist.md": "ba6730e29b5d654c8c548da54000816598046e1669fc746e815d8d6632dbe47f",
         "docs/model-settings.md": "86801751744742aa44a41b9f6d5c5192eabd22423323c83bdbddec431e47b4d5",
         "docs/deployment-boundary.md": "e57776bcde6bb00d6dceb6200e02303124cfdf4f1272c72eb474b50a3949df83",
         "package.json": "09ee36e63b46084b99ec90a6793a50ff5e36c466bd46faf2b6da802f55089343",
@@ -63481,8 +63481,8 @@
     "definition_status": "prepared",
     "release_readiness": "not_evaluated",
     "source_hashes": {
-      "docs/dod-evals.md": "8ed9122e17050bb44edc08da5fedc68e7bdadb435f977e0acc5d7e34f3d07102",
-      "docs/qa-checklist.md": "504417441a94293e6ca48444a57177eca85cc6fb6b159427d2c802f193532588"
+      "docs/dod-evals.md": "9e28858563e2ce4e732ce90331e73675877c368df4d03f66600f527ab554578f",
+      "docs/qa-checklist.md": "ba6730e29b5d654c8c548da54000816598046e1669fc746e815d8d6632dbe47f"
     },
     "gates": [
       {
