@@ -121,7 +121,7 @@ Use role colour on names, avatar fills and restrained quote/edge accents; keep w
 
 Use the canonical screen-map inventory and wireframe recovery contract. Navigation identifies the active destination; mobile menus close on selection/Escape and return focus. Native labelled selects make model and reasoning options recognizable. If a model change invalidates the selected effort, require a deliberate compatible choice rather than silently downgrading it. Unsupported Claude catalog state is contextual and does not interrupt the default Codex route.
 
-The composer offers text, attachment and voice without hiding voice in Settings. Ordinary progress uses one quiet line. An active consultation always exposes Stop within reach. A typed/transcribed draft never silently becomes a sent message; Use transcript inserts editable text and explicit Send remains separate. Preserve existing typed text during voice failure/cancel.
+The composer offers text, attachment and voice without hiding voice in Settings. Ordinary progress uses one quiet line. An active consultation always exposes Stop within reach. A browser-recognized transcript never silently becomes a sent message; Use transcript inserts editable text and explicit Send remains separate. Preserve existing typed text during voice failure/cancel. Browser-native recognition and its disclosure are runtime behavior specified by the PRD; they do not alter the approved Electric A v8 visual baseline.
 
 Dialogs have a name, visible close/cancel, focus containment and return. Confirmation identifies the exact record. Sign-in and first-use consent are separate; consent is unchecked. Sources expose a direct link, supported claim and limit; sample references never claim a fresh research run. Outcome and full discussion remain separate views.
 
@@ -133,7 +133,7 @@ Scope is the existing owner, all JOBs/UCs and J-01–J-07 as mapped by the scree
 
 | Heuristic | Scope and expected behavior | Planned evidence |
 |---|---|---|
-| H1 — Status | S-02/S-04/S-05/S-08: accepted vs draft, active/paused, recording/transcription, saved/deleted are explicit. | Stateful walkthrough and screenshots. |
+| H1 — Status | S-02/S-04/S-05/S-08: accepted vs draft, active/paused, browser recognition/transcript, saved/deleted are explicit. | Stateful walkthrough and screenshots. |
 | H2 — Real-world language | All surfaces: literal Settings; role/claim/action wording; no vague slogan or transport jargon. | English/Ukrainian fixture review. |
 | H3 — Control | S-02/S-05/S-08/S-09: Stop, Cancel, edit, Back and safe menu/dialog exit. | Keyboard/touch recovery walkthrough. |
 | H4 — Standards | S-04/S-09 and global: native fields, conventional navigation, focus and current state. | Cross-candidate desktop/mobile comparison. |

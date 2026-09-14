@@ -6,7 +6,7 @@ Current PRD, context/terms, guardrails, journey, screen map, wireframes, design 
 
 ## Definition of done model
 
-Acceptance means an observable requirement holds at its declared seam. Completion additionally requires current source/baseline binding, appropriate evidence, no open blocking findings, protected data and exact authorized scope. A design candidate can pass a local simulation check while production behavior remains unimplemented and unverified.
+Acceptance means an observable requirement holds at its declared seam. Completion additionally requires current source/baseline binding, appropriate evidence, no open blocking findings, protected data and exact authorized scope. A design candidate can pass a local simulation check while production behavior remains undeployed and unverified. Local implementation checks are evidence only for their named seam.
 
 ## Gate matrix
 
@@ -39,8 +39,8 @@ Use the exact [PRD canonical severity and release-effect definition](prd.md#cano
 
 ## PR, merge and completion rules
 
-Commit/push reviewed design artifacts to the already authorized public repository only after public-content and local checks. The existing artifact checker is limited to links/path hygiene/syntax; it does not prove the gates above. No production merge or deployment policy is invented. Architecture and this DoD have been reconciled with the approved design; QA reconciliation must complete before the development plan; a separate later user prompt authorizes implementation.
+Commit/push reviewed artifacts to the already authorized public repository only after public-content and local checks. The existing artifact checker is limited to links/path hygiene/syntax; it does not prove the gates above. No production merge or deployment policy is invented. Architecture and this DoD are reconciled with the approved design and authorized browser-native implementation; QA and plan reconciliation follow before a release decision.
 
 ## Out of scope and open questions
 
-No tests, security scan, provider generation, microphone capture, deployment or data deletion is executed by this owner. Real provider/host evidence, technical parameter values and representative-user sessions remain named future prerequisites. Prototype comparison evidence is a later evaluation lookup; whole-design approval is recorded; production and representative-user evidence remain pending. These gate definitions do not claim that a prototype walkthrough passes production checks.
+No provider generation, deployment or data deletion is executed by this owner. Owner-confirmed Safari/Chrome Ukrainian probing and local implementation tests are narrowly scoped evidence, not release completion. Real provider/host evidence, technical parameter values and representative-user sessions remain named future prerequisites. Prototype comparison evidence is a later evaluation lookup; whole-design approval is recorded; production and representative-user evidence remain pending. These gate definitions do not claim that a prototype walkthrough passes production checks.

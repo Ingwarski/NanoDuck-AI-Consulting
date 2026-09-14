@@ -66,7 +66,6 @@ export function loadConfig(environment = process.env) {
     sessionKey,
     sessionLifetimeSeconds: positiveInteger(environment.SESSION_ABSOLUTE_SECONDS, 86_400, "SESSION_ABSOLUTE_SECONDS"),
     maxAttachmentBytes: positiveInteger(environment.MAX_ATTACHMENT_BYTES, 8 * 1024 * 1024, "MAX_ATTACHMENT_BYTES"),
-    maxAudioSeconds: positiveInteger(environment.MAX_AUDIO_SECONDS, 300, "MAX_AUDIO_SECONDS"),
     google: ownerSubject && googleClientId && googleClientSecret && origin
       ? Object.freeze({ ownerSubject, clientId: googleClientId, clientSecret: googleClientSecret, redirectUri: `${origin}/auth/google/callback` })
       : undefined,

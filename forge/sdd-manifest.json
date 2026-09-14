@@ -8,13 +8,13 @@
     "product-idea": {
       "path": "docs/product-idea.md",
       "owner_skill": "to-product-idea",
-      "owner_invocation_id": "product-idea-approval-20260913T213454418928",
+      "owner_invocation_id": "product-idea-browser-speech-reconciliation-20260914T100100",
       "declared_output_set": [
         "docs/product-idea.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "product-idea-approval-20260913T213454418928",
+      "source_version": "product-idea-browser-speech-reconciliation-20260914T100100",
       "source_usage": {
         "docs/model-settings.md": "full",
         "docs/deployment-boundary.md": "full",
@@ -28,12 +28,12 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2"
       },
       "dependencies": [],
-      "content_hash": "122c7fed5979a0c8c298181c71fe73588c32859b689cb8d6d7dde80e7f41435e",
+      "content_hash": "bacb922117e1bc9364045771e0fa14814c4968c28a460f02f9fd52f1ad8e0f46",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "explicit-approval-reconciliation",
-        "reviewed_at": "2026-09-13T21:34:54.487248+00:00",
+        "kind": "browser-speech-terminology-reconciliation",
+        "reviewed_at": "2026-09-14T10:12:00Z",
         "executor": "Codex inline to-product-idea"
       },
       "open_questions": [],
@@ -101,28 +101,28 @@
     "prd": {
       "path": "docs/prd.md",
       "owner_skill": "to-sdd-prd",
-      "owner_invocation_id": "prd-approval-20260913T213454734121",
+      "owner_invocation_id": "prd-browser-speech-reconciliation-20260914T100200",
       "declared_output_set": [
         "docs/prd.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "prd-approval-20260913T213454734121",
+      "source_version": "prd-browser-speech-reconciliation-20260914T100200",
       "source_usage": {
         "docs/product-idea.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "122c7fed5979a0c8c298181c71fe73588c32859b689cb8d6d7dde80e7f41435e"
+        "docs/product-idea.md": "bacb922117e1bc9364045771e0fa14814c4968c28a460f02f9fd52f1ad8e0f46"
       },
       "dependencies": [
         "product-idea"
       ],
-      "content_hash": "cb722b38f3496cca581cded40cc7458b35122945198622de9e91438bcf4f75f4",
+      "content_hash": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "explicit-approval-reconciliation",
-        "reviewed_at": "2026-09-13T21:34:54.805673+00:00",
+        "kind": "browser-speech-terminology-reconciliation",
+        "reviewed_at": "2026-09-14T10:12:00Z",
         "executor": "Codex inline to-sdd-prd"
       },
       "open_questions": [],
@@ -638,7 +638,7 @@
             "required": true,
             "definition_ref": {
               "path": "docs/prd.md",
-              "heading": "### NFR-12.2 — Safe attachments and temporary audio"
+              "heading": "### NFR-12.2 — Safe attachments and browser voice"
             }
           },
           {
@@ -1612,7 +1612,7 @@
             "relation": "specifies",
             "definition_ref": {
               "path": "docs/prd.md",
-              "heading": "### NFR-12.2 — Safe attachments and temporary audio"
+              "heading": "### NFR-12.2 — Safe attachments and browser voice"
             }
           },
           {
@@ -1621,7 +1621,7 @@
             "relation": "specifies",
             "definition_ref": {
               "path": "docs/prd.md",
-              "heading": "### NFR-12.2 — Safe attachments and temporary audio"
+              "heading": "### NFR-12.2 — Safe attachments and browser voice"
             }
           },
           {
@@ -1630,7 +1630,7 @@
             "relation": "specifies",
             "definition_ref": {
               "path": "docs/prd.md",
-              "heading": "### NFR-12.2 — Safe attachments and temporary audio"
+              "heading": "### NFR-12.2 — Safe attachments and browser voice"
             }
           },
           {
@@ -2164,7 +2164,7 @@
             "requirement_id": "NFR-12.2",
             "definition_ref": {
               "path": "docs/prd.md",
-              "heading": "### NFR-12.2 — Safe attachments and temporary audio"
+              "heading": "### NFR-12.2 — Safe attachments and browser voice"
             },
             "asvs_ids": [
               "v5.0.0-5.1.1",
@@ -2333,122 +2333,122 @@
           "reviewed_at": "2026-09-13T19:01:13.496889+00:00"
         }
       },
-      "supersedes": "prd-nanoduck-brand-20260913T202217435331"
+      "supersedes": "prd-approval-20260913T213454734121"
     },
     "project-context": {
       "path": "docs/project-context.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "project-context-bundle-approval-20260913T213455217349",
+      "owner_invocation_id": "project-context-browser-speech-reconciliation-20260914T100300",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "project-context-bundle-approval-20260913T213455217349",
+      "source_version": "project-context-browser-speech-reconciliation-20260914T100300",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "122c7fed5979a0c8c298181c71fe73588c32859b689cb8d6d7dde80e7f41435e",
-        "docs/prd.md": "cb722b38f3496cca581cded40cc7458b35122945198622de9e91438bcf4f75f4"
+        "docs/product-idea.md": "bacb922117e1bc9364045771e0fa14814c4968c28a460f02f9fd52f1ad8e0f46",
+        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "bd01389e184f32c0472c6e6d074ef4fb1fc332bd51ebdcc6451c3a50a04aafb8",
+      "content_hash": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "explicit-approval-reconciliation",
-        "reviewed_at": "2026-09-13T21:34:55.287769+00:00",
+        "kind": "browser-speech-terminology-reconciliation",
+        "reviewed_at": "2026-09-14T10:12:00Z",
         "executor": "Codex inline to-project-context"
       },
       "open_questions": [],
-      "supersedes": "project-context-bundle-nanoduck-brand-20260913T202217821261"
+      "supersedes": "project-context-bundle-approval-20260913T213455217349"
     },
     "canonical-terms": {
       "path": "docs/canonical-terms.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "project-context-bundle-approval-20260913T213455217349",
+      "owner_invocation_id": "project-context-browser-speech-reconciliation-20260914T100300",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "project-context-bundle-approval-20260913T213455217349",
+      "source_version": "project-context-browser-speech-reconciliation-20260914T100300",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "122c7fed5979a0c8c298181c71fe73588c32859b689cb8d6d7dde80e7f41435e",
-        "docs/prd.md": "cb722b38f3496cca581cded40cc7458b35122945198622de9e91438bcf4f75f4"
+        "docs/product-idea.md": "bacb922117e1bc9364045771e0fa14814c4968c28a460f02f9fd52f1ad8e0f46",
+        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "9c2f3444cc96a71af50bbf63c376c7e492df61021543fb4474dbb3492100e61a",
+      "content_hash": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "explicit-approval-reconciliation",
-        "reviewed_at": "2026-09-13T21:34:55.287945+00:00",
+        "kind": "browser-speech-terminology-reconciliation",
+        "reviewed_at": "2026-09-14T10:12:00Z",
         "executor": "Codex inline to-project-context"
       },
       "open_questions": [],
-      "supersedes": "project-context-bundle-nanoduck-brand-20260913T202217821261"
+      "supersedes": "project-context-bundle-approval-20260913T213455217349"
     },
     "guardrails": {
       "path": "docs/guardrails.md",
       "owner_skill": "to-guardrails",
-      "owner_invocation_id": "guardrails-approval-20260913T213455702541",
+      "owner_invocation_id": "guardrails-browser-speech-reconciliation-20260914T100400",
       "declared_output_set": [
         "docs/guardrails.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "guardrails-approval-20260913T213455702541",
+      "source_version": "guardrails-browser-speech-reconciliation-20260914T100400",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
         "docs/canonical-terms.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "cb722b38f3496cca581cded40cc7458b35122945198622de9e91438bcf4f75f4",
-        "docs/project-context.md": "bd01389e184f32c0472c6e6d074ef4fb1fc332bd51ebdcc6451c3a50a04aafb8",
-        "docs/canonical-terms.md": "9c2f3444cc96a71af50bbf63c376c7e492df61021543fb4474dbb3492100e61a"
+        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
+        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a"
       },
       "dependencies": [
         "prd",
         "project-context",
         "canonical-terms"
       ],
-      "content_hash": "265989215b6104b58093134ebe15d55ba42dfe1d69126ffb73f53ab54588cab9",
+      "content_hash": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "explicit-approval-reconciliation",
-        "reviewed_at": "2026-09-13T21:34:55.773304+00:00",
+        "kind": "browser-speech-terminology-reconciliation",
+        "reviewed_at": "2026-09-14T10:12:00Z",
         "executor": "Codex inline to-guardrails"
       },
       "open_questions": [],
-      "supersedes": "guardrails-nanoduck-brand-20260913T202218211956"
+      "supersedes": "guardrails-approval-20260913T213455702541"
     },
     "user-journey": {
       "path": "docs/user-journey.md",
       "owner_skill": "to-user-journey",
-      "owner_invocation_id": "user-journey-approval-20260913T213456186400",
+      "owner_invocation_id": "user-journey-browser-speech-reconciliation-20260914T100500",
       "declared_output_set": [
         "docs/user-journey.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "user-journey-approval-20260913T213456186400",
+      "source_version": "user-journey-browser-speech-reconciliation-20260914T100500",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2456,10 +2456,10 @@
         "docs/guardrails.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "cb722b38f3496cca581cded40cc7458b35122945198622de9e91438bcf4f75f4",
-        "docs/project-context.md": "bd01389e184f32c0472c6e6d074ef4fb1fc332bd51ebdcc6451c3a50a04aafb8",
-        "docs/canonical-terms.md": "9c2f3444cc96a71af50bbf63c376c7e492df61021543fb4474dbb3492100e61a",
-        "docs/guardrails.md": "265989215b6104b58093134ebe15d55ba42dfe1d69126ffb73f53ab54588cab9"
+        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
+        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
+        "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6"
       },
       "dependencies": [
         "prd",
@@ -2467,27 +2467,27 @@
         "canonical-terms",
         "guardrails"
       ],
-      "content_hash": "cd04034d29303cc240af1f2fd867df5201c411b0e0ca3e6373d0c1118fe033f5",
+      "content_hash": "34521287feb1f97481c5bb528dce30d043d03dc1f1aa6e36b703f69c62e50f3d",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "explicit-approval-reconciliation",
-        "reviewed_at": "2026-09-13T21:34:56.257711+00:00",
+        "kind": "browser-speech-terminology-reconciliation",
+        "reviewed_at": "2026-09-14T10:12:00Z",
         "executor": "Codex inline to-user-journey"
       },
       "open_questions": [],
-      "supersedes": "user-journey-nanoduck-brand-20260913T202218609793"
+      "supersedes": "user-journey-approval-20260913T213456186400"
     },
     "screen-map": {
       "path": "docs/screen-map.md",
       "owner_skill": "to-screen-map",
-      "owner_invocation_id": "screen-map-approval-20260913T213456679335",
+      "owner_invocation_id": "screen-map-browser-speech-reconciliation-20260914T100600",
       "declared_output_set": [
         "docs/screen-map.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "screen-map-approval-20260913T213456679335",
+      "source_version": "screen-map-browser-speech-reconciliation-20260914T100600",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2499,11 +2499,11 @@
         "forge/design/candidates/c/v1/app.js": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "cb722b38f3496cca581cded40cc7458b35122945198622de9e91438bcf4f75f4",
-        "docs/project-context.md": "bd01389e184f32c0472c6e6d074ef4fb1fc332bd51ebdcc6451c3a50a04aafb8",
-        "docs/canonical-terms.md": "9c2f3444cc96a71af50bbf63c376c7e492df61021543fb4474dbb3492100e61a",
-        "docs/guardrails.md": "265989215b6104b58093134ebe15d55ba42dfe1d69126ffb73f53ab54588cab9",
-        "docs/user-journey.md": "cd04034d29303cc240af1f2fd867df5201c411b0e0ca3e6373d0c1118fe033f5",
+        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
+        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
+        "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6",
+        "docs/user-journey.md": "34521287feb1f97481c5bb528dce30d043d03dc1f1aa6e36b703f69c62e50f3d",
         "forge/design/candidates/a/v1/app.js": "a869dd42c95740bf7da4802934c3cd6f8d2e2243795ee20925cd5ee19f474531",
         "forge/design/candidates/b/v1/app.js": "17e37807a032c5ea1660efca698e21dc8baf29a3c5344067470b6b44311f9b39",
         "forge/design/candidates/c/v1/app.js": "f64ab8a6962cc700c8087803d33ecda68884da78158ea0e5547235c6d4fff530"
@@ -2515,12 +2515,12 @@
         "guardrails",
         "user-journey"
       ],
-      "content_hash": "3d6b78860cd0e598c9a192ca7c26d2bd6d336b837c47c7c6d4d43e9d6fd23274",
+      "content_hash": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "explicit-approval-reconciliation",
-        "reviewed_at": "2026-09-13T21:34:56.752690+00:00",
+        "kind": "browser-speech-terminology-reconciliation",
+        "reviewed_at": "2026-09-14T10:12:00Z",
         "executor": "Codex inline to-screen-map"
       },
       "open_questions": [],
@@ -3534,13 +3534,13 @@
     "wireframes": {
       "path": "docs/wireframes.md",
       "owner_skill": "to-wireframes",
-      "owner_invocation_id": "wireframes-approval-20260913T213457220823",
+      "owner_invocation_id": "wireframes-browser-speech-reconciliation-20260914T100700",
       "declared_output_set": [
         "docs/wireframes.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "wireframes-approval-20260913T213457220823",
+      "source_version": "wireframes-browser-speech-reconciliation-20260914T100700",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3550,12 +3550,12 @@
         "docs/screen-map.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "cb722b38f3496cca581cded40cc7458b35122945198622de9e91438bcf4f75f4",
-        "docs/project-context.md": "bd01389e184f32c0472c6e6d074ef4fb1fc332bd51ebdcc6451c3a50a04aafb8",
-        "docs/canonical-terms.md": "9c2f3444cc96a71af50bbf63c376c7e492df61021543fb4474dbb3492100e61a",
-        "docs/guardrails.md": "265989215b6104b58093134ebe15d55ba42dfe1d69126ffb73f53ab54588cab9",
-        "docs/user-journey.md": "cd04034d29303cc240af1f2fd867df5201c411b0e0ca3e6373d0c1118fe033f5",
-        "docs/screen-map.md": "3d6b78860cd0e598c9a192ca7c26d2bd6d336b837c47c7c6d4d43e9d6fd23274"
+        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
+        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
+        "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6",
+        "docs/user-journey.md": "34521287feb1f97481c5bb528dce30d043d03dc1f1aa6e36b703f69c62e50f3d",
+        "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d"
       },
       "dependencies": [
         "prd",
@@ -3565,12 +3565,12 @@
         "user-journey",
         "screen-map"
       ],
-      "content_hash": "bfac68ee80d7ce6d618cc6fe3e568edbbb21431ff2c04960ffea66e2189abad4",
+      "content_hash": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "explicit-approval-reconciliation",
-        "reviewed_at": "2026-09-13T21:34:57.294471+00:00",
+        "kind": "browser-speech-terminology-reconciliation",
+        "reviewed_at": "2026-09-14T10:12:00Z",
         "executor": "Codex inline to-wireframes"
       },
       "open_questions": [],
@@ -3579,13 +3579,13 @@
     "design-brief": {
       "path": "docs/design-brief.md",
       "owner_skill": "to-design-brief",
-      "owner_invocation_id": "design-brief-approval-20260913T213457760702",
+      "owner_invocation_id": "design-brief-browser-speech-reconciliation-20260914T100800",
       "declared_output_set": [
         "docs/design-brief.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "design-brief-approval-20260913T213457760702",
+      "source_version": "design-brief-browser-speech-reconciliation-20260914T100800",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3641,14 +3641,14 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "cb722b38f3496cca581cded40cc7458b35122945198622de9e91438bcf4f75f4",
-        "docs/project-context.md": "bd01389e184f32c0472c6e6d074ef4fb1fc332bd51ebdcc6451c3a50a04aafb8",
-        "docs/canonical-terms.md": "9c2f3444cc96a71af50bbf63c376c7e492df61021543fb4474dbb3492100e61a",
-        "docs/guardrails.md": "265989215b6104b58093134ebe15d55ba42dfe1d69126ffb73f53ab54588cab9",
-        "docs/user-journey.md": "cd04034d29303cc240af1f2fd867df5201c411b0e0ca3e6373d0c1118fe033f5",
-        "docs/screen-map.md": "3d6b78860cd0e598c9a192ca7c26d2bd6d336b837c47c7c6d4d43e9d6fd23274",
-        "docs/wireframes.md": "bfac68ee80d7ce6d618cc6fe3e568edbbb21431ff2c04960ffea66e2189abad4",
-        "docs/product-idea.md": "122c7fed5979a0c8c298181c71fe73588c32859b689cb8d6d7dde80e7f41435e",
+        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
+        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
+        "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6",
+        "docs/user-journey.md": "34521287feb1f97481c5bb528dce30d043d03dc1f1aa6e36b703f69c62e50f3d",
+        "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
+        "docs/wireframes.md": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
+        "docs/product-idea.md": "bacb922117e1bc9364045771e0fa14814c4968c28a460f02f9fd52f1ad8e0f46",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "prototype/styles.css": "ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925",
         "prototype/app.js": "b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54",
@@ -3703,12 +3703,12 @@
         "screen-map",
         "wireframes"
       ],
-      "content_hash": "329a55b4bf87b9a0911997ded20c99457e9ad5e30e920c3d035ca93fd571ea57",
+      "content_hash": "b47ccb5ad51070554e006d07370f8b43a8c03b1d255031814eed8b56aa0c235e",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "explicit-approval-reconciliation",
-        "reviewed_at": "2026-09-13T21:34:57.909827+00:00",
+        "kind": "browser-speech-terminology-reconciliation",
+        "reviewed_at": "2026-09-14T10:12:00Z",
         "executor": "Codex inline to-design-brief"
       },
       "open_questions": [],
@@ -3717,13 +3717,13 @@
     "architecture": {
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "architecture-production-tls-reconciliation-20260914T020342",
+      "owner_invocation_id": "architecture-browser-speech-reconciliation-20260914T100900",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "architecture-production-tls-reconciliation-20260914T020342",
+      "source_version": "architecture-browser-speech-reconciliation-20260914T100900",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3734,19 +3734,21 @@
         "docs/wireframes.md": "full",
         "docs/design-brief.md": "full",
         "docs/model-settings.md": "full",
-        "docs/deployment-boundary.md": "full"
+        "docs/deployment-boundary.md": "full",
+        "forge/runs/U-06/browser-speech-uk-20260914/README.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "cb722b38f3496cca581cded40cc7458b35122945198622de9e91438bcf4f75f4",
-        "docs/project-context.md": "bd01389e184f32c0472c6e6d074ef4fb1fc332bd51ebdcc6451c3a50a04aafb8",
-        "docs/canonical-terms.md": "9c2f3444cc96a71af50bbf63c376c7e492df61021543fb4474dbb3492100e61a",
-        "docs/guardrails.md": "265989215b6104b58093134ebe15d55ba42dfe1d69126ffb73f53ab54588cab9",
-        "docs/user-journey.md": "cd04034d29303cc240af1f2fd867df5201c411b0e0ca3e6373d0c1118fe033f5",
-        "docs/screen-map.md": "3d6b78860cd0e598c9a192ca7c26d2bd6d336b837c47c7c6d4d43e9d6fd23274",
-        "docs/wireframes.md": "bfac68ee80d7ce6d618cc6fe3e568edbbb21431ff2c04960ffea66e2189abad4",
-        "docs/design-brief.md": "329a55b4bf87b9a0911997ded20c99457e9ad5e30e920c3d035ca93fd571ea57",
+        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
+        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
+        "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6",
+        "docs/user-journey.md": "34521287feb1f97481c5bb528dce30d043d03dc1f1aa6e36b703f69c62e50f3d",
+        "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
+        "docs/wireframes.md": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
+        "docs/design-brief.md": "b47ccb5ad51070554e006d07370f8b43a8c03b1d255031814eed8b56aa0c235e",
         "docs/model-settings.md": "60bffb62f530b42e1a7bd516661b4619517efd95db1317bcc673c978e89141c4",
-        "docs/deployment-boundary.md": "3fa6f6f453db9640138be064961610bce4426253731062b51d6b29f350d97ff5"
+        "docs/deployment-boundary.md": "3fa6f6f453db9640138be064961610bce4426253731062b51d6b29f350d97ff5",
+        "forge/runs/U-06/browser-speech-uk-20260914/README.md": "dd46de6ad95ce183c526a340ae017ffc7573243407d6b767c632203da3a60c20"
       },
       "dependencies": [
         "prd",
@@ -3758,12 +3760,12 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "32663c216e37c11614ea8e13571a907ba11f6fdaab9a9520999a6d6e0bbe4c5f",
+      "content_hash": "94ff2064bfa4ab5774bd649fab0b2dc605012c1fbf06a572ce069a4cc35bd4d7",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "production-tls-reconciliation",
-        "reviewed_at": "2026-09-14T02:03:42+03:00",
+        "kind": "browser-speech-terminology-reconciliation",
+        "reviewed_at": "2026-09-14T10:12:00Z",
         "executor": "Codex inline to-architecture"
       },
       "open_questions": [],
@@ -3843,13 +3845,13 @@
     "dod-evals": {
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "dod-evals-production-tls-reconciliation-20260914T020342",
+      "owner_invocation_id": "dod-evals-browser-speech-reconciliation-20260914T101000",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "dod-evals-production-tls-reconciliation-20260914T020342",
+      "source_version": "dod-evals-browser-speech-reconciliation-20260914T101000",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3862,15 +3864,15 @@
         "docs/architecture.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "cb722b38f3496cca581cded40cc7458b35122945198622de9e91438bcf4f75f4",
-        "docs/project-context.md": "bd01389e184f32c0472c6e6d074ef4fb1fc332bd51ebdcc6451c3a50a04aafb8",
-        "docs/canonical-terms.md": "9c2f3444cc96a71af50bbf63c376c7e492df61021543fb4474dbb3492100e61a",
-        "docs/guardrails.md": "265989215b6104b58093134ebe15d55ba42dfe1d69126ffb73f53ab54588cab9",
-        "docs/user-journey.md": "cd04034d29303cc240af1f2fd867df5201c411b0e0ca3e6373d0c1118fe033f5",
-        "docs/screen-map.md": "3d6b78860cd0e598c9a192ca7c26d2bd6d336b837c47c7c6d4d43e9d6fd23274",
-        "docs/wireframes.md": "bfac68ee80d7ce6d618cc6fe3e568edbbb21431ff2c04960ffea66e2189abad4",
-        "docs/design-brief.md": "329a55b4bf87b9a0911997ded20c99457e9ad5e30e920c3d035ca93fd571ea57",
-        "docs/architecture.md": "32663c216e37c11614ea8e13571a907ba11f6fdaab9a9520999a6d6e0bbe4c5f"
+        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
+        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
+        "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6",
+        "docs/user-journey.md": "34521287feb1f97481c5bb528dce30d043d03dc1f1aa6e36b703f69c62e50f3d",
+        "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
+        "docs/wireframes.md": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
+        "docs/design-brief.md": "b47ccb5ad51070554e006d07370f8b43a8c03b1d255031814eed8b56aa0c235e",
+        "docs/architecture.md": "94ff2064bfa4ab5774bd649fab0b2dc605012c1fbf06a572ce069a4cc35bd4d7"
       },
       "dependencies": [
         "prd",
@@ -3883,12 +3885,12 @@
         "design-brief",
         "architecture"
       ],
-      "content_hash": "38de078c4c26e35e952adeb068212d92fcced5b7d239c1cbf2f2db6a8079050b",
+      "content_hash": "d6ba33818e146ca1fe7b64457ee956f21e9eb2d518d248761339fe3441594ef7",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "production-tls-reconciliation",
-        "reviewed_at": "2026-09-14T02:03:42+03:00",
+        "kind": "browser-speech-terminology-reconciliation",
+        "reviewed_at": "2026-09-14T10:12:00Z",
         "executor": "Codex inline to-dod-evals"
       },
       "open_questions": [],
@@ -3968,13 +3970,13 @@
     "qa-checklist": {
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "qa-checklist-production-tls-reconciliation-20260914T020342",
+      "owner_invocation_id": "qa-checklist-browser-speech-reconciliation-20260914T101100",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "qa-checklist-production-tls-reconciliation-20260914T020342",
+      "source_version": "qa-checklist-browser-speech-reconciliation-20260914T101100",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3992,16 +3994,16 @@
         "forge/design/evidence/c-v1-visual-qa.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "cb722b38f3496cca581cded40cc7458b35122945198622de9e91438bcf4f75f4",
-        "docs/project-context.md": "bd01389e184f32c0472c6e6d074ef4fb1fc332bd51ebdcc6451c3a50a04aafb8",
-        "docs/canonical-terms.md": "9c2f3444cc96a71af50bbf63c376c7e492df61021543fb4474dbb3492100e61a",
-        "docs/guardrails.md": "265989215b6104b58093134ebe15d55ba42dfe1d69126ffb73f53ab54588cab9",
-        "docs/user-journey.md": "cd04034d29303cc240af1f2fd867df5201c411b0e0ca3e6373d0c1118fe033f5",
-        "docs/screen-map.md": "3d6b78860cd0e598c9a192ca7c26d2bd6d336b837c47c7c6d4d43e9d6fd23274",
-        "docs/wireframes.md": "bfac68ee80d7ce6d618cc6fe3e568edbbb21431ff2c04960ffea66e2189abad4",
-        "docs/design-brief.md": "329a55b4bf87b9a0911997ded20c99457e9ad5e30e920c3d035ca93fd571ea57",
-        "docs/architecture.md": "32663c216e37c11614ea8e13571a907ba11f6fdaab9a9520999a6d6e0bbe4c5f",
-        "docs/dod-evals.md": "38de078c4c26e35e952adeb068212d92fcced5b7d239c1cbf2f2db6a8079050b",
+        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
+        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
+        "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6",
+        "docs/user-journey.md": "34521287feb1f97481c5bb528dce30d043d03dc1f1aa6e36b703f69c62e50f3d",
+        "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
+        "docs/wireframes.md": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
+        "docs/design-brief.md": "b47ccb5ad51070554e006d07370f8b43a8c03b1d255031814eed8b56aa0c235e",
+        "docs/architecture.md": "94ff2064bfa4ab5774bd649fab0b2dc605012c1fbf06a572ce069a4cc35bd4d7",
+        "docs/dod-evals.md": "d6ba33818e146ca1fe7b64457ee956f21e9eb2d518d248761339fe3441594ef7",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
         "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
@@ -4019,12 +4021,12 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "5dbe19653186beb8a808919831f3948bf9b7d65eba6adcb57a79ab3e71494aeb",
+      "content_hash": "432d912fb96a3ca8e2e2ab97a11bc49462874192e619005c8ebd62d093291c22",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "production-tls-reconciliation",
-        "reviewed_at": "2026-09-14T02:03:42+03:00",
+        "kind": "browser-speech-terminology-reconciliation",
+        "reviewed_at": "2026-09-14T10:12:00Z",
         "executor": "Codex inline to-qa-checklist"
       },
       "open_questions": [],
@@ -5775,13 +5777,13 @@
     "development-plan": {
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "development-plan-production-tls-reconciliation-20260914T020342",
+      "owner_invocation_id": "development-plan-browser-speech-reconciliation-20260914T101200",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "development-plan-production-tls-reconciliation-20260914T020342",
+      "source_version": "development-plan-browser-speech-reconciliation-20260914T101200",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -5805,17 +5807,17 @@
         "forge/design/candidates/a/v8/app.js": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "cb722b38f3496cca581cded40cc7458b35122945198622de9e91438bcf4f75f4",
-        "docs/project-context.md": "bd01389e184f32c0472c6e6d074ef4fb1fc332bd51ebdcc6451c3a50a04aafb8",
-        "docs/canonical-terms.md": "9c2f3444cc96a71af50bbf63c376c7e492df61021543fb4474dbb3492100e61a",
-        "docs/guardrails.md": "265989215b6104b58093134ebe15d55ba42dfe1d69126ffb73f53ab54588cab9",
-        "docs/user-journey.md": "cd04034d29303cc240af1f2fd867df5201c411b0e0ca3e6373d0c1118fe033f5",
-        "docs/screen-map.md": "3d6b78860cd0e598c9a192ca7c26d2bd6d336b837c47c7c6d4d43e9d6fd23274",
-        "docs/wireframes.md": "bfac68ee80d7ce6d618cc6fe3e568edbbb21431ff2c04960ffea66e2189abad4",
-        "docs/design-brief.md": "329a55b4bf87b9a0911997ded20c99457e9ad5e30e920c3d035ca93fd571ea57",
-        "docs/architecture.md": "32663c216e37c11614ea8e13571a907ba11f6fdaab9a9520999a6d6e0bbe4c5f",
-        "docs/dod-evals.md": "38de078c4c26e35e952adeb068212d92fcced5b7d239c1cbf2f2db6a8079050b",
-        "docs/qa-checklist.md": "5dbe19653186beb8a808919831f3948bf9b7d65eba6adcb57a79ab3e71494aeb",
+        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
+        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
+        "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6",
+        "docs/user-journey.md": "34521287feb1f97481c5bb528dce30d043d03dc1f1aa6e36b703f69c62e50f3d",
+        "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
+        "docs/wireframes.md": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
+        "docs/design-brief.md": "b47ccb5ad51070554e006d07370f8b43a8c03b1d255031814eed8b56aa0c235e",
+        "docs/architecture.md": "94ff2064bfa4ab5774bd649fab0b2dc605012c1fbf06a572ce069a4cc35bd4d7",
+        "docs/dod-evals.md": "d6ba33818e146ca1fe7b64457ee956f21e9eb2d518d248761339fe3441594ef7",
+        "docs/qa-checklist.md": "432d912fb96a3ca8e2e2ab97a11bc49462874192e619005c8ebd62d093291c22",
         "docs/model-settings.md": "60bffb62f530b42e1a7bd516661b4619517efd95db1317bcc673c978e89141c4",
         "docs/deployment-boundary.md": "3fa6f6f453db9640138be064961610bce4426253731062b51d6b29f350d97ff5",
         "package.json": "8c3af464dc7e73b59d11fed91e36cf2afae622961e62235f52c9085d9da1a537",
@@ -5839,13 +5841,13 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "048c8d136d146a21490f5b2ec5563d481ffaa4e4846c0df6cd82f929e1694896",
+      "content_hash": "dc9039fe3a5b33f55c79b798443d87d75c40fc9d88b053780b6c22d12275db5c",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "production-tls-reconciliation",
-        "reviewed_at": "2026-09-14T02:03:42+03:00",
-        "executor": "Codex inline to-development-plan phase-3 source revalidation"
+        "kind": "browser-speech-terminology-reconciliation",
+        "reviewed_at": "2026-09-14T10:12:00Z",
+        "executor": "Codex inline to-development-plan"
       },
       "supersedes": "development-plan-phase3-revalidated-20260914T010700",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
@@ -7538,7 +7540,7 @@
   ],
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "048c8d136d146a21490f5b2ec5563d481ffaa4e4846c0df6cd82f929e1694896",
+    "development_plan_hash": "dc9039fe3a5b33f55c79b798443d87d75c40fc9d88b053780b6c22d12275db5c",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-13T21:43:31.093504+00:00",
     "prompt_id": "impl-20260914-nanoduck-phase3",
@@ -7549,7 +7551,7 @@
       "path": "forge/runs/implementation-prompt-20260914.json",
       "content_hash": "d57913236a24476525ee3b0311442675e7830f5c4dca132f34c9bc35bc4d1049"
     },
-    "reason": "The user explicitly started production implementation from the current plan. Deployment and GoDaddy data reset remain outside this authorization."
+    "reason": "The user explicitly authorized Phase 3 and confirmed the browser-native Ukrainian speech path during implementation. Deployment, live provider connection and GoDaddy data reset remain outside this authorization."
   },
   "input_requests": [],
   "last_resume_event": {
@@ -7683,7 +7685,7 @@
   ],
   "dispatches": {
     "product-idea": {
-      "invocation_id": "product-idea-approval-20260913T213454418928",
+      "invocation_id": "product-idea-browser-speech-reconciliation-20260914T100100",
       "outputs": [
         "docs/product-idea.md"
       ],
@@ -7696,75 +7698,75 @@
       "consumed_source_fragments": {}
     },
     "prd": {
-      "invocation_id": "prd-approval-20260913T213454734121",
+      "invocation_id": "prd-browser-speech-reconciliation-20260914T100200",
       "outputs": [
         "docs/prd.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "122c7fed5979a0c8c298181c71fe73588c32859b689cb8d6d7dde80e7f41435e"
+        "docs/product-idea.md": "bacb922117e1bc9364045771e0fa14814c4968c28a460f02f9fd52f1ad8e0f46"
       },
       "consumed_source_fragments": {}
     },
     "project-context": {
-      "invocation_id": "project-context-bundle-approval-20260913T213455217349",
+      "invocation_id": "project-context-browser-speech-reconciliation-20260914T100300",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "122c7fed5979a0c8c298181c71fe73588c32859b689cb8d6d7dde80e7f41435e",
-        "docs/prd.md": "cb722b38f3496cca581cded40cc7458b35122945198622de9e91438bcf4f75f4"
+        "docs/product-idea.md": "bacb922117e1bc9364045771e0fa14814c4968c28a460f02f9fd52f1ad8e0f46",
+        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150"
       },
       "consumed_source_fragments": {}
     },
     "canonical-terms": {
-      "invocation_id": "project-context-bundle-approval-20260913T213455217349",
+      "invocation_id": "project-context-browser-speech-reconciliation-20260914T100300",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "122c7fed5979a0c8c298181c71fe73588c32859b689cb8d6d7dde80e7f41435e",
-        "docs/prd.md": "cb722b38f3496cca581cded40cc7458b35122945198622de9e91438bcf4f75f4"
+        "docs/product-idea.md": "bacb922117e1bc9364045771e0fa14814c4968c28a460f02f9fd52f1ad8e0f46",
+        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150"
       },
       "consumed_source_fragments": {}
     },
     "guardrails": {
-      "invocation_id": "guardrails-approval-20260913T213455702541",
+      "invocation_id": "guardrails-browser-speech-reconciliation-20260914T100400",
       "outputs": [
         "docs/guardrails.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "cb722b38f3496cca581cded40cc7458b35122945198622de9e91438bcf4f75f4",
-        "docs/project-context.md": "bd01389e184f32c0472c6e6d074ef4fb1fc332bd51ebdcc6451c3a50a04aafb8",
-        "docs/canonical-terms.md": "9c2f3444cc96a71af50bbf63c376c7e492df61021543fb4474dbb3492100e61a"
+        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
+        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a"
       },
       "consumed_source_fragments": {}
     },
     "user-journey": {
-      "invocation_id": "user-journey-approval-20260913T213456186400",
+      "invocation_id": "user-journey-browser-speech-reconciliation-20260914T100500",
       "outputs": [
         "docs/user-journey.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "cb722b38f3496cca581cded40cc7458b35122945198622de9e91438bcf4f75f4",
-        "docs/project-context.md": "bd01389e184f32c0472c6e6d074ef4fb1fc332bd51ebdcc6451c3a50a04aafb8",
-        "docs/canonical-terms.md": "9c2f3444cc96a71af50bbf63c376c7e492df61021543fb4474dbb3492100e61a",
-        "docs/guardrails.md": "265989215b6104b58093134ebe15d55ba42dfe1d69126ffb73f53ab54588cab9"
+        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
+        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
+        "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6"
       },
       "consumed_source_fragments": {}
     },
     "screen-map": {
-      "invocation_id": "screen-map-approval-20260913T213456679335",
+      "invocation_id": "screen-map-browser-speech-reconciliation-20260914T100600",
       "outputs": [
         "docs/screen-map.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "cb722b38f3496cca581cded40cc7458b35122945198622de9e91438bcf4f75f4",
-        "docs/project-context.md": "bd01389e184f32c0472c6e6d074ef4fb1fc332bd51ebdcc6451c3a50a04aafb8",
-        "docs/canonical-terms.md": "9c2f3444cc96a71af50bbf63c376c7e492df61021543fb4474dbb3492100e61a",
-        "docs/guardrails.md": "265989215b6104b58093134ebe15d55ba42dfe1d69126ffb73f53ab54588cab9",
-        "docs/user-journey.md": "cd04034d29303cc240af1f2fd867df5201c411b0e0ca3e6373d0c1118fe033f5",
+        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
+        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
+        "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6",
+        "docs/user-journey.md": "34521287feb1f97481c5bb528dce30d043d03dc1f1aa6e36b703f69c62e50f3d",
         "forge/design/candidates/a/v1/app.js": "a869dd42c95740bf7da4802934c3cd6f8d2e2243795ee20925cd5ee19f474531",
         "forge/design/candidates/b/v1/app.js": "17e37807a032c5ea1660efca698e21dc8baf29a3c5344067470b6b44311f9b39",
         "forge/design/candidates/c/v1/app.js": "f64ab8a6962cc700c8087803d33ecda68884da78158ea0e5547235c6d4fff530"
@@ -7772,34 +7774,34 @@
       "consumed_source_fragments": {}
     },
     "wireframes": {
-      "invocation_id": "wireframes-approval-20260913T213457220823",
+      "invocation_id": "wireframes-browser-speech-reconciliation-20260914T100700",
       "outputs": [
         "docs/wireframes.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "cb722b38f3496cca581cded40cc7458b35122945198622de9e91438bcf4f75f4",
-        "docs/project-context.md": "bd01389e184f32c0472c6e6d074ef4fb1fc332bd51ebdcc6451c3a50a04aafb8",
-        "docs/canonical-terms.md": "9c2f3444cc96a71af50bbf63c376c7e492df61021543fb4474dbb3492100e61a",
-        "docs/guardrails.md": "265989215b6104b58093134ebe15d55ba42dfe1d69126ffb73f53ab54588cab9",
-        "docs/user-journey.md": "cd04034d29303cc240af1f2fd867df5201c411b0e0ca3e6373d0c1118fe033f5",
-        "docs/screen-map.md": "3d6b78860cd0e598c9a192ca7c26d2bd6d336b837c47c7c6d4d43e9d6fd23274"
+        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
+        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
+        "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6",
+        "docs/user-journey.md": "34521287feb1f97481c5bb528dce30d043d03dc1f1aa6e36b703f69c62e50f3d",
+        "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d"
       },
       "consumed_source_fragments": {}
     },
     "design-brief": {
-      "invocation_id": "design-brief-approval-20260913T213457760702",
+      "invocation_id": "design-brief-browser-speech-reconciliation-20260914T100800",
       "outputs": [
         "docs/design-brief.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "cb722b38f3496cca581cded40cc7458b35122945198622de9e91438bcf4f75f4",
-        "docs/project-context.md": "bd01389e184f32c0472c6e6d074ef4fb1fc332bd51ebdcc6451c3a50a04aafb8",
-        "docs/canonical-terms.md": "9c2f3444cc96a71af50bbf63c376c7e492df61021543fb4474dbb3492100e61a",
-        "docs/guardrails.md": "265989215b6104b58093134ebe15d55ba42dfe1d69126ffb73f53ab54588cab9",
-        "docs/user-journey.md": "cd04034d29303cc240af1f2fd867df5201c411b0e0ca3e6373d0c1118fe033f5",
-        "docs/screen-map.md": "3d6b78860cd0e598c9a192ca7c26d2bd6d336b837c47c7c6d4d43e9d6fd23274",
-        "docs/wireframes.md": "bfac68ee80d7ce6d618cc6fe3e568edbbb21431ff2c04960ffea66e2189abad4",
-        "docs/product-idea.md": "122c7fed5979a0c8c298181c71fe73588c32859b689cb8d6d7dde80e7f41435e",
+        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
+        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
+        "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6",
+        "docs/user-journey.md": "34521287feb1f97481c5bb528dce30d043d03dc1f1aa6e36b703f69c62e50f3d",
+        "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
+        "docs/wireframes.md": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
+        "docs/product-idea.md": "bacb922117e1bc9364045771e0fa14814c4968c28a460f02f9fd52f1ad8e0f46",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "prototype/styles.css": "ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925",
         "prototype/app.js": "b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54",
@@ -7848,58 +7850,59 @@
       "consumed_source_fragments": {}
     },
     "architecture": {
-      "invocation_id": "architecture-production-tls-reconciliation-20260914T020342",
+      "invocation_id": "architecture-browser-speech-reconciliation-20260914T100900",
       "outputs": [
         "docs/architecture.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "cb722b38f3496cca581cded40cc7458b35122945198622de9e91438bcf4f75f4",
-        "docs/project-context.md": "bd01389e184f32c0472c6e6d074ef4fb1fc332bd51ebdcc6451c3a50a04aafb8",
-        "docs/canonical-terms.md": "9c2f3444cc96a71af50bbf63c376c7e492df61021543fb4474dbb3492100e61a",
-        "docs/guardrails.md": "265989215b6104b58093134ebe15d55ba42dfe1d69126ffb73f53ab54588cab9",
-        "docs/user-journey.md": "cd04034d29303cc240af1f2fd867df5201c411b0e0ca3e6373d0c1118fe033f5",
-        "docs/screen-map.md": "3d6b78860cd0e598c9a192ca7c26d2bd6d336b837c47c7c6d4d43e9d6fd23274",
-        "docs/wireframes.md": "bfac68ee80d7ce6d618cc6fe3e568edbbb21431ff2c04960ffea66e2189abad4",
-        "docs/design-brief.md": "329a55b4bf87b9a0911997ded20c99457e9ad5e30e920c3d035ca93fd571ea57",
+        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
+        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
+        "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6",
+        "docs/user-journey.md": "34521287feb1f97481c5bb528dce30d043d03dc1f1aa6e36b703f69c62e50f3d",
+        "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
+        "docs/wireframes.md": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
+        "docs/design-brief.md": "b47ccb5ad51070554e006d07370f8b43a8c03b1d255031814eed8b56aa0c235e",
         "docs/model-settings.md": "60bffb62f530b42e1a7bd516661b4619517efd95db1317bcc673c978e89141c4",
-        "docs/deployment-boundary.md": "3fa6f6f453db9640138be064961610bce4426253731062b51d6b29f350d97ff5"
+        "docs/deployment-boundary.md": "3fa6f6f453db9640138be064961610bce4426253731062b51d6b29f350d97ff5",
+        "forge/runs/U-06/browser-speech-uk-20260914/README.md": "dd46de6ad95ce183c526a340ae017ffc7573243407d6b767c632203da3a60c20"
       },
       "consumed_source_fragments": {}
     },
     "dod-evals": {
-      "invocation_id": "dod-evals-production-tls-reconciliation-20260914T020342",
+      "invocation_id": "dod-evals-browser-speech-reconciliation-20260914T101000",
       "outputs": [
         "docs/dod-evals.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "cb722b38f3496cca581cded40cc7458b35122945198622de9e91438bcf4f75f4",
-        "docs/project-context.md": "bd01389e184f32c0472c6e6d074ef4fb1fc332bd51ebdcc6451c3a50a04aafb8",
-        "docs/canonical-terms.md": "9c2f3444cc96a71af50bbf63c376c7e492df61021543fb4474dbb3492100e61a",
-        "docs/guardrails.md": "265989215b6104b58093134ebe15d55ba42dfe1d69126ffb73f53ab54588cab9",
-        "docs/user-journey.md": "cd04034d29303cc240af1f2fd867df5201c411b0e0ca3e6373d0c1118fe033f5",
-        "docs/screen-map.md": "3d6b78860cd0e598c9a192ca7c26d2bd6d336b837c47c7c6d4d43e9d6fd23274",
-        "docs/wireframes.md": "bfac68ee80d7ce6d618cc6fe3e568edbbb21431ff2c04960ffea66e2189abad4",
-        "docs/design-brief.md": "329a55b4bf87b9a0911997ded20c99457e9ad5e30e920c3d035ca93fd571ea57",
-        "docs/architecture.md": "32663c216e37c11614ea8e13571a907ba11f6fdaab9a9520999a6d6e0bbe4c5f"
+        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
+        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
+        "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6",
+        "docs/user-journey.md": "34521287feb1f97481c5bb528dce30d043d03dc1f1aa6e36b703f69c62e50f3d",
+        "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
+        "docs/wireframes.md": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
+        "docs/design-brief.md": "b47ccb5ad51070554e006d07370f8b43a8c03b1d255031814eed8b56aa0c235e",
+        "docs/architecture.md": "94ff2064bfa4ab5774bd649fab0b2dc605012c1fbf06a572ce069a4cc35bd4d7"
       },
       "consumed_source_fragments": {}
     },
     "qa-checklist": {
-      "invocation_id": "qa-checklist-production-tls-reconciliation-20260914T020342",
+      "invocation_id": "qa-checklist-browser-speech-reconciliation-20260914T101100",
       "outputs": [
         "docs/qa-checklist.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "cb722b38f3496cca581cded40cc7458b35122945198622de9e91438bcf4f75f4",
-        "docs/project-context.md": "bd01389e184f32c0472c6e6d074ef4fb1fc332bd51ebdcc6451c3a50a04aafb8",
-        "docs/canonical-terms.md": "9c2f3444cc96a71af50bbf63c376c7e492df61021543fb4474dbb3492100e61a",
-        "docs/guardrails.md": "265989215b6104b58093134ebe15d55ba42dfe1d69126ffb73f53ab54588cab9",
-        "docs/user-journey.md": "cd04034d29303cc240af1f2fd867df5201c411b0e0ca3e6373d0c1118fe033f5",
-        "docs/screen-map.md": "3d6b78860cd0e598c9a192ca7c26d2bd6d336b837c47c7c6d4d43e9d6fd23274",
-        "docs/wireframes.md": "bfac68ee80d7ce6d618cc6fe3e568edbbb21431ff2c04960ffea66e2189abad4",
-        "docs/design-brief.md": "329a55b4bf87b9a0911997ded20c99457e9ad5e30e920c3d035ca93fd571ea57",
-        "docs/architecture.md": "32663c216e37c11614ea8e13571a907ba11f6fdaab9a9520999a6d6e0bbe4c5f",
-        "docs/dod-evals.md": "38de078c4c26e35e952adeb068212d92fcced5b7d239c1cbf2f2db6a8079050b",
+        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
+        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
+        "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6",
+        "docs/user-journey.md": "34521287feb1f97481c5bb528dce30d043d03dc1f1aa6e36b703f69c62e50f3d",
+        "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
+        "docs/wireframes.md": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
+        "docs/design-brief.md": "b47ccb5ad51070554e006d07370f8b43a8c03b1d255031814eed8b56aa0c235e",
+        "docs/architecture.md": "94ff2064bfa4ab5774bd649fab0b2dc605012c1fbf06a572ce069a4cc35bd4d7",
+        "docs/dod-evals.md": "d6ba33818e146ca1fe7b64457ee956f21e9eb2d518d248761339fe3441594ef7",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
         "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
@@ -7908,22 +7911,22 @@
       "consumed_source_fragments": {}
     },
     "development-plan": {
-      "invocation_id": "development-plan-production-tls-reconciliation-20260914T020342",
+      "invocation_id": "development-plan-browser-speech-reconciliation-20260914T101200",
       "outputs": [
         "docs/development-plan.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "cb722b38f3496cca581cded40cc7458b35122945198622de9e91438bcf4f75f4",
-        "docs/project-context.md": "bd01389e184f32c0472c6e6d074ef4fb1fc332bd51ebdcc6451c3a50a04aafb8",
-        "docs/canonical-terms.md": "9c2f3444cc96a71af50bbf63c376c7e492df61021543fb4474dbb3492100e61a",
-        "docs/guardrails.md": "265989215b6104b58093134ebe15d55ba42dfe1d69126ffb73f53ab54588cab9",
-        "docs/user-journey.md": "cd04034d29303cc240af1f2fd867df5201c411b0e0ca3e6373d0c1118fe033f5",
-        "docs/screen-map.md": "3d6b78860cd0e598c9a192ca7c26d2bd6d336b837c47c7c6d4d43e9d6fd23274",
-        "docs/wireframes.md": "bfac68ee80d7ce6d618cc6fe3e568edbbb21431ff2c04960ffea66e2189abad4",
-        "docs/design-brief.md": "329a55b4bf87b9a0911997ded20c99457e9ad5e30e920c3d035ca93fd571ea57",
-        "docs/architecture.md": "32663c216e37c11614ea8e13571a907ba11f6fdaab9a9520999a6d6e0bbe4c5f",
-        "docs/dod-evals.md": "38de078c4c26e35e952adeb068212d92fcced5b7d239c1cbf2f2db6a8079050b",
-        "docs/qa-checklist.md": "5dbe19653186beb8a808919831f3948bf9b7d65eba6adcb57a79ab3e71494aeb",
+        "docs/prd.md": "e7223b717bc0e7636410ddbb43dc838140410abb2e5ea553c344fb2deceb5150",
+        "docs/project-context.md": "d14a01bf7fa45c9596197ff712c4ab4436784749240a14d4b2bff42d6ddf2ceb",
+        "docs/canonical-terms.md": "d09b1c6ddd7cee345d581c087cd503fcea57e155c66e238719ded7a8430eb60a",
+        "docs/guardrails.md": "5f7ab727a686a5c2f517a1deee9175cd3a57c4b8b5ba5ba7e75e1777d22700e6",
+        "docs/user-journey.md": "34521287feb1f97481c5bb528dce30d043d03dc1f1aa6e36b703f69c62e50f3d",
+        "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
+        "docs/wireframes.md": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
+        "docs/design-brief.md": "b47ccb5ad51070554e006d07370f8b43a8c03b1d255031814eed8b56aa0c235e",
+        "docs/architecture.md": "94ff2064bfa4ab5774bd649fab0b2dc605012c1fbf06a572ce069a4cc35bd4d7",
+        "docs/dod-evals.md": "d6ba33818e146ca1fe7b64457ee956f21e9eb2d518d248761339fe3441594ef7",
+        "docs/qa-checklist.md": "432d912fb96a3ca8e2e2ab97a11bc49462874192e619005c8ebd62d093291c22",
         "docs/model-settings.md": "60bffb62f530b42e1a7bd516661b4619517efd95db1317bcc673c978e89141c4",
         "docs/deployment-boundary.md": "3fa6f6f453db9640138be064961610bce4426253731062b51d6b29f350d97ff5",
         "package.json": "8c3af464dc7e73b59d11fed91e36cf2afae622961e62235f52c9085d9da1a537",
@@ -60056,8 +60059,8 @@
     "definition_status": "prepared",
     "release_readiness": "not_evaluated",
     "source_hashes": {
-      "docs/dod-evals.md": "38de078c4c26e35e952adeb068212d92fcced5b7d239c1cbf2f2db6a8079050b",
-      "docs/qa-checklist.md": "5dbe19653186beb8a808919831f3948bf9b7d65eba6adcb57a79ab3e71494aeb"
+      "docs/dod-evals.md": "d6ba33818e146ca1fe7b64457ee956f21e9eb2d518d248761339fe3441594ef7",
+      "docs/qa-checklist.md": "432d912fb96a3ca8e2e2ab97a11bc49462874192e619005c8ebd62d093291c22"
     },
     "gates": [
       {
@@ -93401,8 +93404,8 @@
     }
   ],
   "last_resume": {
-    "reason": "Explicit whole-design approval and SDD continuation",
-    "result": "awaiting-implementation-prompt"
+    "reason": "Explicit Phase 3 authorization; browser-native Ukrainian voice reconciliation",
+    "result": "implementation-in-progress"
   },
   "design_execution_history": [
     {

@@ -1,6 +1,6 @@
 # Product requirements
 
-13 September 2026 · Revision 3 · Authority: current [product-idea.md](product-idea.md) · Working language: English
+14 September 2026 · Revision 4 · Authority: current [product-idea.md](product-idea.md) · Working language: English
 
 ## Product identity
 
@@ -14,7 +14,7 @@ The single owner needs useful advice, real expert challenge and an inspectable r
 
 Sign in with the existing Google owner identity; describe or dictate a question; follow separate consultants and Critic; inspect fresh sources; stop, continue, export or revisit the record. Normal use requires no messenger or integration setup. The public repository contains source and fictional design data; deployed account content stays private.
 
-This delivery is **review, specification, approved interactive design and development planning only**, with Codex as executor. No production backend, deployment or deletion is authorized by design approval. The owner accepted Electric A v8 after the three-direction and three-palette comparisons; a later explicit implementation prompt is required. The use cases below define the intended product; a prototype demonstrates only clearly labelled simulated behavior and cannot prove actual agents, authentication, transcription, persistence or provider access.
+Phase 3 implementation is authorized in this repository, with Codex as executor. Deployment, GoDaddy changes and database deletion remain outside that authorization. The owner accepted Electric A v8 after the three-direction and three-palette comparisons. The use cases below define the intended product; local implementation and tests do not prove production provider operation, deployment or data migration.
 
 Actors are the existing owner, separately invoked AI roles, Google, selected subscription providers and public research services. There are no public registrants, tenants or billing customers. Each use case records its trust and permission boundaries; shared controls are defined once under Security Requirements.
 
@@ -71,13 +71,13 @@ Authority/privacy: Provider credentials cannot be displayed or edited through ge
 Obligations and acceptance: FR-05.1–FR-05.5, NFR-10.2, NFR-11.1; AC-006
 
 ### UC-006 — Dictate and review
-Jobs: JOB-006. Actors: Owner; browser microphone; verified transcription provider.
+Jobs: JOB-006. Actors: Owner; browser-native speech-recognition service.
 Trigger: Owner explicitly chooses voice input. Goal: Convert a thought into an editable, deliberately sent message.
-Preconditions: Signed in; a draft may already exist; recording has not started.
-Success path: 1. Owner starts capture and grants microphone permission if required. 2. System clearly indicates recording. 3. Owner stops capture. 4. System produces an editable transcript. 5. Owner reviews/edits and explicitly sends or cancels.
-Alternates/recovery: Permission denial, missing microphone, interruption and failed transcription preserve the typed draft and offer retry or typing. Cancel releases capture and discards the recording. Background transition ends capture; no silent background recording occurs.
+Preconditions: Signed in; a draft may already exist; browser recognition has not started.
+Success path: 1. Owner explicitly starts browser recognition and grants browser permission if required. 2. System clearly indicates active recognition and discloses that the browser recognition service may process speech. 3. Owner stops recognition. 4. The browser returns an editable transcript. 5. Owner reviews/edits and explicitly sends or cancels.
+Alternates/recovery: Permission denial, unavailable browser support or service, unsupported language, network failure and interruption preserve the typed draft and offer retry or typing. Cancel aborts recognition. A background transition ends recognition; no silent background recognition occurs.
 Postconditions: Only the reviewed text explicitly sent by the owner becomes accepted conversation input.
-Authority/privacy: Microphone and transcription are separate trust boundaries; ordinary consent covers only disclosed selected processing. Temporary audio is minimized and is not silently added to indefinite history.
+Authority/privacy: Browser recognition is an external trust boundary and is disclosed at the point of use. NanoDuck receives only text the owner chooses to insert and later send; it does not receive, store or transcribe audio.
 Obligations and acceptance: FR-07.1–FR-07.5, NFR-12.2, NFR-14.2; AC-007
 
 ### UC-007 — Research and evaluate a claim
@@ -153,11 +153,11 @@ Obligations and acceptance: FR-04.1–FR-04.3, NFR-12.1, NFR-12.3; AC-008
 
 | ID | Observable obligation | Use cases |
 |---|---|---|
-| FR-07.1 | Microphone access begins only after explicit Start and required browser permission; recording is visibly indicated. | UC-006 |
-| FR-07.2 | Stop ends recording and moves to transcription; Cancel ends capture and discards temporary audio. | UC-006 |
+| FR-07.1 | Browser speech recognition begins only after explicit Start and required browser permission; active recognition is visibly indicated and identifies the browser recognition-service boundary. | UC-006 |
+| FR-07.2 | Stop ends recognition and exposes editable text; Cancel aborts recognition. NanoDuck does not receive temporary audio. | UC-006 |
 | FR-07.3 | The owner receives an editable transcript before any send, with no automatic submission. | UC-006 |
-| FR-07.4 | Permission, hardware, interruption and transcription failures preserve the typed draft and offer retry or typing. | UC-006 |
-| FR-07.5 | Background capture is prevented and capture resources are released when recording ends. | UC-006 |
+| FR-07.4 | Permission, unavailable browser/service, language, network and interruption failures preserve the typed draft and offer retry or typing. | UC-006 |
+| FR-07.5 | Background recognition is prevented and the browser recognition session is stopped or aborted when it ends. | UC-006 |
 
 ### Required design behavior
 
@@ -186,7 +186,7 @@ Obligations and acceptance: FR-04.1–FR-04.3, NFR-12.1, NFR-12.3; AC-008
 
 ## Security Requirements
 
-Planning target: **OWASP ASVS 5.0.0 Level 2**. The intended browser/API service has a private account, business/personal conversations, attachments and provider grants. This is requirements assessment, not compliance, certification or a security test. Covered surfaces are browser UI, API, owner Google sign-in, sessions, private storage, file/audio input, provider/research boundaries and operation. All 17 chapters were considered and all 253 L1/L2 controls read; 176 map to obligations and 77 have explicit scope/provider-mechanism exclusions. No L3-wide impact/adversary is established. AI authority, voice privacy and retention/restore include supplemental product-specific rules. Security clauses below are independently traceable; they apply across the listed use cases without adding an integration setup journey.
+Planning target: **OWASP ASVS 5.0.0 Level 2**. The intended browser/API service has a private account, business/personal conversations, attachments and provider grants. This is requirements assessment, not compliance, certification or a security test. Covered surfaces are browser UI, API, owner Google sign-in, sessions, private storage, file and browser-recognition input, provider/research boundaries and operation. All 17 chapters were considered and all 253 L1/L2 controls read; 176 map to obligations and 77 have explicit scope/provider-mechanism exclusions. No L3-wide impact/adversary is established. AI authority, voice privacy and retention/restore include supplemental product-specific rules. Security clauses below are independently traceable; they apply across the listed use cases without adding an integration setup journey.
 
 ### NFR-10.1 — Owner identity
 Applies to UC-001. Authenticate the configured Google identity using validated issuer, subject, audience, signature, purpose, lifetime and transaction binding; reject unsigned, replayed, wrong-issuer/audience and non-owner assertions without revealing history. Document all authentication routes and abuse controls; default accounts and unrecorded bypasses are forbidden. Google supplies account-factor/recovery operations; the app adds no MFA step. Architecture must verify provider assurance and specify the documented minimum-assurance fallback and mitigations before implementation acceptance; unverified Google assurance is never labelled L2 compliant.
@@ -205,7 +205,7 @@ Applies to UC-002, UC-004, UC-005, UC-006, UC-007. Document and enforce server-s
 ASVS: v5.0.0-1.1.1, v5.0.0-1.1.2, v5.0.0-1.2.1, v5.0.0-1.2.2, v5.0.0-1.2.3, v5.0.0-1.2.4, v5.0.0-1.2.5, v5.0.0-1.2.9, v5.0.0-1.3.1, v5.0.0-1.3.2, v5.0.0-1.3.3, v5.0.0-1.3.5, v5.0.0-1.3.7, v5.0.0-1.3.10, v5.0.0-1.4.1, v5.0.0-1.4.2, v5.0.0-1.4.3, v5.0.0-1.5.2, v5.0.0-2.1.1, v5.0.0-2.1.2, v5.0.0-2.2.1, v5.0.0-2.2.2, v5.0.0-2.2.3, v5.0.0-3.2.1, v5.0.0-3.2.2, v5.0.0-15.3.5, v5.0.0-15.3.6, v5.0.0-15.3.7.
 
 ### NFR-11.2 — State and resource abuse
-Applies to UC-002, UC-003, UC-005, UC-006, UC-007. Enforce valid action order and documented per-owner/application limits at the trusted boundary. Accepted-state transitions are atomic and concurrency protected; duplicate submissions, stale workers and excessive voice/research/provider requests cannot consume unbounded subscriptions, overwrite accepted history or bypass Stop. Architecture owns bounded request/upload/audio limits before affected checks are prepared; use the confirmed run ceilings rather than invented latency promises.
+Applies to UC-002, UC-003, UC-005, UC-006, UC-007. Enforce valid action order and documented per-owner/application limits at the trusted boundary. Accepted-state transitions are atomic and concurrency protected; duplicate submissions, stale workers and excessive research/provider requests cannot consume unbounded subscriptions, overwrite accepted history or bypass Stop. A browser voice start cannot mutate accepted application state. Architecture owns bounded request/upload/research limits before affected checks are prepared; use the confirmed run ceilings rather than invented latency promises.
 ASVS: v5.0.0-2.1.3, v5.0.0-2.3.1, v5.0.0-2.3.2, v5.0.0-2.3.3, v5.0.0-2.3.4, v5.0.0-2.4.1, v5.0.0-15.1.3, v5.0.0-15.2.2.
 
 ### NFR-11.3 — Browser and HTTP boundaries
@@ -216,8 +216,8 @@ ASVS: v5.0.0-3.3.1, v5.0.0-3.3.2, v5.0.0-3.3.3, v5.0.0-3.3.4, v5.0.0-3.4.1, v5.0
 Applies to UC-007. Document permitted outbound communication and prevent server-side fetches from reaching private/link-local/metadata networks or unapproved protocols, destinations and redirects. Public source content cannot expand tool access or authorize disclosure/actions. A malicious URL or page instruction must produce a denied/qualified result with the private record unchanged.
 ASVS: v5.0.0-1.3.6, v5.0.0-13.1.1, v5.0.0-13.2.4, v5.0.0-13.2.5, v5.0.0-15.3.2.
 
-### NFR-12.2 — Safe attachments and temporary audio
-Applies to UC-002, UC-004, UC-006. Document allowed image/PDF/audio formats, extensions and processable limits; validate actual content, constrain expanded embedded content and reject unsupported archives. Keep stored files non-executable with trusted internal names and safe download disposition. Known malicious content is withheld from owner download/processing until required malware checks pass; architecture chooses the scoped scanning mechanism, not a new paid service. Unsafe/mismatched/oversized files must fail without losing the typed draft or disclosing server paths.
+### NFR-12.2 — Safe attachments and browser voice
+Applies to UC-002, UC-004, UC-006. Document allowed image/PDF formats, extensions and processable limits; validate actual content, constrain expanded embedded content and reject unsupported archives. Keep stored files non-executable with trusted internal names and safe download disposition. Known malicious content is withheld from owner download/processing until required malware checks pass; architecture chooses the scoped scanning mechanism, not a new paid service. Browser voice is never sent as an application upload. Unsafe/mismatched/oversized files must fail without losing the typed draft or disclosing server paths.
 ASVS: v5.0.0-5.1.1, v5.0.0-5.2.1, v5.0.0-5.2.2, v5.0.0-5.2.3, v5.0.0-5.3.1, v5.0.0-5.3.2, v5.0.0-5.4.1, v5.0.0-5.4.2, v5.0.0-5.4.3.
 
 ### NFR-12.3 — Bounded AI authority
@@ -233,11 +233,11 @@ Applies to UC-001, UC-002, UC-004, UC-005, UC-006, UC-007. Use current approved 
 ASVS: v5.0.0-12.1.1, v5.0.0-12.1.2, v5.0.0-12.2.1, v5.0.0-12.2.2, v5.0.0-12.3.1, v5.0.0-12.3.2, v5.0.0-12.3.3, v5.0.0-12.3.4, v5.0.0-13.2.1, v5.0.0-13.2.2, v5.0.0-13.2.3.
 
 ### NFR-14.1 — Private data classification and transfer
-Applies to UC-002, UC-004, UC-006, UC-007. Classify conversation text, attachments, transcripts, temporary audio, identity/session data, grants, settings and operational records; define their access, integrity, encryption, logging and retention treatment. Sensitive values must not appear in URLs, third-party trackers or unintended caches. A minimized public query cannot silently include private business content. Verify allowed selected-provider processing and denied unauthorized search transfer separately.
+Applies to UC-002, UC-004, UC-006, UC-007. Classify conversation text, attachments, browser-recognized transcripts, identity/session data, grants, settings and operational records; define their access, integrity, encryption, logging and retention treatment. Sensitive values must not appear in URLs, third-party trackers or unintended caches. A minimized public query cannot silently include private business content. Verify allowed selected-provider processing and denied unauthorized search transfer separately.
 ASVS: v5.0.0-14.1.1, v5.0.0-14.1.2, v5.0.0-14.2.1, v5.0.0-14.2.2, v5.0.0-14.2.3, v5.0.0-14.2.4.
 
 ### NFR-14.2 — Client and voice privacy
-Applies to UC-001, UC-004, UC-006. Use no-store for sensitive responses; keep private drafts/transcripts out of persistent browser storage and clear authenticated client content on sign-out/termination, including when offline. Temporary voice data is erased after transcription/cancel/failure under the documented retry policy; cancel must not upload a new recording. Verify that returning through browser history after sign-out does not disclose private conversation content.
+Applies to UC-001, UC-004, UC-006. Use no-store for sensitive responses; keep private drafts/transcripts out of persistent browser storage and clear authenticated client content on sign-out/termination, including when offline. Cancel, failure, completion or a background transition ends browser recognition; NanoDuck never receives audio. Verify that returning through browser history after sign-out does not disclose private conversation content.
 ASVS: v5.0.0-14.3.1, v5.0.0-14.3.2, v5.0.0-14.3.3.
 
 ### NFR-14.3 — Retention, deletion and restore
@@ -280,7 +280,7 @@ ASVS: v5.0.0-16.5.1, v5.0.0-16.5.2, v5.0.0-16.5.3.
 
 Every listed applicable control is an obligation above. Exclusions below are mechanism/scope decisions, not waived security outcomes. A new mechanism returns to PRD review.
 - v5.0.0-1.2.6, v5.0.0-1.2.7, v5.0.0-1.2.8, v5.0.0-1.3.8, v5.0.0-1.3.9, v5.0.0-1.3.11, v5.0.0-1.5.1: No LDAP, XPath, LaTeX, JNDI, memcache, mail-system or XML processing is required; architecture must return any introduced interpreter/parser to this review.
-- v5.0.0-1.3.4: User-supplied SVG is outside the accepted raster-image/PDF/audio formats; any future SVG intake requires review.
+- v5.0.0-1.3.4: User-supplied SVG is outside the accepted raster-image/PDF formats; any future SVG intake requires review.
 - v5.0.0-3.5.5: No postMessage integration is required; reassess before adding one.
 - v5.0.0-4.3.1, v5.0.0-4.3.2, v5.0.0-4.4.1, v5.0.0-4.4.2, v5.0.0-4.4.3, v5.0.0-4.4.4: No GraphQL or WebSocket product capability is required; architecture must reassess if selecting either transport.
 - v5.0.0-6.2.1, v5.0.0-6.2.2, v5.0.0-6.2.3, v5.0.0-6.2.4, v5.0.0-6.2.5, v5.0.0-6.2.6, v5.0.0-6.2.7, v5.0.0-6.2.8, v5.0.0-6.2.9, v5.0.0-6.2.10, v5.0.0-6.2.11, v5.0.0-6.2.12, v5.0.0-6.4.1, v5.0.0-6.4.2, v5.0.0-6.4.3, v5.0.0-6.4.4, v5.0.0-6.5.1, v5.0.0-6.5.2, v5.0.0-6.5.3, v5.0.0-6.5.4, v5.0.0-6.5.5, v5.0.0-6.6.1, v5.0.0-6.6.2, v5.0.0-6.6.3, v5.0.0-6.1.2: Google owns password, factor enrollment/recovery and out-of-band authentication. The app has no local password/factor API; provider assurance remains NFR-10.1, not a compliance claim.
@@ -291,7 +291,7 @@ Every listed applicable control is an obligation above. Exclusions below are mec
 - v5.0.0-10.5.5: OIDC back-channel logout is not confirmed; architecture must reassess this exact control if used. App-session revocation is still mandatory.
 - v5.0.0-11.4.2, v5.0.0-11.4.4: No app passwords or password-derived encryption keys are allowed; Google and managed grants provide access.
 - v5.0.0-12.1.3: mTLS client authentication is not a confirmed mechanism; architecture reassesses if selected.
-- v5.0.0-17.1.1, v5.0.0-17.2.1, v5.0.0-17.2.2, v5.0.0-17.2.3, v5.0.0-17.2.4, v5.0.0-17.3.1, v5.0.0-17.3.2: Voice means local capture then transcription, not peer calling, TURN, RTP media or WebRTC signaling. Reassess all V17 controls if that boundary changes.
+- v5.0.0-17.1.1, v5.0.0-17.2.1, v5.0.0-17.2.2, v5.0.0-17.2.3, v5.0.0-17.2.4, v5.0.0-17.3.1, v5.0.0-17.3.2: Voice means browser-native recognition after an explicit Start, not audio capture/upload, peer calling, TURN, RTP media or WebRTC signaling. Reassess all V17 controls if that boundary changes.
 
 ## Product-level Implementation Decisions
 
@@ -322,7 +322,7 @@ Use the highest practical external seam: authenticated browser through the inten
 | AC-004 — Interruption (UC-003) | Accepted message survives refresh/offline/server restart; duplicate retry yields one confirmed response. Stop rejects a late result; Continue resumes context; New cannot create a concurrent second run. Measure stated timing/continuation targets. |
 | AC-005 — Private record (UC-004) | Open/export returns the whole selected record; cancel deletion is inert; confirmed deletion affects only its record/attachments. Guessed identifiers and revoked sessions reveal nothing. Isolated restore respects deletion decisions. |
 | AC-006 — Preferences and limits (UC-005) | Head and Critic model/reasoning selectors genuinely change valid future preferences while an active run retains its tuple. Invalid combinations cannot silently substitute. Quota, outage, expired app session and selected-provider reauthorization have distinct truthful recovery; unused Claude causes no warning. |
-| AC-007 — Voice (UC-006) | Start, permission, recording, Stop, editable transcript and explicit Send work; Cancel ends capture. Permission/hardware/interruption/transcription failures preserve the typed draft. A background transition never leaves hidden capture active. |
+| AC-007 — Voice (UC-006) | In Safari and Chrome, a Ukrainian browser-recognition session begins only after Start, exposes an active state and disclosure, returns editable text after Stop, and requires explicit Send. Cancel aborts recognition. Permission/service/language/network/interruption failures preserve the typed draft. A background transition never leaves hidden recognition active or sends audio to NanoDuck. |
 | AC-008 — Evidence (UC-007) | A time-sensitive question researches without a keyword; direct source metadata supports the stated claim. Failed/conflicting sources stay qualified; prompt injection and unauthorized private search transfer are denied. |
 | AC-009 — Integrated design (all UCs) | Each of three candidates exposes all core and recovery flows, floating desktop navigation, mobile hamburger and literal Settings, using fictional data. Keyboard/touch/reflow and text resizing remain usable; no real-provider claim is inferred from a simulated control. |
 | AC-010 — Security/lifecycle (all UCs) | Allowed operations and adversarial denied outcomes cover every NFR security clause. Exact deployed artifact, dependency/configuration, authorization, file, session, encryption, restore and operational evidence are required later; design review supplies none of these runtime results. |
@@ -331,7 +331,7 @@ Use the highest practical external seam: authenticated browser through the inten
 
 ## Open Questions and Resolution Owners
 
-No unresolved product-intent choice blocks post-approval development planning. Architecture must resolve current saved model values/catalog/entitlements, supported browser audio/transcription combinations, provider reauthorization, Google assurance, session/resource parameters, safe file processing, isolated service credentials, restore objectives and GoDaddy lifecycle/storage/streaming evidence before affected implementation checks can be executed. The operational owner and incident/update/deletion procedures must be named before release; no invented recovery objective or security deadline is adopted here. A conflict requiring new user behavior returns to the product-idea owner instead of being silently waived.
+No unresolved product-intent choice blocks the authorized browser implementation. Architecture must resolve current saved model values/catalog/entitlements, mobile Safari/Chrome recognition evidence, provider reauthorization, Google assurance, session/resource parameters, safe file processing, isolated service credentials, restore objectives and GoDaddy lifecycle/storage/streaming evidence before affected release checks can be executed. The operational owner and incident/update/deletion procedures must be named before release; no invented recovery objective or security deadline is adopted here. A conflict requiring new user behavior returns to the product-idea owner instead of being silently waived.
 
 ## Source Notes
 

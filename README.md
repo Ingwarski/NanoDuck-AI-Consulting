@@ -39,7 +39,7 @@ The owner selected Electric and requested colours from [HappyPro Academy](https:
 
 The implemented app uses a floating desktop menu, mobile hamburger, literal Settings, model and reasoning selectors, icon-only microphone and a visible Send button. New sits above the workspace and remains available in Conversations; it is absent from global menus. Discussion, Outcome and Sources show persisted consultation events rather than fixtures.
 
-The app enforces an absolute 24-hour session from sign-in, including inactivity and browser reopening, with immediate sign-out/revocation/security exceptions. A discussion is accepted durably before orchestration begins. The microphone captures browser audio and preserves the typed draft if its server-side transcription adapter is unavailable; browser speech recognition is not used.
+The app enforces an absolute 24-hour session from sign-in, including inactivity and browser reopening, with immediate sign-out/revocation/security exceptions. A discussion is accepted durably before orchestration begins. Voice input uses the native recognition API available in Safari and Chrome; Ukrainian uses the browser's Ukrainian locale (`uk-UA`). Speech can be processed by the browser's recognition service only after Start. NanoDuck receives no audio: it inserts only editable text into the local draft, and Send remains separate.
 
 The original green design in `prototype/` is rejected historical evidence. It is not an approved baseline. The canonical baseline and approval receipt are in the design brief.
 

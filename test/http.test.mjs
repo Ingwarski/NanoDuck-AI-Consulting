@@ -51,10 +51,10 @@ test("the local HTTP flow protects data, saves settings and preserves an unavail
     assert.equal(session.expiresAt > new Date().toISOString(), true);
     const headers = { cookie, "x-csrf-token": session.csrfToken, "content-type": "application/json" };
     assert.equal((await fetch(`${origin}/api/consent`, { method: "POST", headers })).status, 200);
-    assert.equal((await fetch(`${origin}/api/voice/transcribe`, { method: "POST", headers, body: "not audio" })).status, 422);
-    const voice = await fetch(`${origin}/api/voice/transcribe`, { method: "POST", headers: { ...headers, "content-type": "audio/webm" }, body: new Uint8Array([1, 2, 3]) });
-    assert.equal(voice.status, 503);
-    assert.equal((await voice.json()).error, "transcription_unavailable");
+    assert.equal((await fetch(`${origin}/api/voice/transcribe`, { method: "POST", headers, body: "not audio" })).status, 404);
+    const client = await (await fetch(`${origin}/client/app.js`)).text();
+    assert.match(client, /SpeechRecognition/u);
+    assert.doesNotMatch(client, /MediaRecorder|voice\/transcribe/u);
     assert.equal((await fetch(`${origin}/api/conversations`, { method: "POST", headers })).status, 201);
 
     const created = await (await fetch(`${origin}/api/conversations`, { method: "POST", headers })).json();

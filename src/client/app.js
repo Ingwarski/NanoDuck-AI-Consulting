@@ -1,4 +1,4 @@
-const state = { session: null, csrf: null, page: "discussion", tab: "discussion", conversation: null, events: [], run: null, poll: null, recorder: null, stream: null, chunks: [], voiceMode: "ready" };
+const state = { session: null, csrf: null, page: "discussion", tab: "discussion", conversation: null, events: [], run: null, poll: null, recognition: null, voiceTimer: null, voiceMode: "ready", voiceTranscript: "" };
 const $ = selector => document.querySelector(selector);
 const roleInitials = { owner: "YOU", "Head Consultant": "HC", "Strategy Consultant": "SC", Critic: "CR", System: "•" };
 
@@ -90,15 +90,87 @@ function stopPolling() { if (state.poll) clearInterval(state.poll); state.poll =
 
 function setTab(tab) { state.tab = tab; document.querySelectorAll("[data-tab]").forEach(button => button.setAttribute("aria-selected", String(button.dataset.tab === tab))); $("#thread").hidden = tab !== "discussion"; $("#composer").hidden = tab !== "discussion"; $("#outcome").hidden = tab !== "outcome"; $("#sources").hidden = tab !== "sources"; }
 
-function releaseVoice() { if (state.recorder?.state === "recording") state.recorder.stop(); state.stream?.getTracks().forEach(track => track.stop()); state.stream = null; state.recorder = null; state.chunks = []; }
-function openVoice() { state.voiceMode = "ready"; $("#voice-heading").textContent = "Say what is on your mind."; $("#voice-copy").textContent = "Start recording, then review the transcript before you send it."; $("#voice-action").textContent = "Start recording"; $("#voice-transcript").hidden = true; $("#voice-timer").textContent = ""; $("#voice-dialog").showModal(); }
-async function voiceAction() {
-  if (state.voiceMode === "transcript") { const transcript = $("#voice-transcript").value.trim(); if (transcript) $("#message").value = [$("#message").value.trimEnd(), transcript].filter(Boolean).join("\n\n"); $("#voice-dialog").close(); return; }
-  try {
-    state.stream = await navigator.mediaDevices.getUserMedia({ audio: true }); state.recorder = new MediaRecorder(state.stream); state.chunks = []; state.voiceMode = "recording"; state.recorder.ondataavailable = event => state.chunks.push(event.data); state.recorder.onstop = () => void transcribe(); state.recorder.start(); $("#voice-heading").textContent = "Recording"; $("#voice-copy").textContent = "Stop when you are ready. Sending remains a separate action."; $("#voice-action").textContent = "Stop recording"; const started = Date.now(); state.voiceTimer = setInterval(() => { $("#voice-timer").textContent = `${Math.floor((Date.now() - started) / 60_000).toString().padStart(2, "0")}:${Math.floor(((Date.now() - started) / 1_000) % 60).toString().padStart(2, "0")}`; }, 250);
-  } catch { $("#voice-heading").textContent = "Microphone unavailable"; $("#voice-copy").textContent = "Your typed draft is unchanged. You can retry or type instead."; $("#voice-action").textContent = "Retry"; state.voiceMode = "ready"; }
+const recognitionConstructor = () => window.SpeechRecognition ?? window.webkitSpeechRecognition;
+const browserLanguage = () => {
+  const languages = [...(navigator.languages ?? []), navigator.language].filter(Boolean);
+  return languages.find(language => /^uk(?:-|$)/iu.test(language)) ?? languages.find(language => /^en(?:-|$)/iu.test(language)) ?? "uk-UA";
+};
+const clearVoiceTimer = () => { if (state.voiceTimer) clearInterval(state.voiceTimer); state.voiceTimer = null; };
+function releaseVoice() {
+  clearVoiceTimer();
+  const recognition = state.recognition;
+  state.recognition = null;
+  if (recognition) { recognition.onend = null; recognition.onerror = null; try { recognition.abort(); } catch {} }
 }
-async function transcribe() { clearInterval(state.voiceTimer); const blob = new Blob(state.chunks, { type: state.recorder?.mimeType || "audio/webm" }); state.stream?.getTracks().forEach(track => track.stop()); state.stream = null; state.recorder = null; $("#voice-heading").textContent = "Transcribing"; $("#voice-copy").textContent = "Your typed draft is preserved."; try { const { data } = await request("/api/voice/transcribe", { method: "POST", body: blob, headers: { "content-type": blob.type } }); $("#voice-transcript").value = data.transcript; $("#voice-transcript").hidden = false; $("#voice-action").textContent = "Use transcript"; state.voiceMode = "transcript"; } catch (error) { $("#voice-heading").textContent = "Voice transcription unavailable"; $("#voice-copy").textContent = error.data?.message ?? "Type instead; your draft is unchanged."; $("#voice-action").textContent = "Retry"; state.voiceMode = "ready"; } }
+function setVoiceReady() {
+  state.voiceMode = "ready"; state.voiceTranscript = "";
+  $("#voice-heading").textContent = "Say what is on your mind.";
+  $("#voice-copy").textContent = "Your browser may send speech to its recognition service. NanoDuck receives only text you choose to use.";
+  $("#voice-action").textContent = "Start voice input"; $("#voice-action").hidden = false;
+  $("#voice-transcript").hidden = true; $("#voice-transcript").value = ""; $("#voice-timer").textContent = "";
+}
+function voiceFailure(heading, copy) {
+  clearVoiceTimer(); state.recognition = null; state.voiceMode = "error";
+  $("#voice-heading").textContent = heading; $("#voice-copy").textContent = copy;
+  $("#voice-action").textContent = "Retry"; $("#voice-action").hidden = false; $("#voice-timer").textContent = "";
+}
+function openVoice() {
+  releaseVoice(); setVoiceReady();
+  if (!recognitionConstructor()) {
+    state.voiceMode = "unavailable"; $("#voice-heading").textContent = "Voice input unavailable";
+    $("#voice-copy").textContent = "Safari or Chrome voice recognition is unavailable here. Your typed draft is unchanged.";
+    $("#voice-action").hidden = true;
+  }
+  $("#voice-dialog").showModal();
+}
+function startVoiceRecognition() {
+  const Recognition = recognitionConstructor();
+  if (!Recognition) return voiceFailure("Voice input unavailable", "Safari or Chrome voice recognition is unavailable here. Your typed draft is unchanged.");
+  const recognition = new Recognition();
+  recognition.lang = browserLanguage(); recognition.continuous = true; recognition.interimResults = true; recognition.maxAlternatives = 1;
+  state.recognition = recognition; state.voiceTranscript = ""; state.voiceMode = "listening";
+  $("#voice-heading").textContent = "Listening";
+  $("#voice-copy").textContent = `Listening in ${recognition.lang}. Stop when you are ready; sending remains a separate action.`;
+  $("#voice-action").textContent = "Stop"; $("#voice-transcript").hidden = true;
+  const started = Date.now();
+  state.voiceTimer = setInterval(() => { $("#voice-timer").textContent = `Listening · ${Math.floor((Date.now() - started) / 60_000).toString().padStart(2, "0")}:${Math.floor(((Date.now() - started) / 1_000) % 60).toString().padStart(2, "0")}`; }, 250);
+  recognition.onresult = event => {
+    state.voiceTranscript = Array.from(event.results).map(result => result[0]?.transcript ?? "").join("").trim();
+  };
+  recognition.onerror = event => {
+    if (event.error === "aborted") return;
+    const messages = {
+      "not-allowed": ["Microphone permission needed", "Allow microphone access in your browser, then retry. Your typed draft is unchanged."],
+      "service-not-allowed": ["Voice service unavailable", "Browser speech recognition is unavailable. Your typed draft is unchanged; type instead or retry later."],
+      "language-not-supported": ["Language unavailable", "This browser does not support the selected recognition language. Your typed draft is unchanged."],
+      network: ["Voice service unavailable", "Check your connection, then retry. Your typed draft is unchanged."],
+      "audio-capture": ["Microphone unavailable", "No usable microphone was found. Your typed draft is unchanged."],
+      "no-speech": ["No speech detected", "Try again or type instead. Your typed draft is unchanged."]
+    };
+    const [heading, copy] = messages[event.error] ?? ["Voice input unavailable", "Your typed draft is unchanged. Retry or type instead."];
+    voiceFailure(heading, copy);
+  };
+  recognition.onend = () => {
+    clearVoiceTimer();
+    if (state.recognition !== recognition || state.voiceMode !== "listening") return;
+    state.recognition = null;
+    const transcript = state.voiceTranscript.trim();
+    if (!transcript) return voiceFailure("No speech detected", "Try again or type instead. Your typed draft is unchanged.");
+    state.voiceMode = "transcript"; $("#voice-heading").textContent = "Review your words";
+    $("#voice-copy").textContent = "Edit the text if needed. It remains a draft until you send it.";
+    $("#voice-transcript").value = transcript; $("#voice-transcript").hidden = false; $("#voice-action").textContent = "Use transcript"; $("#voice-timer").textContent = "";
+  };
+  try { recognition.start(); } catch { voiceFailure("Voice input unavailable", "Your browser could not start recognition. Your typed draft is unchanged."); }
+}
+function voiceAction() {
+  if (state.voiceMode === "transcript") {
+    const transcript = $("#voice-transcript").value.trim();
+    if (transcript) $("#message").value = [$("#message").value.trimEnd(), transcript].filter(Boolean).join("\n\n");
+    $("#voice-dialog").close(); return;
+  }
+  if (state.voiceMode === "listening") { try { state.recognition?.stop(); } catch { voiceFailure("Voice input unavailable", "Your typed draft is unchanged. Retry or type instead."); } return; }
+  startVoiceRecognition();
+}
 
 $("#menu").addEventListener("click", () => { const menu = $("#mobile-nav"); menu.hidden = !menu.hidden; $("#menu").setAttribute("aria-expanded", String(!menu.hidden)); });
 document.addEventListener("click", event => { const button = event.target.closest("[data-nav]"); if (button) nav(button.dataset.nav); const tab = event.target.closest("[data-tab]"); if (tab) setTab(tab.dataset.tab); });
@@ -108,6 +180,6 @@ $("#development-sign-in").addEventListener("click", async () => { await request(
 $("#consent-check").addEventListener("change", event => { $("#consent-button").disabled = !event.target.checked; }); $("#consent-button").addEventListener("click", async () => { await request("/api/consent", { method: "POST" }); await loadSession(); });
 $("#settings-form").addEventListener("submit", async event => { event.preventDefault(); const settings = { headModel: $("#head-model").value, headReasoning: $("#head-reasoning").value, criticModel: $("#critic-model").value, criticReasoning: $("#critic-reasoning").value, speed: $("#speed").value }; await request("/api/settings", { method: "PUT", body: settings }); toast("Settings saved for future consultations."); });
 $("#sign-out").addEventListener("click", async () => { await request("/api/logout", { method: "POST" }); state.session = null; state.csrf = null; state.conversation = null; showSignIn(); });
-$("#voice").addEventListener("click", openVoice); $("#voice-action").addEventListener("click", event => { event.preventDefault(); if (state.voiceMode === "recording") { state.recorder?.stop(); return; } void voiceAction(); }); $("#voice-cancel").addEventListener("click", () => releaseVoice()); $("#voice-dialog").addEventListener("close", () => { clearInterval(state.voiceTimer); releaseVoice(); }); window.addEventListener("pagehide", () => { stopPolling(); releaseVoice(); });
+$("#voice").addEventListener("click", openVoice); $("#voice-action").addEventListener("click", event => { event.preventDefault(); voiceAction(); }); $("#voice-cancel").addEventListener("click", () => { releaseVoice(); $("#voice-dialog").close(); }); $("#voice-close").addEventListener("click", () => { releaseVoice(); $("#voice-dialog").close(); }); $("#voice-dialog").addEventListener("close", releaseVoice); window.addEventListener("pagehide", () => { stopPolling(); releaseVoice(); }); document.addEventListener("visibilitychange", () => { if (document.hidden && state.voiceMode === "listening") { releaseVoice(); voiceFailure("Voice interrupted", "Voice input stopped when the app moved to the background. Your typed draft is unchanged."); } });
 
 void loadSession().catch(() => toast("The app could not initialize."));

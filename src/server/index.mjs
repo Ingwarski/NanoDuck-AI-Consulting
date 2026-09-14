@@ -25,11 +25,6 @@ const json = async request => {
   for await (const chunk of request) { size += chunk.length; if (size > 256 * 1024) throw new Error("body_too_large"); chunks.push(chunk); }
   try { return JSON.parse(Buffer.concat(chunks).toString("utf8")); } catch { return undefined; }
 };
-const binary = async (request, maximum) => {
-  let size = 0;
-  for await (const chunk of request) { size += chunk.length; if (size > maximum) throw new Error("body_too_large"); }
-  return size;
-};
 const protectedSession = async (request, response, options = {}) => {
   const session = await auth.require(request, options);
   if (!session) { send(response, 401, { error: "authentication_required" }); return undefined; }
@@ -76,12 +71,6 @@ const handler = async (request, response) => {
     if (request.method === "PUT" && url.pathname === "/api/settings") { if (!await protectedSession(request, response, { csrf: true })) return; const capabilities = await provider.inspect(); const next = parseSettings(await json(request), capabilities.models); return next ? send(response, 200, { settings: await store.saveSettings(next) }) : send(response, 422, { error: "invalid_settings" }); }
     if (request.method === "GET" && url.pathname === "/api/conversations") { if (!await protectedSession(request, response)) return; return send(response, 200, { conversations: await store.listConversations() }); }
     if (request.method === "POST" && url.pathname === "/api/conversations") { if (!await protectedSession(request, response, { csrf: true })) return; return send(response, 201, { conversation: await store.createConversation() }); }
-    if (request.method === "POST" && url.pathname === "/api/voice/transcribe") {
-      if (!await protectedSession(request, response, { csrf: true })) return;
-      if (!/^audio\/(ogg|webm|mp4|mpeg|wav)(?:;|$)/iu.test(request.headers["content-type"] ?? "")) return send(response, 422, { error: "unsupported_audio" });
-      await binary(request, config.maxAttachmentBytes);
-      return send(response, 503, { error: "transcription_unavailable", message: "Voice transcription is not configured on this runtime. Type instead; your draft remains unchanged." });
-    }
     const matched = routeId(url.pathname);
     if (matched) {
       const [, conversationId, action] = matched; if (!parseConversationId(conversationId)) return send(response, 404, { error: "not_found" });
