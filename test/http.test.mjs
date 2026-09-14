@@ -77,7 +77,7 @@ test("the local HTTP flow protects data, saves settings and preserves an unavail
   }
 });
 
-test("the authenticated discussion preserves a separate Consultant, Critic and revision exchange", async () => {
+test("the authenticated discussion preserves a separate specialist, Critic and revision exchange", async () => {
   const port = await reservePort();
   const directory = await mkdtemp(`${tmpdir()}/nanoduck-http-provider-`);
   const authPath = `${directory}/auth.json`;
@@ -120,7 +120,7 @@ test("the authenticated discussion preserves a separate Consultant, Critic and r
     });
     assert.deepEqual(detail.events.map(event => [event.role, event.recipient]), [
       ["owner", null],
-      ["Head Consultant", "Consultant"],
+      ["Head Consultant", "Strategy Consultant"],
       ["Strategy Consultant", "Critic"],
       ["Critic", "Strategy Consultant"],
       ["Strategy Consultant", "Head Consultant"],

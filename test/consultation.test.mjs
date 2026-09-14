@@ -39,6 +39,28 @@ test("ordinary consultations can use restricted live research without a keyword"
   assert.equal(calls.every(call => call.research === true), true);
 });
 
+test("a Ukrainian finance question assigns the Finance Consultant and directs the Critic reply", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Які грошові та маржинальні цілі зроблять цю пропозицію життєздатною?", clientRequestId: "finance-routing-0001" }, defaultSettings);
+  const calls = [];
+  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: "A qualified answer.", sources: [] }; } };
+  const service = createConsultationService({ store, provider });
+  await service.start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  assert.match(calls[0].assignment, /Finance Consultant/u);
+  assert.match(calls[1].assignment, /^You are the Finance Consultant/u);
+  assert.match(calls[2].assignment, /Finance Consultant directly/u);
+  assert.deepEqual((await store.events(conversation.id)).map(event => [event.role, event.recipient]), [
+    ["owner", null],
+    ["Head Consultant", "Finance Consultant"],
+    ["Finance Consultant", "Critic"],
+    ["Critic", "Finance Consultant"],
+    ["Finance Consultant", "Head Consultant"],
+    ["Head Consultant", null]
+  ]);
+});
+
 test("a late stopped run cannot unregister the newer run controller", async () => {
   const store = createMemoryStore();
   const conversation = await store.createConversation();

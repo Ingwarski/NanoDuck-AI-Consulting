@@ -1,6 +1,6 @@
 const state = { session: null, csrf: null, page: "discussion", tab: "discussion", conversation: null, events: [], run: null, poll: null, recognition: null, voiceTimer: null, voiceMode: "ready", voiceTranscript: "" };
 const $ = selector => document.querySelector(selector);
-const roleInitials = { owner: "YOU", "Head Consultant": "HC", "Strategy Consultant": "SC", Critic: "CR", System: "•" };
+const roleInitials = { owner: "YOU", "Head Consultant": "HC", "Strategy Consultant": "SC", "Finance Consultant": "FC", "Operations Consultant": "OC", "Sales Consultant": "SL", "Marketing Consultant": "MC", "Product Consultant": "PC", "Leadership Consultant": "LC", "Risk Consultant": "RC", Critic: "CR", System: "•" };
 
 const request = async (path, options = {}) => {
   const headers = new Headers(options.headers);
