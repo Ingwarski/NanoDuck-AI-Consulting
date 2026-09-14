@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "unit": "U-03",
+  "run_id": "phase3-owner-display-and-microphone-20260914",
+  "executed_at": "2026-09-14T20:50:00Z",
+  "executor": "Codex local implementation runner",
+  "revision_base": "1d5041577cb68dc7b4b815c621f3df3392001078",
+  "baseline_id": "nanoduck-electric-a-v8-20260914",
+  "development_plan_hash": "1f440bc2c16483fde42f99c5e1b7542bf166624a833dcc18b10535ec8760870b",
+  "scope": "Correct the local owner-facing message label/avatar and voice affordance only. No GoDaddy application, database, migration, reset, deletion, deployment or external upload was contacted.",
+  "checks": [
+    {
+      "name": "owner display mapping",
+      "evidence": "src/client/app.js and local browser verification at http://127.0.0.1:4320/",
+      "observed": "The stored owner role remains internal for application behavior and role styling; role and recipient labels map it to You, while owner messages use an I avatar. A synthetic local message visibly rendered as I You followed by its time and body.",
+      "result": "passed",
+      "limit": "This checks the requested presentational mapping only; it does not validate all conversation flows or external identity."
+    },
+    {
+      "name": "voice affordance",
+      "evidence": "public/index.html and local browser visual verification at http://127.0.0.1:4320/",
+      "observed": "The Voice input control retains its accessible name and now contains an inline SVG capsule, stem and base microphone icon. It was visibly recognizable in the composer.",
+      "result": "passed",
+      "limit": "No microphone permission or recognition run was started; voice behavior is unchanged and separately scoped."
+    },
+    {
+      "name": "regression suite",
+      "evidence": "npm run check",
+      "observed": "Static artifact checks passed and 36 Node tests passed.",
+      "result": "passed",
+      "limit": "The suite does not replace the prepared release QA/DoD gate evidence."
+    }
+  ],
+  "formal_release_status": {
+    "canonical_qa": "82 prepared / not_run",
+    "release_readiness": "not_evaluated"
+  },
+  "release_effect": "not_release_evidence",
+  "source_hashes": {
+    "docs/design-brief.md": "c4abf634becc5757bd8f3fda67aa7aa92d83cf4093985f8415294e8ec4d6d8c4",
+    "docs/qa-checklist.md": "fc18b6ea3b1e98e2b5aead2cade37e1908cdedd86b92ffef9944f4280ad5d8b8",
+    "docs/development-plan.md": "1f440bc2c16483fde42f99c5e1b7542bf166624a833dcc18b10535ec8760870b",
+    "src/client/app.js": "ea026e97408fa36c1782dccc9c97987e36638913a88b5ed7f14ec4aef3c66151",
+    "public/index.html": "3d28073e98f098ee3a6d240a1f3a0b3e5579c34ff1351062d8cb1ddc30e890f9",
+    "public/styles.css": "fcba8f954b51b1bee04a3dc49908c89b350439a5b814b266e06c2930f0a86e34"
+  }
+}

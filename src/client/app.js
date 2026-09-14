@@ -1,6 +1,7 @@
 const state = { session: null, csrf: null, page: "discussion", tab: "discussion", conversation: null, events: [], run: null, poll: null, recognition: null, voiceTimer: null, voiceMode: "ready", voiceTranscript: "", attachmentFiles: [], attachmentError: "" };
 const $ = selector => document.querySelector(selector);
-const roleInitials = { owner: "YOU", "Head Consultant": "HC", "Strategy Consultant": "SC", "Finance Consultant": "FC", "Operations Consultant": "OC", "Sales Consultant": "SL", "Marketing Consultant": "MC", "Product Consultant": "PC", "Spiritual Consultant": "SP", Psychotherapist: "PT", "Risk Consultant": "RC", Critic: "CR", System: "•" };
+const roleInitials = { owner: "I", "Head Consultant": "HC", "Strategy Consultant": "SC", "Finance Consultant": "FC", "Operations Consultant": "OC", "Sales Consultant": "SL", "Marketing Consultant": "MC", "Product Consultant": "PC", "Spiritual Consultant": "SP", Psychotherapist: "PT", "Risk Consultant": "RC", Critic: "CR", System: "•" };
+const displayRole = role => role === "owner" ? "You" : role;
 
 const request = async (path, options = {}) => {
   const headers = new Headers(options.headers);
@@ -62,7 +63,7 @@ function renderEvents() {
     const message = node("article", { class: "message", "data-role": event.role });
     message.append(node("div", { class: "avatar", "aria-hidden": true }, roleInitials[event.role] ?? "AI"));
     const content = node("div", { class: "message-content" }); const meta = node("div", { class: "message-meta" });
-    meta.append(node("strong", {}, event.role)); if (event.recipient) meta.append(node("small", {}, `→ ${event.recipient}`)); meta.append(node("time", { dateTime: event.createdAt }, formatTime(event.createdAt)));
+    meta.append(node("strong", {}, displayRole(event.role))); if (event.recipient) meta.append(node("small", {}, `→ ${displayRole(event.recipient)}`)); meta.append(node("time", { dateTime: event.createdAt }, formatTime(event.createdAt)));
     content.append(meta, node("div", { class: "message-body" }, event.body));
     if (event.attachments?.length) {
       const links = node("div", { class: "attachment-links", "aria-label": "Image attachments" });

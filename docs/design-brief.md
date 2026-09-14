@@ -82,7 +82,8 @@ Let the owner follow an intelligent discussion, challenge a claim and make a del
 | Unchosen Prismatic reference | Preserved gold/cyan/lavender and orchid comparison reference. It is not the selected product direction. |
 | Conventional floating navigation | Discussion, Conversations and Settings on desktop; labelled hamburger on mobile. New is outside these menus, in the workspace action row and Conversations. |
 | Settings controls | Independent model/reasoning controls and optional Critic provider; exact initial recorded values. Save affects only the next simulated run. |
-| Composer | Cobalt width and sticky geometry; icon-only microphone with accessible name, image-attachment action and a bright Send button that cannot shrink or become transparent. |
+| Composer | Cobalt width and sticky geometry; an unmistakable inline SVG microphone with accessible name, image-attachment action and a bright Send button that cannot shrink or become transparent. |
+| Scoped implementation correction | Owner requested that their runtime messages show `You` in the header with `I` in the avatar, and that the voice action use a recognizable microphone icon. This is a presentation-only correction to the local implementation; the frozen Electric A v8 candidate remains immutable approval history. |
 | Review controls | State and locale fixtures appear only in an explicit inspection URL, outside the normal preview; no Review states control exists in the app. Palette comparison belongs to the external review shell. |
 | Session access | PRD owns the 24-hour app session. A concise Settings description may explain it; this prototype does not authenticate or prove elapsed-time persistence. |
 | Version history | Original Cobalt/Ember/Prism versions remain frozen history. Combined v3 remains frozen. Electric v4 remains frozen. Branded Electric v5 remains frozen with the superseded drawn logo. Electric v6 remains frozen as a rejected first reconstruction. Electric v7 remains frozen; v8 makes every node radius equal and separates the coloured crown segments; equivalent-scope unchosen references remain available for comparison history. |
@@ -103,7 +104,7 @@ Token proposals are recorded once here. Individual candidate styles consume thes
 | Electric supporting accents | Citation/Outcome surfaces `#142034` / `#151f30`, border `#355483`; agent-avatar text `#151114`. |
 | Unchosen reference action | Solar/Prismatic retain their original `#ffb36b` action with `#151114` text as historical comparison treatments. |
 | Chat/composer | Centered 950px reading column and sticky composer from Cobalt; one column on phones. |
-| Message format | Ember avatar plus content grid: 38px avatar, 16px gap, role/time/recipient header, neutral 16px message body at 1.65 line-height. No wide speaker rail or filled owner card. |
+| Message format | Ember avatar plus content grid: 38px avatar, 16px gap, role/time/recipient header, neutral 16px message body at 1.65 line-height. Owner entries and recipient labels render `You`, and owner entries use `I` in the avatar while retaining the internal owner identity. No wide speaker rail or filled owner card. |
 | Local tabs | Ember transparent tabs, plain counts, muted inactive text and active accent with a 3px underline; keyboard/ARIA behavior retained. |
 | Targets and shapes | 44px minimum primary controls; Send at least 48px high and 100px wide; input 16px; 4/8/12/16/24/32px spacing. |
 
