@@ -8,13 +8,13 @@
     "product-idea": {
       "path": "docs/product-idea.md",
       "owner_skill": "to-product-idea",
-      "owner_invocation_id": "product-idea-ultra-pace-reconciliation-20260914T170000",
+      "owner_invocation_id": "product-idea-consultation-controls-reconciliation-20260914T172500",
       "declared_output_set": [
         "docs/product-idea.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "product-idea-ultra-pace-reconciliation-20260914T170000",
+      "source_version": "product-idea-consultation-controls-reconciliation-20260914T172500",
       "source_usage": {
         "docs/model-settings.md": "full",
         "docs/deployment-boundary.md": "full",
@@ -22,18 +22,18 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "full"
       },
       "source_hashes": {
-        "docs/model-settings.md": "ab51eaab14f28f58f911db9e3ae25b064631e6c2b13b6bda52ac82d5bb101b8c",
-        "docs/deployment-boundary.md": "a1df221d2533117142df567589ad6df6c110591e95c054d5fbb383003c9f0d6f",
+        "docs/model-settings.md": "86801751744742aa44a41b9f6d5c5192eabd22423323c83bdbddec431e47b4d5",
+        "docs/deployment-boundary.md": "e57776bcde6bb00d6dceb6200e02303124cfdf4f1272c72eb474b50a3949df83",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2"
       },
       "dependencies": [],
-      "content_hash": "653047a83e4aae39db2fc2522fe4f47952adf2b6a2072e71f496cf64a91cf97f",
+      "content_hash": "6abba6f0fa65e51284c8d16f0bf366796342f2e5d7a2bba3a97d3fbc4f95ca53",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "ultra-pace-reconciliation",
-        "reviewed_at": "2026-09-14T17:00:00+03:00",
+        "kind": "consultation-controls-reconciliation",
+        "reviewed_at": "2026-09-14T17:25:00+03:00",
         "executor": "Codex inline to-product-idea"
       },
       "open_questions": [],
@@ -101,28 +101,28 @@
     "prd": {
       "path": "docs/prd.md",
       "owner_skill": "to-sdd-prd",
-      "owner_invocation_id": "prd-ultra-pace-reconciliation-20260914T170100",
+      "owner_invocation_id": "prd-consultation-controls-reconciliation-20260914T172500",
       "declared_output_set": [
         "docs/prd.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "prd-ultra-pace-reconciliation-20260914T170100",
+      "source_version": "prd-consultation-controls-reconciliation-20260914T172500",
       "source_usage": {
         "docs/product-idea.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "653047a83e4aae39db2fc2522fe4f47952adf2b6a2072e71f496cf64a91cf97f"
+        "docs/product-idea.md": "6abba6f0fa65e51284c8d16f0bf366796342f2e5d7a2bba3a97d3fbc4f95ca53"
       },
       "dependencies": [
         "product-idea"
       ],
-      "content_hash": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
+      "content_hash": "da8a4c54b09b18a43070952d659bcde4bbae0ff0f3562a571c0bda8b75f1ac7e",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "ultra-pace-reconciliation",
-        "reviewed_at": "2026-09-14T17:00:00+03:00",
+        "kind": "consultation-controls-reconciliation",
+        "reviewed_at": "2026-09-14T17:25:00+03:00",
         "executor": "Codex inline to-sdd-prd"
       },
       "open_questions": [],
@@ -2338,32 +2338,32 @@
     "project-context": {
       "path": "docs/project-context.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "project-context-ultra-pace-reconciliation-20260914T170200",
+      "owner_invocation_id": "context-bundle-consultation-controls-reconciliation-20260914T172500",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "project-context-ultra-pace-reconciliation-20260914T170200",
+      "source_version": "context-bundle-consultation-controls-reconciliation-20260914T172500",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "653047a83e4aae39db2fc2522fe4f47952adf2b6a2072e71f496cf64a91cf97f",
-        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e"
+        "docs/product-idea.md": "6abba6f0fa65e51284c8d16f0bf366796342f2e5d7a2bba3a97d3fbc4f95ca53",
+        "docs/prd.md": "da8a4c54b09b18a43070952d659bcde4bbae0ff0f3562a571c0bda8b75f1ac7e"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
+      "content_hash": "d802f153d6e48110cc757f289c800540c8bcd80407290761878a34b28b8a11ef",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "ultra-pace-reconciliation",
-        "reviewed_at": "2026-09-14T17:00:00+03:00",
+        "kind": "consultation-controls-reconciliation",
+        "reviewed_at": "2026-09-14T17:25:00+03:00",
         "executor": "Codex inline to-project-context"
       },
       "open_questions": [],
@@ -2372,32 +2372,32 @@
     "canonical-terms": {
       "path": "docs/canonical-terms.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "project-context-ultra-pace-reconciliation-20260914T170200",
+      "owner_invocation_id": "context-bundle-consultation-controls-reconciliation-20260914T172500",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "project-context-ultra-pace-reconciliation-20260914T170200",
+      "source_version": "context-bundle-consultation-controls-reconciliation-20260914T172500",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "653047a83e4aae39db2fc2522fe4f47952adf2b6a2072e71f496cf64a91cf97f",
-        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e"
+        "docs/product-idea.md": "6abba6f0fa65e51284c8d16f0bf366796342f2e5d7a2bba3a97d3fbc4f95ca53",
+        "docs/prd.md": "da8a4c54b09b18a43070952d659bcde4bbae0ff0f3562a571c0bda8b75f1ac7e"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
+      "content_hash": "351667d5e5e663b269931febcf6c7be58c59a77062a09be533adf8cbdd582936",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "ultra-pace-reconciliation",
-        "reviewed_at": "2026-09-14T17:00:00+03:00",
+        "kind": "consultation-controls-reconciliation",
+        "reviewed_at": "2026-09-14T17:25:00+03:00",
         "executor": "Codex inline to-project-context"
       },
       "open_questions": [],
@@ -2406,22 +2406,22 @@
     "guardrails": {
       "path": "docs/guardrails.md",
       "owner_skill": "to-guardrails",
-      "owner_invocation_id": "guardrails-ultra-pace-reconciliation-20260914T170300",
+      "owner_invocation_id": "guardrails-consultation-controls-reconciliation-20260914T172500",
       "declared_output_set": [
         "docs/guardrails.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "guardrails-ultra-pace-reconciliation-20260914T170300",
+      "source_version": "guardrails-consultation-controls-reconciliation-20260914T172500",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
         "docs/canonical-terms.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
-        "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94"
+        "docs/prd.md": "da8a4c54b09b18a43070952d659bcde4bbae0ff0f3562a571c0bda8b75f1ac7e",
+        "docs/project-context.md": "d802f153d6e48110cc757f289c800540c8bcd80407290761878a34b28b8a11ef",
+        "docs/canonical-terms.md": "351667d5e5e663b269931febcf6c7be58c59a77062a09be533adf8cbdd582936"
       },
       "dependencies": [
         "prd",
@@ -2432,8 +2432,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "ultra-pace-reconciliation",
-        "reviewed_at": "2026-09-14T17:00:00+03:00",
+        "kind": "consultation-controls-reconciliation",
+        "reviewed_at": "2026-09-14T17:25:00+03:00",
         "executor": "Codex inline to-guardrails"
       },
       "open_questions": [],
@@ -2442,13 +2442,13 @@
     "user-journey": {
       "path": "docs/user-journey.md",
       "owner_skill": "to-user-journey",
-      "owner_invocation_id": "user-journey-ultra-pace-reconciliation-20260914T170400",
+      "owner_invocation_id": "user-journey-consultation-controls-reconciliation-20260914T172500",
       "declared_output_set": [
         "docs/user-journey.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "user-journey-ultra-pace-reconciliation-20260914T170400",
+      "source_version": "user-journey-consultation-controls-reconciliation-20260914T172500",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2456,9 +2456,9 @@
         "docs/guardrails.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
-        "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
+        "docs/prd.md": "da8a4c54b09b18a43070952d659bcde4bbae0ff0f3562a571c0bda8b75f1ac7e",
+        "docs/project-context.md": "d802f153d6e48110cc757f289c800540c8bcd80407290761878a34b28b8a11ef",
+        "docs/canonical-terms.md": "351667d5e5e663b269931febcf6c7be58c59a77062a09be533adf8cbdd582936",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678"
       },
       "dependencies": [
@@ -2467,12 +2467,12 @@
         "canonical-terms",
         "guardrails"
       ],
-      "content_hash": "6f015be4408b9f04f5b57e5eba038f6da60e6c8b44fcf27597e0d4cbc3e05dc1",
+      "content_hash": "a1d5014c3fa99dc72fffd10f4f3e3cc842e001277cf81fbe4d14cbb48aeebe31",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "ultra-pace-reconciliation",
-        "reviewed_at": "2026-09-14T17:00:00+03:00",
+        "kind": "consultation-controls-reconciliation",
+        "reviewed_at": "2026-09-14T17:25:00+03:00",
         "executor": "Codex inline to-user-journey"
       },
       "open_questions": [],
@@ -2481,13 +2481,13 @@
     "screen-map": {
       "path": "docs/screen-map.md",
       "owner_skill": "to-screen-map",
-      "owner_invocation_id": "screen-map-ultra-pace-reconciliation-20260914T170500",
+      "owner_invocation_id": "screen-map-consultation-controls-reconciliation-20260914T172500",
       "declared_output_set": [
         "docs/screen-map.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "screen-map-ultra-pace-reconciliation-20260914T170500",
+      "source_version": "screen-map-consultation-controls-reconciliation-20260914T172500",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2499,11 +2499,11 @@
         "forge/design/candidates/c/v1/app.js": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
-        "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
+        "docs/prd.md": "da8a4c54b09b18a43070952d659bcde4bbae0ff0f3562a571c0bda8b75f1ac7e",
+        "docs/project-context.md": "d802f153d6e48110cc757f289c800540c8bcd80407290761878a34b28b8a11ef",
+        "docs/canonical-terms.md": "351667d5e5e663b269931febcf6c7be58c59a77062a09be533adf8cbdd582936",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678",
-        "docs/user-journey.md": "6f015be4408b9f04f5b57e5eba038f6da60e6c8b44fcf27597e0d4cbc3e05dc1",
+        "docs/user-journey.md": "a1d5014c3fa99dc72fffd10f4f3e3cc842e001277cf81fbe4d14cbb48aeebe31",
         "forge/design/candidates/a/v1/app.js": "a869dd42c95740bf7da4802934c3cd6f8d2e2243795ee20925cd5ee19f474531",
         "forge/design/candidates/b/v1/app.js": "17e37807a032c5ea1660efca698e21dc8baf29a3c5344067470b6b44311f9b39",
         "forge/design/candidates/c/v1/app.js": "f64ab8a6962cc700c8087803d33ecda68884da78158ea0e5547235c6d4fff530"
@@ -2519,8 +2519,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "ultra-pace-reconciliation",
-        "reviewed_at": "2026-09-14T17:00:00+03:00",
+        "kind": "consultation-controls-reconciliation",
+        "reviewed_at": "2026-09-14T17:25:00+03:00",
         "executor": "Codex inline to-screen-map"
       },
       "open_questions": [],
@@ -3534,13 +3534,13 @@
     "wireframes": {
       "path": "docs/wireframes.md",
       "owner_skill": "to-wireframes",
-      "owner_invocation_id": "wireframes-ultra-pace-reconciliation-20260914T170600",
+      "owner_invocation_id": "wireframes-consultation-controls-reconciliation-20260914T172500",
       "declared_output_set": [
         "docs/wireframes.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "wireframes-ultra-pace-reconciliation-20260914T170600",
+      "source_version": "wireframes-consultation-controls-reconciliation-20260914T172500",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3550,11 +3550,11 @@
         "docs/screen-map.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
-        "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
+        "docs/prd.md": "da8a4c54b09b18a43070952d659bcde4bbae0ff0f3562a571c0bda8b75f1ac7e",
+        "docs/project-context.md": "d802f153d6e48110cc757f289c800540c8bcd80407290761878a34b28b8a11ef",
+        "docs/canonical-terms.md": "351667d5e5e663b269931febcf6c7be58c59a77062a09be533adf8cbdd582936",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678",
-        "docs/user-journey.md": "6f015be4408b9f04f5b57e5eba038f6da60e6c8b44fcf27597e0d4cbc3e05dc1",
+        "docs/user-journey.md": "a1d5014c3fa99dc72fffd10f4f3e3cc842e001277cf81fbe4d14cbb48aeebe31",
         "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d"
       },
       "dependencies": [
@@ -3565,12 +3565,12 @@
         "user-journey",
         "screen-map"
       ],
-      "content_hash": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
+      "content_hash": "047aacdba04125035e968e13837cec2a23914f20e13eea090f83d1a1b4182e00",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "ultra-pace-reconciliation",
-        "reviewed_at": "2026-09-14T17:00:00+03:00",
+        "kind": "consultation-controls-reconciliation",
+        "reviewed_at": "2026-09-14T17:25:00+03:00",
         "executor": "Codex inline to-wireframes"
       },
       "open_questions": [],
@@ -3579,13 +3579,13 @@
     "design-brief": {
       "path": "docs/design-brief.md",
       "owner_skill": "to-design-brief",
-      "owner_invocation_id": "design-brief-ultra-pace-reconciliation-20260914T170700",
+      "owner_invocation_id": "design-brief-consultation-controls-reconciliation-20260914T172500",
       "declared_output_set": [
         "docs/design-brief.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "design-brief-ultra-pace-reconciliation-20260914T170700",
+      "source_version": "design-brief-consultation-controls-reconciliation-20260914T172500",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3641,14 +3641,14 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
-        "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
+        "docs/prd.md": "da8a4c54b09b18a43070952d659bcde4bbae0ff0f3562a571c0bda8b75f1ac7e",
+        "docs/project-context.md": "d802f153d6e48110cc757f289c800540c8bcd80407290761878a34b28b8a11ef",
+        "docs/canonical-terms.md": "351667d5e5e663b269931febcf6c7be58c59a77062a09be533adf8cbdd582936",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678",
-        "docs/user-journey.md": "6f015be4408b9f04f5b57e5eba038f6da60e6c8b44fcf27597e0d4cbc3e05dc1",
+        "docs/user-journey.md": "a1d5014c3fa99dc72fffd10f4f3e3cc842e001277cf81fbe4d14cbb48aeebe31",
         "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
-        "docs/wireframes.md": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
-        "docs/product-idea.md": "653047a83e4aae39db2fc2522fe4f47952adf2b6a2072e71f496cf64a91cf97f",
+        "docs/wireframes.md": "047aacdba04125035e968e13837cec2a23914f20e13eea090f83d1a1b4182e00",
+        "docs/product-idea.md": "6abba6f0fa65e51284c8d16f0bf366796342f2e5d7a2bba3a97d3fbc4f95ca53",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "prototype/styles.css": "ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925",
         "prototype/app.js": "b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54",
@@ -3707,8 +3707,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "ultra-pace-reconciliation",
-        "reviewed_at": "2026-09-14T17:00:00+03:00",
+        "kind": "consultation-controls-reconciliation",
+        "reviewed_at": "2026-09-14T17:25:00+03:00",
         "executor": "Codex inline to-design-brief"
       },
       "open_questions": [],
@@ -3717,13 +3717,13 @@
     "architecture": {
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "architecture-ultra-pace-reconciliation-20260914T170800",
+      "owner_invocation_id": "architecture-consultation-controls-reconciliation-20260914T172500",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "architecture-ultra-pace-reconciliation-20260914T170800",
+      "source_version": "architecture-consultation-controls-reconciliation-20260914T172500",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3738,16 +3738,16 @@
         "forge/runs/U-06/browser-speech-uk-20260914/README.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
-        "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
+        "docs/prd.md": "da8a4c54b09b18a43070952d659bcde4bbae0ff0f3562a571c0bda8b75f1ac7e",
+        "docs/project-context.md": "d802f153d6e48110cc757f289c800540c8bcd80407290761878a34b28b8a11ef",
+        "docs/canonical-terms.md": "351667d5e5e663b269931febcf6c7be58c59a77062a09be533adf8cbdd582936",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678",
-        "docs/user-journey.md": "6f015be4408b9f04f5b57e5eba038f6da60e6c8b44fcf27597e0d4cbc3e05dc1",
+        "docs/user-journey.md": "a1d5014c3fa99dc72fffd10f4f3e3cc842e001277cf81fbe4d14cbb48aeebe31",
         "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
-        "docs/wireframes.md": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
+        "docs/wireframes.md": "047aacdba04125035e968e13837cec2a23914f20e13eea090f83d1a1b4182e00",
         "docs/design-brief.md": "b47ccb5ad51070554e006d07370f8b43a8c03b1d255031814eed8b56aa0c235e",
-        "docs/model-settings.md": "ab51eaab14f28f58f911db9e3ae25b064631e6c2b13b6bda52ac82d5bb101b8c",
-        "docs/deployment-boundary.md": "a1df221d2533117142df567589ad6df6c110591e95c054d5fbb383003c9f0d6f",
+        "docs/model-settings.md": "86801751744742aa44a41b9f6d5c5192eabd22423323c83bdbddec431e47b4d5",
+        "docs/deployment-boundary.md": "e57776bcde6bb00d6dceb6200e02303124cfdf4f1272c72eb474b50a3949df83",
         "forge/runs/U-06/browser-speech-uk-20260914/README.md": "972494cb2d1dda8ae431f34bd2896eb6d5cb4642c838ae0b171d17ac931913d6"
       },
       "dependencies": [
@@ -3764,8 +3764,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "ultra-pace-reconciliation",
-        "reviewed_at": "2026-09-14T17:00:00+03:00",
+        "kind": "consultation-controls-reconciliation",
+        "reviewed_at": "2026-09-14T17:25:00+03:00",
         "executor": "Codex inline to-architecture"
       },
       "open_questions": [],
@@ -3845,13 +3845,13 @@
     "dod-evals": {
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "dod-evals-ultra-pace-reconciliation-20260914T170900",
+      "owner_invocation_id": "dod-evals-consultation-controls-reconciliation-20260914T172500",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "dod-evals-ultra-pace-reconciliation-20260914T170900",
+      "source_version": "dod-evals-consultation-controls-reconciliation-20260914T172500",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3864,13 +3864,13 @@
         "docs/architecture.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
-        "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
+        "docs/prd.md": "da8a4c54b09b18a43070952d659bcde4bbae0ff0f3562a571c0bda8b75f1ac7e",
+        "docs/project-context.md": "d802f153d6e48110cc757f289c800540c8bcd80407290761878a34b28b8a11ef",
+        "docs/canonical-terms.md": "351667d5e5e663b269931febcf6c7be58c59a77062a09be533adf8cbdd582936",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678",
-        "docs/user-journey.md": "6f015be4408b9f04f5b57e5eba038f6da60e6c8b44fcf27597e0d4cbc3e05dc1",
+        "docs/user-journey.md": "a1d5014c3fa99dc72fffd10f4f3e3cc842e001277cf81fbe4d14cbb48aeebe31",
         "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
-        "docs/wireframes.md": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
+        "docs/wireframes.md": "047aacdba04125035e968e13837cec2a23914f20e13eea090f83d1a1b4182e00",
         "docs/design-brief.md": "b47ccb5ad51070554e006d07370f8b43a8c03b1d255031814eed8b56aa0c235e",
         "docs/architecture.md": "7e6e6a56f843de366c58f6dcd5057acc7d3961d3471aaf4ed6cd8faf1e3ab857"
       },
@@ -3889,8 +3889,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "ultra-pace-reconciliation",
-        "reviewed_at": "2026-09-14T17:00:00+03:00",
+        "kind": "consultation-controls-reconciliation",
+        "reviewed_at": "2026-09-14T17:25:00+03:00",
         "executor": "Codex inline to-dod-evals"
       },
       "open_questions": [],
@@ -3970,13 +3970,13 @@
     "qa-checklist": {
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "qa-checklist-ultra-pace-reconciliation-20260914T171000",
+      "owner_invocation_id": "qa-checklist-consultation-controls-reconciliation-20260914T172500",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "qa-checklist-ultra-pace-reconciliation-20260914T171000",
+      "source_version": "qa-checklist-consultation-controls-reconciliation-20260914T172500",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3994,13 +3994,13 @@
         "forge/design/evidence/c-v1-visual-qa.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
-        "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
+        "docs/prd.md": "da8a4c54b09b18a43070952d659bcde4bbae0ff0f3562a571c0bda8b75f1ac7e",
+        "docs/project-context.md": "d802f153d6e48110cc757f289c800540c8bcd80407290761878a34b28b8a11ef",
+        "docs/canonical-terms.md": "351667d5e5e663b269931febcf6c7be58c59a77062a09be533adf8cbdd582936",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678",
-        "docs/user-journey.md": "6f015be4408b9f04f5b57e5eba038f6da60e6c8b44fcf27597e0d4cbc3e05dc1",
+        "docs/user-journey.md": "a1d5014c3fa99dc72fffd10f4f3e3cc842e001277cf81fbe4d14cbb48aeebe31",
         "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
-        "docs/wireframes.md": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
+        "docs/wireframes.md": "047aacdba04125035e968e13837cec2a23914f20e13eea090f83d1a1b4182e00",
         "docs/design-brief.md": "b47ccb5ad51070554e006d07370f8b43a8c03b1d255031814eed8b56aa0c235e",
         "docs/architecture.md": "7e6e6a56f843de366c58f6dcd5057acc7d3961d3471aaf4ed6cd8faf1e3ab857",
         "docs/dod-evals.md": "d6ba33818e146ca1fe7b64457ee956f21e9eb2d518d248761339fe3441594ef7",
@@ -4021,12 +4021,12 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "b2776589e66ed618860c6364d0502b542e7b9b1237215bb54cce0f2886dbf789",
+      "content_hash": "8f01c253aa601238b9ec75f81826529c6dd5d016a6691a4cdd2ee7c6d25b67f3",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "ultra-pace-reconciliation",
-        "reviewed_at": "2026-09-14T17:00:00+03:00",
+        "kind": "consultation-controls-reconciliation",
+        "reviewed_at": "2026-09-14T17:25:00+03:00",
         "executor": "Codex inline to-qa-checklist"
       },
       "open_questions": [],
@@ -5777,13 +5777,13 @@
     "development-plan": {
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "development-plan-ultra-pace-reconciliation-20260914T171100",
+      "owner_invocation_id": "development-plan-consultation-controls-reconciliation-20260914T172500",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "development-plan-ultra-pace-reconciliation-20260914T171100",
+      "source_version": "development-plan-consultation-controls-reconciliation-20260914T172500",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -5807,19 +5807,19 @@
         "forge/design/candidates/a/v8/app.js": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
-        "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
+        "docs/prd.md": "da8a4c54b09b18a43070952d659bcde4bbae0ff0f3562a571c0bda8b75f1ac7e",
+        "docs/project-context.md": "d802f153d6e48110cc757f289c800540c8bcd80407290761878a34b28b8a11ef",
+        "docs/canonical-terms.md": "351667d5e5e663b269931febcf6c7be58c59a77062a09be533adf8cbdd582936",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678",
-        "docs/user-journey.md": "6f015be4408b9f04f5b57e5eba038f6da60e6c8b44fcf27597e0d4cbc3e05dc1",
+        "docs/user-journey.md": "a1d5014c3fa99dc72fffd10f4f3e3cc842e001277cf81fbe4d14cbb48aeebe31",
         "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
-        "docs/wireframes.md": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
+        "docs/wireframes.md": "047aacdba04125035e968e13837cec2a23914f20e13eea090f83d1a1b4182e00",
         "docs/design-brief.md": "b47ccb5ad51070554e006d07370f8b43a8c03b1d255031814eed8b56aa0c235e",
         "docs/architecture.md": "7e6e6a56f843de366c58f6dcd5057acc7d3961d3471aaf4ed6cd8faf1e3ab857",
         "docs/dod-evals.md": "d6ba33818e146ca1fe7b64457ee956f21e9eb2d518d248761339fe3441594ef7",
-        "docs/qa-checklist.md": "b2776589e66ed618860c6364d0502b542e7b9b1237215bb54cce0f2886dbf789",
-        "docs/model-settings.md": "ab51eaab14f28f58f911db9e3ae25b064631e6c2b13b6bda52ac82d5bb101b8c",
-        "docs/deployment-boundary.md": "a1df221d2533117142df567589ad6df6c110591e95c054d5fbb383003c9f0d6f",
+        "docs/qa-checklist.md": "8f01c253aa601238b9ec75f81826529c6dd5d016a6691a4cdd2ee7c6d25b67f3",
+        "docs/model-settings.md": "86801751744742aa44a41b9f6d5c5192eabd22423323c83bdbddec431e47b4d5",
+        "docs/deployment-boundary.md": "e57776bcde6bb00d6dceb6200e02303124cfdf4f1272c72eb474b50a3949df83",
         "package.json": "5c73e4457a72a4c03684cb4a3f928b5061de6f9d3e6317bc6b04616a6af93bc9",
         "scripts/serve-prototype.mjs": "f1232082074d76e12713267d3bc10bd546a69f4a9a8836b5a073887f9c374b4d",
         "forge/design/candidates/a/v8/index.html": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
@@ -5841,12 +5841,12 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "ec0d51774b3fc0529aab7ed95a854ea5c49289c564d044c797f209fbe906e3fd",
+      "content_hash": "d2979e269fece584415159e984a17024807843b0d259cc28c37cc3ed679f3bea",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "ultra-pace-reconciliation",
-        "reviewed_at": "2026-09-14T17:00:00+03:00",
+        "kind": "consultation-controls-reconciliation",
+        "reviewed_at": "2026-09-14T17:25:00+03:00",
         "executor": "Codex inline to-development-plan"
       },
       "supersedes": "development-plan-phase3-revalidated-20260914T010700",
@@ -7540,18 +7540,18 @@
   ],
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "ec0d51774b3fc0529aab7ed95a854ea5c49289c564d044c797f209fbe906e3fd",
+    "development_plan_hash": "d2979e269fece584415159e984a17024807843b0d259cc28c37cc3ed679f3bea",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-13T21:43:31.093504+00:00",
-    "prompt_id": "impl-20260914-ultra-pace",
-    "prompt_received_at": "2026-09-14T17:00:00+03:00",
-    "released_at": "2026-09-14T17:00:00+03:00",
+    "prompt_id": "impl-20260914-consultation-controls",
+    "prompt_received_at": "2026-09-14T17:25:00+03:00",
+    "released_at": "2026-09-14T17:25:00+03:00",
     "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
     "prompt_receipt": {
-      "path": "forge/runs/implementation-prompt-20260914-ultra-pace.json",
-      "content_hash": "b327f3cb5bc4b22c2adde58e1477daeb8cb7ad4a7a570ec06d249097ab2507f1"
+      "path": "forge/runs/implementation-prompt-20260914-consultation-controls.json",
+      "content_hash": "378f2f4fbaedb851b623a7727bb95d1c52927864ea2f68ff1a93a32cbb29fa71"
     },
-    "reason": "The user explicitly continued Phase 3 with the Fast/Balanced/Thorough/Ultra specialist allocation. Current saved active Codex settings remain preserved. Deployment, live provider connection and GoDaddy data reset remain outside this authorization."
+    "reason": "The user explicitly continued Phase 3 with separate specialist-count and discussion-depth controls. The selected model and reasoning values remain preserved. Deployment, live provider connection and GoDaddy data reset remain outside this authorization."
   },
   "input_requests": [],
   "last_resume_event": {
@@ -7681,92 +7681,100 @@
       "architecture_content_hash": "32663c216e37c11614ea8e13571a907ba11f6fdaab9a9520999a6d6e0bbe4c5f",
       "development_plan_content_hash": "048c8d136d146a21490f5b2ec5563d481ffaa4e4846c0df6cd82f929e1694896",
       "implementation_gate_effect": "unchanged: the approved baseline and development-plan bytes are unchanged"
+    },
+    {
+      "event": "consultation_controls_reconciled",
+      "at": "2026-09-14T17:25:00+03:00",
+      "implementation_authorized": true,
+      "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
+      "development_plan_hash": "d2979e269fece584415159e984a17024807843b0d259cc28c37cc3ed679f3bea",
+      "decision": "Replace the historical named Pace presets with independent specialist-count and discussion-depth settings; Head selects Auto team size and Auto depth is capped at 10 exchanges."
     }
   ],
   "dispatches": {
     "product-idea": {
-      "invocation_id": "product-idea-ultra-pace-reconciliation-20260914T170000",
+      "invocation_id": "product-idea-consultation-controls-reconciliation-20260914T172500",
       "outputs": [
         "docs/product-idea.md"
       ],
       "source_hashes": {
-        "docs/model-settings.md": "ab51eaab14f28f58f911db9e3ae25b064631e6c2b13b6bda52ac82d5bb101b8c",
-        "docs/deployment-boundary.md": "a1df221d2533117142df567589ad6df6c110591e95c054d5fbb383003c9f0d6f",
+        "docs/model-settings.md": "86801751744742aa44a41b9f6d5c5192eabd22423323c83bdbddec431e47b4d5",
+        "docs/deployment-boundary.md": "e57776bcde6bb00d6dceb6200e02303124cfdf4f1272c72eb474b50a3949df83",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2"
       },
       "consumed_source_fragments": {}
     },
     "prd": {
-      "invocation_id": "prd-ultra-pace-reconciliation-20260914T170100",
+      "invocation_id": "prd-consultation-controls-reconciliation-20260914T172500",
       "outputs": [
         "docs/prd.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "653047a83e4aae39db2fc2522fe4f47952adf2b6a2072e71f496cf64a91cf97f"
+        "docs/product-idea.md": "6abba6f0fa65e51284c8d16f0bf366796342f2e5d7a2bba3a97d3fbc4f95ca53"
       },
       "consumed_source_fragments": {}
     },
     "project-context": {
-      "invocation_id": "project-context-ultra-pace-reconciliation-20260914T170200",
+      "invocation_id": "context-bundle-consultation-controls-reconciliation-20260914T172500",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "653047a83e4aae39db2fc2522fe4f47952adf2b6a2072e71f496cf64a91cf97f",
-        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e"
+        "docs/product-idea.md": "6abba6f0fa65e51284c8d16f0bf366796342f2e5d7a2bba3a97d3fbc4f95ca53",
+        "docs/prd.md": "da8a4c54b09b18a43070952d659bcde4bbae0ff0f3562a571c0bda8b75f1ac7e"
       },
       "consumed_source_fragments": {}
     },
     "canonical-terms": {
-      "invocation_id": "project-context-ultra-pace-reconciliation-20260914T170200",
+      "invocation_id": "context-bundle-consultation-controls-reconciliation-20260914T172500",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "653047a83e4aae39db2fc2522fe4f47952adf2b6a2072e71f496cf64a91cf97f",
-        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e"
+        "docs/product-idea.md": "6abba6f0fa65e51284c8d16f0bf366796342f2e5d7a2bba3a97d3fbc4f95ca53",
+        "docs/prd.md": "da8a4c54b09b18a43070952d659bcde4bbae0ff0f3562a571c0bda8b75f1ac7e"
       },
       "consumed_source_fragments": {}
     },
     "guardrails": {
-      "invocation_id": "guardrails-ultra-pace-reconciliation-20260914T170300",
+      "invocation_id": "guardrails-consultation-controls-reconciliation-20260914T172500",
       "outputs": [
         "docs/guardrails.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
-        "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94"
+        "docs/prd.md": "da8a4c54b09b18a43070952d659bcde4bbae0ff0f3562a571c0bda8b75f1ac7e",
+        "docs/project-context.md": "d802f153d6e48110cc757f289c800540c8bcd80407290761878a34b28b8a11ef",
+        "docs/canonical-terms.md": "351667d5e5e663b269931febcf6c7be58c59a77062a09be533adf8cbdd582936"
       },
       "consumed_source_fragments": {}
     },
     "user-journey": {
-      "invocation_id": "user-journey-ultra-pace-reconciliation-20260914T170400",
+      "invocation_id": "user-journey-consultation-controls-reconciliation-20260914T172500",
       "outputs": [
         "docs/user-journey.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
-        "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
+        "docs/prd.md": "da8a4c54b09b18a43070952d659bcde4bbae0ff0f3562a571c0bda8b75f1ac7e",
+        "docs/project-context.md": "d802f153d6e48110cc757f289c800540c8bcd80407290761878a34b28b8a11ef",
+        "docs/canonical-terms.md": "351667d5e5e663b269931febcf6c7be58c59a77062a09be533adf8cbdd582936",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678"
       },
       "consumed_source_fragments": {}
     },
     "screen-map": {
-      "invocation_id": "screen-map-ultra-pace-reconciliation-20260914T170500",
+      "invocation_id": "screen-map-consultation-controls-reconciliation-20260914T172500",
       "outputs": [
         "docs/screen-map.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
-        "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
+        "docs/prd.md": "da8a4c54b09b18a43070952d659bcde4bbae0ff0f3562a571c0bda8b75f1ac7e",
+        "docs/project-context.md": "d802f153d6e48110cc757f289c800540c8bcd80407290761878a34b28b8a11ef",
+        "docs/canonical-terms.md": "351667d5e5e663b269931febcf6c7be58c59a77062a09be533adf8cbdd582936",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678",
-        "docs/user-journey.md": "6f015be4408b9f04f5b57e5eba038f6da60e6c8b44fcf27597e0d4cbc3e05dc1",
+        "docs/user-journey.md": "a1d5014c3fa99dc72fffd10f4f3e3cc842e001277cf81fbe4d14cbb48aeebe31",
         "forge/design/candidates/a/v1/app.js": "a869dd42c95740bf7da4802934c3cd6f8d2e2243795ee20925cd5ee19f474531",
         "forge/design/candidates/b/v1/app.js": "17e37807a032c5ea1660efca698e21dc8baf29a3c5344067470b6b44311f9b39",
         "forge/design/candidates/c/v1/app.js": "f64ab8a6962cc700c8087803d33ecda68884da78158ea0e5547235c6d4fff530"
@@ -7774,34 +7782,34 @@
       "consumed_source_fragments": {}
     },
     "wireframes": {
-      "invocation_id": "wireframes-ultra-pace-reconciliation-20260914T170600",
+      "invocation_id": "wireframes-consultation-controls-reconciliation-20260914T172500",
       "outputs": [
         "docs/wireframes.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
-        "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
+        "docs/prd.md": "da8a4c54b09b18a43070952d659bcde4bbae0ff0f3562a571c0bda8b75f1ac7e",
+        "docs/project-context.md": "d802f153d6e48110cc757f289c800540c8bcd80407290761878a34b28b8a11ef",
+        "docs/canonical-terms.md": "351667d5e5e663b269931febcf6c7be58c59a77062a09be533adf8cbdd582936",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678",
-        "docs/user-journey.md": "6f015be4408b9f04f5b57e5eba038f6da60e6c8b44fcf27597e0d4cbc3e05dc1",
+        "docs/user-journey.md": "a1d5014c3fa99dc72fffd10f4f3e3cc842e001277cf81fbe4d14cbb48aeebe31",
         "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d"
       },
       "consumed_source_fragments": {}
     },
     "design-brief": {
-      "invocation_id": "design-brief-ultra-pace-reconciliation-20260914T170700",
+      "invocation_id": "design-brief-consultation-controls-reconciliation-20260914T172500",
       "outputs": [
         "docs/design-brief.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
-        "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
+        "docs/prd.md": "da8a4c54b09b18a43070952d659bcde4bbae0ff0f3562a571c0bda8b75f1ac7e",
+        "docs/project-context.md": "d802f153d6e48110cc757f289c800540c8bcd80407290761878a34b28b8a11ef",
+        "docs/canonical-terms.md": "351667d5e5e663b269931febcf6c7be58c59a77062a09be533adf8cbdd582936",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678",
-        "docs/user-journey.md": "6f015be4408b9f04f5b57e5eba038f6da60e6c8b44fcf27597e0d4cbc3e05dc1",
+        "docs/user-journey.md": "a1d5014c3fa99dc72fffd10f4f3e3cc842e001277cf81fbe4d14cbb48aeebe31",
         "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
-        "docs/wireframes.md": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
-        "docs/product-idea.md": "653047a83e4aae39db2fc2522fe4f47952adf2b6a2072e71f496cf64a91cf97f",
+        "docs/wireframes.md": "047aacdba04125035e968e13837cec2a23914f20e13eea090f83d1a1b4182e00",
+        "docs/product-idea.md": "6abba6f0fa65e51284c8d16f0bf366796342f2e5d7a2bba3a97d3fbc4f95ca53",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "prototype/styles.css": "ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925",
         "prototype/app.js": "b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54",
@@ -7850,56 +7858,56 @@
       "consumed_source_fragments": {}
     },
     "architecture": {
-      "invocation_id": "architecture-ultra-pace-reconciliation-20260914T170800",
+      "invocation_id": "architecture-consultation-controls-reconciliation-20260914T172500",
       "outputs": [
         "docs/architecture.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
-        "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
+        "docs/prd.md": "da8a4c54b09b18a43070952d659bcde4bbae0ff0f3562a571c0bda8b75f1ac7e",
+        "docs/project-context.md": "d802f153d6e48110cc757f289c800540c8bcd80407290761878a34b28b8a11ef",
+        "docs/canonical-terms.md": "351667d5e5e663b269931febcf6c7be58c59a77062a09be533adf8cbdd582936",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678",
-        "docs/user-journey.md": "6f015be4408b9f04f5b57e5eba038f6da60e6c8b44fcf27597e0d4cbc3e05dc1",
+        "docs/user-journey.md": "a1d5014c3fa99dc72fffd10f4f3e3cc842e001277cf81fbe4d14cbb48aeebe31",
         "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
-        "docs/wireframes.md": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
+        "docs/wireframes.md": "047aacdba04125035e968e13837cec2a23914f20e13eea090f83d1a1b4182e00",
         "docs/design-brief.md": "b47ccb5ad51070554e006d07370f8b43a8c03b1d255031814eed8b56aa0c235e",
-        "docs/model-settings.md": "ab51eaab14f28f58f911db9e3ae25b064631e6c2b13b6bda52ac82d5bb101b8c",
-        "docs/deployment-boundary.md": "a1df221d2533117142df567589ad6df6c110591e95c054d5fbb383003c9f0d6f",
+        "docs/model-settings.md": "86801751744742aa44a41b9f6d5c5192eabd22423323c83bdbddec431e47b4d5",
+        "docs/deployment-boundary.md": "e57776bcde6bb00d6dceb6200e02303124cfdf4f1272c72eb474b50a3949df83",
         "forge/runs/U-06/browser-speech-uk-20260914/README.md": "972494cb2d1dda8ae431f34bd2896eb6d5cb4642c838ae0b171d17ac931913d6"
       },
       "consumed_source_fragments": {}
     },
     "dod-evals": {
-      "invocation_id": "dod-evals-ultra-pace-reconciliation-20260914T170900",
+      "invocation_id": "dod-evals-consultation-controls-reconciliation-20260914T172500",
       "outputs": [
         "docs/dod-evals.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
-        "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
+        "docs/prd.md": "da8a4c54b09b18a43070952d659bcde4bbae0ff0f3562a571c0bda8b75f1ac7e",
+        "docs/project-context.md": "d802f153d6e48110cc757f289c800540c8bcd80407290761878a34b28b8a11ef",
+        "docs/canonical-terms.md": "351667d5e5e663b269931febcf6c7be58c59a77062a09be533adf8cbdd582936",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678",
-        "docs/user-journey.md": "6f015be4408b9f04f5b57e5eba038f6da60e6c8b44fcf27597e0d4cbc3e05dc1",
+        "docs/user-journey.md": "a1d5014c3fa99dc72fffd10f4f3e3cc842e001277cf81fbe4d14cbb48aeebe31",
         "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
-        "docs/wireframes.md": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
+        "docs/wireframes.md": "047aacdba04125035e968e13837cec2a23914f20e13eea090f83d1a1b4182e00",
         "docs/design-brief.md": "b47ccb5ad51070554e006d07370f8b43a8c03b1d255031814eed8b56aa0c235e",
         "docs/architecture.md": "7e6e6a56f843de366c58f6dcd5057acc7d3961d3471aaf4ed6cd8faf1e3ab857"
       },
       "consumed_source_fragments": {}
     },
     "qa-checklist": {
-      "invocation_id": "qa-checklist-ultra-pace-reconciliation-20260914T171000",
+      "invocation_id": "qa-checklist-consultation-controls-reconciliation-20260914T172500",
       "outputs": [
         "docs/qa-checklist.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
-        "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
+        "docs/prd.md": "da8a4c54b09b18a43070952d659bcde4bbae0ff0f3562a571c0bda8b75f1ac7e",
+        "docs/project-context.md": "d802f153d6e48110cc757f289c800540c8bcd80407290761878a34b28b8a11ef",
+        "docs/canonical-terms.md": "351667d5e5e663b269931febcf6c7be58c59a77062a09be533adf8cbdd582936",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678",
-        "docs/user-journey.md": "6f015be4408b9f04f5b57e5eba038f6da60e6c8b44fcf27597e0d4cbc3e05dc1",
+        "docs/user-journey.md": "a1d5014c3fa99dc72fffd10f4f3e3cc842e001277cf81fbe4d14cbb48aeebe31",
         "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
-        "docs/wireframes.md": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
+        "docs/wireframes.md": "047aacdba04125035e968e13837cec2a23914f20e13eea090f83d1a1b4182e00",
         "docs/design-brief.md": "b47ccb5ad51070554e006d07370f8b43a8c03b1d255031814eed8b56aa0c235e",
         "docs/architecture.md": "7e6e6a56f843de366c58f6dcd5057acc7d3961d3471aaf4ed6cd8faf1e3ab857",
         "docs/dod-evals.md": "d6ba33818e146ca1fe7b64457ee956f21e9eb2d518d248761339fe3441594ef7",
@@ -7911,24 +7919,24 @@
       "consumed_source_fragments": {}
     },
     "development-plan": {
-      "invocation_id": "development-plan-ultra-pace-reconciliation-20260914T171100",
+      "invocation_id": "development-plan-consultation-controls-reconciliation-20260914T172500",
       "outputs": [
         "docs/development-plan.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "b1c6cd7f56026c51f5f7fbdede8d8fd26696dd9aaf04e6847b6906f1a73eb36e",
-        "docs/project-context.md": "75b849428e887fbce6e01b813f1c20b62987feecfd4b818d14b55bb24e82d175",
-        "docs/canonical-terms.md": "5397fdaa3a690ddd1ff613a6cf58b68c7154c878cec9a0e391576caa73f72b94",
+        "docs/prd.md": "da8a4c54b09b18a43070952d659bcde4bbae0ff0f3562a571c0bda8b75f1ac7e",
+        "docs/project-context.md": "d802f153d6e48110cc757f289c800540c8bcd80407290761878a34b28b8a11ef",
+        "docs/canonical-terms.md": "351667d5e5e663b269931febcf6c7be58c59a77062a09be533adf8cbdd582936",
         "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678",
-        "docs/user-journey.md": "6f015be4408b9f04f5b57e5eba038f6da60e6c8b44fcf27597e0d4cbc3e05dc1",
+        "docs/user-journey.md": "a1d5014c3fa99dc72fffd10f4f3e3cc842e001277cf81fbe4d14cbb48aeebe31",
         "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
-        "docs/wireframes.md": "4827d4de1e1ce00535e6d6e1c137690f72a5156085b3dd3b4a0d3f2d8bc7f575",
+        "docs/wireframes.md": "047aacdba04125035e968e13837cec2a23914f20e13eea090f83d1a1b4182e00",
         "docs/design-brief.md": "b47ccb5ad51070554e006d07370f8b43a8c03b1d255031814eed8b56aa0c235e",
         "docs/architecture.md": "7e6e6a56f843de366c58f6dcd5057acc7d3961d3471aaf4ed6cd8faf1e3ab857",
         "docs/dod-evals.md": "d6ba33818e146ca1fe7b64457ee956f21e9eb2d518d248761339fe3441594ef7",
-        "docs/qa-checklist.md": "b2776589e66ed618860c6364d0502b542e7b9b1237215bb54cce0f2886dbf789",
-        "docs/model-settings.md": "ab51eaab14f28f58f911db9e3ae25b064631e6c2b13b6bda52ac82d5bb101b8c",
-        "docs/deployment-boundary.md": "a1df221d2533117142df567589ad6df6c110591e95c054d5fbb383003c9f0d6f",
+        "docs/qa-checklist.md": "8f01c253aa601238b9ec75f81826529c6dd5d016a6691a4cdd2ee7c6d25b67f3",
+        "docs/model-settings.md": "86801751744742aa44a41b9f6d5c5192eabd22423323c83bdbddec431e47b4d5",
+        "docs/deployment-boundary.md": "e57776bcde6bb00d6dceb6200e02303124cfdf4f1272c72eb474b50a3949df83",
         "package.json": "5c73e4457a72a4c03684cb4a3f928b5061de6f9d3e6317bc6b04616a6af93bc9",
         "scripts/serve-prototype.mjs": "f1232082074d76e12713267d3bc10bd546a69f4a9a8836b5a073887f9c374b4d",
         "forge/design/candidates/a/v8/index.html": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
@@ -60060,7 +60068,7 @@
     "release_readiness": "not_evaluated",
     "source_hashes": {
       "docs/dod-evals.md": "d6ba33818e146ca1fe7b64457ee956f21e9eb2d518d248761339fe3441594ef7",
-      "docs/qa-checklist.md": "b2776589e66ed618860c6364d0502b542e7b9b1237215bb54cce0f2886dbf789"
+      "docs/qa-checklist.md": "8f01c253aa601238b9ec75f81826529c6dd5d016a6691a4cdd2ee7c6d25b67f3"
     },
     "gates": [
       {
@@ -97413,6 +97421,44 @@
     }
   },
   "prototype_promotions": [
+    {
+      "unit_id": "U-03",
+      "started_at": "2026-09-14T17:25:00+03:00",
+      "base_commit": "b7ccd5825832aabb5d05cdc8b2ddcf3e98a4083f",
+      "path_mappings": [
+        {
+          "source": "forge/design/candidates/a/v8/index.html",
+          "destination": "public/index.html",
+          "strategy": "adapt"
+        },
+        {
+          "source": "forge/design/candidates/a/v8/styles.css",
+          "destination": "public/styles.css",
+          "strategy": "adapt"
+        },
+        {
+          "source": "forge/design/candidates/a/v8/app.js",
+          "destination": "src/client/app.js",
+          "strategy": "reimplement"
+        },
+        {
+          "source": "forge/design/candidates/a/v8/nanoduck.svg",
+          "destination": "public/nanoduck.svg",
+          "strategy": "copy"
+        },
+        {
+          "source": "forge/design/candidates/a/v8/nanoduck-original.svg",
+          "destination": "public/nanoduck-original.svg",
+          "strategy": "copy"
+        }
+      ],
+      "receipt": {
+        "path": "forge/runs/U-03/phase3-consultation-controls-20260914/prototype-promotion.json",
+        "content_hash": "337a43ca6f444af69a4e3dd6dee47eabea3b41c233f3711cce7dea3520eb0418"
+      }
+    }
+  ],
+  "prototype_promotion_history": [
     {
       "unit_id": "U-03",
       "started_at": "2026-09-14T17:01:14+03:00",
