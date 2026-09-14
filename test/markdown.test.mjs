@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { parseInline, parseMarkdown, safeMarkdownHref } from "../public/client/markdown.js";
+import { parseInline, parseMarkdown, safeMarkdownHref } from "../src/client/markdown.js";
 
 test("restricted Markdown preserves Ember-style emphasis, lists and quotations as structured content", () => {
   assert.deepEqual(parseInline("Use **evidence** and *one* `measure` [source](https://example.com/report)."), [

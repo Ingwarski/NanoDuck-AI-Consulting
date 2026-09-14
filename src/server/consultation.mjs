@@ -18,39 +18,57 @@ const responseLanguage = text => {
   if (/\b(?:answer|respond|reply|write)\s+in\s+ukrainian\b|українськ/iu.test(text)) return "Ukrainian";
   return /[А-Яа-яІіЇїЄєҐґ]/u.test(text) ? "Ukrainian" : "English";
 };
-const headTaskFallbacks = Object.freeze({
+const taskExcerpt = (question, maximumLength = 180) => {
+  const plain = String(question ?? "").replace(/[<>]/gu, "").replace(/\s+/gu, " ").trim();
+  const clipped = plain.length > maximumLength ? `${plain.slice(0, maximumLength - 1).trimEnd()}…` : plain;
+  return clipped.replace(/[.!?]+$/u, "").trim() || "the stated decision";
+};
+const taskAnchor = question => {
+  const tokens = String(question ?? "").match(/[\p{L}\p{N}]{3,}/gu) ?? [];
+  const ignored = new Set(["about", "after", "against", "also", "are", "been", "could", "does", "from", "have", "how", "into", "more", "should", "that", "their", "there", "these", "this", "what", "when", "which", "with", "would", "your", "які", "для", "про", "так", "цей", "цією", "що", "як"]);
+  const uppercase = tokens.find(token => /^(?:[A-Z]{3,}|[А-ЯІЇЄҐ]{3,})$/u.test(token));
+  return uppercase ?? tokens.find(token => !ignored.has(token.toLocaleLowerCase())) ?? tokens[0] ?? "decision";
+};
+const taskFallbackFocus = Object.freeze({
   English: Object.freeze({
-    "Strategy Consultant": "Define the decision options, decisive evidence, and the next test that can change the direction.",
-    "Finance Consultant": "Quantify the financial threshold, primary cost or margin risk, and the next calculation that can change this decision.",
-    "Operations Consultant": "Map the operational constraint, delivery risk, and the next practical test for this decision.",
-    "Sales Consultant": "Assess buyer evidence, the material sales risk, and the next customer test that can change this decision.",
-    "Marketing Consultant": "Assess audience evidence, the material demand risk, and the next market test that can change this decision.",
-    "Product Consultant": "Assess user value, the material product risk, and the next validation test that can change this decision.",
-    "Spiritual Consultant": "Assess the question through the stated doctrine and identify the material spiritual consideration and needed evidence.",
-    Psychotherapist: "Assess the question through an appropriate non-clinical approach and identify the material pattern and next grounded step.",
-    "Risk Consultant": "Identify the decision-critical risk, the evidence needed to assess it, and the next mitigating test."
+    "Strategy Consultant": "Separate the actual options and name the condition that should choose among them.",
+    "Finance Consultant": "Identify the exposure, affordability or loss-limit condition that rules an option in or out.",
+    "Operations Consultant": "Identify the delivery or capacity constraint that changes the viable option.",
+    "Sales Consultant": "Identify the buyer evidence or objection that changes the viable option.",
+    "Marketing Consultant": "Identify the audience or demand evidence that changes the viable option.",
+    "Product Consultant": "Identify the user-value evidence or product constraint that changes the viable option.",
+    "Spiritual Consultant": "Apply the stated doctrine to the concrete decision and identify the material spiritual consideration.",
+    Psychotherapist: "Use an appropriate non-clinical lens to identify the material pattern and grounded next step.",
+    "Risk Consultant": "Identify the downside that changes the viable option and the evidence needed to bound it."
   }),
   Ukrainian: Object.freeze({
-    "Strategy Consultant": "Визнач варіанти рішення, вирішальні докази та наступну перевірку, що може змінити напрям.",
-    "Finance Consultant": "Визнач фінансовий поріг, ключовий ризик витрат або маржі та наступний розрахунок, що може змінити рішення.",
-    "Operations Consultant": "Визнач операційне обмеження, ризик виконання та наступну практичну перевірку для цього рішення.",
-    "Sales Consultant": "Оціни докази попиту покупців, суттєвий ризик продажу та наступну перевірку з клієнтами.",
-    "Marketing Consultant": "Оціни докази щодо аудиторії, суттєвий ризик попиту та наступну перевірку ринку.",
-    "Product Consultant": "Оціни цінність для користувача, суттєвий продуктовий ризик та наступну перевірку гіпотези.",
-    "Spiritual Consultant": "Оціни питання крізь призму вказаного вчення та назви суттєвий духовний аспект і потрібні докази.",
-    Psychotherapist: "Оціни питання через доречний неклінічний підхід та назви суттєвий патерн і наступний обґрунтований крок.",
-    "Risk Consultant": "Визнач критичний ризик рішення, докази для його оцінки та наступну перевірку пом’якшення."
+    "Strategy Consultant": "Розмежуй реальні варіанти й назви умову, що має визначити вибір між ними.",
+    "Finance Consultant": "Визнач умову щодо експозиції, спроможності або ліміту втрати, яка виключає чи допускає варіант.",
+    "Operations Consultant": "Визнач обмеження виконання або потужності, яке змінює життєздатний варіант.",
+    "Sales Consultant": "Визнач доказ від покупця або заперечення, яке змінює життєздатний варіант.",
+    "Marketing Consultant": "Визнач доказ щодо аудиторії чи попиту, який змінює життєздатний варіант.",
+    "Product Consultant": "Визнач доказ цінності для користувача або продуктове обмеження, яке змінює життєздатний варіант.",
+    "Spiritual Consultant": "Застосуй вказане вчення до конкретного рішення й визнач суттєвий духовний аспект.",
+    Psychotherapist: "Застосуй доречний неклінічний підхід, щоб визначити суттєвий патерн і обґрунтований наступний крок.",
+    "Risk Consultant": "Визнач ризик зниження, який змінює життєздатний варіант, і докази для його обмеження."
   })
 });
-const headTaskFallback = (specialist, language) => headTaskFallbacks[language]?.[specialist] ?? headTaskFallbacks.English["Strategy Consultant"];
-const headTaskOutput = body => {
+const headTaskFallback = (specialist, question, language) => {
+  const excerpt = taskExcerpt(question);
+  const focus = taskFallbackFocus[language]?.[specialist] ?? taskFallbackFocus.English["Strategy Consultant"];
+  return language === "Ukrainian"
+    ? `Проаналізуй це рішення з позиції ${specialist}: «${excerpt}». ${focus}`
+    : `Analyze this decision as the ${specialist}: “${excerpt}”. ${focus}`;
+};
+const headTaskOutput = (body, anchor) => {
   const match = /^\s*<nanoduck-task>\s*([\s\S]*?)\s*<\/nanoduck-task>\s*$/iu.exec(body);
   if (!match) return undefined;
   const task = match[1].replace(/\s+/gu, " ").trim();
   const imperative = /^(?:Assess|Analyze|Analyse|Evaluate|Define|Map|Quantify|Test|Identify|Compare|Review|Examine|Clarify|Estimate|Check|Determine|Проаналізуй|Оціни|Визнач|Перевір|Зістав|Уточни|Порахуй|Вияви|Сформулюй|Досліди|Окресли|З’ясуй|З'ясуй)(?![\p{L}])/iu;
   const ownerFacing = /(?:\b(?:i|we|owner|user|recommend(?:ation)?|conclusion)\b|власник|користувач|рекоменд\p{L}*|виснов\p{L}*)/iu;
   const sentences = task.split(/[.!?]+/u).filter(Boolean);
-  return task.length <= 420 && sentences.length <= 2 && imperative.test(task) && !ownerFacing.test(task) ? Object.freeze({ body: task }) : undefined;
+  const caseSpecific = typeof anchor === "string" && anchor.length > 0 && task.toLocaleLowerCase().includes(anchor.toLocaleLowerCase());
+  return task.length <= 420 && sentences.length <= 2 && imperative.test(task) && !ownerFacing.test(task) && caseSpecific ? Object.freeze({ body: task }) : undefined;
 };
 const compactMessage = (body, maximumCharacters = 2_000) => {
   const text = typeof body === "string" ? body.trim() : "";
@@ -138,6 +156,26 @@ export function createConsultationService({ store, provider }) {
       if (!committed) throw new Error("invalid_run_state");
       return output;
     };
+    const invokeHeadTask = async (step, { question, language }) => {
+      const request = async assignment => {
+        if (!await isCurrent()) return undefined;
+        const result = await provider.invoke({ assignment, model: step.model, effort: step.effort, evidence: await current(), research: step.research, outputKind: step.outputKind, maximumCharacters: step.maximumCharacters, signal: controller.signal });
+        if (!result.ok) throw new Error(result.code ?? "provider_unavailable");
+        return result;
+      };
+      let result = await request(step.assignment);
+      if (!result) return undefined;
+      let output = headTaskOutput(result.body, step.caseAnchor);
+      if (!output) {
+        result = await request(`${step.assignment}\n\nYour prior output could not be committed. Return a replacement that follows the wrapper exactly and includes the exact case anchor “${step.caseAnchor}”. Do not write any other text.`);
+        if (!result) return undefined;
+        output = headTaskOutput(result.body, step.caseAnchor);
+      }
+      const committedOutput = output ?? Object.freeze({ body: headTaskFallback(step.recipient, question, language) });
+      const committed = await store.appendAgentMessage(conversationId, runState.generation, { role: step.role, recipient: step.recipient, body: committedOutput.body, sources: output?.sources ?? result.sources });
+      if (!committed) throw new Error("invalid_run_state");
+      return committedOutput;
+    };
     try {
       if (!await isCurrent()) return;
       const first = await current();
@@ -176,8 +214,8 @@ export function createConsultationService({ store, provider }) {
         confirmed = (await current()).events.slice(ownerIndex + 1);
       }
       const team = candidates.slice(0, selected);
-      const initial = [
-        ...team.map(specialist => ({
+      const caseAnchor = taskAnchor(first.owner);
+      const headTasks = team.map(specialist => ({
           role: "Head Consultant",
           recipient: specialist,
           model: settings.head.model,
@@ -185,9 +223,19 @@ export function createConsultationService({ store, provider }) {
           research: false,
           outputKind: "head_task",
           maximumCharacters: 420,
-          assignment: `You are the Head Consultant. This is a private handoff to the ${specialist}, never an answer to the owner. Return exactly one XML wrapper and nothing else: <nanoduck-task>ONE OR TWO IMPERATIVE SENTENCES</nanoduck-task>. Begin the task with a direct action verb. Inside the wrapper, give the ${specialist} a concrete role-specific investigation for this decision. Do not answer the owner, state a position, recommend an action, list assumptions, explain the team, use first person, or use words such as recommendation or conclusion. ${language}`
-        })),
-        ...team.map(specialist => ({
+          caseAnchor,
+          assignment: `You are the Head Consultant. This is a handoff to the ${specialist}, never an answer to the owner. Return exactly one XML wrapper and nothing else: <nanoduck-task>ONE OR TWO IMPERATIVE SENTENCES</nanoduck-task>. Begin the task with a direct action verb. Inside the wrapper, give the ${specialist} a concrete role-specific investigation for this decision. Include this exact case anchor: “${caseAnchor}”. Do not answer the owner, state a position, recommend an action, list assumptions, explain the team, use first person, or use words such as recommendation or conclusion. ${language}`
+        }));
+      for (let index = 0; index < headTasks.length; index += 1) {
+        const existing = confirmed[index];
+        if (existing) { if (!matches(existing, headTasks[index])) throw new Error("invalid_run_state"); }
+        else await invokeHeadTask(headTasks[index], { question: first.owner, language: first.sessionLanguage });
+      }
+      confirmed = (await current()).events.slice(ownerIndex + 1);
+      const positions = team.map((specialist, index) => {
+        const assignedTask = confirmed[index]?.body;
+        if (!assignedTask) throw new Error("invalid_run_state");
+        return {
           role: specialist,
           recipient: "Critic",
           model: settings.consultant.model,
@@ -195,14 +243,15 @@ export function createConsultationService({ store, provider }) {
           research,
           outputKind: "specialist_position",
           maximumCharacters: 1_400,
-          assignment: `You are the ${specialist}. Answer the Head's task with an independent position for the Critic in no more than 180 words. State the decision-relevant conclusion, its evidence or test, and the material uncertainty. Address the Critic directly. Do not restate the question, ask another specialist to act, speak for the Head or add ceremony.${guidanceFor(specialist)} ${responseLength} ${language}`
-        }))
-      ];
-      for (let index = 0; index < initial.length; index += 1) {
-        const existing = confirmed[index];
-        if (existing) { if (!matches(existing, initial[index])) throw new Error("invalid_run_state"); }
-        else if (initial[index].outputKind === "head_task") await invoke(initial[index], headTaskOutput, () => headTaskFallback(initial[index].recipient, first.sessionLanguage));
-        else await invoke(initial[index]);
+          assignment: `You are the ${specialist}. Your assigned Head brief is exactly:\nBegin assigned brief\n${assignedTask}\nEnd assigned brief\n\nAnswer only that brief with an independent position for the Critic in no more than 180 words. Other Head handoffs in the prior discussion belong to other specialists and must be ignored. State the decision-relevant conclusion, its evidence or test, and the material uncertainty. Address the Critic directly. Do not restate the question, ask another specialist to act, speak for the Head or add ceremony.${guidanceFor(specialist)} ${responseLength} ${language}`
+        };
+      });
+      const initial = [...headTasks, ...positions];
+      for (let index = 0; index < positions.length; index += 1) {
+        const positionIndex = headTasks.length + index;
+        const existing = confirmed[positionIndex];
+        if (existing) { if (!matches(existing, positions[index])) throw new Error("invalid_run_state"); }
+        else await invoke(positions[index]);
       }
       confirmed = (await current()).events.slice(ownerIndex + 1);
       let cursor = initial.length;

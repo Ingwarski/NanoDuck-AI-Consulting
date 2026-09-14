@@ -13,12 +13,18 @@ const waitFor = async (predicate, milliseconds = 1_000) => {
   throw new Error("timed_out");
 };
 
+const validHeadTask = assignment => {
+  const anchor = /exact case anchor: “([^”]+)”/u.exec(assignment)?.[1] ?? "decision";
+  return `<nanoduck-task>Analyze ${anchor} from the assigned perspective and identify the decisive evidence.</nanoduck-task>`;
+};
+const successfulBody = (input, body = "A qualified answer.") => input.outputKind === "head_task" ? validHeadTask(input.assignment) : body;
+
 test("sensitive current-topic questions do not enable public web research", async () => {
   const store = createMemoryStore();
   const conversation = await store.createConversation();
   const accepted = await store.acceptMessage(conversation.id, { body: "What is the current market price? Contact me at owner@example.com.", clientRequestId: "sensitive-research-0001" }, defaultSettings);
   const calls = [];
-  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: "A qualified answer.", sources: [] }; } };
+  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input), sources: [] }; } };
   const service = createConsultationService({ store, provider });
   await service.start(conversation.id, accepted.run);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
@@ -31,7 +37,7 @@ test("ordinary consultations can use restricted live research without a keyword"
   const conversation = await store.createConversation();
   const accepted = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "ordinary-research-0001" }, defaultSettings);
   const calls = [];
-  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: "A qualified answer.", sources: [] }; } };
+  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input), sources: [] }; } };
   const service = createConsultationService({ store, provider });
   await service.start(conversation.id, accepted.run);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
@@ -45,7 +51,7 @@ test("a simple Ukrainian explanation receives one direct Head Consultant answer"
   const conversation = await store.createConversation();
   const accepted = await store.acceptMessage(conversation.id, { body: "Що таке валова маржа?", clientRequestId: "direct-answer-0001" }, defaultSettings);
   const calls = [];
-  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: "A qualified answer.", sources: [] }; } };
+  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input), sources: [] }; } };
   const service = createConsultationService({ store, provider });
   await service.start(conversation.id, accepted.run);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
@@ -60,14 +66,18 @@ test("a fixed specialist count selects the requested team without changing the m
   const snapshot = { ...defaultSettings, specialistCount: "3", discussionDepth: "1" };
   const accepted = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "specialist-count-0001" }, snapshot);
   const calls = [];
-  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: "A qualified answer.", sources: [] }; } };
+  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input), sources: [] }; } };
   const service = createConsultationService({ store, provider });
   await service.start(conversation.id, accepted.run);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
   assert.equal(calls.length, 9);
-  assert.match(calls[0].assignment, /private handoff to the Strategy Consultant/u);
+  assert.match(calls[0].assignment, /handoff to the Strategy Consultant/u);
   assert.equal(calls[0].outputKind, "head_task");
   assert.match(calls[5].assignment, /^You are the Operations Consultant/u);
+  const events = await store.events(conversation.id);
+  assert.equal(calls[3].assignment.includes(`Your assigned Head brief is exactly:\nBegin assigned brief\n${events[1].body}\nEnd assigned brief`), true);
+  assert.equal(calls[4].assignment.includes(`Your assigned Head brief is exactly:\nBegin assigned brief\n${events[2].body}\nEnd assigned brief`), true);
+  assert.equal(calls[5].assignment.includes(`Your assigned Head brief is exactly:\nBegin assigned brief\n${events[3].body}\nEnd assigned brief`), true);
   assert.deepEqual((await store.events(conversation.id)).map(event => [event.role, event.recipient]), [
     ["owner", null],
     ["Head Consultant", "Strategy Consultant"], ["Head Consultant", "Finance Consultant"], ["Head Consultant", "Operations Consultant"],
@@ -82,7 +92,7 @@ test("five specialists remain distinct from Head Consultant and Critic", async (
   const conversation = await store.createConversation();
   const accepted = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "five-specialists-000001" }, { ...defaultSettings, specialistCount: "5", discussionDepth: "1" });
   const calls = [];
-  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: "A qualified answer.", sources: [] }; } };
+  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input), sources: [] }; } };
   const service = createConsultationService({ store, provider });
   await service.start(conversation.id, accepted.run);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
@@ -96,7 +106,7 @@ test("five specialists remain distinct from Head Consultant and Critic", async (
   ]);
 });
 
-test("pre-conclusion Head advice is discarded in favour of a bounded specialist task", async () => {
+test("invalid Head tasks are retried and fall back to a case-bound specialist brief", async () => {
   const store = createMemoryStore();
   const conversation = await store.createConversation();
   const accepted = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "head-task-guard-0001" }, { ...defaultSettings, specialistCount: "2", discussionDepth: "1" });
@@ -105,7 +115,7 @@ test("pre-conclusion Head advice is discarded in favour of a bounded specialist 
     async invoke(input) {
       calls.push(input);
       if (input.outputKind === "head_task") return { ok: true, body: "I recommend that the owner scales the offer immediately.", sources: [] };
-      return { ok: true, body: "A qualified answer.", sources: [] };
+      return { ok: true, body: successfulBody(input), sources: [] };
     }
   };
   const service = createConsultationService({ store, provider });
@@ -114,15 +124,39 @@ test("pre-conclusion Head advice is discarded in favour of a bounded specialist 
   const events = await store.events(conversation.id);
   const headTasks = events.filter(event => event.role === "Head Consultant" && event.recipient);
   assert.equal(headTasks.length, 2);
-  assert.equal(calls.filter(call => call.outputKind === "head_task").length, 2);
+  assert.equal(calls.filter(call => call.outputKind === "head_task").length, 4);
   assert.equal(calls.filter(call => call.outputKind === "head_task").every(call => call.assignment.includes("<nanoduck-task>")), true);
-  assert.deepEqual(headTasks.map(event => event.body), [
-    "Define the decision options, decisive evidence, and the next test that can change the direction.",
-    "Quantify the financial threshold, primary cost or margin risk, and the next calculation that can change this decision."
-  ]);
-  assert.equal(headTasks.some(event => /\b(?:i|we|owner|recommend|conclusion)\b/iu.test(event.body)), false);
+  assert.equal(headTasks.every(event => event.body.includes("Should we revise the offer for next quarter")), true);
+  assert.match(headTasks[0].body, /Strategy Consultant/u);
+  assert.match(headTasks[1].body, /Finance Consultant/u);
+  assert.equal(headTasks.every(event => event.body.startsWith("Analyze this decision as the")), true);
   assert.equal(events.at(-1).role, "Head Consultant");
   assert.equal(events.at(-1).recipient, null);
+});
+
+test("a malformed BTC Head task keeps the BTC decision and recipient-specific focus", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const body = "I have $100 and its equivalent in BTC. The market is bearish and unpredictable. Should I buy more BTC, sell, or hold?";
+  const accepted = await store.acceptMessage(conversation.id, { body, clientRequestId: "btc-handoff-000001" }, { ...defaultSettings, specialistCount: "2", discussionDepth: "1" });
+  const calls = [];
+  const provider = {
+    async invoke(input) {
+      calls.push(input);
+      return { ok: true, body: input.outputKind === "head_task" ? "I recommend buying immediately." : successfulBody(input), sources: [] };
+    }
+  };
+  const service = createConsultationService({ store, provider });
+  await service.start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  const events = await store.events(conversation.id);
+  const tasks = events.filter(event => event.role === "Head Consultant" && event.recipient);
+  assert.equal(calls.filter(call => call.outputKind === "head_task").length, 4);
+  assert.equal(tasks.every(task => task.body.includes("BTC")), true);
+  assert.match(tasks[0].body, /actual options/u);
+  assert.match(tasks[1].body, /exposure, affordability or loss-limit/u);
+  assert.equal(calls[4].assignment.includes(`Your assigned Head brief is exactly:\nBegin assigned brief\n${tasks[0].body}\nEnd assigned brief`), true);
+  assert.equal(calls[5].assignment.includes(`Your assigned Head brief is exactly:\nBegin assigned brief\n${tasks[1].body}\nEnd assigned brief`), true);
 });
 
 test("role contributions are trimmed at complete sentences within their stated bounds", async () => {
@@ -160,7 +194,7 @@ test("discussion depth performs the requested number of Critic-specialist exchan
   const conversation = await store.createConversation();
   const accepted = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "three-exchanges-000001" }, { ...defaultSettings, specialistCount: "1", discussionDepth: "3" });
   const calls = [];
-  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: "A qualified answer.", sources: [] }; } };
+  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input), sources: [] }; } };
   const service = createConsultationService({ store, provider });
   await service.start(conversation.id, accepted.run);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
@@ -182,7 +216,7 @@ test("Auto lets Head choose the specialist count and stops at an agreed consiliu
       calls.push(input);
       if (input.assignment.includes("Return exactly [TEAM: N]")) return { ok: true, body: "[TEAM: 4]", sources: [] };
       if (input.assignment.includes("[CONSILIUM:")) return { ok: true, body: "The constraint is resolved by testing the offer before scaling it. [CONSILIUM: REACHED]", sources: [] };
-      return { ok: true, body: "A qualified answer.", sources: [] };
+      return { ok: true, body: successfulBody(input), sources: [] };
     }
   };
   const service = createConsultationService({ store, provider });
@@ -205,7 +239,7 @@ test("Auto discussion depth never performs more than ten exchanges", async () =>
   const provider = {
     async invoke(input) {
       calls.push(input);
-      return { ok: true, body: input.assignment.includes("[CONSILIUM:") ? "One more material question remains. [CONSILIUM: CONTINUE]" : "A qualified answer.", sources: [] };
+      return { ok: true, body: input.assignment.includes("[CONSILIUM:") ? "One more material question remains. [CONSILIUM: CONTINUE]" : successfulBody(input), sources: [] };
     }
   };
   const service = createConsultationService({ store, provider });
@@ -221,7 +255,7 @@ test("a Ukrainian finance question assigns the Finance Consultant and directs th
   const conversation = await store.createConversation();
   const accepted = await store.acceptMessage(conversation.id, { body: "Які грошові та маржинальні цілі зроблять цю пропозицію життєздатною?", clientRequestId: "finance-routing-0001" }, defaultSettings);
   const calls = [];
-  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: "A qualified answer.", sources: [] }; } };
+  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input), sources: [] }; } };
   const service = createConsultationService({ store, provider });
   await service.start(conversation.id, accepted.run);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
@@ -250,7 +284,7 @@ test("spiritual and psychotherapy questions use their bounded specialist roles",
     const conversation = await store.createConversation();
     const accepted = await store.acceptMessage(conversation.id, { body, clientRequestId: `role-routing-${role.replaceAll(" ", "-").toLowerCase()}-0001` }, { ...defaultSettings, specialistCount: "1", discussionDepth: "1" });
     const calls = [];
-    const provider = { async invoke(input) { calls.push(input); return { ok: true, body: "A qualified answer.", sources: [] }; } };
+    const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input), sources: [] }; } };
     const service = createConsultationService({ store, provider });
     await service.start(conversation.id, accepted.run);
     await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
@@ -264,7 +298,7 @@ test("the first accepted owner message keeps the consultation language for later
   const store = createMemoryStore();
   const conversation = await store.createConversation();
   const calls = [];
-  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: "A qualified answer.", sources: [] }; } };
+  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input), sources: [] }; } };
   const service = createConsultationService({ store, provider });
   const first = await store.acceptMessage(conversation.id, { body: "Що таке валова маржа?", clientRequestId: "language-first-0001" }, defaultSettings);
   await service.start(conversation.id, first.run);
@@ -281,7 +315,7 @@ test("a resumed consultation continues after its last confirmed message", async 
   const accepted = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "resume-routing-0001" }, defaultSettings);
   await store.appendAgentMessage(conversation.id, accepted.run.generation, { role: "Head Consultant", recipient: "Strategy Consultant", body: "Test the commercial premise.", sources: [] });
   const calls = [];
-  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: "A qualified answer.", sources: [] }; } };
+  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input), sources: [] }; } };
   const service = createConsultationService({ store, provider });
   await service.resume();
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
@@ -303,7 +337,7 @@ test("Continue resumes at the next uncommitted turn after Stop", async () => {
   await store.appendAgentMessage(conversation.id, accepted.run.generation, { role: "Head Consultant", recipient: "Strategy Consultant", body: "Test the commercial premise.", sources: [] });
   await store.stop(conversation.id);
   const calls = [];
-  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: "A qualified answer.", sources: [] }; } };
+  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input), sources: [] }; } };
   const service = createConsultationService({ store, provider });
   assert.ok(await service.continue(conversation.id));
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");

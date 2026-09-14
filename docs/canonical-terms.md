@@ -7,7 +7,7 @@ Working language: English. Product content and source metadata: English and Ukra
 | NanoDuck Consulting Group | Exact current product name; NanoDuck and Consulting Group may form two lines of one wordmark. | Personal AI Consulting Group as current UI branding; implying a human firm |
 | Personal AI Consulting Group | Historical name of the existing GoDaddy app; retain it only for legacy evidence and exact deployment targeting. | Renaming or broadening the deployment target |
 | Settings | Literal navigation label for models, reasoning, specialist count, discussion depth and account actions. | Your space; Preferences as the destination name |
-| Head Consultant | Separately invoked coordinator: selects an Auto team internally, gives concise visible tasks to selected specialists, then authors the final owner-facing synthesis. | A fictional human partner or a pre-conclusion adviser |
+| Head Consultant | Separately invoked coordinator: selects an Auto team internally, gives concise case-specific visible tasks to selected specialists, then authors the final owner-facing synthesis. | A fictional human partner or a pre-conclusion adviser |
 | Consultant / specialist | Separate AI context with a relevant assignment. | Several role labels on one completion |
 | Spiritual Consultant | AI specialist using evangelical Protestant doctrine: Jesus Christ as Lord and Saviour, finished work, salvation by faith alone and salvation that cannot be lost. | Esoteric, occult, syncretic, manifestation or therapeutic claims |
 | Psychotherapist | AI specialist that may use major classical psychotherapy schools and Internal Family Systems, without diagnosing or replacing clinical/emergency care. | A licensed human clinician or emergency service |

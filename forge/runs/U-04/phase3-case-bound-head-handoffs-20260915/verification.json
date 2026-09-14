@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "unit": "U-04",
+  "run_id": "phase3-case-bound-head-handoffs-20260915",
+  "executor": "Codex local implementation runner",
+  "baseline_id": "nanoduck-electric-a-v8-20260914",
+  "scope": "Correct visible Head-to-specialist handoffs so they are case-specific, retry once when malformed or generic, bind each committed task to its named specialist, and preserve the existing Head -> specialist -> Critic topology. No GoDaddy application, database, migration, reset, deletion, deployment or external upload was contacted.",
+  "required_topology": [
+    "Head Consultant -> each selected specialist: task only",
+    "each selected specialist -> Critic: independent initial position",
+    "Critic -> relevant specialist -> Critic: selected-depth exchange",
+    "Head Consultant -> owner: final synthesis only"
+  ],
+  "checks": [
+    {
+      "name": "case-specific Head handoff",
+      "evidence": "test/consultation.test.mjs",
+      "observed": "Every accepted Head task must contain an anchor from the owner decision. Invalid, owner-facing or generic output is retried once; the final safe fallback contains the stated decision and a recipient-specific focus instead of a static role template.",
+      "result": "passed"
+    },
+    {
+      "name": "BTC routing regression",
+      "evidence": "test/consultation.test.mjs",
+      "observed": "For the reported BTC buy/sell/hold decision, malformed Head output yields visible Strategy and Finance briefs that retain BTC and their different decision focus. Each specialist provider call contains only its exact committed Head brief as its assigned task.",
+      "result": "passed"
+    },
+    {
+      "name": "full local regression suite",
+      "evidence": "npm test",
+      "observed": "42 Node tests passed; npm run check also passed its artifact and JavaScript checks.",
+      "result": "passed"
+    },
+    {
+      "name": "browser module and local recovery smoke test",
+      "evidence": "fresh localhost development instance at port 4322",
+      "observed": "The browser loaded the sign-in, consent and authenticated discussion surfaces after the Markdown parser was placed under src/client/, the server-mapped module directory. A non-sensitive local message entered the canonical discussion and showed the truthful unavailable-provider recovery state.",
+      "result": "passed",
+      "limit": "The isolated local instance had no provider authorization path, so this does not prove a real model consultation or live deployment."
+    },
+    {
+      "name": "provider capability preflight",
+      "evidence": "NODE_ENV=development DEV_OWNER_EMAIL=owner@local.test npm run preflight",
+      "observed": "The local shell had no configured Codex app-server authorization path, so capability status was unavailable. No provider turn, conversation, database access or GoDaddy mutation occurred.",
+      "result": "unavailable",
+      "limit": "This is not evidence for a real provider consultation, browser behavior, Safari/Chrome compatibility or deployment."
+    }
+  ],
+  "formal_release_status": {
+    "canonical_qa": "prepared / not_run",
+    "release_readiness": "not_evaluated"
+  },
+  "release_effect": "not_release_evidence"
+}
