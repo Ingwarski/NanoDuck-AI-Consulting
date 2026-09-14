@@ -97415,7 +97415,7 @@
   "prototype_promotions": [
     {
       "unit_id": "U-03",
-      "started_at": "2026-09-14T16:50:57+03:00",
+      "started_at": "2026-09-14T17:01:14+03:00",
       "base_commit": "f99744d603b4e27cb7e89eccde2f12b9652e8a01",
       "path_mappings": [
         {
@@ -97445,8 +97445,8 @@
         }
       ],
       "receipt": {
-        "path": "forge/runs/U-03/phase3-role-language-policy-20260914/prototype-promotion.json",
-        "content_hash": "2d8dd12b34c7700f15e15db6390a1885f1862be2abf74df1f67dcaf849d984c3"
+        "path": "forge/runs/U-03/phase3-ultra-pace-20260914/prototype-promotion.json",
+        "content_hash": "2e24cc60ffa3f8628e19dcb2e2019669a610de01fcdf1829101af993834b77f1"
       }
     }
   ]
