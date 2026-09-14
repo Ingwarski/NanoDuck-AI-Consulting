@@ -184,19 +184,17 @@ test("the authenticated discussion preserves two specialists, Critic and a revis
     });
     assert.deepEqual(detail.events.map(event => [event.role, event.recipient]), [
       ["owner", null],
-      ["Head Consultant", "Strategy Consultant"],
-      ["Strategy Consultant", "Critic"],
-      ["Finance Consultant", "Strategy Consultant"],
-      ["Critic", "Strategy Consultant"],
-      ["Strategy Consultant", "Critic"],
+      ["Head Consultant", "Strategy Consultant"], ["Head Consultant", "Finance Consultant"],
+      ["Strategy Consultant", "Critic"], ["Finance Consultant", "Critic"],
+      ["Critic", "Strategy Consultant"], ["Strategy Consultant", "Critic"],
       ["Head Consultant", null]
     ]);
-    assert.match(detail.events[4].body, /assumes those buyers will take calls/u);
-    assert.match(detail.events[5].body, /recruit calls from a defined prospect list/u);
-    assert.match(detail.events[6].body, /measure interview acceptance/u);
+    assert.match(detail.events[5].body, /assumes those buyers will take calls/u);
+    assert.match(detail.events[6].body, /recruit calls from a defined prospect list/u);
+    assert.match(detail.events[7].body, /measure interview acceptance/u);
     assert.equal(detail.events.every(event => !event.body.includes("nanoduck-source")), true);
-    assert.deepEqual(detail.events[1].sources.map(source => ({ title: source.title, url: source.url, claim: source.claim, publishedAt: source.publishedAt })), [{ title: "Buyer evidence", url: "https://example.com/buyer-evidence", claim: "Buyer willingness must be measured before positioning.", publishedAt: "2026-09-01" }]);
-    assert.match(detail.events[1].sources[0].retrievedAt, /^\d{4}-\d{2}-\d{2}T/u);
+    assert.deepEqual(detail.events[3].sources.map(source => ({ title: source.title, url: source.url, claim: source.claim, publishedAt: source.publishedAt })), [{ title: "Buyer evidence", url: "https://example.com/buyer-evidence", claim: "Buyer willingness must be measured before positioning.", publishedAt: "2026-09-01" }]);
+    assert.match(detail.events[3].sources[0].retrievedAt, /^\d{4}-\d{2}-\d{2}T/u);
     assert.equal(detail.events.some(event => event.role === "System"), false);
     const exported = await fetch(`${origin}/api/conversations/${conversationId}/export`, { headers: { cookie } });
     assert.equal(exported.status, 200);

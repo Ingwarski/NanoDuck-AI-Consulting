@@ -110,32 +110,46 @@ export function createConsultationService({ store, provider }) {
       }
 
       const candidates = specialistCandidates(first.owner);
+      const selectAutomaticTeam = async () => {
+        if (!await isCurrent()) return undefined;
+        const result = await provider.invoke({
+          assignment: `You are the Head Consultant. Choose the smallest useful team size from one to five for this decision from these candidate specialists, in activation order: ${candidates.join(", ")}. Return exactly [TEAM: N] and nothing else. This is an internal routing decision; do not answer the owner, give advice or explain the choice. ${language}`,
+          model: settings.head.model,
+          effort: settings.head.effort,
+          evidence: await current(),
+          research: false,
+          signal: controller.signal
+        });
+        if (!result.ok) throw new Error(result.code ?? "provider_unavailable");
+        return teamMarker(result.body).count;
+      };
       let selected = chosenCount(snapshot);
       if (!selected) {
-        const automaticOpening = { role: "Head Consultant", recipient: candidates[0], model: settings.head.model, effort: settings.head.effort, research, assignment: `You are the Head Consultant. Candidate specialists, in activation order, are ${candidates.join(", ")}. Choose the smallest useful team size from one to five for this decision. Begin your response with exactly [TEAM: N], using that number, then frame the practical decision, name decisive assumptions and give focused tasks to the activated specialists. Speak to the owner plainly. ${responseLength} ${language}` };
-        if (confirmed[0] && !matches(confirmed[0], automaticOpening)) throw new Error("invalid_run_state");
-        if (!confirmed[0]) {
-          const selectedByHead = await invoke(automaticOpening, teamMarker);
-          if (!selectedByHead) return;
-          selected = selectedByHead.count;
-        } else selected = 3;
+        const selectedByHead = await selectAutomaticTeam();
+        if (!selectedByHead) return;
+        selected = selectedByHead;
         await persistSnapshot({ resolvedSpecialistCount: selected });
         confirmed = (await current()).events.slice(ownerIndex + 1);
       }
       const team = candidates.slice(0, selected);
-      const primary = team[0];
-      const opening = { role: "Head Consultant", recipient: primary, model: settings.head.model, effort: settings.head.effort, research, assignment: `You are the Head Consultant. Frame the practical decision, name the decisive assumptions and give ${team.join(", ")} distinct focused tasks. Speak to the owner plainly. ${responseLength} ${language}` };
-      const initial = [opening, ...team.map((specialist, index) => ({
-        role: specialist,
-        recipient: index === 0 ? "Critic" : team[index - 1],
-        model: settings.consultant.model,
-        effort: settings.consultant.effort,
-        research,
-        assignment: index === 0
-          ? `You are the ${specialist}. Develop one concrete position that directly helps the owner decide. Address the Head's framing, use evidence where useful, and avoid ceremony.${guidanceFor(specialist)} ${responseLength} ${language}`
-          : `You are the ${specialist}. Examine the preceding consultant's position from your discipline. Add a concrete constraint, alternative or test that can change the decision. Address that consultant directly and avoid ceremony.${guidanceFor(specialist)} ${responseLength} ${language}`
-      }))];
-      if (confirmed.length && !matches(confirmed[0], opening)) throw new Error("invalid_run_state");
+      const initial = [
+        ...team.map(specialist => ({
+          role: "Head Consultant",
+          recipient: specialist,
+          model: settings.head.model,
+          effort: settings.head.effort,
+          research: false,
+          assignment: `You are the Head Consultant. Give only a concise, concrete task to the ${specialist} for this decision. Do not answer the owner, state your own position, recommend an action, list assumptions, explain the team or add any process wording. Use one or two imperative sentences addressed to the ${specialist}. ${language}`
+        })),
+        ...team.map(specialist => ({
+          role: specialist,
+          recipient: "Critic",
+          model: settings.consultant.model,
+          effort: settings.consultant.effort,
+          research,
+          assignment: `You are the ${specialist}. Answer the Head's task with your independent position for the Critic. State only the conclusion, evidence or test that matters from your discipline, and the material uncertainty. Address the Critic directly. Do not ask another specialist to act, speak for the Head or add ceremony.${guidanceFor(specialist)} ${responseLength} ${language}`
+        }))
+      ];
       for (let index = 0; index < initial.length; index += 1) {
         const existing = confirmed[index];
         if (existing) { if (!matches(existing, initial[index])) throw new Error("invalid_run_state"); }
@@ -170,7 +184,7 @@ export function createConsultationService({ store, provider }) {
         }
       }
       confirmed = (await current()).events.slice(ownerIndex + 1);
-      const conclusion = { role: "Head Consultant", recipient: null, model: settings.head.model, effort: settings.head.effort, research, assignment: `You are the Head Consultant. Close the discussion with a self-contained recommendation or a clearly bounded uncertainty, no more than three next actions, the main risk and a revisit condition. State agreement only if the actual messages support it. ${responseLength} ${language}` };
+      const conclusion = { role: "Head Consultant", recipient: null, model: settings.head.model, effort: settings.head.effort, research, assignment: `You are the Head Consultant. Write the only owner-facing synthesis after the actual specialist and Critic discussion. Do not introduce a fresh position or reopen task assignment. Give a self-contained recommendation or clearly bounded uncertainty, no more than three next actions, the main risk and a revisit condition. State agreement only if the actual messages support it. ${responseLength} ${language}` };
       if (confirmed[cursor]) {
         if (!matches(confirmed[cursor], conclusion) || confirmed.length !== cursor + 1) throw new Error("invalid_run_state");
       } else await invoke(conclusion);

@@ -8,13 +8,13 @@
     "product-idea": {
       "path": "docs/product-idea.md",
       "owner_skill": "to-product-idea",
-      "owner_invocation_id": "product-idea-owner-image-attachment-reconciliation-20260914T201337",
+      "owner_invocation_id": "product-idea-owner-role-topology-reconciliation-20260914T233310",
       "declared_output_set": [
         "docs/product-idea.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "product-idea-owner-image-attachment-reconciliation-20260914T201337",
+      "source_version": "product-idea-owner-role-topology-reconciliation-20260914T233310",
       "source_usage": {
         "docs/model-settings.md": "full",
         "docs/deployment-boundary.md": "full",
@@ -28,12 +28,12 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2"
       },
       "dependencies": [],
-      "content_hash": "0c026351d63c5dc6cddd062a956bcddb57c00607a1919b218f93a628c15484e0",
+      "content_hash": "90ea855d4c479c3d4e23e350a0de0d9e89be24b40d15c00c18e5590cd9e5fc6c",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "owner-image-attachment-reconciliation",
-        "reviewed_at": "2026-09-14T20:13:37+03:00",
+        "kind": "owner-role-topology-reconciliation",
+        "reviewed_at": "2026-09-14T23:33:10+03:00",
         "executor": "Codex inline to-product-idea"
       },
       "open_questions": [],
@@ -101,28 +101,28 @@
     "prd": {
       "path": "docs/prd.md",
       "owner_skill": "to-sdd-prd",
-      "owner_invocation_id": "prd-owner-image-attachment-reconciliation-20260914T201337",
+      "owner_invocation_id": "prd-owner-role-topology-reconciliation-20260914T233310",
       "declared_output_set": [
         "docs/prd.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "prd-owner-image-attachment-reconciliation-20260914T201337",
+      "source_version": "prd-owner-role-topology-reconciliation-20260914T233310",
       "source_usage": {
         "docs/product-idea.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "0c026351d63c5dc6cddd062a956bcddb57c00607a1919b218f93a628c15484e0"
+        "docs/product-idea.md": "90ea855d4c479c3d4e23e350a0de0d9e89be24b40d15c00c18e5590cd9e5fc6c"
       },
       "dependencies": [
         "product-idea"
       ],
-      "content_hash": "8e2cbd7ff0e97dad3ff93a269c478c6e333e7aa4c45e0e45896896574d653a51",
+      "content_hash": "b3ef59189aed3191d9bd02a3cb0c4d7da13c6e6f5f099eb7f2a02b2fe05efdcc",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "owner-image-attachment-reconciliation",
-        "reviewed_at": "2026-09-14T20:13:37+03:00",
+        "kind": "owner-role-topology-reconciliation",
+        "reviewed_at": "2026-09-14T23:33:10+03:00",
         "executor": "Codex inline to-sdd-prd"
       },
       "open_questions": [],
@@ -2352,21 +2352,21 @@
     "project-context": {
       "path": "docs/project-context.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "context-bundle-owner-image-attachment-reconciliation-20260914T201337",
+      "owner_invocation_id": "context-bundle-owner-role-topology-reconciliation-20260914T233310",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "context-bundle-owner-image-attachment-reconciliation-20260914T201337",
+      "source_version": "context-bundle-owner-role-topology-reconciliation-20260914T233310",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "0c026351d63c5dc6cddd062a956bcddb57c00607a1919b218f93a628c15484e0",
-        "docs/prd.md": "8e2cbd7ff0e97dad3ff93a269c478c6e333e7aa4c45e0e45896896574d653a51"
+        "docs/product-idea.md": "90ea855d4c479c3d4e23e350a0de0d9e89be24b40d15c00c18e5590cd9e5fc6c",
+        "docs/prd.md": "b3ef59189aed3191d9bd02a3cb0c4d7da13c6e6f5f099eb7f2a02b2fe05efdcc"
       },
       "dependencies": [
         "product-idea",
@@ -2376,8 +2376,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "owner-image-attachment-reconciliation",
-        "reviewed_at": "2026-09-14T20:13:37+03:00",
+        "kind": "owner-role-topology-reconciliation",
+        "reviewed_at": "2026-09-14T23:33:10+03:00",
         "executor": "Codex inline to-project-context"
       },
       "open_questions": [],
@@ -2386,32 +2386,32 @@
     "canonical-terms": {
       "path": "docs/canonical-terms.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "context-bundle-owner-image-attachment-reconciliation-20260914T201337",
+      "owner_invocation_id": "context-bundle-owner-role-topology-reconciliation-20260914T233310",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "context-bundle-owner-image-attachment-reconciliation-20260914T201337",
+      "source_version": "context-bundle-owner-role-topology-reconciliation-20260914T233310",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "0c026351d63c5dc6cddd062a956bcddb57c00607a1919b218f93a628c15484e0",
-        "docs/prd.md": "8e2cbd7ff0e97dad3ff93a269c478c6e333e7aa4c45e0e45896896574d653a51"
+        "docs/product-idea.md": "90ea855d4c479c3d4e23e350a0de0d9e89be24b40d15c00c18e5590cd9e5fc6c",
+        "docs/prd.md": "b3ef59189aed3191d9bd02a3cb0c4d7da13c6e6f5f099eb7f2a02b2fe05efdcc"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "5552a5e8386e5bbc4c577bc50ab7617ab4e94ced11c8f7d37ac30e8237c50c0b",
+      "content_hash": "1a01e068a57fbaec740b0cba9b0a785495eec99595c2b7d8565aa9aa61ad1c40",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "owner-image-attachment-reconciliation",
-        "reviewed_at": "2026-09-14T20:13:37+03:00",
+        "kind": "owner-role-topology-reconciliation",
+        "reviewed_at": "2026-09-14T23:33:10+03:00",
         "executor": "Codex inline to-project-context"
       },
       "open_questions": [],
@@ -2420,22 +2420,22 @@
     "guardrails": {
       "path": "docs/guardrails.md",
       "owner_skill": "to-guardrails",
-      "owner_invocation_id": "guardrails-owner-image-attachment-reconciliation-20260914T201337",
+      "owner_invocation_id": "guardrails-owner-role-topology-reconciliation-20260914T233310",
       "declared_output_set": [
         "docs/guardrails.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "guardrails-owner-image-attachment-reconciliation-20260914T201337",
+      "source_version": "guardrails-owner-role-topology-reconciliation-20260914T233310",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
         "docs/canonical-terms.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "8e2cbd7ff0e97dad3ff93a269c478c6e333e7aa4c45e0e45896896574d653a51",
+        "docs/prd.md": "b3ef59189aed3191d9bd02a3cb0c4d7da13c6e6f5f099eb7f2a02b2fe05efdcc",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "5552a5e8386e5bbc4c577bc50ab7617ab4e94ced11c8f7d37ac30e8237c50c0b"
+        "docs/canonical-terms.md": "1a01e068a57fbaec740b0cba9b0a785495eec99595c2b7d8565aa9aa61ad1c40"
       },
       "dependencies": [
         "prd",
@@ -2446,8 +2446,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "owner-image-attachment-reconciliation",
-        "reviewed_at": "2026-09-14T20:13:37+03:00",
+        "kind": "owner-role-topology-reconciliation",
+        "reviewed_at": "2026-09-14T23:33:10+03:00",
         "executor": "Codex inline to-guardrails"
       },
       "open_questions": [],
@@ -2456,13 +2456,13 @@
     "user-journey": {
       "path": "docs/user-journey.md",
       "owner_skill": "to-user-journey",
-      "owner_invocation_id": "user-journey-owner-image-attachment-reconciliation-20260914T201337",
+      "owner_invocation_id": "user-journey-owner-role-topology-reconciliation-20260914T233310",
       "declared_output_set": [
         "docs/user-journey.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "user-journey-owner-image-attachment-reconciliation-20260914T201337",
+      "source_version": "user-journey-owner-role-topology-reconciliation-20260914T233310",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2470,9 +2470,9 @@
         "docs/guardrails.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "8e2cbd7ff0e97dad3ff93a269c478c6e333e7aa4c45e0e45896896574d653a51",
+        "docs/prd.md": "b3ef59189aed3191d9bd02a3cb0c4d7da13c6e6f5f099eb7f2a02b2fe05efdcc",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "5552a5e8386e5bbc4c577bc50ab7617ab4e94ced11c8f7d37ac30e8237c50c0b",
+        "docs/canonical-terms.md": "1a01e068a57fbaec740b0cba9b0a785495eec99595c2b7d8565aa9aa61ad1c40",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041"
       },
       "dependencies": [
@@ -2481,12 +2481,12 @@
         "canonical-terms",
         "guardrails"
       ],
-      "content_hash": "d012ccc17842f24c24a81a3dbdf048d84940fbb15879656ea18e8b6255687b04",
+      "content_hash": "072a53ce1fe9ff0e8fc74b5567490099b096fa4da13beaaf6964b8b5c4b10b2a",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "owner-image-attachment-reconciliation",
-        "reviewed_at": "2026-09-14T20:13:37+03:00",
+        "kind": "owner-role-topology-reconciliation",
+        "reviewed_at": "2026-09-14T23:33:10+03:00",
         "executor": "Codex inline to-user-journey"
       },
       "open_questions": [],
@@ -2495,13 +2495,13 @@
     "screen-map": {
       "path": "docs/screen-map.md",
       "owner_skill": "to-screen-map",
-      "owner_invocation_id": "screen-map-owner-image-attachment-reconciliation-20260914T201337",
+      "owner_invocation_id": "screen-map-owner-role-topology-reconciliation-20260914T233310",
       "declared_output_set": [
         "docs/screen-map.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "screen-map-owner-image-attachment-reconciliation-20260914T201337",
+      "source_version": "screen-map-owner-role-topology-reconciliation-20260914T233310",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2513,11 +2513,11 @@
         "forge/design/candidates/c/v1/app.js": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "8e2cbd7ff0e97dad3ff93a269c478c6e333e7aa4c45e0e45896896574d653a51",
+        "docs/prd.md": "b3ef59189aed3191d9bd02a3cb0c4d7da13c6e6f5f099eb7f2a02b2fe05efdcc",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "5552a5e8386e5bbc4c577bc50ab7617ab4e94ced11c8f7d37ac30e8237c50c0b",
+        "docs/canonical-terms.md": "1a01e068a57fbaec740b0cba9b0a785495eec99595c2b7d8565aa9aa61ad1c40",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041",
-        "docs/user-journey.md": "d012ccc17842f24c24a81a3dbdf048d84940fbb15879656ea18e8b6255687b04",
+        "docs/user-journey.md": "072a53ce1fe9ff0e8fc74b5567490099b096fa4da13beaaf6964b8b5c4b10b2a",
         "forge/design/candidates/a/v1/app.js": "a869dd42c95740bf7da4802934c3cd6f8d2e2243795ee20925cd5ee19f474531",
         "forge/design/candidates/b/v1/app.js": "17e37807a032c5ea1660efca698e21dc8baf29a3c5344067470b6b44311f9b39",
         "forge/design/candidates/c/v1/app.js": "f64ab8a6962cc700c8087803d33ecda68884da78158ea0e5547235c6d4fff530"
@@ -2533,8 +2533,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "owner-image-attachment-reconciliation",
-        "reviewed_at": "2026-09-14T20:13:37+03:00",
+        "kind": "owner-role-topology-reconciliation",
+        "reviewed_at": "2026-09-14T23:33:10+03:00",
         "executor": "Codex inline to-screen-map"
       },
       "open_questions": [],
@@ -3548,13 +3548,13 @@
     "wireframes": {
       "path": "docs/wireframes.md",
       "owner_skill": "to-wireframes",
-      "owner_invocation_id": "wireframes-owner-image-attachment-reconciliation-20260914T201337",
+      "owner_invocation_id": "wireframes-owner-role-topology-reconciliation-20260914T233310",
       "declared_output_set": [
         "docs/wireframes.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "wireframes-owner-image-attachment-reconciliation-20260914T201337",
+      "source_version": "wireframes-owner-role-topology-reconciliation-20260914T233310",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3564,11 +3564,11 @@
         "docs/screen-map.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "8e2cbd7ff0e97dad3ff93a269c478c6e333e7aa4c45e0e45896896574d653a51",
+        "docs/prd.md": "b3ef59189aed3191d9bd02a3cb0c4d7da13c6e6f5f099eb7f2a02b2fe05efdcc",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "5552a5e8386e5bbc4c577bc50ab7617ab4e94ced11c8f7d37ac30e8237c50c0b",
+        "docs/canonical-terms.md": "1a01e068a57fbaec740b0cba9b0a785495eec99595c2b7d8565aa9aa61ad1c40",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041",
-        "docs/user-journey.md": "d012ccc17842f24c24a81a3dbdf048d84940fbb15879656ea18e8b6255687b04",
+        "docs/user-journey.md": "072a53ce1fe9ff0e8fc74b5567490099b096fa4da13beaaf6964b8b5c4b10b2a",
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51"
       },
       "dependencies": [
@@ -3583,8 +3583,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "owner-image-attachment-reconciliation",
-        "reviewed_at": "2026-09-14T20:13:37+03:00",
+        "kind": "owner-role-topology-reconciliation",
+        "reviewed_at": "2026-09-14T23:33:10+03:00",
         "executor": "Codex inline to-wireframes"
       },
       "open_questions": [],
@@ -3593,13 +3593,13 @@
     "design-brief": {
       "path": "docs/design-brief.md",
       "owner_skill": "to-design-brief",
-      "owner_invocation_id": "design-brief-owner-image-attachment-reconciliation-20260914T201337",
+      "owner_invocation_id": "design-brief-owner-role-topology-reconciliation-20260914T233310",
       "declared_output_set": [
         "docs/design-brief.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "design-brief-owner-image-attachment-reconciliation-20260914T201337",
+      "source_version": "design-brief-owner-role-topology-reconciliation-20260914T233310",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3655,14 +3655,14 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "8e2cbd7ff0e97dad3ff93a269c478c6e333e7aa4c45e0e45896896574d653a51",
+        "docs/prd.md": "b3ef59189aed3191d9bd02a3cb0c4d7da13c6e6f5f099eb7f2a02b2fe05efdcc",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "5552a5e8386e5bbc4c577bc50ab7617ab4e94ced11c8f7d37ac30e8237c50c0b",
+        "docs/canonical-terms.md": "1a01e068a57fbaec740b0cba9b0a785495eec99595c2b7d8565aa9aa61ad1c40",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041",
-        "docs/user-journey.md": "d012ccc17842f24c24a81a3dbdf048d84940fbb15879656ea18e8b6255687b04",
+        "docs/user-journey.md": "072a53ce1fe9ff0e8fc74b5567490099b096fa4da13beaaf6964b8b5c4b10b2a",
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51",
         "docs/wireframes.md": "e4421b28906eb78359efc559edd26a47e5e80c734a52178694f59540cfaa3fb5",
-        "docs/product-idea.md": "0c026351d63c5dc6cddd062a956bcddb57c00607a1919b218f93a628c15484e0",
+        "docs/product-idea.md": "90ea855d4c479c3d4e23e350a0de0d9e89be24b40d15c00c18e5590cd9e5fc6c",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "prototype/styles.css": "ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925",
         "prototype/app.js": "b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54",
@@ -3721,8 +3721,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "owner-image-attachment-reconciliation",
-        "reviewed_at": "2026-09-14T20:13:37+03:00",
+        "kind": "owner-role-topology-reconciliation",
+        "reviewed_at": "2026-09-14T23:33:10+03:00",
         "executor": "Codex inline to-design-brief"
       },
       "open_questions": [],
@@ -3731,13 +3731,13 @@
     "architecture": {
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "architecture-owner-image-attachment-reconciliation-20260914T201337",
+      "owner_invocation_id": "architecture-owner-role-topology-reconciliation-20260914T233310",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "architecture-owner-image-attachment-reconciliation-20260914T201337",
+      "source_version": "architecture-owner-role-topology-reconciliation-20260914T233310",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3752,11 +3752,11 @@
         "forge/runs/U-06/browser-speech-uk-20260914/README.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "8e2cbd7ff0e97dad3ff93a269c478c6e333e7aa4c45e0e45896896574d653a51",
+        "docs/prd.md": "b3ef59189aed3191d9bd02a3cb0c4d7da13c6e6f5f099eb7f2a02b2fe05efdcc",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "5552a5e8386e5bbc4c577bc50ab7617ab4e94ced11c8f7d37ac30e8237c50c0b",
+        "docs/canonical-terms.md": "1a01e068a57fbaec740b0cba9b0a785495eec99595c2b7d8565aa9aa61ad1c40",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041",
-        "docs/user-journey.md": "d012ccc17842f24c24a81a3dbdf048d84940fbb15879656ea18e8b6255687b04",
+        "docs/user-journey.md": "072a53ce1fe9ff0e8fc74b5567490099b096fa4da13beaaf6964b8b5c4b10b2a",
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51",
         "docs/wireframes.md": "e4421b28906eb78359efc559edd26a47e5e80c734a52178694f59540cfaa3fb5",
         "docs/design-brief.md": "9a7d6ed8031ae8b4231c23138f051014ec293df411bd78a8bdfb87c0ce551f6c",
@@ -3774,12 +3774,12 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "5f2ac6330855a479c11e7019c01fedd562baaac995f34127ff2a36323a6787dc",
+      "content_hash": "98278642479be259a67b5757e6e6bb41836af34bc6899091722f583f0f64ed11",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "owner-image-attachment-reconciliation",
-        "reviewed_at": "2026-09-14T20:13:37+03:00",
+        "kind": "owner-role-topology-reconciliation",
+        "reviewed_at": "2026-09-14T23:33:10+03:00",
         "executor": "Codex inline to-architecture"
       },
       "open_questions": [],
@@ -3859,13 +3859,13 @@
     "dod-evals": {
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "dod-evals-owner-image-attachment-reconciliation-20260914T201337",
+      "owner_invocation_id": "dod-evals-owner-role-topology-reconciliation-20260914T233310",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "dod-evals-owner-image-attachment-reconciliation-20260914T201337",
+      "source_version": "dod-evals-owner-role-topology-reconciliation-20260914T233310",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3878,15 +3878,15 @@
         "docs/architecture.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "8e2cbd7ff0e97dad3ff93a269c478c6e333e7aa4c45e0e45896896574d653a51",
+        "docs/prd.md": "b3ef59189aed3191d9bd02a3cb0c4d7da13c6e6f5f099eb7f2a02b2fe05efdcc",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "5552a5e8386e5bbc4c577bc50ab7617ab4e94ced11c8f7d37ac30e8237c50c0b",
+        "docs/canonical-terms.md": "1a01e068a57fbaec740b0cba9b0a785495eec99595c2b7d8565aa9aa61ad1c40",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041",
-        "docs/user-journey.md": "d012ccc17842f24c24a81a3dbdf048d84940fbb15879656ea18e8b6255687b04",
+        "docs/user-journey.md": "072a53ce1fe9ff0e8fc74b5567490099b096fa4da13beaaf6964b8b5c4b10b2a",
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51",
         "docs/wireframes.md": "e4421b28906eb78359efc559edd26a47e5e80c734a52178694f59540cfaa3fb5",
         "docs/design-brief.md": "9a7d6ed8031ae8b4231c23138f051014ec293df411bd78a8bdfb87c0ce551f6c",
-        "docs/architecture.md": "5f2ac6330855a479c11e7019c01fedd562baaac995f34127ff2a36323a6787dc"
+        "docs/architecture.md": "98278642479be259a67b5757e6e6bb41836af34bc6899091722f583f0f64ed11"
       },
       "dependencies": [
         "prd",
@@ -3899,12 +3899,12 @@
         "design-brief",
         "architecture"
       ],
-      "content_hash": "d6ba33818e146ca1fe7b64457ee956f21e9eb2d518d248761339fe3441594ef7",
+      "content_hash": "cba2ffc77ec3ed2c915e2a3f7be18264ab288d5b5df08799e4e79c7619cef0cf",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "owner-image-attachment-reconciliation",
-        "reviewed_at": "2026-09-14T20:13:37+03:00",
+        "kind": "owner-role-topology-reconciliation",
+        "reviewed_at": "2026-09-14T23:33:10+03:00",
         "executor": "Codex inline to-dod-evals"
       },
       "open_questions": [],
@@ -3984,13 +3984,13 @@
     "qa-checklist": {
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "qa-checklist-owner-image-attachment-reconciliation-20260914T201337",
+      "owner_invocation_id": "qa-checklist-owner-role-topology-reconciliation-20260914T233310",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "qa-checklist-owner-image-attachment-reconciliation-20260914T201337",
+      "source_version": "qa-checklist-owner-role-topology-reconciliation-20260914T233310",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -4008,16 +4008,16 @@
         "forge/design/evidence/c-v1-visual-qa.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "8e2cbd7ff0e97dad3ff93a269c478c6e333e7aa4c45e0e45896896574d653a51",
+        "docs/prd.md": "b3ef59189aed3191d9bd02a3cb0c4d7da13c6e6f5f099eb7f2a02b2fe05efdcc",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "5552a5e8386e5bbc4c577bc50ab7617ab4e94ced11c8f7d37ac30e8237c50c0b",
+        "docs/canonical-terms.md": "1a01e068a57fbaec740b0cba9b0a785495eec99595c2b7d8565aa9aa61ad1c40",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041",
-        "docs/user-journey.md": "d012ccc17842f24c24a81a3dbdf048d84940fbb15879656ea18e8b6255687b04",
+        "docs/user-journey.md": "072a53ce1fe9ff0e8fc74b5567490099b096fa4da13beaaf6964b8b5c4b10b2a",
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51",
         "docs/wireframes.md": "e4421b28906eb78359efc559edd26a47e5e80c734a52178694f59540cfaa3fb5",
         "docs/design-brief.md": "9a7d6ed8031ae8b4231c23138f051014ec293df411bd78a8bdfb87c0ce551f6c",
-        "docs/architecture.md": "5f2ac6330855a479c11e7019c01fedd562baaac995f34127ff2a36323a6787dc",
-        "docs/dod-evals.md": "d6ba33818e146ca1fe7b64457ee956f21e9eb2d518d248761339fe3441594ef7",
+        "docs/architecture.md": "98278642479be259a67b5757e6e6bb41836af34bc6899091722f583f0f64ed11",
+        "docs/dod-evals.md": "cba2ffc77ec3ed2c915e2a3f7be18264ab288d5b5df08799e4e79c7619cef0cf",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
         "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
@@ -4035,12 +4035,12 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "ed786ae692f12d39f52308f2ab2d81e6fcf7e0f5c61c1b797e1dbcaca1325615",
+      "content_hash": "674c987a75c819033ee2853d48ebef00947c99860ad23dc765df48a502c5913f",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "owner-image-attachment-reconciliation",
-        "reviewed_at": "2026-09-14T20:13:37+03:00",
+        "kind": "owner-role-topology-reconciliation",
+        "reviewed_at": "2026-09-14T23:33:10+03:00",
         "executor": "Codex inline to-qa-checklist"
       },
       "open_questions": [],
@@ -5791,13 +5791,13 @@
     "development-plan": {
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "development-plan-owner-image-attachment-reconciliation-20260914T201337",
+      "owner_invocation_id": "development-plan-owner-role-topology-reconciliation-20260914T233310",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "development-plan-owner-image-attachment-reconciliation-20260914T201337",
+      "source_version": "development-plan-owner-role-topology-reconciliation-20260914T233310",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -5821,17 +5821,17 @@
         "forge/design/candidates/a/v8/app.js": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "8e2cbd7ff0e97dad3ff93a269c478c6e333e7aa4c45e0e45896896574d653a51",
+        "docs/prd.md": "b3ef59189aed3191d9bd02a3cb0c4d7da13c6e6f5f099eb7f2a02b2fe05efdcc",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "5552a5e8386e5bbc4c577bc50ab7617ab4e94ced11c8f7d37ac30e8237c50c0b",
+        "docs/canonical-terms.md": "1a01e068a57fbaec740b0cba9b0a785495eec99595c2b7d8565aa9aa61ad1c40",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041",
-        "docs/user-journey.md": "d012ccc17842f24c24a81a3dbdf048d84940fbb15879656ea18e8b6255687b04",
+        "docs/user-journey.md": "072a53ce1fe9ff0e8fc74b5567490099b096fa4da13beaaf6964b8b5c4b10b2a",
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51",
         "docs/wireframes.md": "e4421b28906eb78359efc559edd26a47e5e80c734a52178694f59540cfaa3fb5",
         "docs/design-brief.md": "9a7d6ed8031ae8b4231c23138f051014ec293df411bd78a8bdfb87c0ce551f6c",
-        "docs/architecture.md": "5f2ac6330855a479c11e7019c01fedd562baaac995f34127ff2a36323a6787dc",
-        "docs/dod-evals.md": "d6ba33818e146ca1fe7b64457ee956f21e9eb2d518d248761339fe3441594ef7",
-        "docs/qa-checklist.md": "ed786ae692f12d39f52308f2ab2d81e6fcf7e0f5c61c1b797e1dbcaca1325615",
+        "docs/architecture.md": "98278642479be259a67b5757e6e6bb41836af34bc6899091722f583f0f64ed11",
+        "docs/dod-evals.md": "cba2ffc77ec3ed2c915e2a3f7be18264ab288d5b5df08799e4e79c7619cef0cf",
+        "docs/qa-checklist.md": "674c987a75c819033ee2853d48ebef00947c99860ad23dc765df48a502c5913f",
         "docs/model-settings.md": "86801751744742aa44a41b9f6d5c5192eabd22423323c83bdbddec431e47b4d5",
         "docs/deployment-boundary.md": "e57776bcde6bb00d6dceb6200e02303124cfdf4f1272c72eb474b50a3949df83",
         "package.json": "09ee36e63b46084b99ec90a6793a50ff5e36c466bd46faf2b6da802f55089343",
@@ -5855,12 +5855,12 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "1687bb3f44dfad54074e252bd5b3dc9c19631fe67510e7ceff1aba38407e1843",
+      "content_hash": "36bab1115f5405af4a40c8bb8c4c716962b0908cf4250099591b3afab5bab387",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "owner-image-attachment-reconciliation",
-        "reviewed_at": "2026-09-14T20:13:37+03:00",
+        "kind": "owner-role-topology-reconciliation",
+        "reviewed_at": "2026-09-14T23:33:10+03:00",
         "executor": "Codex inline to-development-plan"
       },
       "supersedes": "development-plan-consultation-controls-reconciliation-20260914T172500",
@@ -7554,18 +7554,18 @@
   ],
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "1687bb3f44dfad54074e252bd5b3dc9c19631fe67510e7ceff1aba38407e1843",
+    "development_plan_hash": "36bab1115f5405af4a40c8bb8c4c716962b0908cf4250099591b3afab5bab387",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-14T20:13:37+03:00",
-    "prompt_id": "impl-20260914-u08-integrated-verification",
-    "prompt_received_at": "2026-09-14T18:45:45.995Z",
-    "released_at": "2026-09-14T18:45:45.995Z",
+    "prompt_id": "impl-20260914-u04-role-topology",
+    "prompt_received_at": "2026-09-14T20:33:10Z",
+    "released_at": "2026-09-14T20:33:10Z",
     "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
     "prompt_receipt": {
-      "path": "forge/runs/implementation-prompt-20260914-u08-integrated-verification.json",
-      "content_hash": "ab4aee45ae3bf8bacbd3ff19acd38ed335c63d39aad6351fc2cff585366a7f59"
+      "path": "forge/runs/implementation-prompt-20260914-u04-role-topology.json",
+      "content_hash": "031dd402f1aec699fbe646b41053c2cb6bb2bd4fdd5fb78f8466078ce37ccb50"
     },
-    "reason": "The owner explicitly authorized U-08 local integration verification and non-deploying cutover preparation from the current plan. Deployment, live provider connection, GoDaddy data reset and database migration remain outside authorization."
+    "reason": "The owner explicitly corrected the U-04 consultation topology. Local implementation, deterministic checks and a synthetic local multi-agent provider check are authorized; deployment, GoDaddy data operations and external changes remain outside authorization."
   },
   "input_requests": [],
   "last_resume_event": {
@@ -7777,11 +7777,23 @@
         "named operational owners and deadlines",
         "missing source-bound U-02, U-04 and U-05 acceptance receipts"
       ]
+    },
+    {
+      "event": "u04_recipient_topology_correction_authorized",
+      "at": "2026-09-14T20:33:10Z",
+      "prompt_id": "impl-20260914-u04-role-topology",
+      "development_plan_hash": "36bab1115f5405af4a40c8bb8c4c716962b0908cf4250099591b3afab5bab387",
+      "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
+      "verification_receipt": {
+        "path": "forge/runs/U-04/phase3-recipient-topology-correction-20260914/verification.json",
+        "content_hash": "336ba63f83f3a76610f002807321194ceb412fe26e8c6642287de67315ae7280"
+      },
+      "decision": "Correct Head task-only routing, specialist-to-Critic initial positions, Critic-specialist exchanges and one final Head synthesis. Deterministic tests and one synthetic local actual-provider consultation observe the recipient matrix. No GoDaddy operation is authorized or performed."
     }
   ],
   "dispatches": {
     "product-idea": {
-      "invocation_id": "product-idea-owner-image-attachment-reconciliation-20260914T201337",
+      "invocation_id": "product-idea-owner-role-topology-reconciliation-20260914T233310",
       "outputs": [
         "docs/product-idea.md"
       ],
@@ -7794,75 +7806,75 @@
       "consumed_source_fragments": {}
     },
     "prd": {
-      "invocation_id": "prd-owner-image-attachment-reconciliation-20260914T201337",
+      "invocation_id": "prd-owner-role-topology-reconciliation-20260914T233310",
       "outputs": [
         "docs/prd.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "0c026351d63c5dc6cddd062a956bcddb57c00607a1919b218f93a628c15484e0"
+        "docs/product-idea.md": "90ea855d4c479c3d4e23e350a0de0d9e89be24b40d15c00c18e5590cd9e5fc6c"
       },
       "consumed_source_fragments": {}
     },
     "project-context": {
-      "invocation_id": "context-bundle-owner-image-attachment-reconciliation-20260914T201337",
+      "invocation_id": "context-bundle-owner-role-topology-reconciliation-20260914T233310",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "0c026351d63c5dc6cddd062a956bcddb57c00607a1919b218f93a628c15484e0",
-        "docs/prd.md": "8e2cbd7ff0e97dad3ff93a269c478c6e333e7aa4c45e0e45896896574d653a51"
+        "docs/product-idea.md": "90ea855d4c479c3d4e23e350a0de0d9e89be24b40d15c00c18e5590cd9e5fc6c",
+        "docs/prd.md": "b3ef59189aed3191d9bd02a3cb0c4d7da13c6e6f5f099eb7f2a02b2fe05efdcc"
       },
       "consumed_source_fragments": {}
     },
     "canonical-terms": {
-      "invocation_id": "context-bundle-owner-image-attachment-reconciliation-20260914T201337",
+      "invocation_id": "context-bundle-owner-role-topology-reconciliation-20260914T233310",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "0c026351d63c5dc6cddd062a956bcddb57c00607a1919b218f93a628c15484e0",
-        "docs/prd.md": "8e2cbd7ff0e97dad3ff93a269c478c6e333e7aa4c45e0e45896896574d653a51"
+        "docs/product-idea.md": "90ea855d4c479c3d4e23e350a0de0d9e89be24b40d15c00c18e5590cd9e5fc6c",
+        "docs/prd.md": "b3ef59189aed3191d9bd02a3cb0c4d7da13c6e6f5f099eb7f2a02b2fe05efdcc"
       },
       "consumed_source_fragments": {}
     },
     "guardrails": {
-      "invocation_id": "guardrails-owner-image-attachment-reconciliation-20260914T201337",
+      "invocation_id": "guardrails-owner-role-topology-reconciliation-20260914T233310",
       "outputs": [
         "docs/guardrails.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "8e2cbd7ff0e97dad3ff93a269c478c6e333e7aa4c45e0e45896896574d653a51",
+        "docs/prd.md": "b3ef59189aed3191d9bd02a3cb0c4d7da13c6e6f5f099eb7f2a02b2fe05efdcc",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "5552a5e8386e5bbc4c577bc50ab7617ab4e94ced11c8f7d37ac30e8237c50c0b"
+        "docs/canonical-terms.md": "1a01e068a57fbaec740b0cba9b0a785495eec99595c2b7d8565aa9aa61ad1c40"
       },
       "consumed_source_fragments": {}
     },
     "user-journey": {
-      "invocation_id": "user-journey-owner-image-attachment-reconciliation-20260914T201337",
+      "invocation_id": "user-journey-owner-role-topology-reconciliation-20260914T233310",
       "outputs": [
         "docs/user-journey.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "8e2cbd7ff0e97dad3ff93a269c478c6e333e7aa4c45e0e45896896574d653a51",
+        "docs/prd.md": "b3ef59189aed3191d9bd02a3cb0c4d7da13c6e6f5f099eb7f2a02b2fe05efdcc",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "5552a5e8386e5bbc4c577bc50ab7617ab4e94ced11c8f7d37ac30e8237c50c0b",
+        "docs/canonical-terms.md": "1a01e068a57fbaec740b0cba9b0a785495eec99595c2b7d8565aa9aa61ad1c40",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041"
       },
       "consumed_source_fragments": {}
     },
     "screen-map": {
-      "invocation_id": "screen-map-owner-image-attachment-reconciliation-20260914T201337",
+      "invocation_id": "screen-map-owner-role-topology-reconciliation-20260914T233310",
       "outputs": [
         "docs/screen-map.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "8e2cbd7ff0e97dad3ff93a269c478c6e333e7aa4c45e0e45896896574d653a51",
+        "docs/prd.md": "b3ef59189aed3191d9bd02a3cb0c4d7da13c6e6f5f099eb7f2a02b2fe05efdcc",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "5552a5e8386e5bbc4c577bc50ab7617ab4e94ced11c8f7d37ac30e8237c50c0b",
+        "docs/canonical-terms.md": "1a01e068a57fbaec740b0cba9b0a785495eec99595c2b7d8565aa9aa61ad1c40",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041",
-        "docs/user-journey.md": "d012ccc17842f24c24a81a3dbdf048d84940fbb15879656ea18e8b6255687b04",
+        "docs/user-journey.md": "072a53ce1fe9ff0e8fc74b5567490099b096fa4da13beaaf6964b8b5c4b10b2a",
         "forge/design/candidates/a/v1/app.js": "a869dd42c95740bf7da4802934c3cd6f8d2e2243795ee20925cd5ee19f474531",
         "forge/design/candidates/b/v1/app.js": "17e37807a032c5ea1660efca698e21dc8baf29a3c5344067470b6b44311f9b39",
         "forge/design/candidates/c/v1/app.js": "f64ab8a6962cc700c8087803d33ecda68884da78158ea0e5547235c6d4fff530"
@@ -7870,34 +7882,34 @@
       "consumed_source_fragments": {}
     },
     "wireframes": {
-      "invocation_id": "wireframes-owner-image-attachment-reconciliation-20260914T201337",
+      "invocation_id": "wireframes-owner-role-topology-reconciliation-20260914T233310",
       "outputs": [
         "docs/wireframes.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "8e2cbd7ff0e97dad3ff93a269c478c6e333e7aa4c45e0e45896896574d653a51",
+        "docs/prd.md": "b3ef59189aed3191d9bd02a3cb0c4d7da13c6e6f5f099eb7f2a02b2fe05efdcc",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "5552a5e8386e5bbc4c577bc50ab7617ab4e94ced11c8f7d37ac30e8237c50c0b",
+        "docs/canonical-terms.md": "1a01e068a57fbaec740b0cba9b0a785495eec99595c2b7d8565aa9aa61ad1c40",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041",
-        "docs/user-journey.md": "d012ccc17842f24c24a81a3dbdf048d84940fbb15879656ea18e8b6255687b04",
+        "docs/user-journey.md": "072a53ce1fe9ff0e8fc74b5567490099b096fa4da13beaaf6964b8b5c4b10b2a",
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51"
       },
       "consumed_source_fragments": {}
     },
     "design-brief": {
-      "invocation_id": "design-brief-owner-image-attachment-reconciliation-20260914T201337",
+      "invocation_id": "design-brief-owner-role-topology-reconciliation-20260914T233310",
       "outputs": [
         "docs/design-brief.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "8e2cbd7ff0e97dad3ff93a269c478c6e333e7aa4c45e0e45896896574d653a51",
+        "docs/prd.md": "b3ef59189aed3191d9bd02a3cb0c4d7da13c6e6f5f099eb7f2a02b2fe05efdcc",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "5552a5e8386e5bbc4c577bc50ab7617ab4e94ced11c8f7d37ac30e8237c50c0b",
+        "docs/canonical-terms.md": "1a01e068a57fbaec740b0cba9b0a785495eec99595c2b7d8565aa9aa61ad1c40",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041",
-        "docs/user-journey.md": "d012ccc17842f24c24a81a3dbdf048d84940fbb15879656ea18e8b6255687b04",
+        "docs/user-journey.md": "072a53ce1fe9ff0e8fc74b5567490099b096fa4da13beaaf6964b8b5c4b10b2a",
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51",
         "docs/wireframes.md": "e4421b28906eb78359efc559edd26a47e5e80c734a52178694f59540cfaa3fb5",
-        "docs/product-idea.md": "0c026351d63c5dc6cddd062a956bcddb57c00607a1919b218f93a628c15484e0",
+        "docs/product-idea.md": "90ea855d4c479c3d4e23e350a0de0d9e89be24b40d15c00c18e5590cd9e5fc6c",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "prototype/styles.css": "ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925",
         "prototype/app.js": "b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54",
@@ -7946,16 +7958,16 @@
       "consumed_source_fragments": {}
     },
     "architecture": {
-      "invocation_id": "architecture-owner-image-attachment-reconciliation-20260914T201337",
+      "invocation_id": "architecture-owner-role-topology-reconciliation-20260914T233310",
       "outputs": [
         "docs/architecture.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "8e2cbd7ff0e97dad3ff93a269c478c6e333e7aa4c45e0e45896896574d653a51",
+        "docs/prd.md": "b3ef59189aed3191d9bd02a3cb0c4d7da13c6e6f5f099eb7f2a02b2fe05efdcc",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "5552a5e8386e5bbc4c577bc50ab7617ab4e94ced11c8f7d37ac30e8237c50c0b",
+        "docs/canonical-terms.md": "1a01e068a57fbaec740b0cba9b0a785495eec99595c2b7d8565aa9aa61ad1c40",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041",
-        "docs/user-journey.md": "d012ccc17842f24c24a81a3dbdf048d84940fbb15879656ea18e8b6255687b04",
+        "docs/user-journey.md": "072a53ce1fe9ff0e8fc74b5567490099b096fa4da13beaaf6964b8b5c4b10b2a",
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51",
         "docs/wireframes.md": "e4421b28906eb78359efc559edd26a47e5e80c734a52178694f59540cfaa3fb5",
         "docs/design-brief.md": "9a7d6ed8031ae8b4231c23138f051014ec293df411bd78a8bdfb87c0ce551f6c",
@@ -7966,39 +7978,39 @@
       "consumed_source_fragments": {}
     },
     "dod-evals": {
-      "invocation_id": "dod-evals-owner-image-attachment-reconciliation-20260914T201337",
+      "invocation_id": "dod-evals-owner-role-topology-reconciliation-20260914T233310",
       "outputs": [
         "docs/dod-evals.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "8e2cbd7ff0e97dad3ff93a269c478c6e333e7aa4c45e0e45896896574d653a51",
+        "docs/prd.md": "b3ef59189aed3191d9bd02a3cb0c4d7da13c6e6f5f099eb7f2a02b2fe05efdcc",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "5552a5e8386e5bbc4c577bc50ab7617ab4e94ced11c8f7d37ac30e8237c50c0b",
+        "docs/canonical-terms.md": "1a01e068a57fbaec740b0cba9b0a785495eec99595c2b7d8565aa9aa61ad1c40",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041",
-        "docs/user-journey.md": "d012ccc17842f24c24a81a3dbdf048d84940fbb15879656ea18e8b6255687b04",
+        "docs/user-journey.md": "072a53ce1fe9ff0e8fc74b5567490099b096fa4da13beaaf6964b8b5c4b10b2a",
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51",
         "docs/wireframes.md": "e4421b28906eb78359efc559edd26a47e5e80c734a52178694f59540cfaa3fb5",
         "docs/design-brief.md": "9a7d6ed8031ae8b4231c23138f051014ec293df411bd78a8bdfb87c0ce551f6c",
-        "docs/architecture.md": "5f2ac6330855a479c11e7019c01fedd562baaac995f34127ff2a36323a6787dc"
+        "docs/architecture.md": "98278642479be259a67b5757e6e6bb41836af34bc6899091722f583f0f64ed11"
       },
       "consumed_source_fragments": {}
     },
     "qa-checklist": {
-      "invocation_id": "qa-checklist-owner-image-attachment-reconciliation-20260914T201337",
+      "invocation_id": "qa-checklist-owner-role-topology-reconciliation-20260914T233310",
       "outputs": [
         "docs/qa-checklist.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "8e2cbd7ff0e97dad3ff93a269c478c6e333e7aa4c45e0e45896896574d653a51",
+        "docs/prd.md": "b3ef59189aed3191d9bd02a3cb0c4d7da13c6e6f5f099eb7f2a02b2fe05efdcc",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "5552a5e8386e5bbc4c577bc50ab7617ab4e94ced11c8f7d37ac30e8237c50c0b",
+        "docs/canonical-terms.md": "1a01e068a57fbaec740b0cba9b0a785495eec99595c2b7d8565aa9aa61ad1c40",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041",
-        "docs/user-journey.md": "d012ccc17842f24c24a81a3dbdf048d84940fbb15879656ea18e8b6255687b04",
+        "docs/user-journey.md": "072a53ce1fe9ff0e8fc74b5567490099b096fa4da13beaaf6964b8b5c4b10b2a",
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51",
         "docs/wireframes.md": "e4421b28906eb78359efc559edd26a47e5e80c734a52178694f59540cfaa3fb5",
         "docs/design-brief.md": "9a7d6ed8031ae8b4231c23138f051014ec293df411bd78a8bdfb87c0ce551f6c",
-        "docs/architecture.md": "5f2ac6330855a479c11e7019c01fedd562baaac995f34127ff2a36323a6787dc",
-        "docs/dod-evals.md": "d6ba33818e146ca1fe7b64457ee956f21e9eb2d518d248761339fe3441594ef7",
+        "docs/architecture.md": "98278642479be259a67b5757e6e6bb41836af34bc6899091722f583f0f64ed11",
+        "docs/dod-evals.md": "cba2ffc77ec3ed2c915e2a3f7be18264ab288d5b5df08799e4e79c7619cef0cf",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
         "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
@@ -8007,22 +8019,22 @@
       "consumed_source_fragments": {}
     },
     "development-plan": {
-      "invocation_id": "development-plan-owner-image-attachment-reconciliation-20260914T201337",
+      "invocation_id": "development-plan-owner-role-topology-reconciliation-20260914T233310",
       "outputs": [
         "docs/development-plan.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "8e2cbd7ff0e97dad3ff93a269c478c6e333e7aa4c45e0e45896896574d653a51",
+        "docs/prd.md": "b3ef59189aed3191d9bd02a3cb0c4d7da13c6e6f5f099eb7f2a02b2fe05efdcc",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
-        "docs/canonical-terms.md": "5552a5e8386e5bbc4c577bc50ab7617ab4e94ced11c8f7d37ac30e8237c50c0b",
+        "docs/canonical-terms.md": "1a01e068a57fbaec740b0cba9b0a785495eec99595c2b7d8565aa9aa61ad1c40",
         "docs/guardrails.md": "b35ce7bf1eb18aa4577a38bb0229fc5a16de2389e21fda2c8672716a8cc3f041",
-        "docs/user-journey.md": "d012ccc17842f24c24a81a3dbdf048d84940fbb15879656ea18e8b6255687b04",
+        "docs/user-journey.md": "072a53ce1fe9ff0e8fc74b5567490099b096fa4da13beaaf6964b8b5c4b10b2a",
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51",
         "docs/wireframes.md": "e4421b28906eb78359efc559edd26a47e5e80c734a52178694f59540cfaa3fb5",
         "docs/design-brief.md": "9a7d6ed8031ae8b4231c23138f051014ec293df411bd78a8bdfb87c0ce551f6c",
-        "docs/architecture.md": "5f2ac6330855a479c11e7019c01fedd562baaac995f34127ff2a36323a6787dc",
-        "docs/dod-evals.md": "d6ba33818e146ca1fe7b64457ee956f21e9eb2d518d248761339fe3441594ef7",
-        "docs/qa-checklist.md": "ed786ae692f12d39f52308f2ab2d81e6fcf7e0f5c61c1b797e1dbcaca1325615",
+        "docs/architecture.md": "98278642479be259a67b5757e6e6bb41836af34bc6899091722f583f0f64ed11",
+        "docs/dod-evals.md": "cba2ffc77ec3ed2c915e2a3f7be18264ab288d5b5df08799e4e79c7619cef0cf",
+        "docs/qa-checklist.md": "674c987a75c819033ee2853d48ebef00947c99860ad23dc765df48a502c5913f",
         "docs/model-settings.md": "86801751744742aa44a41b9f6d5c5192eabd22423323c83bdbddec431e47b4d5",
         "docs/deployment-boundary.md": "e57776bcde6bb00d6dceb6200e02303124cfdf4f1272c72eb474b50a3949df83",
         "package.json": "09ee36e63b46084b99ec90a6793a50ff5e36c466bd46faf2b6da802f55089343",
@@ -60155,8 +60167,8 @@
     "definition_status": "prepared",
     "release_readiness": "not_evaluated",
     "source_hashes": {
-      "docs/dod-evals.md": "d6ba33818e146ca1fe7b64457ee956f21e9eb2d518d248761339fe3441594ef7",
-      "docs/qa-checklist.md": "ed786ae692f12d39f52308f2ab2d81e6fcf7e0f5c61c1b797e1dbcaca1325615"
+      "docs/dod-evals.md": "cba2ffc77ec3ed2c915e2a3f7be18264ab288d5b5df08799e4e79c7619cef0cf",
+      "docs/qa-checklist.md": "674c987a75c819033ee2853d48ebef00947c99860ad23dc765df48a502c5913f"
     },
     "gates": [
       {

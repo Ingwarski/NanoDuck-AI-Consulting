@@ -35,8 +35,9 @@ test("ordinary consultations can use restricted live research without a keyword"
   const service = createConsultationService({ store, provider });
   await service.start(conversation.id, accepted.run);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
-  assert.equal(calls.length, 6);
-  assert.equal(calls.every(call => call.research === true), true);
+  assert.equal(calls.length, 7);
+  assert.equal(calls.slice(0, 2).every(call => call.research === false), true);
+  assert.equal(calls.slice(2).every(call => call.research === true), true);
 });
 
 test("a simple Ukrainian explanation receives one direct Head Consultant answer", async () => {
@@ -63,9 +64,15 @@ test("a fixed specialist count selects the requested team without changing the m
   const service = createConsultationService({ store, provider });
   await service.start(conversation.id, accepted.run);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
-  assert.match(calls[0].assignment, /Strategy Consultant, Finance Consultant, Operations Consultant/u);
-  assert.equal(calls.length, 7);
-  assert.match(calls[3].assignment, /^You are the Operations Consultant/u);
+  assert.equal(calls.length, 9);
+  assert.match(calls[0].assignment, /Give only a concise, concrete task/u);
+  assert.match(calls[5].assignment, /^You are the Operations Consultant/u);
+  assert.deepEqual((await store.events(conversation.id)).map(event => [event.role, event.recipient]), [
+    ["owner", null],
+    ["Head Consultant", "Strategy Consultant"], ["Head Consultant", "Finance Consultant"], ["Head Consultant", "Operations Consultant"],
+    ["Strategy Consultant", "Critic"], ["Finance Consultant", "Critic"], ["Operations Consultant", "Critic"],
+    ["Critic", "Strategy Consultant"], ["Strategy Consultant", "Critic"], ["Head Consultant", null]
+  ]);
   assert.equal(calls.every(call => call.model === "gpt-6-astra" && call.effort === "xhigh"), true);
 });
 
@@ -78,9 +85,14 @@ test("five specialists remain distinct from Head Consultant and Critic", async (
   const service = createConsultationService({ store, provider });
   await service.start(conversation.id, accepted.run);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
-  assert.match(calls[0].assignment, /Strategy Consultant, Finance Consultant, Operations Consultant, Product Consultant, Risk Consultant/u);
-  assert.equal(calls.length, 9);
-  assert.deepEqual(calls.slice(1, 6).map(call => call.assignment.match(/^You are the (.+?)\./u)?.[1]), ["Strategy Consultant", "Finance Consultant", "Operations Consultant", "Product Consultant", "Risk Consultant"]);
+  assert.equal(calls.length, 13);
+  const events = await store.events(conversation.id);
+  assert.deepEqual(events.slice(1, 6).map(event => [event.role, event.recipient]), [
+    ["Head Consultant", "Strategy Consultant"], ["Head Consultant", "Finance Consultant"], ["Head Consultant", "Operations Consultant"], ["Head Consultant", "Product Consultant"], ["Head Consultant", "Risk Consultant"]
+  ]);
+  assert.deepEqual(events.slice(6, 11).map(event => [event.role, event.recipient]), [
+    ["Strategy Consultant", "Critic"], ["Finance Consultant", "Critic"], ["Operations Consultant", "Critic"], ["Product Consultant", "Critic"], ["Risk Consultant", "Critic"]
+  ]);
 });
 
 test("discussion depth performs the requested number of Critic-specialist exchanges", async () => {
@@ -108,7 +120,7 @@ test("Auto lets Head choose the specialist count and stops at an agreed consiliu
   const provider = {
     async invoke(input) {
       calls.push(input);
-      if (input.assignment.includes("Candidate specialists")) return { ok: true, body: "[TEAM: 4] We need test whether the offer has a specific buyer and urgent problem.", sources: [] };
+      if (input.assignment.includes("Return exactly [TEAM: N]")) return { ok: true, body: "[TEAM: 4]", sources: [] };
       if (input.assignment.includes("[CONSILIUM:")) return { ok: true, body: "The constraint is resolved by testing the offer before scaling it. [CONSILIUM: REACHED]", sources: [] };
       return { ok: true, body: "A qualified answer.", sources: [] };
     }
@@ -116,8 +128,8 @@ test("Auto lets Head choose the specialist count and stops at an agreed consiliu
   const service = createConsultationService({ store, provider });
   await service.start(conversation.id, accepted.run);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
-  assert.equal(calls.length, 8);
-  assert.match(calls[0].assignment, /Candidate specialists/u);
+  assert.equal(calls.length, 12);
+  assert.match(calls[0].assignment, /Return exactly \[TEAM: N\]/u);
   const run = await store.run(conversation.id);
   assert.equal(run.snapshot.resolvedSpecialistCount, 4);
   assert.equal(run.snapshot.autoDepthCompleted, 1);
@@ -153,18 +165,17 @@ test("a Ukrainian finance question assigns the Finance Consultant and directs th
   const service = createConsultationService({ store, provider });
   await service.start(conversation.id, accepted.run);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
-  assert.match(calls[0].assignment, /Finance Consultant/u);
-  assert.match(calls[1].assignment, /^You are the Finance Consultant/u);
-  assert.match(calls[2].assignment, /^You are the Strategy Consultant/u);
-  assert.match(calls[3].assignment, /Finance Consultant directly/u);
+  assert.match(calls[0].assignment, /to the Finance Consultant/u);
+  assert.match(calls[1].assignment, /to the Strategy Consultant/u);
+  assert.match(calls[2].assignment, /^You are the Finance Consultant/u);
+  assert.match(calls[3].assignment, /^You are the Strategy Consultant/u);
+  assert.match(calls[4].assignment, /Finance Consultant directly/u);
   assert.equal(calls.every(call => call.assignment.includes("Write this message in Ukrainian.")), true);
   assert.deepEqual((await store.events(conversation.id)).map(event => [event.role, event.recipient]), [
     ["owner", null],
-    ["Head Consultant", "Finance Consultant"],
-    ["Finance Consultant", "Critic"],
-    ["Strategy Consultant", "Finance Consultant"],
-    ["Critic", "Finance Consultant"],
-    ["Finance Consultant", "Critic"],
+    ["Head Consultant", "Finance Consultant"], ["Head Consultant", "Strategy Consultant"],
+    ["Finance Consultant", "Critic"], ["Strategy Consultant", "Critic"],
+    ["Critic", "Finance Consultant"], ["Finance Consultant", "Critic"],
     ["Head Consultant", null]
   ]);
 });
@@ -214,15 +225,13 @@ test("a resumed consultation continues after its last confirmed message", async 
   const service = createConsultationService({ store, provider });
   await service.resume();
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
-  assert.equal(calls.length, 5);
-  assert.match(calls[0].assignment, /^You are the Strategy Consultant/u);
+  assert.equal(calls.length, 6);
+  assert.match(calls[0].assignment, /to the Finance Consultant/u);
   assert.deepEqual((await store.events(conversation.id)).map(event => [event.role, event.recipient]), [
     ["owner", null],
-    ["Head Consultant", "Strategy Consultant"],
-    ["Strategy Consultant", "Critic"],
-    ["Finance Consultant", "Strategy Consultant"],
-    ["Critic", "Strategy Consultant"],
-    ["Strategy Consultant", "Critic"],
+    ["Head Consultant", "Strategy Consultant"], ["Head Consultant", "Finance Consultant"],
+    ["Strategy Consultant", "Critic"], ["Finance Consultant", "Critic"],
+    ["Critic", "Strategy Consultant"], ["Strategy Consultant", "Critic"],
     ["Head Consultant", null]
   ]);
 });
@@ -238,8 +247,8 @@ test("Continue resumes at the next uncommitted turn after Stop", async () => {
   const service = createConsultationService({ store, provider });
   assert.ok(await service.continue(conversation.id));
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
-  assert.equal(calls.length, 5);
-  assert.match(calls[0].assignment, /^You are the Strategy Consultant/u);
+  assert.equal(calls.length, 6);
+  assert.match(calls[0].assignment, /to the Finance Consultant/u);
 });
 
 test("a late stopped run cannot unregister the newer run controller", async () => {
