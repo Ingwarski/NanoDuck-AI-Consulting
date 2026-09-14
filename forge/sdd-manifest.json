@@ -7557,15 +7557,15 @@
     "development_plan_hash": "1687bb3f44dfad54074e252bd5b3dc9c19631fe67510e7ceff1aba38407e1843",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-14T20:13:37+03:00",
-    "prompt_id": "impl-20260914-u06-image-attachments",
-    "prompt_received_at": "2026-09-14T21:16:17+03:00",
-    "released_at": "2026-09-14T21:16:17+03:00",
+    "prompt_id": "impl-20260914-u08-integrated-verification",
+    "prompt_received_at": "2026-09-14T18:45:45.995Z",
+    "released_at": "2026-09-14T18:45:45.995Z",
     "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
     "prompt_receipt": {
-      "path": "forge/runs/implementation-prompt-20260914-u06-image-attachments.json",
-      "content_hash": "0b69e840644e8a0fde6927325f6e0351dc0e801c92346aa43ce0ca987cf4ece1"
+      "path": "forge/runs/implementation-prompt-20260914-u08-integrated-verification.json",
+      "content_hash": "ab4aee45ae3bf8bacbd3ff19acd38ed335c63d39aad6351fc2cff585366a7f59"
     },
-    "reason": "The owner explicitly authorized U-06 implementation from the revised image-only attachment plan. Deployment, live provider connection and GoDaddy data reset remain outside authorization."
+    "reason": "The owner explicitly authorized U-08 local integration verification and non-deploying cutover preparation from the current plan. Deployment, live provider connection, GoDaddy data reset and database migration remain outside authorization."
   },
   "input_requests": [],
   "last_resume_event": {
@@ -7747,6 +7747,36 @@
       "prompt_id": "impl-20260914-u06-image-attachments",
       "development_plan_hash": "1687bb3f44dfad54074e252bd5b3dc9c19631fe67510e7ceff1aba38407e1843",
       "decision": "Explicit owner prompt authorizes implementation of U-06 from the current plan; image attachments remain JPEG/PNG/WebP-only and PDF remains excluded."
+    },
+    {
+      "event": "u08_integrated_verification_authorized",
+      "at": "2026-09-14T18:45:45.995Z",
+      "prompt_id": "impl-20260914-u08-integrated-verification",
+      "development_plan_hash": "1687bb3f44dfad54074e252bd5b3dc9c19631fe67510e7ceff1aba38407e1843",
+      "decision": "Explicit owner continuation authorizes U-08 local integrated verification and scoped non-deploying cutover preparation; SDD documents and manifest must remain synchronized."
+    },
+    {
+      "event": "u08_local_integration_and_cutover_prepared",
+      "at": "2026-09-14T19:12:00Z",
+      "unit": "U-08",
+      "development_plan_hash": "1687bb3f44dfad54074e252bd5b3dc9c19631fe67510e7ceff1aba38407e1843",
+      "verification_receipt": {
+        "path": "forge/runs/U-08/phase3-local-integration-preparation-20260914/verification.json",
+        "content_hash": "d214d7650dfbcde23f5dea99cd445a05c22b3912471957a5f3ca66b2fd1cc195"
+      },
+      "cutover_package": {
+        "path": "forge/runs/U-08/phase3-local-integration-preparation-20260914/cutover-package.md",
+        "content_hash": "726f1f0ab1d9d248adec6909284c2e873965ef4da546e4dd6e55442f71716439"
+      },
+      "decision": "Local memory-store/fake-provider integration and non-deploying release preparation completed. The package does not execute or authorize production provider use, GoDaddy changes, database migration/reset or deletion.",
+      "formal_release_status": "82 QA checks and six DoD gates remain prepared/not_run; release readiness remains not_evaluated.",
+      "known_release_blockers": [
+        "fresh actual QA/DoD evidence including representative-owner and supported-device tasks",
+        "live provider/research/language evidence",
+        "fresh target app/database ownership and isolated restore evidence",
+        "named operational owners and deadlines",
+        "missing source-bound U-02, U-04 and U-05 acceptance receipts"
+      ]
     }
   ],
   "dispatches": {

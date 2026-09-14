@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "unit": "U-08",
+  "run_id": "phase3-local-integration-preparation-20260914",
+  "executed_at": "2026-09-14T19:12:00Z",
+  "executor": "Codex local implementation runner",
+  "revision_base": "c31cbd045ef0a40cfd22f43e82747d193302bed9",
+  "baseline_id": "nanoduck-electric-a-v8-20260914",
+  "development_plan_hash": "1687bb3f44dfad54074e252bd5b3dc9c19631fe67510e7ceff1aba38407e1843",
+  "scope": "Local integrated verification and scoped non-deploying cutover preparation only. The local server used a memory store, development owner identity and controlled fake Codex app-server fixture. No production provider, GoDaddy application, target MySQL database, migration, reset, deletion or external upload was contacted.",
+  "checks": [
+    {
+      "name": "repository validation",
+      "evidence": "npm run check",
+      "observed": "27 Markdown files, 48 JavaScript syntax checks, 3 active candidates, 24 versioned entry pages and 36 tests passed.",
+      "result": "passed",
+      "limit": "This is static/local test evidence; it does not execute a production gate."
+    },
+    {
+      "name": "local HTTP and orchestration integration",
+      "evidence": "test/http.test.mjs and test/consultation.test.mjs within npm run check",
+      "observed": "Owner-only routes, settings persistence, unavailable-provider handling, attachment protection, two specialists, Critic and a revision exchange passed against test seams.",
+      "result": "passed",
+      "limit": "Tests use controlled fixtures and do not invoke the subscribed provider or target host."
+    },
+    {
+      "name": "local browser workflow",
+      "evidence": "In-app browser at local HTTP origin with memory store and fake Codex app-server",
+      "observed": "Local owner sign-in/consent, a saved Ukrainian owner prompt, persisted discussion/outcome/sources, specialist-count 5 and discussion-depth 3 settings save, conversation list/export control visibility, floating/hamburger navigation, and no browser console warnings or errors were observed. A narrow viewport was configured at 320 by 740; its scaled document reported matching scroll/client widths and no horizontal overflow.",
+      "result": "passed",
+      "limit": "The fixture generated English agent prose despite the Ukrainian prompt, so it is not Ukrainian output evidence. This is not a Safari/Chrome device, microphone, assistive-technology, forced-colors, 200-percent text or representative-owner test."
+    },
+    {
+      "name": "cutover preparation",
+      "evidence": "cutover-package.md",
+      "observed": "Locked dependency and configuration-name inventory, compatible migration behavior, explicit ownership/deadline gaps, stop conditions and rollback sequence recorded.",
+      "result": "prepared",
+      "limit": "A package is not an executed migration, isolated restore rehearsal, deployment or release decision."
+    },
+    {
+      "name": "SDD implementation gate integrity before U-08 work",
+      "evidence": "sdd_check.py --before implementation",
+      "observed": "Passed after the current explicit U-08 continuation receipt was bound to the manifest; final before/after/audit results follow in the next check.",
+      "result": "passed",
+      "limit": "The checker validates SDD metadata, integrity, stages and evidence references; it does not prove semantic quality, research authenticity or runner enforcement."
+    },
+    {
+      "name": "SDD integrity after U-08 evidence",
+      "evidence": "sdd_check.py --before implementation; sdd_check.py --after development-plan; sdd_check.py --audit",
+      "observed": "All three commands passed against the current manifest, plan and owner artifacts; no issues or warnings.",
+      "result": "passed",
+      "limit": "The checker validates SDD metadata, integrity, stages and evidence references; it does not prove semantic quality, research authenticity or runner enforcement."
+    }
+  ],
+  "formal_release_status": {
+    "canonical_qa": "82 prepared / not_run",
+    "dod_gates": {
+      "product_functional_requirements": "not_run",
+      "product_security_requirements": "not_run",
+      "approved_visual_baseline_fidelity": "not_run",
+      "heuristic_usability_review": "not_run",
+      "representative_user_task_validation": "not_run",
+      "lifecycle_and_continuity": "not_run"
+    },
+    "release_readiness": "not_evaluated"
+  },
+  "release_blockers": [
+    "Actual execution and fresh scoped evidence for all 82 canonical QA checks and six DoD gates.",
+    "Observed representative-owner tasks and supported Safari/Chrome device checks, including Ukrainian voice, 200-percent text, forced colors and relevant assistive technology.",
+    "Allowed live-provider invocation proving the preserved Head/specialist and Critic model/reasoning tuples, research/source filtering and language behavior.",
+    "Fresh exact GoDaddy app, repository/revision and exclusive database/table ownership verification; no current authorization exists for GoDaddy mutation.",
+    "Isolated backup/restore rehearsal, named operational owners/deadlines, release monitoring and rollback evidence.",
+    "Separate source-bound acceptance receipts for U-02, U-04 and U-05 are absent from forge/runs and cannot be reconstructed as passed by this local run."
+  ],
+  "source_hashes": {
+    "docs/development-plan.md": "1687bb3f44dfad54074e252bd5b3dc9c19631fe67510e7ceff1aba38407e1843",
+    "docs/design-brief.md": "9a7d6ed8031ae8b4231c23138f051014ec293df411bd78a8bdfb87c0ce551f6c",
+    "docs/architecture.md": "5f2ac6330855a479c11e7019c01fedd562baaac995f34127ff2a36323a6787dc",
+    "docs/dod-evals.md": "d6ba33818e146ca1fe7b64457ee956f21e9eb2d518d248761339fe3441594ef7",
+    "docs/qa-checklist.md": "ed786ae692f12d39f52308f2ab2d81e6fcf7e0f5c61c1b797e1dbcaca1325615",
+    "package.json": "09ee36e63b46084b99ec90a6793a50ff5e36c466bd46faf2b6da802f55089343",
+    "package-lock.json": "987e7047e66f3dd725de77d9233088e6d22e2a04132dea44cee4f1a78e43e084",
+    ".env.example": "aef115343b7cbd50af3d5b04a8ee96517a192e5c58e4ec1c2aa55ebbce34770f",
+    "src/server/config.mjs": "5d85daa33e5e610294dea82d07e192898858230c2d096817c978232a89c7a34a",
+    "src/server/schema.sql": "1c51869a1f5ccbe262b46c0f947089b7fcbff10c84e610293da9c88cebb3f154",
+    "src/server/migrate.mjs": "502d4c692e13611a291636eaf4e18ab2b4ff80dd61b2917875467447cdc36869",
+    "src/server/index.mjs": "f7abc83c7f785c0b5ad08dec4e9b3e8343d3687b3a1b0ffa6be1ed8c335e0615",
+    "src/server/consultation.mjs": "401699c6f21acca66be076d508167038abaa592275ca6db28c5202e805b7c089",
+    "src/client/app.js": "1597044552ccce4cb44b12dbd6664b42bbfba5bc5c29336c47dd4ff15aa0994a",
+    "test/core.test.mjs": "ce217967b6350b6a041a1b8463495de2a5bbad75ac14a5def087769f5696545a",
+    "test/http.test.mjs": "459f0e082fd46f23463f4e44f5d09514ecd4a4e163729376e7e5bafa0b819048",
+    "test/consultation.test.mjs": "0874daf94ea8bdb6fa374e3768939766d74913d95e711abf0f9d553936574f57",
+    "test/codex-provider.test.mjs": "60b2c15fc3ee28905737c6a050da2bc4dd374e9afef9f5639d64a90fa1197d12",
+    "test/preflight.test.mjs": "e69c1e505bd6eb3e2def96d4c486bcf56fff597f3c41bceb6c27d9a0b3a01a9e",
+    "forge/runs/U-08/phase3-local-integration-preparation-20260914/cutover-package.md": "726f1f0ab1d9d248adec6909284c2e873965ef4da546e4dd6e55442f71716439"
+  },
+  "release_effect": "not_release_evidence"
+}
