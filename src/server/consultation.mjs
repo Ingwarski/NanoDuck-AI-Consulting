@@ -4,7 +4,6 @@ const roleSettings = snapshot => Object.freeze({
   critic: { model: snapshot.criticModel, effort: snapshot.criticReasoning }
 });
 
-const needsResearch = text => /(?:\b(?:current|latest|today|this year|20(?:2[4-9]|3\d)|market|price|law|competitor|research|evidence|source)\b|https?:\/\/|\b(?:сьогодні|актуаль\p{L}*|поточн\p{L}*|ринок|ціна|закон\p{L}*|конкурент\p{L}*|дослідж\p{L}*|джерел\p{L}*)\b)/iu.test(text);
 const hasSensitiveResearchContext = text => /(?:\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b|\b(?:password|passcode|api[ _-]?key|secret|access[ _-]?token|iban|credit[ _-]?card|passport|medical)\b|(?:\+?\d[\d\s().-]{7,}\d)|\b(?:парол\p{L}*|ключ\p{L}*\s*api|секрет\p{L}*|токен\p{L}*|iban|картк\p{L}*|паспорт\p{L}*|медич\p{L}*)\b)/iu.test(text);
 const discussion = events => events.map(event => `${event.role}${event.recipient ? ` → ${event.recipient}` : ""}: ${event.body}`).join("\n\n").slice(-80_000);
 
@@ -18,7 +17,7 @@ export function createConsultationService({ store, provider }) {
       return store.appendAgentMessage(conversationId, runState.generation, { role, recipient, body: result.body, sources: result.sources });
     };
     try {
-      const settings = roleSettings(runState.snapshot); const first = await current(); const research = needsResearch(first.owner) && !hasSensitiveResearchContext(first.owner);
+      const settings = roleSettings(runState.snapshot); const first = await current(); const research = !hasSensitiveResearchContext(first.owner);
       const head = await provider.invoke({ assignment: "You are the Head Consultant. Frame the practical decision, name the decisive assumptions and give the relevant consultant a focused task. Speak to the owner plainly.", model: settings.head.model, effort: settings.head.effort, evidence: first, research, signal: controller.signal });
       if (!await commit("Head Consultant", "Consultant", head)) throw new Error(head.code ?? "provider_unavailable");
       const consultant = await provider.invoke({ assignment: "You are the Strategy Consultant. Develop one concrete position that directly helps the owner decide. Address the Head's framing, use evidence where useful, and avoid ceremony.", model: settings.consultant.model, effort: settings.consultant.effort, evidence: await current(), research, signal: controller.signal });

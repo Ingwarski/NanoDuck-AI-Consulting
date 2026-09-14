@@ -26,6 +26,19 @@ test("sensitive current-topic questions do not enable public web research", asyn
   assert.equal(calls.every(call => call.research === false), true);
 });
 
+test("ordinary consultations can use restricted live research without a keyword", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "ordinary-research-0001" }, defaultSettings);
+  const calls = [];
+  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: "A qualified answer.", sources: [] }; } };
+  const service = createConsultationService({ store, provider });
+  await service.start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  assert.equal(calls.length, 5);
+  assert.equal(calls.every(call => call.research === true), true);
+});
+
 test("a late stopped run cannot unregister the newer run controller", async () => {
   const store = createMemoryStore();
   const conversation = await store.createConversation();
