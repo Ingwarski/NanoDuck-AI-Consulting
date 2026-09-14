@@ -42,6 +42,21 @@ test("accepted owner messages are idempotent and a stopped run fences later agen
   assert.equal((await store.events(conversation.id)).length, 2);
 });
 
+test("only one consultation can be active across the owner's conversations", async () => {
+  const store = createMemoryStore();
+  const first = await store.createConversation();
+  const second = await store.createConversation();
+  const firstRun = await store.acceptMessage(first.id, { body: "First active consultation", clientRequestId: "single-active-request-0001" }, defaultSettings);
+  assert.ok(firstRun);
+  assert.equal(await store.acceptMessage(second.id, { body: "Second active consultation", clientRequestId: "single-active-request-0002" }, defaultSettings), undefined);
+  assert.ok(await store.stop(first.id));
+  const secondRun = await store.acceptMessage(second.id, { body: "Second active consultation", clientRequestId: "single-active-request-0002" }, defaultSettings);
+  assert.ok(secondRun);
+  assert.equal(await store.continueRun(first.id), undefined);
+  assert.ok(await store.stop(second.id));
+  assert.equal((await store.continueRun(first.id))?.status, "active");
+});
+
 test("MySQL agent writes and deletion serialize through the conversation lock", async () => {
   const commands = []; let transactions = 0; let commits = 0; let releases = 0;
   const connection = {
@@ -51,6 +66,7 @@ test("MySQL agent writes and deletion serialize through the conversation lock", 
     release() { releases += 1; },
     async execute(statement) {
       commands.push(statement);
+      if (statement.startsWith("SELECT owner_id FROM nanoduck_owner_locks")) return [[{ owner_id: "owner" }]];
       if (statement.startsWith("SELECT id FROM nanoduck_conversations")) return [[{ id: "conversation-id" }]];
       if (statement.startsWith("SELECT id,status,generation FROM nanoduck_runs")) return [[{ id: "run-id", status: "active", generation: 3 }]];
       if (statement.startsWith("SELECT COALESCE(MAX(sequence)")) return [[{ max_sequence: 4 }]];
@@ -73,6 +89,34 @@ test("MySQL agent writes and deletion serialize through the conversation lock", 
   assert.ok(commands.some(command => command.includes("nanoduck_messages WHERE conversation_id=? FOR UPDATE")));
   const deleteIndex = commands.findIndex(command => command.startsWith("UPDATE nanoduck_conversations SET deleted_at"));
   assert.match(commands[deleteIndex + 1], /^UPDATE nanoduck_runs SET generation/u);
+});
+
+test("MySQL acceptance holds the owner lock before allowing an active run", async () => {
+  const commands = []; let active = false;
+  const connection = {
+    async beginTransaction() { commands.push("BEGIN"); },
+    async commit() { commands.push("COMMIT"); },
+    async rollback() { commands.push("ROLLBACK"); },
+    release() {},
+    async execute(statement) {
+      commands.push(statement);
+      if (statement.startsWith("SELECT owner_id FROM nanoduck_owner_locks")) return [[{ owner_id: "owner" }]];
+      if (statement.startsWith("SELECT id,title FROM nanoduck_conversations")) return [[{ id: "conversation-id", title: "New consultation" }]];
+      if (statement.startsWith("SELECT message_id,run_id FROM nanoduck_requests")) return [[]];
+      if (statement.startsWith("SELECT id FROM nanoduck_runs WHERE status='active'")) return [active ? [{ id: "other-active-run" }] : []];
+      if (statement.startsWith("SELECT COALESCE(MAX(sequence)")) return [[{ max_sequence: 0 }]];
+      if (statement.startsWith("SELECT COALESCE(MAX(generation)")) return [[{ max_generation: 0 }]];
+      if (statement.startsWith("INSERT INTO nanoduck_messages") || statement.startsWith("INSERT INTO nanoduck_runs") || statement.startsWith("INSERT INTO nanoduck_requests") || statement.startsWith("UPDATE nanoduck_conversations SET title")) return [{ affectedRows: 1 }];
+      throw new Error(`Unexpected statement: ${statement}`);
+    }
+  };
+  const store = await createMySqlStore("mysql://unused", key, undefined, { createPool: () => ({ getConnection: async () => connection, end: async () => {} }) });
+  assert.ok(await store.acceptMessage("conversation-id", { body: "First run", clientRequestId: "mysql-active-request-0001" }, defaultSettings));
+  active = true;
+  assert.equal(await store.acceptMessage("conversation-id", { body: "Second run", clientRequestId: "mysql-active-request-0002" }, defaultSettings), undefined);
+  const firstLock = commands.indexOf("SELECT owner_id FROM nanoduck_owner_locks WHERE owner_id='owner' FOR UPDATE");
+  const firstActiveCheck = commands.indexOf("SELECT id FROM nanoduck_runs WHERE status='active' LIMIT 1");
+  assert.ok(firstLock >= 0 && firstLock < firstActiveCheck);
 });
 
 test("settings and message validation reject unsupported model values and malformed ids", () => {

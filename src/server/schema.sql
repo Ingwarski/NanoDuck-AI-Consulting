@@ -14,6 +14,12 @@ CREATE TABLE IF NOT EXISTS nanoduck_settings (
   settings_json JSON NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS nanoduck_owner_locks (
+  owner_id VARCHAR(32) PRIMARY KEY
+);
+
+INSERT IGNORE INTO nanoduck_owner_locks (owner_id) VALUES ('owner');
+
 CREATE TABLE IF NOT EXISTS nanoduck_conversations (
   id VARCHAR(128) PRIMARY KEY,
   title VARCHAR(255) NOT NULL,

@@ -20,7 +20,7 @@ export function createMemoryStore() {
   const sessions = new Map();
   let settings = { ...defaults };
 
-  const active = conversationId => runs.get(conversationId)?.status === "active";
+  const hasActiveRun = () => [...runs.values()].some(run => run.status === "active");
   return Object.freeze({
     kind: "memory",
     async createSession(input) { sessions.set(input.id, { ...input }); return { ...input }; },
@@ -49,7 +49,7 @@ export function createMemoryStore() {
       const requestKey = `${conversationId}:${input.clientRequestId}`;
       const existing = requests.get(requestKey);
       if (existing) return Object.freeze({ ...existing, replayed: true });
-      if (active(conversationId)) return undefined;
+      if (hasActiveRun()) return undefined;
       const stream = messages.get(conversationId) ?? [];
       const message = { id: randomId(), role: "owner", body: input.body, sequence: stream.length + 1, createdAt: now(), sources: [] };
       stream.push(message); messages.set(conversationId, stream);
@@ -74,7 +74,7 @@ export function createMemoryStore() {
       run.generation += 1; run.status = "stopped"; run.updatedAt = now(); return { ...run };
     },
     async continueRun(conversationId) {
-      const run = runs.get(conversationId); if (!run || run.status !== "stopped") return undefined;
+      const run = runs.get(conversationId); if (!run || run.status !== "stopped" || hasActiveRun()) return undefined;
       run.generation += 1; run.status = "active"; run.updatedAt = now(); return { ...run };
     },
     async exportConversation(conversationId) {
@@ -95,6 +95,10 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
     : createPool(databaseUrl);
   const query = (statement, values = []) => pool.execute(statement, values);
   const decode = row => ({ id: row.id, role: row.role, recipient: row.recipient, body: decryptText({ iv: row.iv, ciphertext: row.ciphertext, tag: row.tag }, dataKey), sequence: row.sequence, createdAt: row.created_at, sources: JSON.parse(row.sources_json) });
+  const lockOwner = async connection => {
+    const [rows] = await connection.execute("SELECT owner_id FROM nanoduck_owner_locks WHERE owner_id='owner' FOR UPDATE");
+    if (rows.length !== 1) throw new Error("owner_lock_missing");
+  };
   return Object.freeze({
     kind: "mysql",
     async createSession(input) { await query("INSERT INTO nanoduck_sessions (id,owner_subject,csrf_token,consented_at,issued_at,expires_at) VALUES (?,?,?,?,?,?)", [input.id,input.ownerSubject,input.csrfToken,input.consentedAt ?? null,input.issuedAt,input.expiresAt]); return { ...input, revokedAt: null }; },
@@ -111,11 +115,12 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
       const connection = await pool.getConnection();
       try {
         await connection.beginTransaction();
+        await lockOwner(connection);
         const [conversationRows] = await connection.execute("SELECT id,title FROM nanoduck_conversations WHERE id=? AND deleted_at IS NULL FOR UPDATE", [id]);
         if (!conversationRows.length) { await connection.rollback(); return undefined; }
         const [requestRows] = await connection.execute("SELECT message_id,run_id FROM nanoduck_requests WHERE conversation_id=? AND request_id=?", [id, input.clientRequestId]);
         if (requestRows.length) { const events = await this.events(id); const run = await this.run(id); await connection.rollback(); return { message: events.find(item => item.id === requestRows[0].message_id), run, replayed: true }; }
-        const [activeRows] = await connection.execute("SELECT generation FROM nanoduck_runs WHERE conversation_id=? AND status='active' FOR UPDATE", [id]);
+        const [activeRows] = await connection.execute("SELECT id FROM nanoduck_runs WHERE status='active' LIMIT 1");
         if (activeRows.length) { await connection.rollback(); return undefined; }
         const [sequenceRows] = await connection.execute("SELECT COALESCE(MAX(sequence), 0) AS max_sequence FROM nanoduck_messages WHERE conversation_id=? FOR UPDATE", [id]);
         const encrypted = encryptText(input.body, dataKey); const message = { id: randomId(), role: "owner", body: input.body, sequence: Number(sequenceRows[0].max_sequence) + 1, createdAt: now(), sources: [] };
@@ -147,13 +152,36 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
       } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
     },
     async finishRun(id, generation, status) { const [result] = await query("UPDATE nanoduck_runs SET status=?, updated_at=? WHERE conversation_id=? AND generation=? AND status='active'", [status, now(), id, generation]); return result.affectedRows === 1; },
-    async stop(id) { const run = await this.run(id); if (!run || run.status !== "active") return undefined; const [result] = await query("UPDATE nanoduck_runs SET generation=generation+1,status='stopped',updated_at=? WHERE id=? AND generation=? AND status='active'", [now(),run.id,run.generation]); return result.affectedRows ? { ...run, generation: run.generation + 1, status: "stopped" } : undefined; },
-    async continueRun(id) { const run = await this.run(id); if (!run || run.status !== "stopped") return undefined; const [result] = await query("UPDATE nanoduck_runs SET generation=generation+1,status='active',updated_at=? WHERE id=? AND generation=? AND status='stopped'", [now(),run.id,run.generation]); return result.affectedRows ? { ...run, generation: run.generation + 1, status: "active" } : undefined; },
+    async stop(id) {
+      const connection = await pool.getConnection();
+      try {
+        await connection.beginTransaction(); await lockOwner(connection);
+        const [rows] = await connection.execute("SELECT id,conversation_id,status,generation,snapshot_json,created_at,updated_at FROM nanoduck_runs WHERE conversation_id=? ORDER BY created_at DESC LIMIT 1 FOR UPDATE", [id]);
+        const run = rows[0]; if (!run || run.status !== "active") { await connection.rollback(); return undefined; }
+        const updatedAt = now(); const [result] = await connection.execute("UPDATE nanoduck_runs SET generation=generation+1,status='stopped',updated_at=? WHERE id=? AND generation=? AND status='active'", [updatedAt,run.id,run.generation]);
+        if (result.affectedRows !== 1) { await connection.rollback(); return undefined; }
+        await connection.commit(); return { id: run.id, conversationId: run.conversation_id, status: "stopped", generation: Number(run.generation) + 1, snapshot: JSON.parse(run.snapshot_json), createdAt: run.created_at, updatedAt };
+      } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
+    },
+    async continueRun(id) {
+      const connection = await pool.getConnection();
+      try {
+        await connection.beginTransaction(); await lockOwner(connection);
+        const [rows] = await connection.execute("SELECT id,conversation_id,status,generation,snapshot_json,created_at,updated_at FROM nanoduck_runs WHERE conversation_id=? ORDER BY created_at DESC LIMIT 1 FOR UPDATE", [id]);
+        const run = rows[0]; if (!run || run.status !== "stopped") { await connection.rollback(); return undefined; }
+        const [activeRows] = await connection.execute("SELECT id FROM nanoduck_runs WHERE status='active' LIMIT 1");
+        if (activeRows.length) { await connection.rollback(); return undefined; }
+        const updatedAt = now(); const [result] = await connection.execute("UPDATE nanoduck_runs SET generation=generation+1,status='active',updated_at=? WHERE id=? AND generation=? AND status='stopped'", [updatedAt,run.id,run.generation]);
+        if (result.affectedRows !== 1) { await connection.rollback(); return undefined; }
+        await connection.commit(); return { id: run.id, conversationId: run.conversation_id, status: "active", generation: Number(run.generation) + 1, snapshot: JSON.parse(run.snapshot_json), createdAt: run.created_at, updatedAt };
+      } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
+    },
     async exportConversation(id) { const conversation = await this.getConversation(id); return conversation ? { conversation, messages: await this.events(id) } : undefined; },
     async deleteConversation(id) {
       const connection = await pool.getConnection(); const deletedAt = now();
       try {
         await connection.beginTransaction();
+        await lockOwner(connection);
         const [result] = await connection.execute("UPDATE nanoduck_conversations SET deleted_at=?, updated_at=? WHERE id=? AND deleted_at IS NULL", [deletedAt, deletedAt, id]);
         if (result.affectedRows !== 1) { await connection.rollback(); return false; }
         await connection.execute("UPDATE nanoduck_runs SET generation=generation+1,status='deleted',updated_at=? WHERE conversation_id=? AND status IN ('active','stopped')", [deletedAt,id]);
