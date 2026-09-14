@@ -29,6 +29,21 @@ const specialistFor = text => {
   if (matches(/\b(leadership|manager|hiring|organization|culture)\b|лідер|керівник|найм|організа|культур/iu)) return "Leadership Consultant";
   return "Strategy Consultant";
 };
+const specialistTeam = (text, speed) => {
+  const primary = specialistFor(text);
+  const complements = {
+    "Strategy Consultant": ["Finance Consultant", "Operations Consultant"],
+    "Finance Consultant": ["Strategy Consultant", "Risk Consultant"],
+    "Operations Consultant": ["Strategy Consultant", "Product Consultant"],
+    "Sales Consultant": ["Marketing Consultant", "Finance Consultant"],
+    "Marketing Consultant": ["Product Consultant", "Sales Consultant"],
+    "Product Consultant": ["Marketing Consultant", "Operations Consultant"],
+    "Leadership Consultant": ["Operations Consultant", "Strategy Consultant"],
+    "Risk Consultant": ["Strategy Consultant", "Finance Consultant"]
+  };
+  const count = speed === "thorough" ? 3 : speed === "balanced" ? 2 : 1;
+  return [primary, ...(complements[primary] ?? [])].slice(0, count);
+};
 
 export function createConsultationService({ store, provider }) {
   const controllers = new Map();
@@ -45,12 +60,20 @@ export function createConsultationService({ store, provider }) {
     };
     try {
       if (!await isCurrent()) return;
-      const settings = roleSettings(runState.snapshot); const first = await current(); const specialist = specialistFor(first.owner); const research = !hasSensitiveResearchContext(first.owner); const pace = paceInstruction(runState.snapshot.speed);
+      const settings = roleSettings(runState.snapshot); const first = await current(); const team = specialistTeam(first.owner, runState.snapshot.speed); const primary = team[0]; const research = !hasSensitiveResearchContext(first.owner); const pace = paceInstruction(runState.snapshot.speed);
       const turns = needsDiscussion(first.owner) ? [
-        { role: "Head Consultant", recipient: specialist, model: settings.head.model, effort: settings.head.effort, assignment: `You are the Head Consultant. Frame the practical decision, name the decisive assumptions and give the ${specialist} a focused task. Speak to the owner plainly. ${pace}` },
-        { role: specialist, recipient: "Critic", model: settings.consultant.model, effort: settings.consultant.effort, assignment: `You are the ${specialist}. Develop one concrete position that directly helps the owner decide. Address the Head's framing, use evidence where useful, and avoid ceremony. ${pace}` },
-        { role: "Critic", recipient: specialist, model: settings.critic.model, effort: settings.critic.effort, assignment: `You are the Critic. Challenge only material gaps, unsupported claims, risks or false certainty in the actual discussion. If the position is sound, say why. Address the ${specialist} directly and remain constructive. ${pace}` },
-        { role: specialist, recipient: "Head Consultant", model: settings.consultant.model, effort: settings.consultant.effort, assignment: `You are the ${specialist}. Respond directly to the Critic's actual concern. Revise your position where warranted; explain a grounded disagreement where not. Do not repeat your earlier message. ${pace}` },
+        { role: "Head Consultant", recipient: primary, model: settings.head.model, effort: settings.head.effort, assignment: `You are the Head Consultant. Frame the practical decision, name the decisive assumptions and give ${team.join(", ")} distinct focused tasks. Speak to the owner plainly. ${pace}` },
+        ...team.map((specialist, index) => ({
+          role: specialist,
+          recipient: team[index + 1] ?? "Critic",
+          model: settings.consultant.model,
+          effort: settings.consultant.effort,
+          assignment: index === 0
+            ? `You are the ${specialist}. Develop one concrete position that directly helps the owner decide. Address the Head's framing, use evidence where useful, and avoid ceremony. ${pace}`
+            : `You are the ${specialist}. Examine the preceding consultant's position from your discipline. Add a concrete constraint, alternative or test that can change the decision. Address that consultant directly and avoid ceremony. ${pace}`
+        })),
+        { role: "Critic", recipient: primary, model: settings.critic.model, effort: settings.critic.effort, assignment: `You are the Critic. Challenge only material gaps, unsupported claims, risks or false certainty in the actual discussion. If the position is sound, say why. Address the ${primary} directly and remain constructive. ${pace}` },
+        { role: primary, recipient: "Head Consultant", model: settings.consultant.model, effort: settings.consultant.effort, assignment: `You are the ${primary}. Respond directly to the Critic's actual concern and account for the other consultant contributions. Revise your position where warranted; explain a grounded disagreement where not. Do not repeat your earlier message. ${pace}` },
         { role: "Head Consultant", recipient: null, model: settings.head.model, effort: settings.head.effort, assignment: `You are the Head Consultant. Close the discussion with a self-contained recommendation or a clearly bounded uncertainty, no more than three next actions, the main risk and a revisit condition. State agreement only if the actual messages support it. ${pace}` }
       ] : [{ role: "Head Consultant", recipient: null, model: settings.head.model, effort: settings.head.effort, assignment: `You are the Head Consultant. Give a direct, self-contained answer to this simple question. Use a short example where it helps. Do not convene a consultant team or add process language. ${pace}` }];
       const ownerIndex = first.events.map(event => event.role).lastIndexOf("owner");

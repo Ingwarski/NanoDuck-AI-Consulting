@@ -35,7 +35,7 @@ test("ordinary consultations can use restricted live research without a keyword"
   const service = createConsultationService({ store, provider });
   await service.start(conversation.id, accepted.run);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
-  assert.equal(calls.length, 5);
+  assert.equal(calls.length, 6);
   assert.equal(calls.every(call => call.research === true), true);
 });
 
@@ -64,6 +64,8 @@ test("the saved Pace changes the consultation instruction without changing the m
   await service.start(conversation.id, accepted.run);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
   assert.match(calls[0].assignment, /up to about 260 words/u);
+  assert.equal(calls.length, 7);
+  assert.match(calls[3].assignment, /^You are the Operations Consultant/u);
   assert.equal(calls.every(call => call.model === "gpt-6-astra" && call.effort === "xhigh"), true);
 });
 
@@ -78,11 +80,13 @@ test("a Ukrainian finance question assigns the Finance Consultant and directs th
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
   assert.match(calls[0].assignment, /Finance Consultant/u);
   assert.match(calls[1].assignment, /^You are the Finance Consultant/u);
-  assert.match(calls[2].assignment, /Finance Consultant directly/u);
+  assert.match(calls[2].assignment, /^You are the Strategy Consultant/u);
+  assert.match(calls[3].assignment, /Finance Consultant directly/u);
   assert.deepEqual((await store.events(conversation.id)).map(event => [event.role, event.recipient]), [
     ["owner", null],
     ["Head Consultant", "Finance Consultant"],
-    ["Finance Consultant", "Critic"],
+    ["Finance Consultant", "Strategy Consultant"],
+    ["Strategy Consultant", "Critic"],
     ["Critic", "Finance Consultant"],
     ["Finance Consultant", "Head Consultant"],
     ["Head Consultant", null]
@@ -99,12 +103,13 @@ test("a resumed consultation continues after its last confirmed message", async 
   const service = createConsultationService({ store, provider });
   await service.resume();
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
-  assert.equal(calls.length, 4);
+  assert.equal(calls.length, 5);
   assert.match(calls[0].assignment, /^You are the Strategy Consultant/u);
   assert.deepEqual((await store.events(conversation.id)).map(event => [event.role, event.recipient]), [
     ["owner", null],
     ["Head Consultant", "Strategy Consultant"],
-    ["Strategy Consultant", "Critic"],
+    ["Strategy Consultant", "Finance Consultant"],
+    ["Finance Consultant", "Critic"],
     ["Critic", "Strategy Consultant"],
     ["Strategy Consultant", "Head Consultant"],
     ["Head Consultant", null]
@@ -122,7 +127,7 @@ test("Continue resumes at the next uncommitted turn after Stop", async () => {
   const service = createConsultationService({ store, provider });
   assert.ok(await service.continue(conversation.id));
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
-  assert.equal(calls.length, 4);
+  assert.equal(calls.length, 5);
   assert.match(calls[0].assignment, /^You are the Strategy Consultant/u);
 });
 

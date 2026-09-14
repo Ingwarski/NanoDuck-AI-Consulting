@@ -77,7 +77,7 @@ test("the local HTTP flow protects data, saves settings and preserves an unavail
   }
 });
 
-test("the authenticated discussion preserves a separate specialist, Critic and revision exchange", async () => {
+test("the authenticated discussion preserves two specialists, Critic and a revision exchange", async () => {
   const port = await reservePort();
   const directory = await mkdtemp(`${tmpdir()}/nanoduck-http-provider-`);
   const authPath = `${directory}/auth.json`;
@@ -121,14 +121,15 @@ test("the authenticated discussion preserves a separate specialist, Critic and r
     assert.deepEqual(detail.events.map(event => [event.role, event.recipient]), [
       ["owner", null],
       ["Head Consultant", "Strategy Consultant"],
-      ["Strategy Consultant", "Critic"],
+      ["Strategy Consultant", "Finance Consultant"],
+      ["Finance Consultant", "Critic"],
       ["Critic", "Strategy Consultant"],
       ["Strategy Consultant", "Head Consultant"],
       ["Head Consultant", null]
     ]);
-    assert.match(detail.events[3].body, /assumes those buyers will take calls/u);
-    assert.match(detail.events[4].body, /recruit calls from a defined prospect list/u);
-    assert.match(detail.events[5].body, /measure interview acceptance/u);
+    assert.match(detail.events[4].body, /assumes those buyers will take calls/u);
+    assert.match(detail.events[5].body, /recruit calls from a defined prospect list/u);
+    assert.match(detail.events[6].body, /measure interview acceptance/u);
     assert.equal(detail.events.every(event => !event.body.includes("nanoduck-source")), true);
     assert.deepEqual(detail.events[1].sources.map(source => ({ title: source.title, url: source.url, claim: source.claim, publishedAt: source.publishedAt })), [{ title: "Buyer evidence", url: "https://example.com/buyer-evidence", claim: "Buyer willingness must be measured before positioning.", publishedAt: "2026-09-01" }]);
     assert.match(detail.events[1].sources[0].retrievedAt, /^\d{4}-\d{2}-\d{2}T/u);
