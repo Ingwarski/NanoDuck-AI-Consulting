@@ -3731,13 +3731,13 @@
     "architecture": {
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "architecture-owner-display-and-microphone-reconciliation-20260914T235000",
+      "owner_invocation_id": "architecture-head-task-enforcement-reconciliation-20260915T001407",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "architecture-owner-display-and-microphone-reconciliation-20260914T235000",
+      "source_version": "architecture-head-task-enforcement-reconciliation-20260915T001407",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3774,12 +3774,12 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "98278642479be259a67b5757e6e6bb41836af34bc6899091722f583f0f64ed11",
+      "content_hash": "5e874df056506e7b2657b21f89d7995238ee7090246aa2a3258d67960919bb93",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "owner-display-and-microphone-reconciliation",
-        "reviewed_at": "2026-09-14T23:50:00+03:00",
+        "kind": "head-task-enforcement-reconciliation",
+        "reviewed_at": "2026-09-15T00:14:07+03:00",
         "executor": "Codex inline to-architecture"
       },
       "open_questions": [],
@@ -3853,19 +3853,19 @@
           "heading": "## Security enforcement map"
         }
       },
-      "supersedes": "architecture-owner-role-topology-reconciliation-20260914T233310",
+      "supersedes": "architecture-owner-display-and-microphone-reconciliation-20260914T235000",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "dod-evals": {
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "dod-evals-owner-display-and-microphone-reconciliation-20260914T235000",
+      "owner_invocation_id": "dod-evals-head-task-enforcement-reconciliation-20260915T001407",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "dod-evals-owner-display-and-microphone-reconciliation-20260914T235000",
+      "source_version": "dod-evals-head-task-enforcement-reconciliation-20260915T001407",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3886,7 +3886,7 @@
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51",
         "docs/wireframes.md": "e4421b28906eb78359efc559edd26a47e5e80c734a52178694f59540cfaa3fb5",
         "docs/design-brief.md": "c4abf634becc5757bd8f3fda67aa7aa92d83cf4093985f8415294e8ec4d6d8c4",
-        "docs/architecture.md": "98278642479be259a67b5757e6e6bb41836af34bc6899091722f583f0f64ed11"
+        "docs/architecture.md": "5e874df056506e7b2657b21f89d7995238ee7090246aa2a3258d67960919bb93"
       },
       "dependencies": [
         "prd",
@@ -3899,12 +3899,12 @@
         "design-brief",
         "architecture"
       ],
-      "content_hash": "cba2ffc77ec3ed2c915e2a3f7be18264ab288d5b5df08799e4e79c7619cef0cf",
+      "content_hash": "717b155bce9c2b9bf4a0aaad47cf81a3a83f13ea37422add8f49505bc601c6a7",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "owner-display-and-microphone-reconciliation",
-        "reviewed_at": "2026-09-14T23:50:00+03:00",
+        "kind": "head-task-enforcement-reconciliation",
+        "reviewed_at": "2026-09-15T00:14:07+03:00",
         "executor": "Codex inline to-dod-evals"
       },
       "open_questions": [],
@@ -3978,19 +3978,19 @@
           "heading": "### Product security membership"
         }
       },
-      "supersedes": "dod-evals-owner-role-topology-reconciliation-20260914T233310",
+      "supersedes": "dod-evals-owner-display-and-microphone-reconciliation-20260914T235000",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "qa-checklist": {
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "qa-checklist-owner-display-and-microphone-reconciliation-20260914T235000",
+      "owner_invocation_id": "qa-checklist-head-task-enforcement-reconciliation-20260915T001407",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "qa-checklist-owner-display-and-microphone-reconciliation-20260914T235000",
+      "source_version": "qa-checklist-head-task-enforcement-reconciliation-20260915T001407",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -4016,8 +4016,8 @@
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51",
         "docs/wireframes.md": "e4421b28906eb78359efc559edd26a47e5e80c734a52178694f59540cfaa3fb5",
         "docs/design-brief.md": "c4abf634becc5757bd8f3fda67aa7aa92d83cf4093985f8415294e8ec4d6d8c4",
-        "docs/architecture.md": "98278642479be259a67b5757e6e6bb41836af34bc6899091722f583f0f64ed11",
-        "docs/dod-evals.md": "cba2ffc77ec3ed2c915e2a3f7be18264ab288d5b5df08799e4e79c7619cef0cf",
+        "docs/architecture.md": "5e874df056506e7b2657b21f89d7995238ee7090246aa2a3258d67960919bb93",
+        "docs/dod-evals.md": "717b155bce9c2b9bf4a0aaad47cf81a3a83f13ea37422add8f49505bc601c6a7",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
         "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
@@ -4035,12 +4035,12 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "fc18b6ea3b1e98e2b5aead2cade37e1908cdedd86b92ffef9944f4280ad5d8b8",
+      "content_hash": "b82ea59da9676625834cd7fac4e41c401dfc1319e7a7c82fcf0d9e8921a33de2",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "owner-display-and-microphone-reconciliation",
-        "reviewed_at": "2026-09-14T23:50:00+03:00",
+        "kind": "head-task-enforcement-reconciliation",
+        "reviewed_at": "2026-09-15T00:14:07+03:00",
         "executor": "Codex inline to-qa-checklist"
       },
       "open_questions": [],
@@ -5785,19 +5785,19 @@
           "heading": "## Product acceptance"
         }
       },
-      "supersedes": "qa-checklist-owner-role-topology-reconciliation-20260914T233310",
+      "supersedes": "qa-checklist-owner-display-and-microphone-reconciliation-20260914T235000",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "development-plan": {
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "development-plan-owner-display-and-microphone-reconciliation-20260914T235000",
+      "owner_invocation_id": "development-plan-head-task-enforcement-reconciliation-20260915T001407",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "development-plan-owner-display-and-microphone-reconciliation-20260914T235000",
+      "source_version": "development-plan-head-task-enforcement-reconciliation-20260915T001407",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -5829,9 +5829,9 @@
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51",
         "docs/wireframes.md": "e4421b28906eb78359efc559edd26a47e5e80c734a52178694f59540cfaa3fb5",
         "docs/design-brief.md": "c4abf634becc5757bd8f3fda67aa7aa92d83cf4093985f8415294e8ec4d6d8c4",
-        "docs/architecture.md": "98278642479be259a67b5757e6e6bb41836af34bc6899091722f583f0f64ed11",
-        "docs/dod-evals.md": "cba2ffc77ec3ed2c915e2a3f7be18264ab288d5b5df08799e4e79c7619cef0cf",
-        "docs/qa-checklist.md": "fc18b6ea3b1e98e2b5aead2cade37e1908cdedd86b92ffef9944f4280ad5d8b8",
+        "docs/architecture.md": "5e874df056506e7b2657b21f89d7995238ee7090246aa2a3258d67960919bb93",
+        "docs/dod-evals.md": "717b155bce9c2b9bf4a0aaad47cf81a3a83f13ea37422add8f49505bc601c6a7",
+        "docs/qa-checklist.md": "b82ea59da9676625834cd7fac4e41c401dfc1319e7a7c82fcf0d9e8921a33de2",
         "docs/model-settings.md": "86801751744742aa44a41b9f6d5c5192eabd22423323c83bdbddec431e47b4d5",
         "docs/deployment-boundary.md": "e57776bcde6bb00d6dceb6200e02303124cfdf4f1272c72eb474b50a3949df83",
         "package.json": "09ee36e63b46084b99ec90a6793a50ff5e36c466bd46faf2b6da802f55089343",
@@ -5855,15 +5855,15 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "1f440bc2c16483fde42f99c5e1b7542bf166624a833dcc18b10535ec8760870b",
+      "content_hash": "a6d7ac6f6a544a2f038da8e812f036598a07babb92d5c9d03d23d8603f318889",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "owner-display-and-microphone-reconciliation",
-        "reviewed_at": "2026-09-14T23:50:00+03:00",
+        "kind": "head-task-enforcement-reconciliation",
+        "reviewed_at": "2026-09-15T00:14:07+03:00",
         "executor": "Codex inline to-development-plan"
       },
-      "supersedes": "development-plan-owner-role-topology-reconciliation-20260914T233310",
+      "supersedes": "development-plan-owner-display-and-microphone-reconciliation-20260914T235000",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
       "traceability": {
         "definitions": [
@@ -7554,18 +7554,18 @@
   ],
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "1f440bc2c16483fde42f99c5e1b7542bf166624a833dcc18b10535ec8760870b",
+    "development_plan_hash": "a6d7ac6f6a544a2f038da8e812f036598a07babb92d5c9d03d23d8603f318889",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-14T20:13:37+03:00",
-    "prompt_id": "impl-20260914-u03-owner-display-and-microphone",
-    "prompt_received_at": "2026-09-14T20:50:00Z",
-    "released_at": "2026-09-14T20:50:00Z",
+    "prompt_id": "impl-20260915-u04-head-task-enforcement",
+    "prompt_received_at": "2026-09-14T21:14:07Z",
+    "released_at": "2026-09-14T21:14:07Z",
     "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
     "prompt_receipt": {
-      "path": "forge/runs/implementation-prompt-20260914-u03-owner-display-and-microphone.json",
-      "content_hash": "8f2c6599c04ce1230ab8842ca7f163e6262ae6065437a44f9dd837e83eeb8a98"
+      "path": "forge/runs/implementation-prompt-20260915-u04-head-task-enforcement.json",
+      "content_hash": "7d637ac55b00f9e595ae3653c27cb36cd7f98939c445e0c5496f3cc82795f5aa"
     },
-    "reason": "The owner explicitly corrected local owner message presentation and the voice-control icon. Local implementation, deterministic checks and local browser verification are authorized; deployment, GoDaddy data operations and external changes remain outside authorization."
+    "reason": "The owner explicitly required enforcement that pre-conclusion Head output is task-only. Local implementation, deterministic checks and an isolated synthetic local actual-provider consultation are authorized; deployment, GoDaddy data operations and external changes remain outside authorization."
   },
   "input_requests": [],
   "last_resume_event": {
@@ -7808,6 +7808,24 @@
         "development-plan"
       ],
       "decision": "Render every visible internal-owner label as You, use an I avatar on owner messages, and use a recognizable inline SVG microphone in the composer. The frozen Electric A v8 candidate remains immutable history; this scoped runtime presentation correction has no GoDaddy or release effect."
+    },
+    {
+      "event": "u04_head_task_enforcement_authorized_and_verified",
+      "at": "2026-09-14T21:14:07Z",
+      "unit": "U-04",
+      "prompt_id": "impl-20260915-u04-head-task-enforcement",
+      "development_plan_hash": "a6d7ac6f6a544a2f038da8e812f036598a07babb92d5c9d03d23d8603f318889",
+      "verification_receipt": {
+        "path": "forge/runs/U-04/phase3-head-task-enforcement-20260915/verification.json",
+        "content_hash": "9cfd72e12039e16875ee5bfa7f9c2badf0c5d168922694ca9297d394b1572e5b"
+      },
+      "affected_artifacts": [
+        "architecture",
+        "dod-evals",
+        "qa-checklist",
+        "development-plan"
+      ],
+      "decision": "Pre-conclusion Head output must match a strict task-only format. Any malformed or owner-facing Head prose is discarded in favor of a concise role-specific task, leaving a Head-to-owner message only for final synthesis. No GoDaddy operation is authorized or performed."
     }
   ],
   "dispatches": {
@@ -7977,7 +7995,7 @@
       "consumed_source_fragments": {}
     },
     "architecture": {
-      "invocation_id": "architecture-owner-display-and-microphone-reconciliation-20260914T235000",
+      "invocation_id": "architecture-head-task-enforcement-reconciliation-20260915T001407",
       "outputs": [
         "docs/architecture.md"
       ],
@@ -7997,7 +8015,7 @@
       "consumed_source_fragments": {}
     },
     "dod-evals": {
-      "invocation_id": "dod-evals-owner-display-and-microphone-reconciliation-20260914T235000",
+      "invocation_id": "dod-evals-head-task-enforcement-reconciliation-20260915T001407",
       "outputs": [
         "docs/dod-evals.md"
       ],
@@ -8010,12 +8028,12 @@
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51",
         "docs/wireframes.md": "e4421b28906eb78359efc559edd26a47e5e80c734a52178694f59540cfaa3fb5",
         "docs/design-brief.md": "c4abf634becc5757bd8f3fda67aa7aa92d83cf4093985f8415294e8ec4d6d8c4",
-        "docs/architecture.md": "98278642479be259a67b5757e6e6bb41836af34bc6899091722f583f0f64ed11"
+        "docs/architecture.md": "5e874df056506e7b2657b21f89d7995238ee7090246aa2a3258d67960919bb93"
       },
       "consumed_source_fragments": {}
     },
     "qa-checklist": {
-      "invocation_id": "qa-checklist-owner-display-and-microphone-reconciliation-20260914T235000",
+      "invocation_id": "qa-checklist-head-task-enforcement-reconciliation-20260915T001407",
       "outputs": [
         "docs/qa-checklist.md"
       ],
@@ -8028,8 +8046,8 @@
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51",
         "docs/wireframes.md": "e4421b28906eb78359efc559edd26a47e5e80c734a52178694f59540cfaa3fb5",
         "docs/design-brief.md": "c4abf634becc5757bd8f3fda67aa7aa92d83cf4093985f8415294e8ec4d6d8c4",
-        "docs/architecture.md": "98278642479be259a67b5757e6e6bb41836af34bc6899091722f583f0f64ed11",
-        "docs/dod-evals.md": "cba2ffc77ec3ed2c915e2a3f7be18264ab288d5b5df08799e4e79c7619cef0cf",
+        "docs/architecture.md": "5e874df056506e7b2657b21f89d7995238ee7090246aa2a3258d67960919bb93",
+        "docs/dod-evals.md": "717b155bce9c2b9bf4a0aaad47cf81a3a83f13ea37422add8f49505bc601c6a7",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
         "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
@@ -8038,7 +8056,7 @@
       "consumed_source_fragments": {}
     },
     "development-plan": {
-      "invocation_id": "development-plan-owner-display-and-microphone-reconciliation-20260914T235000",
+      "invocation_id": "development-plan-head-task-enforcement-reconciliation-20260915T001407",
       "outputs": [
         "docs/development-plan.md"
       ],
@@ -8051,9 +8069,9 @@
         "docs/screen-map.md": "363bba10b775bc8f3896875f933d4e522db2d56f514d528486bd784a24804e51",
         "docs/wireframes.md": "e4421b28906eb78359efc559edd26a47e5e80c734a52178694f59540cfaa3fb5",
         "docs/design-brief.md": "c4abf634becc5757bd8f3fda67aa7aa92d83cf4093985f8415294e8ec4d6d8c4",
-        "docs/architecture.md": "98278642479be259a67b5757e6e6bb41836af34bc6899091722f583f0f64ed11",
-        "docs/dod-evals.md": "cba2ffc77ec3ed2c915e2a3f7be18264ab288d5b5df08799e4e79c7619cef0cf",
-        "docs/qa-checklist.md": "fc18b6ea3b1e98e2b5aead2cade37e1908cdedd86b92ffef9944f4280ad5d8b8",
+        "docs/architecture.md": "5e874df056506e7b2657b21f89d7995238ee7090246aa2a3258d67960919bb93",
+        "docs/dod-evals.md": "717b155bce9c2b9bf4a0aaad47cf81a3a83f13ea37422add8f49505bc601c6a7",
+        "docs/qa-checklist.md": "b82ea59da9676625834cd7fac4e41c401dfc1319e7a7c82fcf0d9e8921a33de2",
         "docs/model-settings.md": "86801751744742aa44a41b9f6d5c5192eabd22423323c83bdbddec431e47b4d5",
         "docs/deployment-boundary.md": "e57776bcde6bb00d6dceb6200e02303124cfdf4f1272c72eb474b50a3949df83",
         "package.json": "09ee36e63b46084b99ec90a6793a50ff5e36c466bd46faf2b6da802f55089343",
@@ -60186,8 +60204,8 @@
     "definition_status": "prepared",
     "release_readiness": "not_evaluated",
     "source_hashes": {
-      "docs/dod-evals.md": "cba2ffc77ec3ed2c915e2a3f7be18264ab288d5b5df08799e4e79c7619cef0cf",
-      "docs/qa-checklist.md": "fc18b6ea3b1e98e2b5aead2cade37e1908cdedd86b92ffef9944f4280ad5d8b8"
+      "docs/dod-evals.md": "717b155bce9c2b9bf4a0aaad47cf81a3a83f13ea37422add8f49505bc601c6a7",
+      "docs/qa-checklist.md": "b82ea59da9676625834cd7fac4e41c401dfc1319e7a7c82fcf0d9e8921a33de2"
     },
     "gates": [
       {
@@ -60510,7 +60528,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Every participating consultant and Critic is a separate actual invocation/context with a distinct assignment.",
+        "task": "Every participating consultant and Critic is a separate actual invocation/context with a distinct assignment. For substantive work, observe the full topology: Head -> each selected specialist with concise tasks only; each specialist -> Critic with an independent position; then only Critic -> relevant specialist -> Critic exchanges; Head -> owner once for final synthesis. No specialist-to-specialist routing or pre-conclusion Head advice appears. Supply malformed owner-facing Head output at the provider seam and verify that it is discarded and replaced with a bounded role-specific task.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",

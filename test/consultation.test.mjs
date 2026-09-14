@@ -65,7 +65,8 @@ test("a fixed specialist count selects the requested team without changing the m
   await service.start(conversation.id, accepted.run);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
   assert.equal(calls.length, 9);
-  assert.match(calls[0].assignment, /Give only a concise, concrete task/u);
+  assert.match(calls[0].assignment, /private handoff to the Strategy Consultant/u);
+  assert.equal(calls[0].outputKind, "head_task");
   assert.match(calls[5].assignment, /^You are the Operations Consultant/u);
   assert.deepEqual((await store.events(conversation.id)).map(event => [event.role, event.recipient]), [
     ["owner", null],
@@ -93,6 +94,35 @@ test("five specialists remain distinct from Head Consultant and Critic", async (
   assert.deepEqual(events.slice(6, 11).map(event => [event.role, event.recipient]), [
     ["Strategy Consultant", "Critic"], ["Finance Consultant", "Critic"], ["Operations Consultant", "Critic"], ["Product Consultant", "Critic"], ["Risk Consultant", "Critic"]
   ]);
+});
+
+test("pre-conclusion Head advice is discarded in favour of a bounded specialist task", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "head-task-guard-0001" }, { ...defaultSettings, specialistCount: "2", discussionDepth: "1" });
+  const calls = [];
+  const provider = {
+    async invoke(input) {
+      calls.push(input);
+      if (input.outputKind === "head_task") return { ok: true, body: "I recommend that the owner scales the offer immediately.", sources: [] };
+      return { ok: true, body: "A qualified answer.", sources: [] };
+    }
+  };
+  const service = createConsultationService({ store, provider });
+  await service.start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  const events = await store.events(conversation.id);
+  const headTasks = events.filter(event => event.role === "Head Consultant" && event.recipient);
+  assert.equal(headTasks.length, 2);
+  assert.equal(calls.filter(call => call.outputKind === "head_task").length, 2);
+  assert.equal(calls.filter(call => call.outputKind === "head_task").every(call => call.assignment.includes("<nanoduck-task>")), true);
+  assert.deepEqual(headTasks.map(event => event.body), [
+    "Define the decision options, decisive evidence, and the next test that can change the direction.",
+    "Quantify the financial threshold, primary cost or margin risk, and the next calculation that can change this decision."
+  ]);
+  assert.equal(headTasks.some(event => /\b(?:i|we|owner|recommend|conclusion)\b/iu.test(event.body)), false);
+  assert.equal(events.at(-1).role, "Head Consultant");
+  assert.equal(events.at(-1).recipient, null);
 });
 
 test("discussion depth performs the requested number of Critic-specialist exchanges", async () => {

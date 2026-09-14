@@ -18,6 +18,40 @@ const responseLanguage = text => {
   if (/\b(?:answer|respond|reply|write)\s+in\s+ukrainian\b|українськ/iu.test(text)) return "Ukrainian";
   return /[А-Яа-яІіЇїЄєҐґ]/u.test(text) ? "Ukrainian" : "English";
 };
+const headTaskFallbacks = Object.freeze({
+  English: Object.freeze({
+    "Strategy Consultant": "Define the decision options, decisive evidence, and the next test that can change the direction.",
+    "Finance Consultant": "Quantify the financial threshold, primary cost or margin risk, and the next calculation that can change this decision.",
+    "Operations Consultant": "Map the operational constraint, delivery risk, and the next practical test for this decision.",
+    "Sales Consultant": "Assess buyer evidence, the material sales risk, and the next customer test that can change this decision.",
+    "Marketing Consultant": "Assess audience evidence, the material demand risk, and the next market test that can change this decision.",
+    "Product Consultant": "Assess user value, the material product risk, and the next validation test that can change this decision.",
+    "Spiritual Consultant": "Assess the question through the stated doctrine and identify the material spiritual consideration and needed evidence.",
+    Psychotherapist: "Assess the question through an appropriate non-clinical approach and identify the material pattern and next grounded step.",
+    "Risk Consultant": "Identify the decision-critical risk, the evidence needed to assess it, and the next mitigating test."
+  }),
+  Ukrainian: Object.freeze({
+    "Strategy Consultant": "Визнач варіанти рішення, вирішальні докази та наступну перевірку, що може змінити напрям.",
+    "Finance Consultant": "Визнач фінансовий поріг, ключовий ризик витрат або маржі та наступний розрахунок, що може змінити рішення.",
+    "Operations Consultant": "Визнач операційне обмеження, ризик виконання та наступну практичну перевірку для цього рішення.",
+    "Sales Consultant": "Оціни докази попиту покупців, суттєвий ризик продажу та наступну перевірку з клієнтами.",
+    "Marketing Consultant": "Оціни докази щодо аудиторії, суттєвий ризик попиту та наступну перевірку ринку.",
+    "Product Consultant": "Оціни цінність для користувача, суттєвий продуктовий ризик та наступну перевірку гіпотези.",
+    "Spiritual Consultant": "Оціни питання крізь призму вказаного вчення та назви суттєвий духовний аспект і потрібні докази.",
+    Psychotherapist: "Оціни питання через доречний неклінічний підхід та назви суттєвий патерн і наступний обґрунтований крок.",
+    "Risk Consultant": "Визнач критичний ризик рішення, докази для його оцінки та наступну перевірку пом’якшення."
+  })
+});
+const headTaskFallback = (specialist, language) => headTaskFallbacks[language]?.[specialist] ?? headTaskFallbacks.English["Strategy Consultant"];
+const headTaskOutput = body => {
+  const match = /^\s*<nanoduck-task>\s*([\s\S]*?)\s*<\/nanoduck-task>\s*$/iu.exec(body);
+  if (!match) return undefined;
+  const task = match[1].replace(/\s+/gu, " ").trim();
+  const imperative = /^(?:Assess|Analyze|Analyse|Evaluate|Define|Map|Quantify|Test|Identify|Compare|Review|Examine|Clarify|Estimate|Check|Determine|Проаналізуй|Оціни|Визнач|Перевір|Зістав|Уточни|Порахуй|Вияви|Сформулюй|Досліди|Окресли|З’ясуй|З'ясуй)(?![\p{L}])/iu;
+  const ownerFacing = /(?:\b(?:i|we|owner|user|recommend(?:ation)?|conclusion)\b|власник|користувач|рекоменд\p{L}*|виснов\p{L}*)/iu;
+  const sentences = task.split(/[.!?]+/u).filter(Boolean);
+  return task.length <= 420 && sentences.length <= 2 && imperative.test(task) && !ownerFacing.test(task) ? Object.freeze({ body: task }) : undefined;
+};
 const roleGuidance = Object.freeze({
   "Spiritual Consultant": "Work from evangelical Protestant doctrine: Jesus Christ is Lord and Saviour; His finished work is sufficient; salvation is by faith alone and cannot be lost. Do not introduce esoteric, occult, syncretic, manifestation or therapeutic claims.",
   Psychotherapist: "Use methods from the major classical psychotherapy schools and Internal Family Systems when appropriate. Do not claim human credentials, diagnose, replace clinical care, or handle an emergency without directing the owner to immediate local help."
@@ -85,12 +119,13 @@ export function createConsultationService({ store, provider }) {
       snapshot = Object.freeze({ ...snapshot, ...patch });
       if (!await store.updateRunSnapshot(conversationId, runState.generation, snapshot)) throw new Error("invalid_run_state");
     };
-    const invoke = async (step, transform = body => ({ body })) => {
+    const invoke = async (step, transform = body => ({ body }), fallback = undefined) => {
       if (!await isCurrent()) return undefined;
-      const result = await provider.invoke({ assignment: step.assignment, model: step.model, effort: step.effort, evidence: await current(), research: step.research, signal: controller.signal });
+      const result = await provider.invoke({ assignment: step.assignment, model: step.model, effort: step.effort, evidence: await current(), research: step.research, outputKind: step.outputKind, signal: controller.signal });
       if (!result.ok) throw new Error(result.code ?? "provider_unavailable");
-      const output = transform(result.body);
-      const committed = await store.appendAgentMessage(conversationId, runState.generation, { role: step.role, recipient: step.recipient, body: output.body, sources: result.sources });
+      const output = transform(result.body) ?? (fallback ? { body: fallback() } : undefined);
+      if (!output?.body) throw new Error("provider_contract");
+      const committed = await store.appendAgentMessage(conversationId, runState.generation, { role: step.role, recipient: step.recipient, body: output.body, sources: output.sources ?? result.sources });
       if (!committed) throw new Error("invalid_run_state");
       return output;
     };
@@ -139,7 +174,8 @@ export function createConsultationService({ store, provider }) {
           model: settings.head.model,
           effort: settings.head.effort,
           research: false,
-          assignment: `You are the Head Consultant. Give only a concise, concrete task to the ${specialist} for this decision. Do not answer the owner, state your own position, recommend an action, list assumptions, explain the team or add any process wording. Use one or two imperative sentences addressed to the ${specialist}. ${language}`
+          outputKind: "head_task",
+          assignment: `You are the Head Consultant. This is a private handoff to the ${specialist}, never an answer to the owner. Return exactly one XML wrapper and nothing else: <nanoduck-task>ONE OR TWO IMPERATIVE SENTENCES</nanoduck-task>. Begin the task with a direct action verb. Inside the wrapper, give the ${specialist} a concrete role-specific investigation for this decision. Do not answer the owner, state a position, recommend an action, list assumptions, explain the team, use first person, or use words such as recommendation or conclusion. ${language}`
         })),
         ...team.map(specialist => ({
           role: specialist,
@@ -153,6 +189,7 @@ export function createConsultationService({ store, provider }) {
       for (let index = 0; index < initial.length; index += 1) {
         const existing = confirmed[index];
         if (existing) { if (!matches(existing, initial[index])) throw new Error("invalid_run_state"); }
+        else if (initial[index].outputKind === "head_task") await invoke(initial[index], headTaskOutput, () => headTaskFallback(initial[index].recipient, first.sessionLanguage));
         else await invoke(initial[index]);
       }
       confirmed = (await current()).events.slice(ownerIndex + 1);
