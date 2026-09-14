@@ -91,5 +91,6 @@ const handler = async (request, response) => {
 };
 
 const server = createServer(handler);
+void consultation.resume().catch(() => process.stderr.write("Unable to resume a saved consultation.\n"));
 server.listen(config.port, () => process.stdout.write(`NanoDuck Consulting Group listening on ${config.port}.\n`));
 for (const signal of ["SIGINT", "SIGTERM"]) process.once(signal, () => server.close(() => Promise.resolve(store.close?.()).finally(() => process.exit(0))));

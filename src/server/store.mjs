@@ -58,6 +58,7 @@ export function createMemoryStore() {
       const result = { message: publicMessage(message), run: { ...run }, replayed: false }; requests.set(requestKey, result); return result;
     },
     async run(conversationId) { const run = runs.get(conversationId); return run ? { ...run } : undefined; },
+    async activeRuns() { return [...runs.values()].filter(run => run.status === "active").map(run => ({ ...run })); },
     async appendAgentMessage(conversationId, generation, item) {
       const run = runs.get(conversationId); const conversation = conversations.get(conversationId);
       if (!run || run.status !== "active" || run.generation !== generation || !conversation || conversation.deletedAt) return undefined;
@@ -134,6 +135,7 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
       } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
     },
     async run(id) { const [rows] = await query("SELECT id,conversation_id,status,generation,snapshot_json,created_at,updated_at FROM nanoduck_runs WHERE conversation_id=? ORDER BY created_at DESC LIMIT 1", [id]); return rows.length ? { id: rows[0].id, conversationId: rows[0].conversation_id, status: rows[0].status, generation: rows[0].generation, snapshot: JSON.parse(rows[0].snapshot_json), createdAt: rows[0].created_at, updatedAt: rows[0].updated_at } : undefined; },
+    async activeRuns() { const [rows] = await query("SELECT id,conversation_id,status,generation,snapshot_json,created_at,updated_at FROM nanoduck_runs WHERE status='active' ORDER BY created_at"); return rows.map(row => ({ id: row.id, conversationId: row.conversation_id, status: row.status, generation: row.generation, snapshot: JSON.parse(row.snapshot_json), createdAt: row.created_at, updatedAt: row.updated_at })); },
     async appendAgentMessage(id, generation, item) {
       const connection = await pool.getConnection();
       try {
