@@ -28,6 +28,8 @@ test("prohibited source hosts, language and provider prose never reach a consult
   assert.deepEqual(source, { ok: true, body: "A bounded answer.", sources: [] });
   const prose = await provider.invoke({ assignment: "Return prohibited prose.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: false, signal: new AbortController().signal });
   assert.deepEqual(prose, { ok: false, code: "language_policy" });
+  const bodyUrl = await provider.invoke({ assignment: "Return prohibited body URL.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: false, signal: new AbortController().signal });
+  assert.deepEqual(bodyUrl, { ok: false, code: "language_policy" });
 });
 
 test("a completed provider notification clears its deadline waiter", async () => {

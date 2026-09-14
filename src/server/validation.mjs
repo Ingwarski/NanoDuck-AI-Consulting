@@ -11,9 +11,13 @@ export function parseJson(value) {
   return value;
 }
 
+const externalUrlMatch = /\bhttps?:\/\/[^\s<>"']+/gu;
+const trimUrlPunctuation = value => value.replace(/[),.;:!?]+$/gu, "");
+export const hasUnsafeExternalUrl = value => typeof value === "string" && [...value.matchAll(externalUrlMatch)].some(match => !safeExternalUrl(trimUrlPunctuation(match[0])));
+
 export function parseMessage(value) {
   const body = parseJson(value);
-  if (!body || !text(body.body, 32_000) || !identifier(body.clientRequestId) || hasProhibitedLanguage(body.body)) return undefined;
+  if (!body || !text(body.body, 32_000) || !identifier(body.clientRequestId) || hasProhibitedLanguage(body.body) || hasUnsafeExternalUrl(body.body)) return undefined;
   const attachmentIds = body.attachmentIds === undefined ? [] : body.attachmentIds;
   if (!Array.isArray(attachmentIds) || attachmentIds.length > maxAttachmentsPerMessage || attachmentIds.some(item => !identifier(item)) || new Set(attachmentIds).size !== attachmentIds.length) return undefined;
   return Object.freeze({ body: body.body.trim(), clientRequestId: body.clientRequestId, attachmentIds: Object.freeze([...attachmentIds]) });
@@ -21,7 +25,7 @@ export function parseMessage(value) {
 
 export function messageError(value) {
   const body = parseJson(value);
-  return body && hasProhibitedLanguage(body.body) ? "language_not_supported" : "invalid_message";
+  return body && (hasProhibitedLanguage(body.body) || hasUnsafeExternalUrl(body.body)) ? "language_not_supported" : "invalid_message";
 }
 
 export function parseSettings(value, catalog = undefined) {

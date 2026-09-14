@@ -15,7 +15,7 @@ const auth = createAuth({ config, store });
 const provider = createCodexProvider(config);
 const consultation = createConsultationService({ store, provider });
 const publicDirectory = new URL("../../public/", import.meta.url).pathname;
-const clientApp = new URL("../client/app.js", import.meta.url).pathname;
+const clientDirectory = new URL("../client/", import.meta.url).pathname;
 const mime = { ".html": "text/html; charset=utf-8", ".css": "text/css; charset=utf-8", ".js": "application/javascript; charset=utf-8", ".svg": "image/svg+xml", ".json": "application/json; charset=utf-8" };
 
 const securityHeaders = { "cache-control": "no-store", "content-security-policy": "default-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; connect-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; media-src 'self';", "permissions-policy": "camera=(), geolocation=(), microphone=(self)", "referrer-policy": "no-referrer", "x-content-type-options": "nosniff", "x-frame-options": "DENY" };
@@ -35,14 +35,10 @@ const protectedSession = async (request, response, options = {}) => {
 const routeId = pathname => pathname.match(/^\/api\/conversations\/([A-Za-z0-9_-]{16,128})(?:\/([^/]+)(?:\/([A-Za-z0-9_-]{16,128}))?)?$/u);
 
 async function staticFile(request, response, pathname) {
-  if (pathname === "/client/app.js") {
-    const body = await readFile(clientApp);
-    response.writeHead(200, { ...securityHeaders, "content-type": mime[".js"], "content-length": body.byteLength }); response.end(body); return true;
-  }
   const wanted = pathname === "/" ? "/index.html" : pathname;
   const safe = normalize(wanted).replace(/^([/\\])+/, "");
   if (safe.includes("..")) return false;
-  const path = join(publicDirectory, safe);
+  const path = pathname.startsWith("/client/") ? join(clientDirectory, safe.slice("client/".length)) : join(publicDirectory, safe);
   try {
     const info = await stat(path); if (!info.isFile()) return false;
     const body = await readFile(path); response.writeHead(200, { ...securityHeaders, "content-type": mime[extname(path)] ?? "application/octet-stream", "content-length": body.byteLength }); response.end(body); return true;

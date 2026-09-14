@@ -248,6 +248,7 @@ test("settings and message validation reject unsupported model values and malfor
   assert.equal(parseMessage({ body: "Question", clientRequestId: "request-identifier-0002", attachmentIds: Array(5).fill("attachment-identifier-0001") }), undefined);
   assert.equal(parseMessage({ body: "Как это работает?", clientRequestId: "language-policy-request-0001" }), undefined);
   assert.equal(parseMessage({ body: "Як гэта працуе?", clientRequestId: "language-policy-request-0002" }), undefined);
+  assert.equal(parseMessage({ body: "Read https://example.su/report", clientRequestId: "url-policy-request-0003" }), undefined);
 });
 
 test("source links accept only public HTTPS destinations", () => {

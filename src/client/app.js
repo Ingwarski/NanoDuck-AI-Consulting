@@ -1,3 +1,5 @@
+import { parseMarkdown } from "/client/markdown.js";
+
 const state = { session: null, csrf: null, page: "discussion", tab: "discussion", conversation: null, events: [], run: null, poll: null, recognition: null, voiceTimer: null, voiceMode: "ready", voiceTranscript: "", attachmentFiles: [], attachmentError: "" };
 const $ = selector => document.querySelector(selector);
 const roleInitials = { owner: "I", "Head Consultant": "HC", "Strategy Consultant": "SC", "Finance Consultant": "FC", "Operations Consultant": "OC", "Sales Consultant": "SL", "Marketing Consultant": "MC", "Product Consultant": "PC", "Spiritual Consultant": "SP", Psychotherapist: "PT", "Risk Consultant": "RC", Critic: "CR", System: "•" };
@@ -19,6 +21,17 @@ const formatTime = value => new Intl.DateTimeFormat(undefined, { hour: "numeric"
 const formatDate = value => new Intl.DateTimeFormat(undefined, { dateStyle: "medium" }).format(new Date(value));
 const clear = element => { element.replaceChildren(); return element; };
 const node = (tag, attributes = {}, text) => { const item = document.createElement(tag); for (const [key, value] of Object.entries(attributes)) { if (key === "class") item.className = value; else if (key.startsWith("data-")) item.setAttribute(key, value); else item[key] = value; } if (text !== undefined) item.textContent = text; return item; };
+const appendMarkdownTokens = (target, tokens) => { for (const token of tokens) { if (token.type === "break") target.append(document.createElement("br")); else if (token.type === "strong") target.append(node("strong", {}, token.value)); else if (token.type === "emphasis") target.append(node("em", {}, token.value)); else if (token.type === "code") target.append(node("code", {}, token.value)); else if (token.type === "link") target.append(node("a", { href: token.href, target: "_blank", rel: "noopener noreferrer" }, token.value)); else target.append(document.createTextNode(token.value)); } };
+const renderMarkdown = (target, value) => {
+  clear(target);
+  for (const block of parseMarkdown(value)) {
+    if (block.type === "list") { const list = node(block.ordered ? "ol" : "ul"); for (const item of block.items) { const entry = node("li"); appendMarkdownTokens(entry, item); list.append(entry); } target.append(list); continue; }
+    const element = node(block.type === "heading" ? `h${block.level}` : block.type === "quote" ? "blockquote" : "p");
+    appendMarkdownTokens(element, block.content); target.append(element);
+  }
+  if (!target.childNodes.length) target.append(node("p", {}, ""));
+  return target;
+};
 const id = () => crypto.randomUUID().replaceAll("-", "");
 const attachmentLimit = 8 * 1024 * 1024;
 const attachmentCountLimit = 4;
@@ -64,7 +77,7 @@ function renderEvents() {
     message.append(node("div", { class: "avatar", "aria-hidden": true }, roleInitials[event.role] ?? "AI"));
     const content = node("div", { class: "message-content" }); const meta = node("div", { class: "message-meta" });
     meta.append(node("strong", {}, displayRole(event.role))); if (event.recipient) meta.append(node("small", {}, `→ ${displayRole(event.recipient)}`)); meta.append(node("time", { dateTime: event.createdAt }, formatTime(event.createdAt)));
-    content.append(meta, node("div", { class: "message-body" }, event.body));
+    const body = node("div", { class: "message-body" }); renderMarkdown(body, event.body); content.append(meta, body);
     if (event.attachments?.length) {
       const links = node("div", { class: "attachment-links", "aria-label": "Image attachments" });
       for (const attachment of event.attachments) {
@@ -83,7 +96,7 @@ function renderEvents() {
   renderOutcome(); renderSources();
 }
 
-function renderOutcome() { const target = clear($("#outcome")); const outcome = [...state.events].reverse().find(event => event.role === "Head Consultant"); if (outcome) target.append(node("h2", {}, "Current outcome"), node("p", {}, outcome.body)); else target.append(node("div", { class: "empty" }, "A conclusion appears after the discussion has earned one.")); }
+function renderOutcome() { const target = clear($("#outcome")); const outcome = [...state.events].reverse().find(event => event.role === "Head Consultant"); if (outcome) { const body = node("div", { class: "message-body outcome-body" }); renderMarkdown(body, outcome.body); target.append(node("h2", {}, "Current outcome"), body); } else target.append(node("div", { class: "empty" }, "A conclusion appears after the discussion has earned one.")); }
 function renderSources() { const target = clear($("#sources")); const sources = [...new Map(state.events.flatMap(event => event.sources ?? []).map(source => [source.url, source])).values()]; if (!sources.length) { target.append(node("div", { class: "empty" }, "Sources appear here when live research materially informs the discussion.")); return; } for (const source of sources) { const dates = [`Retrieved ${formatDate(source.retrievedAt)}`]; if (source.publishedAt) dates.push(`Published ${formatDate(source.publishedAt)}`); const card = node("article", { class: "source-card" }); card.append(node("a", { href: source.url, target: "_blank", rel: "noopener noreferrer" }, source.title), node("p", {}, source.claim), node("p", { class: "hint" }, dates.join(" · "))); target.append(card); } }
 
 async function loadConversation(conversationId, { preserveAttachmentDraft = false } = {}) {

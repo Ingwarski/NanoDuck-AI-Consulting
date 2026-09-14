@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "unit_id": "U-03",
+  "kind": "local_safe_markdown_rendering",
+  "observed_at": "2026-09-15T00:52:00+03:00",
+  "source_revision": "bd4f07b0b85132fa26d126eaae41dad5840b4589",
+  "source_tree_state": "local implementation tree before commit",
+  "scope": "Restricted Markdown display in discussion and outcome messages; inbound/provider unsafe-URL enforcement.",
+  "implementation": {
+    "renderer": "public/client/markdown.js parsed into constructed DOM nodes by src/client/app.js",
+    "allowed": [
+      "paragraphs",
+      "headings",
+      "ordered lists",
+      "unordered lists",
+      "quotations",
+      "bold",
+      "italic",
+      "inline code",
+      "public HTTPS links"
+    ],
+    "inert_or_rejected": [
+      "raw HTML",
+      "private URLs",
+      "HTTP URLs",
+      "Russian/Belarusian hosts",
+      ".ru",
+      ".by",
+      ".su",
+      "Cyrillic-equivalent prohibited hosts"
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "automated",
+      "command": "npm run check",
+      "result": "passed",
+      "details": "Artifact checks and 41 Node tests passed, including restricted Markdown parser, raw-markup inertness, provider-body URL rejection and owner-message URL rejection."
+    },
+    {
+      "kind": "sdd",
+      "command": "sdd_check.py --project . --audit",
+      "result": "passed",
+      "details": "Architecture, DoD, QA and development-plan reconciliation are source-bound and valid."
+    },
+    {
+      "kind": "local_http",
+      "target": "http://127.0.0.1:4318/client/markdown.js",
+      "result": "passed",
+      "details": "The local app served the new browser module with a self-only CSP and no-store response."
+    },
+    {
+      "kind": "local_browser",
+      "target": "http://127.0.0.1:4318/",
+      "result": "passed_limited",
+      "details": "The existing local app preview reloaded with /client/app.js as a module, the app shell remained visible and the browser reported no JavaScript console errors. Its active consultation was not stopped or overwritten to manufacture a Markdown message fixture."
+    }
+  ],
+  "limitations": [
+    "This is local implementation evidence, not formal QA-R46 execution or release acceptance.",
+    "No GoDaddy application, database, provider setting, deployment or external resource was changed."
+  ]
+}

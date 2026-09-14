@@ -4,7 +4,7 @@ import { createInterface } from "node:readline";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { randomId } from "./crypto.mjs";
-import { hasProhibitedLanguage, safeExternalUrl } from "./validation.mjs";
+import { hasProhibitedLanguage, hasUnsafeExternalUrl, safeExternalUrl } from "./validation.mjs";
 
 const waitFor = (promise, milliseconds, label, signal = undefined) => new Promise((resolve, reject) => {
   let settled = false;
@@ -110,7 +110,7 @@ function sourcesFrom(text) {
   }
   const deduplicated = new Map();
   for (const source of sources) if (!deduplicated.has(source.url)) deduplicated.set(source.url, source);
-  return Object.freeze({ body: hasProhibitedLanguage(body) ? undefined : body, sources: Object.freeze([...deduplicated.values()].slice(0, 8)) });
+  return Object.freeze({ body: hasProhibitedLanguage(body) || hasUnsafeExternalUrl(body) ? undefined : body, sources: Object.freeze([...deduplicated.values()].slice(0, 8)) });
 }
 
 async function supportedCatalog(connection) {
