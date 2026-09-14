@@ -7757,18 +7757,18 @@
     },
     {
       "event": "u08_local_integration_and_cutover_prepared",
-      "at": "2026-09-14T19:12:00Z",
+      "at": "2026-09-14T20:14:00Z",
       "unit": "U-08",
       "development_plan_hash": "1687bb3f44dfad54074e252bd5b3dc9c19631fe67510e7ceff1aba38407e1843",
       "verification_receipt": {
         "path": "forge/runs/U-08/phase3-local-integration-preparation-20260914/verification.json",
-        "content_hash": "d214d7650dfbcde23f5dea99cd445a05c22b3912471957a5f3ca66b2fd1cc195"
+        "content_hash": "f831648909a797988c6b1dc5ac6b111117b9236c84e1e34d22a44804d5f28596"
       },
       "cutover_package": {
         "path": "forge/runs/U-08/phase3-local-integration-preparation-20260914/cutover-package.md",
         "content_hash": "726f1f0ab1d9d248adec6909284c2e873965ef4da546e4dd6e55442f71716439"
       },
-      "decision": "Local memory-store/fake-provider integration and non-deploying release preparation completed. The package does not execute or authorize production provider use, GoDaddy changes, database migration/reset or deletion.",
+      "decision": "Local memory-store/fake-provider integration, local development sign-in clarification and a synthetic Ukrainian direct-question smoke test through the actual local Codex app-server completed. The package does not execute or authorize GoDaddy changes, database migration/reset or deletion.",
       "formal_release_status": "82 QA checks and six DoD gates remain prepared/not_run; release readiness remains not_evaluated.",
       "known_release_blockers": [
         "fresh actual QA/DoD evidence including representative-owner and supported-device tasks",

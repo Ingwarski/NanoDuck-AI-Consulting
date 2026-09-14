@@ -36,7 +36,15 @@ function nav(page) {
 }
 
 function showAuthenticated() { $("#sign-in").hidden = true; $("#consent").hidden = true; $("#app").hidden = false; nav("discussion"); }
-function showSignIn() { stopPolling(); $("#app").hidden = true; $("#consent").hidden = true; $("#sign-in").hidden = false; $("#development-sign-in").hidden = !state.session?.development; }
+function showSignIn() {
+  stopPolling(); $("#app").hidden = true; $("#consent").hidden = true; $("#sign-in").hidden = false;
+  const development = Boolean(state.session?.development);
+  const developmentButton = $("#development-sign-in");
+  developmentButton.hidden = !development;
+  developmentButton.classList.toggle("primary", development);
+  developmentButton.classList.toggle("secondary", !development);
+  $("#google-sign-in").hidden = development;
+}
 function showConsent() { $("#sign-in").hidden = true; $("#app").hidden = true; $("#consent").hidden = false; }
 
 async function loadSession() {
@@ -231,8 +239,14 @@ function voiceAction() {
 $("#menu").addEventListener("click", () => { const menu = $("#mobile-nav"); menu.hidden = !menu.hidden; $("#menu").setAttribute("aria-expanded", String(!menu.hidden)); });
 document.addEventListener("click", event => { const button = event.target.closest("[data-nav]"); if (button) nav(button.dataset.nav); const tab = event.target.closest("[data-tab]"); if (tab) setTab(tab.dataset.tab); });
 $("#new-conversation").addEventListener("click", () => { clearAttachmentDraft(); void newConversation(); }); $("#composer").addEventListener("submit", event => void acceptMessage(event)); $("#stop").addEventListener("click", () => void stop()); $("#continue").addEventListener("click", () => void continueRun());
-$("#google-sign-in").addEventListener("click", async () => { const { response } = await request("/auth/google/start", { method: "POST" }); location.assign(response.headers.get("location")); });
-$("#development-sign-in").addEventListener("click", async () => { await request("/api/auth/development", { method: "POST" }); await loadSession(); });
+$("#google-sign-in").addEventListener("click", async () => {
+  try { const { response } = await request("/auth/google/start", { method: "POST" }); location.assign(response.headers.get("location")); }
+  catch { toast("Google sign-in is not available in this local workspace."); }
+});
+$("#development-sign-in").addEventListener("click", async () => {
+  try { await request("/api/auth/development", { method: "POST" }); await loadSession(); }
+  catch { toast("The local workspace could not open. Refresh and try again."); }
+});
 $("#consent-check").addEventListener("change", event => { $("#consent-button").disabled = !event.target.checked; }); $("#consent-button").addEventListener("click", async () => { await request("/api/consent", { method: "POST" }); await loadSession(); });
 $("#settings-form").addEventListener("submit", async event => { event.preventDefault(); const settings = { headModel: $("#head-model").value, headReasoning: $("#head-reasoning").value, criticModel: $("#critic-model").value, criticReasoning: $("#critic-reasoning").value, specialistCount: $("#specialist-count").value, discussionDepth: $("#discussion-depth").value }; await request("/api/settings", { method: "PUT", body: settings }); toast("Settings saved for future consultations."); });
 $("#sign-out").addEventListener("click", async () => { await request("/api/logout", { method: "POST" }); state.session = null; state.csrf = null; state.conversation = null; showSignIn(); });
