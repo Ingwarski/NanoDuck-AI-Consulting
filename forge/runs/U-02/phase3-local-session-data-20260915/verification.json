@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "unit": "U-02",
+  "run_id": "phase3-local-session-data-20260915",
+  "executed_at": "2026-09-14T21:39:06.859Z",
+  "executor": "Codex local implementation runner",
+  "revision_base": "a6a7372",
+  "baseline_id": "nanoduck-electric-a-v8-20260914",
+  "scope": "Verify local session and protected-data seams without contacting GoDaddy, a production Google OAuth client or a production database. No GoDaddy application, database, migration, reset, deletion, deployment or external upload was contacted.",
+  "checks": [
+    {
+      "name": "actual local session entry",
+      "evidence": "http://127.0.0.1:4318/ local development server, executed 2026-09-14T21:39:06.859Z",
+      "observed": "Anonymous conversation access returned 401. Local development sign-in returned 200, set a fixed Max-Age=86400 cookie, and exposed an authenticated but not-yet-consented session with a fixed expiry timestamp.",
+      "result": "passed",
+      "limit": "Development sign-in is not production Google OAuth and the memory store is not GoDaddy MySQL."
+    },
+    {
+      "name": "absolute-expiry and protected-data regression",
+      "evidence": "test/core.test.mjs",
+      "observed": "Consent activity leaves the existing expiry unchanged. A signed cookie for an expired stored session is denied by both session lookup and protected access. Encryption tamper detection, MySQL transaction/lock seams, owner resource checks and the Google nonce seam also pass their controlled tests.",
+      "result": "passed",
+      "limit": "Controlled seams do not prove deployed key injection, Google redirect configuration or persistence across a GoDaddy restart."
+    }
+  ],
+  "formal_release_status": {
+    "canonical_qa": "82 prepared / not_run",
+    "release_readiness": "not_evaluated"
+  },
+  "release_effect": "not_release_evidence",
+  "development_plan_hash": "0965d4b966cdffbc5165cb1f0cb95d5a7412e205df3978a6c5d05a714280784b",
+  "source_hashes": {
+    "docs/architecture.md": "8f21d390ad5ea6098b6c21a948124b231b8443c38318ca0c04a20e08af426cea",
+    "docs/dod-evals.md": "7185b953bb55e4894cb03a8785e7c21cfcd06533a3407b2309ed451908625ad9",
+    "docs/qa-checklist.md": "232052a917e3056c9dc5c7209eafe443a8a41773cf784a8ddd635c84ceb21f84",
+    "docs/development-plan.md": "0965d4b966cdffbc5165cb1f0cb95d5a7412e205df3978a6c5d05a714280784b",
+    "src/server/auth.mjs": "aec69ef9484284a24bd1de4ade1ad6c8ee6624c157690887ee9128dfbbf8c04e",
+    "src/server/crypto.mjs": "e52eaf0dfb7dc2d7cf8a02a6c5cd4016b998137790927d7f386dda2b02618a3b",
+    "src/server/store.mjs": "fd48880574b3a765d6dc0133e03c0bce038c6878d539c31c83b7ee50b4e7117a",
+    "src/server/config.mjs": "5d85daa33e5e610294dea82d07e192898858230c2d096817c978232a89c7a34a",
+    "test/core.test.mjs": "8b9c2d62d6d23d2e0ea4b0f4e51189dd6b2c9e6ba98ffcc57d29162b01c51f93",
+    "test/http.test.mjs": "3f863a78ec3fa09afe508fcfccfedb61664ac5966fa945b0a6e196476c5a9bc8"
+  }
+}

@@ -285,6 +285,22 @@ test("development cookies remain usable on localhost while production uses host-
   assert.match(production.sessionCookie(manuallyCreated), /; Secure$/u);
 });
 
+test("sessions have a fixed 24-hour lifetime that consent activity cannot extend", async () => {
+  const store = createMemoryStore();
+  const auth = createAuth({ config: loadConfig({ NODE_ENV: "development", DEV_OWNER_EMAIL: "owner@local.test" }), store });
+  const active = await auth.developmentSignIn();
+  const beforeConsent = await store.session(active.id);
+  await auth.consent({ headers: { cookie: auth.sessionCookie(active).split(";", 1)[0], "x-csrf-token": active.csrfToken } });
+  const afterConsent = await store.session(active.id);
+  assert.equal(afterConsent.expiresAt, beforeConsent.expiresAt);
+
+  const expired = { id: "expired-session-id", ownerSubject: "development:owner@local.test", csrfToken: "expired-csrf-token", consentedAt: new Date().toISOString(), issuedAt: new Date(Date.now() - 86_400_000).toISOString(), expiresAt: new Date(Date.now() - 1).toISOString() };
+  await store.createSession(expired);
+  const expiredCookie = auth.sessionCookie(expired).split(";", 1)[0];
+  assert.equal(await auth.session({ headers: { cookie: expiredCookie } }), undefined);
+  assert.equal(await auth.require({ headers: { cookie: expiredCookie } }), undefined);
+});
+
 test("Google callback requires the nonce bound to its signed OAuth flow", async () => {
   const config = loadConfig({ NODE_ENV: "production", APP_ORIGIN: "https://consulting.example.com", DATABASE_URL: "mysql://user:password@host/database", DATABASE_SSL_CA_PATH: "/run/secrets/mysql-ca.pem", DATA_ENCRYPTION_KEY: Buffer.alloc(32, 4).toString("base64url"), RECOVERY_ENCRYPTION_KEY: Buffer.alloc(32, 6).toString("base64url"), SESSION_SIGNING_KEY: Buffer.alloc(32, 5).toString("base64url"), OWNER_GOOGLE_SUBJECT: "owner-subject", GOOGLE_CLIENT_ID: "client", GOOGLE_CLIENT_SECRET: "secret", CODEX_APP_SERVER_AUTH_PATH: "/run/secrets/codex-auth.json" });
   const establish = async nonce => {

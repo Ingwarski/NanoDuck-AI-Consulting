@@ -7855,6 +7855,17 @@
         "content_hash": "0048ceb7fe2c835f285ceb0ccdb4c700dab01b9145a111be217002079d7f0beb"
       },
       "decision": "An isolated local actual-provider direct consultation recorded one official English source with title, direct HTTPS URL, precise claim and retrieval/publication data. The result is limited implementation evidence; U-05 formal QA and release acceptance remain not_run. No GoDaddy operation is authorized or performed."
+    },
+    {
+      "event": "u02_local_session_and_data_evidence_recorded",
+      "at": "2026-09-14T21:39:06Z",
+      "unit": "U-02",
+      "development_plan_hash": "0965d4b966cdffbc5165cb1f0cb95d5a7412e205df3978a6c5d05a714280784b",
+      "verification_receipt": {
+        "path": "forge/runs/U-02/phase3-local-session-data-20260915/verification.json",
+        "content_hash": "1b913e4218bb308ac452ac4f113b718ec16d3c42c8aae885499c4d171321ce18"
+      },
+      "decision": "A local session test observed denied anonymous access and a fixed 86400-second cookie. New deterministic evidence confirms consent cannot extend the absolute expiry and expired signed sessions are denied. Production Google OAuth and GoDaddy MySQL remain untested and not claimed. No GoDaddy operation is authorized or performed."
     }
   ],
   "dispatches": {
