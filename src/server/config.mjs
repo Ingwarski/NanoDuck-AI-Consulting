@@ -65,6 +65,8 @@ export function loadConfig(environment = process.env) {
 
   const runtimeDataKey = decodedKey ?? createHash("sha256").update("nanoduck-development-data-key").digest();
   const runtimeRecoveryKey = decodedRecoveryKey ?? createHash("sha256").update("nanoduck-development-recovery-key").digest();
+  const maxAttachmentBytes = positiveInteger(environment.MAX_ATTACHMENT_BYTES, 8 * 1024 * 1024, "MAX_ATTACHMENT_BYTES");
+  if (maxAttachmentBytes > 8 * 1024 * 1024) throw new Error("MAX_ATTACHMENT_BYTES cannot exceed 8 MiB.");
   return Object.freeze({
     mode,
     port: positiveInteger(environment.PORT, 3000, "PORT"),
@@ -75,7 +77,7 @@ export function loadConfig(environment = process.env) {
     recoveryKey: runtimeRecoveryKey,
     sessionKey,
     sessionLifetimeSeconds: positiveInteger(environment.SESSION_ABSOLUTE_SECONDS, 86_400, "SESSION_ABSOLUTE_SECONDS"),
-    maxAttachmentBytes: positiveInteger(environment.MAX_ATTACHMENT_BYTES, 8 * 1024 * 1024, "MAX_ATTACHMENT_BYTES"),
+    maxAttachmentBytes,
     google: ownerSubject && googleClientId && googleClientSecret && origin
       ? Object.freeze({ ownerSubject, clientId: googleClientId, clientSecret: googleClientSecret, redirectUri: `${origin}/auth/google/callback` })
       : undefined,

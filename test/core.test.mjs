@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { decryptText, encryptText } from "../src/server/crypto.mjs";
+import { decryptBytes, decryptText, encryptBytes, encryptText } from "../src/server/crypto.mjs";
+import { inspectImageAttachment } from "../src/server/attachments.mjs";
 import { openRecoveryEnvelope, sealRecoverySnapshot } from "../src/server/recovery.mjs";
 import { createAuth } from "../src/server/auth.mjs";
 import { loadConfig } from "../src/server/config.mjs";
@@ -25,12 +26,30 @@ test("encrypted message values authenticate before decryption", () => {
   assert.equal(decryptText(encrypted, key), "Private decision context");
   const alteredCiphertext = `${encrypted.ciphertext[0] === "A" ? "B" : "A"}${encrypted.ciphertext.slice(1)}`;
   assert.throws(() => decryptText({ ...encrypted, ciphertext: alteredCiphertext }, key));
+  const image = Buffer.from([0xff, 0xd8, 0xff, 0xe0, 0x00, 0x10, 0xff, 0xd9]);
+  const encryptedImage = encryptBytes(image, key);
+  assert.deepEqual(decryptBytes(encryptedImage, key), image);
+});
+
+test("image signatures accept only bounded raster formats without decoding them", () => {
+  const jpeg = Buffer.from([0xff, 0xd8, 0xff, 0xe0, 0x00, 0x10, 0xff, 0xd9]);
+  const png = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 0x49, 0x45, 0x4e, 0x44, 0xae, 0x42, 0x60, 0x82]);
+  const webp = Buffer.concat([Buffer.from("RIFF"), Buffer.from([12, 0, 0, 0]), Buffer.from("WEBPVP8 "), Buffer.from([0, 0, 0, 0])]);
+  assert.equal(inspectImageAttachment(jpeg), "image/jpeg");
+  assert.equal(inspectImageAttachment(png), "image/png");
+  assert.equal(inspectImageAttachment(webp), "image/webp");
+  assert.equal(inspectImageAttachment(Buffer.from("%PDF-1.7")), undefined);
+  assert.equal(inspectImageAttachment(jpeg.subarray(0, -2)), undefined);
+  assert.equal(inspectImageAttachment(png.subarray(0, -8)), undefined);
+  assert.equal(inspectImageAttachment(webp.subarray(0, -4)), undefined);
 });
 
 test("encrypted recovery restores confirmed records but never resurrects a deletion", async () => {
   const source = createMemoryStore();
   const conversation = await source.createConversation();
-  const accepted = await source.acceptMessage(conversation.id, { body: "Should we test this offer first?", clientRequestId: "recovery-source-request-0001" }, defaultSettings);
+  const image = Buffer.from([0xff, 0xd8, 0xff, 0xe0, 0x00, 0x10, 0xff, 0xd9]);
+  const attachment = await source.createAttachment(conversation.id, { content: image, contentType: "image/jpeg", byteLength: image.byteLength });
+  const accepted = await source.acceptMessage(conversation.id, { body: "Should we test this offer first?", attachmentIds: [attachment.id], clientRequestId: "recovery-source-request-0001" }, defaultSettings);
   await source.appendAgentMessage(conversation.id, accepted.run.generation, { role: "Head Consultant", body: "Test the buyer before scaling.", sources: [{ url: "https://example.com/evidence", title: "Buyer evidence", claim: "Test the buyer.", retrievedAt: "2026-09-14T00:00:00.000Z" }] });
   await source.stop(conversation.id);
   const backupKey = Buffer.alloc(32, 8);
@@ -39,6 +58,7 @@ test("encrypted recovery restores confirmed records but never resurrects a delet
   const restored = createMemoryStore();
   assert.deepEqual(await restored.restoreRecovery(openRecoveryEnvelope(envelope, backupKey)), { restored: 1, tombstones: 0, preservedTombstones: 0 });
   assert.deepEqual((await restored.events(conversation.id)).map(item => item.body), ["Should we test this offer first?", "Test the buyer before scaling."]);
+  assert.deepEqual((await restored.attachment(conversation.id, attachment.id)).content, image);
   assert.ok(await restored.deleteConversation(conversation.id));
   assert.deepEqual(await restored.restoreRecovery(openRecoveryEnvelope(envelope, backupKey)), { restored: 0, tombstones: 0, preservedTombstones: 1 });
   assert.equal(await restored.getConversation(conversation.id), undefined);
@@ -93,7 +113,7 @@ test("MySQL agent writes and deletion serialize through the conversation lock", 
       if (statement.startsWith("INSERT INTO nanoduck_messages")) return [{ affectedRows: 1 }];
       if (statement.startsWith("UPDATE nanoduck_conversations SET updated_at")) return [{ affectedRows: 1 }];
       if (statement.startsWith("UPDATE nanoduck_runs SET updated_at")) return [{ affectedRows: 1 }];
-      if (statement.startsWith("UPDATE nanoduck_conversations SET deleted_at") || statement.startsWith("DELETE FROM nanoduck_messages") || statement.startsWith("DELETE FROM nanoduck_requests")) return [{ affectedRows: 1 }];
+      if (statement.startsWith("UPDATE nanoduck_conversations SET deleted_at") || statement.startsWith("DELETE FROM nanoduck_attachments") || statement.startsWith("DELETE FROM nanoduck_messages") || statement.startsWith("DELETE FROM nanoduck_requests")) return [{ affectedRows: 1 }];
       if (statement.startsWith("UPDATE nanoduck_runs SET generation")) return [{ affectedRows: 1 }];
       throw new Error(`Unexpected statement: ${statement}`);
     }
@@ -108,9 +128,10 @@ test("MySQL agent writes and deletion serialize through the conversation lock", 
   assert.ok(commands.some(command => command.includes("nanoduck_conversations WHERE id=? AND deleted_at IS NULL FOR UPDATE")));
   assert.ok(commands.some(command => command.includes("nanoduck_messages WHERE conversation_id=? FOR UPDATE")));
   const deleteIndex = commands.findIndex(command => command.startsWith("UPDATE nanoduck_conversations SET deleted_at"));
-  assert.match(commands[deleteIndex + 1], /^DELETE FROM nanoduck_messages/u);
-  assert.match(commands[deleteIndex + 2], /^DELETE FROM nanoduck_requests/u);
-  assert.match(commands[deleteIndex + 3], /^UPDATE nanoduck_runs SET generation/u);
+  assert.match(commands[deleteIndex + 1], /^DELETE FROM nanoduck_attachments/u);
+  assert.match(commands[deleteIndex + 2], /^DELETE FROM nanoduck_messages/u);
+  assert.match(commands[deleteIndex + 3], /^DELETE FROM nanoduck_requests/u);
+  assert.match(commands[deleteIndex + 4], /^UPDATE nanoduck_runs SET generation/u);
 });
 
 test("MySQL recovery exports app records and restores deletion tombstones before active history", async () => {
@@ -129,8 +150,9 @@ test("MySQL recovery exports app records and restores deletion tombstones before
         { id: deletedId, title: "Deleted record", created_at: "2026-09-14T00:00:00.000Z", updated_at: "2026-09-14T00:02:00.000Z", deleted_at: "2026-09-14T00:02:00.000Z" }
       ]];
       if (statement.startsWith("SELECT id,role,recipient,ciphertext,iv,tag,sequence,created_at,sources_json FROM nanoduck_messages")) return [[{ id: "recovery-message-0001", role: "Head Consultant", recipient: null, ...encrypted, sequence: 1, created_at: "2026-09-14T00:01:00.000Z", sources_json: "[]" }]];
+      if (statement.startsWith("SELECT id,message_id,content_type,byte_length,ciphertext,iv,tag,created_at FROM nanoduck_attachments")) return [[]];
       if (statement.startsWith("SELECT id,deleted_at FROM nanoduck_conversations")) return [[]];
-      if (statement.startsWith("INSERT INTO nanoduck_conversations") || statement.startsWith("INSERT INTO nanoduck_messages") || statement.startsWith("DELETE FROM nanoduck_messages") || statement.startsWith("DELETE FROM nanoduck_requests") || statement.startsWith("UPDATE nanoduck_runs SET generation")) return [{ affectedRows: 1 }];
+      if (statement.startsWith("INSERT INTO nanoduck_conversations") || statement.startsWith("INSERT INTO nanoduck_messages") || statement.startsWith("INSERT INTO nanoduck_attachments") || statement.startsWith("DELETE FROM nanoduck_attachments") || statement.startsWith("DELETE FROM nanoduck_messages") || statement.startsWith("DELETE FROM nanoduck_requests") || statement.startsWith("UPDATE nanoduck_runs SET generation")) return [{ affectedRows: 1 }];
       throw new Error(`Unexpected statement: ${statement}`);
     }
   };
@@ -171,6 +193,49 @@ test("MySQL acceptance holds the owner lock before allowing an active run", asyn
   assert.ok(firstLock >= 0 && firstLock < firstActiveCheck);
 });
 
+test("MySQL image attachments are encrypted at rest and linked in the message transaction", async () => {
+  const commands = []; let pendingId;
+  const image = Buffer.from([0xff, 0xd8, 0xff, 0xe0, 0x00, 0x10, 0xff, 0xd9]);
+  const connection = {
+    async beginTransaction() { commands.push({ statement: "BEGIN", values: [] }); },
+    async commit() { commands.push({ statement: "COMMIT", values: [] }); },
+    async rollback() { commands.push({ statement: "ROLLBACK", values: [] }); },
+    release() {},
+    async execute(statement, values = []) {
+      commands.push({ statement, values });
+      if (statement.startsWith("SELECT owner_id FROM nanoduck_owner_locks")) return [[{ owner_id: "owner" }]];
+      if (statement.startsWith("SELECT id FROM nanoduck_conversations") || statement.startsWith("SELECT id,title FROM nanoduck_conversations")) return [[{ id: "conversation-id", title: "New consultation" }]];
+      if (statement.startsWith("SELECT id FROM nanoduck_runs WHERE status='active'")) return [[]];
+      if (statement.startsWith("INSERT INTO nanoduck_attachments")) { pendingId = values[0]; return [{ affectedRows: 1 }]; }
+      if (statement.startsWith("SELECT message_id,run_id FROM nanoduck_requests")) return [[]];
+      if (statement.startsWith("SELECT id,content_type,byte_length,created_at FROM nanoduck_attachments")) return [[{ id: pendingId, content_type: "image/jpeg", byte_length: image.byteLength, created_at: "2026-09-14T00:00:00.000Z" }]];
+      if (statement.startsWith("SELECT COALESCE(MAX(sequence)")) return [[{ max_sequence: 0 }]];
+      if (statement.startsWith("SELECT COALESCE(MAX(generation)")) return [[{ max_generation: 0 }]];
+      if (statement.startsWith("INSERT INTO nanoduck_messages") || statement.startsWith("UPDATE nanoduck_attachments SET message_id") || statement.startsWith("INSERT INTO nanoduck_runs") || statement.startsWith("INSERT INTO nanoduck_requests") || statement.startsWith("UPDATE nanoduck_conversations SET title")) return [{ affectedRows: 1 }];
+      throw new Error(`Unexpected statement: ${statement}`);
+    }
+  };
+  const store = await createMySqlStore("mysql://unused", key, undefined, { createPool: () => ({ getConnection: async () => connection, end: async () => {} }) });
+  const attachment = await store.createAttachment("conversation-id", { content: image, contentType: "image/jpeg", byteLength: image.byteLength });
+  assert.ok(attachment);
+  const stored = commands.find(command => command.statement.startsWith("INSERT INTO nanoduck_attachments"));
+  assert.ok(stored);
+  assert.equal(stored.values[0], attachment.id);
+  assert.equal(Buffer.isBuffer(stored.values[5]), true);
+  assert.notEqual(Buffer.compare(stored.values[5], image), 0);
+  assert.deepEqual(decryptBytes({ ciphertext: stored.values[5], iv: stored.values[6], tag: stored.values[7] }, key), image);
+
+  const accepted = await store.acceptMessage("conversation-id", { body: "Assess this visual direction.", attachmentIds: [attachment.id], clientRequestId: "mysql-image-message-request-0001" }, defaultSettings);
+  assert.deepEqual(accepted.message.attachments.map(item => item.id), [attachment.id]);
+  const linked = commands.find(command => command.statement.startsWith("UPDATE nanoduck_attachments SET message_id"));
+  assert.ok(linked);
+  assert.deepEqual(linked.values.slice(1), ["conversation-id", attachment.id]);
+  const attachmentLock = commands.findIndex(command => command.statement.startsWith("SELECT id,content_type,byte_length,created_at FROM nanoduck_attachments"));
+  const messageInsert = commands.findIndex(command => command.statement.startsWith("INSERT INTO nanoduck_messages"));
+  const attachmentLink = commands.findIndex(command => command.statement.startsWith("UPDATE nanoduck_attachments SET message_id"));
+  assert.ok(attachmentLock >= 0 && messageInsert > attachmentLock && attachmentLink > messageInsert);
+});
+
 test("settings and message validation reject unsupported model values and malformed ids", () => {
   assert.deepEqual(parseSettings({ ...defaultSettings, specialistCount: "1", discussionDepth: "1" }), { ...defaultSettings, specialistCount: "1", discussionDepth: "1" });
   assert.deepEqual(parseSettings({ ...defaultSettings, specialistCount: "auto", discussionDepth: "auto" }), { ...defaultSettings, specialistCount: "auto", discussionDepth: "auto" });
@@ -178,7 +243,9 @@ test("settings and message validation reject unsupported model values and malfor
   assert.equal(parseSettings({ ...defaultSettings, discussionDepth: "2" }), undefined);
   assert.equal(parseSettings({ ...defaultSettings, criticModel: "another-model" }), undefined);
   assert.equal(parseMessage({ body: "Question", clientRequestId: "short" }), undefined);
-  assert.deepEqual(parseMessage({ body: " Question ", clientRequestId: "request-identifier-0002" }), { body: "Question", clientRequestId: "request-identifier-0002" });
+  assert.deepEqual(parseMessage({ body: " Question ", clientRequestId: "request-identifier-0002" }), { body: "Question", clientRequestId: "request-identifier-0002", attachmentIds: [] });
+  assert.equal(parseMessage({ body: "Question", clientRequestId: "request-identifier-0002", attachmentIds: ["short"] }), undefined);
+  assert.equal(parseMessage({ body: "Question", clientRequestId: "request-identifier-0002", attachmentIds: Array(5).fill("attachment-identifier-0001") }), undefined);
   assert.equal(parseMessage({ body: "Как это работает?", clientRequestId: "language-policy-request-0001" }), undefined);
   assert.equal(parseMessage({ body: "Як гэта працуе?", clientRequestId: "language-policy-request-0002" }), undefined);
 });
@@ -209,6 +276,7 @@ test("development cookies remain usable on localhost while production uses host-
   const productionEnvironment = { NODE_ENV: "production", APP_ORIGIN: "https://consulting.example.com", DATABASE_URL: "mysql://user:password@host/database", DATABASE_SSL_CA_PATH: "/run/secrets/mysql-ca.pem", DATA_ENCRYPTION_KEY: Buffer.alloc(32, 2).toString("base64url"), RECOVERY_ENCRYPTION_KEY: Buffer.alloc(32, 6).toString("base64url"), SESSION_SIGNING_KEY: Buffer.alloc(32, 3).toString("base64url"), OWNER_GOOGLE_SUBJECT: "owner-subject", GOOGLE_CLIENT_ID: "client", GOOGLE_CLIENT_SECRET: "secret", CODEX_APP_SERVER_AUTH_PATH: "/run/secrets/codex-auth.json" };
   assert.throws(() => loadConfig({ ...productionEnvironment, DATABASE_SSL_CA_PATH: "" }), /DATABASE_SSL_CA_PATH/u);
   assert.throws(() => loadConfig({ ...productionEnvironment, RECOVERY_ENCRYPTION_KEY: productionEnvironment.DATA_ENCRYPTION_KEY }), /must differ/u);
+  assert.throws(() => loadConfig({ ...productionEnvironment, MAX_ATTACHMENT_BYTES: String(8 * 1024 * 1024 + 1) }), /cannot exceed 8 MiB/u);
   const production = createAuth({ config: loadConfig(productionEnvironment), store: createMemoryStore() });
   const productionSession = await production.developmentSignIn();
   assert.equal(productionSession, undefined);

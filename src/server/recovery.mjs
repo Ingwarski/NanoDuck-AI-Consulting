@@ -2,6 +2,7 @@ import { decryptText, encryptText } from "./crypto.mjs";
 import { hasProhibitedLanguage, safeExternalUrl } from "./validation.mjs";
 
 const schemaVersion = 1;
+const maximumAttachmentBytes = 8 * 1024 * 1024;
 const identifier = value => typeof value === "string" && /^[A-Za-z0-9_-]{16,128}$/u.test(value);
 const date = value => typeof value === "string" && !Number.isNaN(Date.parse(value));
 const text = (value, maximum) => typeof value === "string" && value.trim().length > 0 && value.length <= maximum && !hasProhibitedLanguage(value);
@@ -21,19 +22,28 @@ const message = value => {
   return Object.freeze({ id: value.id, role: value.role.trim(), recipient: value.recipient ? value.recipient.trim() : null, body: value.body.trim(), sequence: value.sequence, createdAt: value.createdAt, sources: Object.freeze(sources) });
 };
 
+const attachment = value => {
+  if (!record(value) || !identifier(value.id) || !identifier(value.messageId) || !["image/jpeg", "image/png", "image/webp"].includes(value.contentType) || !Number.isInteger(value.byteLength) || value.byteLength < 1 || value.byteLength > maximumAttachmentBytes || !date(value.createdAt) || typeof value.content !== "string" || !/^[A-Za-z0-9_-]+$/u.test(value.content)) return undefined;
+  const content = Buffer.from(value.content, "base64url");
+  if (content.byteLength !== value.byteLength) return undefined;
+  return Object.freeze({ id: value.id, messageId: value.messageId, contentType: value.contentType, byteLength: value.byteLength, createdAt: value.createdAt, content: value.content });
+};
+
 const conversation = value => {
   if (!record(value) || !identifier(value.id) || !text(value.title, 255) || !date(value.createdAt) || !date(value.updatedAt) || (value.deletedAt !== null && value.deletedAt !== undefined && !date(value.deletedAt))) return undefined;
   return Object.freeze({ id: value.id, title: value.title.trim(), createdAt: value.createdAt, updatedAt: value.updatedAt, deletedAt: value.deletedAt ?? null });
 };
 
 const entry = value => {
-  if (!record(value) || !Array.isArray(value.messages)) return undefined;
+  if (!record(value) || !Array.isArray(value.messages) || (value.attachments !== undefined && !Array.isArray(value.attachments))) return undefined;
   const item = conversation(value.conversation);
   if (!item) return undefined;
   const messages = value.messages.map(message);
+  const attachments = (value.attachments ?? []).map(attachment);
   if (messages.some(item => !item) || new Set(messages.map(item => item.id)).size !== messages.length || messages.some((item, index) => item.sequence !== index + 1)) return undefined;
-  if (item.deletedAt && messages.length) return undefined;
-  return Object.freeze({ conversation: item, messages: Object.freeze(messages) });
+  if (attachments.some(item => !item) || new Set(attachments.map(item => item.id)).size !== attachments.length || attachments.some(item => !messages.some(message => message.id === item.messageId))) return undefined;
+  if (item.deletedAt && (messages.length || attachments.length)) return undefined;
+  return Object.freeze({ conversation: item, messages: Object.freeze(messages.map(message => Object.freeze({ ...message, attachments: Object.freeze(attachments.filter(item => item.messageId === message.id).map(item => Object.freeze({ id: item.id, contentType: item.contentType, byteLength: item.byteLength, createdAt: item.createdAt }))) }))), attachments: Object.freeze(attachments) });
 };
 
 export function normalizeRecoverySnapshot(value) {

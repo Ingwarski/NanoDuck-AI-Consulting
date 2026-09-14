@@ -77,6 +77,70 @@ test("the local HTTP flow protects data, saves settings and preserves an unavail
   }
 });
 
+test("owner image attachments validate bytes, link only on message acceptance and download safely", async () => {
+  const port = await reservePort();
+  const child = spawn(globalThis.process.execPath, ["src/server/index.mjs"], {
+    cwd: process.cwd(),
+    env: { ...globalThis.process.env, NODE_ENV: "development", DEV_OWNER_EMAIL: "owner@local.test", PORT: String(port) },
+    stdio: "ignore"
+  });
+  const origin = `http://127.0.0.1:${port}`;
+  const jpeg = Buffer.from([0xff, 0xd8, 0xff, 0xe0, 0x00, 0x10, 0xff, 0xd9]);
+  try {
+    await waitFor(async () => {
+      try { return (await fetch(`${origin}/healthz`)).ok; } catch { return false; }
+    });
+    const signIn = await fetch(`${origin}/api/auth/development`, { method: "POST" });
+    const cookie = signIn.headers.get("set-cookie").split(";", 1)[0];
+    const session = await (await fetch(`${origin}/api/session`, { headers: { cookie } })).json();
+    const protectedHeaders = { cookie, "x-csrf-token": session.csrfToken };
+    await fetch(`${origin}/api/consent`, { method: "POST", headers: { ...protectedHeaders, "content-type": "application/json" } });
+    const created = await (await fetch(`${origin}/api/conversations`, { method: "POST", headers: protectedHeaders })).json();
+    const conversationId = created.conversation.id;
+    const pending = await fetch(`${origin}/api/conversations/${conversationId}/attachments`, { method: "POST", headers: { ...protectedHeaders, "content-type": "application/pdf" }, body: jpeg });
+    assert.equal(pending.status, 201);
+    const attachment = (await pending.json()).attachment;
+    assert.equal(attachment.contentType, "image/jpeg");
+    assert.equal(attachment.byteLength, jpeg.byteLength);
+    assert.equal((await fetch(`${origin}/api/conversations/${conversationId}/attachments/${attachment.id}`, { headers: { cookie } })).status, 404);
+    assert.equal((await fetch(`${origin}/api/conversations/${conversationId}/attachments/${attachment.id}`)).status, 401);
+
+    const accepted = await fetch(`${origin}/api/conversations/${conversationId}/messages`, {
+      method: "POST",
+      headers: { ...protectedHeaders, "content-type": "application/json" },
+      body: JSON.stringify({ body: "Please assess the visual direction.", attachmentIds: [attachment.id], clientRequestId: "image-message-request-0001" })
+    });
+    assert.equal(accepted.status, 202);
+    const detail = await (await fetch(`${origin}/api/conversations/${conversationId}`, { headers: { cookie } })).json();
+    assert.deepEqual(detail.events[0].attachments, [attachment]);
+    const download = await fetch(`${origin}/api/conversations/${conversationId}/attachments/${attachment.id}`, { headers: { cookie } });
+    assert.equal(download.status, 200);
+    assert.equal(download.headers.get("content-type"), "image/jpeg");
+    assert.match(download.headers.get("content-disposition"), /^attachment; filename="nanoduck-image\.jpg"$/u);
+    assert.equal(download.headers.get("x-content-type-options"), "nosniff");
+    assert.deepEqual(Buffer.from(await download.arrayBuffer()), jpeg);
+
+    const pendingToDelete = await fetch(`${origin}/api/conversations/${conversationId}/attachments`, { method: "POST", headers: { ...protectedHeaders, "content-type": "image/jpeg" }, body: jpeg });
+    assert.equal(pendingToDelete.status, 201);
+    const pendingToDeleteId = (await pendingToDelete.json()).attachment.id;
+    assert.equal((await fetch(`${origin}/api/conversations/${conversationId}/attachments/${pendingToDeleteId}`, { method: "DELETE", headers: protectedHeaders })).status, 204);
+    assert.equal((await fetch(`${origin}/api/conversations/${conversationId}/attachments/${pendingToDeleteId}`, { headers: { cookie } })).status, 404);
+    const pdf = await fetch(`${origin}/api/conversations/${conversationId}/attachments`, { method: "POST", headers: { ...protectedHeaders, "content-type": "image/jpeg" }, body: Buffer.from("%PDF-1.7") });
+    assert.equal(pdf.status, 422);
+    const truncated = await fetch(`${origin}/api/conversations/${conversationId}/attachments`, { method: "POST", headers: { ...protectedHeaders, "content-type": "image/jpeg" }, body: jpeg.subarray(0, -2) });
+    assert.equal(truncated.status, 422);
+    const tooLarge = Buffer.concat([jpeg, Buffer.alloc(8 * 1024 * 1024)]);
+    const oversized = await fetch(`${origin}/api/conversations/${conversationId}/attachments`, { method: "POST", headers: { ...protectedHeaders, "content-type": "image/jpeg" }, body: tooLarge });
+    assert.equal(oversized.status, 413);
+    const client = await (await fetch(`${origin}/client/app.js`)).text();
+    assert.match(client, /attachmentIds/u);
+    assert.doesNotMatch(client, /application\/pdf/u);
+  } finally {
+    child.kill("SIGTERM");
+    await once(child, "exit").catch(() => {});
+  }
+});
+
 test("the authenticated discussion preserves two specialists, Critic and a revision exchange", async () => {
   const port = await reservePort();
   const directory = await mkdtemp(`${tmpdir()}/nanoduck-http-provider-`);

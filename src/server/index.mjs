@@ -6,6 +6,7 @@ import { createMemoryStore, createMySqlStore } from "./store.mjs";
 import { createAuth } from "./auth.mjs";
 import { createCodexProvider } from "./codex-provider.mjs";
 import { createConsultationService } from "./consultation.mjs";
+import { attachmentExtension, readImageAttachment } from "./attachments.mjs";
 import { messageError, parseConversationId, parseMessage, parseSettings } from "./validation.mjs";
 
 const config = loadConfig();
@@ -20,6 +21,7 @@ const mime = { ".html": "text/html; charset=utf-8", ".css": "text/css; charset=u
 const securityHeaders = { "cache-control": "no-store", "content-security-policy": "default-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; connect-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; media-src 'self';", "permissions-policy": "camera=(), geolocation=(), microphone=(self)", "referrer-policy": "no-referrer", "x-content-type-options": "nosniff", "x-frame-options": "DENY" };
 const send = (response, status, value, headers = {}) => { const body = JSON.stringify(value); response.writeHead(status, { ...securityHeaders, "content-type": "application/json; charset=utf-8", "content-length": Buffer.byteLength(body), ...headers }); response.end(body); };
 const empty = (response, status, headers = {}) => { response.writeHead(status, { ...securityHeaders, ...headers }); response.end(); };
+const bytes = (response, status, value, headers = {}) => { response.writeHead(status, { ...securityHeaders, "content-length": value.byteLength, ...headers }); response.end(value); };
 const json = async request => {
   const chunks = []; let size = 0;
   for await (const chunk of request) { size += chunk.length; if (size > 256 * 1024) throw new Error("body_too_large"); chunks.push(chunk); }
@@ -30,7 +32,7 @@ const protectedSession = async (request, response, options = {}) => {
   if (!session) { send(response, 401, { error: "authentication_required" }); return undefined; }
   return session;
 };
-const routeId = pathname => pathname.match(/^\/api\/conversations\/([A-Za-z0-9_-]{16,128})(?:\/([^/]+))?$/u);
+const routeId = pathname => pathname.match(/^\/api\/conversations\/([A-Za-z0-9_-]{16,128})(?:\/([^/]+)(?:\/([A-Za-z0-9_-]{16,128}))?)?$/u);
 
 async function staticFile(request, response, pathname) {
   if (pathname === "/client/app.js") {
@@ -73,9 +75,19 @@ const handler = async (request, response) => {
     if (request.method === "POST" && url.pathname === "/api/conversations") { if (!await protectedSession(request, response, { csrf: true })) return; return send(response, 201, { conversation: await store.createConversation() }); }
     const matched = routeId(url.pathname);
     if (matched) {
-      const [, conversationId, action] = matched; if (!parseConversationId(conversationId)) return send(response, 404, { error: "not_found" });
+      const [, conversationId, action, resourceId] = matched; if (!parseConversationId(conversationId)) return send(response, 404, { error: "not_found" });
       if (!await protectedSession(request, response, { csrf: request.method !== "GET" })) return;
       if (request.method === "GET" && !action) { const conversation = await store.getConversation(conversationId); return conversation ? send(response, 200, { conversation, run: await store.run(conversationId), events: await store.events(conversationId, Number(url.searchParams.get("after") ?? 0)) }) : send(response, 404, { error: "not_found" }); }
+      if (request.method === "POST" && action === "attachments" && !resourceId) {
+        const attachment = await readImageAttachment(request, config.maxAttachmentBytes);
+        const created = await store.createAttachment(conversationId, attachment);
+        return created ? send(response, 201, { attachment: created }) : send(response, 409, { error: "active_or_missing_conversation" });
+      }
+      if (request.method === "GET" && action === "attachments" && resourceId) {
+        const attachment = await store.attachment(conversationId, resourceId);
+        return attachment ? bytes(response, 200, attachment.content, { "content-type": attachment.contentType, "content-disposition": `attachment; filename="nanoduck-image.${attachmentExtension(attachment.contentType)}"` }) : send(response, 404, { error: "not_found" });
+      }
+      if (request.method === "DELETE" && action === "attachments" && resourceId) return (await store.deletePendingAttachment(conversationId, resourceId)) ? empty(response, 204) : send(response, 404, { error: "not_found" });
       if (request.method === "POST" && action === "messages") { const raw = await json(request); const input = parseMessage(raw); if (!input) return send(response, 422, { error: messageError(raw) }); const accepted = await store.acceptMessage(conversationId, input, await store.settings()); if (!accepted) return send(response, 409, { error: "active_or_missing_conversation" }); await consultation.start(conversationId, accepted.run); return send(response, 202, accepted); }
       if (request.method === "POST" && action === "stop") { const run = await consultation.stop(conversationId); return run ? send(response, 200, { run }) : send(response, 409, { error: "no_active_run" }); }
       if (request.method === "POST" && action === "continue") { const run = await consultation.continue(conversationId); return run ? send(response, 202, { run }) : send(response, 409, { error: "not_stopped" }); }
@@ -86,6 +98,8 @@ const handler = async (request, response) => {
     send(response, 404, { error: "not_found" });
   } catch (error) {
     if (error.message === "body_too_large") return send(response, 413, { error: "body_too_large" });
+    if (error.code === "attachment_too_large") return send(response, 413, { error: "attachment_too_large" });
+    if (error.code === "invalid_image_attachment") return send(response, 422, { error: "invalid_image_attachment" });
     send(response, 500, { error: "service_unavailable" });
   }
 };

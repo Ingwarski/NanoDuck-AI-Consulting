@@ -54,6 +54,22 @@ CREATE TABLE IF NOT EXISTS nanoduck_messages (
   UNIQUE KEY nanoduck_messages_sequence (conversation_id, sequence)
 );
 
+CREATE TABLE IF NOT EXISTS nanoduck_attachments (
+  id VARCHAR(128) PRIMARY KEY,
+  conversation_id VARCHAR(128) NOT NULL,
+  message_id VARCHAR(128) NULL,
+  content_type VARCHAR(32) NOT NULL,
+  byte_length INT UNSIGNED NOT NULL,
+  ciphertext MEDIUMBLOB NOT NULL,
+  iv VARCHAR(64) NOT NULL,
+  tag VARCHAR(64) NOT NULL,
+  created_at VARCHAR(40) NOT NULL,
+  INDEX nanoduck_attachments_conversation (conversation_id, created_at),
+  INDEX nanoduck_attachments_message (message_id),
+  CONSTRAINT nanoduck_attachments_conversation_fk FOREIGN KEY (conversation_id) REFERENCES nanoduck_conversations (id),
+  CONSTRAINT nanoduck_attachments_message_fk FOREIGN KEY (message_id) REFERENCES nanoduck_messages (id) ON DELETE CASCADE
+);
+
 CREATE TABLE IF NOT EXISTS nanoduck_requests (
   conversation_id VARCHAR(128) NOT NULL,
   request_id VARCHAR(128) NOT NULL,
