@@ -82,6 +82,7 @@ test("a Ukrainian finance question assigns the Finance Consultant and directs th
   assert.match(calls[1].assignment, /^You are the Finance Consultant/u);
   assert.match(calls[2].assignment, /^You are the Strategy Consultant/u);
   assert.match(calls[3].assignment, /Finance Consultant directly/u);
+  assert.equal(calls.every(call => call.assignment.includes("Write this message in Ukrainian.")), true);
   assert.deepEqual((await store.events(conversation.id)).map(event => [event.role, event.recipient]), [
     ["owner", null],
     ["Head Consultant", "Finance Consultant"],
@@ -91,6 +92,21 @@ test("a Ukrainian finance question assigns the Finance Consultant and directs th
     ["Finance Consultant", "Head Consultant"],
     ["Head Consultant", null]
   ]);
+});
+
+test("the first accepted owner message keeps the consultation language for later work", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const calls = [];
+  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: "A qualified answer.", sources: [] }; } };
+  const service = createConsultationService({ store, provider });
+  const first = await store.acceptMessage(conversation.id, { body: "Що таке валова маржа?", clientRequestId: "language-first-0001" }, defaultSettings);
+  await service.start(conversation.id, first.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  const second = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "language-next-0001" }, defaultSettings);
+  await service.start(conversation.id, second.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  assert.equal(calls.slice(1).every(call => call.assignment.includes("Write this message in Ukrainian.")), true);
 });
 
 test("a resumed consultation continues after its last confirmed message", async () => {
