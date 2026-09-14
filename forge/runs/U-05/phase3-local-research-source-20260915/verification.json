@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "unit": "U-05",
+  "run_id": "phase3-local-research-source-20260915",
+  "executed_at": "2026-09-14T21:36:35.968Z",
+  "executor": "Codex local implementation runner",
+  "revision_base": "fa36b92",
+  "baseline_id": "nanoduck-electric-a-v8-20260914",
+  "scope": "Exercise the existing live-research provider and inspectable-source path through an isolated local development server. No GoDaddy application, database, migration, reset, deletion, deployment or external upload was contacted.",
+  "checks": [
+    {
+      "name": "actual official-source direct consultation",
+      "evidence": "isolated local HTTP consultation through the actual local Codex app-server, executed 2026-09-14T21:36:35.968Z",
+      "observed": "The direct Head answer was 266 characters and included a Markdown reference. Its stored source record contained the official Bank of England page title, direct HTTPS URL, exact supported claim, retrieval time and publication date. The source was English, the host was not prohibited, and the natural message contained no internal source tag.",
+      "result": "passed",
+      "limit": "This one current public claim does not establish coverage of conflicting, unavailable, redirect or injected sources, or formal release QA."
+    },
+    {
+      "name": "deterministic source-policy seams",
+      "evidence": "test/codex-provider.test.mjs and test/consultation.test.mjs",
+      "observed": "The existing suite rejects prohibited-language/provider prose and prohibited source hosts before a conversation receives them, while retaining allowed source metadata outside the natural message.",
+      "result": "passed",
+      "limit": "Controlled seams do not prove future external pages remain accessible or safe."
+    }
+  ],
+  "formal_release_status": {
+    "canonical_qa": "82 prepared / not_run",
+    "release_readiness": "not_evaluated"
+  },
+  "release_effect": "not_release_evidence",
+  "development_plan_hash": "0965d4b966cdffbc5165cb1f0cb95d5a7412e205df3978a6c5d05a714280784b",
+  "source_hashes": {
+    "docs/architecture.md": "8f21d390ad5ea6098b6c21a948124b231b8443c38318ca0c04a20e08af426cea",
+    "docs/dod-evals.md": "7185b953bb55e4894cb03a8785e7c21cfcd06533a3407b2309ed451908625ad9",
+    "docs/qa-checklist.md": "232052a917e3056c9dc5c7209eafe443a8a41773cf784a8ddd635c84ceb21f84",
+    "docs/development-plan.md": "0965d4b966cdffbc5165cb1f0cb95d5a7412e205df3978a6c5d05a714280784b",
+    "src/server/codex-provider.mjs": "c7eadd83392ab055394ecd4b7f3c0652d38ca27086f62724ca2d18b6c336243b",
+    "src/server/validation.mjs": "b59de777b7325545e18bfa838b2817ef91bda5c27b75ec2a6016bbb7a824fdfa",
+    "test/codex-provider.test.mjs": "60b2c15fc3ee28905737c6a050da2bc4dd374e9afef9f5639d64a90fa1197d12",
+    "test/consultation.test.mjs": "fdbad8de7f330c5869006147484c9d2d36c587b9bf765dfa4a833e22fd8588dc"
+  }
+}
