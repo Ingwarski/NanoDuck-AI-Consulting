@@ -13,7 +13,7 @@ Two layout approaches were considered: a dashboard of agent/report cards, and a 
 | Surface | Content and behavior |
 |---|---|
 | Sign in | One Google action; brief privacy explanation. First-use processing consent is unchecked. Prototype buttons simulate this path without authentication. |
-| Empty conversation | One clear question and composer, image/PDF attachment affordance and a sample discussion entry. No setup checklist. |
+| Empty conversation | One clear question and composer, image attachment affordance and a sample discussion entry. No setup checklist. |
 | Discussion | Complete illustrative role-labelled messages, addressed reply context and citations. Sample replay, Stop and Continue demonstrate state transitions. |
 | Outcome | One recommendation, three accountable next actions and an explicit untested assumption. |
 | Sources | Reference title, supported claim, limitation and direct external link. No simulated research timestamps. |

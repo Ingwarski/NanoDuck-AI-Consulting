@@ -104,7 +104,7 @@ Obligations and acceptance: FR-04.1–FR-04.3, NFR-12.1, NFR-12.3; AC-008
 | ID | Observable obligation | Use cases |
 |---|---|---|
 | FR-02.1 | Text submission receives a distinguishable accepted state; an unsent draft never appears accepted. | UC-002 |
-| FR-02.2 | An owner can attach an image or PDF within documented safe type/size limits. | UC-002 |
+| FR-02.2 | The authenticated owner can attach a JPEG, PNG or WebP image of at most 8 MiB. PDF, SVG, video, archives and every other file type are rejected. | UC-002 |
 | FR-02.3 | Simple questions receive a direct answer unless the owner explicitly requests Critic; that request invokes the separate Critic even for a simple question and does not require an unnecessary specialist team. Substantive or explicitly requested team work uses the owner-selected number of relevant permitted specialists: 1, 2, 3, 5, or the 1–5 count selected by Head in Auto. The count excludes Head and Critic. Leadership Consultant and esoteric roles are excluded. Spiritual Consultant applies the specified evangelical Protestant doctrine; Psychotherapist may use major classical psychotherapy schools and Internal Family Systems within the stated non-clinical/emergency boundary. | UC-002 |
 | FR-02.4 | Every participating consultant and Critic is a separate actual invocation/context with a distinct assignment. | UC-002 |
 | FR-02.5 | A material Critic objection receives a relevant consultant response or revision; warranted agreement is permitted immediately. | UC-002 |
@@ -217,7 +217,7 @@ Applies to UC-007. Document permitted outbound communication and prevent server-
 ASVS: v5.0.0-1.3.6, v5.0.0-13.1.1, v5.0.0-13.2.4, v5.0.0-13.2.5, v5.0.0-15.3.2.
 
 ### NFR-12.2 — Safe attachments and browser voice
-Applies to UC-002, UC-004, UC-006. Document allowed image/PDF formats, extensions and processable limits; validate actual content, constrain expanded embedded content and reject unsupported archives. Keep stored files non-executable with trusted internal names and safe download disposition. Known malicious content is withheld from owner download/processing until required malware checks pass; architecture chooses the scoped scanning mechanism, not a new paid service. Browser voice is never sent as an application upload. Unsafe/mismatched/oversized files must fail without losing the typed draft or disclosing server paths.
+Applies to UC-002, UC-004, UC-006. This is a single-owner image path: the owner stated they will submit only images they generated, but that statement is a trust boundary rather than technical provenance proof. Accept only JPEG, PNG or WebP, with a maximum upload size of 8 MiB enforced before storage; ignore the client MIME declaration and verify the matching binary signature. Reject PDF, SVG, video, audio, archives, mismatched, truncated or oversized content. Store an accepted image as encrypted, opaque, non-executable data under an internal name; do not invoke it, transform it, generate a thumbnail or expose a server path. Any owner download requires normal owner authorization, a fixed validated content type, `nosniff` and attachment disposition. No external or local malware scanner is required for this owner-only path. Browser voice is never sent as an application upload. Every rejected image must leave the typed draft intact and disclose no server path. A multiuser scope, externally sourced upload or new file type requires a new PRD security review before implementation.
 ASVS: v5.0.0-5.1.1, v5.0.0-5.2.1, v5.0.0-5.2.2, v5.0.0-5.2.3, v5.0.0-5.3.1, v5.0.0-5.3.2, v5.0.0-5.4.1, v5.0.0-5.4.2, v5.0.0-5.4.3.
 
 ### NFR-12.3 — Bounded AI authority
@@ -280,7 +280,7 @@ ASVS: v5.0.0-16.5.1, v5.0.0-16.5.2, v5.0.0-16.5.3.
 
 Every listed applicable control is an obligation above. Exclusions below are mechanism/scope decisions, not waived security outcomes. A new mechanism returns to PRD review.
 - v5.0.0-1.2.6, v5.0.0-1.2.7, v5.0.0-1.2.8, v5.0.0-1.3.8, v5.0.0-1.3.9, v5.0.0-1.3.11, v5.0.0-1.5.1: No LDAP, XPath, LaTeX, JNDI, memcache, mail-system or XML processing is required; architecture must return any introduced interpreter/parser to this review.
-- v5.0.0-1.3.4: User-supplied SVG is outside the accepted raster-image/PDF formats; any future SVG intake requires review.
+- v5.0.0-1.3.4: User-supplied SVG is outside the accepted JPEG/PNG/WebP formats; any future SVG intake requires review.
 - v5.0.0-3.5.5: No postMessage integration is required; reassess before adding one.
 - v5.0.0-4.3.1, v5.0.0-4.3.2, v5.0.0-4.4.1, v5.0.0-4.4.2, v5.0.0-4.4.3, v5.0.0-4.4.4: No GraphQL or WebSocket product capability is required; architecture must reassess if selecting either transport.
 - v5.0.0-6.2.1, v5.0.0-6.2.2, v5.0.0-6.2.3, v5.0.0-6.2.4, v5.0.0-6.2.5, v5.0.0-6.2.6, v5.0.0-6.2.7, v5.0.0-6.2.8, v5.0.0-6.2.9, v5.0.0-6.2.10, v5.0.0-6.2.11, v5.0.0-6.2.12, v5.0.0-6.4.1, v5.0.0-6.4.2, v5.0.0-6.4.3, v5.0.0-6.4.4, v5.0.0-6.5.1, v5.0.0-6.5.2, v5.0.0-6.5.3, v5.0.0-6.5.4, v5.0.0-6.5.5, v5.0.0-6.6.1, v5.0.0-6.6.2, v5.0.0-6.6.3, v5.0.0-6.1.2: Google owns password, factor enrollment/recovery and out-of-band authentication. The app has no local password/factor API; provider assurance remains NFR-10.1, not a compliance claim.

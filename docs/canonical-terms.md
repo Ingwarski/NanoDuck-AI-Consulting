@@ -21,6 +21,7 @@ Working language: English. Product content and source metadata: English and Ukra
 | Number of specialists | Owner setting for 1, 2, 3, 5 or Auto relevant specialists. The count excludes Head Consultant and Critic; Auto lets Head select 1–5. | Treating Head or Critic as part of the count |
 | Discussion depth | Owner setting for 1, 3, 5 or Auto complete Critic ↔ specialist exchanges. Auto stops at supported consensus or after 10 exchanges. | Model reasoning strength, token budget or hidden process messages |
 | Voice input | Deliberate browser-native speech recognition, then editable transcript review before Send. Safari and Chrome may process speech through their recognition service after Start; NanoDuck receives no audio. | Always listening, recording upload, automatic submission |
+| Image attachment | Optional owner-generated JPEG, PNG or WebP image, at most 8 MiB. The single-owner statement is a trust boundary, not provenance verification; PDF/SVG/video/audio/archive uploads are excluded. | Generic file upload, PDF attachment, a malware-scanner claim |
 | Draft | Content not accepted by the server; prototype drafts exist only in page memory. | Saved conversation or submitted work |
 | Send | Explicitly accept the reviewed draft for consultation; simulated in candidates. | Implying a real provider call in a design sample |
 | New | Start a separate consultation from above the chat or Conversations; not a global menu destination. | Duplicate New navigation item |

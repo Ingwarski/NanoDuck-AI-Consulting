@@ -22,9 +22,9 @@ Preserve the current saved Astra/xhigh setting for Head/specialists and Critic a
 
 ## Scope and ownership
 
-The PRD is the concise reference for MVP and exclusions: private browser consultation, history/control, live research, Settings and voice; no messenger, public SaaS, billing, generic integration gallery, native app or automatic external business actions. Google remains the identity provider; an app-specific MFA step is excluded. Ordinary processing consent and specific sensitive-transfer permission have different scopes.
+The PRD is the concise reference for MVP and exclusions: private browser consultation, history/control, live research, Settings, voice and owner-generated raster images; no messenger, public SaaS, billing, generic integration gallery, native app, PDF or automatic external business actions. Google remains the identity provider; an app-specific MFA step is excluded. Ordinary processing consent and specific sensitive-transfer permission have different scopes.
 
-Source code is public. Conversation content, attachments, identity data and grants are private. NanoDuck never receives audio for voice input: speech may be processed by the browser's recognition service after the owner explicitly starts it, and NanoDuck receives only text the owner chooses to insert and send. Use fictional content in public design artifacts; no analytics or required notifications are introduced. The owner controls their submitted content, exports and deletion. AI roles are not claims of human employment or licensure.
+Source code is public. Conversation content, attachments, identity data and grants are private. The authenticated owner is the only attachment user and stated that their images will be self-generated; this informs the attachment threat boundary but does not prove image provenance. NanoDuck never receives audio for voice input: speech may be processed by the browser's recognition service after the owner explicitly starts it, and NanoDuck receives only text the owner chooses to insert and send. Use fictional content in public design artifacts; no analytics or required notifications are introduced. The owner controls their submitted content, exports and deletion. AI roles are not claims of human employment or licensure.
 
 ## Assumptions, risks and open questions
 
