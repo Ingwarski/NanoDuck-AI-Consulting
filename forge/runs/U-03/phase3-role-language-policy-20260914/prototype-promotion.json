@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "promotion_id": "u03-electric-a-v8-role-language-policy-20260914",
+  "unit_id": "U-03",
+  "run_id": "phase3-role-language-policy-20260914",
+  "candidate_id": "a",
+  "version": "v8",
+  "baseline_id": "nanoduck-electric-a-v8-20260914",
+  "visual_target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
+  "prototype_source_root": "forge/design/candidates/a/v8",
+  "prototype_tree_hash": "1de020dcfe48f3feb80db0e58ba911b821825b48730d32c72d9518ad512eb0d9",
+  "development_plan_ref": "docs/development-plan.md",
+  "development_plan_hash": "ea33b60a5626bd7a62873c8a00cd8c0d2e5c4b6b837c4555b7868543ba51b454",
+  "started_at": "2026-09-14T16:50:57+03:00",
+  "completed_at": "2026-09-14T16:50:57+03:00",
+  "base_commit": "f99744d603b4e27cb7e89eccde2f12b9652e8a01",
+  "head_commit": "7851137d65ac5bb3f3ca23aeee72e79d9d2040d9",
+  "path_mappings": [
+    {
+      "source": "forge/design/candidates/a/v8/index.html",
+      "destination": "public/index.html",
+      "strategy": "adapt",
+      "source_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
+      "destination_hash": "3de26bd3bf97e23a448de9d200b5ff2e0931908e2ef738fddbe7e30abbf65828"
+    },
+    {
+      "source": "forge/design/candidates/a/v8/styles.css",
+      "destination": "public/styles.css",
+      "strategy": "adapt",
+      "source_hash": "f8fd6e8832671b05dc8b7a2a034ee41fb2aad4f085468965feaf1c34a3b57d43",
+      "destination_hash": "5b8f0f1b506c157f937f9d1f53ec11d187e0accaf66171750f7914bc6a368efc"
+    },
+    {
+      "source": "forge/design/candidates/a/v8/app.js",
+      "destination": "src/client/app.js",
+      "strategy": "reimplement",
+      "source_hash": "d7ac2287ce8496772592d42d134fc530affcb9147f0a7641655a56c6cf83775f",
+      "destination_hash": "f9acab02e2747d7a602da52312287328b8a5efcba4c2e2ff84122e569e106534"
+    },
+    {
+      "source": "forge/design/candidates/a/v8/nanoduck.svg",
+      "destination": "public/nanoduck.svg",
+      "strategy": "copy",
+      "source_hash": "723d3b4201c5fc6ffa3d30a1e5ed5151f616d436919d15f3642827a16ed7021d",
+      "destination_hash": "723d3b4201c5fc6ffa3d30a1e5ed5151f616d436919d15f3642827a16ed7021d"
+    },
+    {
+      "source": "forge/design/candidates/a/v8/nanoduck-original.svg",
+      "destination": "public/nanoduck-original.svg",
+      "strategy": "copy",
+      "source_hash": "e8b786961dc9a3b4d5450d3d20c3fd25cb6b2a9e7dc3034d23202d1a6dd2f528",
+      "destination_hash": "e8b786961dc9a3b4d5450d3d20c3fd25cb6b2a9e7dc3034d23202d1a6dd2f528"
+    }
+  ],
+  "changed_paths": [
+    "public/index.html",
+    "public/nanoduck-original.svg",
+    "public/nanoduck.svg",
+    "public/styles.css",
+    "src/client/app.js"
+  ],
+  "patch_hash": "79057d7cb935fc9c340840e0cc780115fefad9769eb7a6811df72a5a25a74cee",
+  "adaptations": [
+    "Removed candidate comparison, version and inspection scaffolding.",
+    "Replaced simulated messages and client fixtures with authenticated server routes and persisted consultation events.",
+    "Connected the preserved model, reasoning and pace selectors to server-side validated preferences.",
+    "Preserved the approved dark Electric tokens, message hierarchy, tabs, floating desktop navigation, mobile menu and corrected SVG bytes.",
+    "Added Spiritual Consultant and Psychotherapist role tokens, routing and user-facing error handling within the approved consultation surface.",
+    "Enforced the language and source-host policy at message intake, provider-output and source-link boundaries."
+  ],
+  "variances": [
+    "The sign-in, consent, provider-unavailable and persisted-event states are production behavior absent from the frozen prototype.",
+    "The approved candidate did not contain the two new specialist roles; their colors and layout are implemented as a constrained extension of its Electric visual system.",
+    "No live-provider, GoDaddy-target, responsive or assistive-technology acceptance is claimed by this local receipt."
+  ],
+  "qa_ids": [
+    "QA-R20", "QA-R21", "QA-R22", "QA-R23", "QA-R24", "QA-R33", "QA-R34", "QA-R35", "QA-R40", "QA-R41", "QA-R42",
+    "QA-S01", "QA-S02", "QA-S03", "QA-S04", "QA-S05", "QA-S06", "QA-S07", "QA-S08", "QA-S09",
+    "QA-H01", "QA-H02", "QA-H03", "QA-H04", "QA-H05", "QA-H06", "QA-H07", "QA-H08", "QA-H09", "QA-H10",
+    "QA-U01", "QA-U02", "QA-U03", "QA-U04"
+  ],
+  "visual_evidence": [
+    {
+      "kind": "visual",
+      "path": "forge/runs/U-03/phase3-role-language-policy-20260914/visual-evidence.json",
+      "content_hash": "13dc99cc69d00c75d8e52312bd02f62b76763ebfb6a51b8537e90bed548fee96"
+    }
+  ],
+  "verification_status": "blocked",
+  "blockers": [
+    "U-01 current provider/catalog, browser-audio and target-host capability evidence is not yet available.",
+    "Formal responsive, assistive-technology and representative-owner QA remains prepared/not_run; this receipt does not claim release acceptance."
+  ]
+}
