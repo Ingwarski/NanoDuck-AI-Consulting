@@ -53,6 +53,20 @@ test("a simple Ukrainian explanation receives one direct Head Consultant answer"
   assert.deepEqual((await store.events(conversation.id)).map(event => [event.role, event.recipient]), [["owner", null], ["Head Consultant", null]]);
 });
 
+test("the saved Pace changes the consultation instruction without changing the model tuple", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const snapshot = { ...defaultSettings, speed: "thorough" };
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "pace-instruction-0001" }, snapshot);
+  const calls = [];
+  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: "A qualified answer.", sources: [] }; } };
+  const service = createConsultationService({ store, provider });
+  await service.start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  assert.match(calls[0].assignment, /up to about 260 words/u);
+  assert.equal(calls.every(call => call.model === "gpt-6-astra" && call.effort === "xhigh"), true);
+});
+
 test("a Ukrainian finance question assigns the Finance Consultant and directs the Critic reply", async () => {
   const store = createMemoryStore();
   const conversation = await store.createConversation();
