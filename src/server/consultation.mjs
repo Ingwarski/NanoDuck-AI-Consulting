@@ -6,6 +6,12 @@ const roleSettings = snapshot => Object.freeze({
 
 const hasSensitiveResearchContext = text => /(?:\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b|\b(?:password|passcode|api[ _-]?key|secret|access[ _-]?token|iban|credit[ _-]?card|passport|medical)\b|(?:\+?\d[\d\s().-]{7,}\d)|\b(?:парол\p{L}*|ключ\p{L}*\s*api|секрет\p{L}*|токен\p{L}*|iban|картк\p{L}*|паспорт\p{L}*|медич\p{L}*)\b)/iu.test(text);
 const discussion = events => events.map(event => `${event.role}${event.recipient ? ` → ${event.recipient}` : ""}: ${event.body}`).join("\n\n").slice(-80_000);
+const needsDiscussion = text => {
+  const question = text.trim();
+  const directQuestion = /^(?:what is|define|explain|поясни|що таке|визнач)/iu.test(question);
+  const explicitDiscussion = /\b(?:critic|consultant team|consulting team|positioning|this offer|decision|strategy|proposal)\b|критик|консиліум|команд.{0,8}консульт|позиціонув|пропозиці|рішенн|стратег/iu.test(question);
+  return !directQuestion || explicitDiscussion;
+};
 const specialistFor = text => {
   const subject = text.toLocaleLowerCase();
   const matches = pattern => pattern.test(subject);
@@ -35,13 +41,13 @@ export function createConsultationService({ store, provider }) {
     try {
       if (!await isCurrent()) return;
       const settings = roleSettings(runState.snapshot); const first = await current(); const specialist = specialistFor(first.owner); const research = !hasSensitiveResearchContext(first.owner);
-      const turns = [
+      const turns = needsDiscussion(first.owner) ? [
         { role: "Head Consultant", recipient: specialist, model: settings.head.model, effort: settings.head.effort, assignment: `You are the Head Consultant. Frame the practical decision, name the decisive assumptions and give the ${specialist} a focused task. Speak to the owner plainly.` },
         { role: specialist, recipient: "Critic", model: settings.consultant.model, effort: settings.consultant.effort, assignment: `You are the ${specialist}. Develop one concrete position that directly helps the owner decide. Address the Head's framing, use evidence where useful, and avoid ceremony.` },
         { role: "Critic", recipient: specialist, model: settings.critic.model, effort: settings.critic.effort, assignment: `You are the Critic. Challenge only material gaps, unsupported claims, risks or false certainty in the actual discussion. If the position is sound, say why. Address the ${specialist} directly and remain constructive.` },
         { role: specialist, recipient: "Head Consultant", model: settings.consultant.model, effort: settings.consultant.effort, assignment: `You are the ${specialist}. Respond directly to the Critic's actual concern. Revise your position where warranted; explain a grounded disagreement where not. Do not repeat your earlier message.` },
         { role: "Head Consultant", recipient: null, model: settings.head.model, effort: settings.head.effort, assignment: "You are the Head Consultant. Close the discussion with a self-contained recommendation or a clearly bounded uncertainty, no more than three next actions, the main risk and a revisit condition. State agreement only if the actual messages support it." }
-      ];
+      ] : [{ role: "Head Consultant", recipient: null, model: settings.head.model, effort: settings.head.effort, assignment: "You are the Head Consultant. Give a direct, self-contained answer to this simple question. Use a short example where it helps. Do not convene a consultant team or add process language." }];
       const ownerIndex = first.events.map(event => event.role).lastIndexOf("owner");
       const committed = first.events.slice(ownerIndex + 1);
       if (ownerIndex < 0 || committed.length > turns.length || committed.some((event, index) => event.role !== turns[index].role || (event.recipient ?? null) !== turns[index].recipient)) throw new Error("invalid_run_state");

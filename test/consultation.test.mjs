@@ -22,7 +22,7 @@ test("sensitive current-topic questions do not enable public web research", asyn
   const service = createConsultationService({ store, provider });
   await service.start(conversation.id, accepted.run);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
-  assert.equal(calls.length, 5);
+  assert.equal(calls.length, 1);
   assert.equal(calls.every(call => call.research === false), true);
 });
 
@@ -37,6 +37,20 @@ test("ordinary consultations can use restricted live research without a keyword"
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
   assert.equal(calls.length, 5);
   assert.equal(calls.every(call => call.research === true), true);
+});
+
+test("a simple Ukrainian explanation receives one direct Head Consultant answer", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Що таке валова маржа?", clientRequestId: "direct-answer-0001" }, defaultSettings);
+  const calls = [];
+  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: "A qualified answer.", sources: [] }; } };
+  const service = createConsultationService({ store, provider });
+  await service.start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  assert.equal(calls.length, 1);
+  assert.match(calls[0].assignment, /direct, self-contained answer/u);
+  assert.deepEqual((await store.events(conversation.id)).map(event => [event.role, event.recipient]), [["owner", null], ["Head Consultant", null]]);
 });
 
 test("a Ukrainian finance question assigns the Finance Consultant and directs the Critic reply", async () => {
