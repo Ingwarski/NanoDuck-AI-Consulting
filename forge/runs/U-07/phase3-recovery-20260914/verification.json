@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "unit": "U-07",
+  "run_id": "phase3-recovery-20260914",
+  "executed_at": "2026-09-14T18:04:22+03:00",
+  "executor": "Codex local implementation runner",
+  "revision": "0f896f53aa9206d2b0b6574465b08149fae7e9fb",
+  "baseline_id": "nanoduck-electric-a-v8-20260914",
+  "development_plan_hash": "d2979e269fece584415159e984a17024807843b0d259cc28c37cc3ed679f3bea",
+  "scope": "Local encrypted recovery envelope, owner-record snapshot/restore, deletion propagation and explicit operator command. No live target was contacted.",
+  "checks": [
+    {
+      "name": "encrypted recovery round trip",
+      "evidence": "test/core.test.mjs: encrypted recovery restores confirmed records but never resurrects a deletion",
+      "result": "passed"
+    },
+    {
+      "name": "isolated MySQL recovery fixture",
+      "evidence": "test/core.test.mjs: MySQL recovery exports app records and restores deletion tombstones before active history",
+      "result": "passed"
+    },
+    {
+      "name": "repository validation",
+      "evidence": "npm run check; to-sdd-pipeline sdd_check.py --after development-plan; to-sdd-pipeline sdd_check.py --audit",
+      "result": "passed"
+    }
+  ],
+  "source_hashes": {
+    "src/server/recovery.mjs": "fbdfda09d95f10be6da6868ee9f3fd7c568d0bb1d13c534d2fc344f256402e72",
+    "src/server/recovery-cli.mjs": "bde700a91f856f21ed2f4c81bbb4fef9317d6c2cdd2bfe24ba0a6dee15f48e97",
+    "src/server/store.mjs": "5cf54cd93cf87c64eea67bf57147abd14c91d38d830e9a1a975d1c1f3fded2ac",
+    "src/server/config.mjs": "b046ab3bb7cb8692bf2e6aaad3104a75002aa7879858ba1b8862b4ec6976b5f6",
+    "test/core.test.mjs": "905e6780bb36de664bd0c5143a7e95849d87d646d4b0c2af7cf07f24cef4a81c",
+    "docs/development-plan.md": "d2979e269fece584415159e984a17024807843b0d259cc28c37cc3ed679f3bea"
+  },
+  "limits": [
+    "The fixture is not a live MySQL or GoDaddy recovery rehearsal.",
+    "No encrypted backup file was created and no restore command was run against any target.",
+    "Retention period, RPO, RTO, operator ownership and production storage remain release evidence for U-01/U-08."
+  ],
+  "release_effect": "not_release_evidence"
+}
