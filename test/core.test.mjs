@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { decryptText, encryptText } from "../src/server/crypto.mjs";
+import { openRecoveryEnvelope, sealRecoverySnapshot } from "../src/server/recovery.mjs";
 import { createAuth } from "../src/server/auth.mjs";
 import { loadConfig } from "../src/server/config.mjs";
 import { createMemoryStore, createMySqlStore, defaultSettings } from "../src/server/store.mjs";
@@ -24,6 +25,24 @@ test("encrypted message values authenticate before decryption", () => {
   assert.equal(decryptText(encrypted, key), "Private decision context");
   const alteredCiphertext = `${encrypted.ciphertext[0] === "A" ? "B" : "A"}${encrypted.ciphertext.slice(1)}`;
   assert.throws(() => decryptText({ ...encrypted, ciphertext: alteredCiphertext }, key));
+});
+
+test("encrypted recovery restores confirmed records but never resurrects a deletion", async () => {
+  const source = createMemoryStore();
+  const conversation = await source.createConversation();
+  const accepted = await source.acceptMessage(conversation.id, { body: "Should we test this offer first?", clientRequestId: "recovery-source-request-0001" }, defaultSettings);
+  await source.appendAgentMessage(conversation.id, accepted.run.generation, { role: "Head Consultant", body: "Test the buyer before scaling.", sources: [{ url: "https://example.com/evidence", title: "Buyer evidence", claim: "Test the buyer.", retrievedAt: "2026-09-14T00:00:00.000Z" }] });
+  await source.stop(conversation.id);
+  const backupKey = Buffer.alloc(32, 8);
+  const envelope = sealRecoverySnapshot(await source.recoverySnapshot(), backupKey);
+  assert.equal(openRecoveryEnvelope({ ...envelope, payload: { ...envelope.payload, tag: `${envelope.payload.tag[0] === "A" ? "B" : "A"}${envelope.payload.tag.slice(1)}` } }, backupKey), undefined);
+  const restored = createMemoryStore();
+  assert.deepEqual(await restored.restoreRecovery(openRecoveryEnvelope(envelope, backupKey)), { restored: 1, tombstones: 0, preservedTombstones: 0 });
+  assert.deepEqual((await restored.events(conversation.id)).map(item => item.body), ["Should we test this offer first?", "Test the buyer before scaling."]);
+  assert.ok(await restored.deleteConversation(conversation.id));
+  assert.deepEqual(await restored.restoreRecovery(openRecoveryEnvelope(envelope, backupKey)), { restored: 0, tombstones: 0, preservedTombstones: 1 });
+  assert.equal(await restored.getConversation(conversation.id), undefined);
+  assert.equal((await restored.recoverySnapshot()).conversations[0].messages.length, 0);
 });
 
 test("accepted owner messages are idempotent and a stopped run fences later agent output", async () => {
@@ -74,7 +93,7 @@ test("MySQL agent writes and deletion serialize through the conversation lock", 
       if (statement.startsWith("INSERT INTO nanoduck_messages")) return [{ affectedRows: 1 }];
       if (statement.startsWith("UPDATE nanoduck_conversations SET updated_at")) return [{ affectedRows: 1 }];
       if (statement.startsWith("UPDATE nanoduck_runs SET updated_at")) return [{ affectedRows: 1 }];
-      if (statement.startsWith("UPDATE nanoduck_conversations SET deleted_at")) return [{ affectedRows: 1 }];
+      if (statement.startsWith("UPDATE nanoduck_conversations SET deleted_at") || statement.startsWith("DELETE FROM nanoduck_messages") || statement.startsWith("DELETE FROM nanoduck_requests")) return [{ affectedRows: 1 }];
       if (statement.startsWith("UPDATE nanoduck_runs SET generation")) return [{ affectedRows: 1 }];
       throw new Error(`Unexpected statement: ${statement}`);
     }
@@ -89,7 +108,39 @@ test("MySQL agent writes and deletion serialize through the conversation lock", 
   assert.ok(commands.some(command => command.includes("nanoduck_conversations WHERE id=? AND deleted_at IS NULL FOR UPDATE")));
   assert.ok(commands.some(command => command.includes("nanoduck_messages WHERE conversation_id=? FOR UPDATE")));
   const deleteIndex = commands.findIndex(command => command.startsWith("UPDATE nanoduck_conversations SET deleted_at"));
-  assert.match(commands[deleteIndex + 1], /^UPDATE nanoduck_runs SET generation/u);
+  assert.match(commands[deleteIndex + 1], /^DELETE FROM nanoduck_messages/u);
+  assert.match(commands[deleteIndex + 2], /^DELETE FROM nanoduck_requests/u);
+  assert.match(commands[deleteIndex + 3], /^UPDATE nanoduck_runs SET generation/u);
+});
+
+test("MySQL recovery exports app records and restores deletion tombstones before active history", async () => {
+  const commands = []; const activeId = "recovery-active-0001"; const deletedId = "recovery-deleted-0001";
+  const encrypted = encryptText("Retain the accepted conclusion.", key);
+  const connection = {
+    async beginTransaction() { commands.push("BEGIN"); },
+    async commit() { commands.push("COMMIT"); },
+    async rollback() { commands.push("ROLLBACK"); },
+    release() {},
+    async execute(statement) {
+      commands.push(statement);
+      if (statement.startsWith("SELECT owner_id FROM nanoduck_owner_locks")) return [[{ owner_id: "owner" }]];
+      if (statement.startsWith("SELECT id,title,created_at,updated_at,deleted_at FROM nanoduck_conversations ORDER BY")) return [[
+        { id: activeId, title: "Active record", created_at: "2026-09-14T00:00:00.000Z", updated_at: "2026-09-14T00:01:00.000Z", deleted_at: null },
+        { id: deletedId, title: "Deleted record", created_at: "2026-09-14T00:00:00.000Z", updated_at: "2026-09-14T00:02:00.000Z", deleted_at: "2026-09-14T00:02:00.000Z" }
+      ]];
+      if (statement.startsWith("SELECT id,role,recipient,ciphertext,iv,tag,sequence,created_at,sources_json FROM nanoduck_messages")) return [[{ id: "recovery-message-0001", role: "Head Consultant", recipient: null, ...encrypted, sequence: 1, created_at: "2026-09-14T00:01:00.000Z", sources_json: "[]" }]];
+      if (statement.startsWith("SELECT id,deleted_at FROM nanoduck_conversations")) return [[]];
+      if (statement.startsWith("INSERT INTO nanoduck_conversations") || statement.startsWith("INSERT INTO nanoduck_messages") || statement.startsWith("DELETE FROM nanoduck_messages") || statement.startsWith("DELETE FROM nanoduck_requests") || statement.startsWith("UPDATE nanoduck_runs SET generation")) return [{ affectedRows: 1 }];
+      throw new Error(`Unexpected statement: ${statement}`);
+    }
+  };
+  const store = await createMySqlStore("mysql://unused", key, undefined, { createPool: () => ({ getConnection: async () => connection, end: async () => {} }) });
+  const snapshot = await store.recoverySnapshot();
+  assert.deepEqual(snapshot.conversations.map(item => [item.conversation.id, item.messages.length]), [[activeId, 1], [deletedId, 0]]);
+  assert.deepEqual(await store.restoreRecovery(snapshot), { restored: 1, tombstones: 1, preservedTombstones: 0 });
+  const tombstoneIndex = commands.findIndex(command => command.startsWith("INSERT INTO nanoduck_conversations (id,title,created_at,updated_at,deleted_at)"));
+  const activeIndex = commands.findIndex(command => command.startsWith("INSERT INTO nanoduck_conversations (id,title,created_at,updated_at)"));
+  assert.ok(tombstoneIndex >= 0 && activeIndex > tombstoneIndex);
 });
 
 test("MySQL acceptance holds the owner lock before allowing an active run", async () => {
@@ -155,8 +206,9 @@ test("development cookies remain usable on localhost while production uses host-
   assert.doesNotMatch(development.sessionCookie(localSession), /; Secure/u);
   assert.match(development.sessionCookie(localSession), /Max-Age=86400/u);
 
-  const productionEnvironment = { NODE_ENV: "production", APP_ORIGIN: "https://consulting.example.com", DATABASE_URL: "mysql://user:password@host/database", DATABASE_SSL_CA_PATH: "/run/secrets/mysql-ca.pem", DATA_ENCRYPTION_KEY: Buffer.alloc(32, 2).toString("base64url"), SESSION_SIGNING_KEY: Buffer.alloc(32, 3).toString("base64url"), OWNER_GOOGLE_SUBJECT: "owner-subject", GOOGLE_CLIENT_ID: "client", GOOGLE_CLIENT_SECRET: "secret", CODEX_APP_SERVER_AUTH_PATH: "/run/secrets/codex-auth.json" };
+  const productionEnvironment = { NODE_ENV: "production", APP_ORIGIN: "https://consulting.example.com", DATABASE_URL: "mysql://user:password@host/database", DATABASE_SSL_CA_PATH: "/run/secrets/mysql-ca.pem", DATA_ENCRYPTION_KEY: Buffer.alloc(32, 2).toString("base64url"), RECOVERY_ENCRYPTION_KEY: Buffer.alloc(32, 6).toString("base64url"), SESSION_SIGNING_KEY: Buffer.alloc(32, 3).toString("base64url"), OWNER_GOOGLE_SUBJECT: "owner-subject", GOOGLE_CLIENT_ID: "client", GOOGLE_CLIENT_SECRET: "secret", CODEX_APP_SERVER_AUTH_PATH: "/run/secrets/codex-auth.json" };
   assert.throws(() => loadConfig({ ...productionEnvironment, DATABASE_SSL_CA_PATH: "" }), /DATABASE_SSL_CA_PATH/u);
+  assert.throws(() => loadConfig({ ...productionEnvironment, RECOVERY_ENCRYPTION_KEY: productionEnvironment.DATA_ENCRYPTION_KEY }), /must differ/u);
   const production = createAuth({ config: loadConfig(productionEnvironment), store: createMemoryStore() });
   const productionSession = await production.developmentSignIn();
   assert.equal(productionSession, undefined);
@@ -166,7 +218,7 @@ test("development cookies remain usable on localhost while production uses host-
 });
 
 test("Google callback requires the nonce bound to its signed OAuth flow", async () => {
-  const config = loadConfig({ NODE_ENV: "production", APP_ORIGIN: "https://consulting.example.com", DATABASE_URL: "mysql://user:password@host/database", DATABASE_SSL_CA_PATH: "/run/secrets/mysql-ca.pem", DATA_ENCRYPTION_KEY: Buffer.alloc(32, 4).toString("base64url"), SESSION_SIGNING_KEY: Buffer.alloc(32, 5).toString("base64url"), OWNER_GOOGLE_SUBJECT: "owner-subject", GOOGLE_CLIENT_ID: "client", GOOGLE_CLIENT_SECRET: "secret", CODEX_APP_SERVER_AUTH_PATH: "/run/secrets/codex-auth.json" });
+  const config = loadConfig({ NODE_ENV: "production", APP_ORIGIN: "https://consulting.example.com", DATABASE_URL: "mysql://user:password@host/database", DATABASE_SSL_CA_PATH: "/run/secrets/mysql-ca.pem", DATA_ENCRYPTION_KEY: Buffer.alloc(32, 4).toString("base64url"), RECOVERY_ENCRYPTION_KEY: Buffer.alloc(32, 6).toString("base64url"), SESSION_SIGNING_KEY: Buffer.alloc(32, 5).toString("base64url"), OWNER_GOOGLE_SUBJECT: "owner-subject", GOOGLE_CLIENT_ID: "client", GOOGLE_CLIENT_SECRET: "secret", CODEX_APP_SERVER_AUTH_PATH: "/run/secrets/codex-auth.json" });
   const establish = async nonce => {
     let authorization;
     const auth = createAuth({

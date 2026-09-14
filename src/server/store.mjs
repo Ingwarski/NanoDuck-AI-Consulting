@@ -1,5 +1,6 @@
 import { randomId, encryptText, decryptText } from "./crypto.mjs";
 import { readFile } from "node:fs/promises";
+import { normalizeRecoverySnapshot } from "./recovery.mjs";
 
 const defaults = Object.freeze({
   headModel: "gpt-6-astra",
@@ -12,6 +13,7 @@ const defaults = Object.freeze({
 
 const now = () => new Date().toISOString();
 const publicMessage = message => Object.freeze({ id: message.id, role: message.role, recipient: message.recipient ?? null, body: message.body, sequence: message.sequence, createdAt: message.createdAt, sources: message.sources ?? [] });
+const recoverySnapshot = conversations => normalizeRecoverySnapshot({ schemaVersion: 1, kind: "nanoduck-owner-records", createdAt: now(), conversations });
 
 export function createMemoryStore() {
   const conversations = new Map();
@@ -88,9 +90,27 @@ export function createMemoryStore() {
       const conversation = conversations.get(conversationId); if (!conversation || conversation.deletedAt) return undefined;
       return Object.freeze({ conversation: { ...conversation }, messages: (messages.get(conversationId) ?? []).map(publicMessage) });
     },
+    async recoverySnapshot() {
+      return recoverySnapshot([...conversations.values()].map(conversation => ({ conversation: { ...conversation }, messages: conversation.deletedAt ? [] : (messages.get(conversation.id) ?? []).map(publicMessage) })));
+    },
+    async restoreRecovery(snapshot) {
+      const recovered = normalizeRecoverySnapshot(snapshot); if (!recovered) return undefined;
+      let restored = 0; let tombstones = 0; let preservedTombstones = 0;
+      for (const record of [...recovered.conversations.filter(item => item.conversation.deletedAt), ...recovered.conversations.filter(item => !item.conversation.deletedAt)]) {
+        const id = record.conversation.id; const existing = conversations.get(id);
+        if (existing?.deletedAt) { preservedTombstones += 1; continue; }
+        if (record.conversation.deletedAt) {
+          conversations.set(id, { ...record.conversation }); messages.set(id, []); const run = runs.get(id); if (run) { run.generation += 1; run.status = "deleted"; run.updatedAt = record.conversation.deletedAt; }
+          tombstones += 1; continue;
+        }
+        if (existing) continue;
+        conversations.set(id, { ...record.conversation }); messages.set(id, record.messages.map(item => ({ ...item, sources: [...item.sources] }))); restored += 1;
+      }
+      return Object.freeze({ restored, tombstones, preservedTombstones });
+    },
     async deleteConversation(conversationId) {
       const conversation = conversations.get(conversationId); if (!conversation || conversation.deletedAt) return false;
-      conversation.deletedAt = now(); conversation.updatedAt = now(); const run = runs.get(conversationId); if (run) { run.generation += 1; run.status = "deleted"; } return true;
+      conversation.deletedAt = now(); conversation.updatedAt = conversation.deletedAt; messages.set(conversationId, []); const run = runs.get(conversationId); if (run) { run.generation += 1; run.status = "deleted"; } return true;
     }
   });
 }
@@ -189,6 +209,50 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
       } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
     },
     async exportConversation(id) { const conversation = await this.getConversation(id); return conversation ? { conversation, messages: await this.events(id) } : undefined; },
+    async recoverySnapshot() {
+      const connection = await pool.getConnection();
+      try {
+        await connection.beginTransaction(); await lockOwner(connection);
+        const [conversationRows] = await connection.execute("SELECT id,title,created_at,updated_at,deleted_at FROM nanoduck_conversations ORDER BY created_at");
+        const records = [];
+        for (const row of conversationRows) {
+          const conversation = { id: row.id, title: row.title, createdAt: row.created_at, updatedAt: row.updated_at, deletedAt: row.deleted_at };
+          if (conversation.deletedAt) { records.push({ conversation, messages: [] }); continue; }
+          const [messageRows] = await connection.execute("SELECT id,role,recipient,ciphertext,iv,tag,sequence,created_at,sources_json FROM nanoduck_messages WHERE conversation_id=? ORDER BY sequence", [conversation.id]);
+          records.push({ conversation, messages: messageRows.map(decode) });
+        }
+        await connection.commit(); return recoverySnapshot(records);
+      } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
+    },
+    async restoreRecovery(snapshot) {
+      const recovered = normalizeRecoverySnapshot(snapshot); if (!recovered) return undefined;
+      const connection = await pool.getConnection(); let restored = 0; let tombstones = 0; let preservedTombstones = 0;
+      try {
+        await connection.beginTransaction(); await lockOwner(connection);
+        for (const record of [...recovered.conversations.filter(item => item.conversation.deletedAt), ...recovered.conversations.filter(item => !item.conversation.deletedAt)]) {
+          const conversation = record.conversation;
+          const [existingRows] = await connection.execute("SELECT id,deleted_at FROM nanoduck_conversations WHERE id=? FOR UPDATE", [conversation.id]);
+          const existing = existingRows[0];
+          if (existing?.deleted_at) { preservedTombstones += 1; continue; }
+          if (conversation.deletedAt) {
+            if (existing) await connection.execute("UPDATE nanoduck_conversations SET deleted_at=?, updated_at=? WHERE id=? AND deleted_at IS NULL", [conversation.deletedAt, conversation.deletedAt, conversation.id]);
+            else await connection.execute("INSERT INTO nanoduck_conversations (id,title,created_at,updated_at,deleted_at) VALUES (?,?,?,?,?)", [conversation.id, conversation.title, conversation.createdAt, conversation.deletedAt, conversation.deletedAt]);
+            await connection.execute("DELETE FROM nanoduck_messages WHERE conversation_id=?", [conversation.id]);
+            await connection.execute("DELETE FROM nanoduck_requests WHERE conversation_id=?", [conversation.id]);
+            await connection.execute("UPDATE nanoduck_runs SET generation=generation+1,status='deleted',updated_at=? WHERE conversation_id=? AND status IN ('active','stopped')", [conversation.deletedAt, conversation.id]);
+            tombstones += 1; continue;
+          }
+          if (existing) continue;
+          await connection.execute("INSERT INTO nanoduck_conversations (id,title,created_at,updated_at) VALUES (?,?,?,?)", [conversation.id, conversation.title, conversation.createdAt, conversation.updatedAt]);
+          for (const item of record.messages) {
+            const encrypted = encryptText(item.body, dataKey);
+            await connection.execute("INSERT INTO nanoduck_messages (id,conversation_id,role,recipient,ciphertext,iv,tag,sequence,created_at,sources_json) VALUES (?,?,?,?,?,?,?,?,?,?)", [item.id,conversation.id,item.role,item.recipient,encrypted.ciphertext,encrypted.iv,encrypted.tag,item.sequence,item.createdAt,JSON.stringify(item.sources)]);
+          }
+          restored += 1;
+        }
+        await connection.commit(); return Object.freeze({ restored, tombstones, preservedTombstones });
+      } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
+    },
     async deleteConversation(id) {
       const connection = await pool.getConnection(); const deletedAt = now();
       try {
@@ -196,6 +260,8 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
         await lockOwner(connection);
         const [result] = await connection.execute("UPDATE nanoduck_conversations SET deleted_at=?, updated_at=? WHERE id=? AND deleted_at IS NULL", [deletedAt, deletedAt, id]);
         if (result.affectedRows !== 1) { await connection.rollback(); return false; }
+        await connection.execute("DELETE FROM nanoduck_messages WHERE conversation_id=?", [id]);
+        await connection.execute("DELETE FROM nanoduck_requests WHERE conversation_id=?", [id]);
         await connection.execute("UPDATE nanoduck_runs SET generation=generation+1,status='deleted',updated_at=? WHERE conversation_id=? AND status IN ('active','stopped')", [deletedAt,id]);
         await connection.commit(); return true;
       } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }

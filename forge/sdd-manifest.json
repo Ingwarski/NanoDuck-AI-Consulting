@@ -5777,13 +5777,13 @@
     "development-plan": {
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "development-plan-consultation-controls-reconciliation-20260914T172500",
+      "owner_invocation_id": "development-plan-recovery-implementation-revalidation-20260914T180300",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "development-plan-consultation-controls-reconciliation-20260914T172500",
+      "source_version": "development-plan-recovery-implementation-revalidation-20260914T180300",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -5820,7 +5820,7 @@
         "docs/qa-checklist.md": "8f01c253aa601238b9ec75f81826529c6dd5d016a6691a4cdd2ee7c6d25b67f3",
         "docs/model-settings.md": "86801751744742aa44a41b9f6d5c5192eabd22423323c83bdbddec431e47b4d5",
         "docs/deployment-boundary.md": "e57776bcde6bb00d6dceb6200e02303124cfdf4f1272c72eb474b50a3949df83",
-        "package.json": "5c73e4457a72a4c03684cb4a3f928b5061de6f9d3e6317bc6b04616a6af93bc9",
+        "package.json": "09ee36e63b46084b99ec90a6793a50ff5e36c466bd46faf2b6da802f55089343",
         "scripts/serve-prototype.mjs": "f1232082074d76e12713267d3bc10bd546a69f4a9a8836b5a073887f9c374b4d",
         "forge/design/candidates/a/v8/index.html": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
         "forge/design/candidates/a/v8/styles.css": "f8fd6e8832671b05dc8b7a2a034ee41fb2aad4f085468965feaf1c34a3b57d43",
@@ -5845,11 +5845,11 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "consultation-controls-reconciliation",
-        "reviewed_at": "2026-09-14T17:25:00+03:00",
+        "kind": "implementation-recovery-provenance-revalidation",
+        "reviewed_at": "2026-09-14T18:03:00+03:00",
         "executor": "Codex inline to-development-plan"
       },
-      "supersedes": "development-plan-phase3-revalidated-20260914T010700",
+      "supersedes": "development-plan-consultation-controls-reconciliation-20260914T172500",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
       "traceability": {
         "definitions": [
@@ -7689,6 +7689,17 @@
       "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
       "development_plan_hash": "d2979e269fece584415159e984a17024807843b0d259cc28c37cc3ed679f3bea",
       "decision": "Replace the historical named Pace presets with independent specialist-count and discussion-depth settings; Head selects Auto team size and Auto depth is capped at 10 exchanges."
+    },
+    {
+      "event": "development_plan_revalidated_for_recovery_implementation",
+      "at": "2026-09-14T18:03:00+03:00",
+      "implementation_authorized": true,
+      "development_plan_hash": "d2979e269fece584415159e984a17024807843b0d259cc28c37cc3ed679f3bea",
+      "changed_input": {
+        "path": "package.json",
+        "content_hash": "09ee36e63b46084b99ec90a6793a50ff5e36c466bd46faf2b6da802f55089343"
+      },
+      "decision": "The plan bytes remain current. Recovery implementation adds a separate operator recovery command and key without changing requirements, baseline, unit allocation or implementation authorization."
     }
   ],
   "dispatches": {
@@ -7919,7 +7930,7 @@
       "consumed_source_fragments": {}
     },
     "development-plan": {
-      "invocation_id": "development-plan-consultation-controls-reconciliation-20260914T172500",
+      "invocation_id": "development-plan-recovery-implementation-revalidation-20260914T180300",
       "outputs": [
         "docs/development-plan.md"
       ],
@@ -7937,7 +7948,7 @@
         "docs/qa-checklist.md": "8f01c253aa601238b9ec75f81826529c6dd5d016a6691a4cdd2ee7c6d25b67f3",
         "docs/model-settings.md": "86801751744742aa44a41b9f6d5c5192eabd22423323c83bdbddec431e47b4d5",
         "docs/deployment-boundary.md": "e57776bcde6bb00d6dceb6200e02303124cfdf4f1272c72eb474b50a3949df83",
-        "package.json": "5c73e4457a72a4c03684cb4a3f928b5061de6f9d3e6317bc6b04616a6af93bc9",
+        "package.json": "09ee36e63b46084b99ec90a6793a50ff5e36c466bd46faf2b6da802f55089343",
         "scripts/serve-prototype.mjs": "f1232082074d76e12713267d3bc10bd546a69f4a9a8836b5a073887f9c374b4d",
         "forge/design/candidates/a/v8/index.html": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
         "forge/design/candidates/a/v8/styles.css": "f8fd6e8832671b05dc8b7a2a034ee41fb2aad4f085468965feaf1c34a3b57d43",
@@ -64723,6 +64734,36 @@
         "docs/model-settings.md": "60bffb62f530b42e1a7bd516661b4619517efd95db1317bcc673c978e89141c4",
         "docs/deployment-boundary.md": "3fa6f6f453db9640138be064961610bce4426253731062b51d6b29f350d97ff5",
         "package.json": "c116a0f0bab51a6ac61ba884ad8aee1bfe5ffdd5699e3cdfb362dddb65126f16",
+        "scripts/serve-prototype.mjs": "f1232082074d76e12713267d3bc10bd546a69f4a9a8836b5a073887f9c374b4d",
+        "forge/design/candidates/a/v8/index.html": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
+        "forge/design/candidates/a/v8/styles.css": "f8fd6e8832671b05dc8b7a2a034ee41fb2aad4f085468965feaf1c34a3b57d43",
+        "forge/design/candidates/a/v8/nanoduck.svg": "723d3b4201c5fc6ffa3d30a1e5ed5151f616d436919d15f3642827a16ed7021d",
+        "forge/design/candidates/a/v8/nanoduck-original.svg": "e8b786961dc9a3b4d5450d3d20c3fd25cb6b2a9e7dc3034d23202d1a6dd2f528",
+        "forge/design/candidates/a/v8/app.js": "d7ac2287ce8496772592d42d134fc530affcb9147f0a7641655a56c6cf83775f"
+      },
+      "consumed_source_fragments": {}
+    },
+    {
+      "artifact_id": "development-plan",
+      "invocation_id": "development-plan-consultation-controls-reconciliation-20260914T172500",
+      "outputs": [
+        "docs/development-plan.md"
+      ],
+      "source_hashes": {
+        "docs/prd.md": "da8a4c54b09b18a43070952d659bcde4bbae0ff0f3562a571c0bda8b75f1ac7e",
+        "docs/project-context.md": "d802f153d6e48110cc757f289c800540c8bcd80407290761878a34b28b8a11ef",
+        "docs/canonical-terms.md": "351667d5e5e663b269931febcf6c7be58c59a77062a09be533adf8cbdd582936",
+        "docs/guardrails.md": "b78499ef3ee79484e944c901b0584525e16d6feb2db9f0ed490a53f2c379e678",
+        "docs/user-journey.md": "a1d5014c3fa99dc72fffd10f4f3e3cc842e001277cf81fbe4d14cbb48aeebe31",
+        "docs/screen-map.md": "034c4a7b05709207074b8affe202b4c3c96818a4333ba4fbfb5f560733feb81d",
+        "docs/wireframes.md": "047aacdba04125035e968e13837cec2a23914f20e13eea090f83d1a1b4182e00",
+        "docs/design-brief.md": "b47ccb5ad51070554e006d07370f8b43a8c03b1d255031814eed8b56aa0c235e",
+        "docs/architecture.md": "7e6e6a56f843de366c58f6dcd5057acc7d3961d3471aaf4ed6cd8faf1e3ab857",
+        "docs/dod-evals.md": "d6ba33818e146ca1fe7b64457ee956f21e9eb2d518d248761339fe3441594ef7",
+        "docs/qa-checklist.md": "8f01c253aa601238b9ec75f81826529c6dd5d016a6691a4cdd2ee7c6d25b67f3",
+        "docs/model-settings.md": "86801751744742aa44a41b9f6d5c5192eabd22423323c83bdbddec431e47b4d5",
+        "docs/deployment-boundary.md": "e57776bcde6bb00d6dceb6200e02303124cfdf4f1272c72eb474b50a3949df83",
+        "package.json": "5c73e4457a72a4c03684cb4a3f928b5061de6f9d3e6317bc6b04616a6af93bc9",
         "scripts/serve-prototype.mjs": "f1232082074d76e12713267d3bc10bd546a69f4a9a8836b5a073887f9c374b4d",
         "forge/design/candidates/a/v8/index.html": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
         "forge/design/candidates/a/v8/styles.css": "f8fd6e8832671b05dc8b7a2a034ee41fb2aad4f085468965feaf1c34a3b57d43",

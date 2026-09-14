@@ -10,7 +10,8 @@
     "preflight": "node src/server/preflight.mjs",
     "check": "node scripts/check-artifacts.mjs && node --test test/*.test.mjs",
     "test": "node --test test/*.test.mjs",
-    "migrate": "node src/server/migrate.mjs"
+    "migrate": "node src/server/migrate.mjs",
+    "recovery": "node src/server/recovery-cli.mjs"
   },
   "engines": {
     "node": ">=22"

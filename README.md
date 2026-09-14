@@ -27,7 +27,7 @@ npm install
 npm run dev
 ```
 
-Open [NanoDuck locally](http://127.0.0.1:3000/). Development mode exposes a local-only owner sign-in. Production mode requires a Google owner subject, HTTPS origin, MySQL connection with a mounted TLS CA bundle, data/session keys, and a mounted Codex app-server authentication file. Use [`.env.example`](.env.example) to see variable names; do not commit values.
+Open [NanoDuck locally](http://127.0.0.1:3000/). Development mode exposes a local-only owner sign-in. Production mode requires a Google owner subject, HTTPS origin, MySQL connection with a mounted TLS CA bundle, separate data/recovery/session keys, and a mounted Codex app-server authentication file. Use [`.env.example`](.env.example) to see variable names; do not commit values.
 
 Before connecting a target runtime, set `CODEX_APP_SERVER_AUTH_PATH` to the mounted Codex auth file and run `npm run preflight`. It performs only the managed Codex account, model-catalog and rate-limit inspection; it does not start a model turn, contact MySQL or change GoDaddy.
 
@@ -48,3 +48,5 @@ npm run check
 ```
 
 The source repository is public; the intended application remains private to one owner. Do not add private conversation archives, provider grants, secrets or deployment data to Git. The MySQL schema is created only with `npm run migrate` after the deployment target's database ownership is verified.
+
+Recovery is an operator-only, explicit command. `npm run recovery -- backup <new-encrypted-file>` creates a new encrypted recovery envelope with the separate recovery key. `npm run recovery -- restore <encrypted-file> --confirm-restore` requires an explicit destructive confirmation and applies deletion tombstones before records, so a deleted conversation cannot return. Neither command has been run against GoDaddy or any live database.

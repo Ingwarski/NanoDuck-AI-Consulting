@@ -33,6 +33,13 @@ export function loadConfig(environment = process.env) {
     throw new Error("DATA_ENCRYPTION_KEY must be a 32-byte base64url key in production.");
   }
   if (decodedKey !== undefined && decodedKey.byteLength !== 32) throw new Error("DATA_ENCRYPTION_KEY must contain 32 bytes.");
+  const recoveryKey = environment.RECOVERY_ENCRYPTION_KEY;
+  const decodedRecoveryKey = recoveryKey === undefined ? undefined : Buffer.from(recoveryKey, "base64url");
+  if (mode === "production" && (!decodedRecoveryKey || decodedRecoveryKey.byteLength !== 32)) {
+    throw new Error("RECOVERY_ENCRYPTION_KEY must be a separate 32-byte base64url key in production.");
+  }
+  if (decodedRecoveryKey !== undefined && decodedRecoveryKey.byteLength !== 32) throw new Error("RECOVERY_ENCRYPTION_KEY must contain 32 bytes.");
+  if (decodedKey && decodedRecoveryKey && decodedKey.equals(decodedRecoveryKey)) throw new Error("RECOVERY_ENCRYPTION_KEY must differ from DATA_ENCRYPTION_KEY.");
   const sessionKey = environment.SESSION_SIGNING_KEY === undefined
     ? (mode === "production" ? undefined : createHash("sha256").update("nanoduck-development-session-key").digest())
     : Buffer.from(environment.SESSION_SIGNING_KEY, "base64url");
@@ -56,13 +63,16 @@ export function loadConfig(environment = process.env) {
     throw new Error("CODEX_APP_SERVER_AUTH_PATH is required in production.");
   }
 
+  const runtimeDataKey = decodedKey ?? createHash("sha256").update("nanoduck-development-data-key").digest();
+  const runtimeRecoveryKey = decodedRecoveryKey ?? createHash("sha256").update("nanoduck-development-recovery-key").digest();
   return Object.freeze({
     mode,
     port: positiveInteger(environment.PORT, 3000, "PORT"),
     origin,
     databaseUrl,
     databaseSslCaPath,
-    dataKey: decodedKey ?? createHash("sha256").update("nanoduck-development-data-key").digest(),
+    dataKey: runtimeDataKey,
+    recoveryKey: runtimeRecoveryKey,
     sessionKey,
     sessionLifetimeSeconds: positiveInteger(environment.SESSION_ABSOLUTE_SECONDS, 86_400, "SESSION_ABSOLUTE_SECONDS"),
     maxAttachmentBytes: positiveInteger(environment.MAX_ATTACHMENT_BYTES, 8 * 1024 * 1024, "MAX_ATTACHMENT_BYTES"),
