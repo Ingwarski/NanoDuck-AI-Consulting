@@ -109,3 +109,40 @@ test("development cookies remain usable on localhost while production uses host-
   assert.match(production.sessionCookie(manuallyCreated), /^__Host-nanoduck-session=/u);
   assert.match(production.sessionCookie(manuallyCreated), /; Secure$/u);
 });
+
+test("Google callback requires the nonce bound to its signed OAuth flow", async () => {
+  const config = loadConfig({ NODE_ENV: "production", APP_ORIGIN: "https://consulting.example.com", DATABASE_URL: "mysql://user:password@host/database", DATABASE_SSL_CA_PATH: "/run/secrets/mysql-ca.pem", DATA_ENCRYPTION_KEY: Buffer.alloc(32, 4).toString("base64url"), SESSION_SIGNING_KEY: Buffer.alloc(32, 5).toString("base64url"), OWNER_GOOGLE_SUBJECT: "owner-subject", GOOGLE_CLIENT_ID: "client", GOOGLE_CLIENT_SECRET: "secret", CODEX_APP_SERVER_AUTH_PATH: "/run/secrets/codex-auth.json" });
+  const establish = async nonce => {
+    let authorization;
+    const auth = createAuth({
+      config,
+      store: createMemoryStore(),
+      createOAuthClient: () => ({
+        generateAuthUrl(options) { authorization = options; return `https://accounts.google.com/o/oauth2/auth?state=${encodeURIComponent(options.state)}`; },
+        async getToken() { return { tokens: { id_token: "test-id-token" } }; },
+        async verifyIdToken() { return { getPayload: () => ({ sub: "owner-subject", email_verified: true, iss: "https://accounts.google.com", nonce }) }; }
+      })
+    });
+    const flow = await auth.beginGoogle();
+    const state = new URL(flow.location).searchParams.get("state");
+    return { result: auth.finishGoogle(`https://consulting.example.com/auth/google/callback?code=one-time-code&state=${encodeURIComponent(state)}`, { headers: { cookie: flow.cookie } }), authorization };
+  };
+
+  const mismatched = await establish(undefined);
+  assert.equal(typeof mismatched.authorization.nonce, "string");
+  assert.equal(await mismatched.result, undefined);
+
+  let authorization;
+  const auth = createAuth({
+    config,
+    store: createMemoryStore(),
+    createOAuthClient: () => ({
+      generateAuthUrl(options) { authorization = options; return `https://accounts.google.com/o/oauth2/auth?state=${encodeURIComponent(options.state)}`; },
+      async getToken() { return { tokens: { id_token: "test-id-token" } }; },
+      async verifyIdToken() { return { getPayload: () => ({ sub: "owner-subject", email_verified: true, iss: "https://accounts.google.com", nonce: authorization.nonce }) }; }
+    })
+  });
+  const flow = await auth.beginGoogle();
+  const state = new URL(flow.location).searchParams.get("state");
+  assert.ok(await auth.finishGoogle(`https://consulting.example.com/auth/google/callback?code=one-time-code&state=${encodeURIComponent(state)}`, { headers: { cookie: flow.cookie } }));
+});

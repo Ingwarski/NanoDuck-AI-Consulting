@@ -13,7 +13,7 @@ const cookies = header => Object.fromEntries((header ?? "").split(";").map(item 
 const cookie = (name, value, maxAge, secure) => `${name}=${value}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${maxAge}${secure ? "; Secure" : ""}`;
 const clearCookie = (name, secure) => `${name}=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0${secure ? "; Secure" : ""}`;
 
-export function createAuth({ config, store }) {
+export function createAuth({ config, store, createOAuthClient = (...args) => new OAuth2Client(...args) }) {
   const secure = config.origin?.startsWith("https://") === true;
   const sessionCookieName = secure ? SESSION_COOKIE : "nanoduck-session";
   const flowCookieName = secure ? FLOW_COOKIE : "nanoduck-oauth";
@@ -56,7 +56,7 @@ export function createAuth({ config, store }) {
       if (!config.google) return undefined;
       const state = randomId(); const nonce = randomId(); const verifier = randomBytes(48).toString("base64url");
       const challenge = createHash("sha256").update(verifier).digest("base64url");
-      const client = new OAuth2Client(config.google.clientId, config.google.clientSecret, config.google.redirectUri);
+      const client = createOAuthClient(config.google.clientId, config.google.clientSecret, config.google.redirectUri);
       const location = client.generateAuthUrl({ access_type: "offline", prompt: "select_account", scope: ["openid", "email"], state, nonce, code_challenge: challenge, code_challenge_method: "S256" });
       const payload = encode({ state, nonce, verifier, expiresAt: Date.now() + 10 * 60_000 });
       return { location, cookie: cookie(flowCookieName, signValue(payload), 600, secure) };
@@ -67,12 +67,12 @@ export function createAuth({ config, store }) {
       const code = url.searchParams.get("code"); const state = url.searchParams.get("state");
       const raw = verifyValue(cookies(request.headers.cookie)[flowCookieName]); const flow = raw ? decode(raw) : undefined;
       if (!code || !state || !flow || flow.expiresAt < Date.now() || !secureEqual(state, flow.state)) return undefined;
-      const client = new OAuth2Client(config.google.clientId, config.google.clientSecret, config.google.redirectUri);
+      const client = createOAuthClient(config.google.clientId, config.google.clientSecret, config.google.redirectUri);
       const result = await client.getToken({ code, codeVerifier: flow.verifier });
       if (!result.tokens.id_token) return undefined;
       const ticket = await client.verifyIdToken({ idToken: result.tokens.id_token, audience: config.google.clientId });
       const claims = ticket.getPayload();
-      if (!claims || claims.sub !== config.google.ownerSubject || claims.email_verified !== true || !["accounts.google.com", "https://accounts.google.com"].includes(claims.iss ?? "")) return undefined;
+      if (!claims || claims.sub !== config.google.ownerSubject || claims.email_verified !== true || typeof claims.nonce !== "string" || !secureEqual(claims.nonce, flow.nonce) || !["accounts.google.com", "https://accounts.google.com"].includes(claims.iss ?? "")) return undefined;
       const session = await createSession(claims.sub);
       return { session, clearFlowCookie: clearCookie(flowCookieName, secure) };
     },
