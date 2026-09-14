@@ -53,35 +53,95 @@ test("a simple Ukrainian explanation receives one direct Head Consultant answer"
   assert.deepEqual((await store.events(conversation.id)).map(event => [event.role, event.recipient]), [["owner", null], ["Head Consultant", null]]);
 });
 
-test("the saved Pace changes the consultation instruction without changing the model tuple", async () => {
+test("a fixed specialist count selects the requested team without changing the model tuple", async () => {
   const store = createMemoryStore();
   const conversation = await store.createConversation();
-  const snapshot = { ...defaultSettings, speed: "thorough" };
-  const accepted = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "pace-instruction-0001" }, snapshot);
+  const snapshot = { ...defaultSettings, specialistCount: "3", discussionDepth: "1" };
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "specialist-count-0001" }, snapshot);
   const calls = [];
   const provider = { async invoke(input) { calls.push(input); return { ok: true, body: "A qualified answer.", sources: [] }; } };
   const service = createConsultationService({ store, provider });
   await service.start(conversation.id, accepted.run);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
-  assert.match(calls[0].assignment, /up to about 260 words/u);
+  assert.match(calls[0].assignment, /Strategy Consultant, Finance Consultant, Operations Consultant/u);
   assert.equal(calls.length, 7);
   assert.match(calls[3].assignment, /^You are the Operations Consultant/u);
   assert.equal(calls.every(call => call.model === "gpt-6-astra" && call.effort === "xhigh"), true);
 });
 
-test("Ultra runs five distinct complementary specialists", async () => {
+test("five specialists remain distinct from Head Consultant and Critic", async () => {
   const store = createMemoryStore();
   const conversation = await store.createConversation();
-  const accepted = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "ultra-team-00000001" }, { ...defaultSettings, speed: "ultra" });
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "five-specialists-000001" }, { ...defaultSettings, specialistCount: "5", discussionDepth: "1" });
   const calls = [];
   const provider = { async invoke(input) { calls.push(input); return { ok: true, body: "A qualified answer.", sources: [] }; } };
   const service = createConsultationService({ store, provider });
   await service.start(conversation.id, accepted.run);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
   assert.match(calls[0].assignment, /Strategy Consultant, Finance Consultant, Operations Consultant, Product Consultant, Risk Consultant/u);
-  assert.match(calls[0].assignment, /up to about 320 words/u);
   assert.equal(calls.length, 9);
   assert.deepEqual(calls.slice(1, 6).map(call => call.assignment.match(/^You are the (.+?)\./u)?.[1]), ["Strategy Consultant", "Finance Consultant", "Operations Consultant", "Product Consultant", "Risk Consultant"]);
+});
+
+test("discussion depth performs the requested number of Critic-specialist exchanges", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "three-exchanges-000001" }, { ...defaultSettings, specialistCount: "1", discussionDepth: "3" });
+  const calls = [];
+  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: "A qualified answer.", sources: [] }; } };
+  const service = createConsultationService({ store, provider });
+  await service.start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  assert.equal(calls.length, 9);
+  assert.deepEqual((await store.events(conversation.id)).slice(3, -1).map(event => [event.role, event.recipient]), [
+    ["Critic", "Strategy Consultant"], ["Strategy Consultant", "Critic"],
+    ["Critic", "Strategy Consultant"], ["Strategy Consultant", "Critic"],
+    ["Critic", "Strategy Consultant"], ["Strategy Consultant", "Critic"]
+  ]);
+});
+
+test("Auto lets Head choose the specialist count and stops at an agreed consilium", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "automatic-consilium-0001" }, { ...defaultSettings, specialistCount: "auto", discussionDepth: "auto" });
+  const calls = [];
+  const provider = {
+    async invoke(input) {
+      calls.push(input);
+      if (input.assignment.includes("Candidate specialists")) return { ok: true, body: "[TEAM: 4] We need test whether the offer has a specific buyer and urgent problem.", sources: [] };
+      if (input.assignment.includes("[CONSILIUM:")) return { ok: true, body: "The constraint is resolved by testing the offer before scaling it. [CONSILIUM: REACHED]", sources: [] };
+      return { ok: true, body: "A qualified answer.", sources: [] };
+    }
+  };
+  const service = createConsultationService({ store, provider });
+  await service.start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  assert.equal(calls.length, 8);
+  assert.match(calls[0].assignment, /Candidate specialists/u);
+  const run = await store.run(conversation.id);
+  assert.equal(run.snapshot.resolvedSpecialistCount, 4);
+  assert.equal(run.snapshot.autoDepthCompleted, 1);
+  assert.equal(run.snapshot.consiliumReached, true);
+  assert.equal((await store.events(conversation.id)).some(event => /\[(?:TEAM|CONSILIUM):/u.test(event.body)), false);
+});
+
+test("Auto discussion depth never performs more than ten exchanges", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "automatic-depth-cap-0001" }, { ...defaultSettings, specialistCount: "1", discussionDepth: "auto" });
+  const calls = [];
+  const provider = {
+    async invoke(input) {
+      calls.push(input);
+      return { ok: true, body: input.assignment.includes("[CONSILIUM:") ? "One more material question remains. [CONSILIUM: CONTINUE]" : "A qualified answer.", sources: [] };
+    }
+  };
+  const service = createConsultationService({ store, provider });
+  await service.start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  assert.equal(calls.length, 23);
+  assert.equal((await store.run(conversation.id)).snapshot.autoDepthCompleted, 10);
+  assert.equal((await store.run(conversation.id)).snapshot.consiliumReached, false);
 });
 
 test("a Ukrainian finance question assigns the Finance Consultant and directs the Critic reply", async () => {
@@ -101,10 +161,10 @@ test("a Ukrainian finance question assigns the Finance Consultant and directs th
   assert.deepEqual((await store.events(conversation.id)).map(event => [event.role, event.recipient]), [
     ["owner", null],
     ["Head Consultant", "Finance Consultant"],
-    ["Finance Consultant", "Strategy Consultant"],
-    ["Strategy Consultant", "Critic"],
+    ["Finance Consultant", "Critic"],
+    ["Strategy Consultant", "Finance Consultant"],
     ["Critic", "Finance Consultant"],
-    ["Finance Consultant", "Head Consultant"],
+    ["Finance Consultant", "Critic"],
     ["Head Consultant", null]
   ]);
 });
@@ -117,7 +177,7 @@ test("spiritual and psychotherapy questions use their bounded specialist roles",
   for (const [body, role, guidance] of cases) {
     const store = createMemoryStore();
     const conversation = await store.createConversation();
-    const accepted = await store.acceptMessage(conversation.id, { body, clientRequestId: `role-routing-${role.replaceAll(" ", "-").toLowerCase()}-0001` }, { ...defaultSettings, speed: "fast" });
+    const accepted = await store.acceptMessage(conversation.id, { body, clientRequestId: `role-routing-${role.replaceAll(" ", "-").toLowerCase()}-0001` }, { ...defaultSettings, specialistCount: "1", discussionDepth: "1" });
     const calls = [];
     const provider = { async invoke(input) { calls.push(input); return { ok: true, body: "A qualified answer.", sources: [] }; } };
     const service = createConsultationService({ store, provider });
@@ -159,10 +219,10 @@ test("a resumed consultation continues after its last confirmed message", async 
   assert.deepEqual((await store.events(conversation.id)).map(event => [event.role, event.recipient]), [
     ["owner", null],
     ["Head Consultant", "Strategy Consultant"],
-    ["Strategy Consultant", "Finance Consultant"],
-    ["Finance Consultant", "Critic"],
+    ["Strategy Consultant", "Critic"],
+    ["Finance Consultant", "Strategy Consultant"],
     ["Critic", "Strategy Consultant"],
-    ["Strategy Consultant", "Head Consultant"],
+    ["Strategy Consultant", "Critic"],
     ["Head Consultant", null]
   ]);
 });

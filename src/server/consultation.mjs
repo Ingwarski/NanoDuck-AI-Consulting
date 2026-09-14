@@ -12,12 +12,7 @@ const needsDiscussion = text => {
   const explicitDiscussion = /\b(?:critic|consultant team|consulting team|positioning|this offer|decision|strategy|proposal)\b|критик|консиліум|команд.{0,8}консульт|позиціонув|пропозиці|рішенн|стратег/iu.test(question);
   return !directQuestion || explicitDiscussion;
 };
-const paceInstruction = speed => ({
-  fast: "Keep this message to about 80 words and focus on the decision-changing point.",
-  balanced: "Keep this message to about 150 words and include only the reasoning needed for the next decision.",
-  thorough: "Use up to about 260 words when needed to make assumptions, evidence limits and tradeoffs clear.",
-  ultra: "Use up to about 320 words when needed to make the decision, evidence limits and tradeoffs clear."
-}[speed] ?? "Keep this message to about 150 words and include only the reasoning needed for the next decision.");
+const responseLength = "Keep this message focused on the point that can change the decision. Use only the reasoning, evidence limits and tradeoffs needed to make that point clear.";
 const responseLanguage = text => {
   if (/\b(?:answer|respond|reply|write)\s+in\s+english\b|англійськ/iu.test(text)) return "English";
   if (/\b(?:answer|respond|reply|write)\s+in\s+ukrainian\b|українськ/iu.test(text)) return "Ukrainian";
@@ -41,7 +36,7 @@ const specialistFor = text => {
   if (matches(/\b(psychotherapy|psychotherapist|therapy|therapist|mental health|trauma|ifs|internal family systems|anxiety|depression|relationship)\b|психотерап|психолог|терапі|менталь|травм|тривог|депрес|внутрішн.{0,8}сімейн|стосунк/iu)) return "Psychotherapist";
   return "Strategy Consultant";
 };
-const specialistTeam = (text, speed) => {
+const specialistCandidates = text => {
   const primary = specialistFor(text);
   const complements = {
     "Strategy Consultant": ["Finance Consultant", "Operations Consultant", "Product Consultant", "Risk Consultant"],
@@ -54,9 +49,24 @@ const specialistTeam = (text, speed) => {
     Psychotherapist: ["Spiritual Consultant", "Strategy Consultant", "Product Consultant", "Risk Consultant"],
     "Risk Consultant": ["Strategy Consultant", "Finance Consultant", "Operations Consultant", "Product Consultant"]
   };
-  const count = ({ fast: 1, balanced: 2, thorough: 3, ultra: 5 })[speed] ?? 2;
-  return [...new Set([primary, ...(complements[primary] ?? [])])].slice(0, count);
+  return [...new Set([primary, ...(complements[primary] ?? [])])];
 };
+const legacySpecialistCount = speed => ({ fast: "1", balanced: "2", thorough: "3", ultra: "5" })[speed] ?? "2";
+const normalizedSnapshot = snapshot => Object.freeze({
+  ...snapshot,
+  specialistCount: snapshot.specialistCount ?? legacySpecialistCount(snapshot.speed),
+  discussionDepth: snapshot.discussionDepth ?? "1"
+});
+const chosenCount = snapshot => snapshot.specialistCount === "auto" ? snapshot.resolvedSpecialistCount : Number(snapshot.specialistCount);
+const teamMarker = body => {
+  const match = /^\s*\[TEAM:\s*([1-5])\]\s*/iu.exec(body);
+  return Object.freeze({ count: match ? Number(match[1]) : 3, body: body.replace(/^\s*\[TEAM:\s*[1-5]\]\s*/iu, "").trim() });
+};
+const consensusMarker = body => {
+  const match = /\s*\[CONSILIUM:\s*(REACHED|CONTINUE)\]\s*$/iu.exec(body);
+  return Object.freeze({ reached: match?.[1].toUpperCase() === "REACHED", body: body.replace(/\s*\[CONSILIUM:\s*(?:REACHED|CONTINUE)\]\s*$/iu, "").trim() });
+};
+const matches = (event, step) => event?.role === step.role && (event.recipient ?? null) === (step.recipient ?? null);
 
 export function createConsultationService({ store, provider }) {
   const controllers = new Map();
@@ -70,36 +80,100 @@ export function createConsultationService({ store, provider }) {
       const stored = await store.run(conversationId);
       return stored?.status === "active" && stored.generation === runState.generation;
     };
-    const commit = async (role, recipient, result) => {
-      if (!result.ok) return undefined;
-      return store.appendAgentMessage(conversationId, runState.generation, { role, recipient, body: result.body, sources: result.sources });
+    let snapshot = normalizedSnapshot(runState.snapshot);
+    const persistSnapshot = async patch => {
+      snapshot = Object.freeze({ ...snapshot, ...patch });
+      if (!await store.updateRunSnapshot(conversationId, runState.generation, snapshot)) throw new Error("invalid_run_state");
+    };
+    const invoke = async (step, transform = body => ({ body })) => {
+      if (!await isCurrent()) return undefined;
+      const result = await provider.invoke({ assignment: step.assignment, model: step.model, effort: step.effort, evidence: await current(), research: step.research, signal: controller.signal });
+      if (!result.ok) throw new Error(result.code ?? "provider_unavailable");
+      const output = transform(result.body);
+      const committed = await store.appendAgentMessage(conversationId, runState.generation, { role: step.role, recipient: step.recipient, body: output.body, sources: result.sources });
+      if (!committed) throw new Error("invalid_run_state");
+      return output;
     };
     try {
       if (!await isCurrent()) return;
-      const settings = roleSettings(runState.snapshot); const first = await current(); const team = specialistTeam(first.owner, runState.snapshot.speed); const primary = team[0]; const research = !hasSensitiveResearchContext(first.owner); const pace = paceInstruction(runState.snapshot.speed); const language = `Write this message in ${first.sessionLanguage}.`;
-      const turns = needsDiscussion(first.owner) ? [
-        { role: "Head Consultant", recipient: primary, model: settings.head.model, effort: settings.head.effort, assignment: `You are the Head Consultant. Frame the practical decision, name the decisive assumptions and give ${team.join(", ")} distinct focused tasks. Speak to the owner plainly. ${pace} ${language}` },
-        ...team.map((specialist, index) => ({
-          role: specialist,
-          recipient: team[index + 1] ?? "Critic",
-          model: settings.consultant.model,
-          effort: settings.consultant.effort,
-          assignment: index === 0
-            ? `You are the ${specialist}. Develop one concrete position that directly helps the owner decide. Address the Head's framing, use evidence where useful, and avoid ceremony.${guidanceFor(specialist)} ${pace} ${language}`
-            : `You are the ${specialist}. Examine the preceding consultant's position from your discipline. Add a concrete constraint, alternative or test that can change the decision. Address that consultant directly and avoid ceremony.${guidanceFor(specialist)} ${pace} ${language}`
-        })),
-        { role: "Critic", recipient: primary, model: settings.critic.model, effort: settings.critic.effort, assignment: `You are the Critic. Challenge only material gaps, unsupported claims, risks or false certainty in the actual discussion. If the position is sound, say why. Address the ${primary} directly and remain constructive. ${pace} ${language}` },
-        { role: primary, recipient: "Head Consultant", model: settings.consultant.model, effort: settings.consultant.effort, assignment: `You are the ${primary}. Respond directly to the Critic's actual concern and account for the other consultant contributions. Revise your position where warranted; explain a grounded disagreement where not. Do not repeat your earlier message. ${pace} ${language}` },
-        { role: "Head Consultant", recipient: null, model: settings.head.model, effort: settings.head.effort, assignment: `You are the Head Consultant. Close the discussion with a self-contained recommendation or a clearly bounded uncertainty, no more than three next actions, the main risk and a revisit condition. State agreement only if the actual messages support it. ${pace} ${language}` }
-      ] : [{ role: "Head Consultant", recipient: null, model: settings.head.model, effort: settings.head.effort, assignment: `You are the Head Consultant. Give a direct, self-contained answer to this simple question. Use a short example where it helps. Do not convene a consultant team or add process language. ${pace} ${language}` }];
+      const first = await current();
+      const settings = roleSettings(snapshot); const research = !hasSensitiveResearchContext(first.owner); const language = `Write this message in ${first.sessionLanguage}.`;
       const ownerIndex = first.events.map(event => event.role).lastIndexOf("owner");
-      const committed = first.events.slice(ownerIndex + 1);
-      if (ownerIndex < 0 || committed.length > turns.length || committed.some((event, index) => event.role !== turns[index].role || (event.recipient ?? null) !== turns[index].recipient)) throw new Error("invalid_run_state");
-      for (const turn of turns.slice(committed.length)) {
-        if (!await isCurrent()) return;
-        const result = await provider.invoke({ assignment: turn.assignment, model: turn.model, effort: turn.effort, evidence: await current(), research, signal: controller.signal });
-        if (!await commit(turn.role, turn.recipient, result)) throw new Error(result.code ?? "provider_unavailable");
+      if (ownerIndex < 0) throw new Error("invalid_run_state");
+      let confirmed = first.events.slice(ownerIndex + 1);
+      if (!needsDiscussion(first.owner)) {
+        const direct = { role: "Head Consultant", recipient: null, model: settings.head.model, effort: settings.head.effort, research, assignment: `You are the Head Consultant. Give a direct, self-contained answer to this simple question. Use a short example where it helps. Do not convene a consultant team or add process language. ${responseLength} ${language}` };
+        if (confirmed.length > 1 || confirmed[0] && !matches(confirmed[0], direct)) throw new Error("invalid_run_state");
+        if (!confirmed.length) await invoke(direct);
+        await store.finishRun(conversationId, runState.generation, "complete");
+        return;
       }
+
+      const candidates = specialistCandidates(first.owner);
+      let selected = chosenCount(snapshot);
+      if (!selected) {
+        const automaticOpening = { role: "Head Consultant", recipient: candidates[0], model: settings.head.model, effort: settings.head.effort, research, assignment: `You are the Head Consultant. Candidate specialists, in activation order, are ${candidates.join(", ")}. Choose the smallest useful team size from one to five for this decision. Begin your response with exactly [TEAM: N], using that number, then frame the practical decision, name decisive assumptions and give focused tasks to the activated specialists. Speak to the owner plainly. ${responseLength} ${language}` };
+        if (confirmed[0] && !matches(confirmed[0], automaticOpening)) throw new Error("invalid_run_state");
+        if (!confirmed[0]) {
+          const selectedByHead = await invoke(automaticOpening, teamMarker);
+          if (!selectedByHead) return;
+          selected = selectedByHead.count;
+        } else selected = 3;
+        await persistSnapshot({ resolvedSpecialistCount: selected });
+        confirmed = (await current()).events.slice(ownerIndex + 1);
+      }
+      const team = candidates.slice(0, selected);
+      const primary = team[0];
+      const opening = { role: "Head Consultant", recipient: primary, model: settings.head.model, effort: settings.head.effort, research, assignment: `You are the Head Consultant. Frame the practical decision, name the decisive assumptions and give ${team.join(", ")} distinct focused tasks. Speak to the owner plainly. ${responseLength} ${language}` };
+      const initial = [opening, ...team.map((specialist, index) => ({
+        role: specialist,
+        recipient: index === 0 ? "Critic" : team[index - 1],
+        model: settings.consultant.model,
+        effort: settings.consultant.effort,
+        research,
+        assignment: index === 0
+          ? `You are the ${specialist}. Develop one concrete position that directly helps the owner decide. Address the Head's framing, use evidence where useful, and avoid ceremony.${guidanceFor(specialist)} ${responseLength} ${language}`
+          : `You are the ${specialist}. Examine the preceding consultant's position from your discipline. Add a concrete constraint, alternative or test that can change the decision. Address that consultant directly and avoid ceremony.${guidanceFor(specialist)} ${responseLength} ${language}`
+      }))];
+      if (confirmed.length && !matches(confirmed[0], opening)) throw new Error("invalid_run_state");
+      for (let index = 0; index < initial.length; index += 1) {
+        const existing = confirmed[index];
+        if (existing) { if (!matches(existing, initial[index])) throw new Error("invalid_run_state"); }
+        else await invoke(initial[index]);
+      }
+      confirmed = (await current()).events.slice(ownerIndex + 1);
+      let cursor = initial.length;
+      const automaticDepth = snapshot.discussionDepth === "auto";
+      const maximumDepth = automaticDepth ? 10 : Number(snapshot.discussionDepth);
+      let completedDepth = automaticDepth ? Number(snapshot.autoDepthCompleted ?? 0) : 0;
+      let consensusReached = automaticDepth && snapshot.consiliumReached === true;
+      for (let exchange = 1; exchange <= maximumDepth; exchange += 1) {
+        const specialist = team[(exchange - 1) % team.length];
+        const challenge = { role: "Critic", recipient: specialist, model: settings.critic.model, effort: settings.critic.effort, research, assignment: `You are the Critic. Challenge only material gaps, unsupported claims, risks or false certainty in the actual discussion. Address the ${specialist} directly and remain constructive. This is exchange ${exchange}. ${responseLength} ${language}` };
+        const reply = { role: specialist, recipient: "Critic", model: settings.consultant.model, effort: settings.consultant.effort, research, assignment: `You are the ${specialist}. Respond directly to the Critic's actual concern and account for the whole discussion. Revise your position where warranted; explain a grounded disagreement where not. Do not repeat your earlier message.${guidanceFor(specialist)} ${automaticDepth ? " End with exactly [CONSILIUM: REACHED] only if the whole team and Critic now share a supported recommendation or bounded uncertainty; otherwise end with exactly [CONSILIUM: CONTINUE]." : ""} ${responseLength} ${language}` };
+        const existingChallenge = confirmed[cursor];
+        if (existingChallenge) { if (!matches(existingChallenge, challenge)) throw new Error("invalid_run_state"); }
+        else await invoke(challenge);
+        cursor += 1;
+        let replyOutcome;
+        const existingReply = confirmed[cursor];
+        if (existingReply) { if (!matches(existingReply, reply)) throw new Error("invalid_run_state"); }
+        else replyOutcome = await invoke(reply, automaticDepth ? consensusMarker : body => ({ body }));
+        cursor += 1;
+        if (automaticDepth) {
+          if (completedDepth < exchange) {
+            completedDepth = exchange;
+            consensusReached = replyOutcome?.reached ?? false;
+            await persistSnapshot({ autoDepthCompleted: completedDepth, consiliumReached: consensusReached });
+          }
+          if (consensusReached) break;
+        }
+      }
+      confirmed = (await current()).events.slice(ownerIndex + 1);
+      const conclusion = { role: "Head Consultant", recipient: null, model: settings.head.model, effort: settings.head.effort, research, assignment: `You are the Head Consultant. Close the discussion with a self-contained recommendation or a clearly bounded uncertainty, no more than three next actions, the main risk and a revisit condition. State agreement only if the actual messages support it. ${responseLength} ${language}` };
+      if (confirmed[cursor]) {
+        if (!matches(confirmed[cursor], conclusion) || confirmed.length !== cursor + 1) throw new Error("invalid_run_state");
+      } else await invoke(conclusion);
       await store.finishRun(conversationId, runState.generation, "complete");
     } catch (error) {
       if (!controller.signal.aborted) {

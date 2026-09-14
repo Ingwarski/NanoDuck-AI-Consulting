@@ -1,0 +1,12 @@
+{
+  "event": "implementation_prompt",
+  "role": "user",
+  "intent": "continue_production_implementation",
+  "prompt_id": "impl-20260914-consultation-controls",
+  "received_at": "2026-09-14T17:25:00+03:00",
+  "message": "I need this in settings: number of specialists besides Head Consultant and Critic: 1, 2, 3, 5, auto (can be any number Head decides); discussion depth — number of message exchanges from specialists to Critic, there and back counts as 1: 1, 3, 5, auto (until consilium is reached, but not more than 10).",
+  "development_plan_hash": "d2979e269fece584415159e984a17024807843b0d259cc28c37cc3ed679f3bea",
+  "product_scope_hash": "6abba6f0fa65e51284c8d16f0bf366796342f2e5d7a2bba3a97d3fbc4f95ca53",
+  "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
+  "scope": "Continue the already authorized local Phase 3 implementation with independent specialist-count and discussion-depth settings. Deployment, live provider connection and GoDaddy data operations remain outside authorization."
+}

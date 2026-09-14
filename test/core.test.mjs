@@ -12,7 +12,8 @@ test("new consultations default to the current saved Codex settings", () => {
     headReasoning: "xhigh",
     criticModel: "gpt-6-astra",
     criticReasoning: "xhigh",
-    speed: "balanced"
+    specialistCount: "2",
+    discussionDepth: "1"
   });
 });
 
@@ -33,7 +34,7 @@ test("accepted owner messages are idempotent and a stopped run fences later agen
   const replay = await store.acceptMessage(conversation.id, input, defaultSettings);
   assert.equal(replay.replayed, true);
   assert.equal(replay.message.id, first.message.id);
-  await store.saveSettings({ ...defaultSettings, speed: "thorough" });
+  await store.saveSettings({ ...defaultSettings, specialistCount: "3", discussionDepth: "3" });
   assert.deepEqual((await store.run(conversation.id)).snapshot, defaultSettings);
   assert.ok(await store.appendAgentMessage(conversation.id, first.run.generation, { role: "Head Consultant", body: "First view." }));
   const stopped = await store.stop(conversation.id);
@@ -120,8 +121,10 @@ test("MySQL acceptance holds the owner lock before allowing an active run", asyn
 });
 
 test("settings and message validation reject unsupported model values and malformed ids", () => {
-  assert.deepEqual(parseSettings({ ...defaultSettings, speed: "fast" }), { ...defaultSettings, speed: "fast" });
-  assert.deepEqual(parseSettings({ ...defaultSettings, speed: "ultra" }), { ...defaultSettings, speed: "ultra" });
+  assert.deepEqual(parseSettings({ ...defaultSettings, specialistCount: "1", discussionDepth: "1" }), { ...defaultSettings, specialistCount: "1", discussionDepth: "1" });
+  assert.deepEqual(parseSettings({ ...defaultSettings, specialistCount: "auto", discussionDepth: "auto" }), { ...defaultSettings, specialistCount: "auto", discussionDepth: "auto" });
+  assert.equal(parseSettings({ ...defaultSettings, specialistCount: "4" }), undefined);
+  assert.equal(parseSettings({ ...defaultSettings, discussionDepth: "2" }), undefined);
   assert.equal(parseSettings({ ...defaultSettings, criticModel: "another-model" }), undefined);
   assert.equal(parseMessage({ body: "Question", clientRequestId: "short" }), undefined);
   assert.deepEqual(parseMessage({ body: " Question ", clientRequestId: "request-identifier-0002" }), { body: "Question", clientRequestId: "request-identifier-0002" });

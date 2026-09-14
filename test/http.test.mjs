@@ -59,7 +59,7 @@ test("the local HTTP flow protects data, saves settings and preserves an unavail
 
     const created = await (await fetch(`${origin}/api/conversations`, { method: "POST", headers })).json();
     const conversationId = created.conversation.id;
-    const settings = { headModel: "gpt-6-astra", headReasoning: "ultra", criticModel: "gpt-6-astra", criticReasoning: "xhigh", speed: "thorough" };
+    const settings = { headModel: "gpt-6-astra", headReasoning: "ultra", criticModel: "gpt-6-astra", criticReasoning: "xhigh", specialistCount: "3", discussionDepth: "3" };
     assert.deepEqual((await (await fetch(`${origin}/api/settings`, { method: "PUT", headers, body: JSON.stringify(settings) })).json()).settings, settings);
 
     const message = { body: "What should we validate first?", clientRequestId: "integration-request-0001" };
@@ -121,10 +121,10 @@ test("the authenticated discussion preserves two specialists, Critic and a revis
     assert.deepEqual(detail.events.map(event => [event.role, event.recipient]), [
       ["owner", null],
       ["Head Consultant", "Strategy Consultant"],
-      ["Strategy Consultant", "Finance Consultant"],
-      ["Finance Consultant", "Critic"],
+      ["Strategy Consultant", "Critic"],
+      ["Finance Consultant", "Strategy Consultant"],
       ["Critic", "Strategy Consultant"],
-      ["Strategy Consultant", "Head Consultant"],
+      ["Strategy Consultant", "Critic"],
       ["Head Consultant", null]
     ]);
     assert.match(detail.events[4].body, /assumes those buyers will take calls/u);

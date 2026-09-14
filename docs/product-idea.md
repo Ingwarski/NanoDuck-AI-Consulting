@@ -46,12 +46,12 @@ These jobs map to the start/consult/steer/revisit/account workflow below. The PR
 ## What real discussion means
 
 - Each participating consultant and Critic is a separately invoked AI agent/context. A single completion labelled with several roles is not a consilium.
-- Head chooses relevant specialists from the permitted pool for a substantive team consultation: one in Fast, two in Balanced, three in Thorough and five in Ultra. Each receives distinct work; do not launch the entire pool by default.
+- The owner chooses the number of relevant specialists for a substantive team consultation: 1, 2, 3, 5 or Auto. The count excludes Head Consultant and Critic. In Auto, Head selects the smallest useful team from one through five; each receives distinct work and the entire pool is never launched by default.
 - Start from independent positions, then exchange specific claims, objections, questions, evidence and revisions. Critic challenges the material weakness; the relevant consultant answers that challenge. Agreement is allowed immediately when warranted. Do not manufacture conflict or praise.
 - Each ordinary reply should develop one useful point. A proposed writing target is 60–140 words, with longer calculations or explanations when necessary. This guides generation; it is not permission to truncate or rewrite an actual submitted message.
 - Display the full submitted business messages in canonical order, with role, addressed recipient when relevant and time. Hidden model reasoning, credentials and technical tool logs are not conversation content.
 - Keep version/approval bookkeeping internal. Use the word **consensus** only when all participating specialists, Critic and Head actually agree on the same current recommendation. If agreement is not reached, deliver an explicitly provisional conclusion with unresolved disagreement and the next evidence needed.
-- Retain the existing maximum of seven Critic messages addressed to each specialist and the ten-minute continuation boundary. These are ceilings, not a quota of ceremonial rounds. Preserve Stop and bounded use of subscriptions.
+- The owner chooses discussion depth as 1, 3, 5 or Auto complete Critic ↔ specialist exchanges. In Auto, stop when the consilium reaches a supported recommendation or bounded uncertainty, never after more than 10 exchanges. Explicit depth is not permission for ceremonial filler. Preserve Stop and bounded use of subscriptions.
 - Role names remain in English. Product messages and source metadata support English and Ukrainian only; reject Russian and Belarusian language or terminology. The first substantive request sets the session language; an explicit supported-language request wins. Do not switch language because of a citation or attachment.
 
 ## Research is part of consulting
@@ -76,16 +76,16 @@ App login cannot create a ChatGPT/Claude subscription grant. If the selected pro
 |---|---|---|
 | Head and specialists | Codex, `gpt-6-astra`, `xhigh` | Existing repository's live-review record dated 7 September 2026. |
 | Critic | Codex, `gpt-6-astra`, `xhigh` | Current authenticated settings read on 14 September 2026; the old screen's catalog was stale/unavailable, but its saved raw value was exact. |
-| Speed | Balanced (`збалансовано`) | Same recorded observation. |
+| Legacy orchestration preset | Balanced (`збалансовано`) | Historical GoDaddy observation only; it did not expose the new separate specialist-count and discussion-depth choices. |
 | Optional Critic route | Claude Code, preserving its separately saved model/effort if selected | Supported in current system; saved inactive values not established by this review. |
 
 A current content-free read confirms the active Codex settings above. The inactive Claude branch remains unknown and must not be replaced with defaults. Independently verify each exact active provider/model/effort combination before cutover; Astra/xhigh catalog evidence alone is not an execution proof.
 
-Preserve subscription use, no silent model/effort substitution, no API-key/PAYG fallback, no automatic usage credits and no Claude Fast Mode. Current provider package pins are Codex `0.153.1` and Claude Code `2.1.258`; this implementation uses one/two/three/five selected specialists for Fast/Balanced/Thorough/Ultra and a 540,000 ms provider budget. Model settings and orchestration limits are separate concerns.
+Preserve subscription use, no silent model/effort substitution, no API-key/PAYG fallback, no automatic usage credits and no Claude Fast Mode. Current provider package pins are Codex `0.153.1` and Claude Code `2.1.258`; this implementation stores independent specialist-count and discussion-depth choices, defaults to 2 specialists and 1 exchange, and retains a 540,000 ms provider budget. Model settings and orchestration limits are separate concerns.
 
 ## V1 boundary
 
-**Included:** a private responsive web app; existing owner Google sign-in without an app-specific MFA step; one active consultation; direct answers and substantive team discussion; a bounded specialist pool; text, voice input, images and PDF; live research; complete conversation history; export and whole-conversation deletion; Stop, Continue and New consultation; optional model/effort/provider/speed preferences; truthful quota/usage information; recovery across browser interruptions and server restart.
+**Included:** a private responsive web app; existing owner Google sign-in without an app-specific MFA step; one active consultation; direct answers and substantive team discussion; a bounded specialist pool; text, voice input, images and PDF; live research; complete conversation history; export and whole-conversation deletion; Stop, Continue and New consultation; optional model/effort/provider, specialist-count and discussion-depth preferences; truthful quota/usage information; recovery across browser interruptions and server restart.
 
 The permitted specialist pool covers strategy, finance, operations, entrepreneurship, B2B/B2C sales, marketing, product, data and risk, plus Spiritual Consultant and Psychotherapist. Leadership Consultant and esoteric roles are excluded. Spiritual Consultant works from evangelical Protestant doctrine: Jesus Christ as Lord and Saviour, His finished work, salvation by faith alone and salvation that cannot be lost. Psychotherapist may draw on major classical psychotherapy schools and Internal Family Systems. These are AI roles, not claims of human employment or professional licensure. Psychotherapist does not diagnose, replace clinical care or handle an emergency without directing the owner to immediate local help. Existing high-stakes and explicit external-action boundaries remain.
 

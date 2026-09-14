@@ -26,12 +26,13 @@ export function parseSettings(value, catalog = undefined) {
   const body = parseJson(value);
   if (!body) return undefined;
   const validEfforts = new Set(["xhigh", "ultra"]);
-  const validSpeed = new Set(["fast", "balanced", "thorough", "ultra"]);
+  const validSpecialistCounts = new Set(["1", "2", "3", "5", "auto"]);
+  const validDiscussionDepths = new Set(["1", "3", "5", "auto"]);
   const allowed = Array.isArray(catalog) && catalog.length
     ? catalog.some(model => model?.id === body.headModel && model.id === body.criticModel && Array.isArray(model.efforts) && model.efforts.includes(body.headReasoning) && model.efforts.includes(body.criticReasoning))
     : body.headModel === "gpt-6-astra" && body.criticModel === "gpt-6-astra" && validEfforts.has(body.headReasoning) && validEfforts.has(body.criticReasoning);
-  if (!allowed || !validSpeed.has(body.speed)) return undefined;
-  return Object.freeze({ headModel: body.headModel, headReasoning: body.headReasoning, criticModel: body.criticModel, criticReasoning: body.criticReasoning, speed: body.speed });
+  if (!allowed || !validSpecialistCounts.has(body.specialistCount) || !validDiscussionDepths.has(body.discussionDepth)) return undefined;
+  return Object.freeze({ headModel: body.headModel, headReasoning: body.headReasoning, criticModel: body.criticModel, criticReasoning: body.criticReasoning, specialistCount: body.specialistCount, discussionDepth: body.discussionDepth });
 }
 
 export function parseConversationId(value) {

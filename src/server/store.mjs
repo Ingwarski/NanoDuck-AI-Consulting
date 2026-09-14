@@ -6,7 +6,8 @@ const defaults = Object.freeze({
   headReasoning: "xhigh",
   criticModel: "gpt-6-astra",
   criticReasoning: "xhigh",
-  speed: "balanced"
+  specialistCount: "2",
+  discussionDepth: "1"
 });
 
 const now = () => new Date().toISOString();
@@ -65,6 +66,11 @@ export function createMemoryStore() {
       const stream = messages.get(conversationId) ?? [];
       const message = { id: randomId(), role: item.role, recipient: item.recipient, body: item.body, sources: item.sources ?? [], sequence: stream.length + 1, createdAt: now() };
       stream.push(message); messages.set(conversationId, stream); conversation.updatedAt = now(); run.updatedAt = now(); return publicMessage(message);
+    },
+    async updateRunSnapshot(conversationId, generation, snapshot) {
+      const run = runs.get(conversationId);
+      if (!run || run.status !== "active" || run.generation !== generation) return undefined;
+      run.snapshot = Object.freeze({ ...snapshot }); run.updatedAt = now(); return { ...run };
     },
     async finishRun(conversationId, generation, status) {
       const run = runs.get(conversationId); if (!run || run.generation !== generation) return false;
@@ -152,6 +158,10 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
         await connection.execute("UPDATE nanoduck_runs SET updated_at=? WHERE id=? AND status='active' AND generation=?", [message.createdAt,run.id,generation]);
         await connection.commit(); return publicMessage(message);
       } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
+    },
+    async updateRunSnapshot(id, generation, snapshot) {
+      const [result] = await query("UPDATE nanoduck_runs SET snapshot_json=?, updated_at=? WHERE conversation_id=? AND generation=? AND status='active'", [JSON.stringify(snapshot), now(), id, generation]);
+      return result.affectedRows === 1 ? { ...snapshot } : undefined;
     },
     async finishRun(id, generation, status) { const [result] = await query("UPDATE nanoduck_runs SET status=?, updated_at=? WHERE conversation_id=? AND generation=? AND status='active'", [status, now(), id, generation]); return result.affectedRows === 1; },
     async stop(id) {

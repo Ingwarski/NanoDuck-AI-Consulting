@@ -20,7 +20,7 @@ On 14 September 2026, an authenticated owner session viewed the named current Go
 | Critic provider | `codex` |
 | Critic model | `gpt-6-astra` |
 | Critic reasoning | `xhigh` |
-| Speed | `збалансовано` (balanced) |
+| Legacy orchestration preset | `збалансовано` (balanced) |
 
 The settings UI labelled the selectable catalog entries unavailable because its catalog snapshot was stale, but the saved raw provider/model/effort values above were present and exact. The inactive Claude branch was not selected or exposed as a saved current value, so it remains unknown. The replacement defaults preserve the verified active Codex values; they do not infer a Claude configuration.
 
@@ -30,8 +30,8 @@ Do not silently substitute a model or effort from an unavailable catalog or from
 
 The current source pins `@openai/codex` to `0.153.1` and `@anthropic-ai/claude-code` to `2.1.258`. It dynamically discovers capabilities. Do not replace that discovery with a speculative hard-coded list. The rejected initial prototype offered only the historical Astra example. The three revision-2 candidates now demonstrate selection using a copied, read-only local desktop Codex `model/list` catalog observed on 13 September: see [catalog evidence](../forge/design/evidence/local-model-catalog-20260913.json). This is local discovery evidence, not proof of the deployed app catalog or execution entitlement. It does not change the current saved selections. Production must continue to discover provider capabilities dynamically.
 
-Preserve independent consultant settings and Critic provider/branch settings, the selected preset, and immutable effective settings for a running consultation. Changing preferences affects future runs. Keep the no-API-key/PAYG/automatic-credit/Claude-Fast-Mode rule.
+Preserve independent consultant settings and Critic provider/branch settings, specialist count, discussion depth, and immutable effective settings for a running consultation. Changing preferences affects future runs. Keep the no-API-key/PAYG/automatic-credit/Claude-Fast-Mode rule.
 
-The legacy source policies (`src/settings/speed-policy.ts:57–75`) used specialist caps/concurrency 2/3/5 for fast/balanced/thorough. NanoDuck uses one/two/three/five selected specialists for Fast/Balanced/Thorough/Ultra while preserving the 540,000 ms provider budget and the ceiling of seven Critic messages per specialist. The single pace field still does not describe the entire discussion loop.
+The legacy source policies (`src/settings/speed-policy.ts:57–75`) used named speed presets. NanoDuck replaces that single field with two independent controls: specialist count 1/2/3/5/Auto and discussion depth 1/3/5/Auto. Head selects an Auto team from one through five; Auto depth ends at supported consensus or 10 complete Critic ↔ specialist exchanges. The replacement defaults to 2 specialists and 1 exchange, while preserving the 540,000 ms provider budget.
 
 Before cutover, verify each exact active `(provider, model, effort)` separately without private conversation content. The existing Astra entitlement probe at xhigh supports catalog compatibility but is not an invocation proof. If an exact selection cannot run, preserve it, report the limitation and obtain a decision; never substitute a model/effort just to pass readiness.
