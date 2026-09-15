@@ -2,7 +2,7 @@
 
 A simpler, private, mobile-first browser product for genuine consultant and Critic discussion, live research and practical decisions.
 
-**Electric A v8 is approved and production implementation is in progress.** The local application includes browser UI, server routes, Google-owner authentication wiring, encrypted MySQL persistence, consultation orchestration and a controlled Codex app-server adapter. No GoDaddy resource has been changed.
+**Electric A v8 is approved and production implementation is in progress.** The application includes browser UI, server routes, Google-owner authentication wiring, encrypted MySQL persistence, consultation orchestration and a controlled Codex app-server adapter. The named GoDaddy app now tracks this repository; no GoDaddy secret, database, preview update or publication has occurred.
 
 - [Product idea](docs/product-idea.md) — the recreated current brief.
 -  — findings and all legacy decision dispositions.
@@ -31,7 +31,7 @@ Open [NanoDuck locally](http://127.0.0.1:3000/). Development mode exposes a loca
 
 ### Bootstrap the owner instruction document
 
-The consultant instruction document is never kept in this repository. On a fresh database, supply its UTF-8, base64url-encoded Markdown once as `RUNTIME_INSTRUCTIONS_BOOTSTRAP_B64` when running `npm run migrate`. The migration validates and encrypts it, then writes the first saved version. Remove that bootstrap secret from the deployment environment afterwards. Every later review, edit and restore happens through authenticated Settings and the database.
+The consultant instruction document is never kept in this repository. On a fresh database, supply its UTF-8, base64url-encoded Markdown once as `RUNTIME_INSTRUCTIONS_BOOTSTRAP_B64`. Production `npm start` applies the idempotent migration before serving; it validates and encrypts the document, then writes the first saved version. Remove that bootstrap secret from the deployment environment afterwards. Every later review, edit and restore happens through authenticated Settings and the database.
 
 Before connecting a target runtime, supply Codex `auth.json` either through `CODEX_APP_SERVER_AUTH_PATH` (a mounted private file) or `CODEX_APP_SERVER_AUTH_B64` (the same bytes, base64url-encoded in the host secret store), then run `npm run preflight`. The app creates the file only inside an owned, removed-after-use app-server directory. It performs only the managed Codex account, model-catalog and rate-limit inspection; it does not start a model turn, contact MySQL or change GoDaddy.
 
@@ -51,6 +51,6 @@ The original green design in `prototype/` is rejected historical evidence. It is
 npm run check
 ```
 
-The source repository is public; the intended application remains private to one owner. Do not add private conversation archives, provider grants, secrets or deployment data to Git. The MySQL schema is created only with `npm run migrate` after the deployment target's database ownership is verified.
+The source repository is public; the intended application remains private to one owner. Do not add private conversation archives, provider grants, secrets or deployment data to Git. Production startup applies the idempotent migration only to `nanoduck_*` tables after the deployment target's database ownership is verified; `npm run migrate` remains available for an explicit operator run.
 
 Recovery is an operator-only, explicit command. `npm run recovery -- backup <new-encrypted-file>` creates a new encrypted recovery envelope with the separate recovery key. `npm run recovery -- restore <encrypted-file> --confirm-restore` requires an explicit destructive confirmation and applies deletion tombstones before records, so a deleted conversation cannot return. Neither command has been run against GoDaddy or any live database.

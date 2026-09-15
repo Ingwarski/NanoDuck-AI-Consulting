@@ -45,7 +45,7 @@ Before cutover, take a content-free saved-settings snapshot and verify the exact
 
 ## Data and product boundaries
 
-The [deployment boundary](deployment-boundary.md) names the only allowed target. Database/table ownership, runtime lifecycle, storage durability, streaming behavior and provider reauthorization remain release evidence to obtain. No GoDaddy migration, deployment or data operation is included in this phase.
+The [deployment boundary](deployment-boundary.md) names the only allowed target. Database/table ownership, runtime lifecycle, storage durability, streaming behavior and provider reauthorization remain release evidence to obtain. The owner authorized deployment only to that named app and its owned database; the source switch is complete, while secrets, migration, preview build, publication and authorized database deletion remain separately evidenced cutover steps.
 
 ## External capability references
 

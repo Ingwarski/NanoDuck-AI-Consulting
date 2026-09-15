@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Private browser consulting application for NanoDuck Consulting Group.",
   "scripts": {
-    "start": "node src/server/index.mjs",
+    "start": "node src/server/start.mjs",
     "dev": "NODE_ENV=development DEV_OWNER_EMAIL=owner@local.test node src/server/index.mjs",
     "preflight": "node src/server/preflight.mjs",
     "check": "node scripts/check-artifacts.mjs && node --test test/*.test.mjs",

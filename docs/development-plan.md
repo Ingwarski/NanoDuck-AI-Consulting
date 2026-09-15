@@ -1,6 +1,6 @@
 # Development plan
 
-14 September 2026 · Status: **implementation in progress**. Phase 3 is authorized for this repository; deployment, live provider connection and GoDaddy data operations remain excluded.
+15 September 2026 · Status: **implementation and scoped cutover in progress**. Phase 3 and replacement deployment are authorized only for Personal AI Consulting Group (`wy2v0putg6`) and its verified application tables. The GitHub source switch is complete; live provider connection, preview/publish acceptance and any authorized database deletion remain evidence-gated.
 
 ## Source References
 
@@ -270,7 +270,7 @@ Required gates: `product_functional_requirements`, `product_security_requirement
 
 ## Out Of Scope
 
-This document does not authorize deployment, provider connection, GoDaddy database reset or any promotion outside the current local repository. The product excludes messengers, public/multiuser SaaS, payments, extra hosts, paid fallback, automatic external business actions, required notifications, native apps, PDF/SVG/video/audio/archive uploads and arbitrary uploads. Unchosen palette alternatives are historical design references. Do not alter any unrelated GoDaddy resource. Any database reset remains conditional on proven exclusive ownership and recovery/cutover evidence.
+This document authorizes deployment only to Personal AI Consulting Group (`wy2v0putg6`) and its verified application data; it does not authorize provider credential transfer, publication, database reset or any promotion outside that target. The product excludes messengers, public/multiuser SaaS, payments, extra hosts, paid fallback, automatic external business actions, required notifications, native apps, PDF/SVG/video/audio/archive uploads and arbitrary uploads. Unchosen palette alternatives are historical design references. Do not alter any unrelated GoDaddy resource. Any database reset remains conditional on proven exclusive ownership and recovery/cutover evidence.
 
 ## Open Questions
 
@@ -278,4 +278,4 @@ No further aesthetic or product-intent choice is needed to continue this plan. U
 
 ## Handoff and implementation boundary
 
-The approved design, reconciled architecture/DoD/QA and this plan govern the authorized Phase 3 implementation. Orchestrator state: `implementation-in-progress`. The gate binds this plan's current hash and `nanoduck-electric-a-v8-20260914`; it does not authorize deployment, production provider connection or GoDaddy data operations. The next release decision requires completed QA and operational evidence.
+The approved design, reconciled architecture/DoD/QA and this plan govern the authorized Phase 3 implementation and scoped source cutover. Orchestrator state: `implementation-in-progress`. The gate binds this plan's current hash and `nanoduck-electric-a-v8-20260914`; it does not expand the named GoDaddy boundary or replace production-provider, hosted-data and release evidence. The next release decision requires completed QA and operational evidence.
