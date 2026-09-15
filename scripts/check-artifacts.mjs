@@ -15,6 +15,13 @@ async function files(dir) {
 }
 const errors = [], inventory = await files(root);
 const manifest = JSON.parse(await readFile(join(root, 'forge/sdd-manifest.json'), 'utf8'));
+const packageMetadata = JSON.parse(await readFile(join(root, 'package.json'), 'utf8'));
+if (typeof packageMetadata.main !== 'string' || !packageMetadata.main.trim()) errors.push('package.json: GoDaddy requires a non-empty main entry');
+else {
+  try { await access(join(root, packageMetadata.main)); }
+  catch { errors.push(`package.json: main entry does not exist: ${packageMetadata.main}`); }
+}
+for (const script of ['build', 'start']) if (typeof packageMetadata.scripts?.[script] !== 'string' || !packageMetadata.scripts[script].trim()) errors.push(`package.json: GoDaddy requires a non-empty ${script} script`);
 const active = manifest.prototype_candidates;
 const archived = (manifest.prototype_candidate_history || []).map(entry => entry.candidate);
 const indexedEntries = new Set([...active, ...archived].map(entry => `${entry.prototype_source_root}/index.html`));

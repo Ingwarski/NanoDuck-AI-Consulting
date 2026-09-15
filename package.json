@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "main": "src/server/start.mjs",
   "description": "Private browser consulting application for NanoDuck Consulting Group.",
   "scripts": {
+    "build": "node -e \"console.log('NanoDuck server has no build step.')\"",
     "start": "node src/server/start.mjs",
     "dev": "NODE_ENV=development DEV_OWNER_EMAIL=owner@local.test node src/server/index.mjs",
     "preflight": "node src/server/preflight.mjs",
