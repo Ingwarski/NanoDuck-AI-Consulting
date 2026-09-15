@@ -70,13 +70,16 @@ const secretKeyBytes = (value, name, acceptsLength) => {
   const add = bytes => {
     if (!candidates.some(candidate => candidate.equals(bytes))) candidates.push(bytes);
   };
-  if (/^[A-Za-z0-9_-]+$/u.test(secret)) {
+  if (/^[A-Za-z0-9_-]+={0,2}$/u.test(secret)) {
     const decoded = Buffer.from(secret, "base64url");
-    if (decoded.byteLength && decoded.toString("base64url") === secret) add(decoded);
+    const canonical = decoded.toString("base64url");
+    const padded = canonical.padEnd(Math.ceil(canonical.length / 4) * 4, "=");
+    if (decoded.byteLength && (secret === canonical || secret === padded)) add(decoded);
   }
-  if (/^[A-Za-z0-9+/]+={0,2}$/u.test(secret) && secret.length % 4 === 0) {
+  if (/^[A-Za-z0-9+/]+={0,2}$/u.test(secret)) {
     const decoded = Buffer.from(secret, "base64");
-    if (decoded.byteLength && decoded.toString("base64") === secret) add(decoded);
+    const canonical = decoded.toString("base64");
+    if (decoded.byteLength && (secret === canonical || secret === canonical.replace(/=+$/u, ""))) add(decoded);
   }
   if (/^[0-9A-Fa-f]{64}$/u.test(secret)) add(Buffer.from(secret, "hex"));
   add(Buffer.from(secret, "utf8"));

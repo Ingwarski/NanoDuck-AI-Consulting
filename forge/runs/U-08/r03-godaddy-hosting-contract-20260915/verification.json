@@ -1,0 +1,38 @@
+{
+  "unit": "U-08",
+  "change": "R-03 GoDaddy Node.js contract and key-encoding compatibility",
+  "recorded_at": "2026-09-15T19:41:55+03:00",
+  "scope": [
+    "accept canonical padded or unpadded URL-safe and standard Base64 representations of existing exact 32-byte keys",
+    "make the GoDaddy Node.js package and listener contract explicit in source and automated verification",
+    "leave the GoDaddy app, database, secrets and all other GoDaddy resources unchanged"
+  ],
+  "host_observation": {
+    "status": "blocked_before_startup",
+    "runtime": "Node.js v22.23.2",
+    "attempted_source": "personal-ai-consulting-web-design@0.1.0",
+    "reason": "The process exited in configuration validation because DATA_ENCRYPTION_KEY was not accepted as a supported 32-byte key."
+  },
+  "source_changes": [
+    "Canonical padded Base64URL and unpadded standard Base64 are accepted only when they decode to the required key length; arbitrary text remains rejected.",
+    "The build script uses GoDaddy's documented no-op echo form.",
+    "The HTTP listener binds the configured PORT on 0.0.0.0.",
+    "The repository checker verifies root package fields, entry point, scripts, PORT flow, listener host, runtime dependencies and excluded node_modules."
+  ],
+  "local_verification": {
+    "commands": [
+      "npm run build",
+      "npm run check"
+    ],
+    "result": "passed",
+    "tests": 51,
+    "observations": [
+      "A padded Base64URL key containing URL-safe characters and an unpadded standard Base64 key resolve to the original bytes.",
+      "No key is derived, replaced, logged, read from GoDaddy or committed."
+    ]
+  },
+  "hosted_verification": {
+    "status": "not_run",
+    "reason": "This receipt records a source-only repair. A new private Preview deployment and health observation are still required."
+  }
+}

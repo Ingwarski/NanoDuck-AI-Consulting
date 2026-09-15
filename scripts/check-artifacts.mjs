@@ -16,12 +16,35 @@ async function files(dir) {
 const errors = [], inventory = await files(root);
 const manifest = JSON.parse(await readFile(join(root, 'forge/sdd-manifest.json'), 'utf8'));
 const packageMetadata = JSON.parse(await readFile(join(root, 'package.json'), 'utf8'));
+const semver = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?(?:\+[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?$/;
+for (const field of ['name', 'version', 'main']) {
+  if (typeof packageMetadata[field] !== 'string' || !packageMetadata[field].trim()) errors.push(`package.json: GoDaddy requires a non-empty ${field} field`);
+}
+if (typeof packageMetadata.version === 'string' && !semver.test(packageMetadata.version)) errors.push('package.json: version must be a semver string');
 if (typeof packageMetadata.main !== 'string' || !packageMetadata.main.trim()) errors.push('package.json: GoDaddy requires a non-empty main entry');
 else {
   try { await access(join(root, packageMetadata.main)); }
   catch { errors.push(`package.json: main entry does not exist: ${packageMetadata.main}`); }
 }
 for (const script of ['build', 'start']) if (typeof packageMetadata.scripts?.[script] !== 'string' || !packageMetadata.scripts[script].trim()) errors.push(`package.json: GoDaddy requires a non-empty ${script} script`);
+const configSource = await readFile(join(root, 'src/server/config.mjs'), 'utf8');
+if (!/loadConfig\(environment = process\.env\)/.test(configSource) || !/positiveInteger\(environment\.PORT,\s*\d+,\s*"PORT"\)/.test(configSource)) errors.push('src/server/config.mjs: GoDaddy requires PORT to default from process.env.PORT');
+const serverSource = await readFile(join(root, 'src/server/index.mjs'), 'utf8');
+if (!/server\.listen\(config\.port,\s*["']0\.0\.0\.0["']/.test(serverSource)) errors.push('src/server/index.mjs: GoDaddy requires the HTTP server to bind 0.0.0.0');
+const runtimeDependencies = packageMetadata.dependencies || {};
+for (const path of inventory.filter(path => relative(root, path).startsWith('src/server/') && /\.(?:mjs|js)$/.test(path))) {
+  const source = await readFile(path, 'utf8');
+  for (const match of source.matchAll(/\bfrom\s+["']([^"']+)["']|\bimport\s+["']([^"']+)["']|\bimport\s*\(\s*["']([^"']+)["']/g)) {
+    const specifier = match[1] ?? match[2] ?? match[3];
+    if (specifier.startsWith('.') || specifier.startsWith('node:')) continue;
+    const dependency = specifier.startsWith('@') ? specifier.split('/').slice(0, 2).join('/') : specifier.split('/')[0];
+    if (!(dependency in runtimeDependencies)) errors.push(`${relative(root, path)}: runtime package ${dependency} must be in dependencies`);
+  }
+}
+const tracked = spawnSync('git', ['ls-files'], { cwd: root, encoding: 'utf8' });
+if (tracked.status === 0 && tracked.stdout.split(/\r?\n/).some(path => /(^|\/)node_modules\//.test(path))) errors.push('Git source must not contain node_modules');
+const ignoredNodeModules = spawnSync('git', ['check-ignore', '-q', 'node_modules'], { cwd: root });
+if (ignoredNodeModules.status !== 0) errors.push('.gitignore must exclude node_modules');
 const active = manifest.prototype_candidates;
 const archived = (manifest.prototype_candidate_history || []).map(entry => entry.candidate);
 const indexedEntries = new Set([...active, ...archived].map(entry => `${entry.prototype_source_root}/index.html`));

@@ -342,6 +342,14 @@ test("development cookies remain usable on localhost while production uses host-
   assert.deepEqual(standardBase64Keys.dataKey, Buffer.alloc(32, 2));
   assert.deepEqual(standardBase64Keys.recoveryKey, Buffer.alloc(32, 6));
   assert.deepEqual(standardBase64Keys.sessionKey, Buffer.from("0123456789abcdefghijklmnopqrstuv", "utf8"));
+  const paddedBase64urlKey = Buffer.concat([Buffer.from([251, 255]), Buffer.alloc(30, 9)]).toString("base64url");
+  const base64UrlCompatibility = loadConfig({
+    ...productionEnvironment,
+    DATA_ENCRYPTION_KEY: `${paddedBase64urlKey}=`,
+    RECOVERY_ENCRYPTION_KEY: Buffer.alloc(32, 8).toString("base64").replace(/=+$/u, "")
+  });
+  assert.deepEqual(base64UrlCompatibility.dataKey, Buffer.concat([Buffer.from([251, 255]), Buffer.alloc(30, 9)]));
+  assert.deepEqual(base64UrlCompatibility.recoveryKey, Buffer.alloc(32, 8));
   const literalKeys = loadConfig({
     ...productionEnvironment,
     DATA_ENCRYPTION_KEY: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
