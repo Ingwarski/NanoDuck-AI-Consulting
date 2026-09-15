@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "unit": "U-08",
+  "run_id": "phase3-local-fixture-topology-20260915",
+  "executed_at": "2026-09-15T12:54:26Z",
+  "executor": "Codex local implementation runner",
+  "revision_base": "5dd900c00978dd2acdee0aae4957e5d2d20da0c2",
+  "baseline_id": "nanoduck-electric-a-v8-20260914",
+  "development_plan_hash": "752e983c95c64e2a58894490bb467ed3553198ec90f5f4e56bedd62d803a9a1a",
+  "scope": "Fresh local browser integration observation against an isolated memory store, development owner identity and controlled fake Codex app-server. It covers recipient topology and visible Discussion, Outcome and Sources views. No live provider, GoDaddy app, target MySQL database, migration, reset, deletion, external upload or production release was contacted.",
+  "checks": [
+    {
+      "name": "local owner workflow and recipient topology",
+      "evidence": "Codex in-app browser at http://127.0.0.1:4325/ with an isolated temporary fixture authentication file and test/fixtures/fake-codex.mjs",
+      "observed": "Local sign-in and processing consent reached the workspace. A synthetic English B2B offer question completed with owner → two Head Consultant task-only handoffs → two specialist positions to Critic → Critic challenge → relevant specialist reply → one Head Consultant owner synthesis. No specialist-to-specialist route or pre-conclusion Head-to-owner advice appeared.",
+      "result": "passed",
+      "limit": "The fake provider intentionally returns bounded fixture prose. This validates presentation and enforced message order, not real-provider answer quality, research authenticity, or a representative owner consultation."
+    },
+    {
+      "name": "discussion, outcome and sources presentation",
+      "evidence": "Same isolated local browser workflow",
+      "observed": "Discussion rendered role, recipient and source-link metadata. Outcome rendered only the final Head Consultant synthesis. Sources rendered title, supported claim, direct URL, retrieval date and publication date.",
+      "result": "passed",
+      "limit": "The source object was fixture data; this does not execute U-05 current-topic research acceptance."
+    },
+    {
+      "name": "voice disclosure and start boundary",
+      "evidence": "Same isolated local browser workflow",
+      "observed": "The icon-only microphone opens a modal that says the browser may send speech to its recognition service and that NanoDuck receives only selected text. The in-app browser exposed browser recognition and showed Listening in en-GB after Start. Reload ended the isolated recognition session.",
+      "result": "observed_limited",
+      "limit": "No Ukrainian transcript, Safari, Chrome device, Stop/Cancel completion or browser-permission result was captured in this run. QA-R28–QA-R32, QA-R50, QA-R55 and QA-U01 remain not_run."
+    },
+    {
+      "name": "local regression suite",
+      "evidence": "npm run check",
+      "observed": "28 Markdown files, 52 JavaScript syntax checks, 3 active candidates, 24 versioned entry pages and 46 Node tests passed.",
+      "result": "passed",
+      "limit": "Controlled local tests do not execute GoDaddy, the production database, a real supported browser/device matrix, or release gates."
+    }
+  ],
+  "formal_release_status": {
+    "canonical_qa": "83 prepared / not_run",
+    "dod_gates": {
+      "product_functional_requirements": "not_run",
+      "product_security_requirements": "not_run",
+      "approved_visual_baseline_fidelity": "not_run",
+      "heuristic_usability_review": "not_run",
+      "representative_user_task_validation": "not_run",
+      "lifecycle_and_continuity": "not_run"
+    },
+    "release_readiness": "not_evaluated"
+  },
+  "release_blockers": [
+    "Fresh scoped results for all 83 canonical QA checks and six DoD gates.",
+    "Observed representative-owner tasks and current Safari/Chrome device checks, including Ukrainian voice, 200-percent text, forced colors and relevant assistive technology.",
+    "Actual selected-provider, research and source-filtering evidence across applicable role paths.",
+    "Fresh exact GoDaddy app and exclusively owned database/table evidence, then an authorized cutover decision.",
+    "Isolated backup/restore rehearsal plus named operational owners, deadlines, monitoring and rollback evidence."
+  ],
+  "source_hashes": {
+    "docs/development-plan.md": "752e983c95c64e2a58894490bb467ed3553198ec90f5f4e56bedd62d803a9a1a",
+    "docs/qa-checklist.md": "f64c716839198c80332043400eb41b6961e325816814cd48cef49fc77004f97a",
+    "docs/verification.md": "5440d23cd216016f93e8dd790c36808fe097fe3e513d4f1886f6c221af627ee6",
+    "docs/sdd-consistency-audit.md": "9667d7ad2bdbcaf816e59847dc4b7ac18f78a342cd2c7cee4f19ab552b6cc435",
+    "public/index.html": "69a033e56ed7682661fd388b941cb4cd0426ec1ed4e556416f87f87808441741",
+    "public/styles.css": "f3fe9374a1fa5dcb502011f12ac3ff74046729a31ebb9502a6a0ba3c5e4398b8",
+    "src/client/app.js": "7ad066c37cd2e9d8fe456576e2619aa8692658a33d1de308c3e6e210fc1534dd",
+    "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
+    "src/server/index.mjs": "1b8a187cc938cfff82220eaad13de77460ef8d1216a0636223fb92bb89dc5db2",
+    "src/server/consultation.mjs": "a97cb6e033ec91bd4b4cf128cb8ecd84fbd1409daa6133c4ec1fa109b535fcc8",
+    "src/server/codex-provider.mjs": "5bd0ff37ba12a3c15a88db137ca11146758ba721850c7d7693da6628d7734058",
+    "src/server/prompt-contracts.mjs": "25df2943169e9b95cd18dbd9ed9f434bf9fc3f3ae1f1676c445733e226bcb2f7",
+    "src/server/store.mjs": "5572a2aa04c884ed6e580fbef4064ddbbf8fee090fb1c63b0ca6b8110f6d3b65",
+    "test/http.test.mjs": "8a8ab3d20632f0ff187cf79044e83c9424499a5efe27f76eb9877b91687ac9d9",
+    "test/consultation.test.mjs": "384325a554b3c07c753936360547c8d23a9a13d36d35c8dfb68dac67e98e0e99",
+    "test/prompt-contracts.test.mjs": "6744f42a430164988572fa690072041e5985e6de6d45ad2adb482d0e1c200af3",
+    "package.json": "09ee36e63b46084b99ec90a6793a50ff5e36c466bd46faf2b6da802f55089343",
+    "package-lock.json": "987e7047e66f3dd725de77d9233088e6d22e2a04132dea44cee4f1a78e43e084"
+  },
+  "release_effect": "not_release_evidence"
+}
