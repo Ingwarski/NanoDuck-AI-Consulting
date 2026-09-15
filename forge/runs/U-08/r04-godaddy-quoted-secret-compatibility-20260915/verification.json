@@ -1,0 +1,37 @@
+{
+  "unit": "U-08",
+  "change": "R-04 GoDaddy quoted-secret compatibility",
+  "recorded_at": "2026-09-15T19:52:43+03:00",
+  "scope": [
+    "accept one matching pair of surrounding single or double quotes around an otherwise valid existing key value",
+    "preserve an original literal 32-byte key as the first candidate",
+    "leave the GoDaddy app, database, secrets and all other GoDaddy resources unchanged"
+  ],
+  "host_observation": {
+    "status": "blocked_before_startup",
+    "runtime": "Node.js v22.23.2",
+    "attempted_source": "personal-ai-consulting-web-design@0.1.0",
+    "reason": "The process exited in configuration validation because DATA_ENCRYPTION_KEY was not accepted as a supported 32-byte key. The secret value was neither read nor logged."
+  },
+  "source_changes": [
+    "The parser first considers the supplied value exactly as stored.",
+    "When the first and final characters are one matching quote pair, it also considers only the inner value through the same strict canonical Base64URL, Base64, hexadecimal or literal-byte checks.",
+    "No key is derived, truncated, replaced or logged."
+  ],
+  "local_verification": {
+    "commands": [
+      "npm run check",
+      "npm run build"
+    ],
+    "result": "passed",
+    "tests": 51,
+    "observations": [
+      "The focused assertions exercise padded Base64URL, hexadecimal and standard Base64 values inside matching quotes.",
+      "A 32-byte literal whose first and final characters are quotes retains its original bytes."
+    ]
+  },
+  "hosted_verification": {
+    "status": "not_run",
+    "reason": "A new private Preview deployment and health observation are still required after local verification."
+  }
+}

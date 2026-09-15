@@ -65,24 +65,32 @@ const optionalString = value => typeof value === "string" && value.trim() ? valu
 
 const secretKeyBytes = (value, name, acceptsLength) => {
   if (value === undefined) return undefined;
-  const secret = required(value, name);
+  const supplied = required(value, name);
   const candidates = [];
   const add = bytes => {
     if (!candidates.some(candidate => candidate.equals(bytes))) candidates.push(bytes);
   };
-  if (/^[A-Za-z0-9_-]+={0,2}$/u.test(secret)) {
-    const decoded = Buffer.from(secret, "base64url");
-    const canonical = decoded.toString("base64url");
-    const padded = canonical.padEnd(Math.ceil(canonical.length / 4) * 4, "=");
-    if (decoded.byteLength && (secret === canonical || secret === padded)) add(decoded);
-  }
-  if (/^[A-Za-z0-9+/]+={0,2}$/u.test(secret)) {
-    const decoded = Buffer.from(secret, "base64");
-    const canonical = decoded.toString("base64");
-    if (decoded.byteLength && (secret === canonical || secret === canonical.replace(/=+$/u, ""))) add(decoded);
-  }
-  if (/^[0-9A-Fa-f]{64}$/u.test(secret)) add(Buffer.from(secret, "hex"));
-  add(Buffer.from(secret, "utf8"));
+  const collectCanonical = secret => {
+    if (/^[A-Za-z0-9_-]+={0,2}$/u.test(secret)) {
+      const decoded = Buffer.from(secret, "base64url");
+      const canonical = decoded.toString("base64url");
+      const padded = canonical.padEnd(Math.ceil(canonical.length / 4) * 4, "=");
+      if (decoded.byteLength && (secret === canonical || secret === padded)) add(decoded);
+    }
+    if (/^[A-Za-z0-9+/]+={0,2}$/u.test(secret)) {
+      const decoded = Buffer.from(secret, "base64");
+      const canonical = decoded.toString("base64");
+      if (decoded.byteLength && (secret === canonical || secret === canonical.replace(/=+$/u, ""))) add(decoded);
+    }
+    if (/^[0-9A-Fa-f]{64}$/u.test(secret)) add(Buffer.from(secret, "hex"));
+  };
+  collectCanonical(supplied);
+  const quote = supplied[0];
+  const quoted = (quote === "'" || quote === '"') && supplied.length > 1 && supplied.at(-1) === quote;
+  const unquoted = quoted ? supplied.slice(1, -1) : undefined;
+  if (unquoted !== undefined) collectCanonical(unquoted);
+  add(Buffer.from(supplied, "utf8"));
+  if (unquoted !== undefined) add(Buffer.from(unquoted, "utf8"));
   const selected = candidates.find(candidate => acceptsLength(candidate.byteLength));
   if (!selected) throw new Error(`${name} has an unsupported encoding or byte length.`);
   return selected;
