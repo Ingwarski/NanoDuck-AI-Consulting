@@ -1,4 +1,5 @@
 import { createHash } from "node:crypto";
+import { gunzipSync } from "node:zlib";
 
 const required = (value, name) => {
   if (typeof value !== "string" || value.trim().length === 0) throw new Error(`${name} is required.`);
@@ -22,14 +23,19 @@ const positiveInteger = (value, fallback, name) => {
   return parsed;
 };
 
+const utf8Text = (decoded, name) => {
+  if (!decoded.byteLength) throw new Error(`${name} must contain UTF-8 text.`);
+  const text = decoded.toString("utf8");
+  if (!Buffer.from(text, "utf8").equals(decoded)) throw new Error(`${name} must contain UTF-8 text.`);
+  return text;
+};
+
 const optionalBase64urlText = (value, name) => {
   if (value === undefined || value === "") return undefined;
   if (!/^[A-Za-z0-9_-]+$/u.test(value)) throw new Error(`${name} must be base64url-encoded UTF-8 text.`);
   const decoded = Buffer.from(value, "base64url");
   if (!decoded.byteLength || decoded.toString("base64url") !== value) throw new Error(`${name} must be canonical base64url-encoded UTF-8 text.`);
-  const text = decoded.toString("utf8");
-  if (!Buffer.from(text, "utf8").equals(decoded)) throw new Error(`${name} must contain UTF-8 text.`);
-  return text;
+  return utf8Text(decoded, name);
 };
 
 const optionalBase64urlBytes = (value, name) => {
@@ -38,6 +44,18 @@ const optionalBase64urlBytes = (value, name) => {
   const decoded = Buffer.from(value, "base64url");
   if (!decoded.byteLength || decoded.toString("base64url") !== value) throw new Error(`${name} must be canonical base64url-encoded bytes.`);
   return decoded;
+};
+
+const optionalGzipBase64urlText = (value, name) => {
+  const compressed = optionalBase64urlBytes(value, name);
+  if (!compressed) return undefined;
+  let decoded;
+  try {
+    decoded = gunzipSync(compressed, { maxOutputLength: 64 * 1024 });
+  } catch {
+    throw new Error(`${name} must be a valid gzip-compressed base64url UTF-8 document of at most 64 KiB.`);
+  }
+  return utf8Text(decoded, name);
 };
 
 const optionalString = value => typeof value === "string" && value.trim() ? value.trim() : undefined;
@@ -104,7 +122,12 @@ export function loadConfig(environment = process.env) {
 
   const runtimeDataKey = decodedKey ?? createHash("sha256").update("nanoduck-development-data-key").digest();
   const runtimeRecoveryKey = decodedRecoveryKey ?? createHash("sha256").update("nanoduck-development-recovery-key").digest();
-  const runtimeInstructionsBootstrap = optionalBase64urlText(environment.RUNTIME_INSTRUCTIONS_BOOTSTRAP_B64, "RUNTIME_INSTRUCTIONS_BOOTSTRAP_B64");
+  const runtimeInstructionsBootstrapPlain = optionalBase64urlText(environment.RUNTIME_INSTRUCTIONS_BOOTSTRAP_B64, "RUNTIME_INSTRUCTIONS_BOOTSTRAP_B64");
+  const runtimeInstructionsBootstrapGzip = optionalGzipBase64urlText(environment.RUNTIME_INSTRUCTIONS_BOOTSTRAP_GZIP_B64, "RUNTIME_INSTRUCTIONS_BOOTSTRAP_GZIP_B64");
+  if (runtimeInstructionsBootstrapPlain && runtimeInstructionsBootstrapGzip) {
+    throw new Error("Use only one runtime-instructions bootstrap secret.");
+  }
+  const runtimeInstructionsBootstrap = runtimeInstructionsBootstrapPlain ?? runtimeInstructionsBootstrapGzip;
   const maxAttachmentBytes = positiveInteger(environment.MAX_ATTACHMENT_BYTES, 8 * 1024 * 1024, "MAX_ATTACHMENT_BYTES");
   if (maxAttachmentBytes > 8 * 1024 * 1024) throw new Error("MAX_ATTACHMENT_BYTES cannot exceed 8 MiB.");
   return Object.freeze({

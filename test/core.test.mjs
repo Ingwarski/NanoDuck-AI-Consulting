@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { gzipSync } from "node:zlib";
 import { decryptBytes, decryptText, encryptBytes, encryptText } from "../src/server/crypto.mjs";
 import { inspectImageAttachment } from "../src/server/attachments.mjs";
 import { openRecoveryEnvelope, sealRecoverySnapshot } from "../src/server/recovery.mjs";
@@ -333,6 +334,10 @@ test("development cookies remain usable on localhost while production uses host-
   assert.deepEqual(secretStoreConfig.codexAuthBytes, Buffer.from('{"test":"owned-auth-state"}'));
   assert.equal(secretStoreConfig.readyForProvider, true);
   assert.throws(() => loadConfig({ ...productionEnvironment, CODEX_APP_SERVER_AUTH_PATH: "", CODEX_APP_SERVER_AUTH_B64: "not+base64url" }), /base64url/u);
+  const compressedBootstrap = gzipSync(Buffer.from(testRuntimeInstructions.markdown, "utf8")).toString("base64url");
+  assert.equal(loadConfig({ ...productionEnvironment, RUNTIME_INSTRUCTIONS_BOOTSTRAP_GZIP_B64: compressedBootstrap }).runtimeInstructionsBootstrap, testRuntimeInstructions.markdown);
+  assert.throws(() => loadConfig({ ...productionEnvironment, RUNTIME_INSTRUCTIONS_BOOTSTRAP_B64: Buffer.from(testRuntimeInstructions.markdown, "utf8").toString("base64url"), RUNTIME_INSTRUCTIONS_BOOTSTRAP_GZIP_B64: compressedBootstrap }), /only one runtime-instructions bootstrap/u);
+  assert.throws(() => loadConfig({ ...productionEnvironment, RUNTIME_INSTRUCTIONS_BOOTSTRAP_GZIP_B64: Buffer.from("not-gzip", "utf8").toString("base64url") }), /gzip-compressed/u);
   const managedDatabaseConfig = loadConfig({ ...productionEnvironment, DATABASE_URL: "", DATABASE_SSL_CA_PATH: "", DB_HOST: "mysql.internal", DB_PORT: "3306", DB_NAME: "owned", DB_USER: "owner", DB_PASSWORD: "contains:a/slash", OWNER_GOOGLE_SUBJECT: "", SETTINGS_OWNER_GOOGLE_EMAIL: "OWNER@EXAMPLE.COM" });
   assert.equal(managedDatabaseConfig.databaseUrl, "mysql://owner:contains%3Aa%2Fslash@mysql.internal:3306/owned");
   assert.equal(managedDatabaseConfig.google.ownerEmail, "owner@example.com");
