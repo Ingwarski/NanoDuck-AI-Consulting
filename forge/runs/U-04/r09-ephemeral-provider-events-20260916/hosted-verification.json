@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "unit": "U-04",
+  "repair": "R-09",
+  "executor": "Codex via real Chrome and GoDaddy Preview UI",
+  "observed_at": "2026-09-15T23:05:21.142061+00:00",
+  "implementation_commit": "c8bbd1c60ff985531bd9f4c527f6cfee60a29ad7",
+  "target": {
+    "app_id": "wy2v0putg6",
+    "environment": "private Preview",
+    "infrastructure_status": "OK",
+    "site_status": "OK"
+  },
+  "fixture": "Synthetic fictional bakery decision; no personal consultation data copied into this receipt",
+  "observations": {
+    "conversation_status": "Discussion complete.",
+    "visible_sequence": [
+      "Owner",
+      "Head → Strategy",
+      "Head → Finance",
+      "Strategy → Critic",
+      "Finance → Critic",
+      "Critic → Strategy",
+      "Strategy → Critic",
+      "Head → Owner"
+    ],
+    "preliminary_head_advice": false,
+    "specialist_to_specialist_routing": false,
+    "outcome_view": "rendered final answer with Markdown emphasis",
+    "reload_and_reopen": "all eight confirmed owner/agent messages and completed state restored",
+    "provider_completion_source": "notification for all seven invocations",
+    "reasoning_effort": "xhigh unchanged",
+    "provider_duration_ms": [
+      17838,
+      13222,
+      38543,
+      38102,
+      25368,
+      29569,
+      161851
+    ]
+  },
+  "result": "passed for the reported provider-protocol failure and this full synthetic consultation",
+  "source_hashes": {
+    "src/server/codex-provider.mjs": "a84f5a433d4c74752afb133e39471c0d8cf3f853047ac6f95ef918073b05a151",
+    "src/server/consultation.mjs": "417213aaf4732bcb707ab312b1fa6f166041bef3f375c46c76988e0d88cbcbc5",
+    "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
+    "package.json": "39f69e8b9c352928595ab1b7a3e83437a0e74bbdd2e5874b7d552f77c03fe0e2"
+  },
+  "limits": [
+    "Not representative-owner task validation",
+    "Not a full performance, research, security, voice or release pass",
+    "Existing model settings retained",
+    "No Published update, secret replacement, database reset or unrelated resource change",
+    "Page reload starts at New consultation; saved work is reopened through Conversations"
+  ]
+}
