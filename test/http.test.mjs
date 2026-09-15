@@ -171,7 +171,7 @@ test("owner image attachments validate bytes, link only on message acceptance an
   }
 });
 
-test("the authenticated discussion preserves two specialists, Critic and a revision exchange", async () => {
+test("the authenticated discussion preserves a Critic exchange with both specialists before synthesis", async () => {
   const port = await reservePort();
   const directory = await mkdtemp(`${tmpdir()}/nanoduck-http-provider-`);
   const authPath = `${directory}/auth.json`;
@@ -218,11 +218,14 @@ test("the authenticated discussion preserves two specialists, Critic and a revis
       ["Head Consultant", "Strategy Consultant"], ["Head Consultant", "Finance Consultant"],
       ["Strategy Consultant", "Critic"], ["Finance Consultant", "Critic"],
       ["Critic", "Strategy Consultant"], ["Strategy Consultant", "Critic"],
+      ["Critic", "Finance Consultant"], ["Finance Consultant", "Critic"],
       ["Head Consultant", null]
     ]);
     assert.match(detail.events[5].body, /assumes those buyers will take calls/u);
     assert.match(detail.events[6].body, /recruit calls from a defined prospect list/u);
-    assert.match(detail.events[7].body, /measure interview acceptance/u);
+    assert.match(detail.events[7].body, /assumes those buyers will take calls/u);
+    assert.match(detail.events[8].body, /recruit calls from a defined prospect list/u);
+    assert.match(detail.events[9].body, /measure interview acceptance/u);
     assert.equal(detail.events.every(event => !event.body.includes("nanoduck-source")), true);
     assert.deepEqual(detail.events[3].sources.map(source => ({ title: source.title, url: source.url, claim: source.claim, publishedAt: source.publishedAt })), [{ title: "Buyer evidence", url: "https://example.com/buyer-evidence", claim: "Buyer willingness must be measured before positioning.", publishedAt: "2026-09-01" }]);
     assert.match(detail.events[3].sources[0].retrievedAt, /^\d{4}-\d{2}-\d{2}T/u);

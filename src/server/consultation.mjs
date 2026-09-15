@@ -259,34 +259,46 @@ export function createConsultationService({ store, provider }) {
       let cursor = initial.length;
       const automaticDepth = snapshot.discussionDepth === "auto";
       const maximumDepth = automaticDepth ? 10 : Number(snapshot.discussionDepth);
-      let completedDepth = automaticDepth ? Number(snapshot.autoDepthCompleted ?? 0) : 0;
-      let consensusReached = automaticDepth && snapshot.consiliumReached === true;
+      // A depth step reviews the whole team. Legacy global consensus cannot
+      // stand in for a missing specialist's challenge and response.
+      const agreements = [...(snapshot.criticReview?.agreements ?? [])];
       for (let exchange = 1; exchange <= maximumDepth; exchange += 1) {
-        const specialist = team[(exchange - 1) % team.length];
-        const challenge = { role: "Critic", recipient: specialist, model: settings.critic.model, effort: settings.critic.effort, research, outputKind: "critic_challenge", maximumCharacters: 1_000, runtimeInstructions: instructions, assignment: prompts.criticChallenge({ specialist, exchange, language }) };
-        const reply = { role: specialist, recipient: "Critic", model: settings.consultant.model, effort: settings.consultant.effort, research, outputKind: "specialist_reply", maximumCharacters: 1_200, runtimeInstructions: instructions, assignment: prompts.specialistReply({ specialist, language, automaticDepth }) };
-        const existingChallenge = confirmed[cursor];
-        if (existingChallenge) { if (!matches(existingChallenge, challenge)) throw new Error("invalid_run_state"); }
-        else await invoke(challenge);
-        cursor += 1;
-        let replyOutcome;
-        const existingReply = confirmed[cursor];
-        if (existingReply) { if (!matches(existingReply, reply)) throw new Error("invalid_run_state"); }
-        else replyOutcome = await invoke(reply, automaticDepth ? body => {
-          const marked = consensusMarker(body);
-          return Object.freeze({ ...marked, body: compactMessage(marked.body, reply.maximumCharacters) });
-        } : compactOutput(reply.maximumCharacters));
-        cursor += 1;
-        if (automaticDepth) {
-          if (completedDepth < exchange) {
-            completedDepth = exchange;
-            consensusReached = replyOutcome?.reached ?? false;
-            await persistSnapshot({ autoDepthCompleted: completedDepth, consiliumReached: consensusReached });
+        let consensusReached = true;
+        for (const [index, specialist] of team.entries()) {
+          if (!await isCurrent()) return;
+          const challenge = { role: "Critic", recipient: specialist, model: settings.critic.model, effort: settings.critic.effort, research, outputKind: "critic_challenge", maximumCharacters: 1_000, runtimeInstructions: instructions, assignment: prompts.criticChallenge({ specialist, exchange, language }) };
+          const reply = { role: specialist, recipient: "Critic", model: settings.consultant.model, effort: settings.consultant.effort, research, outputKind: "specialist_reply", maximumCharacters: 1_200, runtimeInstructions: instructions, assignment: prompts.specialistReply({ specialist, language, automaticDepth }) };
+          const existingChallenge = confirmed[cursor];
+          if (existingChallenge) { if (!matches(existingChallenge, challenge)) throw new Error("invalid_run_state"); }
+          else await invoke(challenge);
+          cursor += 1;
+          let replyOutcome;
+          const existingReply = confirmed[cursor];
+          if (existingReply) { if (!matches(existingReply, reply)) throw new Error("invalid_run_state"); }
+          else replyOutcome = await invoke(reply, automaticDepth ? body => {
+            const marked = consensusMarker(body);
+            return Object.freeze({ ...marked, body: compactMessage(marked.body, reply.maximumCharacters) });
+          } : compactOutput(reply.maximumCharacters));
+          cursor += 1;
+          if (automaticDepth) {
+            const reviewIndex = (exchange - 1) * team.length + index;
+            if (replyOutcome) {
+              agreements[reviewIndex] = replyOutcome.reached;
+              await persistSnapshot({ criticReview: { agreements: [...agreements] } });
+            }
+            // A crash between message commit and metadata save leaves agreement
+            // unknown. Continue conservatively; never replay the saved message.
+            consensusReached &&= agreements[reviewIndex] === true;
           }
+        }
+        if (automaticDepth) {
+          await persistSnapshot({ autoDepthCompleted: exchange, consiliumReached: consensusReached });
           if (consensusReached) break;
         }
       }
+      if (!await isCurrent()) return;
       confirmed = (await current()).events.slice(ownerIndex + 1);
+      if (confirmed.length < cursor) throw new Error("invalid_run_state");
       const conclusion = { role: "Head Consultant", recipient: null, model: settings.head.model, effort: settings.head.effort, research, outputKind: "head_final", maximumCharacters: 2_000, runtimeInstructions: instructions, assignment: prompts.conclusion(language) };
       if (confirmed[cursor]) {
         if (!matches(confirmed[cursor], conclusion) || confirmed.length !== cursor + 1) throw new Error("invalid_run_state");
