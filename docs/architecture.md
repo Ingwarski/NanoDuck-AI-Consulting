@@ -1,6 +1,6 @@
 # Proposed architecture
 
-Browser-voice reconciliation, 14 September 2026. Phase 3 local implementation is authorized; deployment and GoDaddy data operations are not.
+Browser-voice reconciliation, 14 September 2026; Preview-activation reconciliation, 15 September 2026. The named GoDaddy app's Preview deployment, owned migration and Google sign-in are now observed. Publication, a real consultation and authorized database deletion remain separate gates.
 
 ## One application with durable work
 
@@ -45,7 +45,7 @@ Before cutover, take a content-free saved-settings snapshot and verify the exact
 
 ## Data and product boundaries
 
-The [deployment boundary](deployment-boundary.md) names the only allowed target. Database/table ownership, runtime lifecycle, storage durability, streaming behavior and provider reauthorization remain release evidence to obtain. The owner authorized deployment only to that named app and its owned database; the source switch is complete, while secrets, migration, preview build, publication and authorized database deletion remain separately evidenced cutover steps.
+The [deployment boundary](deployment-boundary.md) names the only allowed target. The source switch, Preview secrets, owned migration, encrypted instruction bootstrap and real Google return are now evidenced on that app. Provider reauthorization/preflight, streaming behavior, a real consultation, browser voice, publication and authorized database deletion remain release evidence to obtain.
 
 ## External capability references
 
@@ -77,7 +77,7 @@ Voice stores no audio in NanoDuck. The browser detects standard `SpeechRecogniti
 
 ## Configuration and binding contract
 
-Proposed deployment configuration names below are a boundary contract, not claims that they already exist in GoDaddy: `APP_ORIGIN`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `OWNER_GOOGLE_SUBJECT` or a verified owner email, `DATABASE_URL` or GoDaddy's injected `DB_*`, optional `DATABASE_SSL_CA_PATH`, `DATA_ENCRYPTION_KEY`, `SESSION_ABSOLUTE_SECONDS`, `MAX_ATTACHMENT_BYTES`. Application and migration startup always require certificate verification; a mounted private CA is used where the host does not chain to a system trust root. Secrets stay server-side; key material is not stored beside ciphertext. Architecture maps the PRD 24-hour session behavior to `SESSION_ABSOLUTE_SECONDS=86400`. Persist issued-at/expiry and revocation server-side, and use a persistent cookie capped to the same absolute deadline so browser reopening retains normal access; activity never extends that deadline. No inactivity timer is configured. Resolve other values and host mapping in implementation preflight. Never commit secret values or expose credentials in Settings.
+The configuration contract uses `APP_ORIGIN`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `OWNER_GOOGLE_SUBJECT` or a verified owner email, `DATABASE_URL` or GoDaddy's injected `DB_*`, optional `DATABASE_SSL_CA_PATH`, `DATA_ENCRYPTION_KEY`, `RECOVERY_ENCRYPTION_KEY`, `SESSION_SIGNING_KEY`, `SESSION_ABSOLUTE_SECONDS`, `MAX_ATTACHMENT_BYTES`, one Codex auth source (`CODEX_APP_SERVER_AUTH_PATH`, `CODEX_APP_SERVER_AUTH_B64` or `CODEX_APP_SERVER_AUTH_GZIP_B64`) and a one-time instruction bootstrap only on a fresh database. Preview now has the host-appropriate values by name, never by value, and its `APP_ORIGIN` is the Preview host. Published must receive its own published origin; do not synchronize Preview's origin blindly. Application and migration startup require certificate verification; a mounted private CA is used where the host does not chain to a system trust root. Secrets stay server-side; key material is not stored beside ciphertext. Architecture maps the PRD 24-hour session behavior to `SESSION_ABSOLUTE_SECONDS=86400`. Persist issued-at/expiry and revocation server-side, and use a persistent cookie capped to the same absolute deadline so browser reopening retains normal access; activity never extends that deadline. No inactivity timer is configured. Never commit secret values or expose credentials in Settings.
 
 Runtime remains one Node application plus the existing isolated provider subprocesses, targeting the observed GoDaddy Node 22 capability until reverified. Keep the provider package pins in the model record. Build outputs must contain only application assets/server artifacts and required runtime dependencies; exclude private records, `.git`, specifications, debug routes and local review helpers. The design preview uses static files and has no production deployment configuration.
 
@@ -109,7 +109,7 @@ The earlier messenger-removal and single-store decisions remain. Voice adds a br
 
 Operational responsibility belongs to the product owner and the later authorized implementation operator, not to a fictional support team. Before production release they must record actual session/resource configuration, recovery objectives, backup/deletion propagation, incident access and risk-based dependency remediation timing. Performance measurement uses the existing product targets and subscription ceilings, not an invented availability SLA. Restore must run in isolation and must not touch another GoDaddy app. The provider receives the protected Codex `auth.json` through a mounted secret file where available or its base64url bytes from the host secret store; it writes the file only to each ephemeral app-server home and deletes that home after use. This is an operator provisioning boundary, never a Settings or routine owner action.
 
-Electric A v8 is now the approved presentation baseline; unchosen B/C are retained references. Any approved voice, data-exposure or control-flow change is reconciled through the PRD/architecture before planning. Owner-confirmed Safari/Chrome Ukrainian probing establishes the selected desktop mechanism; mobile Safari and Android Chrome recognition, current provider authorization and GoDaddy lifecycle/storage/streaming remain named release evidence gaps. They do not prove a blocked or successful deployment because none is attempted in this phase.
+Electric A v8 is now the approved presentation baseline; unchosen B/C are retained references. Any approved voice, data-exposure or control-flow change is reconciled through the PRD/architecture before planning. Owner-confirmed Safari/Chrome Ukrainian probing establishes the selected desktop mechanism; mobile Safari and Android Chrome recognition, current provider authorization, a real consultation and GoDaddy lifecycle/storage/streaming beyond the observed restart/migration remain named release evidence gaps. The successful Preview deployment is limited evidence, not a published-release claim.
 
 ## Additional external capability references
 
