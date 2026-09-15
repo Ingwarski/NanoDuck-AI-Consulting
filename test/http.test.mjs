@@ -62,6 +62,19 @@ test("the local HTTP flow protects data, saves settings and preserves an unavail
     const settings = { headModel: "gpt-6-astra", headReasoning: "ultra", criticModel: "gpt-6-astra", criticReasoning: "xhigh", specialistCount: "3", discussionDepth: "3" };
     assert.deepEqual((await (await fetch(`${origin}/api/settings`, { method: "PUT", headers, body: JSON.stringify(settings) })).json()).settings, settings);
 
+    const initialInstructions = await (await fetch(`${origin}/api/runtime-instructions`, { headers: { cookie } })).json();
+    assert.equal(initialInstructions.runtimeInstructions.source, "baseline");
+    assert.match(initialInstructions.runtimeInstructions.markdown, /## Head Task/u);
+    const markdown = initialInstructions.runtimeInstructions.markdown.replace("Give a direct, self-contained answer to this simple question.", "Give the owner a concise, concrete answer before any optional explanation.");
+    const savedInstructions = await (await fetch(`${origin}/api/runtime-instructions`, { method: "PUT", headers, body: JSON.stringify({ markdown }) })).json();
+    assert.equal(savedInstructions.runtimeInstructions.source, "saved");
+    assert.match(savedInstructions.runtimeInstructions.revision, /^[a-f0-9]{64}$/u);
+    const settingsWithInstructions = await (await fetch(`${origin}/api/settings`, { headers: { cookie } })).json();
+    assert.equal(settingsWithInstructions.runtimeInstructions.revision, savedInstructions.runtimeInstructions.revision);
+    const invalidInstructions = await fetch(`${origin}/api/runtime-instructions`, { method: "PUT", headers, body: JSON.stringify({ markdown: "## Head Task\nIncomplete" }) });
+    assert.equal(invalidInstructions.status, 422);
+    assert.equal((await invalidInstructions.json()).error, "invalid_runtime_instructions");
+
     const message = { body: "What should we validate first?", clientRequestId: "integration-request-0001" };
     assert.equal((await fetch(`${origin}/api/conversations/${conversationId}/messages`, { method: "POST", headers, body: JSON.stringify(message) })).status, 202);
     const detail = await waitFor(async () => {
@@ -71,6 +84,8 @@ test("the local HTTP flow protects data, saves settings and preserves an unavail
     });
     assert.deepEqual(detail.events.map(event => event.role), ["owner", "System"]);
     assert.match(detail.events[1].body, /subscription is unavailable/u);
+    assert.equal(detail.run.snapshot.runtimeInstructions.revision, savedInstructions.runtimeInstructions.revision);
+    assert.equal(detail.run.snapshot.runtimeInstructions.markdown, savedInstructions.runtimeInstructions.markdown);
   } finally {
     child.kill("SIGTERM");
     await once(child, "exit").catch(() => {});

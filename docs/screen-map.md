@@ -13,7 +13,7 @@ Routes identify canonical user-facing surface locations; overlay states may reta
 | S-01 — Sign in | `#login` | UC-001 | J-01 | FR-01.1, FR-01.2 |
 | S-02 — Discussion and composer | `#discussion` | UC-002, UC-003 | J-02/J-03/J-05 | FR-02.1–02.8, FR-03.1–03.6 |
 | S-03 — Conversations | `#history` | UC-004 | J-06 | FR-06.1 |
-| S-04 — Settings | `#settings` | UC-005 | J-07 | FR-05.1–05.5, FR-08.2, NFR-10.2 |
+| S-04 — Settings | `#settings` | UC-005 | J-07 | FR-05.1–05.6, FR-08.2, NFR-10.2 |
 | S-05 — Voice input | `#voice` | UC-006 | J-02 | FR-07.1–07.5 |
 | S-06 — Sources and detail | `#sources` | UC-007, UC-004 | J-04 | FR-04.2 |
 | S-07 — Outcome | `#outcome` | UC-002, UC-004 | J-06 | FR-02.6, FR-02.7 |
@@ -48,7 +48,7 @@ These states apply to the approved Electric A v8 and the retained comparison can
 | ST-20 | S-03 | `unavailable` | `#history` · UC-004 |
 | ST-21 | S-04 | `saved` | `#settings` · UC-005 |
 | ST-22 | S-04 | `edited` | `#settings` · UC-005 |
-| ST-23 | S-04 | `invalid-combination` | `#settings` · UC-005 |
+| ST-23 | S-04 | `invalid-settings` (model combination or runtime-instructions document) | `#settings` · UC-005 |
 | ST-24 | S-04 | `catalog-unavailable` | `#settings` · UC-005 |
 | ST-25 | S-04 | `session-control` | `#settings` · UC-005 |
 | ST-26 | S-05 | `ready` | `#voice` · UC-006 |
@@ -81,7 +81,7 @@ J-01 resolves through S-01 to S-02; the navigation surface S-09 never grants ide
 
 J-03 clarification and substantive exchange remain on S-02; no procedural stage screen is added. J-04 moves to S-06 and back to the originating claim. J-05 Stop/Continue preserves the same record, while New ends or pauses active work before establishing another. Offline, quota, provider-auth and system/research failure keep distinct recovery transitions. App expiry at the PRD 24-hour boundary goes through S-01; explicit sign-out, revocation and security invalidation remain earlier exits.
 
-J-06 uses S-07 for the conclusion, S-03 to reopen history and S-08 for export/deletion. Delete cancellation is inert; success removes only the selected record and returns to empty history/new discussion. J-07 opens S-04, validates the edited combination and saves for future work; Cancel restores previous selections. Session-control confirmation leads to simulated reauthentication then revocation, never revealing credentials.
+J-06 uses S-07 for the conclusion, S-03 to reopen history and S-08 for export/deletion. Delete cancellation is inert; success removes only the selected record and returns to empty history/new discussion. J-07 opens S-04, validates the edited model combination and runtime-instructions Markdown document, and saves each for future work with its revision; Cancel restores previous selections. Invalid Markdown retains the unsaved edit with a specific requirement message; active runs retain their accepted document snapshot. Session-control confirmation leads to simulated reauthentication then revocation, never revealing credentials.
 
 Security boundaries: NFR-10.1–10.3 remain enforced by the later trusted service, not by screen visibility. NFR-12.2/NFR-14.2 protect the owner-only image-attachment and browser-recognition draft exits; NanoDuck receives no voice audio. NFR-14.3 governs record actions. Reflow, keyboard and focus apply to every surface under NFR-02.1–02.3.
 

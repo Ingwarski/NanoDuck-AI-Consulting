@@ -6,7 +6,8 @@ Working language: English. Product content and source metadata: English and Ukra
 |---|---|---|
 | NanoDuck Consulting Group | Exact current product name; NanoDuck and Consulting Group may form two lines of one wordmark. | Personal AI Consulting Group as current UI branding; implying a human firm |
 | Personal AI Consulting Group | Historical name of the existing GoDaddy app; retain it only for legacy evidence and exact deployment targeting. | Renaming or broadening the deployment target |
-| Settings | Literal navigation label for models, reasoning, specialist count, discussion depth and account actions. | Your space; Preferences as the destination name |
+| Settings | Literal navigation label for models, reasoning, specialist count, discussion depth, editable runtime instructions and account actions. | Your space; Preferences as the destination name |
+| Runtime instructions | Versioned Markdown behavioral contract for future model prompts. The server validates the fixed headings/placeholders, snapshots its exact Markdown and revision at acceptance, and renders it only through the runtime prompt-contract module. | A browser-only prompt, user-submitted instruction or a way to weaken server-enforced topology/security controls |
 | Head Consultant | Separately invoked coordinator: selects an Auto team internally, gives concise visible tasks to selected specialists that repeat two concrete details from the owner's decision, then authors the final owner-facing synthesis. | A fictional human partner or a pre-conclusion adviser |
 | Consultant / specialist | Separate AI context with a relevant assignment. | Several role labels on one completion |
 | Spiritual Consultant | AI specialist using evangelical Protestant doctrine: Jesus Christ as Lord and Saviour, finished work, salvation by faith alone and salvation that cannot be lost. | Esoteric, occult, syncretic, manifestation or therapeutic claims |

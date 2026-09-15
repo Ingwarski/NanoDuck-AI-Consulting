@@ -114,7 +114,15 @@ async function loadConversations() {
   }
 }
 
-async function loadSettings() { const { data } = await request("/api/settings"); const settings = data.settings; $("#head-model").value = settings.headModel; $("#head-reasoning").value = settings.headReasoning; $("#critic-model").value = settings.criticModel; $("#critic-reasoning").value = settings.criticReasoning; $("#specialist-count").value = settings.specialistCount; $("#discussion-depth").value = settings.discussionDepth; const providerMessage = { ready: "Selected Codex route is ready for this runtime.", quota_blocked: "Selected Codex route has reached its current limit; saved preferences are preserved.", auth_required: "Selected Codex route needs its managed sign-in renewed.", incompatible: "The selected Codex route does not expose the preserved model and reasoning settings.", unavailable: "Selected Codex route is unavailable on this runtime; saved preferences are preserved." }; $("#settings-status").textContent = providerMessage[data.provider] ?? providerMessage.unavailable; $("#session-expiry").textContent = `This session expires ${new Intl.DateTimeFormat(undefined, { dateStyle: "medium", timeStyle: "short" }).format(new Date(state.session.expiresAt))}. Activity does not extend the 24-hour boundary.`; }
+async function loadSettings() {
+  const { data } = await request("/api/settings"); const settings = data.settings;
+  $("#head-model").value = settings.headModel; $("#head-reasoning").value = settings.headReasoning; $("#critic-model").value = settings.criticModel; $("#critic-reasoning").value = settings.criticReasoning; $("#specialist-count").value = settings.specialistCount; $("#discussion-depth").value = settings.discussionDepth;
+  $("#runtime-instructions").value = data.runtimeInstructions.markdown;
+  $("#runtime-instructions-status").textContent = `${data.runtimeInstructions.source === "baseline" ? "Approved baseline" : "Saved"} revision ${data.runtimeInstructions.revision.slice(0, 12)}. Required headings and placeholders are validated before save.`;
+  const providerMessage = { ready: "Selected Codex route is ready for this runtime.", quota_blocked: "Selected Codex route has reached its current limit; saved preferences are preserved.", auth_required: "Selected Codex route needs its managed sign-in renewed.", incompatible: "The selected Codex route does not expose the preserved model and reasoning settings.", unavailable: "Selected Codex route is unavailable on this runtime; saved preferences are preserved." };
+  $("#settings-status").textContent = providerMessage[data.provider] ?? providerMessage.unavailable;
+  $("#session-expiry").textContent = `This session expires ${new Intl.DateTimeFormat(undefined, { dateStyle: "medium", timeStyle: "short" }).format(new Date(state.session.expiresAt))}. Activity does not extend the 24-hour boundary.`;
+}
 
 function renderAttachmentDraft() {
   const list = clear($("#attachment-list"));
@@ -263,6 +271,19 @@ $("#development-sign-in").addEventListener("click", async () => {
 });
 $("#consent-check").addEventListener("change", event => { $("#consent-button").disabled = !event.target.checked; }); $("#consent-button").addEventListener("click", async () => { await request("/api/consent", { method: "POST" }); await loadSession(); });
 $("#settings-form").addEventListener("submit", async event => { event.preventDefault(); const settings = { headModel: $("#head-model").value, headReasoning: $("#head-reasoning").value, criticModel: $("#critic-model").value, criticReasoning: $("#critic-reasoning").value, specialistCount: $("#specialist-count").value, discussionDepth: $("#discussion-depth").value }; await request("/api/settings", { method: "PUT", body: settings }); toast("Settings saved for future consultations."); });
+$("#runtime-instructions-form").addEventListener("submit", async event => {
+  event.preventDefault();
+  try {
+    const { data } = await request("/api/runtime-instructions", { method: "PUT", body: { markdown: $("#runtime-instructions").value } });
+    $("#runtime-instructions").value = data.runtimeInstructions.markdown;
+    $("#runtime-instructions-status").textContent = `Saved revision ${data.runtimeInstructions.revision.slice(0, 12)}. It applies to future consultations.`;
+    toast("Runtime instructions saved for future consultations.");
+  } catch (error) {
+    const message = error.data?.message ?? "Runtime instructions were not saved.";
+    $("#runtime-instructions-status").textContent = message;
+    toast(message);
+  }
+});
 $("#sign-out").addEventListener("click", async () => { await request("/api/logout", { method: "POST" }); state.session = null; state.csrf = null; state.conversation = null; showSignIn(); });
 $("#attach").addEventListener("click", () => $("#attachment").click()); $("#attachment").addEventListener("change", event => chooseAttachments(event.target.files));
 $("#voice").addEventListener("click", openVoice); $("#voice-action").addEventListener("click", event => { event.preventDefault(); voiceAction(); }); $("#voice-cancel").addEventListener("click", () => { releaseVoice(); $("#voice-dialog").close(); }); $("#voice-close").addEventListener("click", () => { releaseVoice(); $("#voice-dialog").close(); }); $("#voice-dialog").addEventListener("close", releaseVoice); window.addEventListener("pagehide", () => { stopPolling(); releaseVoice(); }); document.addEventListener("visibilitychange", () => { if (document.hidden && state.voiceMode === "listening") { releaseVoice(); voiceFailure("Voice interrupted", "Voice input stopped when the app moved to the background. Your typed draft is unchanged."); } });

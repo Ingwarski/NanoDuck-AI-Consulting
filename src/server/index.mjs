@@ -6,6 +6,7 @@ import { createMemoryStore, createMySqlStore } from "./store.mjs";
 import { createAuth } from "./auth.mjs";
 import { createCodexProvider } from "./codex-provider.mjs";
 import { createConsultationService } from "./consultation.mjs";
+import { defaultRuntimeInstructions, parseRuntimeInstructions, RuntimeInstructionError } from "./prompt-contracts.mjs";
 import { attachmentExtension, readImageAttachment } from "./attachments.mjs";
 import { messageError, parseConversationId, parseMessage, parseSettings } from "./validation.mjs";
 
@@ -33,6 +34,11 @@ const protectedSession = async (request, response, options = {}) => {
   return session;
 };
 const routeId = pathname => pathname.match(/^\/api\/conversations\/([A-Za-z0-9_-]{16,128})(?:\/([^/]+)(?:\/([A-Za-z0-9_-]{16,128}))?)?$/u);
+const activeRuntimeInstructions = async () => {
+  const saved = await store.runtimeInstructions();
+  const contract = saved ? parseRuntimeInstructions(saved.markdown) : defaultRuntimeInstructions;
+  return Object.freeze({ markdown: contract.markdown, revision: contract.revision, updatedAt: saved?.updatedAt ?? null, source: saved ? "saved" : "baseline" });
+};
 
 async function staticFile(request, response, pathname) {
   const wanted = pathname === "/" ? "/index.html" : pathname;
@@ -65,8 +71,15 @@ const handler = async (request, response) => {
       const session = await auth.consent(request); return session ? send(response, 200, { consented: true }) : send(response, 403, { error: "consent_denied" });
     }
     if (request.method === "POST" && url.pathname === "/api/logout") { await auth.signOut(request); return empty(response, 204, { "set-cookie": auth.clearSessionCookie() }); }
-    if (request.method === "GET" && url.pathname === "/api/settings") { if (!await protectedSession(request, response)) return; const capabilities = await provider.inspect(); return send(response, 200, { settings: await store.settings(), provider: capabilities.status, catalog: capabilities.models }); }
+    if (request.method === "GET" && url.pathname === "/api/settings") { if (!await protectedSession(request, response)) return; const [capabilities, runtimeInstructions] = await Promise.all([provider.inspect(), activeRuntimeInstructions()]); return send(response, 200, { settings: await store.settings(), runtimeInstructions, provider: capabilities.status, catalog: capabilities.models }); }
     if (request.method === "PUT" && url.pathname === "/api/settings") { if (!await protectedSession(request, response, { csrf: true })) return; const capabilities = await provider.inspect(); const next = parseSettings(await json(request), capabilities.models); return next ? send(response, 200, { settings: await store.saveSettings(next) }) : send(response, 422, { error: "invalid_settings" }); }
+    if (request.method === "GET" && url.pathname === "/api/runtime-instructions") { if (!await protectedSession(request, response)) return; return send(response, 200, { runtimeInstructions: await activeRuntimeInstructions() }); }
+    if (request.method === "PUT" && url.pathname === "/api/runtime-instructions") {
+      if (!await protectedSession(request, response, { csrf: true })) return;
+      const contract = parseRuntimeInstructions((await json(request))?.markdown);
+      const saved = await store.saveRuntimeInstructions(contract);
+      return send(response, 200, { runtimeInstructions: { ...saved, source: "saved" } });
+    }
     if (request.method === "GET" && url.pathname === "/api/conversations") { if (!await protectedSession(request, response)) return; return send(response, 200, { conversations: await store.listConversations() }); }
     if (request.method === "POST" && url.pathname === "/api/conversations") { if (!await protectedSession(request, response, { csrf: true })) return; return send(response, 201, { conversation: await store.createConversation() }); }
     const matched = routeId(url.pathname);
@@ -84,7 +97,12 @@ const handler = async (request, response) => {
         return attachment ? bytes(response, 200, attachment.content, { "content-type": attachment.contentType, "content-disposition": `attachment; filename="nanoduck-image.${attachmentExtension(attachment.contentType)}"` }) : send(response, 404, { error: "not_found" });
       }
       if (request.method === "DELETE" && action === "attachments" && resourceId) return (await store.deletePendingAttachment(conversationId, resourceId)) ? empty(response, 204) : send(response, 404, { error: "not_found" });
-      if (request.method === "POST" && action === "messages") { const raw = await json(request); const input = parseMessage(raw); if (!input) return send(response, 422, { error: messageError(raw) }); const accepted = await store.acceptMessage(conversationId, input, await store.settings()); if (!accepted) return send(response, 409, { error: "active_or_missing_conversation" }); await consultation.start(conversationId, accepted.run); return send(response, 202, accepted); }
+      if (request.method === "POST" && action === "messages") {
+        const raw = await json(request); const input = parseMessage(raw); if (!input) return send(response, 422, { error: messageError(raw) });
+        const [settings, runtimeInstructions] = await Promise.all([store.settings(), activeRuntimeInstructions()]);
+        const accepted = await store.acceptMessage(conversationId, input, { ...settings, runtimeInstructions: { markdown: runtimeInstructions.markdown, revision: runtimeInstructions.revision } });
+        if (!accepted) return send(response, 409, { error: "active_or_missing_conversation" }); await consultation.start(conversationId, accepted.run); return send(response, 202, accepted);
+      }
       if (request.method === "POST" && action === "stop") { const run = await consultation.stop(conversationId); return run ? send(response, 200, { run }) : send(response, 409, { error: "no_active_run" }); }
       if (request.method === "POST" && action === "continue") { const run = await consultation.continue(conversationId); return run ? send(response, 202, { run }) : send(response, 409, { error: "not_stopped" }); }
       if (request.method === "GET" && action === "export") { const exported = await store.exportConversation(conversationId); return exported ? send(response, 200, exported, { "content-disposition": `attachment; filename="nanoduck-${conversationId}.json"` }) : send(response, 404, { error: "not_found" }); }
@@ -93,6 +111,7 @@ const handler = async (request, response) => {
     if (request.method === "GET" && await staticFile(request, response, url.pathname)) return;
     send(response, 404, { error: "not_found" });
   } catch (error) {
+    if (error instanceof RuntimeInstructionError) return send(response, 422, { error: error.code, message: error.message });
     if (error.message === "body_too_large") return send(response, 413, { error: "body_too_large" });
     if (error.code === "attachment_too_large") return send(response, 413, { error: "attachment_too_large" });
     if (error.code === "invalid_image_attachment") return send(response, 422, { error: "invalid_image_attachment" });

@@ -64,11 +64,11 @@ Obligations and acceptance: FR-06.1–FR-06.3, NFR-10.3, NFR-14.1–NFR-14.3; AC
 Jobs: JOB-003, JOB-005. Actors: Owner; supported model catalog; selected provider.
 Trigger: Owner opens Settings or a provider condition pauses work. Goal: Choose model/reasoning deliberately and understand the next available action.
 Preconditions: Signed in; saved selections and available catalog evidence are identified.
-Success path: 1. Owner opens Settings. 2. Owner changes Head/specialist model and reasoning, Critic provider/model/reasoning, specialist count or discussion depth. 3. System validates the combination and saves it for future runs. 4. Usage shows known remaining/reset facts; an actual selected-provider grant failure offers contextual reauthorization.
+Success path: 1. Owner opens Settings. 2. Owner changes Head/specialist model and reasoning, Critic provider/model/reasoning, specialist count or discussion depth, or reviews and edits the validated runtime-instructions Markdown document. 3. System validates the combination/document and saves it for future runs, showing the active document revision. 4. Usage shows known remaining/reset facts; an actual selected-provider grant failure offers contextual reauthorization.
 Alternates/recovery: Unsupported combinations fail visibly without substitution. Unknown usage is labelled unavailable. Quota, outage, app-session expiry and provider authorization remain distinct; inactive Claude causes no warning. Revocation/sign-out ends the selected app sessions.
 Postconditions: Preferences persist across devices; active work retains its exact earlier snapshot.
 Authority/privacy: Provider credentials cannot be displayed or edited through general preference fields; revoking sessions requires renewed identity verification.
-Obligations and acceptance: FR-05.1–FR-05.5, NFR-10.2, NFR-11.1; AC-006
+Obligations and acceptance: FR-05.1–FR-05.6, NFR-10.2, NFR-11.1; AC-006
 
 ### UC-006 — Dictate and review
 Jobs: JOB-006. Actors: Owner; browser-native speech-recognition service.
@@ -106,7 +106,7 @@ Obligations and acceptance: FR-04.1–FR-04.3, NFR-12.1, NFR-12.3; AC-008
 | FR-02.1 | Text submission receives a distinguishable accepted state; an unsent draft never appears accepted. | UC-002 |
 | FR-02.2 | The authenticated owner can attach a JPEG, PNG or WebP image of at most 8 MiB. PDF, SVG, video, archives and every other file type are rejected. | UC-002 |
 | FR-02.3 | Simple questions receive a direct answer unless the owner explicitly requests Critic; that request invokes the separate Critic even for a simple question and does not require an unnecessary specialist team. Substantive or explicitly requested team work uses the owner-selected number of relevant permitted specialists: 1, 2, 3, 5, or the 1–5 count selected by Head in Auto. The count excludes Head and Critic. Auto selection is an internal routing decision. Leadership Consultant and esoteric roles are excluded. Spiritual Consultant applies the specified evangelical Protestant doctrine; Psychotherapist may use major classical psychotherapy schools and Internal Family Systems within the stated non-clinical/emergency boundary. | UC-002 |
-| FR-02.4 | Every participating consultant and Critic is a separate ephemeral model invocation reconstructed from the saved event stream, with a distinct assignment. For substantive work, Head's visible pre-conclusion messages are concise tasks addressed individually to the selected specialists; each repeats a case anchor and another decision detail from the owner question, and each specialist's exact assigned task is included in its reconstructed prompt. Its independent initial position is addressed to Critic; subsequent exchanges are only Critic → relevant specialist → Critic; Head addresses the owner only in the final synthesis. No specialist-to-specialist routing is permitted. | UC-002 |
+| FR-02.4 | Every participating consultant and Critic is a separate ephemeral model invocation reconstructed from the saved event stream, with a distinct assignment. The server renders behavioral prompt text through one validated runtime prompt-contract module from the exact runtime-instructions Markdown snapshot accepted with the run. For substantive work, Head's visible pre-conclusion messages are concise tasks addressed individually to the selected specialists; each repeats a case anchor and another decision detail from the owner question, and each specialist's exact assigned task is included in its reconstructed prompt. Its independent initial position is addressed to Critic; subsequent exchanges are only Critic → relevant specialist → Critic; Head addresses the owner only in the final synthesis. No specialist-to-specialist routing is permitted. | UC-002 |
 | FR-02.5 | A material Critic objection receives a relevant consultant response or revision; warranted agreement is permitted immediately. | UC-002 |
 | FR-02.6 | Consensus is stated only when Head, participating specialists and Critic agree on the same recommendation; otherwise the conclusion names the unresolved issue. | UC-002 |
 | FR-02.7 | Head finishes with a self-contained recommendation or bounded uncertainty, up to three actions, the main risk and a revisit condition. | UC-002 |
@@ -136,10 +136,11 @@ Obligations and acceptance: FR-04.1–FR-04.3, NFR-12.1, NFR-12.3; AC-008
 | ID | Observable obligation | Use cases |
 |---|---|---|
 | FR-05.1 | Settings exposes functioning model and reasoning selectors separately for Head/specialists and Critic, including the optional Critic provider, using only the current supported catalog. | UC-005 |
-| FR-05.2 | Saved changes apply to future runs; each active run retains the exact provider/model/reasoning, specialist-count and discussion-depth snapshot used at acceptance. | UC-005 |
+| FR-05.2 | Saved changes apply to future runs; each active run retains the exact provider/model/reasoning, specialist-count, discussion-depth and validated runtime-instructions Markdown/revision snapshot used at acceptance. | UC-005 |
 | FR-05.3 | Settings provides specialist count 1/2/3/5/Auto and discussion depth 1/3/5/Auto. Specialist count excludes Head and Critic. Each depth is one complete Critic ↔ specialist exchange; Auto depth stops at a supported consilium or after 10 exchanges. The 540,000 ms provider budget remains separate. | UC-005 |
 | FR-05.4 | Usage presents real known quota/reset information or explicitly unavailable information; it never invents a per-session charge. | UC-005 |
 | FR-05.5 | Only a genuine authorization failure for the selected provider offers contextual reauthorization; quota and outage show their actual next action. | UC-005 |
+| FR-05.6 | Settings shows the complete current runtime-instructions Markdown document. It accepts an owner edit only when all required runtime headings and placeholders validate, saves an identifiable revision for future runs, and never lets document text weaken server-enforced authorization, role topology, output bounds or language/source validation. | UC-005 |
 
 ### History
 

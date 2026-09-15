@@ -24,6 +24,7 @@ export function createMemoryStore() {
   const requests = new Map();
   const sessions = new Map();
   let settings = { ...defaults };
+  let runtimeInstructions;
 
   const hasActiveRun = () => [...runs.values()].some(run => run.status === "active");
   return Object.freeze({
@@ -34,6 +35,8 @@ export function createMemoryStore() {
     async revokeSession(id) { const item = sessions.get(id); if (!item) return false; item.revokedAt = now(); return true; },
     async settings() { return Object.freeze({ ...settings }); },
     async saveSettings(next) { settings = { ...next }; return Object.freeze({ ...settings }); },
+    async runtimeInstructions() { return runtimeInstructions ? Object.freeze({ ...runtimeInstructions }) : undefined; },
+    async saveRuntimeInstructions(next) { runtimeInstructions = { markdown: next.markdown, revision: next.revision, updatedAt: now() }; return Object.freeze({ ...runtimeInstructions }); },
     async listConversations() {
       return [...conversations.values()].filter(item => !item.deletedAt).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)).map(item => ({ ...item }));
     },
@@ -163,6 +166,15 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
     async revokeSession(id) { const [result] = await query("UPDATE nanoduck_sessions SET revoked_at=? WHERE id=? AND revoked_at IS NULL", [now(),id]); return result.affectedRows === 1; },
     async settings() { const [rows] = await query("SELECT settings_json FROM nanoduck_settings WHERE owner_id = 'owner' LIMIT 1"); return rows.length ? Object.freeze({ ...defaults, ...JSON.parse(rows[0].settings_json) }) : Object.freeze({ ...defaults }); },
     async saveSettings(next) { await query("INSERT INTO nanoduck_settings (owner_id, settings_json) VALUES ('owner', ?) ON DUPLICATE KEY UPDATE settings_json=VALUES(settings_json)", [JSON.stringify(next)]); return Object.freeze({ ...next }); },
+    async runtimeInstructions() {
+      const [rows] = await query("SELECT markdown,revision,updated_at FROM nanoduck_runtime_instructions WHERE owner_id = 'owner' LIMIT 1");
+      return rows.length ? Object.freeze({ markdown: rows[0].markdown, revision: rows[0].revision, updatedAt: rows[0].updated_at }) : undefined;
+    },
+    async saveRuntimeInstructions(next) {
+      const updatedAt = now();
+      await query("INSERT INTO nanoduck_runtime_instructions (owner_id,markdown,revision,updated_at) VALUES ('owner',?,?,?) ON DUPLICATE KEY UPDATE markdown=VALUES(markdown),revision=VALUES(revision),updated_at=VALUES(updated_at)", [next.markdown, next.revision, updatedAt]);
+      return Object.freeze({ markdown: next.markdown, revision: next.revision, updatedAt });
+    },
     async listConversations() { const [rows] = await query("SELECT id,title,created_at,updated_at,deleted_at FROM nanoduck_conversations WHERE deleted_at IS NULL ORDER BY updated_at DESC"); return rows.map(row => ({ id: row.id, title: row.title, createdAt: row.created_at, updatedAt: row.updated_at, deletedAt: row.deleted_at })); },
     async createConversation() { const item = { id: randomId(), title: "New consultation", createdAt: now(), updatedAt: now() }; await query("INSERT INTO nanoduck_conversations (id,title,created_at,updated_at) VALUES (?,?,?,?)", [item.id, item.title, item.createdAt, item.updatedAt]); return { ...item, deletedAt: null }; },
     async getConversation(id) { const [rows] = await query("SELECT id,title,created_at,updated_at,deleted_at FROM nanoduck_conversations WHERE id=? AND deleted_at IS NULL LIMIT 1", [id]); return rows.length ? { id: rows[0].id, title: rows[0].title, createdAt: rows[0].created_at, updatedAt: rows[0].updated_at, deletedAt: rows[0].deleted_at } : undefined; },

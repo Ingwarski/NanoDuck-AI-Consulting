@@ -14,6 +14,13 @@ CREATE TABLE IF NOT EXISTS nanoduck_settings (
   settings_json JSON NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS nanoduck_runtime_instructions (
+  owner_id VARCHAR(32) PRIMARY KEY,
+  markdown MEDIUMTEXT NOT NULL,
+  revision CHAR(64) NOT NULL,
+  updated_at VARCHAR(40) NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS nanoduck_owner_locks (
   owner_id VARCHAR(32) PRIMARY KEY
 );

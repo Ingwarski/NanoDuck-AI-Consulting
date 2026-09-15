@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "event": "implementation_prompt",
+  "role": "user",
+  "intent": "start_production_implementation",
+  "prompt_id": "impl-20260915-editable-runtime-instructions",
+  "received_at": "2026-09-15T14:34:18+03:00",
+  "message": "I want all this specific instructions to be in a single reviewable runtime module but used there from an md file that is visible and editable from the settings menu.",
+  "development_plan_hash": "4e97a447d768a8a772166e94c3ed4b5a0166a14056014f8b4c75f7149d5914e5",
+  "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
+  "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
+  "scope_note": "Local implementation, deterministic checks and local browser verification are authorized. Deployment, GoDaddy data operations and external changes remain outside authorization."
+}

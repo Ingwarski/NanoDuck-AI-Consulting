@@ -25,7 +25,7 @@ The `product_security_requirements` gate covers NFR-10.1, NFR-10.2, NFR-10.3, NF
 
 ### Clause-to-gate allocation
 
-All FR-01.1–01.2, FR-02.1–02.8, FR-03.1–03.6, FR-04.1–04.3, FR-05.1–05.5, FR-06.1–06.3, FR-07.1–07.5 and FR-08.1–08.3 resolve to `product_functional_requirements`. NFR-01.1–01.4 resolve to `lifecycle_and_continuity`; NFR-02.1–02.3 resolve to `approved_visual_baseline_fidelity` and their explicit accessibility/browser checks. Security membership above is exhaustive for the current PRD. Every screen-map state also needs a functional simulation check. H1–H10 and representative-user checks are additional evidence classes, not substitutions for these obligations.
+All FR-01.1–01.2, FR-02.1–02.8, FR-03.1–03.6, FR-04.1–04.3, FR-05.1–05.6, FR-06.1–06.3, FR-07.1–07.5 and FR-08.1–08.3 resolve to `product_functional_requirements`. NFR-01.1–01.4 resolve to `lifecycle_and_continuity`; NFR-02.1–02.3 resolve to `approved_visual_baseline_fidelity` and their explicit accessibility/browser checks. Security membership above is exhaustive for the current PRD. Every screen-map state also needs a functional simulation check. H1–H10 and representative-user checks are additional evidence classes, not substitutions for these obligations.
 
 ## Eval result format and evidence requirements
 

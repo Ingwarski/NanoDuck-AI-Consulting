@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "unit": "U-04",
+  "run_id": "phase3-editable-runtime-instructions-20260915",
+  "executed_at": "2026-09-15T14:34:18+03:00",
+  "executor": "Codex local implementation runner",
+  "revision_base": "5731a387d3b64b363872551b73e6a91900a0845e",
+  "baseline_id": "nanoduck-electric-a-v8-20260914",
+  "development_plan_hash": "4e97a447d768a8a772166e94c3ed4b5a0166a14056014f8b4c75f7149d5914e5",
+  "scope": "Move the behavioral role/output/research prompt contract into one server module backed by an owner-visible, editable Markdown document. Persist a validated private active revision and snapshot it at consultation acceptance. No GoDaddy application, database, migration, reset, deletion, deployment or external upload was contacted.",
+  "checks": [
+    {
+      "name": "runtime contract parser and renderer",
+      "evidence": "test/prompt-contracts.test.mjs",
+      "observed": "The checked-in Markdown baseline parses into all required sections; a missing required placeholder is rejected; a valid saved edit is rendered into model assignments with placeholders resolved.",
+      "result": "passed",
+      "limit": "This deterministic check does not establish useful output from every third-party model."
+    },
+    {
+      "name": "authenticated Settings API and immutable run snapshot",
+      "evidence": "test/http.test.mjs",
+      "observed": "The owner can read the baseline, save a valid revision, receive a validation error for invalid Markdown, and the accepted consultation run retains the saved Markdown and revision.",
+      "result": "passed",
+      "limit": "The isolated HTTP fixture uses the local memory store and an unavailable provider; hosted MySQL durability and live provider execution remain release checks."
+    },
+    {
+      "name": "regression suite",
+      "evidence": "npm run check",
+      "observed": "Static artifact checks passed and 45 Node tests passed.",
+      "result": "passed",
+      "limit": "The suite does not replace prepared release QA/DoD evidence or actual browser/provider/host checks."
+    },
+    {
+      "name": "local browser Settings review",
+      "evidence": "Isolated local app at http://127.0.0.1:4323/ in the Codex in-app browser",
+      "observed": "After local sign-in and consent, Settings displayed the complete Markdown document and approved baseline revision. Replacing one Direct Head Answer sentence and clicking Save runtime instructions produced a distinct saved revision and explicit future-consultations confirmation.",
+      "result": "passed",
+      "limit": "This verifies the local browser interaction only; it does not prove real-provider output, Safari/Chrome compatibility, hosted MySQL durability or production deployment."
+    }
+  ],
+  "formal_release_status": {
+    "canonical_qa": "83 prepared / not_run",
+    "release_readiness": "not_evaluated"
+  },
+  "release_effect": "not_release_evidence",
+  "source_hashes": {
+    "docs/runtime-instructions.md": "77128ce4add67cfa82947287bc40d5320cc140dafb50f755ac7f3dba5d5bb49d",
+    "docs/prd.md": "a57ce136941e5a8297be672a213a2c610c5e8b87551fd3e706e7ae1e51c664ef",
+    "docs/architecture.md": "91211730e875c1d73664b56ae522ea2784847ea53487ece0676d5cc9f623ad9c",
+    "docs/development-plan.md": "4e97a447d768a8a772166e94c3ed4b5a0166a14056014f8b4c75f7149d5914e5",
+    "docs/qa-checklist.md": "3b0de6671f9b443aaf286ad853f5ad315fdf122240504799a04975ab1a44d4a6",
+    "src/server/prompt-contracts.mjs": "5d8e913142ac2a9b50d0f7d0daa8dd0a717914f8732233e1bb603e35d1b98262",
+    "src/server/consultation.mjs": "a97cb6e033ec91bd4b4cf128cb8ecd84fbd1409daa6133c4ec1fa109b535fcc8",
+    "src/server/codex-provider.mjs": "561730c7dc18eac95bddadb36e081fe6d5c6a47abdfa70c1f392564f8d09880f",
+    "src/server/index.mjs": "de83ca56a590df66b86fbd43111982489df742f417c3a6d22d3acc6e7336b96b",
+    "src/server/store.mjs": "5f2c9f81906024c16d77bceebaace34bcee32e4c078752c6fe4fb9c26459f483",
+    "test/prompt-contracts.test.mjs": "7623d0df5ac4eb2349f4f9b75649df0a6da3e9b1fc24da2fdf49e2e20ca78edc",
+    "test/http.test.mjs": "3e675093bd49c2f48106ae5343b55d8254e99bc54eb27a05c09e917bc044c467"
+  }
+}
