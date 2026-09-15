@@ -72,7 +72,9 @@ export function createAuth({ config, store, createOAuthClient = (...args) => new
       if (!result.tokens.id_token) return undefined;
       const ticket = await client.verifyIdToken({ idToken: result.tokens.id_token, audience: config.google.clientId });
       const claims = ticket.getPayload();
-      if (!claims || claims.sub !== config.google.ownerSubject || claims.email_verified !== true || typeof claims.nonce !== "string" || !secureEqual(claims.nonce, flow.nonce) || !["accounts.google.com", "https://accounts.google.com"].includes(claims.iss ?? "")) return undefined;
+      const verifiedSubject = claims?.sub === config.google.ownerSubject;
+      const verifiedEmail = typeof claims?.email === "string" && claims.email.toLowerCase() === config.google.ownerEmail;
+      if (!claims || (!verifiedSubject && !verifiedEmail) || claims.email_verified !== true || typeof claims.nonce !== "string" || !secureEqual(claims.nonce, flow.nonce) || !["accounts.google.com", "https://accounts.google.com"].includes(claims.iss ?? "")) return undefined;
       const session = await createSession(claims.sub);
       return { session, clearFlowCookie: clearCookie(flowCookieName, secure) };
     },

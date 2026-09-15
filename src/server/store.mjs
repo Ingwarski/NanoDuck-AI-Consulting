@@ -168,9 +168,10 @@ export function createMemoryStore() {
 
 export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath = undefined, driver = undefined) {
   const { createPool } = driver ?? await import("mysql2/promise");
-  const pool = databaseSslCaPath
-    ? createPool({ uri: databaseUrl, ssl: { ca: await readFile(databaseSslCaPath, "utf8"), rejectUnauthorized: true } })
-    : createPool(databaseUrl);
+  const ssl = databaseSslCaPath
+    ? { ca: await readFile(databaseSslCaPath, "utf8"), rejectUnauthorized: true }
+    : { rejectUnauthorized: true };
+  const pool = createPool({ uri: databaseUrl, ssl });
   const query = (statement, values = []) => pool.execute(statement, values);
   const runtimeDocument = row => Object.freeze({ markdown: decryptText({ iv: row.iv, ciphertext: row.ciphertext, tag: row.tag }, dataKey), revision: row.revision, contentHash: row.content_hash, updatedAt: row.updated_at });
   const runtimeHistorySummary = row => Object.freeze({ id: row.id, contentHash: row.content_hash, action: row.action, restoredFromId: row.restored_from_id, createdAt: row.created_at });

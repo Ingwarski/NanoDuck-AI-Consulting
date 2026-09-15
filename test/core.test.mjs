@@ -322,12 +322,20 @@ test("development cookies remain usable on localhost while production uses host-
   assert.match(development.sessionCookie(localSession), /Max-Age=86400/u);
 
   const productionEnvironment = { NODE_ENV: "production", APP_ORIGIN: "https://consulting.example.com", DATABASE_URL: "mysql://user:password@host/database", DATABASE_SSL_CA_PATH: "/run/secrets/mysql-ca.pem", DATA_ENCRYPTION_KEY: Buffer.alloc(32, 2).toString("base64url"), RECOVERY_ENCRYPTION_KEY: Buffer.alloc(32, 6).toString("base64url"), SESSION_SIGNING_KEY: Buffer.alloc(32, 3).toString("base64url"), OWNER_GOOGLE_SUBJECT: "owner-subject", GOOGLE_CLIENT_ID: "client", GOOGLE_CLIENT_SECRET: "secret", CODEX_APP_SERVER_AUTH_PATH: "/run/secrets/codex-auth.json" };
-  assert.throws(() => loadConfig({ ...productionEnvironment, DATABASE_SSL_CA_PATH: "" }), /DATABASE_SSL_CA_PATH/u);
+  assert.throws(() => loadConfig({ ...productionEnvironment, DATABASE_URL: "", DB_HOST: "host", DB_PORT: "not-a-port", DB_NAME: "database", DB_USER: "user", DB_PASSWORD: "password" }), /managed database/u);
   assert.throws(() => loadConfig({ ...productionEnvironment, RECOVERY_ENCRYPTION_KEY: productionEnvironment.DATA_ENCRYPTION_KEY }), /must differ/u);
   assert.throws(() => loadConfig({ ...productionEnvironment, MAX_ATTACHMENT_BYTES: String(8 * 1024 * 1024 + 1) }), /cannot exceed 8 MiB/u);
   const production = createAuth({ config: loadConfig(productionEnvironment), store: createMemoryStore() });
   const productionSession = await production.developmentSignIn();
   assert.equal(productionSession, undefined);
+  const encodedAuth = Buffer.from('{"test":"owned-auth-state"}').toString("base64url");
+  const secretStoreConfig = loadConfig({ ...productionEnvironment, CODEX_APP_SERVER_AUTH_PATH: "", CODEX_APP_SERVER_AUTH_B64: encodedAuth });
+  assert.deepEqual(secretStoreConfig.codexAuthBytes, Buffer.from('{"test":"owned-auth-state"}'));
+  assert.equal(secretStoreConfig.readyForProvider, true);
+  assert.throws(() => loadConfig({ ...productionEnvironment, CODEX_APP_SERVER_AUTH_PATH: "", CODEX_APP_SERVER_AUTH_B64: "not+base64url" }), /base64url/u);
+  const managedDatabaseConfig = loadConfig({ ...productionEnvironment, DATABASE_URL: "", DATABASE_SSL_CA_PATH: "", DB_HOST: "mysql.internal", DB_PORT: "3306", DB_NAME: "owned", DB_USER: "owner", DB_PASSWORD: "contains:a/slash", OWNER_GOOGLE_SUBJECT: "", SETTINGS_OWNER_GOOGLE_EMAIL: "OWNER@EXAMPLE.COM" });
+  assert.equal(managedDatabaseConfig.databaseUrl, "mysql://owner:contains%3Aa%2Fslash@mysql.internal:3306/owned");
+  assert.equal(managedDatabaseConfig.google.ownerEmail, "owner@example.com");
   const manuallyCreated = { id: "session-id", expiresAt: new Date(Date.now() + 60_000).toISOString() };
   assert.match(production.sessionCookie(manuallyCreated), /^__Host-nanoduck-session=/u);
   assert.match(production.sessionCookie(manuallyCreated), /; Secure$/u);
@@ -384,4 +392,19 @@ test("Google callback requires the nonce bound to its signed OAuth flow", async 
   const flow = await auth.beginGoogle();
   const state = new URL(flow.location).searchParams.get("state");
   assert.ok(await auth.finishGoogle(`https://consulting.example.com/auth/google/callback?code=one-time-code&state=${encodeURIComponent(state)}`, { headers: { cookie: flow.cookie } }));
+
+  let emailAuthorization;
+  const emailConfig = loadConfig({ NODE_ENV: "production", APP_ORIGIN: "https://consulting.example.com", DATABASE_URL: "mysql://user:password@host/database", DATA_ENCRYPTION_KEY: Buffer.alloc(32, 4).toString("base64url"), RECOVERY_ENCRYPTION_KEY: Buffer.alloc(32, 6).toString("base64url"), SESSION_SIGNING_KEY: Buffer.alloc(32, 5).toString("base64url"), OWNER_GOOGLE_EMAIL: "owner@example.com", GOOGLE_CLIENT_ID: "client", GOOGLE_CLIENT_SECRET: "secret", CODEX_APP_SERVER_AUTH_PATH: "/run/secrets/codex-auth.json" });
+  const emailAuth = createAuth({
+    config: emailConfig,
+    store: createMemoryStore(),
+    createOAuthClient: () => ({
+      generateAuthUrl(options) { emailAuthorization = options; return `https://accounts.google.com/o/oauth2/auth?state=${encodeURIComponent(options.state)}`; },
+      async getToken() { return { tokens: { id_token: "test-id-token" } }; },
+      async verifyIdToken() { return { getPayload: () => ({ sub: "stable-subject", email: "OWNER@example.com", email_verified: true, iss: "https://accounts.google.com", nonce: emailAuthorization.nonce }) }; }
+    })
+  });
+  const emailFlow = await emailAuth.beginGoogle();
+  const emailState = new URL(emailFlow.location).searchParams.get("state");
+  assert.equal((await emailAuth.finishGoogle(`https://consulting.example.com/auth/google/callback?code=one-time-code&state=${encodeURIComponent(emailState)}`, { headers: { cookie: emailFlow.cookie } })).session.ownerSubject, "stable-subject");
 });

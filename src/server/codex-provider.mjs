@@ -1,5 +1,5 @@
 import { spawn } from "node:child_process";
-import { chmod, copyFile, mkdir, mkdtemp, rm } from "node:fs/promises";
+import { chmod, copyFile, mkdir, mkdtemp, rm, writeFile } from "node:fs/promises";
 import { createInterface } from "node:readline";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
@@ -66,7 +66,10 @@ class AppServerConnection {
 async function startConnection(config) {
   const directory = await mkdtemp(join(tmpdir(), "nanoduck-codex-"));
   const codexHome = join(directory, "codex-home"); await mkdir(codexHome, { mode: 0o700 });
-  if (config.codexAuthPath) { await copyFile(config.codexAuthPath, join(codexHome, "auth.json")); await chmod(join(codexHome, "auth.json"), 0o600); }
+  const authDestination = join(codexHome, "auth.json");
+  if (config.codexAuthPath) await copyFile(config.codexAuthPath, authDestination);
+  else if (config.codexAuthBytes) await writeFile(authDestination, config.codexAuthBytes, { mode: 0o600 });
+  if (config.codexAuthPath || config.codexAuthBytes) await chmod(authDestination, 0o600);
   const child = spawn(config.codexCommand, ["app-server", "--stdio"], {
     cwd: directory,
     env: { PATH: process.env.PATH ?? "/usr/local/bin:/usr/bin:/bin", HOME: directory, TMPDIR: directory, CODEX_HOME: codexHome, NO_COLOR: "1" },

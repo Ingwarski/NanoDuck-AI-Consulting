@@ -32,10 +32,37 @@ const optionalBase64urlText = (value, name) => {
   return text;
 };
 
+const optionalBase64urlBytes = (value, name) => {
+  if (value === undefined || value === "") return undefined;
+  if (typeof value !== "string" || !/^[A-Za-z0-9_-]+$/u.test(value)) throw new Error(`${name} must be base64url-encoded bytes.`);
+  const decoded = Buffer.from(value, "base64url");
+  if (!decoded.byteLength || decoded.toString("base64url") !== value) throw new Error(`${name} must be canonical base64url-encoded bytes.`);
+  return decoded;
+};
+
+const optionalString = value => typeof value === "string" && value.trim() ? value.trim() : undefined;
+
+const goDaddyDatabaseUrl = environment => {
+  const existing = optionalString(environment.DATABASE_URL);
+  if (existing) return existing;
+  const host = optionalString(environment.DB_HOST);
+  const port = optionalString(environment.DB_PORT);
+  const name = optionalString(environment.DB_NAME);
+  const user = optionalString(environment.DB_USER);
+  const password = optionalString(environment.DB_PASSWORD);
+  if (![host, port, name, user, password].some(Boolean)) return undefined;
+  if (![host, port, name, user, password].every(Boolean) || !/^\d+$/u.test(port) || Number(port) < 1 || Number(port) > 65_535) {
+    throw new Error("DB_HOST, DB_PORT, DB_NAME, DB_USER and DB_PASSWORD must form one valid managed database connection.");
+  }
+  const url = new URL("mysql://localhost");
+  url.hostname = host; url.port = port; url.username = user; url.password = password; url.pathname = `/${name}`;
+  return url.toString();
+};
+
 export function loadConfig(environment = process.env) {
   const mode = environment.NODE_ENV ?? "production";
   if (!["development", "test", "production"].includes(mode)) throw new Error("NODE_ENV is invalid.");
-  const origin = optionalUrl(environment.APP_ORIGIN, "APP_ORIGIN");
+  const origin = optionalUrl(environment.APP_ORIGIN ?? environment.SETTINGS_PUBLIC_ORIGIN, "APP_ORIGIN");
   if (mode === "production" && origin === undefined) throw new Error("APP_ORIGIN is required in production.");
   const dataKey = environment.DATA_ENCRYPTION_KEY;
   const decodedKey = dataKey === undefined ? undefined : Buffer.from(dataKey, "base64url");
@@ -50,27 +77,29 @@ export function loadConfig(environment = process.env) {
   }
   if (decodedRecoveryKey !== undefined && decodedRecoveryKey.byteLength !== 32) throw new Error("RECOVERY_ENCRYPTION_KEY must contain 32 bytes.");
   if (decodedKey && decodedRecoveryKey && decodedKey.equals(decodedRecoveryKey)) throw new Error("RECOVERY_ENCRYPTION_KEY must differ from DATA_ENCRYPTION_KEY.");
-  const sessionKey = environment.SESSION_SIGNING_KEY === undefined
+  const sessionKeyValue = environment.SESSION_SIGNING_KEY ?? environment.SETTINGS_SESSION_HMAC_KEY;
+  const sessionKey = sessionKeyValue === undefined
     ? (mode === "production" ? undefined : createHash("sha256").update("nanoduck-development-session-key").digest())
-    : Buffer.from(environment.SESSION_SIGNING_KEY, "base64url");
+    : Buffer.from(sessionKeyValue, "base64url");
   if (!sessionKey || sessionKey.byteLength < 32) throw new Error("SESSION_SIGNING_KEY must contain at least 32 bytes.");
-  const databaseUrl = environment.DATABASE_URL;
+  const databaseUrl = goDaddyDatabaseUrl(environment);
   if (mode === "production" && (typeof databaseUrl !== "string" || databaseUrl.length === 0)) {
-    throw new Error("DATABASE_URL is required in production.");
+    throw new Error("DATABASE_URL or the managed DB_* connection is required in production.");
   }
-  const databaseSslCaPath = environment.DATABASE_SSL_CA_PATH;
-  if (mode === "production" && (typeof databaseSslCaPath !== "string" || databaseSslCaPath.length === 0)) {
-    throw new Error("DATABASE_SSL_CA_PATH is required in production.");
-  }
-  const ownerSubject = environment.OWNER_GOOGLE_SUBJECT;
+  const databaseSslCaPath = optionalString(environment.DATABASE_SSL_CA_PATH);
+  const ownerSubject = optionalString(environment.OWNER_GOOGLE_SUBJECT);
+  const ownerEmail = optionalString(environment.OWNER_GOOGLE_EMAIL ?? environment.SETTINGS_OWNER_GOOGLE_EMAIL)?.toLowerCase();
   const googleClientId = environment.GOOGLE_CLIENT_ID;
   const googleClientSecret = environment.GOOGLE_CLIENT_SECRET;
-  if (mode === "production" && (![ownerSubject, googleClientId, googleClientSecret].every(value => typeof value === "string" && value.length > 0))) {
+  if (mode === "production" && (![googleClientId, googleClientSecret].every(value => typeof value === "string" && value.length > 0) || (!ownerSubject && !ownerEmail))) {
     throw new Error("Google owner identity configuration is required in production.");
   }
-  const codexAuthPath = environment.CODEX_APP_SERVER_AUTH_PATH;
-  if (mode === "production" && (typeof codexAuthPath !== "string" || codexAuthPath.length === 0)) {
-    throw new Error("CODEX_APP_SERVER_AUTH_PATH is required in production.");
+  const codexAuthPath = typeof environment.CODEX_APP_SERVER_AUTH_PATH === "string" && environment.CODEX_APP_SERVER_AUTH_PATH.trim()
+    ? environment.CODEX_APP_SERVER_AUTH_PATH.trim()
+    : undefined;
+  const codexAuthBytes = optionalBase64urlBytes(environment.CODEX_APP_SERVER_AUTH_B64, "CODEX_APP_SERVER_AUTH_B64");
+  if (mode === "production" && !codexAuthPath && !codexAuthBytes) {
+    throw new Error("CODEX_APP_SERVER_AUTH_PATH or CODEX_APP_SERVER_AUTH_B64 is required in production.");
   }
 
   const runtimeDataKey = decodedKey ?? createHash("sha256").update("nanoduck-development-data-key").digest();
@@ -90,12 +119,13 @@ export function loadConfig(environment = process.env) {
     sessionKey,
     sessionLifetimeSeconds: positiveInteger(environment.SESSION_ABSOLUTE_SECONDS, 86_400, "SESSION_ABSOLUTE_SECONDS"),
     maxAttachmentBytes,
-    google: ownerSubject && googleClientId && googleClientSecret && origin
-      ? Object.freeze({ ownerSubject, clientId: googleClientId, clientSecret: googleClientSecret, redirectUri: `${origin}/auth/google/callback` })
+    google: (ownerSubject || ownerEmail) && googleClientId && googleClientSecret && origin
+      ? Object.freeze({ ownerSubject, ownerEmail, clientId: googleClientId, clientSecret: googleClientSecret, redirectUri: `${origin}/auth/google/callback` })
       : undefined,
     developmentOwnerEmail: mode === "development" ? environment.DEV_OWNER_EMAIL : undefined,
     codexCommand: environment.CODEX_APP_SERVER_COMMAND ?? "codex",
     codexAuthPath,
-    readyForProvider: Boolean(codexAuthPath)
+    codexAuthBytes,
+    readyForProvider: Boolean(codexAuthPath || codexAuthBytes)
   });
 }

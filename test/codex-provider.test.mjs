@@ -12,6 +12,17 @@ test("Codex turns use an owned workspace and deny local tool channels", async ()
   assert.deepEqual(result, { ok: true, body: "A bounded answer.", sources: [] });
 });
 
+test("Codex auth from a host secret exists only in the private app-server home", async () => {
+  const command = fileURLToPath(new URL("./fixtures/auth-file-codex.mjs", import.meta.url));
+  const provider = createCodexProvider({
+    readyForProvider: true,
+    codexCommand: command,
+    codexAuthPath: undefined,
+    codexAuthBytes: Buffer.from('{"test":"owned-auth-state"}')
+  });
+  assert.deepEqual(await provider.inspect(), { status: "ready", models: [{ id: "gpt-6-astra", efforts: ["xhigh"] }] });
+});
+
 test("live research keeps source metadata out of natural agent prose", async () => {
   const command = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));
   const provider = createCodexProvider({ readyForProvider: true, codexCommand: command, codexAuthPath: undefined });

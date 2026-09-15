@@ -17,6 +17,7 @@
     "node": ">=22"
   },
   "dependencies": {
+    "@openai/codex": "0.153.1",
     "google-auth-library": "11.0.2",
     "mysql2": "3.24.2"
   }

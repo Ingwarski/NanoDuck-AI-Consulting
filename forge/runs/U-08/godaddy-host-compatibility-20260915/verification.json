@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "kind": "godaddy-host-compatibility-preflight",
+  "observed_at": "2026-09-15T13:56:08.961Z",
+  "target": {
+    "app_name": "Personal AI Consulting Group",
+    "app_id": "wy2v0putg6",
+    "scope": "read-only dashboard inspection",
+    "observed_runtime": "Node.js 22",
+    "database_boundary": "No rows, exports, secret values or mutations were opened."
+  },
+  "implementation": {
+    "codex_package": "@openai/codex 0.153.1",
+    "codex_auth": "GoDaddy secret CODEX_APP_SERVER_AUTH_B64 is decoded only to the owned temporary app-server auth.json with mode 0600 and removed with the home",
+    "database": "GoDaddy DB_HOST, DB_PORT, DB_NAME, DB_USER and DB_PASSWORD form the internal MySQL URI; every connection requests certificate verification",
+    "google_owner": "existing verified owner email may pin the existing Google configuration when a stable owner subject is unavailable"
+  },
+  "verification": {
+    "command": "npm run check",
+    "result": "passed",
+    "tests": "48 passed",
+    "code_checks": "55 JavaScript syntax checks and 27 Markdown/artifact checks passed",
+    "limitations": [
+      "No GoDaddy source, secret, database, migration, publish action or OAuth credential transfer occurred.",
+      "No hosted MySQL/TLS, Codex account preflight, Google callback, browser session or consultation run has been observed.",
+      "This receipt does not pass a release gate."
+    ]
+  },
+  "source_hashes": {
+    "package.json": "c143160f35bf3f9213c127a7349753b31b8f4239828ae063a13be94a566b72e9",
+    "package-lock.json": "15d7e91919d6712361522840b17248d078eac9477da4b1099e9d407800c1f20f",
+    "src/server/config.mjs": "2b648a8b904713255c685e22ce08317ed31ca8d22be55aaed530d8079944b62b",
+    "src/server/auth.mjs": "11df9c2149e6ca1c14530106c43225e3bdfeb9e9d080c7bfba954d4e8c34cc91",
+    "src/server/store.mjs": "80683647c245653c0fab360a94a74f2651f6fc4ea43648b79649a42550ee811a",
+    "src/server/migrate.mjs": "1a549d2b528f87deb21fdd73afc5d1d9fd828782d4e6933958a07a4c78a79e8a",
+    "src/server/recovery-cli.mjs": "59997a09b7cf3130e83d3a0cd8ab695892ec221b991e470ea582d35b3ce0048f",
+    "src/server/codex-provider.mjs": "4035032e2ae294e2236f0b84037393b2846459b93a663f13b8c6ec03ec6ea328",
+    "test/core.test.mjs": "1ff360459065eb84b375d56a7493d7f8593d7966e302751363bd3bb8e405d672",
+    "test/codex-provider.test.mjs": "180ecafac9d4b07ba09d0dab9c12f41a4859e576c73c21d58d98fca331262808",
+    "test/fixtures/auth-file-codex.mjs": "9ae7f1e0c38cbe10becb2e4cd9ab3fa6cad2a391327d0f9cd43ff56b6b9348a1"
+  }
+}

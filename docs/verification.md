@@ -14,6 +14,10 @@ Formal QA remains **83 prepared / not_run**; all six release gates remain uneval
 
 The owner instruction document is no longer a repository file. The one-time deployment secret bootstrap, encrypted current record, encrypted saved-version history and opaque revision tokens are implemented in the existing database boundary. The [local U-03 receipt](../forge/runs/U-03/phase3-secure-runtime-instructions-20260915/verification.json) records a fresh local browser run: a local owner opened Settings, observed the encrypted-document notice, saved a valid change, reviewed the original saved version, and restored it into a new current revision. The non-owner text used for that run is a test-only contract; this is not hosted MySQL, provider, Safari/Chrome, production or release evidence. No GoDaddy resource was contacted.
 
+### Current GoDaddy deployment preflight
+
+Read-only inspection on 15 September confirmed the named **Personal AI Consulting Group** app (`wy2v0putg6`) remains the only target: Node 22. GoDaddy injects the target database as `DB_*` and provides encrypted environment secrets rather than mounted files, so the app now forms a certificate-verified MySQL connection from the managed values and supports a base64url Codex auth secret that exists only inside a private, removed-after-use app-server directory. Local tests exercise both compatibility boundaries; the [U-08 host-compatibility receipt](../forge/runs/U-08/godaddy-host-compatibility-20260915/verification.json) records their exact source bindings. No GoDaddy source, secret, database or deployment has changed yet.
+
 ## Historical uniform-node logo v8 review — before approval
 
 The owner requires equal node radii and no contact between the yellow and orange crown segments. All nine nodes now use radius 2.5 SVG units. Upper nodes are centred at x=56.5 and x=64.5 on the same y=23.5, leaving a 3-unit edge gap. Separate yellow and orange paths contain no bridge. Both dark-interface and original-outline SVGs share the corrected geometry.

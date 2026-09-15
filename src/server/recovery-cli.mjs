@@ -11,7 +11,7 @@ if (command === "restore" && confirmation !== "--confirm-restore") usage();
 if (command === "backup" && confirmation !== undefined) usage();
 
 const config = loadConfig();
-if (!config.databaseUrl || !config.databaseSslCaPath) throw new Error("A verified MySQL target is required for recovery operations.");
+if (!config.databaseUrl) throw new Error("A verified MySQL target is required for recovery operations.");
 const store = await createMySqlStore(config.databaseUrl, config.dataKey, config.databaseSslCaPath);
 const target = resolve(requestedPath);
 try {
