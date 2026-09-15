@@ -19,9 +19,27 @@ const waitFor = (promise, milliseconds, label, signal = undefined) => new Promis
   signal?.addEventListener("abort", abort, { once: true });
   Promise.resolve(promise).then(value => finish(resolve, value), error => finish(reject, error));
 });
+const pause = (milliseconds, signal = undefined) => new Promise((resolve, reject) => {
+  let settled = false;
+  const finish = (callback, value) => {
+    if (settled) return;
+    settled = true; clearTimeout(timer); signal?.removeEventListener("abort", abort); callback(value);
+  };
+  const abort = () => finish(reject, new Error("cancelled"));
+  const timer = setTimeout(() => finish(resolve), milliseconds);
+  if (signal?.aborted) abort();
+  else signal?.addEventListener("abort", abort, { once: true });
+});
 const record = value => typeof value === "object" && value !== null && !Array.isArray(value);
 const preservedModel = "gpt-6-astra";
 const preservedEfforts = new Set(["xhigh", "ultra"]);
+const terminalTurn = value => record(value) && ["completed", "interrupted", "failed"].includes(value.status) ? value : undefined;
+const readTurn = (value, turnId) => {
+  const turns = record(value) && record(value.thread) && Array.isArray(value.thread.turns) ? value.thread.turns : [];
+  return turns.find(turn => record(turn) && turn.id === turnId) ?? turns.at(-1);
+};
+const providerFailureCode = error => ["cancelled", "provider_timeout", "app_server_timeout", "app_server_closed"].includes(error?.message) ? error.message : "provider_error";
+const providerLog = (event, details) => process.stdout.write(`${JSON.stringify({ event, ...details })}\n`);
 
 class AppServerConnection {
   constructor(child, workspace, cleanup) {
@@ -168,16 +186,42 @@ export function createCodexProvider(config) {
       let resolveTurn; const turnDone = new Promise(resolve => { resolveTurn = resolve; }); let resultBody;
       unsubscribe = connection.on(notification => {
         if (notification.method !== "turn/completed" || !record(notification.params) || notification.params.threadId !== threadId || !record(notification.params.turn)) return;
-        const turn = notification.params.turn; resultBody = bodyFrom(turn); resolveTurn(turn.status === "completed");
+        const turn = terminalTurn(notification.params.turn);
+        if (turn) resolveTurn(turn);
       });
       const turn = await connection.request("turn/start", { threadId, input: [{ type: "text", text: prompt, text_elements: [] }], model, approvalPolicy: "never", sandboxPolicy: { type: "readOnly", networkAccess: research }, environments: [], effort });
-      if (record(turn) && record(turn.turn) && turn.turn.status === "completed") resultBody = bodyFrom(turn.turn);
-      else await waitFor(turnDone, 540_000, "provider_timeout", signal);
+      const startedTurn = record(turn) && record(turn.turn) ? turn.turn : undefined;
+      if (!record(startedTurn) || typeof startedTurn.id !== "string") throw new Error("provider_error");
+      const startedAt = Date.now();
+      providerLog("nanoduck.provider.turn_started", { outputKind, research, effort });
+      let resolvedTurn = terminalTurn(startedTurn);
+      let completionSource = "turn_start";
+      while (!resolvedTurn) {
+        const remaining = 540_000 - (Date.now() - startedAt);
+        if (remaining <= 0) throw new Error("provider_timeout");
+        const notified = await Promise.race([turnDone, pause(Math.min(2_500, remaining), signal).then(() => undefined)]);
+        if (terminalTurn(notified)) {
+          resolvedTurn = notified;
+          completionSource = "notification";
+          break;
+        }
+        const read = await connection.request("thread/read", { threadId, includeTurns: true });
+        const observed = terminalTurn(readTurn(read, startedTurn.id));
+        if (observed) {
+          resolvedTurn = observed;
+          completionSource = "thread_read";
+        }
+      }
+      if (resolvedTurn.status !== "completed") throw new Error("provider_error");
+      resultBody = bodyFrom(resolvedTurn);
+      providerLog("nanoduck.provider.turn_completed", { outputKind, completionSource, durationMs: Date.now() - startedAt });
       unsubscribe();
       const output = typeof resultBody === "string" ? sourcesFrom(resultBody) : undefined;
       return output?.body ? { ok: true, body: output.body, sources: output.sources } : output ? { ok: false, code: "language_policy" } : { ok: false, code: "provider_unavailable" };
     } catch (error) {
-      return { ok: false, code: signal?.aborted || error.message === "cancelled" ? "cancelled" : "provider_unavailable" };
+      const code = signal?.aborted || error.message === "cancelled" ? "cancelled" : "provider_unavailable";
+      providerLog("nanoduck.provider.turn_failed", { outputKind, code: providerFailureCode(error) });
+      return { ok: false, code };
     } finally {
       unsubscribe();
       if (connection && threadId) await connection.request("thread/unsubscribe", { threadId }).catch(() => {});

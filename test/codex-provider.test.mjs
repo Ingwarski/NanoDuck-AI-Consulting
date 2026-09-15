@@ -50,3 +50,10 @@ test("a completed provider notification clears its deadline waiter", async () =>
   const result = await provider.invoke({ assignment: "Wait for the notification.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions, signal: new AbortController().signal });
   assert.deepEqual(result, { ok: true, body: "A bounded answer.", sources: [] });
 });
+
+test("a completed thread read releases a turn when its notification is absent", async () => {
+  const command = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));
+  const provider = createCodexProvider({ readyForProvider: true, codexCommand: command, codexAuthPath: undefined });
+  const result = await provider.invoke({ assignment: "Wait for thread read.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions, signal: new AbortController().signal });
+  assert.deepEqual(result, { ok: true, body: "A bounded answer.", sources: [] });
+});

@@ -17,6 +17,7 @@ const replyFor = prompt => {
   if (prompt.includes("Use live public web research") && !prompt.includes("Use only English or Ukrainian sources")) return "The source language policy is missing.";
   return prompt.includes("Use live public web research") ? `${answer}\n<nanoduck-source>{\"title\":\"Buyer evidence\",\"url\":\"https://example.com/buyer-evidence\",\"claim\":\"Buyer willingness must be measured before positioning.\",\"publishedAt\":\"2026-09-01\"}</nanoduck-source>` : answer;
 };
+let deferredPollingReply;
 
 createInterface({ input: process.stdin, crlfDelay: Infinity }).on("line", line => {
   const request = JSON.parse(line);
@@ -36,7 +37,16 @@ createInterface({ input: process.stdin, crlfDelay: Infinity }).on("line", line =
       send({ id: request.id, result: { turn: { id: "turn-1", status: "inProgress" } } });
       return setTimeout(() => send({ method: "turn/completed", params: { threadId: "isolated-thread", turn: { id: "turn-1", status: "completed", items: [{ type: "agentMessage", text: replyFor(prompt) }] } } }), 10);
     }
+    if (prompt.includes("Wait for thread read")) {
+      deferredPollingReply = replyFor(prompt);
+      return send({ id: request.id, result: { turn: { id: "turn-1", status: "inProgress" } } });
+    }
     return send({ id: request.id, result: { turn: { id: "turn-1", status: "completed", items: [{ type: "agentMessage", text: replyFor(prompt) }] } } });
+  }
+  if (request.method === "thread/read") {
+    const reply = deferredPollingReply;
+    deferredPollingReply = undefined;
+    return send({ id: request.id, result: { thread: { id: "isolated-thread", turns: reply ? [{ id: "turn-1", status: "completed", items: [{ type: "agentMessage", text: reply }] }] : [] } } });
   }
   if (request.method === "thread/unsubscribe") return send({ id: request.id, result: {} });
   send({ id: request.id, error: { message: "unknown_method" } });

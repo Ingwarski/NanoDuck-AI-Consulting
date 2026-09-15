@@ -3749,13 +3749,13 @@
     "architecture": {
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "r04-godaddy-quoted-secret-compatibility-20260915T195243+0300",
+      "owner_invocation_id": "r05-provider-turn-state-reconciliation-20260915T201900+0300",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r04-godaddy-quoted-secret-compatibility-20260915T195243+0300",
+      "source_version": "r05-provider-turn-state-reconciliation-20260915T201900+0300",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3772,7 +3772,9 @@
         "src/server/config.mjs": "full",
         "src/server/index.mjs": "full",
         "scripts/check-artifacts.mjs": "full",
-        "test/core.test.mjs": "full"
+        "test/core.test.mjs": "full",
+        "src/server/codex-provider.mjs": "full",
+        "test/codex-provider.test.mjs": "full"
       },
       "source_hashes": {
         "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
@@ -3790,7 +3792,9 @@
         "src/server/config.mjs": "6e5f5f80943b031bc4dbf68f4b2cd0db4c12a88319b8fe2925b419f117cafbcc",
         "src/server/index.mjs": "a4cc8c53b4e36f65bac8d4dca70b029d9065ed7d1c306e3034f84cd06b761c26",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
-        "test/core.test.mjs": "215944a173659b908f4ec9593a62e12164057fb672a340fd67561f441610a04b"
+        "test/core.test.mjs": "215944a173659b908f4ec9593a62e12164057fb672a340fd67561f441610a04b",
+        "src/server/codex-provider.mjs": "e9e542beaf21844ee8279d061725ea3e1a9b6d8de78376ffbb5f2c3be808c8e4",
+        "test/codex-provider.test.mjs": "3f4b4e53138b880939cd9330ea708f9dad5ff87f344922d274e660570d9f63af"
       },
       "dependencies": [
         "prd",
@@ -3802,12 +3806,12 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "d961232084cb8da5ead90bae84f9613aec0e43c9cf634f17dbdf1a18b9a34ffd",
+      "content_hash": "88e48fca88462f50f8a75acbdcb83b782d3b1bc75f6aceb0ea259155f6f8e84f",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r04-godaddy-quoted-secret-compatibility-reconciliation",
-        "reviewed_at": "2026-09-15T19:52:43+03:00",
+        "kind": "r05-provider-turn-state-reconciliation",
+        "reviewed_at": "2026-09-15T20:19:00+03:00",
         "executor": "Codex inline to-architecture"
       },
       "open_questions": [],
@@ -3881,19 +3885,19 @@
           "heading": "## Security enforcement map"
         }
       },
-      "supersedes": "architecture-private-preview-browser-reconciliation-2026-09-15T150200+0300",
+      "supersedes": "r04-godaddy-quoted-secret-compatibility-20260915T195243+0300",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "dod-evals": {
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "r04-godaddy-quoted-secret-compatibility-20260915T195243+0300",
+      "owner_invocation_id": "r05-provider-turn-state-reconciliation-20260915T202000+0300",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r04-godaddy-quoted-secret-compatibility-20260915T195243+0300",
+      "source_version": "r05-provider-turn-state-reconciliation-20260915T202000+0300",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3914,7 +3918,7 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "d961232084cb8da5ead90bae84f9613aec0e43c9cf634f17dbdf1a18b9a34ffd"
+        "docs/architecture.md": "88e48fca88462f50f8a75acbdcb83b782d3b1bc75f6aceb0ea259155f6f8e84f"
       },
       "dependencies": [
         "prd",
@@ -3927,12 +3931,12 @@
         "design-brief",
         "architecture"
       ],
-      "content_hash": "f25a5040ac5d197a45e299882447abc2080591914a455b6f239a10d19c77374f",
+      "content_hash": "983ee6d828420c2d5313fd19f1744cd02d8c5cf7243c7984f1cc6ce2afe36353",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r04-godaddy-quoted-secret-compatibility-reconciliation",
-        "reviewed_at": "2026-09-15T19:52:43+03:00",
+        "kind": "r05-provider-turn-state-reconciliation",
+        "reviewed_at": "2026-09-15T20:20:00+03:00",
         "executor": "Codex inline to-dod-evals"
       },
       "open_questions": [],
@@ -4006,19 +4010,19 @@
           "heading": "### Product security membership"
         }
       },
-      "supersedes": "dod-evals-private-preview-browser-reconciliation-2026-09-15T150200+0300",
+      "supersedes": "r04-godaddy-quoted-secret-compatibility-20260915T195243+0300",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "qa-checklist": {
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "r04-godaddy-quoted-secret-compatibility-20260915T195243+0300",
+      "owner_invocation_id": "r05-provider-turn-state-reconciliation-20260915T202200+0300",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r04-godaddy-quoted-secret-compatibility-20260915T195243+0300",
+      "source_version": "r05-provider-turn-state-reconciliation-20260915T202200+0300",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -4049,8 +4053,8 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "d961232084cb8da5ead90bae84f9613aec0e43c9cf634f17dbdf1a18b9a34ffd",
-        "docs/dod-evals.md": "f25a5040ac5d197a45e299882447abc2080591914a455b6f239a10d19c77374f",
+        "docs/architecture.md": "88e48fca88462f50f8a75acbdcb83b782d3b1bc75f6aceb0ea259155f6f8e84f",
+        "docs/dod-evals.md": "983ee6d828420c2d5313fd19f1744cd02d8c5cf7243c7984f1cc6ce2afe36353",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
         "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
@@ -4073,12 +4077,12 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "af031bb808bd5363d2d05b5a200f04c6914d340fc313f2726b60dbc25f1c36fa",
+      "content_hash": "39647477b7bec65b906670f452e1e97fba48fec476ab55ac0f18f7b6a3a2f88e",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r04-godaddy-quoted-secret-compatibility-reconciliation",
-        "reviewed_at": "2026-09-15T19:52:43+03:00",
+        "kind": "r05-provider-turn-state-reconciliation",
+        "reviewed_at": "2026-09-15T20:22:00+03:00",
         "executor": "Codex inline to-qa-checklist"
       },
       "open_questions": [],
@@ -5841,19 +5845,19 @@
           "heading": "## Product acceptance"
         }
       },
-      "supersedes": "qa-checklist-private-preview-browser-reconciliation-2026-09-15T150200+0300",
+      "supersedes": "r04-godaddy-quoted-secret-compatibility-20260915T195243+0300",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "development-plan": {
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "r04-godaddy-quoted-secret-compatibility-20260915T195243+0300",
+      "owner_invocation_id": "r05-provider-turn-state-reconciliation-20260915T202400+0300",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r04-godaddy-quoted-secret-compatibility-20260915T195243+0300",
+      "source_version": "r05-provider-turn-state-reconciliation-20260915T202400+0300",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -5889,9 +5893,9 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "d961232084cb8da5ead90bae84f9613aec0e43c9cf634f17dbdf1a18b9a34ffd",
-        "docs/dod-evals.md": "f25a5040ac5d197a45e299882447abc2080591914a455b6f239a10d19c77374f",
-        "docs/qa-checklist.md": "af031bb808bd5363d2d05b5a200f04c6914d340fc313f2726b60dbc25f1c36fa",
+        "docs/architecture.md": "88e48fca88462f50f8a75acbdcb83b782d3b1bc75f6aceb0ea259155f6f8e84f",
+        "docs/dod-evals.md": "983ee6d828420c2d5313fd19f1744cd02d8c5cf7243c7984f1cc6ce2afe36353",
+        "docs/qa-checklist.md": "39647477b7bec65b906670f452e1e97fba48fec476ab55ac0f18f7b6a3a2f88e",
         "docs/model-settings.md": "86801751744742aa44a41b9f6d5c5192eabd22423323c83bdbddec431e47b4d5",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "package.json": "39f69e8b9c352928595ab1b7a3e83437a0e74bbdd2e5874b7d552f77c03fe0e2",
@@ -5919,15 +5923,15 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "f0a790b0c407f9f1850c23a8b6b14d1a6bb5bff6667caf1e1d834be64a4d3271",
+      "content_hash": "da3358ce5b729fadb6dd9eb63458575f5e648587b7698d9d25730299988a17d4",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r04-godaddy-quoted-secret-compatibility-reconciliation",
-        "reviewed_at": "2026-09-15T19:52:43+03:00",
+        "kind": "r05-provider-turn-state-reconciliation",
+        "reviewed_at": "2026-09-15T20:24:00+03:00",
         "executor": "Codex inline to-development-plan"
       },
-      "supersedes": "development-plan-private-preview-browser-reconciliation-2026-09-15T150200+0300",
+      "supersedes": "r04-godaddy-quoted-secret-compatibility-20260915T195243+0300",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
       "traceability": {
         "definitions": [
@@ -7627,18 +7631,18 @@
   ],
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "f0a790b0c407f9f1850c23a8b6b14d1a6bb5bff6667caf1e1d834be64a4d3271",
+    "development_plan_hash": "da3358ce5b729fadb6dd9eb63458575f5e648587b7698d9d25730299988a17d4",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-14T20:13:37+03:00",
-    "prompt_id": "impl-r03-godaddy-hosting-20260915",
-    "prompt_received_at": "2026-09-15T19:10:49+03:00",
-    "released_at": "2026-09-15T19:10:49+03:00",
+    "prompt_id": "impl-r05-provider-turn-state-20260915",
+    "prompt_received_at": "2026-09-15T20:00:00+03:00",
+    "released_at": "2026-09-15T20:00:00+03:00",
     "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
     "prompt_receipt": {
-      "path": "forge/runs/implementation-prompt-20260915-r03-godaddy-hosting.json",
-      "content_hash": "ce396fc7d747efcca5b68780a76b23fb835e05bbe323371e9bc942b3ab3e203e"
+      "path": "forge/runs/implementation-prompt-20260915-r05-provider-turn-state.json",
+      "content_hash": "25fa4a47404defb4c45f4b08f1fb3429d820832b03edbfdc312cf1313c3901ee"
     },
-    "reason": "The owner explicitly authorized the R-03 source repair for the named GoDaddy Preview compatibility, without secret or database changes."
+    "reason": "The owner explicitly continued the bounded repair of the named GoDaddy Preview after providing additional deployment logs, without secret or database changes."
   },
   "input_requests": [],
   "last_resume_event": {
@@ -8018,6 +8022,17 @@
       },
       "development_plan_hash": "f0a790b0c407f9f1850c23a8b6b14d1a6bb5bff6667caf1e1d834be64a4d3271",
       "decision": "Quoted existing secret values now pass only through the existing strict byte-length validation. Local verification passed; hosted readiness remains not_run."
+    },
+    {
+      "event": "r05_provider_turn_state_reconciled",
+      "at": "2026-09-15T20:19:00+03:00",
+      "affected_artifacts": [
+        "architecture",
+        "dod-evals",
+        "qa-checklist",
+        "development-plan"
+      ],
+      "decision": "Provider completion now treats thread/read as an authoritative fallback when turn/completed is absent; no GoDaddy deployment or database mutation is recorded in this reconciliation."
     }
   ],
   "dispatches": {
@@ -8187,7 +8202,7 @@
       "consumed_source_fragments": {}
     },
     "architecture": {
-      "invocation_id": "r04-godaddy-quoted-secret-compatibility-20260915T195243+0300",
+      "invocation_id": "r05-provider-turn-state-reconciliation-20260915T201900+0300",
       "outputs": [
         "docs/architecture.md"
       ],
@@ -8207,12 +8222,14 @@
         "src/server/config.mjs": "6e5f5f80943b031bc4dbf68f4b2cd0db4c12a88319b8fe2925b419f117cafbcc",
         "src/server/index.mjs": "a4cc8c53b4e36f65bac8d4dca70b029d9065ed7d1c306e3034f84cd06b761c26",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
-        "test/core.test.mjs": "215944a173659b908f4ec9593a62e12164057fb672a340fd67561f441610a04b"
+        "test/core.test.mjs": "215944a173659b908f4ec9593a62e12164057fb672a340fd67561f441610a04b",
+        "src/server/codex-provider.mjs": "e9e542beaf21844ee8279d061725ea3e1a9b6d8de78376ffbb5f2c3be808c8e4",
+        "test/codex-provider.test.mjs": "3f4b4e53138b880939cd9330ea708f9dad5ff87f344922d274e660570d9f63af"
       },
       "consumed_source_fragments": {}
     },
     "dod-evals": {
-      "invocation_id": "r04-godaddy-quoted-secret-compatibility-20260915T195243+0300",
+      "invocation_id": "r05-provider-turn-state-reconciliation-20260915T202000+0300",
       "outputs": [
         "docs/dod-evals.md"
       ],
@@ -8225,12 +8242,12 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "d961232084cb8da5ead90bae84f9613aec0e43c9cf634f17dbdf1a18b9a34ffd"
+        "docs/architecture.md": "88e48fca88462f50f8a75acbdcb83b782d3b1bc75f6aceb0ea259155f6f8e84f"
       },
       "consumed_source_fragments": {}
     },
     "qa-checklist": {
-      "invocation_id": "r04-godaddy-quoted-secret-compatibility-20260915T195243+0300",
+      "invocation_id": "r05-provider-turn-state-reconciliation-20260915T202200+0300",
       "outputs": [
         "docs/qa-checklist.md"
       ],
@@ -8243,8 +8260,8 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "d961232084cb8da5ead90bae84f9613aec0e43c9cf634f17dbdf1a18b9a34ffd",
-        "docs/dod-evals.md": "f25a5040ac5d197a45e299882447abc2080591914a455b6f239a10d19c77374f",
+        "docs/architecture.md": "88e48fca88462f50f8a75acbdcb83b782d3b1bc75f6aceb0ea259155f6f8e84f",
+        "docs/dod-evals.md": "983ee6d828420c2d5313fd19f1744cd02d8c5cf7243c7984f1cc6ce2afe36353",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
         "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
@@ -8258,7 +8275,7 @@
       "consumed_source_fragments": {}
     },
     "development-plan": {
-      "invocation_id": "r04-godaddy-quoted-secret-compatibility-20260915T195243+0300",
+      "invocation_id": "r05-provider-turn-state-reconciliation-20260915T202400+0300",
       "outputs": [
         "docs/development-plan.md"
       ],
@@ -8271,9 +8288,9 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "d961232084cb8da5ead90bae84f9613aec0e43c9cf634f17dbdf1a18b9a34ffd",
-        "docs/dod-evals.md": "f25a5040ac5d197a45e299882447abc2080591914a455b6f239a10d19c77374f",
-        "docs/qa-checklist.md": "af031bb808bd5363d2d05b5a200f04c6914d340fc313f2726b60dbc25f1c36fa",
+        "docs/architecture.md": "88e48fca88462f50f8a75acbdcb83b782d3b1bc75f6aceb0ea259155f6f8e84f",
+        "docs/dod-evals.md": "983ee6d828420c2d5313fd19f1744cd02d8c5cf7243c7984f1cc6ce2afe36353",
+        "docs/qa-checklist.md": "39647477b7bec65b906670f452e1e97fba48fec476ab55ac0f18f7b6a3a2f88e",
         "docs/model-settings.md": "86801751744742aa44a41b9f6d5c5192eabd22423323c83bdbddec431e47b4d5",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "package.json": "39f69e8b9c352928595ab1b7a3e83437a0e74bbdd2e5874b7d552f77c03fe0e2",
@@ -66616,8 +66633,8 @@
     "definition_status": "prepared",
     "release_readiness": "not_evaluated",
     "source_hashes": {
-      "docs/dod-evals.md": "f25a5040ac5d197a45e299882447abc2080591914a455b6f239a10d19c77374f",
-      "docs/qa-checklist.md": "af031bb808bd5363d2d05b5a200f04c6914d340fc313f2726b60dbc25f1c36fa"
+      "docs/dod-evals.md": "983ee6d828420c2d5313fd19f1744cd02d8c5cf7243c7984f1cc6ce2afe36353",
+      "docs/qa-checklist.md": "39647477b7bec65b906670f452e1e97fba48fec476ab55ac0f18f7b6a3a2f88e"
     },
     "gates": [
       {
