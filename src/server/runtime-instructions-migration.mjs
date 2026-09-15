@@ -1,5 +1,5 @@
 import { encryptText, randomId } from "./crypto.mjs";
-import { parseRuntimeInstructions } from "./prompt-contracts.mjs";
+import { parseRuntimeInstructions, upgradeRuntimeInstructionMarkdown } from "./prompt-contracts.mjs";
 
 const columnsFor = async connection => {
   const [rows] = await connection.query("SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME='nanoduck_runtime_instructions'");
@@ -29,7 +29,7 @@ export async function migrateRuntimeInstructionStorage(connection, dataKey, boot
   if (columns.has("markdown")) {
     const [legacyRows] = await connection.query("SELECT owner_id,markdown,updated_at FROM nanoduck_runtime_instructions WHERE markdown IS NOT NULL");
     for (const row of legacyRows) {
-      const contract = parseRuntimeInstructions(row.markdown);
+      const contract = parseRuntimeInstructions(upgradeRuntimeInstructionMarkdown(row.markdown));
       const record = recordFor(contract, dataKey, "migrated", row.updated_at);
       await connection.query("UPDATE nanoduck_runtime_instructions SET ciphertext=?,iv=?,tag=?,revision=?,content_hash=?,created_at=COALESCE(created_at, ?),updated_at=? WHERE owner_id=?", [record.ciphertext,record.iv,record.tag,record.id,record.contentHash,record.createdAt,record.createdAt,row.owner_id]);
       if (row.owner_id === "owner") await insertHistory(connection, record);
@@ -43,7 +43,7 @@ export async function migrateRuntimeInstructionStorage(connection, dataKey, boot
 
   const [current] = await connection.query("SELECT owner_id FROM nanoduck_runtime_instructions WHERE owner_id='owner' LIMIT 1");
   if (current.length || !bootstrapMarkdown) return { bootstrapped: false, migrated: true };
-  const record = recordFor(parseRuntimeInstructions(bootstrapMarkdown), dataKey, "bootstrap", new Date().toISOString());
+  const record = recordFor(parseRuntimeInstructions(upgradeRuntimeInstructionMarkdown(bootstrapMarkdown)), dataKey, "bootstrap", new Date().toISOString());
   await connection.query("INSERT INTO nanoduck_runtime_instructions (owner_id,ciphertext,iv,tag,revision,content_hash,created_at,updated_at) VALUES ('owner',?,?,?,?,?,?,?)", [record.ciphertext,record.iv,record.tag,record.id,record.contentHash,record.createdAt,record.createdAt]);
   await insertHistory(connection, record);
   return { bootstrapped: true, migrated: true };

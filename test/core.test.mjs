@@ -133,16 +133,19 @@ test("MySQL runtime instructions are encrypted, versioned and restored through t
   const bootstrapped = await store.bootstrapRuntimeInstructions(testRuntimeInstructions);
   assert.notEqual(current.ciphertext, testRuntimeInstructions.markdown);
   assert.equal(decryptText(current, key), testRuntimeInstructions.markdown);
-  const edited = { ...testRuntimeInstructions, markdown: testRuntimeInstructions.markdown.replace("Give a direct, self-contained answer to this simple question.", "Give the owner a concrete answer first."), revision: "a".repeat(64) };
-  const saved = await store.saveRuntimeInstructions(edited, bootstrapped.revision);
+  const routingMigrated = await store.migrateRuntimeInstructions(markdown => ({ ...testRuntimeInstructions, markdown: markdown.replace("must not give the owner advice, a recommendation, analysis, or a preliminary conclusion.", "must not give the owner advice before the final synthesis."), revision: "b".repeat(64) }));
+  assert.ok(routingMigrated);
+  assert.equal((await store.listRuntimeInstructionHistory()).find(item => item.id === routingMigrated.revision)?.action, "routing_migration");
+  const edited = { ...testRuntimeInstructions, markdown: testRuntimeInstructions.markdown.replace("must not give the owner advice, a recommendation, analysis, or a preliminary conclusion.", "must not give the owner advice before the final synthesis."), revision: "a".repeat(64) };
+  const saved = await store.saveRuntimeInstructions(edited, routingMigrated.revision);
   assert.ok(saved);
-  assert.equal((await store.listRuntimeInstructionHistory()).length, 2);
+  assert.equal((await store.listRuntimeInstructionHistory()).length, 3);
   assert.equal((await store.runtimeInstructionVersion(bootstrapped.revision))?.markdown, testRuntimeInstructions.markdown);
   const restored = await store.restoreRuntimeInstructions(testRuntimeInstructions, saved.revision, bootstrapped.revision);
   assert.ok(restored);
   assert.notEqual(restored.revision, bootstrapped.revision);
   assert.equal((await store.runtimeInstructions())?.markdown, testRuntimeInstructions.markdown);
-  assert.ok(commands.filter(command => command === "SELECT owner_id FROM nanoduck_owner_locks WHERE owner_id='owner' FOR UPDATE").length >= 3);
+  assert.ok(commands.filter(command => command === "SELECT owner_id FROM nanoduck_owner_locks WHERE owner_id='owner' FOR UPDATE").length >= 4);
 });
 
 test("MySQL agent writes and deletion serialize through the conversation lock", async () => {

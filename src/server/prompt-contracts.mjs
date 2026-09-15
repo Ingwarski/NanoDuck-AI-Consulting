@@ -1,7 +1,7 @@
 import { createHash } from "node:crypto";
 const maximumBytes = 48 * 1024;
 const requiredSections = Object.freeze({
-  "Direct Head Answer": ["language"],
+  "Consultation Routing": ["language"],
   "Auto Team Selection": ["candidates", "language"],
   "Head Task": ["specialist", "case_anchor", "case_detail", "language"],
   "Specialist Position": ["specialist", "assigned_brief", "language"],
@@ -19,12 +19,21 @@ const requiredSections = Object.freeze({
   Psychotherapist: []
 });
 
+const legacyDirectHeadHeading = "Direct Head Answer";
+const consultationRouting = language => `Every accepted owner question must use the specialist-and-Critic consultation. Before the final synthesis, Head Consultant may send only a concise task addressed to a selected specialist; it must not give the owner advice, a recommendation, analysis, or a preliminary conclusion. The final Head synthesis comes only after the selected specialists and Critic have completed the configured exchanges. Write this message in ${language}.`;
+
 export class RuntimeInstructionError extends Error {
   constructor(message) { super(message); this.code = "invalid_runtime_instructions"; }
 }
 
 const normalize = value => typeof value === "string" ? value.replace(/\r\n?/gu, "\n").trim() : "";
 const revisionFor = markdown => createHash("sha256").update(markdown).digest("hex");
+export const upgradeRuntimeInstructionMarkdown = value => {
+  const markdown = normalize(value);
+  if (!markdown || !new RegExp(`^## ${legacyDirectHeadHeading}\\n`, "mu").test(markdown)) return `${markdown}\n`;
+  const legacySection = new RegExp(`^## ${legacyDirectHeadHeading}\\n[\\s\\S]*?(?=^## |(?![\\s\\S]))`, "mu");
+  return `${markdown.replace(legacySection, `## Consultation Routing\n${consultationRouting("{{language}}")}\n\n`).trim()}\n`;
+};
 const markdownSections = markdown => {
   const matches = [...markdown.matchAll(/^## ([^\n]+)\n([\s\S]*?)(?=^## |(?![\s\S]))/gmu)];
   const sections = new Map();
@@ -63,18 +72,17 @@ const roleGuidance = (contract, role) => contract.sections[role] ? ` ${render(co
 export function runtimeInstructionsFor(snapshot) {
   const markdown = snapshot?.runtimeInstructions?.markdown;
   if (typeof markdown !== "string") throw new RuntimeInstructionError("Accepted consultation is missing its runtime-instructions snapshot.");
-  return parseRuntimeInstructions(markdown);
+  return parseRuntimeInstructions(upgradeRuntimeInstructionMarkdown(markdown));
 }
 
 export function createRuntimePrompts(contract) {
   return Object.freeze({
-    direct: language => withStandard(contract, "Direct Head Answer", { language }),
     autoTeam: ({ candidates, language }) => render(contract, "Auto Team Selection", { candidates: candidates.join(", "), language }),
-    headTask: ({ specialist, caseAnchor, caseDetail, language }) => render(contract, "Head Task", { specialist, case_anchor: caseAnchor, case_detail: caseDetail, language }),
+    headTask: ({ specialist, caseAnchor, caseDetail, language }) => `${render(contract, "Head Task", { specialist, case_anchor: caseAnchor, case_detail: caseDetail, language })} ${render(contract, "Consultation Routing", { language })}`,
     specialistPosition: ({ specialist, assignedBrief, language }) => `${withStandard(contract, "Specialist Position", { specialist, assigned_brief: assignedBrief, language })}${roleGuidance(contract, specialist)}`,
     criticChallenge: ({ specialist, exchange, language }) => withStandard(contract, "Critic Challenge", { specialist, exchange, language }),
     specialistReply: ({ specialist, language, automaticDepth }) => `${withStandard(contract, "Specialist Reply", { specialist, language })}${roleGuidance(contract, specialist)}${automaticDepth ? ` ${render(contract, "Auto Discussion Marker")}` : ""}`,
-    conclusion: language => withStandard(contract, "Head Synthesis", { language }),
+    conclusion: language => `${withStandard(contract, "Head Synthesis", { language })} ${render(contract, "Consultation Routing", { language })}`,
     outputContract: ({ outputKind, maximumCharacters }) => outputKind === "head_task"
       ? render(contract, "Head Task Output Contract")
       : render(contract, "Natural Output Contract", { output_kind: outputKind.replaceAll("_", " "), maximum_characters: maximumCharacters ?? 2_000 }),

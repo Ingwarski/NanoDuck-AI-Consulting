@@ -49,6 +49,13 @@ export function createMemoryStore() {
       if (!runtimeInstructions) runtimeInstructions = runtimeVersion(contract, "bootstrap");
       return Object.freeze({ ...runtimeInstructions });
     },
+    async migrateRuntimeInstructions(transform) {
+      if (!runtimeInstructions) return undefined;
+      const next = transform(runtimeInstructions.markdown);
+      if (!next || next.revision === runtimeInstructions.contentHash) return Object.freeze({ ...runtimeInstructions });
+      runtimeInstructions = runtimeVersion(next, "routing_migration", runtimeInstructions.revision);
+      return Object.freeze({ ...runtimeInstructions });
+    },
     async saveRuntimeInstructions(next, expectedRevision) {
       if (!runtimeInstructions || runtimeInstructions.revision !== expectedRevision) return undefined;
       runtimeInstructions = runtimeVersion(next, "save");
@@ -215,6 +222,20 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
         await connection.execute("INSERT INTO nanoduck_runtime_instructions (owner_id,ciphertext,iv,tag,revision,content_hash,created_at,updated_at) VALUES ('owner',?,?,?,?,?,?,?)", [record.ciphertext,record.iv,record.tag,record.id,record.contentHash,record.createdAt,record.createdAt]);
         await insertRuntimeHistory(connection, record); await connection.commit();
         return Object.freeze({ markdown: contract.markdown, revision: record.id, contentHash: record.contentHash, updatedAt: record.createdAt });
+      } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
+    },
+    async migrateRuntimeInstructions(transform) {
+      const connection = await pool.getConnection();
+      try {
+        await connection.beginTransaction(); await lockOwner(connection);
+        const [rows] = await connection.execute("SELECT ciphertext,iv,tag,revision,content_hash,created_at,updated_at FROM nanoduck_runtime_instructions WHERE owner_id='owner' FOR UPDATE");
+        if (!rows.length) { await connection.commit(); return undefined; }
+        const current = runtimeDocument(rows[0]); const next = transform(current.markdown);
+        if (!next || next.revision === current.contentHash) { await connection.commit(); return current; }
+        const record = nextRuntimeRecord(next, "routing_migration", current.revision);
+        await connection.execute("UPDATE nanoduck_runtime_instructions SET ciphertext=?,iv=?,tag=?,revision=?,content_hash=?,updated_at=? WHERE owner_id='owner'", [record.ciphertext,record.iv,record.tag,record.id,record.contentHash,record.createdAt]);
+        await insertRuntimeHistory(connection, record); await connection.commit();
+        return Object.freeze({ markdown: next.markdown, revision: record.id, contentHash: record.contentHash, updatedAt: record.createdAt });
       } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
     },
     async saveRuntimeInstructions(next, expectedRevision) {

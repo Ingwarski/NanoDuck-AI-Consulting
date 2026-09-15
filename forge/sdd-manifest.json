@@ -8,13 +8,13 @@
     "product-idea": {
       "path": "docs/product-idea.md",
       "owner_skill": "to-product-idea",
-      "owner_invocation_id": "product-idea-private-preview-browser-reconciliation-2026-09-15T150200+0300",
+      "owner_invocation_id": "product-idea-r01-no-direct-head-routing-20260915T191200+0300",
       "declared_output_set": [
         "docs/product-idea.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "product-idea-private-preview-browser-reconciliation-2026-09-15T150200+0300",
+      "source_version": "product-idea-r01-no-direct-head-routing-20260915T191200+0300",
       "source_usage": {
         "docs/model-settings.md": "full",
         "docs/deployment-boundary.md": "full",
@@ -28,12 +28,12 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2"
       },
       "dependencies": [],
-      "content_hash": "26a13e2516ea55b173d4cfa718f1acfd2f72cf381e833eda0613f41af67c0c5f",
+      "content_hash": "46e10070a925db05e3ecc37b0ecffd546962f406ef9aba5c900c4948c6f2f45e",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "preview-auth-mode-reconciliation",
-        "reviewed_at": "2026-09-15T18:02:54+03:00",
+        "kind": "r01-no-direct-head-routing-reconciliation",
+        "reviewed_at": "2026-09-15T19:12:00+03:00",
         "executor": "Codex inline to-product-idea"
       },
       "open_questions": [],
@@ -96,33 +96,33 @@
         ],
         "links": []
       },
-      "supersedes": "product-idea-nanoduck-brand-20260913T202208792897"
+      "supersedes": "product-idea-private-preview-browser-reconciliation-2026-09-15T150200+0300"
     },
     "prd": {
       "path": "docs/prd.md",
       "owner_skill": "to-sdd-prd",
-      "owner_invocation_id": "prd-secure-runtime-instructions-reconciliation-20260915T163000",
+      "owner_invocation_id": "prd-r01-no-direct-head-routing-20260915T191200+0300",
       "declared_output_set": [
         "docs/prd.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "prd-secure-runtime-instructions-reconciliation-20260915T163000",
+      "source_version": "prd-r01-no-direct-head-routing-20260915T191200+0300",
       "source_usage": {
         "docs/product-idea.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "26a13e2516ea55b173d4cfa718f1acfd2f72cf381e833eda0613f41af67c0c5f"
+        "docs/product-idea.md": "46e10070a925db05e3ecc37b0ecffd546962f406ef9aba5c900c4948c6f2f45e"
       },
       "dependencies": [
         "product-idea"
       ],
-      "content_hash": "40c3550691d09f6f2c87a383f181f0bad9dc6c2a8b566229f9ae6220230513c0",
+      "content_hash": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "secure-runtime-instructions-reconciliation",
-        "reviewed_at": "2026-09-15T16:30:00+03:00",
+        "kind": "r01-no-direct-head-routing-reconciliation",
+        "reviewed_at": "2026-09-15T19:12:00+03:00",
         "executor": "Codex inline to-sdd-prd"
       },
       "open_questions": [],
@@ -2365,26 +2365,26 @@
           "reviewed_at": "2026-09-14T20:13:37+03:00"
         }
       },
-      "supersedes": "prd-approval-20260913T213454734121"
+      "supersedes": "prd-secure-runtime-instructions-reconciliation-20260915T163000"
     },
     "project-context": {
       "path": "docs/project-context.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "project-context-secure-runtime-instructions-reconciliation-20260915T163000",
+      "owner_invocation_id": "project-context-r01-no-direct-head-routing-20260915T191200+0300",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "project-context-secure-runtime-instructions-reconciliation-20260915T163000",
+      "source_version": "project-context-r01-no-direct-head-routing-20260915T191200+0300",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "26a13e2516ea55b173d4cfa718f1acfd2f72cf381e833eda0613f41af67c0c5f",
-        "docs/prd.md": "40c3550691d09f6f2c87a383f181f0bad9dc6c2a8b566229f9ae6220230513c0"
+        "docs/product-idea.md": "46e10070a925db05e3ecc37b0ecffd546962f406ef9aba5c900c4948c6f2f45e",
+        "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa"
       },
       "dependencies": [
         "product-idea",
@@ -2394,31 +2394,31 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "secure-runtime-instructions-reconciliation",
-        "reviewed_at": "2026-09-15T16:30:00+03:00",
+        "kind": "r01-no-direct-head-routing-reconciliation",
+        "reviewed_at": "2026-09-15T19:12:00+03:00",
         "executor": "Codex inline to-project-context"
       },
       "open_questions": [],
-      "supersedes": "project-context-bundle-approval-20260913T213455217349"
+      "supersedes": "project-context-secure-runtime-instructions-reconciliation-20260915T163000"
     },
     "canonical-terms": {
       "path": "docs/canonical-terms.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "project-context-secure-runtime-instructions-reconciliation-20260915T163000",
+      "owner_invocation_id": "project-context-r01-no-direct-head-routing-20260915T191200+0300",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "project-context-secure-runtime-instructions-reconciliation-20260915T163000",
+      "source_version": "project-context-r01-no-direct-head-routing-20260915T191200+0300",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "26a13e2516ea55b173d4cfa718f1acfd2f72cf381e833eda0613f41af67c0c5f",
-        "docs/prd.md": "40c3550691d09f6f2c87a383f181f0bad9dc6c2a8b566229f9ae6220230513c0"
+        "docs/product-idea.md": "46e10070a925db05e3ecc37b0ecffd546962f406ef9aba5c900c4948c6f2f45e",
+        "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa"
       },
       "dependencies": [
         "product-idea",
@@ -2428,30 +2428,30 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "secure-runtime-instructions-reconciliation",
-        "reviewed_at": "2026-09-15T16:30:00+03:00",
+        "kind": "r01-no-direct-head-routing-reconciliation",
+        "reviewed_at": "2026-09-15T19:12:00+03:00",
         "executor": "Codex inline to-project-context"
       },
       "open_questions": [],
-      "supersedes": "project-context-bundle-approval-20260913T213455217349"
+      "supersedes": "project-context-secure-runtime-instructions-reconciliation-20260915T163000"
     },
     "guardrails": {
       "path": "docs/guardrails.md",
       "owner_skill": "to-guardrails",
-      "owner_invocation_id": "guardrails-godaddy-preview-activation-reconciliation-2026-09-15T175126+0300",
+      "owner_invocation_id": "guardrails-r01-no-direct-head-routing-20260915T191200+0300",
       "declared_output_set": [
         "docs/guardrails.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "guardrails-godaddy-preview-activation-reconciliation-2026-09-15T175126+0300",
+      "source_version": "guardrails-r01-no-direct-head-routing-20260915T191200+0300",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
         "docs/canonical-terms.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "40c3550691d09f6f2c87a383f181f0bad9dc6c2a8b566229f9ae6220230513c0",
+        "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
         "docs/canonical-terms.md": "923d967e5cf98e5eea5ad7e6b661051a741f1130b7a61ec3fc04a3104365fb1f"
       },
@@ -2464,23 +2464,23 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "godaddy-preview-activation-reconciliation",
-        "reviewed_at": "2026-09-15T17:51:26+03:00",
+        "kind": "r01-no-direct-head-routing-reconciliation",
+        "reviewed_at": "2026-09-15T19:12:00+03:00",
         "executor": "Codex inline to-guardrails"
       },
       "open_questions": [],
-      "supersedes": "guardrails-approval-20260913T213455702541"
+      "supersedes": "guardrails-godaddy-preview-activation-reconciliation-2026-09-15T175126+0300"
     },
     "user-journey": {
       "path": "docs/user-journey.md",
       "owner_skill": "to-user-journey",
-      "owner_invocation_id": "user-journey-godaddy-preview-activation-reconciliation-2026-09-15T175126+0300",
+      "owner_invocation_id": "user-journey-r01-no-direct-head-routing-20260915T191200+0300",
       "declared_output_set": [
         "docs/user-journey.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "user-journey-godaddy-preview-activation-reconciliation-2026-09-15T175126+0300",
+      "source_version": "user-journey-r01-no-direct-head-routing-20260915T191200+0300",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2488,7 +2488,7 @@
         "docs/guardrails.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "40c3550691d09f6f2c87a383f181f0bad9dc6c2a8b566229f9ae6220230513c0",
+        "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
         "docs/canonical-terms.md": "923d967e5cf98e5eea5ad7e6b661051a741f1130b7a61ec3fc04a3104365fb1f",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a"
@@ -2503,23 +2503,23 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "godaddy-preview-activation-reconciliation",
-        "reviewed_at": "2026-09-15T17:51:26+03:00",
+        "kind": "r01-no-direct-head-routing-reconciliation",
+        "reviewed_at": "2026-09-15T19:12:00+03:00",
         "executor": "Codex inline to-user-journey"
       },
       "open_questions": [],
-      "supersedes": "user-journey-approval-20260913T213456186400"
+      "supersedes": "user-journey-godaddy-preview-activation-reconciliation-2026-09-15T175126+0300"
     },
     "screen-map": {
       "path": "docs/screen-map.md",
       "owner_skill": "to-screen-map",
-      "owner_invocation_id": "screen-map-godaddy-preview-activation-reconciliation-2026-09-15T175126+0300",
+      "owner_invocation_id": "screen-map-r01-no-direct-head-routing-20260915T191200+0300",
       "declared_output_set": [
         "docs/screen-map.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "screen-map-godaddy-preview-activation-reconciliation-2026-09-15T175126+0300",
+      "source_version": "screen-map-r01-no-direct-head-routing-20260915T191200+0300",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2531,7 +2531,7 @@
         "forge/design/candidates/c/v1/app.js": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "40c3550691d09f6f2c87a383f181f0bad9dc6c2a8b566229f9ae6220230513c0",
+        "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
         "docs/canonical-terms.md": "923d967e5cf98e5eea5ad7e6b661051a741f1130b7a61ec3fc04a3104365fb1f",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
@@ -2551,8 +2551,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "godaddy-preview-activation-reconciliation",
-        "reviewed_at": "2026-09-15T17:51:26+03:00",
+        "kind": "r01-no-direct-head-routing-reconciliation",
+        "reviewed_at": "2026-09-15T19:12:00+03:00",
         "executor": "Codex inline to-screen-map"
       },
       "open_questions": [],
@@ -3561,18 +3561,18 @@
           }
         ]
       },
-      "supersedes": "screen-map-nanoduck-brand-20260913T202219005510"
+      "supersedes": "screen-map-godaddy-preview-activation-reconciliation-2026-09-15T175126+0300"
     },
     "wireframes": {
       "path": "docs/wireframes.md",
       "owner_skill": "to-wireframes",
-      "owner_invocation_id": "wireframes-godaddy-preview-activation-reconciliation-2026-09-15T175126+0300",
+      "owner_invocation_id": "wireframes-r01-no-direct-head-routing-20260915T191200+0300",
       "declared_output_set": [
         "docs/wireframes.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "wireframes-godaddy-preview-activation-reconciliation-2026-09-15T175126+0300",
+      "source_version": "wireframes-r01-no-direct-head-routing-20260915T191200+0300",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3582,7 +3582,7 @@
         "docs/screen-map.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "40c3550691d09f6f2c87a383f181f0bad9dc6c2a8b566229f9ae6220230513c0",
+        "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
         "docs/canonical-terms.md": "923d967e5cf98e5eea5ad7e6b661051a741f1130b7a61ec3fc04a3104365fb1f",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
@@ -3601,23 +3601,23 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "godaddy-preview-activation-reconciliation",
-        "reviewed_at": "2026-09-15T17:51:26+03:00",
+        "kind": "r01-no-direct-head-routing-reconciliation",
+        "reviewed_at": "2026-09-15T19:12:00+03:00",
         "executor": "Codex inline to-wireframes"
       },
       "open_questions": [],
-      "supersedes": "wireframes-nanoduck-brand-20260913T202219449975"
+      "supersedes": "wireframes-godaddy-preview-activation-reconciliation-2026-09-15T175126+0300"
     },
     "design-brief": {
       "path": "docs/design-brief.md",
       "owner_skill": "to-design-brief",
-      "owner_invocation_id": "design-brief-godaddy-preview-activation-reconciliation-2026-09-15T175126+0300",
+      "owner_invocation_id": "design-brief-r01-no-direct-head-routing-20260915T191200+0300",
       "declared_output_set": [
         "docs/design-brief.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "design-brief-godaddy-preview-activation-reconciliation-2026-09-15T175126+0300",
+      "source_version": "design-brief-r01-no-direct-head-routing-20260915T191200+0300",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3673,14 +3673,14 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "40c3550691d09f6f2c87a383f181f0bad9dc6c2a8b566229f9ae6220230513c0",
+        "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
         "docs/canonical-terms.md": "923d967e5cf98e5eea5ad7e6b661051a741f1130b7a61ec3fc04a3104365fb1f",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
         "docs/user-journey.md": "f838f465bcb936a5e075b2e487e74add43c76868a71b265252eee474b121654d",
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
-        "docs/product-idea.md": "26a13e2516ea55b173d4cfa718f1acfd2f72cf381e833eda0613f41af67c0c5f",
+        "docs/product-idea.md": "46e10070a925db05e3ecc37b0ecffd546962f406ef9aba5c900c4948c6f2f45e",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "prototype/styles.css": "ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925",
         "prototype/app.js": "b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54",
@@ -3739,23 +3739,23 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "godaddy-preview-activation-reconciliation",
-        "reviewed_at": "2026-09-15T17:51:26+03:00",
+        "kind": "r01-no-direct-head-routing-reconciliation",
+        "reviewed_at": "2026-09-15T19:12:00+03:00",
         "executor": "Codex inline to-design-brief"
       },
       "open_questions": [],
-      "supersedes": "design-brief-owner-role-topology-reconciliation-20260914T233310"
+      "supersedes": "design-brief-godaddy-preview-activation-reconciliation-2026-09-15T175126+0300"
     },
     "architecture": {
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "architecture-private-preview-browser-reconciliation-2026-09-15T150200+0300",
+      "owner_invocation_id": "architecture-r01-no-direct-head-routing-20260915T191200+0300",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "architecture-private-preview-browser-reconciliation-2026-09-15T150200+0300",
+      "source_version": "architecture-r01-no-direct-head-routing-20260915T191200+0300",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3770,7 +3770,7 @@
         "forge/runs/U-06/browser-speech-uk-20260914/README.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "40c3550691d09f6f2c87a383f181f0bad9dc6c2a8b566229f9ae6220230513c0",
+        "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
         "docs/canonical-terms.md": "923d967e5cf98e5eea5ad7e6b661051a741f1130b7a61ec3fc04a3104365fb1f",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
@@ -3792,12 +3792,12 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "48aff842519bb5c5c0b7bebbf6b322fd329fb0e888856a96ea60c0ddcb0a0573",
+      "content_hash": "62254478cbc3e743061450cceab48ebc549f5abfc29d548d649c2296e79ec1d5",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "preview-auth-mode-reconciliation",
-        "reviewed_at": "2026-09-15T18:02:54+03:00",
+        "kind": "r01-no-direct-head-routing-reconciliation",
+        "reviewed_at": "2026-09-15T19:12:00+03:00",
         "executor": "Codex inline to-architecture"
       },
       "open_questions": [],
@@ -3871,19 +3871,19 @@
           "heading": "## Security enforcement map"
         }
       },
-      "supersedes": "architecture-response-quality-reconciliation-20260915T003133",
+      "supersedes": "architecture-private-preview-browser-reconciliation-2026-09-15T150200+0300",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "dod-evals": {
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "dod-evals-private-preview-browser-reconciliation-2026-09-15T150200+0300",
+      "owner_invocation_id": "dod-evals-r01-no-direct-head-routing-20260915T191200+0300",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "dod-evals-private-preview-browser-reconciliation-2026-09-15T150200+0300",
+      "source_version": "dod-evals-r01-no-direct-head-routing-20260915T191200+0300",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3896,7 +3896,7 @@
         "docs/architecture.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "40c3550691d09f6f2c87a383f181f0bad9dc6c2a8b566229f9ae6220230513c0",
+        "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
         "docs/canonical-terms.md": "923d967e5cf98e5eea5ad7e6b661051a741f1130b7a61ec3fc04a3104365fb1f",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
@@ -3904,7 +3904,7 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "48aff842519bb5c5c0b7bebbf6b322fd329fb0e888856a96ea60c0ddcb0a0573"
+        "docs/architecture.md": "62254478cbc3e743061450cceab48ebc549f5abfc29d548d649c2296e79ec1d5"
       },
       "dependencies": [
         "prd",
@@ -3921,8 +3921,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "preview-auth-mode-reconciliation",
-        "reviewed_at": "2026-09-15T18:02:54+03:00",
+        "kind": "r01-no-direct-head-routing-reconciliation",
+        "reviewed_at": "2026-09-15T19:12:00+03:00",
         "executor": "Codex inline to-dod-evals"
       },
       "open_questions": [],
@@ -3996,19 +3996,19 @@
           "heading": "### Product security membership"
         }
       },
-      "supersedes": "dod-evals-response-quality-reconciliation-20260915T002457",
+      "supersedes": "dod-evals-private-preview-browser-reconciliation-2026-09-15T150200+0300",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "qa-checklist": {
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "qa-checklist-private-preview-browser-reconciliation-2026-09-15T150200+0300",
+      "owner_invocation_id": "qa-checklist-r01-no-direct-head-routing-20260915T191200+0300",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "qa-checklist-private-preview-browser-reconciliation-2026-09-15T150200+0300",
+      "source_version": "qa-checklist-r01-no-direct-head-routing-20260915T191200+0300",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -4026,7 +4026,7 @@
         "forge/design/evidence/c-v1-visual-qa.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "40c3550691d09f6f2c87a383f181f0bad9dc6c2a8b566229f9ae6220230513c0",
+        "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
         "docs/canonical-terms.md": "923d967e5cf98e5eea5ad7e6b661051a741f1130b7a61ec3fc04a3104365fb1f",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
@@ -4034,7 +4034,7 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "48aff842519bb5c5c0b7bebbf6b322fd329fb0e888856a96ea60c0ddcb0a0573",
+        "docs/architecture.md": "62254478cbc3e743061450cceab48ebc549f5abfc29d548d649c2296e79ec1d5",
         "docs/dod-evals.md": "f25a5040ac5d197a45e299882447abc2080591914a455b6f239a10d19c77374f",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
@@ -4053,12 +4053,12 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "bbb199320e4246874f7497ef8652be69a60501b353787c2ea46bd7492311e9f4",
+      "content_hash": "94797735f02ba65c7525165d17fc6c36db9375e406ff6c41babf4aa54983818a",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "preview-auth-mode-reconciliation",
-        "reviewed_at": "2026-09-15T18:02:54+03:00",
+        "kind": "r01-no-direct-head-routing-reconciliation",
+        "reviewed_at": "2026-09-15T19:12:00+03:00",
         "executor": "Codex inline to-qa-checklist"
       },
       "open_questions": [],
@@ -5821,19 +5821,19 @@
           "heading": "## Product acceptance"
         }
       },
-      "supersedes": "qa-checklist-runtime-instructions-database-reconciliation-20260915T154310",
+      "supersedes": "qa-checklist-private-preview-browser-reconciliation-2026-09-15T150200+0300",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "development-plan": {
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "development-plan-private-preview-browser-reconciliation-2026-09-15T150200+0300",
+      "owner_invocation_id": "development-plan-r01-no-direct-head-routing-20260915T191200+0300",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "development-plan-private-preview-browser-reconciliation-2026-09-15T150200+0300",
+      "source_version": "development-plan-r01-no-direct-head-routing-20260915T191200+0300",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -5857,7 +5857,7 @@
         "forge/design/candidates/a/v8/app.js": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "40c3550691d09f6f2c87a383f181f0bad9dc6c2a8b566229f9ae6220230513c0",
+        "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
         "docs/canonical-terms.md": "923d967e5cf98e5eea5ad7e6b661051a741f1130b7a61ec3fc04a3104365fb1f",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
@@ -5865,12 +5865,12 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "48aff842519bb5c5c0b7bebbf6b322fd329fb0e888856a96ea60c0ddcb0a0573",
+        "docs/architecture.md": "62254478cbc3e743061450cceab48ebc549f5abfc29d548d649c2296e79ec1d5",
         "docs/dod-evals.md": "f25a5040ac5d197a45e299882447abc2080591914a455b6f239a10d19c77374f",
-        "docs/qa-checklist.md": "bbb199320e4246874f7497ef8652be69a60501b353787c2ea46bd7492311e9f4",
+        "docs/qa-checklist.md": "94797735f02ba65c7525165d17fc6c36db9375e406ff6c41babf4aa54983818a",
         "docs/model-settings.md": "86801751744742aa44a41b9f6d5c5192eabd22423323c83bdbddec431e47b4d5",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
-        "package.json": "984d17c4e1c1899c759df4e77c8e5799ae9fe233739123619c8a37b4f3c5cd1d",
+        "package.json": "8bf0f784e299da4fa016ddee484ba905996dbec981e23c1b92381c706e055ee6",
         "scripts/serve-prototype.mjs": "f1232082074d76e12713267d3bc10bd546a69f4a9a8836b5a073887f9c374b4d",
         "forge/design/candidates/a/v8/index.html": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
         "forge/design/candidates/a/v8/styles.css": "f8fd6e8832671b05dc8b7a2a034ee41fb2aad4f085468965feaf1c34a3b57d43",
@@ -5891,15 +5891,15 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "2ff4697d2bbbbe127f37219a59bda677b870313054eb6805c694c87c37f7a5bf",
+      "content_hash": "bf2f12f750ff49d987d74e642476fe393ea8b00d8b2d1e62a10e9a3728fc2396",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "preview-auth-mode-reconciliation",
-        "reviewed_at": "2026-09-15T18:02:54+03:00",
+        "kind": "r01-no-direct-head-routing-reconciliation",
+        "reviewed_at": "2026-09-15T19:12:00+03:00",
         "executor": "Codex inline to-development-plan"
       },
-      "supersedes": "development-plan-runtime-instructions-database-reconciliation-20260915T154310",
+      "supersedes": "development-plan-private-preview-browser-reconciliation-2026-09-15T150200+0300",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
       "traceability": {
         "definitions": [
@@ -7598,19 +7598,19 @@
     }
   ],
   "implementation_gate": {
-    "state": "invalidated",
-    "development_plan_hash": "dd1032b2bc730b2e70e727b4ff6663fd225d2ec385e7ce2cf3ad09e604a3c531",
+    "state": "authorized_for_phase3",
+    "development_plan_hash": "bf2f12f750ff49d987d74e642476fe393ea8b00d8b2d1e62a10e9a3728fc2396",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-14T20:13:37+03:00",
-    "prompt_id": "impl-20260915-runtime-instructions-database",
-    "prompt_received_at": "2026-09-15T15:43:10+03:00",
-    "released_at": "2026-09-15T15:43:10+03:00",
+    "prompt_id": "impl-r01-no-direct-head-20260915",
+    "prompt_received_at": "2026-09-15T19:12:00+03:00",
+    "released_at": "2026-09-15T19:12:00+03:00",
     "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
     "prompt_receipt": {
-      "path": "forge/runs/implementation-prompt-20260915-runtime-instructions-database.json",
-      "content_hash": "dedfbb1993da8d853724e751a3f8db60edd1d9f8d5777c8f4e0d1fcb57fc2b70"
+      "path": "forge/runs/implementation-prompt-20260915-r01-no-direct-head.json",
+      "content_hash": "a4cca4f4f34cc394ed6f893c18877dc48c62a21c61dbe6fc9ff932045e4ce1b5"
     },
-    "reason": "The GoDaddy host-compatibility reconciliation changed current development-plan bytes. The owner explicitly continued deployment preparation; target mutations remain governed by the named app/database boundary and release evidence."
+    "reason": "The owner explicitly required that Head never answer without consulting the team, authorizing the R-01 production routing correction."
   },
   "input_requests": [],
   "last_resume_event": {
@@ -7962,7 +7962,7 @@
   ],
   "dispatches": {
     "product-idea": {
-      "invocation_id": "product-idea-private-preview-browser-reconciliation-2026-09-15T150200+0300",
+      "invocation_id": "product-idea-r01-no-direct-head-routing-20260915T191200+0300",
       "outputs": [
         "docs/product-idea.md"
       ],
@@ -7975,58 +7975,58 @@
       "consumed_source_fragments": {}
     },
     "prd": {
-      "invocation_id": "prd-secure-runtime-instructions-reconciliation-20260915T163000",
+      "invocation_id": "prd-r01-no-direct-head-routing-20260915T191200+0300",
       "outputs": [
         "docs/prd.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "26a13e2516ea55b173d4cfa718f1acfd2f72cf381e833eda0613f41af67c0c5f"
+        "docs/product-idea.md": "46e10070a925db05e3ecc37b0ecffd546962f406ef9aba5c900c4948c6f2f45e"
       },
       "consumed_source_fragments": {}
     },
     "project-context": {
-      "invocation_id": "project-context-secure-runtime-instructions-reconciliation-20260915T163000",
+      "invocation_id": "project-context-r01-no-direct-head-routing-20260915T191200+0300",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "26a13e2516ea55b173d4cfa718f1acfd2f72cf381e833eda0613f41af67c0c5f",
-        "docs/prd.md": "40c3550691d09f6f2c87a383f181f0bad9dc6c2a8b566229f9ae6220230513c0"
+        "docs/product-idea.md": "46e10070a925db05e3ecc37b0ecffd546962f406ef9aba5c900c4948c6f2f45e",
+        "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa"
       },
       "consumed_source_fragments": {}
     },
     "canonical-terms": {
-      "invocation_id": "project-context-secure-runtime-instructions-reconciliation-20260915T163000",
+      "invocation_id": "project-context-r01-no-direct-head-routing-20260915T191200+0300",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "26a13e2516ea55b173d4cfa718f1acfd2f72cf381e833eda0613f41af67c0c5f",
-        "docs/prd.md": "40c3550691d09f6f2c87a383f181f0bad9dc6c2a8b566229f9ae6220230513c0"
+        "docs/product-idea.md": "46e10070a925db05e3ecc37b0ecffd546962f406ef9aba5c900c4948c6f2f45e",
+        "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa"
       },
       "consumed_source_fragments": {}
     },
     "guardrails": {
-      "invocation_id": "guardrails-godaddy-preview-activation-reconciliation-2026-09-15T175126+0300",
+      "invocation_id": "guardrails-r01-no-direct-head-routing-20260915T191200+0300",
       "outputs": [
         "docs/guardrails.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "40c3550691d09f6f2c87a383f181f0bad9dc6c2a8b566229f9ae6220230513c0",
+        "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
         "docs/canonical-terms.md": "923d967e5cf98e5eea5ad7e6b661051a741f1130b7a61ec3fc04a3104365fb1f"
       },
       "consumed_source_fragments": {}
     },
     "user-journey": {
-      "invocation_id": "user-journey-godaddy-preview-activation-reconciliation-2026-09-15T175126+0300",
+      "invocation_id": "user-journey-r01-no-direct-head-routing-20260915T191200+0300",
       "outputs": [
         "docs/user-journey.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "40c3550691d09f6f2c87a383f181f0bad9dc6c2a8b566229f9ae6220230513c0",
+        "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
         "docs/canonical-terms.md": "923d967e5cf98e5eea5ad7e6b661051a741f1130b7a61ec3fc04a3104365fb1f",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a"
@@ -8034,12 +8034,12 @@
       "consumed_source_fragments": {}
     },
     "screen-map": {
-      "invocation_id": "screen-map-godaddy-preview-activation-reconciliation-2026-09-15T175126+0300",
+      "invocation_id": "screen-map-r01-no-direct-head-routing-20260915T191200+0300",
       "outputs": [
         "docs/screen-map.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "40c3550691d09f6f2c87a383f181f0bad9dc6c2a8b566229f9ae6220230513c0",
+        "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
         "docs/canonical-terms.md": "923d967e5cf98e5eea5ad7e6b661051a741f1130b7a61ec3fc04a3104365fb1f",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
@@ -8051,12 +8051,12 @@
       "consumed_source_fragments": {}
     },
     "wireframes": {
-      "invocation_id": "wireframes-godaddy-preview-activation-reconciliation-2026-09-15T175126+0300",
+      "invocation_id": "wireframes-r01-no-direct-head-routing-20260915T191200+0300",
       "outputs": [
         "docs/wireframes.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "40c3550691d09f6f2c87a383f181f0bad9dc6c2a8b566229f9ae6220230513c0",
+        "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
         "docs/canonical-terms.md": "923d967e5cf98e5eea5ad7e6b661051a741f1130b7a61ec3fc04a3104365fb1f",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
@@ -8066,19 +8066,19 @@
       "consumed_source_fragments": {}
     },
     "design-brief": {
-      "invocation_id": "design-brief-godaddy-preview-activation-reconciliation-2026-09-15T175126+0300",
+      "invocation_id": "design-brief-r01-no-direct-head-routing-20260915T191200+0300",
       "outputs": [
         "docs/design-brief.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "40c3550691d09f6f2c87a383f181f0bad9dc6c2a8b566229f9ae6220230513c0",
+        "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
         "docs/canonical-terms.md": "923d967e5cf98e5eea5ad7e6b661051a741f1130b7a61ec3fc04a3104365fb1f",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
         "docs/user-journey.md": "f838f465bcb936a5e075b2e487e74add43c76868a71b265252eee474b121654d",
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
-        "docs/product-idea.md": "26a13e2516ea55b173d4cfa718f1acfd2f72cf381e833eda0613f41af67c0c5f",
+        "docs/product-idea.md": "46e10070a925db05e3ecc37b0ecffd546962f406ef9aba5c900c4948c6f2f45e",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "prototype/styles.css": "ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925",
         "prototype/app.js": "b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54",
@@ -8127,12 +8127,12 @@
       "consumed_source_fragments": {}
     },
     "architecture": {
-      "invocation_id": "architecture-private-preview-browser-reconciliation-2026-09-15T150200+0300",
+      "invocation_id": "architecture-r01-no-direct-head-routing-20260915T191200+0300",
       "outputs": [
         "docs/architecture.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "40c3550691d09f6f2c87a383f181f0bad9dc6c2a8b566229f9ae6220230513c0",
+        "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
         "docs/canonical-terms.md": "923d967e5cf98e5eea5ad7e6b661051a741f1130b7a61ec3fc04a3104365fb1f",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
@@ -8147,12 +8147,12 @@
       "consumed_source_fragments": {}
     },
     "dod-evals": {
-      "invocation_id": "dod-evals-private-preview-browser-reconciliation-2026-09-15T150200+0300",
+      "invocation_id": "dod-evals-r01-no-direct-head-routing-20260915T191200+0300",
       "outputs": [
         "docs/dod-evals.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "40c3550691d09f6f2c87a383f181f0bad9dc6c2a8b566229f9ae6220230513c0",
+        "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
         "docs/canonical-terms.md": "923d967e5cf98e5eea5ad7e6b661051a741f1130b7a61ec3fc04a3104365fb1f",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
@@ -8160,17 +8160,17 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "48aff842519bb5c5c0b7bebbf6b322fd329fb0e888856a96ea60c0ddcb0a0573"
+        "docs/architecture.md": "62254478cbc3e743061450cceab48ebc549f5abfc29d548d649c2296e79ec1d5"
       },
       "consumed_source_fragments": {}
     },
     "qa-checklist": {
-      "invocation_id": "qa-checklist-private-preview-browser-reconciliation-2026-09-15T150200+0300",
+      "invocation_id": "qa-checklist-r01-no-direct-head-routing-20260915T191200+0300",
       "outputs": [
         "docs/qa-checklist.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "40c3550691d09f6f2c87a383f181f0bad9dc6c2a8b566229f9ae6220230513c0",
+        "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
         "docs/canonical-terms.md": "923d967e5cf98e5eea5ad7e6b661051a741f1130b7a61ec3fc04a3104365fb1f",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
@@ -8178,7 +8178,7 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "48aff842519bb5c5c0b7bebbf6b322fd329fb0e888856a96ea60c0ddcb0a0573",
+        "docs/architecture.md": "62254478cbc3e743061450cceab48ebc549f5abfc29d548d649c2296e79ec1d5",
         "docs/dod-evals.md": "f25a5040ac5d197a45e299882447abc2080591914a455b6f239a10d19c77374f",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
@@ -8188,12 +8188,12 @@
       "consumed_source_fragments": {}
     },
     "development-plan": {
-      "invocation_id": "development-plan-private-preview-browser-reconciliation-2026-09-15T150200+0300",
+      "invocation_id": "development-plan-r01-no-direct-head-routing-20260915T191200+0300",
       "outputs": [
         "docs/development-plan.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "40c3550691d09f6f2c87a383f181f0bad9dc6c2a8b566229f9ae6220230513c0",
+        "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
         "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
         "docs/canonical-terms.md": "923d967e5cf98e5eea5ad7e6b661051a741f1130b7a61ec3fc04a3104365fb1f",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
@@ -8201,12 +8201,12 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "48aff842519bb5c5c0b7bebbf6b322fd329fb0e888856a96ea60c0ddcb0a0573",
+        "docs/architecture.md": "62254478cbc3e743061450cceab48ebc549f5abfc29d548d649c2296e79ec1d5",
         "docs/dod-evals.md": "f25a5040ac5d197a45e299882447abc2080591914a455b6f239a10d19c77374f",
-        "docs/qa-checklist.md": "bbb199320e4246874f7497ef8652be69a60501b353787c2ea46bd7492311e9f4",
+        "docs/qa-checklist.md": "94797735f02ba65c7525165d17fc6c36db9375e406ff6c41babf4aa54983818a",
         "docs/model-settings.md": "86801751744742aa44a41b9f6d5c5192eabd22423323c83bdbddec431e47b4d5",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
-        "package.json": "984d17c4e1c1899c759df4e77c8e5799ae9fe233739123619c8a37b4f3c5cd1d",
+        "package.json": "8bf0f784e299da4fa016ddee484ba905996dbec981e23c1b92381c706e055ee6",
         "scripts/serve-prototype.mjs": "f1232082074d76e12713267d3bc10bd546a69f4a9a8836b5a073887f9c374b4d",
         "forge/design/candidates/a/v8/index.html": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
         "forge/design/candidates/a/v8/styles.css": "f8fd6e8832671b05dc8b7a2a034ee41fb2aad4f085468965feaf1c34a3b57d43",
@@ -66543,7 +66543,7 @@
     "release_readiness": "not_evaluated",
     "source_hashes": {
       "docs/dod-evals.md": "f25a5040ac5d197a45e299882447abc2080591914a455b6f239a10d19c77374f",
-      "docs/qa-checklist.md": "bbb199320e4246874f7497ef8652be69a60501b353787c2ea46bd7492311e9f4"
+      "docs/qa-checklist.md": "94797735f02ba65c7525165d17fc6c36db9375e406ff6c41babf4aa54983818a"
     },
     "gates": [
       {
@@ -66840,7 +66840,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Simple questions receive a direct answer unless the owner explicitly requests Critic; verify a separate Critic invocation for that simple case without an unnecessary specialist team. Substantive or explicitly requested team work uses relevant specialists, normally 2–5 subject to the selected speed cap.",
+        "task": "Every accepted question, including a simple definition, uses 1/2/3/5 relevant permitted specialists or a 1–5 count selected by Head in Auto; Head and Critic are excluded from the count and Auto selection is not rendered as advice.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -66867,7 +66867,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Every participating consultant and Critic is a separate actual invocation/context with a distinct assignment. For substantive work, observe the full topology: Head -> each selected specialist with concise tasks only; each specialist -> Critic with an independent position; then only Critic -> relevant specialist -> Critic exchanges; Head -> owner once for final synthesis. No specialist-to-specialist routing or pre-conclusion Head advice appears. Supply malformed owner-facing Head output at the provider seam and verify that it is discarded and replaced with a bounded role-specific task.",
+        "task": "Every participating consultant and Critic is a separate actual invocation/context with a distinct assignment. For every accepted question, observe Head → each selected specialist with concise tasks only; each specialist → Critic with an independent position; only Critic → relevant specialist → Critic exchanges; and Head → owner once for final synthesis. No specialist-to-specialist routing, direct Head-answer route or pre-conclusion Head advice appears. Verify Consultation Routing and the encrypted routing_migration history behavior.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -102879,7 +102879,7 @@
     }
   ],
   "last_resume": {
-    "reason": "Owner-authorized scoped GoDaddy cutover and hosted-startup migration reconciliation",
+    "reason": "Owner-authorized R-01 no-direct-Head routing correction and SDD reconciliation",
     "result": "implementation-in-progress"
   },
   "design_execution_history": [

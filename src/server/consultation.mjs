@@ -8,12 +8,6 @@ const roleSettings = snapshot => Object.freeze({
 
 const hasSensitiveResearchContext = text => /(?:\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b|\b(?:password|passcode|api[ _-]?key|secret|access[ _-]?token|iban|credit[ _-]?card|passport|medical)\b|(?:\+?\d[\d\s().-]{7,}\d)|\b(?:парол\p{L}*|ключ\p{L}*\s*api|секрет\p{L}*|токен\p{L}*|iban|картк\p{L}*|паспорт\p{L}*|медич\p{L}*)\b)/iu.test(text);
 const discussion = events => events.map(event => `${event.role}${event.recipient ? ` → ${event.recipient}` : ""}: ${event.body}`).join("\n\n").slice(-80_000);
-const needsDiscussion = text => {
-  const question = text.trim();
-  const directQuestion = /^(?:what is|define|explain|поясни|що таке|визнач)/iu.test(question);
-  const explicitDiscussion = /\b(?:critic|consultant team|consulting team|positioning|this offer|decision|strategy|proposal)\b|критик|консиліум|команд.{0,8}консульт|позиціонув|пропозиці|рішенн|стратег/iu.test(question);
-  return !directQuestion || explicitDiscussion;
-};
 const responseLanguage = text => {
   if (/\b(?:answer|respond|reply|write)\s+in\s+english\b|англійськ/iu.test(text)) return "English";
   if (/\b(?:answer|respond|reply|write)\s+in\s+ukrainian\b|українськ/iu.test(text)) return "Ukrainian";
@@ -183,14 +177,6 @@ export function createConsultationService({ store, provider }) {
       const ownerIndex = first.events.map(event => event.role).lastIndexOf("owner");
       if (ownerIndex < 0) throw new Error("invalid_run_state");
       let confirmed = first.events.slice(ownerIndex + 1);
-      if (!needsDiscussion(first.owner)) {
-        const direct = { role: "Head Consultant", recipient: null, model: settings.head.model, effort: settings.head.effort, research, outputKind: "head_direct", maximumCharacters: 1_200, runtimeInstructions: instructions, assignment: prompts.direct(language) };
-        if (confirmed.length > 1 || confirmed[0] && !matches(confirmed[0], direct)) throw new Error("invalid_run_state");
-        if (!confirmed.length) await invoke(direct);
-        await store.finishRun(conversationId, runState.generation, "complete");
-        return;
-      }
-
       const candidates = specialistCandidates(first.owner);
       const selectAutomaticTeam = async () => {
         if (!await isCurrent()) return undefined;

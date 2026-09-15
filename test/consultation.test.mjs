@@ -32,7 +32,7 @@ test("sensitive current-topic questions do not enable public web research", asyn
   const service = createConsultationService({ store, provider });
   await service.start(conversation.id, accepted.run);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
-  assert.equal(calls.length, 1);
+  assert.equal(calls.length, 7);
   assert.equal(calls.every(call => call.research === false), true);
 });
 
@@ -50,7 +50,7 @@ test("ordinary consultations can use restricted live research without a keyword"
   assert.equal(calls.slice(2).every(call => call.research === true), true);
 });
 
-test("a simple Ukrainian explanation receives one direct Head Consultant answer", async () => {
+test("a simple Ukrainian explanation still convenes the configured specialists and Critic", async () => {
   const store = createMemoryStore();
   const conversation = await store.createConversation();
   const accepted = await store.acceptMessage(conversation.id, { body: "Що таке валова маржа?", clientRequestId: "direct-answer-0001" }, defaultSettings);
@@ -59,9 +59,14 @@ test("a simple Ukrainian explanation receives one direct Head Consultant answer"
   const service = createConsultationService({ store, provider });
   await service.start(conversation.id, accepted.run);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
-  assert.equal(calls.length, 1);
-  assert.match(calls[0].assignment, /direct, self-contained answer/u);
-  assert.deepEqual((await store.events(conversation.id)).map(event => [event.role, event.recipient]), [["owner", null], ["Head Consultant", null]]);
+  assert.equal(calls.length, 7);
+  assert.deepEqual((await store.events(conversation.id)).map(event => [event.role, event.recipient]), [
+    ["owner", null],
+    ["Head Consultant", "Finance Consultant"], ["Head Consultant", "Strategy Consultant"],
+    ["Finance Consultant", "Critic"], ["Strategy Consultant", "Critic"],
+    ["Critic", "Finance Consultant"], ["Finance Consultant", "Critic"], ["Head Consultant", null]
+  ]);
+  assert.equal(calls.slice(0, 2).every(call => call.outputKind === "head_task" && /must not give the owner advice/u.test(call.assignment)), true);
 });
 
 test("a fixed specialist count selects the requested team without changing the model tuple", async () => {

@@ -1,0 +1,25 @@
+{
+  "unit": "U-04",
+  "change": "R-01 no-direct-Head routing",
+  "recorded_at": "2026-09-15T19:12:00+03:00",
+  "scope": [
+    "remove the simple-question direct Head route",
+    "enforce specialist-and-Critic topology for every accepted question",
+    "migrate the current encrypted runtime-instructions document from Direct Head Answer to Consultation Routing"
+  ],
+  "local_verification": {
+    "command": "npm run check",
+    "result": "passed",
+    "tests": 51,
+    "observations": [
+      "A Ukrainian definition creates Head task handoffs, specialist positions, a Critic exchange and only then Head synthesis.",
+      "The current encrypted instruction document receives a new routing_migration revision while earlier versions remain reviewable.",
+      "A restored legacy instruction version is transformed before becoming current.",
+      "A restarted active legacy run snapshot is transformed before its Head or final prompt can be rendered."
+    ]
+  },
+  "hosted_verification": {
+    "status": "not_run",
+    "reason": "The private GoDaddy Preview remains on an earlier commit while its dashboard requires account security-key verification."
+  }
+}

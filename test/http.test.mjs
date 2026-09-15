@@ -67,7 +67,7 @@ test("the local HTTP flow protects data, saves settings and preserves an unavail
     assert.equal(initialInstructions.runtimeInstructions.source, "database");
     assert.equal(typeof initialInstructions.runtimeInstructions.updatedAt, "string");
     assert.match(initialInstructions.runtimeInstructions.markdown, /## Head Task/u);
-    const markdown = initialInstructions.runtimeInstructions.markdown.replace("Give a direct, self-contained answer to this simple question.", "Give the owner a concise, concrete answer before any optional explanation.");
+    const markdown = initialInstructions.runtimeInstructions.markdown.replace("must not give the owner advice, a recommendation, analysis, or a preliminary conclusion.", "must not give the owner advice before the final synthesis.");
     const savedInstructions = await (await fetch(`${origin}/api/runtime-instructions`, { method: "PUT", headers, body: JSON.stringify({ markdown, revision: initialInstructions.runtimeInstructions.revision }) })).json();
     assert.equal(savedInstructions.runtimeInstructions.source, "database");
     assert.match(savedInstructions.runtimeInstructions.revision, /^[A-Za-z0-9_-]{32}$/u);

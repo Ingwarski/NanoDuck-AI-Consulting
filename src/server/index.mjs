@@ -6,13 +6,17 @@ import { createMemoryStore, createMySqlStore } from "./store.mjs";
 import { createAuth } from "./auth.mjs";
 import { createCodexProvider } from "./codex-provider.mjs";
 import { createConsultationService } from "./consultation.mjs";
-import { parseRuntimeInstructions, RuntimeInstructionError } from "./prompt-contracts.mjs";
+import { parseRuntimeInstructions, RuntimeInstructionError, upgradeRuntimeInstructionMarkdown } from "./prompt-contracts.mjs";
 import { attachmentExtension, readImageAttachment } from "./attachments.mjs";
 import { messageError, parseConversationId, parseMessage, parseSettings } from "./validation.mjs";
 
 const config = loadConfig();
 const store = config.databaseUrl ? await createMySqlStore(config.databaseUrl, config.dataKey, config.databaseSslCaPath) : createMemoryStore();
-if (config.runtimeInstructionsBootstrap) await store.bootstrapRuntimeInstructions(parseRuntimeInstructions(config.runtimeInstructionsBootstrap));
+if (config.runtimeInstructionsBootstrap) await store.bootstrapRuntimeInstructions(parseRuntimeInstructions(upgradeRuntimeInstructionMarkdown(config.runtimeInstructionsBootstrap)));
+await store.migrateRuntimeInstructions(markdown => {
+  const upgraded = upgradeRuntimeInstructionMarkdown(markdown);
+  return upgraded === markdown ? undefined : parseRuntimeInstructions(upgraded);
+});
 const auth = createAuth({ config, store });
 const provider = createCodexProvider(config);
 const consultation = createConsultationService({ store, provider });
@@ -99,7 +103,7 @@ const handler = async (request, response) => {
       if (typeof input?.historyId !== "string" || !/^[A-Za-z0-9_-]{16,128}$/u.test(input.historyId)) return send(response, 422, { error: "invalid_runtime_instruction_version" });
       const previous = await store.runtimeInstructionVersion(input.historyId);
       if (!previous) return send(response, 404, { error: "not_found" });
-      const saved = await store.restoreRuntimeInstructions(parseRuntimeInstructions(previous.markdown), input?.revision, previous.id);
+      const saved = await store.restoreRuntimeInstructions(parseRuntimeInstructions(upgradeRuntimeInstructionMarkdown(previous.markdown)), input?.revision, previous.id);
       return saved ? send(response, 200, { runtimeInstructions: { ...saved, source: "database" } }) : send(response, 409, { error: "stale_runtime_instructions", message: "Runtime instructions changed in another session. Reload Settings before restoring." });
     }
     if (request.method === "GET" && url.pathname === "/api/conversations") { if (!await protectedSession(request, response)) return; return send(response, 200, { conversations: await store.listConversations() }); }

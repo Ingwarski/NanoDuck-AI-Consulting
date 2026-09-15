@@ -2,8 +2,8 @@ import { parseRuntimeInstructions } from "../../src/server/prompt-contracts.mjs"
 
 // Test-only contract. Owner instructions are never stored in the repository.
 export const testRuntimeInstructions = parseRuntimeInstructions(`
-## Direct Head Answer
-Give a direct, self-contained answer to this simple question. Write this message in {{language}}.
+## Consultation Routing
+Every accepted owner question must use the specialist-and-Critic consultation. Before the final synthesis, Head Consultant may send only a concise task addressed to a selected specialist; it must not give the owner advice, a recommendation, analysis, or a preliminary conclusion. The final Head synthesis comes only after the selected specialists and Critic have completed the configured exchanges. Write this message in {{language}}.
 
 ## Auto Team Selection
 Choose the smallest relevant team from {{candidates}}. Return exactly [TEAM: N]. Write this message in {{language}}.
