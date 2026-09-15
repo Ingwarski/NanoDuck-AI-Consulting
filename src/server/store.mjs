@@ -15,6 +15,26 @@ const now = () => new Date().toISOString();
 const publicAttachment = attachment => Object.freeze({ id: attachment.id, contentType: attachment.contentType, byteLength: attachment.byteLength, createdAt: attachment.createdAt });
 const publicMessage = message => Object.freeze({ id: message.id, role: message.role, recipient: message.recipient ?? null, body: message.body, sequence: message.sequence, createdAt: message.createdAt, sources: message.sources ?? [], attachments: message.attachments ?? [] });
 const recoverySnapshot = conversations => normalizeRecoverySnapshot({ schemaVersion: 1, kind: "nanoduck-owner-records", createdAt: now(), conversations });
+const storedJson = (value, kind) => {
+  const source = Buffer.isBuffer(value) ? value.toString("utf8") : value;
+  try {
+    const parsed = typeof source === "string" ? JSON.parse(source) : source;
+    if (parsed === null || typeof parsed !== "object") throw new Error("invalid_stored_json");
+    return parsed;
+  } catch {
+    throw new Error(`stored_${kind}_invalid`);
+  }
+};
+const storedObject = (value, kind) => {
+  const parsed = storedJson(value, kind);
+  if (Array.isArray(parsed)) throw new Error(`stored_${kind}_invalid`);
+  return parsed;
+};
+const storedArray = (value, kind) => {
+  const parsed = storedJson(value, kind);
+  if (!Array.isArray(parsed)) throw new Error(`stored_${kind}_invalid`);
+  return parsed;
+};
 
 export function createMemoryStore() {
   const conversations = new Map();
@@ -187,7 +207,7 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
     return Object.freeze({ id: randomId(), action, restoredFromId, contentHash: contract.revision, createdAt, ...encrypted });
   };
   const insertRuntimeHistory = (connection, record) => connection.execute("INSERT INTO nanoduck_runtime_instruction_history (id,owner_id,action,restored_from_id,ciphertext,iv,tag,content_hash,created_at) VALUES (?,'owner',?,?,?,?,?,?,?)", [record.id,record.action,record.restoredFromId,record.ciphertext,record.iv,record.tag,record.contentHash,record.createdAt]);
-  const decode = (row, attachments = []) => ({ id: row.id, role: row.role, recipient: row.recipient, body: decryptText({ iv: row.iv, ciphertext: row.ciphertext, tag: row.tag }, dataKey), sequence: row.sequence, createdAt: row.created_at, sources: JSON.parse(row.sources_json), attachments });
+  const decode = (row, attachments = []) => ({ id: row.id, role: row.role, recipient: row.recipient, body: decryptText({ iv: row.iv, ciphertext: row.ciphertext, tag: row.tag }, dataKey), sequence: row.sequence, createdAt: row.created_at, sources: storedArray(row.sources_json, "sources"), attachments });
   const attachmentMetadata = row => publicAttachment({ id: row.id, contentType: row.content_type, byteLength: Number(row.byte_length), createdAt: row.created_at });
   const attachmentsByMessage = async conversationId => {
     const [rows] = await query("SELECT id,message_id,content_type,byte_length,created_at FROM nanoduck_attachments WHERE conversation_id=? AND message_id IS NOT NULL ORDER BY created_at", [conversationId]);
@@ -206,7 +226,7 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
     async session(id) { const [rows] = await query("SELECT id,owner_subject,csrf_token,consented_at,issued_at,expires_at,revoked_at FROM nanoduck_sessions WHERE id=? LIMIT 1", [id]); return rows.length ? { id: rows[0].id, ownerSubject: rows[0].owner_subject, csrfToken: rows[0].csrf_token, consentedAt: rows[0].consented_at, issuedAt: rows[0].issued_at, expiresAt: rows[0].expires_at, revokedAt: rows[0].revoked_at } : undefined; },
     async updateSession(id, patch) { const [result] = await query("UPDATE nanoduck_sessions SET consented_at=COALESCE(?, consented_at) WHERE id=? AND revoked_at IS NULL", [patch.consentedAt ?? null,id]); return result.affectedRows ? this.session(id) : undefined; },
     async revokeSession(id) { const [result] = await query("UPDATE nanoduck_sessions SET revoked_at=? WHERE id=? AND revoked_at IS NULL", [now(),id]); return result.affectedRows === 1; },
-    async settings() { const [rows] = await query("SELECT settings_json FROM nanoduck_settings WHERE owner_id = 'owner' LIMIT 1"); return rows.length ? Object.freeze({ ...defaults, ...JSON.parse(rows[0].settings_json) }) : Object.freeze({ ...defaults }); },
+    async settings() { const [rows] = await query("SELECT settings_json FROM nanoduck_settings WHERE owner_id = 'owner' LIMIT 1"); return rows.length ? Object.freeze({ ...defaults, ...storedObject(rows[0].settings_json, "settings") }) : Object.freeze({ ...defaults }); },
     async saveSettings(next) { await query("INSERT INTO nanoduck_settings (owner_id, settings_json) VALUES ('owner', ?) ON DUPLICATE KEY UPDATE settings_json=VALUES(settings_json)", [JSON.stringify(next)]); return Object.freeze({ ...next }); },
     async runtimeInstructions() {
       const [rows] = await query("SELECT ciphertext,iv,tag,revision,content_hash,created_at,updated_at FROM nanoduck_runtime_instructions WHERE owner_id = 'owner' LIMIT 1");
@@ -337,8 +357,8 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
         await connection.commit(); return { message: publicMessage(message), run, replayed: false };
       } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
     },
-    async run(id) { const [rows] = await query("SELECT id,conversation_id,status,generation,snapshot_json,created_at,updated_at FROM nanoduck_runs WHERE conversation_id=? ORDER BY created_at DESC LIMIT 1", [id]); return rows.length ? { id: rows[0].id, conversationId: rows[0].conversation_id, status: rows[0].status, generation: rows[0].generation, snapshot: JSON.parse(rows[0].snapshot_json), createdAt: rows[0].created_at, updatedAt: rows[0].updated_at } : undefined; },
-    async activeRuns() { const [rows] = await query("SELECT id,conversation_id,status,generation,snapshot_json,created_at,updated_at FROM nanoduck_runs WHERE status='active' ORDER BY created_at"); return rows.map(row => ({ id: row.id, conversationId: row.conversation_id, status: row.status, generation: row.generation, snapshot: JSON.parse(row.snapshot_json), createdAt: row.created_at, updatedAt: row.updated_at })); },
+    async run(id) { const [rows] = await query("SELECT id,conversation_id,status,generation,snapshot_json,created_at,updated_at FROM nanoduck_runs WHERE conversation_id=? ORDER BY created_at DESC LIMIT 1", [id]); return rows.length ? { id: rows[0].id, conversationId: rows[0].conversation_id, status: rows[0].status, generation: rows[0].generation, snapshot: storedObject(rows[0].snapshot_json, "run_snapshot"), createdAt: rows[0].created_at, updatedAt: rows[0].updated_at } : undefined; },
+    async activeRuns() { const [rows] = await query("SELECT id,conversation_id,status,generation,snapshot_json,created_at,updated_at FROM nanoduck_runs WHERE status='active' ORDER BY created_at"); return rows.map(row => ({ id: row.id, conversationId: row.conversation_id, status: row.status, generation: row.generation, snapshot: storedObject(row.snapshot_json, "run_snapshot"), createdAt: row.created_at, updatedAt: row.updated_at })); },
     async appendAgentMessage(id, generation, item) {
       const connection = await pool.getConnection();
       try {
@@ -369,7 +389,7 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
         const run = rows[0]; if (!run || run.status !== "active") { await connection.rollback(); return undefined; }
         const updatedAt = now(); const [result] = await connection.execute("UPDATE nanoduck_runs SET generation=generation+1,status='stopped',updated_at=? WHERE id=? AND generation=? AND status='active'", [updatedAt,run.id,run.generation]);
         if (result.affectedRows !== 1) { await connection.rollback(); return undefined; }
-        await connection.commit(); return { id: run.id, conversationId: run.conversation_id, status: "stopped", generation: Number(run.generation) + 1, snapshot: JSON.parse(run.snapshot_json), createdAt: run.created_at, updatedAt };
+        await connection.commit(); return { id: run.id, conversationId: run.conversation_id, status: "stopped", generation: Number(run.generation) + 1, snapshot: storedObject(run.snapshot_json, "run_snapshot"), createdAt: run.created_at, updatedAt };
       } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
     },
     async continueRun(id) {
@@ -382,7 +402,7 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
         if (activeRows.length) { await connection.rollback(); return undefined; }
         const updatedAt = now(); const [result] = await connection.execute("UPDATE nanoduck_runs SET generation=generation+1,status='active',updated_at=? WHERE id=? AND generation=? AND status='stopped'", [updatedAt,run.id,run.generation]);
         if (result.affectedRows !== 1) { await connection.rollback(); return undefined; }
-        await connection.commit(); return { id: run.id, conversationId: run.conversation_id, status: "active", generation: Number(run.generation) + 1, snapshot: JSON.parse(run.snapshot_json), createdAt: run.created_at, updatedAt };
+        await connection.commit(); return { id: run.id, conversationId: run.conversation_id, status: "active", generation: Number(run.generation) + 1, snapshot: storedObject(run.snapshot_json, "run_snapshot"), createdAt: run.created_at, updatedAt };
       } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
     },
     async exportConversation(id) { const conversation = await this.getConversation(id); return conversation ? { conversation, messages: await this.events(id) } : undefined; },

@@ -33,6 +33,32 @@ test("encrypted message values authenticate before decryption", () => {
   assert.deepEqual(decryptBytes(encryptedImage, key), image);
 });
 
+test("the MySQL adapter accepts mysql2-decoded JSON values when reopening a consultation", async () => {
+  const encrypted = encryptText("The specialist should test buyer demand.", key);
+  const snapshot = { ...defaultSettings, runtimeInstructions: { revision: "instruction-revision" } };
+  const source = { title: "Primary evidence", url: "https://example.com/evidence", claim: "Buyer demand is unproven.", retrievedAt: "2026-09-15T00:00:00.000Z" };
+  const driver = {
+    createPool() {
+      return {
+        async execute(statement) {
+          if (statement.includes("FROM nanoduck_settings")) return [[{ settings_json: { specialistCount: "3" } }]];
+          if (statement.includes("FROM nanoduck_messages")) return [[{ id: "message", role: "Strategy Consultant", recipient: "Critic", ...encrypted, sequence: 2, created_at: "2026-09-15T00:00:00.000Z", sources_json: [source] }]];
+          if (statement.includes("FROM nanoduck_attachments")) return [[]];
+          if (statement.includes("FROM nanoduck_runs")) return [[{ id: "run", conversation_id: "conversation", status: "active", generation: 1, snapshot_json: snapshot, created_at: "2026-09-15T00:00:00.000Z", updated_at: "2026-09-15T00:00:00.000Z" }]];
+          throw new Error(`unexpected_query:${statement}`);
+        },
+        async end() {}
+      };
+    }
+  };
+  const store = await createMySqlStore("mysql://owner:password@db.example/nanoduck", key, undefined, driver);
+  assert.deepEqual(await store.settings(), { ...defaultSettings, specialistCount: "3" });
+  assert.deepEqual((await store.events("conversation")).map(item => ({ body: item.body, sources: item.sources })), [{ body: "The specialist should test buyer demand.", sources: [source] }]);
+  assert.deepEqual((await store.run("conversation")).snapshot, snapshot);
+  assert.deepEqual((await store.activeRuns()).map(run => run.snapshot), [snapshot]);
+  await store.close();
+});
+
 test("image signatures accept only bounded raster formats without decoding them", () => {
   const jpeg = Buffer.from([0xff, 0xd8, 0xff, 0xe0, 0x00, 0x10, 0xff, 0xd9]);
   const png = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 0x49, 0x45, 0x4e, 0x44, 0xae, 0x42, 0x60, 0x82]);
