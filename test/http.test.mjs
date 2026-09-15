@@ -6,6 +6,7 @@ import { tmpdir } from "node:os";
 import { spawn } from "node:child_process";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
+import { testRuntimeInstructionsBootstrap } from "./fixtures/runtime-instructions.mjs";
 
 const reservePort = async () => {
   const server = createServer();
@@ -30,7 +31,7 @@ test("the local HTTP flow protects data, saves settings and preserves an unavail
   const port = await reservePort();
   const child = spawn(globalThis.process.execPath, ["src/server/index.mjs"], {
     cwd: process.cwd(),
-    env: { ...globalThis.process.env, NODE_ENV: "development", DEV_OWNER_EMAIL: "owner@local.test", PORT: String(port) },
+    env: { ...globalThis.process.env, NODE_ENV: "development", DEV_OWNER_EMAIL: "owner@local.test", PORT: String(port), RUNTIME_INSTRUCTIONS_BOOTSTRAP_B64: testRuntimeInstructionsBootstrap },
     stdio: "ignore"
   });
   const origin = `http://127.0.0.1:${port}`;
@@ -69,7 +70,8 @@ test("the local HTTP flow protects data, saves settings and preserves an unavail
     const markdown = initialInstructions.runtimeInstructions.markdown.replace("Give a direct, self-contained answer to this simple question.", "Give the owner a concise, concrete answer before any optional explanation.");
     const savedInstructions = await (await fetch(`${origin}/api/runtime-instructions`, { method: "PUT", headers, body: JSON.stringify({ markdown, revision: initialInstructions.runtimeInstructions.revision }) })).json();
     assert.equal(savedInstructions.runtimeInstructions.source, "database");
-    assert.match(savedInstructions.runtimeInstructions.revision, /^[a-f0-9]{64}$/u);
+    assert.match(savedInstructions.runtimeInstructions.revision, /^[A-Za-z0-9_-]{32}$/u);
+    assert.match(savedInstructions.runtimeInstructions.contentHash, /^[a-f0-9]{64}$/u);
     const settingsWithInstructions = await (await fetch(`${origin}/api/settings`, { headers: { cookie } })).json();
     assert.equal(settingsWithInstructions.runtimeInstructions.revision, savedInstructions.runtimeInstructions.revision);
     const invalidInstructions = await fetch(`${origin}/api/runtime-instructions`, { method: "PUT", headers, body: JSON.stringify({ markdown: "## Head Task\nIncomplete", revision: savedInstructions.runtimeInstructions.revision }) });
@@ -78,6 +80,15 @@ test("the local HTTP flow protects data, saves settings and preserves an unavail
     const staleInstructions = await fetch(`${origin}/api/runtime-instructions`, { method: "PUT", headers, body: JSON.stringify({ markdown, revision: initialInstructions.runtimeInstructions.revision }) });
     assert.equal(staleInstructions.status, 409);
     assert.equal((await staleInstructions.json()).error, "stale_runtime_instructions");
+    const instructionHistory = await (await fetch(`${origin}/api/runtime-instructions`, { headers: { cookie } })).json();
+    assert.equal(instructionHistory.history.length, 2);
+    const previous = instructionHistory.history.find(version => version.id === initialInstructions.runtimeInstructions.revision);
+    assert.ok(previous);
+    const preview = await (await fetch(`${origin}/api/runtime-instructions/history/${previous.id}`, { headers: { cookie } })).json();
+    assert.equal(preview.version.markdown, initialInstructions.runtimeInstructions.markdown);
+    const restored = await (await fetch(`${origin}/api/runtime-instructions/restore`, { method: "PUT", headers, body: JSON.stringify({ historyId: previous.id, revision: savedInstructions.runtimeInstructions.revision }) })).json();
+    assert.notEqual(restored.runtimeInstructions.revision, previous.id);
+    assert.equal(restored.runtimeInstructions.markdown, initialInstructions.runtimeInstructions.markdown);
 
     const message = { body: "What should we validate first?", clientRequestId: "integration-request-0001" };
     assert.equal((await fetch(`${origin}/api/conversations/${conversationId}/messages`, { method: "POST", headers, body: JSON.stringify(message) })).status, 202);
@@ -88,8 +99,8 @@ test("the local HTTP flow protects data, saves settings and preserves an unavail
     });
     assert.deepEqual(detail.events.map(event => event.role), ["owner", "System"]);
     assert.match(detail.events[1].body, /subscription is unavailable/u);
-    assert.equal(detail.run.snapshot.runtimeInstructions.revision, savedInstructions.runtimeInstructions.revision);
-    assert.equal(detail.run.snapshot.runtimeInstructions.markdown, savedInstructions.runtimeInstructions.markdown);
+    assert.equal(detail.run.snapshot.runtimeInstructions.revision, restored.runtimeInstructions.revision);
+    assert.equal(detail.run.snapshot.runtimeInstructions.markdown, restored.runtimeInstructions.markdown);
   } finally {
     child.kill("SIGTERM");
     await once(child, "exit").catch(() => {});
@@ -100,7 +111,7 @@ test("owner image attachments validate bytes, link only on message acceptance an
   const port = await reservePort();
   const child = spawn(globalThis.process.execPath, ["src/server/index.mjs"], {
     cwd: process.cwd(),
-    env: { ...globalThis.process.env, NODE_ENV: "development", DEV_OWNER_EMAIL: "owner@local.test", PORT: String(port) },
+    env: { ...globalThis.process.env, NODE_ENV: "development", DEV_OWNER_EMAIL: "owner@local.test", PORT: String(port), RUNTIME_INSTRUCTIONS_BOOTSTRAP_B64: testRuntimeInstructionsBootstrap },
     stdio: "ignore"
   });
   const origin = `http://127.0.0.1:${port}`;
@@ -173,6 +184,7 @@ test("the authenticated discussion preserves two specialists, Critic and a revis
       NODE_ENV: "development",
       DEV_OWNER_EMAIL: "owner@local.test",
       PORT: String(port),
+      RUNTIME_INSTRUCTIONS_BOOTSTRAP_B64: testRuntimeInstructionsBootstrap,
       CODEX_APP_SERVER_AUTH_PATH: authPath,
       CODEX_APP_SERVER_COMMAND: codexCommand
     },

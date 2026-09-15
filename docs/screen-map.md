@@ -46,8 +46,8 @@ These states apply to the approved Electric A v8 and the retained comparison can
 | ST-18 | S-03 | `populated` | `#history` · UC-004 |
 | ST-19 | S-03 | `empty` | `#history` · UC-004 |
 | ST-20 | S-03 | `unavailable` | `#history` · UC-004 |
-| ST-21 | S-04 | `saved` | `#settings` · UC-005 |
-| ST-22 | S-04 | `edited` | `#settings` · UC-005 |
+| ST-21 | S-04 | `saved` (current encrypted instruction revision and saved-version metadata) | `#settings` · UC-005 |
+| ST-22 | S-04 | `edited` (including review/restore dialog before a new future-run revision) | `#settings` · UC-005 |
 | ST-23 | S-04 | `invalid-settings` (model combination or runtime-instructions document) | `#settings` · UC-005 |
 | ST-24 | S-04 | `catalog-unavailable` | `#settings` · UC-005 |
 | ST-25 | S-04 | `session-control` | `#settings` · UC-005 |
@@ -81,7 +81,7 @@ J-01 resolves through S-01 to S-02; the navigation surface S-09 never grants ide
 
 J-03 clarification and substantive exchange remain on S-02; no procedural stage screen is added. J-04 moves to S-06 and back to the originating claim. J-05 Stop/Continue preserves the same record, while New ends or pauses active work before establishing another. Offline, quota, provider-auth and system/research failure keep distinct recovery transitions. App expiry at the PRD 24-hour boundary goes through S-01; explicit sign-out, revocation and security invalidation remain earlier exits.
 
-J-06 uses S-07 for the conclusion, S-03 to reopen history and S-08 for export/deletion. Delete cancellation is inert; success removes only the selected record and returns to empty history/new discussion. J-07 opens S-04, validates the edited model combination and database-stored runtime-instructions Markdown document, and saves each for future work only when its loaded revision is still current; Cancel restores previous selections. Invalid Markdown or a stale save retains the unsaved edit with a specific requirement message; active runs retain their accepted document snapshot. Session-control confirmation leads to simulated reauthentication then revocation, never revealing credentials.
+J-06 uses S-07 for the conclusion, S-03 to reopen history and S-08 for export/deletion. Delete cancellation is inert; success removes only the selected record and returns to empty history/new discussion. J-07 opens S-04, validates the edited model combination and encrypted database-stored runtime-instructions Markdown document, and saves each for future work only when its loaded revision is still current. The owner may inspect a saved version in a read-only dialog and explicitly restore it only by creating a fresh revision. Cancel restores previous selections. Invalid Markdown or a stale save retains the unsaved edit with a specific requirement message; active runs retain their accepted document snapshot. Session-control confirmation leads to simulated reauthentication then revocation, never revealing credentials.
 
 Security boundaries: NFR-10.1–10.3 remain enforced by the later trusted service, not by screen visibility. NFR-12.2/NFR-14.2 protect the owner-only image-attachment and browser-recognition draft exits; NanoDuck receives no voice audio. NFR-14.3 governs record actions. Reflow, keyboard and focus apply to every surface under NFR-02.1–02.3.
 

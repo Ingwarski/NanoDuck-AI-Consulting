@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
 import { createCodexProvider } from "../src/server/codex-provider.mjs";
-import { initialRuntimeInstructions } from "../src/server/prompt-contracts.mjs";
+import { testRuntimeInstructions as initialRuntimeInstructions } from "./fixtures/runtime-instructions.mjs";
 
 test("Codex turns use an owned workspace and deny local tool channels", async () => {
   const command = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));

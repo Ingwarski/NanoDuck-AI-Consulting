@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "unit": "U-03",
+  "run_id": "phase3-secure-runtime-instructions-20260915",
+  "executed_at": "2026-09-15T16:35:00+03:00",
+  "executor": "Codex local implementation runner",
+  "revision_base": "3504802",
+  "baseline_id": "nanoduck-electric-a-v8-20260914",
+  "development_plan_hash": "00d48a7e51709e2aafb025dad0a40ee9b8f3ccdd5c17946c9720af8a0c90c3fb",
+  "scope": "Remove the repository runtime-instructions document. Bootstrap a fresh owned database only from a one-time deployment secret during migration; encrypt the current document and saved versions; expose owner-only review and explicit restore through Settings. No GoDaddy application, database, migration, reset, deletion, deployment or external upload was contacted.",
+  "checks": [
+    {
+      "name": "encrypted current and saved-version store",
+      "evidence": "test/core.test.mjs; test/prompt-contracts.test.mjs",
+      "observed": "MySQL-store seams retain AES-GCM ciphertext rather than Markdown plaintext, create opaque current revisions, preserve history, reject stale saves and restore an earlier version into a fresh current revision under the owner lock.",
+      "result": "passed",
+      "limit": "Controlled seams do not prove hosted MySQL durability or a target-database migration."
+    },
+    {
+      "name": "authenticated HTTP contract and immutable run snapshot",
+      "evidence": "test/http.test.mjs",
+      "observed": "A local authenticated owner reads, saves, previews and restores versions through protected routes; invalid Markdown and stale revisions are rejected, and accepted work retains its saved runtime document snapshot.",
+      "result": "passed",
+      "limit": "The isolated HTTP fixture uses the local memory store and an unavailable provider."
+    },
+    {
+      "name": "local Settings review and restore",
+      "evidence": "http://127.0.0.1:4319/ in the Codex in-app browser",
+      "observed": "After local sign-in and consent, Settings displayed the encrypted-document notice, current opaque revision and bootstrap history. A valid test-only edit saved as a new version; the bootstrap version opened in a read-only dialog and restored into a fresh current revision with three visible history entries.",
+      "result": "passed",
+      "limit": "This is local in-app-browser evidence only. It does not establish hosted MySQL, provider behavior, Safari/Chrome compatibility, production deployment or release readiness."
+    },
+    {
+      "name": "artifact and SDD consistency",
+      "evidence": "npm run check; to-sdd-pipeline sdd_check.py --audit",
+      "observed": "Artifact checks and 47 Node tests passed. The pipeline audit returned zero issues and warnings when run through the installed Python 3.9 compatibility runner because this machine lacks the skill's required Python 3.12 executable.",
+      "result": "passed_with_environment_limit",
+      "limit": "The audit logic passed, but a native Python 3.12 invocation remains unavailable on this machine. Formal QA and all release gates remain not_run."
+    }
+  ],
+  "formal_release_status": {
+    "canonical_qa": "83 prepared / not_run",
+    "release_readiness": "not_evaluated"
+  },
+  "release_effect": "not_release_evidence",
+  "source_hashes": {
+    "docs/product-idea.md": "79eae20464e1515f0b2f68ca30407ab4738f8625649fc3646a5688ba28860cd3",
+    "docs/prd.md": "40c3550691d09f6f2c87a383f181f0bad9dc6c2a8b566229f9ae6220230513c0",
+    "docs/architecture.md": "eea8da7bc4a5088ce40bd58f6c2bedc7c62d6f3b7ff498ce2825807ee08f3309",
+    "docs/qa-checklist.md": "07401169e6c0092f7b6f7b6d27748635569ad4e715bb5d15ba077bec1d84edf0",
+    "docs/development-plan.md": "00d48a7e51709e2aafb025dad0a40ee9b8f3ccdd5c17946c9720af8a0c90c3fb",
+    "src/server/config.mjs": "f6bd20e0796e7f0a390a9b88a143c4bd74824a69c2b57ceb0ca3e639927479a8",
+    "src/server/index.mjs": "b4b09a31280e027050e8c6395cad8cc95ec98ecf3515d6aee3d96924e3b00827",
+    "src/server/migrate.mjs": "c4deae761bfc97c15ef654b0d403e7a7ce5a9c47af3fb4546cbc84d8c2f5bea8",
+    "src/server/runtime-instructions-migration.mjs": "9b0e9e1f294af683cf1499bd602e1eb355233cde82ee5e1c752840233e0f7b31",
+    "src/server/prompt-contracts.mjs": "3c5fae597d60e90655176c53073c1679458e32230486c2c3bd953d99cf84aff4",
+    "src/server/schema.sql": "dbf86ece1b5f87bf3395a962d95858c063da4f60450cf8bab7daada97056b1a2",
+    "src/server/store.mjs": "cb103850f63a3ff11f3c8d02c29d6e81383c794411dfa7323c9e36c4956d0165",
+    "src/client/app.js": "9dbbe8c4c5469d656d8dd8d2e9d9e69631c947cc13598465e15a90912bbe5880",
+    "public/index.html": "4b6ea507334fb017137bacc97ca92285ce5e61c781fa2cd3a3dbed36414ec000",
+    "public/styles.css": "fbe81db7361bf39512231a6d1af269776a9b7da2cb91ea79bac1c2fc7690393d",
+    "test/core.test.mjs": "cca141d4e77a3f74da9e0c16d9e74e558831331bd47b6e26deecac746df3a859",
+    "test/http.test.mjs": "0589d83513fc7bedf704ecc7a358bb1b243b22c904c5cf9b2ef6b8c55aab5f8d",
+    "test/prompt-contracts.test.mjs": "b90226403d104fe6e84010c7982c679e18271753c895e6d806187fb6b7c6d57a",
+    "test/fixtures/runtime-instructions.mjs": "eeb01b3bf615f9c3b6bd1d44061024b6b4f0948ee0a5b012c9401fb2b8f0b549"
+  }
+}

@@ -1,6 +1,6 @@
 import { parseMarkdown } from "/client/markdown.js";
 
-const state = { session: null, csrf: null, page: "discussion", tab: "discussion", conversation: null, events: [], run: null, poll: null, recognition: null, voiceTimer: null, voiceMode: "ready", voiceTranscript: "", attachmentFiles: [], attachmentError: "" };
+const state = { session: null, csrf: null, page: "discussion", tab: "discussion", conversation: null, events: [], run: null, poll: null, recognition: null, voiceTimer: null, voiceMode: "ready", voiceTranscript: "", attachmentFiles: [], attachmentError: "", runtimeInstructionHistory: [] };
 const $ = selector => document.querySelector(selector);
 const roleInitials = { owner: "I", "Head Consultant": "HC", "Strategy Consultant": "SC", "Finance Consultant": "FC", "Operations Consultant": "OC", "Sales Consultant": "SL", "Marketing Consultant": "MC", "Product Consultant": "PC", "Spiritual Consultant": "SP", Psychotherapist: "PT", "Risk Consultant": "RC", Critic: "CR", System: "•" };
 const displayRole = role => role === "owner" ? "You" : role;
@@ -115,14 +115,48 @@ async function loadConversations() {
 }
 
 async function loadSettings() {
-  const { data } = await request("/api/settings"); const settings = data.settings;
+  const [{ data: settingsData }, { data: instructionsData }] = await Promise.all([request("/api/settings"), request("/api/runtime-instructions")]); const settings = settingsData.settings; const instructions = instructionsData.runtimeInstructions;
   $("#head-model").value = settings.headModel; $("#head-reasoning").value = settings.headReasoning; $("#critic-model").value = settings.criticModel; $("#critic-reasoning").value = settings.criticReasoning; $("#specialist-count").value = settings.specialistCount; $("#discussion-depth").value = settings.discussionDepth;
-  $("#runtime-instructions").value = data.runtimeInstructions.markdown;
-  $("#runtime-instructions").dataset.revision = data.runtimeInstructions.revision;
-  $("#runtime-instructions-status").textContent = `Current database document revision ${data.runtimeInstructions.revision.slice(0, 12)}. Required headings and placeholders are validated before save.`;
+  $("#runtime-instructions").value = instructions.markdown;
+  $("#runtime-instructions").dataset.revision = instructions.revision;
+  $("#runtime-instructions-status").textContent = `Current encrypted database revision ${instructions.revision.slice(0, 12)}. Required headings and placeholders are validated before save.`;
+  state.runtimeInstructionHistory = instructionsData.history; renderRuntimeInstructionHistory();
   const providerMessage = { ready: "Selected Codex route is ready for this runtime.", quota_blocked: "Selected Codex route has reached its current limit; saved preferences are preserved.", auth_required: "Selected Codex route needs its managed sign-in renewed.", incompatible: "The selected Codex route does not expose the preserved model and reasoning settings.", unavailable: "Selected Codex route is unavailable on this runtime; saved preferences are preserved." };
-  $("#settings-status").textContent = providerMessage[data.provider] ?? providerMessage.unavailable;
+  $("#settings-status").textContent = providerMessage[settingsData.provider] ?? providerMessage.unavailable;
   $("#session-expiry").textContent = `This session expires ${new Intl.DateTimeFormat(undefined, { dateStyle: "medium", timeStyle: "short" }).format(new Date(state.session.expiresAt))}. Activity does not extend the 24-hour boundary.`;
+}
+
+function renderRuntimeInstructionHistory() {
+  const target = clear($("#runtime-instruction-history"));
+  if (!state.runtimeInstructionHistory.length) { target.append(node("p", { class: "empty" }, "No saved versions are available.")); return; }
+  const currentRevision = $("#runtime-instructions").dataset.revision;
+  for (const version of state.runtimeInstructionHistory) {
+    const row = node("article", { class: "runtime-instruction-version" }); const copy = node("div");
+    const current = version.id === currentRevision;
+    copy.append(node("strong", {}, current ? "Current version" : "Saved version"), node("p", {}, `${formatDate(version.createdAt)} · ${formatTime(version.createdAt)} · ${version.action}`));
+    const review = node("button", { type: "button", class: "secondary" }, "Review"); review.addEventListener("click", () => void openRuntimeInstructionVersion(version.id)); row.append(copy, review); target.append(row);
+  }
+}
+
+async function openRuntimeInstructionVersion(historyId) {
+  try {
+    const { data } = await request(`/api/runtime-instructions/history/${historyId}`); const version = data.version; const dialog = $("#runtime-instructions-version-dialog");
+    dialog.dataset.historyId = version.id; dialog.dataset.current = String(version.id === $("#runtime-instructions").dataset.revision);
+    $("#runtime-instructions-version-meta").textContent = `${formatDate(version.createdAt)} · ${formatTime(version.createdAt)} · ${version.action}`;
+    $("#runtime-instructions-version-markdown").value = version.markdown;
+    $("#runtime-instructions-version-restore").disabled = dialog.dataset.current === "true";
+    $("#runtime-instructions-version-restore").textContent = dialog.dataset.current === "true" ? "Current version" : "Restore this version";
+    dialog.showModal();
+  } catch { toast("That saved version could not be opened."); }
+}
+
+async function restoreRuntimeInstructionVersion() {
+  const dialog = $("#runtime-instructions-version-dialog"); if (dialog.dataset.current === "true") return;
+  try {
+    const { data } = await request("/api/runtime-instructions/restore", { method: "PUT", body: { historyId: dialog.dataset.historyId, revision: $("#runtime-instructions").dataset.revision } });
+    $("#runtime-instructions").value = data.runtimeInstructions.markdown; $("#runtime-instructions").dataset.revision = data.runtimeInstructions.revision;
+    dialog.close(); await loadSettings(); toast("Saved version restored for future consultations.");
+  } catch (error) { toast(error.data?.message ?? "That version could not be restored. Reload Settings and try again."); }
 }
 
 function renderAttachmentDraft() {
@@ -280,6 +314,7 @@ $("#runtime-instructions-form").addEventListener("submit", async event => {
     $("#runtime-instructions").value = data.runtimeInstructions.markdown;
     $("#runtime-instructions").dataset.revision = data.runtimeInstructions.revision;
     $("#runtime-instructions-status").textContent = `Saved database document revision ${data.runtimeInstructions.revision.slice(0, 12)}. It applies to future consultations.`;
+    const history = await request("/api/runtime-instructions"); state.runtimeInstructionHistory = history.data.history; renderRuntimeInstructionHistory();
     toast("Runtime instructions saved for future consultations.");
   } catch (error) {
     const message = error.data?.message ?? "Runtime instructions were not saved.";
@@ -288,6 +323,7 @@ $("#runtime-instructions-form").addEventListener("submit", async event => {
   }
 });
 $("#sign-out").addEventListener("click", async () => { await request("/api/logout", { method: "POST" }); state.session = null; state.csrf = null; state.conversation = null; showSignIn(); });
+$("#runtime-instructions-version-restore").addEventListener("click", () => void restoreRuntimeInstructionVersion()); $("#runtime-instructions-version-cancel").addEventListener("click", () => $("#runtime-instructions-version-dialog").close()); $("#runtime-instructions-version-close").addEventListener("click", () => $("#runtime-instructions-version-dialog").close());
 $("#attach").addEventListener("click", () => $("#attachment").click()); $("#attachment").addEventListener("change", event => chooseAttachments(event.target.files));
 $("#voice").addEventListener("click", openVoice); $("#voice-action").addEventListener("click", event => { event.preventDefault(); voiceAction(); }); $("#voice-cancel").addEventListener("click", () => { releaseVoice(); $("#voice-dialog").close(); }); $("#voice-close").addEventListener("click", () => { releaseVoice(); $("#voice-dialog").close(); }); $("#voice-dialog").addEventListener("close", releaseVoice); window.addEventListener("pagehide", () => { stopPolling(); releaseVoice(); }); document.addEventListener("visibilitychange", () => { if (document.hidden && state.voiceMode === "listening") { releaseVoice(); voiceFailure("Voice interrupted", "Voice input stopped when the app moved to the background. Your typed draft is unchanged."); } });
 

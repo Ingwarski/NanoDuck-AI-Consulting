@@ -25,6 +25,15 @@ export function createMemoryStore() {
   const sessions = new Map();
   let settings = { ...defaults };
   let runtimeInstructions;
+  const runtimeInstructionHistory = new Map();
+
+  const runtimeVersion = (contract, action, restoredFromId = null) => {
+    const createdAt = now();
+    const record = { id: randomId(), markdown: contract.markdown, contentHash: contract.revision, action, restoredFromId, createdAt };
+    runtimeInstructionHistory.set(record.id, record);
+    return Object.freeze({ markdown: record.markdown, revision: record.id, contentHash: record.contentHash, updatedAt: createdAt });
+  };
+  const historySummary = record => Object.freeze({ id: record.id, contentHash: record.contentHash, action: record.action, restoredFromId: record.restoredFromId, createdAt: record.createdAt });
 
   const hasActiveRun = () => [...runs.values()].some(run => run.status === "active");
   return Object.freeze({
@@ -36,13 +45,23 @@ export function createMemoryStore() {
     async settings() { return Object.freeze({ ...settings }); },
     async saveSettings(next) { settings = { ...next }; return Object.freeze({ ...settings }); },
     async runtimeInstructions() { return runtimeInstructions ? Object.freeze({ ...runtimeInstructions }) : undefined; },
-    async ensureRuntimeInstructions(seed) {
-      if (!runtimeInstructions) runtimeInstructions = { markdown: seed.markdown, revision: seed.revision, updatedAt: now() };
+    async bootstrapRuntimeInstructions(contract) {
+      if (!runtimeInstructions) runtimeInstructions = runtimeVersion(contract, "bootstrap");
       return Object.freeze({ ...runtimeInstructions });
     },
     async saveRuntimeInstructions(next, expectedRevision) {
       if (!runtimeInstructions || runtimeInstructions.revision !== expectedRevision) return undefined;
-      runtimeInstructions = { markdown: next.markdown, revision: next.revision, updatedAt: now() };
+      runtimeInstructions = runtimeVersion(next, "save");
+      return Object.freeze({ ...runtimeInstructions });
+    },
+    async listRuntimeInstructionHistory() { return [...runtimeInstructionHistory.values()].sort((a, b) => b.createdAt.localeCompare(a.createdAt)).map(historySummary); },
+    async runtimeInstructionVersion(id) {
+      const record = runtimeInstructionHistory.get(id);
+      return record ? Object.freeze({ ...historySummary(record), markdown: record.markdown }) : undefined;
+    },
+    async restoreRuntimeInstructions(next, expectedRevision, restoredFromId) {
+      if (!runtimeInstructions || runtimeInstructions.revision !== expectedRevision || !runtimeInstructionHistory.has(restoredFromId)) return undefined;
+      runtimeInstructions = runtimeVersion(next, "restore", restoredFromId);
       return Object.freeze({ ...runtimeInstructions });
     },
     async listConversations() {
@@ -153,6 +172,13 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
     ? createPool({ uri: databaseUrl, ssl: { ca: await readFile(databaseSslCaPath, "utf8"), rejectUnauthorized: true } })
     : createPool(databaseUrl);
   const query = (statement, values = []) => pool.execute(statement, values);
+  const runtimeDocument = row => Object.freeze({ markdown: decryptText({ iv: row.iv, ciphertext: row.ciphertext, tag: row.tag }, dataKey), revision: row.revision, contentHash: row.content_hash, updatedAt: row.updated_at });
+  const runtimeHistorySummary = row => Object.freeze({ id: row.id, contentHash: row.content_hash, action: row.action, restoredFromId: row.restored_from_id, createdAt: row.created_at });
+  const nextRuntimeRecord = (contract, action, restoredFromId = null) => {
+    const createdAt = now(); const encrypted = encryptText(contract.markdown, dataKey);
+    return Object.freeze({ id: randomId(), action, restoredFromId, contentHash: contract.revision, createdAt, ...encrypted });
+  };
+  const insertRuntimeHistory = (connection, record) => connection.execute("INSERT INTO nanoduck_runtime_instruction_history (id,owner_id,action,restored_from_id,ciphertext,iv,tag,content_hash,created_at) VALUES (?,'owner',?,?,?,?,?,?,?)", [record.id,record.action,record.restoredFromId,record.ciphertext,record.iv,record.tag,record.contentHash,record.createdAt]);
   const decode = (row, attachments = []) => ({ id: row.id, role: row.role, recipient: row.recipient, body: decryptText({ iv: row.iv, ciphertext: row.ciphertext, tag: row.tag }, dataKey), sequence: row.sequence, createdAt: row.created_at, sources: JSON.parse(row.sources_json), attachments });
   const attachmentMetadata = row => publicAttachment({ id: row.id, contentType: row.content_type, byteLength: Number(row.byte_length), createdAt: row.created_at });
   const attachmentsByMessage = async conversationId => {
@@ -175,18 +201,55 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
     async settings() { const [rows] = await query("SELECT settings_json FROM nanoduck_settings WHERE owner_id = 'owner' LIMIT 1"); return rows.length ? Object.freeze({ ...defaults, ...JSON.parse(rows[0].settings_json) }) : Object.freeze({ ...defaults }); },
     async saveSettings(next) { await query("INSERT INTO nanoduck_settings (owner_id, settings_json) VALUES ('owner', ?) ON DUPLICATE KEY UPDATE settings_json=VALUES(settings_json)", [JSON.stringify(next)]); return Object.freeze({ ...next }); },
     async runtimeInstructions() {
-      const [rows] = await query("SELECT markdown,revision,updated_at FROM nanoduck_runtime_instructions WHERE owner_id = 'owner' LIMIT 1");
-      return rows.length ? Object.freeze({ markdown: rows[0].markdown, revision: rows[0].revision, updatedAt: rows[0].updated_at }) : undefined;
+      const [rows] = await query("SELECT ciphertext,iv,tag,revision,content_hash,created_at,updated_at FROM nanoduck_runtime_instructions WHERE owner_id = 'owner' LIMIT 1");
+      return rows.length ? runtimeDocument(rows[0]) : undefined;
     },
-    async ensureRuntimeInstructions(seed) {
-      const createdAt = now();
-      await query("INSERT IGNORE INTO nanoduck_runtime_instructions (owner_id,markdown,revision,updated_at) VALUES ('owner',?,?,?)", [seed.markdown, seed.revision, createdAt]);
-      return this.runtimeInstructions();
+    async bootstrapRuntimeInstructions(contract) {
+      const connection = await pool.getConnection();
+      try {
+        await connection.beginTransaction(); await lockOwner(connection);
+        const [rows] = await connection.execute("SELECT ciphertext,iv,tag,revision,content_hash,created_at,updated_at FROM nanoduck_runtime_instructions WHERE owner_id='owner' FOR UPDATE");
+        if (rows.length) { await connection.commit(); return runtimeDocument(rows[0]); }
+        const record = nextRuntimeRecord(contract, "bootstrap");
+        await connection.execute("INSERT INTO nanoduck_runtime_instructions (owner_id,ciphertext,iv,tag,revision,content_hash,created_at,updated_at) VALUES ('owner',?,?,?,?,?,?,?)", [record.ciphertext,record.iv,record.tag,record.id,record.contentHash,record.createdAt,record.createdAt]);
+        await insertRuntimeHistory(connection, record); await connection.commit();
+        return Object.freeze({ markdown: contract.markdown, revision: record.id, contentHash: record.contentHash, updatedAt: record.createdAt });
+      } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
     },
     async saveRuntimeInstructions(next, expectedRevision) {
-      const updatedAt = now();
-      const [result] = await query("UPDATE nanoduck_runtime_instructions SET markdown=?,revision=?,updated_at=? WHERE owner_id='owner' AND revision=?", [next.markdown, next.revision, updatedAt, expectedRevision]);
-      return result.affectedRows === 1 ? Object.freeze({ markdown: next.markdown, revision: next.revision, updatedAt }) : undefined;
+      const connection = await pool.getConnection();
+      try {
+        await connection.beginTransaction(); await lockOwner(connection);
+        const [rows] = await connection.execute("SELECT revision FROM nanoduck_runtime_instructions WHERE owner_id='owner' FOR UPDATE");
+        if (!rows.length || rows[0].revision !== expectedRevision) { await connection.rollback(); return undefined; }
+        const record = nextRuntimeRecord(next, "save");
+        await connection.execute("UPDATE nanoduck_runtime_instructions SET ciphertext=?,iv=?,tag=?,revision=?,content_hash=?,updated_at=? WHERE owner_id='owner'", [record.ciphertext,record.iv,record.tag,record.id,record.contentHash,record.createdAt]);
+        await insertRuntimeHistory(connection, record); await connection.commit();
+        return Object.freeze({ markdown: next.markdown, revision: record.id, contentHash: record.contentHash, updatedAt: record.createdAt });
+      } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
+    },
+    async listRuntimeInstructionHistory() {
+      const [rows] = await query("SELECT id,action,restored_from_id,content_hash,created_at FROM nanoduck_runtime_instruction_history WHERE owner_id='owner' ORDER BY created_at DESC, id DESC");
+      return rows.map(runtimeHistorySummary);
+    },
+    async runtimeInstructionVersion(id) {
+      const [rows] = await query("SELECT id,action,restored_from_id,ciphertext,iv,tag,content_hash,created_at FROM nanoduck_runtime_instruction_history WHERE owner_id='owner' AND id=? LIMIT 1", [id]);
+      return rows.length ? Object.freeze({ ...runtimeHistorySummary(rows[0]), markdown: decryptText({ iv: rows[0].iv, ciphertext: rows[0].ciphertext, tag: rows[0].tag }, dataKey) }) : undefined;
+    },
+    async restoreRuntimeInstructions(next, expectedRevision, restoredFromId) {
+      const connection = await pool.getConnection();
+      try {
+        await connection.beginTransaction(); await lockOwner(connection);
+        const [[current], [history]] = await Promise.all([
+          connection.execute("SELECT revision FROM nanoduck_runtime_instructions WHERE owner_id='owner' FOR UPDATE"),
+          connection.execute("SELECT id FROM nanoduck_runtime_instruction_history WHERE owner_id='owner' AND id=? FOR UPDATE", [restoredFromId])
+        ]);
+        if (!current.length || current[0].revision !== expectedRevision || !history.length) { await connection.rollback(); return undefined; }
+        const record = nextRuntimeRecord(next, "restore", restoredFromId);
+        await connection.execute("UPDATE nanoduck_runtime_instructions SET ciphertext=?,iv=?,tag=?,revision=?,content_hash=?,updated_at=? WHERE owner_id='owner'", [record.ciphertext,record.iv,record.tag,record.id,record.contentHash,record.createdAt]);
+        await insertRuntimeHistory(connection, record); await connection.commit();
+        return Object.freeze({ markdown: next.markdown, revision: record.id, contentHash: record.contentHash, updatedAt: record.createdAt });
+      } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
     },
     async listConversations() { const [rows] = await query("SELECT id,title,created_at,updated_at,deleted_at FROM nanoduck_conversations WHERE deleted_at IS NULL ORDER BY updated_at DESC"); return rows.map(row => ({ id: row.id, title: row.title, createdAt: row.created_at, updatedAt: row.updated_at, deletedAt: row.deleted_at })); },
     async createConversation() { const item = { id: randomId(), title: "New consultation", createdAt: now(), updatedAt: now() }; await query("INSERT INTO nanoduck_conversations (id,title,created_at,updated_at) VALUES (?,?,?,?)", [item.id, item.title, item.createdAt, item.updatedAt]); return { ...item, deletedAt: null }; },

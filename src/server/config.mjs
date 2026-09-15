@@ -22,6 +22,16 @@ const positiveInteger = (value, fallback, name) => {
   return parsed;
 };
 
+const optionalBase64urlText = (value, name) => {
+  if (value === undefined || value === "") return undefined;
+  if (!/^[A-Za-z0-9_-]+$/u.test(value)) throw new Error(`${name} must be base64url-encoded UTF-8 text.`);
+  const decoded = Buffer.from(value, "base64url");
+  if (!decoded.byteLength || decoded.toString("base64url") !== value) throw new Error(`${name} must be canonical base64url-encoded UTF-8 text.`);
+  const text = decoded.toString("utf8");
+  if (!Buffer.from(text, "utf8").equals(decoded)) throw new Error(`${name} must contain UTF-8 text.`);
+  return text;
+};
+
 export function loadConfig(environment = process.env) {
   const mode = environment.NODE_ENV ?? "production";
   if (!["development", "test", "production"].includes(mode)) throw new Error("NODE_ENV is invalid.");
@@ -65,6 +75,7 @@ export function loadConfig(environment = process.env) {
 
   const runtimeDataKey = decodedKey ?? createHash("sha256").update("nanoduck-development-data-key").digest();
   const runtimeRecoveryKey = decodedRecoveryKey ?? createHash("sha256").update("nanoduck-development-recovery-key").digest();
+  const runtimeInstructionsBootstrap = optionalBase64urlText(environment.RUNTIME_INSTRUCTIONS_BOOTSTRAP_B64, "RUNTIME_INSTRUCTIONS_BOOTSTRAP_B64");
   const maxAttachmentBytes = positiveInteger(environment.MAX_ATTACHMENT_BYTES, 8 * 1024 * 1024, "MAX_ATTACHMENT_BYTES");
   if (maxAttachmentBytes > 8 * 1024 * 1024) throw new Error("MAX_ATTACHMENT_BYTES cannot exceed 8 MiB.");
   return Object.freeze({
@@ -74,6 +85,7 @@ export function loadConfig(environment = process.env) {
     databaseUrl,
     databaseSslCaPath,
     dataKey: runtimeDataKey,
+    runtimeInstructionsBootstrap,
     recoveryKey: runtimeRecoveryKey,
     sessionKey,
     sessionLifetimeSeconds: positiveInteger(environment.SESSION_ABSOLUTE_SECONDS, 86_400, "SESSION_ABSOLUTE_SECONDS"),

@@ -7,6 +7,7 @@ import { createAuth } from "../src/server/auth.mjs";
 import { loadConfig } from "../src/server/config.mjs";
 import { createMemoryStore, createMySqlStore, defaultSettings } from "../src/server/store.mjs";
 import { parseMessage, parseSettings, safeExternalUrl } from "../src/server/validation.mjs";
+import { testRuntimeInstructions } from "./fixtures/runtime-instructions.mjs";
 
 test("new consultations default to the current saved Codex settings", () => {
   assert.deepEqual(defaultSettings, {
@@ -95,6 +96,52 @@ test("only one consultation can be active across the owner's conversations", asy
   assert.equal(await store.continueRun(first.id), undefined);
   assert.ok(await store.stop(second.id));
   assert.equal((await store.continueRun(first.id))?.status, "active");
+});
+
+test("MySQL runtime instructions are encrypted, versioned and restored through the owner lock", async () => {
+  let current; const history = new Map(); const commands = [];
+  const connection = {
+    async beginTransaction() { commands.push("BEGIN"); },
+    async commit() { commands.push("COMMIT"); },
+    async rollback() { commands.push("ROLLBACK"); },
+    release() {},
+    async execute(statement, values = []) {
+      commands.push(statement);
+      if (statement.startsWith("SELECT owner_id FROM nanoduck_owner_locks")) return [[{ owner_id: "owner" }]];
+      if (statement.startsWith("SELECT ciphertext,iv,tag,revision,content_hash,created_at,updated_at FROM nanoduck_runtime_instructions")) return [current ? [current] : []];
+      if (statement.startsWith("SELECT revision FROM nanoduck_runtime_instructions")) return [current ? [{ revision: current.revision }] : []];
+      if (statement.startsWith("INSERT INTO nanoduck_runtime_instructions")) {
+        current = { ciphertext: values[0], iv: values[1], tag: values[2], revision: values[3], content_hash: values[4], created_at: values[5], updated_at: values[6] }; return [{ affectedRows: 1 }];
+      }
+      if (statement.startsWith("UPDATE nanoduck_runtime_instructions")) {
+        current = { ...current, ciphertext: values[0], iv: values[1], tag: values[2], revision: values[3], content_hash: values[4], updated_at: values[5] }; return [{ affectedRows: 1 }];
+      }
+      if (statement.startsWith("INSERT INTO nanoduck_runtime_instruction_history")) {
+        history.set(values[0], { id: values[0], owner_id: "owner", action: values[1], restored_from_id: values[2], ciphertext: values[3], iv: values[4], tag: values[5], content_hash: values[6], created_at: values[7] }); return [{ affectedRows: 1 }];
+      }
+      if (statement.startsWith("SELECT id,action,restored_from_id,content_hash,created_at FROM nanoduck_runtime_instruction_history")) return [[...history.values()].map(({ id, action, restored_from_id, content_hash, created_at }) => ({ id, action, restored_from_id, content_hash, created_at }))];
+      if (statement.startsWith("SELECT id,action,restored_from_id,ciphertext,iv,tag,content_hash,created_at FROM nanoduck_runtime_instruction_history")) {
+        const row = history.get(values[0]); return [row ? [row] : []];
+      }
+      if (statement.startsWith("SELECT id FROM nanoduck_runtime_instruction_history")) return [history.has(values[0]) ? [{ id: values[0] }] : []];
+      throw new Error(`Unexpected statement: ${statement}`);
+    }
+  };
+  const pool = { getConnection: async () => connection, execute: (...args) => connection.execute(...args), end: async () => {} };
+  const store = await createMySqlStore("mysql://unused", key, undefined, { createPool: () => pool });
+  const bootstrapped = await store.bootstrapRuntimeInstructions(testRuntimeInstructions);
+  assert.notEqual(current.ciphertext, testRuntimeInstructions.markdown);
+  assert.equal(decryptText(current, key), testRuntimeInstructions.markdown);
+  const edited = { ...testRuntimeInstructions, markdown: testRuntimeInstructions.markdown.replace("Give a direct, self-contained answer to this simple question.", "Give the owner a concrete answer first."), revision: "a".repeat(64) };
+  const saved = await store.saveRuntimeInstructions(edited, bootstrapped.revision);
+  assert.ok(saved);
+  assert.equal((await store.listRuntimeInstructionHistory()).length, 2);
+  assert.equal((await store.runtimeInstructionVersion(bootstrapped.revision))?.markdown, testRuntimeInstructions.markdown);
+  const restored = await store.restoreRuntimeInstructions(testRuntimeInstructions, saved.revision, bootstrapped.revision);
+  assert.ok(restored);
+  assert.notEqual(restored.revision, bootstrapped.revision);
+  assert.equal((await store.runtimeInstructions())?.markdown, testRuntimeInstructions.markdown);
+  assert.ok(commands.filter(command => command === "SELECT owner_id FROM nanoduck_owner_locks WHERE owner_id='owner' FOR UPDATE").length >= 3);
 });
 
 test("MySQL agent writes and deletion serialize through the conversation lock", async () => {

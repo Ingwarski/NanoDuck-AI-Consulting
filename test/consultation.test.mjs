@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { createConsultationService } from "../src/server/consultation.mjs";
 import { createMemoryStore, defaultSettings as baseSettings } from "../src/server/store.mjs";
-import { initialRuntimeInstructions } from "../src/server/prompt-contracts.mjs";
+import { testRuntimeInstructions as initialRuntimeInstructions } from "./fixtures/runtime-instructions.mjs";
 
 const defaultSettings = Object.freeze({ ...baseSettings, runtimeInstructions: { markdown: initialRuntimeInstructions.markdown, revision: initialRuntimeInstructions.revision } });
 
@@ -79,9 +79,9 @@ test("a fixed specialist count selects the requested team without changing the m
   assert.equal(calls[0].outputKind, "head_task");
   assert.match(calls[5].assignment, /^You are the Operations Consultant/u);
   const events = await store.events(conversation.id);
-  assert.equal(calls[3].assignment.includes(`Your assigned Head brief is exactly:\nBegin assigned brief\n${events[1].body}\nEnd assigned brief`), true);
-  assert.equal(calls[4].assignment.includes(`Your assigned Head brief is exactly:\nBegin assigned brief\n${events[2].body}\nEnd assigned brief`), true);
-  assert.equal(calls[5].assignment.includes(`Your assigned Head brief is exactly:\nBegin assigned brief\n${events[3].body}\nEnd assigned brief`), true);
+  assert.equal(calls[3].assignment.includes(`Your assigned Head brief is exactly:\n${events[1].body}`), true);
+  assert.equal(calls[4].assignment.includes(`Your assigned Head brief is exactly:\n${events[2].body}`), true);
+  assert.equal(calls[5].assignment.includes(`Your assigned Head brief is exactly:\n${events[3].body}`), true);
   assert.deepEqual((await store.events(conversation.id)).map(event => [event.role, event.recipient]), [
     ["owner", null],
     ["Head Consultant", "Strategy Consultant"], ["Head Consultant", "Finance Consultant"], ["Head Consultant", "Operations Consultant"],
@@ -160,8 +160,8 @@ test("a generic BTC-only Head task retains the decision detail and recipient-spe
   assert.equal(tasks.every(task => /market|bearish|unpredictable|buy|sell|hold/u.test(task.body)), true);
   assert.match(tasks[0].body, /actual options/u);
   assert.match(tasks[1].body, /exposure, affordability or loss-limit/u);
-  assert.equal(calls[4].assignment.includes(`Your assigned Head brief is exactly:\nBegin assigned brief\n${tasks[0].body}\nEnd assigned brief`), true);
-  assert.equal(calls[5].assignment.includes(`Your assigned Head brief is exactly:\nBegin assigned brief\n${tasks[1].body}\nEnd assigned brief`), true);
+  assert.equal(calls[4].assignment.includes(`Your assigned Head brief is exactly:\n${tasks[0].body}`), true);
+  assert.equal(calls[5].assignment.includes(`Your assigned Head brief is exactly:\n${tasks[1].body}`), true);
 });
 
 test("role contributions are trimmed at complete sentences within their stated bounds", async () => {
@@ -281,8 +281,8 @@ test("a Ukrainian finance question assigns the Finance Consultant and directs th
 
 test("spiritual and psychotherapy questions use their bounded specialist roles", async () => {
   const cases = [
-    ["How should I think about salvation through faith in Christ?", "Spiritual Consultant", /evangelical Protestant doctrine/u],
-    ["Could IFS help me understand this recurring anxiety?", "Psychotherapist", /Internal Family Systems/u]
+    ["How should I think about salvation through faith in Christ?", "Spiritual Consultant", /bounded faith scope/u],
+    ["Could IFS help me understand this recurring anxiety?", "Psychotherapist", /non-diagnostic support scope/u]
   ];
   for (const [body, role, guidance] of cases) {
     const store = createMemoryStore();

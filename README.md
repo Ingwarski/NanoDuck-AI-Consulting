@@ -29,6 +29,10 @@ npm run dev
 
 Open [NanoDuck locally](http://127.0.0.1:3000/). Development mode exposes a local-only owner sign-in. Production mode requires a Google owner subject, HTTPS origin, MySQL connection with a mounted TLS CA bundle, separate data/recovery/session keys, and a mounted Codex app-server authentication file. Use [`.env.example`](.env.example) to see variable names; do not commit values.
 
+### Bootstrap the owner instruction document
+
+The consultant instruction document is never kept in this repository. On a fresh database, supply its UTF-8, base64url-encoded Markdown once as `RUNTIME_INSTRUCTIONS_BOOTSTRAP_B64` when running `npm run migrate`. The migration validates and encrypts it, then writes the first saved version. Remove that bootstrap secret from the deployment environment afterwards. Every later review, edit and restore happens through authenticated Settings and the database.
+
 Before connecting a target runtime, set `CODEX_APP_SERVER_AUTH_PATH` to the mounted Codex auth file and run `npm run preflight`. It performs only the managed Codex account, model-catalog and rate-limit inspection; it does not start a model turn, contact MySQL or change GoDaddy.
 
 The owner selected Electric and requested colours from [HappyPro Academy](https://happypro.academy/): its blue and large-heading gradient, with warmer yellow Head Consultant, raspberry Critic, violet Product and turquoise Operations. The black Ember/Cobalt composition and behavior stay the same.

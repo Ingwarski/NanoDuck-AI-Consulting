@@ -16,9 +16,26 @@ CREATE TABLE IF NOT EXISTS nanoduck_settings (
 
 CREATE TABLE IF NOT EXISTS nanoduck_runtime_instructions (
   owner_id VARCHAR(32) PRIMARY KEY,
-  markdown MEDIUMTEXT NOT NULL,
-  revision CHAR(64) NOT NULL,
+  ciphertext MEDIUMTEXT NOT NULL,
+  iv VARCHAR(64) NOT NULL,
+  tag VARCHAR(64) NOT NULL,
+  revision VARCHAR(128) NOT NULL,
+  content_hash CHAR(64) NOT NULL,
+  created_at VARCHAR(40) NOT NULL,
   updated_at VARCHAR(40) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS nanoduck_runtime_instruction_history (
+  id VARCHAR(128) PRIMARY KEY,
+  owner_id VARCHAR(32) NOT NULL,
+  action VARCHAR(32) NOT NULL,
+  restored_from_id VARCHAR(128) NULL,
+  ciphertext MEDIUMTEXT NOT NULL,
+  iv VARCHAR(64) NOT NULL,
+  tag VARCHAR(64) NOT NULL,
+  content_hash CHAR(64) NOT NULL,
+  created_at VARCHAR(40) NOT NULL,
+  INDEX nanoduck_runtime_instruction_history_owner (owner_id, created_at)
 );
 
 CREATE TABLE IF NOT EXISTS nanoduck_owner_locks (

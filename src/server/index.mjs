@@ -6,13 +6,13 @@ import { createMemoryStore, createMySqlStore } from "./store.mjs";
 import { createAuth } from "./auth.mjs";
 import { createCodexProvider } from "./codex-provider.mjs";
 import { createConsultationService } from "./consultation.mjs";
-import { initialRuntimeInstructions, parseRuntimeInstructions, RuntimeInstructionError } from "./prompt-contracts.mjs";
+import { parseRuntimeInstructions, RuntimeInstructionError } from "./prompt-contracts.mjs";
 import { attachmentExtension, readImageAttachment } from "./attachments.mjs";
 import { messageError, parseConversationId, parseMessage, parseSettings } from "./validation.mjs";
 
 const config = loadConfig();
 const store = config.databaseUrl ? await createMySqlStore(config.databaseUrl, config.dataKey, config.databaseSslCaPath) : createMemoryStore();
-await store.ensureRuntimeInstructions(initialRuntimeInstructions);
+if (config.runtimeInstructionsBootstrap) await store.bootstrapRuntimeInstructions(parseRuntimeInstructions(config.runtimeInstructionsBootstrap));
 const auth = createAuth({ config, store });
 const provider = createCodexProvider(config);
 const consultation = createConsultationService({ store, provider });
@@ -39,8 +39,8 @@ const activeRuntimeInstructions = async () => {
   const current = await store.runtimeInstructions();
   if (!current) throw new Error("runtime_instructions_unavailable");
   const contract = parseRuntimeInstructions(current.markdown);
-  if (current.revision !== contract.revision) throw new Error("runtime_instructions_corrupt");
-  return Object.freeze({ markdown: contract.markdown, revision: contract.revision, updatedAt: current.updatedAt, source: "database" });
+  if (current.contentHash !== contract.revision) throw new Error("runtime_instructions_corrupt");
+  return Object.freeze({ markdown: contract.markdown, revision: current.revision, contentHash: current.contentHash, updatedAt: current.updatedAt, source: "database" });
 };
 
 async function staticFile(request, response, pathname) {
@@ -76,12 +76,31 @@ const handler = async (request, response) => {
     if (request.method === "POST" && url.pathname === "/api/logout") { await auth.signOut(request); return empty(response, 204, { "set-cookie": auth.clearSessionCookie() }); }
     if (request.method === "GET" && url.pathname === "/api/settings") { if (!await protectedSession(request, response)) return; const [capabilities, runtimeInstructions] = await Promise.all([provider.inspect(), activeRuntimeInstructions()]); return send(response, 200, { settings: await store.settings(), runtimeInstructions, provider: capabilities.status, catalog: capabilities.models }); }
     if (request.method === "PUT" && url.pathname === "/api/settings") { if (!await protectedSession(request, response, { csrf: true })) return; const capabilities = await provider.inspect(); const next = parseSettings(await json(request), capabilities.models); return next ? send(response, 200, { settings: await store.saveSettings(next) }) : send(response, 422, { error: "invalid_settings" }); }
-    if (request.method === "GET" && url.pathname === "/api/runtime-instructions") { if (!await protectedSession(request, response)) return; return send(response, 200, { runtimeInstructions: await activeRuntimeInstructions() }); }
+    if (request.method === "GET" && url.pathname === "/api/runtime-instructions") {
+      if (!await protectedSession(request, response)) return;
+      const [runtimeInstructions, history] = await Promise.all([activeRuntimeInstructions(), store.listRuntimeInstructionHistory()]);
+      return send(response, 200, { runtimeInstructions, history });
+    }
+    const instructionHistory = url.pathname.match(/^\/api\/runtime-instructions\/history\/([A-Za-z0-9_-]{16,128})$/u);
+    if (request.method === "GET" && instructionHistory) {
+      if (!await protectedSession(request, response)) return;
+      const version = await store.runtimeInstructionVersion(instructionHistory[1]);
+      return version ? send(response, 200, { version }) : send(response, 404, { error: "not_found" });
+    }
     if (request.method === "PUT" && url.pathname === "/api/runtime-instructions") {
       if (!await protectedSession(request, response, { csrf: true })) return;
       const input = await json(request); const contract = parseRuntimeInstructions(input?.markdown);
       const saved = await store.saveRuntimeInstructions(contract, input?.revision);
       return saved ? send(response, 200, { runtimeInstructions: { ...saved, source: "database" } }) : send(response, 409, { error: "stale_runtime_instructions", message: "Runtime instructions changed in another session. Reload Settings before saving." });
+    }
+    if (request.method === "PUT" && url.pathname === "/api/runtime-instructions/restore") {
+      if (!await protectedSession(request, response, { csrf: true })) return;
+      const input = await json(request);
+      if (typeof input?.historyId !== "string" || !/^[A-Za-z0-9_-]{16,128}$/u.test(input.historyId)) return send(response, 422, { error: "invalid_runtime_instruction_version" });
+      const previous = await store.runtimeInstructionVersion(input.historyId);
+      if (!previous) return send(response, 404, { error: "not_found" });
+      const saved = await store.restoreRuntimeInstructions(parseRuntimeInstructions(previous.markdown), input?.revision, previous.id);
+      return saved ? send(response, 200, { runtimeInstructions: { ...saved, source: "database" } }) : send(response, 409, { error: "stale_runtime_instructions", message: "Runtime instructions changed in another session. Reload Settings before restoring." });
     }
     if (request.method === "GET" && url.pathname === "/api/conversations") { if (!await protectedSession(request, response)) return; return send(response, 200, { conversations: await store.listConversations() }); }
     if (request.method === "POST" && url.pathname === "/api/conversations") { if (!await protectedSession(request, response, { csrf: true })) return; return send(response, 201, { conversation: await store.createConversation() }); }

@@ -1,7 +1,4 @@
 import { createHash } from "node:crypto";
-import { readFileSync } from "node:fs";
-
-const documentUrl = new URL("../../docs/runtime-instructions.md", import.meta.url);
 const maximumBytes = 48 * 1024;
 const requiredSections = Object.freeze({
   "Direct Head Answer": ["language"],
@@ -53,10 +50,6 @@ export function parseRuntimeInstructions(value) {
   }
   return Object.freeze({ markdown: `${markdown}\n`, revision: revisionFor(`${markdown}\n`), sections: Object.freeze(Object.fromEntries(sections)) });
 }
-
-// This is used only to create the first database document in a new installation.
-// The active runtime contract is always loaded from the accepted run snapshot.
-export const initialRuntimeInstructions = parseRuntimeInstructions(readFileSync(documentUrl, "utf8"));
 
 const render = (contract, section, values = {}) => {
   const body = contract.sections[section];
