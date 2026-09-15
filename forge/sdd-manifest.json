@@ -8014,7 +8014,7 @@
       ],
       "verification_receipt": {
         "path": "forge/runs/U-08/r04-godaddy-quoted-secret-compatibility-20260915/verification.json",
-        "content_hash": "257abee550269d59d511ff25ea765d96276dda684033175d8bd23e6c6e90606b"
+        "content_hash": "0b3388578a4653a24dd17f1aa2ffc4ae40f42995a71a8177e00d6d82b7290c3a"
       },
       "development_plan_hash": "f0a790b0c407f9f1850c23a8b6b14d1a6bb5bff6667caf1e1d834be64a4d3271",
       "decision": "Quoted existing secret values now pass only through the existing strict byte-length validation. Local verification passed; hosted readiness remains not_run."

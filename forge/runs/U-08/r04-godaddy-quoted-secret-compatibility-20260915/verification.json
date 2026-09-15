@@ -31,7 +31,11 @@
     ]
   },
   "hosted_verification": {
-    "status": "not_run",
-    "reason": "A new private Preview deployment and health observation are still required after local verification."
+    "status": "passed",
+    "observed_at": "2026-09-15T19:58:11+03:00",
+    "target": "GoDaddy private Preview only",
+    "commit": "32c2c36",
+    "evidence": "The GoDaddy dashboard reports both Preview infrastructure and site status OK for the pushed R-04 commit.",
+    "limitation": "A direct secretless /healthz navigation from browser automation was blocked by the local client before it reached the host; the provider health status is the hosted evidence recorded here."
   }
 }
