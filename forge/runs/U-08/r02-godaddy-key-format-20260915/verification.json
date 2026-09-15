@@ -23,7 +23,7 @@
     ]
   },
   "hosted_verification": {
-    "status": "not_run",
-    "reason": "The compatible commit is pushed but GoDaddy Preview has not yet deployed it."
+    "status": "building_unverified",
+    "reason": "GoDaddy Preview accepted a code update after the compatible commit was pushed. Browser control disconnected before a final readiness or rollback state was visible."
   }
 }
