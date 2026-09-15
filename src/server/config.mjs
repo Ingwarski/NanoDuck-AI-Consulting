@@ -63,6 +63,17 @@ const optionalGzipBase64urlText = (value, name) => {
 
 const optionalString = value => typeof value === "string" && value.trim() ? value.trim() : undefined;
 
+const quotedInner = value => {
+  const quote = value[0];
+  return (quote === "'" || quote === '"') && value.length > 1 && value.at(-1) === quote ? value.slice(1, -1) : undefined;
+};
+
+const dotenvAssignmentValue = (value, name) => {
+  const escapedName = name.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&");
+  const matched = new RegExp(`^(?:export[\\t ]+)?${escapedName}[\\t ]*=[\\t ]*(.+)$`, "u").exec(value);
+  return matched?.[1]?.trim() || undefined;
+};
+
 const secretKeyBytes = (value, name, acceptsLength) => {
   if (value === undefined) return undefined;
   const supplied = required(value, name);
@@ -84,13 +95,17 @@ const secretKeyBytes = (value, name, acceptsLength) => {
     }
     if (/^[0-9A-Fa-f]{64}$/u.test(secret)) add(Buffer.from(secret, "hex"));
   };
-  collectCanonical(supplied);
-  const quote = supplied[0];
-  const quoted = (quote === "'" || quote === '"') && supplied.length > 1 && supplied.at(-1) === quote;
-  const unquoted = quoted ? supplied.slice(1, -1) : undefined;
-  if (unquoted !== undefined) collectCanonical(unquoted);
-  add(Buffer.from(supplied, "utf8"));
-  if (unquoted !== undefined) add(Buffer.from(unquoted, "utf8"));
+  const textCandidates = [];
+  const addText = secret => {
+    if (secret && !textCandidates.includes(secret)) textCandidates.push(secret);
+  };
+  addText(supplied);
+  addText(quotedInner(supplied));
+  const assignment = dotenvAssignmentValue(supplied, name);
+  addText(assignment);
+  addText(assignment && quotedInner(assignment));
+  for (const secret of textCandidates) collectCanonical(secret);
+  for (const secret of textCandidates) add(Buffer.from(secret, "utf8"));
   const selected = candidates.find(candidate => acceptsLength(candidate.byteLength));
   if (!selected) throw new Error(`${name} has an unsupported encoding or byte length.`);
   return selected;

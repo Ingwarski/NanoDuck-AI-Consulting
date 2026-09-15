@@ -3749,13 +3749,13 @@
     "architecture": {
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "r07-provider-error-classification-reconciliation-20260916T011700+0300",
+      "owner_invocation_id": "r08-godaddy-env-envelope-reconciliation-20260916T013900+0300",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r07-provider-error-classification-reconciliation-20260916T011700+0300",
+      "source_version": "r08-godaddy-env-envelope-reconciliation-20260916T013900+0300",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3778,7 +3778,8 @@
         "src/server/consultation.mjs": "full",
         "test/codex-provider.test.mjs": "full",
         "test/consultation.test.mjs": "full",
-        "test/http.test.mjs": "full"
+        "test/http.test.mjs": "full",
+        ".env.example": "full"
       },
       "source_hashes": {
         "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
@@ -3793,16 +3794,17 @@
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "forge/runs/U-06/browser-speech-uk-20260914/README.md": "972494cb2d1dda8ae431f34bd2896eb6d5cb4642c838ae0b171d17ac931913d6",
         "package.json": "39f69e8b9c352928595ab1b7a3e83437a0e74bbdd2e5874b7d552f77c03fe0e2",
-        "src/server/config.mjs": "6e5f5f80943b031bc4dbf68f4b2cd0db4c12a88319b8fe2925b419f117cafbcc",
+        "src/server/config.mjs": "4e7816297d1bbe6be98c00ed530041db9383c6354222a0f000e0181e321f1de9",
         "src/server/index.mjs": "a4cc8c53b4e36f65bac8d4dca70b029d9065ed7d1c306e3034f84cd06b761c26",
         "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
-        "test/core.test.mjs": "e1fbc6e0995a3eacb179e31519982d5514bf8e9a01099e06d3ec71015c267ffb",
+        "test/core.test.mjs": "0de9078abd52a192e67afb5ef13693652b4b9372bf8bf5ec0d2463ecc0283047",
         "src/server/codex-provider.mjs": "87d9aa0ce66a7b1e785132649bdaf6d821e34bd3363ee20b3dbfdd286c312d13",
         "src/server/consultation.mjs": "417213aaf4732bcb707ab312b1fa6f166041bef3f375c46c76988e0d88cbcbc5",
         "test/codex-provider.test.mjs": "54eb37342d0ee228e2581fc3734fbd01a42fb1e1ec3e795f4e44008b725b2c12",
         "test/consultation.test.mjs": "e1770d0db38c20458c759af3e00be9d2dc2acc21c055b7db75b5b2fbe65869b4",
-        "test/http.test.mjs": "c2df9f4a4389122600cdea3f5e0024515a25b2830b4c7b8dfd465257e91a08aa"
+        "test/http.test.mjs": "c2df9f4a4389122600cdea3f5e0024515a25b2830b4c7b8dfd465257e91a08aa",
+        ".env.example": "908e4483bcad524ca4c95e9d20bc57dd4f2fbc6156f17925728798f03e91620f"
       },
       "dependencies": [
         "prd",
@@ -3814,12 +3816,12 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "6d0a650b0d10b9e69faa40cd29a6345639731f33a1bac5a598b9cce74f75ac40",
+      "content_hash": "63ef7dd0fd882c4e88b1d047cb3595ce67d8ed6e101a298b0f6e377aaef1e113",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r07-provider-error-classification-reconciliation",
-        "reviewed_at": "2026-09-16T01:17:00+03:00",
+        "kind": "r08-godaddy-env-envelope-reconciliation",
+        "reviewed_at": "2026-09-16T01:39:00+03:00",
         "executor": "Codex inline to-architecture"
       },
       "open_questions": [],
@@ -3893,19 +3895,19 @@
           "heading": "## Security enforcement map"
         }
       },
-      "supersedes": "r06-mysql-json-compatibility-reconciliation-20260915T204200+0300",
+      "supersedes": "r07-provider-error-classification-reconciliation-20260916T011700+0300",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "dod-evals": {
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "r07-provider-error-classification-reconciliation-20260916T011800+0300",
+      "owner_invocation_id": "r08-godaddy-env-envelope-reconciliation-20260916T014000+0300",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r07-provider-error-classification-reconciliation-20260916T011800+0300",
+      "source_version": "r08-godaddy-env-envelope-reconciliation-20260916T014000+0300",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3926,7 +3928,7 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "6d0a650b0d10b9e69faa40cd29a6345639731f33a1bac5a598b9cce74f75ac40"
+        "docs/architecture.md": "63ef7dd0fd882c4e88b1d047cb3595ce67d8ed6e101a298b0f6e377aaef1e113"
       },
       "dependencies": [
         "prd",
@@ -3943,8 +3945,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r07-provider-error-classification-reconciliation",
-        "reviewed_at": "2026-09-16T01:18:00+03:00",
+        "kind": "r08-godaddy-env-envelope-reconciliation",
+        "reviewed_at": "2026-09-16T01:40:00+03:00",
         "executor": "Codex inline to-dod-evals"
       },
       "open_questions": [],
@@ -4018,19 +4020,19 @@
           "heading": "### Product security membership"
         }
       },
-      "supersedes": "r06-mysql-json-compatibility-reconciliation-20260915T204300+0300",
+      "supersedes": "r07-provider-error-classification-reconciliation-20260916T011800+0300",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "qa-checklist": {
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "r07-provider-error-classification-reconciliation-20260916T011900+0300",
+      "owner_invocation_id": "r08-godaddy-env-envelope-reconciliation-20260916T014100+0300",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r07-provider-error-classification-reconciliation-20260916T011900+0300",
+      "source_version": "r08-godaddy-env-envelope-reconciliation-20260916T014100+0300",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -4067,18 +4069,18 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "6d0a650b0d10b9e69faa40cd29a6345639731f33a1bac5a598b9cce74f75ac40",
+        "docs/architecture.md": "63ef7dd0fd882c4e88b1d047cb3595ce67d8ed6e101a298b0f6e377aaef1e113",
         "docs/dod-evals.md": "ddcfd37ad55e49f67b778def0a5b8509c27b319e3fe7fcda56ea079b9514271b",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
         "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
         "forge/design/evidence/c-v1-visual-qa.json": "b5517ae544724b5ae54c60f63e328797b4788b4abda5828ceaea81f439c4ae83",
         "package.json": "39f69e8b9c352928595ab1b7a3e83437a0e74bbdd2e5874b7d552f77c03fe0e2",
-        "src/server/config.mjs": "6e5f5f80943b031bc4dbf68f4b2cd0db4c12a88319b8fe2925b419f117cafbcc",
+        "src/server/config.mjs": "4e7816297d1bbe6be98c00ed530041db9383c6354222a0f000e0181e321f1de9",
         "src/server/index.mjs": "a4cc8c53b4e36f65bac8d4dca70b029d9065ed7d1c306e3034f84cd06b761c26",
         "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
-        "test/core.test.mjs": "e1fbc6e0995a3eacb179e31519982d5514bf8e9a01099e06d3ec71015c267ffb",
+        "test/core.test.mjs": "0de9078abd52a192e67afb5ef13693652b4b9372bf8bf5ec0d2463ecc0283047",
         "src/server/codex-provider.mjs": "87d9aa0ce66a7b1e785132649bdaf6d821e34bd3363ee20b3dbfdd286c312d13",
         "src/server/consultation.mjs": "417213aaf4732bcb707ab312b1fa6f166041bef3f375c46c76988e0d88cbcbc5",
         "test/codex-provider.test.mjs": "54eb37342d0ee228e2581fc3734fbd01a42fb1e1ec3e795f4e44008b725b2c12",
@@ -4097,12 +4099,12 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "a6fdd90667861fab2e3d1a83023674d854be4d5f653686d333ec0ebd5a1ab021",
+      "content_hash": "1137d410cc9b84092f32bb106a1a4d89e5af387685d2d5e802286c91df20017b",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r07-provider-error-classification-reconciliation",
-        "reviewed_at": "2026-09-16T01:19:00+03:00",
+        "kind": "r08-godaddy-env-envelope-reconciliation",
+        "reviewed_at": "2026-09-16T01:41:00+03:00",
         "executor": "Codex inline to-qa-checklist"
       },
       "open_questions": [],
@@ -5865,19 +5867,19 @@
           "heading": "## Product acceptance"
         }
       },
-      "supersedes": "r06-mysql-json-compatibility-reconciliation-20260915T204400+0300",
+      "supersedes": "r07-provider-error-classification-reconciliation-20260916T011900+0300",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "development-plan": {
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "r07-provider-error-classification-reconciliation-20260916T012000+0300",
+      "owner_invocation_id": "r08-godaddy-env-envelope-reconciliation-20260916T014200+0300",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r07-provider-error-classification-reconciliation-20260916T012000+0300",
+      "source_version": "r08-godaddy-env-envelope-reconciliation-20260916T014200+0300",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -5919,9 +5921,9 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "6d0a650b0d10b9e69faa40cd29a6345639731f33a1bac5a598b9cce74f75ac40",
+        "docs/architecture.md": "63ef7dd0fd882c4e88b1d047cb3595ce67d8ed6e101a298b0f6e377aaef1e113",
         "docs/dod-evals.md": "ddcfd37ad55e49f67b778def0a5b8509c27b319e3fe7fcda56ea079b9514271b",
-        "docs/qa-checklist.md": "a6fdd90667861fab2e3d1a83023674d854be4d5f653686d333ec0ebd5a1ab021",
+        "docs/qa-checklist.md": "1137d410cc9b84092f32bb106a1a4d89e5af387685d2d5e802286c91df20017b",
         "docs/model-settings.md": "86801751744742aa44a41b9f6d5c5192eabd22423323c83bdbddec431e47b4d5",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "package.json": "39f69e8b9c352928595ab1b7a3e83437a0e74bbdd2e5874b7d552f77c03fe0e2",
@@ -5931,11 +5933,11 @@
         "forge/design/candidates/a/v8/nanoduck.svg": "723d3b4201c5fc6ffa3d30a1e5ed5151f616d436919d15f3642827a16ed7021d",
         "forge/design/candidates/a/v8/nanoduck-original.svg": "e8b786961dc9a3b4d5450d3d20c3fd25cb6b2a9e7dc3034d23202d1a6dd2f528",
         "forge/design/candidates/a/v8/app.js": "d7ac2287ce8496772592d42d134fc530affcb9147f0a7641655a56c6cf83775f",
-        "src/server/config.mjs": "6e5f5f80943b031bc4dbf68f4b2cd0db4c12a88319b8fe2925b419f117cafbcc",
+        "src/server/config.mjs": "4e7816297d1bbe6be98c00ed530041db9383c6354222a0f000e0181e321f1de9",
         "src/server/index.mjs": "a4cc8c53b4e36f65bac8d4dca70b029d9065ed7d1c306e3034f84cd06b761c26",
         "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
-        "test/core.test.mjs": "e1fbc6e0995a3eacb179e31519982d5514bf8e9a01099e06d3ec71015c267ffb",
+        "test/core.test.mjs": "0de9078abd52a192e67afb5ef13693652b4b9372bf8bf5ec0d2463ecc0283047",
         "src/server/codex-provider.mjs": "87d9aa0ce66a7b1e785132649bdaf6d821e34bd3363ee20b3dbfdd286c312d13",
         "src/server/consultation.mjs": "417213aaf4732bcb707ab312b1fa6f166041bef3f375c46c76988e0d88cbcbc5",
         "test/codex-provider.test.mjs": "54eb37342d0ee228e2581fc3734fbd01a42fb1e1ec3e795f4e44008b725b2c12",
@@ -5955,15 +5957,15 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "1704af85035a699add56bffbdf6b1863dff4be97fb0c1ec8c45622825172999e",
+      "content_hash": "ffab21103667153244b1cd8d999adbb2c86cbb76d2caddae48168f3f0995c1b9",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r07-provider-error-classification-reconciliation",
-        "reviewed_at": "2026-09-16T01:20:00+03:00",
+        "kind": "r08-godaddy-env-envelope-reconciliation",
+        "reviewed_at": "2026-09-16T01:42:00+03:00",
         "executor": "Codex inline to-development-plan"
       },
-      "supersedes": "r06-mysql-json-compatibility-reconciliation-20260915T204500+0300",
+      "supersedes": "r07-provider-error-classification-reconciliation-20260916T012000+0300",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
       "traceability": {
         "definitions": [
@@ -7663,18 +7665,18 @@
   ],
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "1704af85035a699add56bffbdf6b1863dff4be97fb0c1ec8c45622825172999e",
+    "development_plan_hash": "ffab21103667153244b1cd8d999adbb2c86cbb76d2caddae48168f3f0995c1b9",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-14T20:13:37+03:00",
-    "prompt_id": "impl-r07-provider-error-classification-20260916",
+    "prompt_id": "impl-r08-godaddy-env-envelope-20260916",
     "prompt_received_at": "2026-09-16T01:09:02+03:00",
     "released_at": "2026-09-16T01:09:02+03:00",
     "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
     "prompt_receipt": {
-      "path": "forge/runs/implementation-prompt-20260916-r07-provider-error-classification.json",
-      "content_hash": "99873e17763f7babe899dcfc71c3d9c573586b24aaeed557a0f4c967086daf84"
+      "path": "forge/runs/implementation-prompt-20260916-r08-godaddy-env-envelope.json",
+      "content_hash": "383ecbf8ec6991d5c260e263f872f8f8959b7ba56f61c86900d3aee081ba5328"
     },
-    "reason": "The owner reported a private Preview provider failure. The authorized repair classifies the app-server failure safely before an exact runtime correction, without a Published release, secret or database change."
+    "reason": "The owner reported a GoDaddy private Preview health-check rollback. The authorized repair adds strict same-name .env-envelope compatibility before existing key validation, without a Published release, secret or database change."
   },
   "input_requests": [],
   "last_resume_event": {
@@ -8245,7 +8247,7 @@
       "consumed_source_fragments": {}
     },
     "architecture": {
-      "invocation_id": "r07-provider-error-classification-reconciliation-20260916T011700+0300",
+      "invocation_id": "r08-godaddy-env-envelope-reconciliation-20260916T013900+0300",
       "outputs": [
         "docs/architecture.md"
       ],
@@ -8262,21 +8264,22 @@
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "forge/runs/U-06/browser-speech-uk-20260914/README.md": "972494cb2d1dda8ae431f34bd2896eb6d5cb4642c838ae0b171d17ac931913d6",
         "package.json": "39f69e8b9c352928595ab1b7a3e83437a0e74bbdd2e5874b7d552f77c03fe0e2",
-        "src/server/config.mjs": "6e5f5f80943b031bc4dbf68f4b2cd0db4c12a88319b8fe2925b419f117cafbcc",
+        "src/server/config.mjs": "4e7816297d1bbe6be98c00ed530041db9383c6354222a0f000e0181e321f1de9",
         "src/server/index.mjs": "a4cc8c53b4e36f65bac8d4dca70b029d9065ed7d1c306e3034f84cd06b761c26",
         "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
-        "test/core.test.mjs": "e1fbc6e0995a3eacb179e31519982d5514bf8e9a01099e06d3ec71015c267ffb",
+        "test/core.test.mjs": "0de9078abd52a192e67afb5ef13693652b4b9372bf8bf5ec0d2463ecc0283047",
         "src/server/codex-provider.mjs": "87d9aa0ce66a7b1e785132649bdaf6d821e34bd3363ee20b3dbfdd286c312d13",
         "src/server/consultation.mjs": "417213aaf4732bcb707ab312b1fa6f166041bef3f375c46c76988e0d88cbcbc5",
         "test/codex-provider.test.mjs": "54eb37342d0ee228e2581fc3734fbd01a42fb1e1ec3e795f4e44008b725b2c12",
         "test/consultation.test.mjs": "e1770d0db38c20458c759af3e00be9d2dc2acc21c055b7db75b5b2fbe65869b4",
-        "test/http.test.mjs": "c2df9f4a4389122600cdea3f5e0024515a25b2830b4c7b8dfd465257e91a08aa"
+        "test/http.test.mjs": "c2df9f4a4389122600cdea3f5e0024515a25b2830b4c7b8dfd465257e91a08aa",
+        ".env.example": "908e4483bcad524ca4c95e9d20bc57dd4f2fbc6156f17925728798f03e91620f"
       },
       "consumed_source_fragments": {}
     },
     "dod-evals": {
-      "invocation_id": "r07-provider-error-classification-reconciliation-20260916T011800+0300",
+      "invocation_id": "r08-godaddy-env-envelope-reconciliation-20260916T014000+0300",
       "outputs": [
         "docs/dod-evals.md"
       ],
@@ -8289,12 +8292,12 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "6d0a650b0d10b9e69faa40cd29a6345639731f33a1bac5a598b9cce74f75ac40"
+        "docs/architecture.md": "63ef7dd0fd882c4e88b1d047cb3595ce67d8ed6e101a298b0f6e377aaef1e113"
       },
       "consumed_source_fragments": {}
     },
     "qa-checklist": {
-      "invocation_id": "r07-provider-error-classification-reconciliation-20260916T011900+0300",
+      "invocation_id": "r08-godaddy-env-envelope-reconciliation-20260916T014100+0300",
       "outputs": [
         "docs/qa-checklist.md"
       ],
@@ -8307,18 +8310,18 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "6d0a650b0d10b9e69faa40cd29a6345639731f33a1bac5a598b9cce74f75ac40",
+        "docs/architecture.md": "63ef7dd0fd882c4e88b1d047cb3595ce67d8ed6e101a298b0f6e377aaef1e113",
         "docs/dod-evals.md": "ddcfd37ad55e49f67b778def0a5b8509c27b319e3fe7fcda56ea079b9514271b",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
         "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
         "forge/design/evidence/c-v1-visual-qa.json": "b5517ae544724b5ae54c60f63e328797b4788b4abda5828ceaea81f439c4ae83",
         "package.json": "39f69e8b9c352928595ab1b7a3e83437a0e74bbdd2e5874b7d552f77c03fe0e2",
-        "src/server/config.mjs": "6e5f5f80943b031bc4dbf68f4b2cd0db4c12a88319b8fe2925b419f117cafbcc",
+        "src/server/config.mjs": "4e7816297d1bbe6be98c00ed530041db9383c6354222a0f000e0181e321f1de9",
         "src/server/index.mjs": "a4cc8c53b4e36f65bac8d4dca70b029d9065ed7d1c306e3034f84cd06b761c26",
         "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
-        "test/core.test.mjs": "e1fbc6e0995a3eacb179e31519982d5514bf8e9a01099e06d3ec71015c267ffb",
+        "test/core.test.mjs": "0de9078abd52a192e67afb5ef13693652b4b9372bf8bf5ec0d2463ecc0283047",
         "src/server/codex-provider.mjs": "87d9aa0ce66a7b1e785132649bdaf6d821e34bd3363ee20b3dbfdd286c312d13",
         "src/server/consultation.mjs": "417213aaf4732bcb707ab312b1fa6f166041bef3f375c46c76988e0d88cbcbc5",
         "test/codex-provider.test.mjs": "54eb37342d0ee228e2581fc3734fbd01a42fb1e1ec3e795f4e44008b725b2c12",
@@ -8328,7 +8331,7 @@
       "consumed_source_fragments": {}
     },
     "development-plan": {
-      "invocation_id": "r07-provider-error-classification-reconciliation-20260916T012000+0300",
+      "invocation_id": "r08-godaddy-env-envelope-reconciliation-20260916T014200+0300",
       "outputs": [
         "docs/development-plan.md"
       ],
@@ -8341,9 +8344,9 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "6d0a650b0d10b9e69faa40cd29a6345639731f33a1bac5a598b9cce74f75ac40",
+        "docs/architecture.md": "63ef7dd0fd882c4e88b1d047cb3595ce67d8ed6e101a298b0f6e377aaef1e113",
         "docs/dod-evals.md": "ddcfd37ad55e49f67b778def0a5b8509c27b319e3fe7fcda56ea079b9514271b",
-        "docs/qa-checklist.md": "a6fdd90667861fab2e3d1a83023674d854be4d5f653686d333ec0ebd5a1ab021",
+        "docs/qa-checklist.md": "1137d410cc9b84092f32bb106a1a4d89e5af387685d2d5e802286c91df20017b",
         "docs/model-settings.md": "86801751744742aa44a41b9f6d5c5192eabd22423323c83bdbddec431e47b4d5",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "package.json": "39f69e8b9c352928595ab1b7a3e83437a0e74bbdd2e5874b7d552f77c03fe0e2",
@@ -8353,11 +8356,11 @@
         "forge/design/candidates/a/v8/nanoduck.svg": "723d3b4201c5fc6ffa3d30a1e5ed5151f616d436919d15f3642827a16ed7021d",
         "forge/design/candidates/a/v8/nanoduck-original.svg": "e8b786961dc9a3b4d5450d3d20c3fd25cb6b2a9e7dc3034d23202d1a6dd2f528",
         "forge/design/candidates/a/v8/app.js": "d7ac2287ce8496772592d42d134fc530affcb9147f0a7641655a56c6cf83775f",
-        "src/server/config.mjs": "6e5f5f80943b031bc4dbf68f4b2cd0db4c12a88319b8fe2925b419f117cafbcc",
+        "src/server/config.mjs": "4e7816297d1bbe6be98c00ed530041db9383c6354222a0f000e0181e321f1de9",
         "src/server/index.mjs": "a4cc8c53b4e36f65bac8d4dca70b029d9065ed7d1c306e3034f84cd06b761c26",
         "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
-        "test/core.test.mjs": "e1fbc6e0995a3eacb179e31519982d5514bf8e9a01099e06d3ec71015c267ffb",
+        "test/core.test.mjs": "0de9078abd52a192e67afb5ef13693652b4b9372bf8bf5ec0d2463ecc0283047",
         "src/server/codex-provider.mjs": "87d9aa0ce66a7b1e785132649bdaf6d821e34bd3363ee20b3dbfdd286c312d13",
         "src/server/consultation.mjs": "417213aaf4732bcb707ab312b1fa6f166041bef3f375c46c76988e0d88cbcbc5",
         "test/codex-provider.test.mjs": "54eb37342d0ee228e2581fc3734fbd01a42fb1e1ec3e795f4e44008b725b2c12",
@@ -66693,7 +66696,7 @@
     "release_readiness": "not_evaluated",
     "source_hashes": {
       "docs/dod-evals.md": "ddcfd37ad55e49f67b778def0a5b8509c27b319e3fe7fcda56ea079b9514271b",
-      "docs/qa-checklist.md": "a6fdd90667861fab2e3d1a83023674d854be4d5f653686d333ec0ebd5a1ab021"
+      "docs/qa-checklist.md": "1137d410cc9b84092f32bb106a1a4d89e5af387685d2d5e802286c91df20017b"
     },
     "gates": [
       {
@@ -71561,6 +71564,133 @@
         "forge/design/candidates/a/v8/nanoduck.svg": "723d3b4201c5fc6ffa3d30a1e5ed5151f616d436919d15f3642827a16ed7021d",
         "forge/design/candidates/a/v8/nanoduck-original.svg": "e8b786961dc9a3b4d5450d3d20c3fd25cb6b2a9e7dc3034d23202d1a6dd2f528",
         "forge/design/candidates/a/v8/app.js": "d7ac2287ce8496772592d42d134fc530affcb9147f0a7641655a56c6cf83775f"
+      },
+      "consumed_source_fragments": {}
+    },
+    {
+      "artifact_id": "architecture",
+      "invocation_id": "r08-godaddy-env-envelope-reconciliation-20260916T013900+0300",
+      "outputs": [
+        "docs/architecture.md"
+      ],
+      "source_hashes": {
+        "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
+        "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
+        "docs/canonical-terms.md": "923d967e5cf98e5eea5ad7e6b661051a741f1130b7a61ec3fc04a3104365fb1f",
+        "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
+        "docs/user-journey.md": "f838f465bcb936a5e075b2e487e74add43c76868a71b265252eee474b121654d",
+        "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
+        "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
+        "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
+        "docs/model-settings.md": "86801751744742aa44a41b9f6d5c5192eabd22423323c83bdbddec431e47b4d5",
+        "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
+        "forge/runs/U-06/browser-speech-uk-20260914/README.md": "972494cb2d1dda8ae431f34bd2896eb6d5cb4642c838ae0b171d17ac931913d6",
+        "package.json": "39f69e8b9c352928595ab1b7a3e83437a0e74bbdd2e5874b7d552f77c03fe0e2",
+        "src/server/config.mjs": "4e7816297d1bbe6be98c00ed530041db9383c6354222a0f000e0181e321f1de9",
+        "src/server/index.mjs": "a4cc8c53b4e36f65bac8d4dca70b029d9065ed7d1c306e3034f84cd06b761c26",
+        "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
+        "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
+        "test/core.test.mjs": "0de9078abd52a192e67afb5ef13693652b4b9372bf8bf5ec0d2463ecc0283047",
+        "src/server/codex-provider.mjs": "87d9aa0ce66a7b1e785132649bdaf6d821e34bd3363ee20b3dbfdd286c312d13",
+        "src/server/consultation.mjs": "417213aaf4732bcb707ab312b1fa6f166041bef3f375c46c76988e0d88cbcbc5",
+        "test/codex-provider.test.mjs": "54eb37342d0ee228e2581fc3734fbd01a42fb1e1ec3e795f4e44008b725b2c12",
+        "test/consultation.test.mjs": "e1770d0db38c20458c759af3e00be9d2dc2acc21c055b7db75b5b2fbe65869b4",
+        "test/http.test.mjs": "c2df9f4a4389122600cdea3f5e0024515a25b2830b4c7b8dfd465257e91a08aa",
+        ".env.example": "908e4483bcad524ca4c95e9d20bc57dd4f2fbc6156f17925728798f03e91620f"
+      },
+      "consumed_source_fragments": {}
+    },
+    {
+      "artifact_id": "dod-evals",
+      "invocation_id": "r08-godaddy-env-envelope-reconciliation-20260916T014000+0300",
+      "outputs": [
+        "docs/dod-evals.md"
+      ],
+      "source_hashes": {
+        "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
+        "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
+        "docs/canonical-terms.md": "923d967e5cf98e5eea5ad7e6b661051a741f1130b7a61ec3fc04a3104365fb1f",
+        "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
+        "docs/user-journey.md": "f838f465bcb936a5e075b2e487e74add43c76868a71b265252eee474b121654d",
+        "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
+        "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
+        "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
+        "docs/architecture.md": "63ef7dd0fd882c4e88b1d047cb3595ce67d8ed6e101a298b0f6e377aaef1e113"
+      },
+      "consumed_source_fragments": {}
+    },
+    {
+      "artifact_id": "qa-checklist",
+      "invocation_id": "r08-godaddy-env-envelope-reconciliation-20260916T014100+0300",
+      "outputs": [
+        "docs/qa-checklist.md"
+      ],
+      "source_hashes": {
+        "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
+        "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
+        "docs/canonical-terms.md": "923d967e5cf98e5eea5ad7e6b661051a741f1130b7a61ec3fc04a3104365fb1f",
+        "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
+        "docs/user-journey.md": "f838f465bcb936a5e075b2e487e74add43c76868a71b265252eee474b121654d",
+        "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
+        "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
+        "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
+        "docs/architecture.md": "63ef7dd0fd882c4e88b1d047cb3595ce67d8ed6e101a298b0f6e377aaef1e113",
+        "docs/dod-evals.md": "ddcfd37ad55e49f67b778def0a5b8509c27b319e3fe7fcda56ea079b9514271b",
+        "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
+        "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
+        "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
+        "forge/design/evidence/c-v1-visual-qa.json": "b5517ae544724b5ae54c60f63e328797b4788b4abda5828ceaea81f439c4ae83",
+        "package.json": "39f69e8b9c352928595ab1b7a3e83437a0e74bbdd2e5874b7d552f77c03fe0e2",
+        "src/server/config.mjs": "4e7816297d1bbe6be98c00ed530041db9383c6354222a0f000e0181e321f1de9",
+        "src/server/index.mjs": "a4cc8c53b4e36f65bac8d4dca70b029d9065ed7d1c306e3034f84cd06b761c26",
+        "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
+        "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
+        "test/core.test.mjs": "0de9078abd52a192e67afb5ef13693652b4b9372bf8bf5ec0d2463ecc0283047",
+        "src/server/codex-provider.mjs": "87d9aa0ce66a7b1e785132649bdaf6d821e34bd3363ee20b3dbfdd286c312d13",
+        "src/server/consultation.mjs": "417213aaf4732bcb707ab312b1fa6f166041bef3f375c46c76988e0d88cbcbc5",
+        "test/codex-provider.test.mjs": "54eb37342d0ee228e2581fc3734fbd01a42fb1e1ec3e795f4e44008b725b2c12",
+        "test/consultation.test.mjs": "e1770d0db38c20458c759af3e00be9d2dc2acc21c055b7db75b5b2fbe65869b4",
+        "test/http.test.mjs": "c2df9f4a4389122600cdea3f5e0024515a25b2830b4c7b8dfd465257e91a08aa"
+      },
+      "consumed_source_fragments": {}
+    },
+    {
+      "artifact_id": "development-plan",
+      "invocation_id": "r08-godaddy-env-envelope-reconciliation-20260916T014200+0300",
+      "outputs": [
+        "docs/development-plan.md"
+      ],
+      "source_hashes": {
+        "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
+        "docs/project-context.md": "453625806c00a408a5b80dc997b4cbdb2cab1f2fd2a2c056dafd7ecc0305c64c",
+        "docs/canonical-terms.md": "923d967e5cf98e5eea5ad7e6b661051a741f1130b7a61ec3fc04a3104365fb1f",
+        "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
+        "docs/user-journey.md": "f838f465bcb936a5e075b2e487e74add43c76868a71b265252eee474b121654d",
+        "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
+        "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
+        "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
+        "docs/architecture.md": "63ef7dd0fd882c4e88b1d047cb3595ce67d8ed6e101a298b0f6e377aaef1e113",
+        "docs/dod-evals.md": "ddcfd37ad55e49f67b778def0a5b8509c27b319e3fe7fcda56ea079b9514271b",
+        "docs/qa-checklist.md": "1137d410cc9b84092f32bb106a1a4d89e5af387685d2d5e802286c91df20017b",
+        "docs/model-settings.md": "86801751744742aa44a41b9f6d5c5192eabd22423323c83bdbddec431e47b4d5",
+        "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
+        "package.json": "39f69e8b9c352928595ab1b7a3e83437a0e74bbdd2e5874b7d552f77c03fe0e2",
+        "scripts/serve-prototype.mjs": "f1232082074d76e12713267d3bc10bd546a69f4a9a8836b5a073887f9c374b4d",
+        "forge/design/candidates/a/v8/index.html": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
+        "forge/design/candidates/a/v8/styles.css": "f8fd6e8832671b05dc8b7a2a034ee41fb2aad4f085468965feaf1c34a3b57d43",
+        "forge/design/candidates/a/v8/nanoduck.svg": "723d3b4201c5fc6ffa3d30a1e5ed5151f616d436919d15f3642827a16ed7021d",
+        "forge/design/candidates/a/v8/nanoduck-original.svg": "e8b786961dc9a3b4d5450d3d20c3fd25cb6b2a9e7dc3034d23202d1a6dd2f528",
+        "forge/design/candidates/a/v8/app.js": "d7ac2287ce8496772592d42d134fc530affcb9147f0a7641655a56c6cf83775f",
+        "src/server/config.mjs": "4e7816297d1bbe6be98c00ed530041db9383c6354222a0f000e0181e321f1de9",
+        "src/server/index.mjs": "a4cc8c53b4e36f65bac8d4dca70b029d9065ed7d1c306e3034f84cd06b761c26",
+        "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
+        "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
+        "test/core.test.mjs": "0de9078abd52a192e67afb5ef13693652b4b9372bf8bf5ec0d2463ecc0283047",
+        "src/server/codex-provider.mjs": "87d9aa0ce66a7b1e785132649bdaf6d821e34bd3363ee20b3dbfdd286c312d13",
+        "src/server/consultation.mjs": "417213aaf4732bcb707ab312b1fa6f166041bef3f375c46c76988e0d88cbcbc5",
+        "test/codex-provider.test.mjs": "54eb37342d0ee228e2581fc3734fbd01a42fb1e1ec3e795f4e44008b725b2c12",
+        "test/consultation.test.mjs": "e1770d0db38c20458c759af3e00be9d2dc2acc21c055b7db75b5b2fbe65869b4",
+        "test/http.test.mjs": "c2df9f4a4389122600cdea3f5e0024515a25b2830b4c7b8dfd465257e91a08aa"
       },
       "consumed_source_fragments": {}
     }

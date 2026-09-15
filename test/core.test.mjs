@@ -392,6 +392,16 @@ test("development cookies remain usable on localhost while production uses host-
   });
   assert.deepEqual(literalQuotedKeys.dataKey, Buffer.from(`"${"a".repeat(30)}"`, "utf8"));
   assert.deepEqual(literalQuotedKeys.recoveryKey, Buffer.from(`"${"b".repeat(30)}"`, "utf8"));
+  const dotenvAssignmentCompatibility = loadConfig({
+    ...productionEnvironment,
+    DATA_ENCRYPTION_KEY: `export DATA_ENCRYPTION_KEY = "${paddedBase64urlKey}="`,
+    RECOVERY_ENCRYPTION_KEY: `RECOVERY_ENCRYPTION_KEY=${Buffer.alloc(32, 7).toString("hex")}`,
+    SESSION_SIGNING_KEY: `SESSION_SIGNING_KEY=${Buffer.alloc(32, 5).toString("base64")}`
+  });
+  assert.deepEqual(dotenvAssignmentCompatibility.dataKey, Buffer.concat([Buffer.from([251, 255]), Buffer.alloc(30, 9)]));
+  assert.deepEqual(dotenvAssignmentCompatibility.recoveryKey, Buffer.alloc(32, 7));
+  assert.deepEqual(dotenvAssignmentCompatibility.sessionKey, Buffer.alloc(32, 5));
+  assert.throws(() => loadConfig({ ...productionEnvironment, DATA_ENCRYPTION_KEY: `OTHER_KEY=${productionEnvironment.DATA_ENCRYPTION_KEY}` }), /unsupported encoding or byte length/u);
   const literalKeys = loadConfig({
     ...productionEnvironment,
     DATA_ENCRYPTION_KEY: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
