@@ -381,3 +381,17 @@ test("a late stopped run cannot unregister the newer run controller", async () =
   assert.equal(calls[1].signal.aborted, true);
   deferred[1]({ ok: false, code: "cancelled" });
 });
+
+test("a classified provider failure preserves the owner question and identifies the recovery state", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we keep the original plan?", clientRequestId: "classified-provider-failure-0001" }, defaultSettings);
+  const provider = { async invoke() { return { ok: false, code: "method_unavailable" }; } };
+  const service = createConsultationService({ store, provider });
+  await service.start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "failed");
+  assert.deepEqual((await store.events(conversation.id)).map(event => [event.role, event.body]), [
+    ["owner", "Should we keep the original plan?"],
+    ["System", "The selected Codex runtime cannot complete a required consultation step. Your question remains saved."]
+  ]);
+});

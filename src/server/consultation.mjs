@@ -6,6 +6,15 @@ const roleSettings = snapshot => Object.freeze({
   critic: { model: snapshot.criticModel, effort: snapshot.criticReasoning }
 });
 
+const providerFailureMessage = code => ({
+  auth_required: "The selected Codex route needs its managed sign-in renewed. Your question remains saved.",
+  quota_blocked: "The selected Codex route has reached its current usage limit. Your question remains saved.",
+  incompatible: "The selected Codex model and reasoning configuration is unavailable on this route. Your question remains saved.",
+  subscription_unavailable: "The selected Codex subscription is unavailable. Your question remains saved.",
+  method_unavailable: "The selected Codex runtime cannot complete a required consultation step. Your question remains saved.",
+  provider_unavailable: "The selected Codex route could not complete this request. Your question remains saved."
+}[code]);
+
 const hasSensitiveResearchContext = text => /(?:\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b|\b(?:password|passcode|api[ _-]?key|secret|access[ _-]?token|iban|credit[ _-]?card|passport|medical)\b|(?:\+?\d[\d\s().-]{7,}\d)|\b(?:парол\p{L}*|ключ\p{L}*\s*api|секрет\p{L}*|токен\p{L}*|iban|картк\p{L}*|паспорт\p{L}*|медич\p{L}*)\b)/iu.test(text);
 const discussion = events => events.map(event => `${event.role}${event.recipient ? ` → ${event.recipient}` : ""}: ${event.body}`).join("\n\n").slice(-80_000);
 const responseLanguage = text => {
@@ -285,8 +294,8 @@ export function createConsultationService({ store, provider }) {
       await store.finishRun(conversationId, runState.generation, "complete");
     } catch (error) {
       if (!controller.signal.aborted) {
-        const code = error.message === "provider_unavailable" ? "The selected Codex subscription is unavailable. Your question remains saved." : error.message === "language_policy" ? "A response did not meet the English/Ukrainian language policy. Your question remains saved." : "The consultation paused before a confirmed response. Your saved discussion remains available.";
-        await store.appendAgentMessage(conversationId, runState.generation, { role: "System", body: code, sources: [] });
+        const body = providerFailureMessage(error.message) ?? (error.message === "language_policy" ? "A response did not meet the English/Ukrainian language policy. Your question remains saved." : "The consultation paused before a confirmed response. Your saved discussion remains available.");
+        await store.appendAgentMessage(conversationId, runState.generation, { role: "System", body, sources: [] });
         await store.finishRun(conversationId, runState.generation, "failed");
       }
     } finally { if (controllers.get(conversationId) === controller) controllers.delete(conversationId); }

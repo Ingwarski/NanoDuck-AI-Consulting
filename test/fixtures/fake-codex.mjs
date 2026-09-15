@@ -18,6 +18,7 @@ const replyFor = prompt => {
   return prompt.includes("Use live public web research") ? `${answer}\n<nanoduck-source>{\"title\":\"Buyer evidence\",\"url\":\"https://example.com/buyer-evidence\",\"claim\":\"Buyer willingness must be measured before positioning.\",\"publishedAt\":\"2026-09-01\"}</nanoduck-source>` : answer;
 };
 let deferredPollingReply;
+let deferredPollingFailure;
 
 createInterface({ input: process.stdin, crlfDelay: Infinity }).on("line", line => {
   const request = JSON.parse(line);
@@ -41,9 +42,17 @@ createInterface({ input: process.stdin, crlfDelay: Infinity }).on("line", line =
       deferredPollingReply = replyFor(prompt);
       return send({ id: request.id, result: { turn: { id: "turn-1", status: "inProgress" } } });
     }
+    if (prompt.includes("Fail during provider polling")) {
+      deferredPollingFailure = true;
+      return send({ id: request.id, result: { turn: { id: "turn-1", status: "inProgress" } } });
+    }
     return send({ id: request.id, result: { turn: { id: "turn-1", status: "completed", items: [{ type: "agentMessage", text: replyFor(prompt) }] } } });
   }
   if (request.method === "thread/read") {
+    if (deferredPollingFailure) {
+      deferredPollingFailure = undefined;
+      return send({ id: request.id, error: { code: -32601, message: "Method is unsupported; do not expose authentication material." } });
+    }
     const reply = deferredPollingReply;
     deferredPollingReply = undefined;
     return send({ id: request.id, result: { thread: { id: "isolated-thread", turns: reply ? [{ id: "turn-1", status: "completed", items: [{ type: "agentMessage", text: reply }] }] : [] } } });

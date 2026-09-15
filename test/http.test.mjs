@@ -27,7 +27,7 @@ const waitFor = async (predicate, milliseconds = 3_000) => {
   throw new Error("timed_out");
 };
 
-test("the local HTTP flow protects data, saves settings and preserves an unavailable-provider message", async () => {
+test("the local HTTP flow protects data, saves settings and preserves a truthful unavailable-provider message", async () => {
   const port = await reservePort();
   const child = spawn(globalThis.process.execPath, ["src/server/index.mjs"], {
     cwd: process.cwd(),
@@ -98,7 +98,7 @@ test("the local HTTP flow protects data, saves settings and preserves an unavail
       return value.run?.status === "failed" ? value : undefined;
     });
     assert.deepEqual(detail.events.map(event => event.role), ["owner", "System"]);
-    assert.match(detail.events[1].body, /subscription is unavailable/u);
+    assert.equal(detail.events[1].body, "The selected Codex route could not complete this request. Your question remains saved.");
     assert.equal(detail.run.snapshot.runtimeInstructions.revision, restored.runtimeInstructions.revision);
     assert.equal(detail.run.snapshot.runtimeInstructions.markdown, restored.runtimeInstructions.markdown);
   } finally {

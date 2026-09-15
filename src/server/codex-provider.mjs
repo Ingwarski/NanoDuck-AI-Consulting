@@ -38,8 +38,42 @@ const readTurn = (value, turnId) => {
   const turns = record(value) && record(value.thread) && Array.isArray(value.thread.turns) ? value.thread.turns : [];
   return turns.find(turn => record(turn) && turn.id === turnId) ?? turns.at(-1);
 };
-const providerFailureCode = error => ["cancelled", "provider_timeout", "app_server_timeout", "app_server_closed"].includes(error?.message) ? error.message : "provider_error";
 const providerLog = (event, details) => process.stdout.write(`${JSON.stringify({ event, ...details })}\n`);
+
+const appServerErrorCategory = error => {
+  const message = typeof error?.message === "string" ? error.message.toLocaleLowerCase() : "";
+  if (error?.code === -32601 || /(?:method\s+(?:not\s+found|unsupported)|unknown\s+method)/u.test(message)) return "method_unavailable";
+  if (/(?:auth(?:entication|orization)?|sign\s*in|log\s*in|credential|refresh\s*token)/u.test(message)) return "auth_required";
+  if (/(?:rate\s*limit|quota|usage\s*limit|too\s*many\s*requests)/u.test(message)) return "quota_blocked";
+  if (/(?:model|reasoning\s*effort).{0,80}(?:unsupported|unavailable|not\s+(?:found|available|supported))|(?:unsupported|unavailable)\s+(?:model|reasoning\s*effort)/u.test(message)) return "incompatible";
+  if (/(?:subscription|entitlement|plan)/u.test(message)) return "subscription_unavailable";
+  return "provider_unavailable";
+};
+
+class AppServerRequestError extends Error {
+  constructor(method, error) {
+    super("app_server_error");
+    this.name = "AppServerRequestError";
+    this.requestMethod = method;
+    this.category = appServerErrorCategory(error);
+    this.safeCode = Number.isSafeInteger(error?.code) ? `rpc_${error.code}` : "rpc_unknown";
+  }
+}
+
+const providerFailureDetails = error => {
+  if (error instanceof AppServerRequestError) return Object.freeze({
+    code: error.safeCode,
+    category: error.category,
+    request: error.requestMethod
+  });
+  const code = ["cancelled", "provider_timeout", "app_server_timeout", "app_server_closed"].includes(error?.message) ? error.message : "provider_error";
+  return Object.freeze({ code, category: error?.message === "cancelled" ? "cancelled" : "provider_unavailable" });
+};
+const providerFailureCategory = error => providerFailureDetails(error).category;
+const providerStatus = error => {
+  const category = providerFailureCategory(error);
+  return ["auth_required", "quota_blocked", "incompatible"].includes(category) ? category : "unavailable";
+};
 
 class AppServerConnection {
   constructor(child, workspace, cleanup) {
@@ -58,7 +92,7 @@ class AppServerConnection {
     if (typeof value.id === "number") {
       const pending = this.pending.get(value.id); if (!pending) return;
       this.pending.delete(value.id); clearTimeout(pending.timer);
-      Object.hasOwn(value, "result") ? pending.resolve(value.result) : pending.reject(new Error("app_server_error")); return;
+      Object.hasOwn(value, "result") ? pending.resolve(value.result) : pending.reject(new AppServerRequestError(pending.method, value.error)); return;
     }
     if (typeof value.method === "string") for (const listener of this.notifications) listener({ method: value.method, params: value.params });
   }
@@ -66,7 +100,7 @@ class AppServerConnection {
     const id = this.nextId++;
     return new Promise((resolve, reject) => {
       const timer = setTimeout(() => { this.pending.delete(id); reject(new Error("app_server_timeout")); }, milliseconds);
-      this.pending.set(id, { resolve, reject, timer });
+      this.pending.set(id, { resolve, reject, timer, method });
       this.child.stdin.write(`${JSON.stringify({ jsonrpc: "2.0", id, method, params })}\n`, error => {
         if (!error) return; const pending = this.pending.get(id); if (!pending) return; this.pending.delete(id); clearTimeout(timer); reject(error);
       });
@@ -165,8 +199,8 @@ export function createCodexProvider(config) {
       if (!models) return Object.freeze({ status: "incompatible", models: Object.freeze([]) });
       const quotaBlocked = record(limits) && record(limits.rateLimits) && limits.rateLimits.rateLimitReachedType !== null && limits.rateLimits.rateLimitReachedType !== undefined;
       return Object.freeze({ status: quotaBlocked ? "quota_blocked" : "ready", models });
-    } catch {
-      return Object.freeze({ status: "unavailable", models: Object.freeze([]) });
+    } catch (error) {
+      return Object.freeze({ status: providerStatus(error), models: Object.freeze([]) });
     } finally {
       await connection?.close().catch(() => {});
     }
@@ -219,8 +253,9 @@ export function createCodexProvider(config) {
       const output = typeof resultBody === "string" ? sourcesFrom(resultBody) : undefined;
       return output?.body ? { ok: true, body: output.body, sources: output.sources } : output ? { ok: false, code: "language_policy" } : { ok: false, code: "provider_unavailable" };
     } catch (error) {
-      const code = signal?.aborted || error.message === "cancelled" ? "cancelled" : "provider_unavailable";
-      providerLog("nanoduck.provider.turn_failed", { outputKind, code: providerFailureCode(error) });
+      const details = providerFailureDetails(error);
+      const code = signal?.aborted || error.message === "cancelled" ? "cancelled" : details.category;
+      providerLog("nanoduck.provider.turn_failed", { outputKind, ...details });
       return { ok: false, code };
     } finally {
       unsubscribe();

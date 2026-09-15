@@ -57,3 +57,24 @@ test("a completed thread read releases a turn when its notification is absent", 
   const result = await provider.invoke({ assignment: "Wait for thread read.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions, signal: new AbortController().signal });
   assert.deepEqual(result, { ok: true, body: "A bounded answer.", sources: [] });
 });
+
+test("provider RPC failures retain a safe category and failed operation without logging the raw response", async () => {
+  const command = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));
+  const provider = createCodexProvider({ readyForProvider: true, codexCommand: command, codexAuthPath: undefined });
+  const originalWrite = process.stdout.write;
+  let logs = "";
+  process.stdout.write = chunk => {
+    logs += String(chunk);
+    return true;
+  };
+  try {
+    const result = await provider.invoke({ assignment: "Fail during provider polling.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions, signal: new AbortController().signal });
+    assert.deepEqual(result, { ok: false, code: "method_unavailable" });
+  } finally {
+    process.stdout.write = originalWrite;
+  }
+  assert.match(logs, /"code":"rpc_-32601"/u);
+  assert.match(logs, /"category":"method_unavailable"/u);
+  assert.match(logs, /"request":"thread\/read"/u);
+  assert.doesNotMatch(logs, /authentication material/u);
+});

@@ -3749,13 +3749,13 @@
     "architecture": {
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "r06-mysql-json-compatibility-reconciliation-20260915T204200+0300",
+      "owner_invocation_id": "r07-provider-error-classification-reconciliation-20260916T011700+0300",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r06-mysql-json-compatibility-reconciliation-20260915T204200+0300",
+      "source_version": "r07-provider-error-classification-reconciliation-20260916T011700+0300",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3775,7 +3775,10 @@
         "scripts/check-artifacts.mjs": "full",
         "test/core.test.mjs": "full",
         "src/server/codex-provider.mjs": "full",
-        "test/codex-provider.test.mjs": "full"
+        "src/server/consultation.mjs": "full",
+        "test/codex-provider.test.mjs": "full",
+        "test/consultation.test.mjs": "full",
+        "test/http.test.mjs": "full"
       },
       "source_hashes": {
         "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
@@ -3795,8 +3798,11 @@
         "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
         "test/core.test.mjs": "e1fbc6e0995a3eacb179e31519982d5514bf8e9a01099e06d3ec71015c267ffb",
-        "src/server/codex-provider.mjs": "e9e542beaf21844ee8279d061725ea3e1a9b6d8de78376ffbb5f2c3be808c8e4",
-        "test/codex-provider.test.mjs": "3f4b4e53138b880939cd9330ea708f9dad5ff87f344922d274e660570d9f63af"
+        "src/server/codex-provider.mjs": "87d9aa0ce66a7b1e785132649bdaf6d821e34bd3363ee20b3dbfdd286c312d13",
+        "src/server/consultation.mjs": "417213aaf4732bcb707ab312b1fa6f166041bef3f375c46c76988e0d88cbcbc5",
+        "test/codex-provider.test.mjs": "54eb37342d0ee228e2581fc3734fbd01a42fb1e1ec3e795f4e44008b725b2c12",
+        "test/consultation.test.mjs": "e1770d0db38c20458c759af3e00be9d2dc2acc21c055b7db75b5b2fbe65869b4",
+        "test/http.test.mjs": "c2df9f4a4389122600cdea3f5e0024515a25b2830b4c7b8dfd465257e91a08aa"
       },
       "dependencies": [
         "prd",
@@ -3808,12 +3814,12 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "14fb2a13c51cc25a2897e3cea6d7d6024459179d909a7bdc48c8d8304f75fd61",
+      "content_hash": "6d0a650b0d10b9e69faa40cd29a6345639731f33a1bac5a598b9cce74f75ac40",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r06-mysql-json-compatibility-reconciliation",
-        "reviewed_at": "2026-09-15T20:42:00+03:00",
+        "kind": "r07-provider-error-classification-reconciliation",
+        "reviewed_at": "2026-09-16T01:17:00+03:00",
         "executor": "Codex inline to-architecture"
       },
       "open_questions": [],
@@ -3887,19 +3893,19 @@
           "heading": "## Security enforcement map"
         }
       },
-      "supersedes": "r05-provider-turn-state-reconciliation-20260915T201900+0300",
+      "supersedes": "r06-mysql-json-compatibility-reconciliation-20260915T204200+0300",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "dod-evals": {
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "r06-mysql-json-compatibility-reconciliation-20260915T204300+0300",
+      "owner_invocation_id": "r07-provider-error-classification-reconciliation-20260916T011800+0300",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r06-mysql-json-compatibility-reconciliation-20260915T204300+0300",
+      "source_version": "r07-provider-error-classification-reconciliation-20260916T011800+0300",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3920,7 +3926,7 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "14fb2a13c51cc25a2897e3cea6d7d6024459179d909a7bdc48c8d8304f75fd61"
+        "docs/architecture.md": "6d0a650b0d10b9e69faa40cd29a6345639731f33a1bac5a598b9cce74f75ac40"
       },
       "dependencies": [
         "prd",
@@ -3933,12 +3939,12 @@
         "design-brief",
         "architecture"
       ],
-      "content_hash": "e3e91b8529a1b4df4b4867ed1e73216e674038296d53da953be87769b1677825",
+      "content_hash": "ddcfd37ad55e49f67b778def0a5b8509c27b319e3fe7fcda56ea079b9514271b",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r06-mysql-json-compatibility-reconciliation",
-        "reviewed_at": "2026-09-15T20:43:00+03:00",
+        "kind": "r07-provider-error-classification-reconciliation",
+        "reviewed_at": "2026-09-16T01:18:00+03:00",
         "executor": "Codex inline to-dod-evals"
       },
       "open_questions": [],
@@ -4012,19 +4018,19 @@
           "heading": "### Product security membership"
         }
       },
-      "supersedes": "r05-provider-turn-state-reconciliation-20260915T202000+0300",
+      "supersedes": "r06-mysql-json-compatibility-reconciliation-20260915T204300+0300",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "qa-checklist": {
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "r06-mysql-json-compatibility-reconciliation-20260915T204400+0300",
+      "owner_invocation_id": "r07-provider-error-classification-reconciliation-20260916T011900+0300",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r06-mysql-json-compatibility-reconciliation-20260915T204400+0300",
+      "source_version": "r07-provider-error-classification-reconciliation-20260916T011900+0300",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -4045,7 +4051,12 @@
         "src/server/index.mjs": "full",
         "src/server/store.mjs": "full",
         "scripts/check-artifacts.mjs": "full",
-        "test/core.test.mjs": "full"
+        "test/core.test.mjs": "full",
+        "src/server/codex-provider.mjs": "full",
+        "src/server/consultation.mjs": "full",
+        "test/codex-provider.test.mjs": "full",
+        "test/consultation.test.mjs": "full",
+        "test/http.test.mjs": "full"
       },
       "source_hashes": {
         "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
@@ -4056,8 +4067,8 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "14fb2a13c51cc25a2897e3cea6d7d6024459179d909a7bdc48c8d8304f75fd61",
-        "docs/dod-evals.md": "e3e91b8529a1b4df4b4867ed1e73216e674038296d53da953be87769b1677825",
+        "docs/architecture.md": "6d0a650b0d10b9e69faa40cd29a6345639731f33a1bac5a598b9cce74f75ac40",
+        "docs/dod-evals.md": "ddcfd37ad55e49f67b778def0a5b8509c27b319e3fe7fcda56ea079b9514271b",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
         "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
@@ -4067,7 +4078,12 @@
         "src/server/index.mjs": "a4cc8c53b4e36f65bac8d4dca70b029d9065ed7d1c306e3034f84cd06b761c26",
         "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
-        "test/core.test.mjs": "e1fbc6e0995a3eacb179e31519982d5514bf8e9a01099e06d3ec71015c267ffb"
+        "test/core.test.mjs": "e1fbc6e0995a3eacb179e31519982d5514bf8e9a01099e06d3ec71015c267ffb",
+        "src/server/codex-provider.mjs": "87d9aa0ce66a7b1e785132649bdaf6d821e34bd3363ee20b3dbfdd286c312d13",
+        "src/server/consultation.mjs": "417213aaf4732bcb707ab312b1fa6f166041bef3f375c46c76988e0d88cbcbc5",
+        "test/codex-provider.test.mjs": "54eb37342d0ee228e2581fc3734fbd01a42fb1e1ec3e795f4e44008b725b2c12",
+        "test/consultation.test.mjs": "e1770d0db38c20458c759af3e00be9d2dc2acc21c055b7db75b5b2fbe65869b4",
+        "test/http.test.mjs": "c2df9f4a4389122600cdea3f5e0024515a25b2830b4c7b8dfd465257e91a08aa"
       },
       "dependencies": [
         "prd",
@@ -4081,12 +4097,12 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "960478143edc0db36dccaecba0faac4e435bb533a352db54c4fc57b511c7b005",
+      "content_hash": "a6fdd90667861fab2e3d1a83023674d854be4d5f653686d333ec0ebd5a1ab021",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r06-mysql-json-compatibility-reconciliation",
-        "reviewed_at": "2026-09-15T20:44:00+03:00",
+        "kind": "r07-provider-error-classification-reconciliation",
+        "reviewed_at": "2026-09-16T01:19:00+03:00",
         "executor": "Codex inline to-qa-checklist"
       },
       "open_questions": [],
@@ -5849,19 +5865,19 @@
           "heading": "## Product acceptance"
         }
       },
-      "supersedes": "r05-provider-turn-state-reconciliation-20260915T202200+0300",
+      "supersedes": "r06-mysql-json-compatibility-reconciliation-20260915T204400+0300",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "development-plan": {
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "r06-mysql-json-compatibility-reconciliation-20260915T204500+0300",
+      "owner_invocation_id": "r07-provider-error-classification-reconciliation-20260916T012000+0300",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r06-mysql-json-compatibility-reconciliation-20260915T204500+0300",
+      "source_version": "r07-provider-error-classification-reconciliation-20260916T012000+0300",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -5887,7 +5903,12 @@
         "src/server/index.mjs": "full",
         "src/server/store.mjs": "full",
         "scripts/check-artifacts.mjs": "full",
-        "test/core.test.mjs": "full"
+        "test/core.test.mjs": "full",
+        "src/server/codex-provider.mjs": "full",
+        "src/server/consultation.mjs": "full",
+        "test/codex-provider.test.mjs": "full",
+        "test/consultation.test.mjs": "full",
+        "test/http.test.mjs": "full"
       },
       "source_hashes": {
         "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
@@ -5898,9 +5919,9 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "14fb2a13c51cc25a2897e3cea6d7d6024459179d909a7bdc48c8d8304f75fd61",
-        "docs/dod-evals.md": "e3e91b8529a1b4df4b4867ed1e73216e674038296d53da953be87769b1677825",
-        "docs/qa-checklist.md": "960478143edc0db36dccaecba0faac4e435bb533a352db54c4fc57b511c7b005",
+        "docs/architecture.md": "6d0a650b0d10b9e69faa40cd29a6345639731f33a1bac5a598b9cce74f75ac40",
+        "docs/dod-evals.md": "ddcfd37ad55e49f67b778def0a5b8509c27b319e3fe7fcda56ea079b9514271b",
+        "docs/qa-checklist.md": "a6fdd90667861fab2e3d1a83023674d854be4d5f653686d333ec0ebd5a1ab021",
         "docs/model-settings.md": "86801751744742aa44a41b9f6d5c5192eabd22423323c83bdbddec431e47b4d5",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "package.json": "39f69e8b9c352928595ab1b7a3e83437a0e74bbdd2e5874b7d552f77c03fe0e2",
@@ -5914,7 +5935,12 @@
         "src/server/index.mjs": "a4cc8c53b4e36f65bac8d4dca70b029d9065ed7d1c306e3034f84cd06b761c26",
         "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
-        "test/core.test.mjs": "e1fbc6e0995a3eacb179e31519982d5514bf8e9a01099e06d3ec71015c267ffb"
+        "test/core.test.mjs": "e1fbc6e0995a3eacb179e31519982d5514bf8e9a01099e06d3ec71015c267ffb",
+        "src/server/codex-provider.mjs": "87d9aa0ce66a7b1e785132649bdaf6d821e34bd3363ee20b3dbfdd286c312d13",
+        "src/server/consultation.mjs": "417213aaf4732bcb707ab312b1fa6f166041bef3f375c46c76988e0d88cbcbc5",
+        "test/codex-provider.test.mjs": "54eb37342d0ee228e2581fc3734fbd01a42fb1e1ec3e795f4e44008b725b2c12",
+        "test/consultation.test.mjs": "e1770d0db38c20458c759af3e00be9d2dc2acc21c055b7db75b5b2fbe65869b4",
+        "test/http.test.mjs": "c2df9f4a4389122600cdea3f5e0024515a25b2830b4c7b8dfd465257e91a08aa"
       },
       "dependencies": [
         "prd",
@@ -5929,15 +5955,15 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "576bb439e7266e6f07c7db33a5ba02fb9dd682a901e673e3c4bc55ced6a2df5a",
+      "content_hash": "1704af85035a699add56bffbdf6b1863dff4be97fb0c1ec8c45622825172999e",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r06-mysql-json-compatibility-reconciliation",
-        "reviewed_at": "2026-09-15T20:45:00+03:00",
+        "kind": "r07-provider-error-classification-reconciliation",
+        "reviewed_at": "2026-09-16T01:20:00+03:00",
         "executor": "Codex inline to-development-plan"
       },
-      "supersedes": "r05-provider-turn-state-reconciliation-20260915T202400+0300",
+      "supersedes": "r06-mysql-json-compatibility-reconciliation-20260915T204500+0300",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
       "traceability": {
         "definitions": [
@@ -7637,18 +7663,18 @@
   ],
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "576bb439e7266e6f07c7db33a5ba02fb9dd682a901e673e3c4bc55ced6a2df5a",
+    "development_plan_hash": "1704af85035a699add56bffbdf6b1863dff4be97fb0c1ec8c45622825172999e",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-14T20:13:37+03:00",
-    "prompt_id": "impl-r06-mysql-json-compatibility-20260915",
-    "prompt_received_at": "2026-09-15T20:42:00+03:00",
-    "released_at": "2026-09-15T20:42:00+03:00",
+    "prompt_id": "impl-r07-provider-error-classification-20260916",
+    "prompt_received_at": "2026-09-16T01:09:02+03:00",
+    "released_at": "2026-09-16T01:09:02+03:00",
     "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
     "prompt_receipt": {
-      "path": "forge/runs/implementation-prompt-20260915-r06-mysql-json-compatibility.json",
-      "content_hash": "f4f84032cd29f83a05f7753d88e5b0b9edd11ea1f819c287c5100180b3a8af7f"
+      "path": "forge/runs/implementation-prompt-20260916-r07-provider-error-classification.json",
+      "content_hash": "99873e17763f7babe899dcfc71c3d9c573586b24aaeed557a0f4c967086daf84"
     },
-    "reason": "The owner explicitly continued the bounded repair of the named GoDaddy Preview after providing additional deployment logs, without secret or database changes."
+    "reason": "The owner reported a private Preview provider failure. The authorized repair classifies the app-server failure safely before an exact runtime correction, without a Published release, secret or database change."
   },
   "input_requests": [],
   "last_resume_event": {
@@ -8219,7 +8245,7 @@
       "consumed_source_fragments": {}
     },
     "architecture": {
-      "invocation_id": "r06-mysql-json-compatibility-reconciliation-20260915T204200+0300",
+      "invocation_id": "r07-provider-error-classification-reconciliation-20260916T011700+0300",
       "outputs": [
         "docs/architecture.md"
       ],
@@ -8241,13 +8267,16 @@
         "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
         "test/core.test.mjs": "e1fbc6e0995a3eacb179e31519982d5514bf8e9a01099e06d3ec71015c267ffb",
-        "src/server/codex-provider.mjs": "e9e542beaf21844ee8279d061725ea3e1a9b6d8de78376ffbb5f2c3be808c8e4",
-        "test/codex-provider.test.mjs": "3f4b4e53138b880939cd9330ea708f9dad5ff87f344922d274e660570d9f63af"
+        "src/server/codex-provider.mjs": "87d9aa0ce66a7b1e785132649bdaf6d821e34bd3363ee20b3dbfdd286c312d13",
+        "src/server/consultation.mjs": "417213aaf4732bcb707ab312b1fa6f166041bef3f375c46c76988e0d88cbcbc5",
+        "test/codex-provider.test.mjs": "54eb37342d0ee228e2581fc3734fbd01a42fb1e1ec3e795f4e44008b725b2c12",
+        "test/consultation.test.mjs": "e1770d0db38c20458c759af3e00be9d2dc2acc21c055b7db75b5b2fbe65869b4",
+        "test/http.test.mjs": "c2df9f4a4389122600cdea3f5e0024515a25b2830b4c7b8dfd465257e91a08aa"
       },
       "consumed_source_fragments": {}
     },
     "dod-evals": {
-      "invocation_id": "r06-mysql-json-compatibility-reconciliation-20260915T204300+0300",
+      "invocation_id": "r07-provider-error-classification-reconciliation-20260916T011800+0300",
       "outputs": [
         "docs/dod-evals.md"
       ],
@@ -8260,12 +8289,12 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "14fb2a13c51cc25a2897e3cea6d7d6024459179d909a7bdc48c8d8304f75fd61"
+        "docs/architecture.md": "6d0a650b0d10b9e69faa40cd29a6345639731f33a1bac5a598b9cce74f75ac40"
       },
       "consumed_source_fragments": {}
     },
     "qa-checklist": {
-      "invocation_id": "r06-mysql-json-compatibility-reconciliation-20260915T204400+0300",
+      "invocation_id": "r07-provider-error-classification-reconciliation-20260916T011900+0300",
       "outputs": [
         "docs/qa-checklist.md"
       ],
@@ -8278,8 +8307,8 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "14fb2a13c51cc25a2897e3cea6d7d6024459179d909a7bdc48c8d8304f75fd61",
-        "docs/dod-evals.md": "e3e91b8529a1b4df4b4867ed1e73216e674038296d53da953be87769b1677825",
+        "docs/architecture.md": "6d0a650b0d10b9e69faa40cd29a6345639731f33a1bac5a598b9cce74f75ac40",
+        "docs/dod-evals.md": "ddcfd37ad55e49f67b778def0a5b8509c27b319e3fe7fcda56ea079b9514271b",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
         "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
@@ -8289,12 +8318,17 @@
         "src/server/index.mjs": "a4cc8c53b4e36f65bac8d4dca70b029d9065ed7d1c306e3034f84cd06b761c26",
         "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
-        "test/core.test.mjs": "e1fbc6e0995a3eacb179e31519982d5514bf8e9a01099e06d3ec71015c267ffb"
+        "test/core.test.mjs": "e1fbc6e0995a3eacb179e31519982d5514bf8e9a01099e06d3ec71015c267ffb",
+        "src/server/codex-provider.mjs": "87d9aa0ce66a7b1e785132649bdaf6d821e34bd3363ee20b3dbfdd286c312d13",
+        "src/server/consultation.mjs": "417213aaf4732bcb707ab312b1fa6f166041bef3f375c46c76988e0d88cbcbc5",
+        "test/codex-provider.test.mjs": "54eb37342d0ee228e2581fc3734fbd01a42fb1e1ec3e795f4e44008b725b2c12",
+        "test/consultation.test.mjs": "e1770d0db38c20458c759af3e00be9d2dc2acc21c055b7db75b5b2fbe65869b4",
+        "test/http.test.mjs": "c2df9f4a4389122600cdea3f5e0024515a25b2830b4c7b8dfd465257e91a08aa"
       },
       "consumed_source_fragments": {}
     },
     "development-plan": {
-      "invocation_id": "r06-mysql-json-compatibility-reconciliation-20260915T204500+0300",
+      "invocation_id": "r07-provider-error-classification-reconciliation-20260916T012000+0300",
       "outputs": [
         "docs/development-plan.md"
       ],
@@ -8307,9 +8341,9 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "14fb2a13c51cc25a2897e3cea6d7d6024459179d909a7bdc48c8d8304f75fd61",
-        "docs/dod-evals.md": "e3e91b8529a1b4df4b4867ed1e73216e674038296d53da953be87769b1677825",
-        "docs/qa-checklist.md": "960478143edc0db36dccaecba0faac4e435bb533a352db54c4fc57b511c7b005",
+        "docs/architecture.md": "6d0a650b0d10b9e69faa40cd29a6345639731f33a1bac5a598b9cce74f75ac40",
+        "docs/dod-evals.md": "ddcfd37ad55e49f67b778def0a5b8509c27b319e3fe7fcda56ea079b9514271b",
+        "docs/qa-checklist.md": "a6fdd90667861fab2e3d1a83023674d854be4d5f653686d333ec0ebd5a1ab021",
         "docs/model-settings.md": "86801751744742aa44a41b9f6d5c5192eabd22423323c83bdbddec431e47b4d5",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "package.json": "39f69e8b9c352928595ab1b7a3e83437a0e74bbdd2e5874b7d552f77c03fe0e2",
@@ -8323,7 +8357,12 @@
         "src/server/index.mjs": "a4cc8c53b4e36f65bac8d4dca70b029d9065ed7d1c306e3034f84cd06b761c26",
         "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
-        "test/core.test.mjs": "e1fbc6e0995a3eacb179e31519982d5514bf8e9a01099e06d3ec71015c267ffb"
+        "test/core.test.mjs": "e1fbc6e0995a3eacb179e31519982d5514bf8e9a01099e06d3ec71015c267ffb",
+        "src/server/codex-provider.mjs": "87d9aa0ce66a7b1e785132649bdaf6d821e34bd3363ee20b3dbfdd286c312d13",
+        "src/server/consultation.mjs": "417213aaf4732bcb707ab312b1fa6f166041bef3f375c46c76988e0d88cbcbc5",
+        "test/codex-provider.test.mjs": "54eb37342d0ee228e2581fc3734fbd01a42fb1e1ec3e795f4e44008b725b2c12",
+        "test/consultation.test.mjs": "e1770d0db38c20458c759af3e00be9d2dc2acc21c055b7db75b5b2fbe65869b4",
+        "test/http.test.mjs": "c2df9f4a4389122600cdea3f5e0024515a25b2830b4c7b8dfd465257e91a08aa"
       },
       "consumed_source_fragments": {}
     }
@@ -66653,8 +66692,8 @@
     "definition_status": "prepared",
     "release_readiness": "not_evaluated",
     "source_hashes": {
-      "docs/dod-evals.md": "e3e91b8529a1b4df4b4867ed1e73216e674038296d53da953be87769b1677825",
-      "docs/qa-checklist.md": "960478143edc0db36dccaecba0faac4e435bb533a352db54c4fc57b511c7b005"
+      "docs/dod-evals.md": "ddcfd37ad55e49f67b778def0a5b8509c27b319e3fe7fcda56ea079b9514271b",
+      "docs/qa-checklist.md": "a6fdd90667861fab2e3d1a83023674d854be4d5f653686d333ec0ebd5a1ab021"
     },
     "gates": [
       {
@@ -67497,7 +67536,7 @@
           "heading": "## Product acceptance"
         },
         "definition_status": "prepared",
-        "execution_status": "passed",
+        "execution_status": "not_run",
         "phase": "implementation",
         "task": "History reopens complete confirmed conversation content, owned attachments and source records. On the GoDaddy MySQL route, run the same read when the driver returns JSON columns as decoded settings, run snapshot and source values; the browser receives the canonical record without service_unavailable.",
         "user_group": "Existing single owner",
@@ -67511,23 +67550,7 @@
           "UC-004"
         ],
         "applicability": "applicable",
-        "evidence": [
-          {
-            "path": "forge/runs/U-02/r06-mysql-json-preview-read-20260916/verification.json",
-            "content_hash": "25ca2e7c828098aceccc83a3bbe91df465c71a11b4e5aa7971fa8e5bac40b51c",
-            "kind": "functional"
-          }
-        ],
-        "executor": "Codex via GoDaddy dashboard and Chrome",
-        "executed_at": "2026-09-16T01:01:01+03:00",
-        "evaluated_source_hashes": {
-          "docs/architecture.md": "14fb2a13c51cc25a2897e3cea6d7d6024459179d909a7bdc48c8d8304f75fd61",
-          "docs/dod-evals.md": "e3e91b8529a1b4df4b4867ed1e73216e674038296d53da953be87769b1677825",
-          "docs/qa-checklist.md": "960478143edc0db36dccaecba0faac4e435bb533a352db54c4fc57b511c7b005",
-          "docs/development-plan.md": "576bb439e7266e6f07c7db33a5ba02fb9dd682a901e673e3c4bc55ced6a2df5a",
-          "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
-          "test/core.test.mjs": "e1fbc6e0995a3eacb179e31519982d5514bf8e9a01099e06d3ec71015c267ffb"
-        },
+        "evidence": [],
         "findings": [],
         "baseline_id": "nanoduck-electric-a-v8-20260914",
         "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
