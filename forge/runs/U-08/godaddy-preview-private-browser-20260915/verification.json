@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "kind": "godaddy-preview-private-browser-observation",
+  "observed_at": "2026-09-15T15:02:00+03:00",
+  "target": {
+    "app_name": "Personal AI Consulting Group",
+    "app_id": "wy2v0putg6",
+    "preview_host": "wy2v0putg6.preview.c35.airoapp.ai",
+    "scope": "named Preview app only; Published and all other GoDaddy apps were not changed"
+  },
+  "deployment": {
+    "repository": "Ingwarski/personal-ai-consulting-web",
+    "branch": "main",
+    "commit": "bcf43a577fbdf71d69fda7b4d5805a488f256c32",
+    "preview_health": "infrastructure OK; site status OK",
+    "mode_configuration": "NANODUCK_RUNTIME_MODE is saved for Preview; no secret values were recorded"
+  },
+  "browser_observations": [
+    {
+      "browser": "Chrome",
+      "observed": "Private Preview reached the first-use consent gate. The processing checkbox was unchecked and Open workspace was disabled."
+    },
+    {
+      "browser": "Safari",
+      "observed": "An existing private authenticated session reached the NanoDuck workspace and Settings, where Head/specialists and Critic both displayed gpt-6-astra with xhigh reasoning."
+    }
+  ],
+  "limits": [
+    "Existing browser sessions and private-access state mean this is not a fresh Google OAuth completion.",
+    "The owner processing-consent checkbox was not accepted by the operator.",
+    "No provider preflight, model turn, live research, consultation, voice-recognition run, publication or database deletion was performed."
+  ]
+}
