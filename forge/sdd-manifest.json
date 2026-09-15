@@ -3792,7 +3792,7 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "62254478cbc3e743061450cceab48ebc549f5abfc29d548d649c2296e79ec1d5",
+      "content_hash": "664f2f98743d65bcef90d34196194a64ea39c4a41f0fb89a72961b6c3ff9b06c",
       "validation": {
         "result": "passed",
         "working_language": "en",
@@ -3904,7 +3904,7 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "62254478cbc3e743061450cceab48ebc549f5abfc29d548d649c2296e79ec1d5"
+        "docs/architecture.md": "664f2f98743d65bcef90d34196194a64ea39c4a41f0fb89a72961b6c3ff9b06c"
       },
       "dependencies": [
         "prd",
@@ -4034,7 +4034,7 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "62254478cbc3e743061450cceab48ebc549f5abfc29d548d649c2296e79ec1d5",
+        "docs/architecture.md": "664f2f98743d65bcef90d34196194a64ea39c4a41f0fb89a72961b6c3ff9b06c",
         "docs/dod-evals.md": "f25a5040ac5d197a45e299882447abc2080591914a455b6f239a10d19c77374f",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
@@ -4053,7 +4053,7 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "94797735f02ba65c7525165d17fc6c36db9375e406ff6c41babf4aa54983818a",
+      "content_hash": "bd48b39ef29a0871f5944d790bdc36d43299a1310a986ae7e5c6a6a1cb14c4e2",
       "validation": {
         "result": "passed",
         "working_language": "en",
@@ -5865,9 +5865,9 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "62254478cbc3e743061450cceab48ebc549f5abfc29d548d649c2296e79ec1d5",
+        "docs/architecture.md": "664f2f98743d65bcef90d34196194a64ea39c4a41f0fb89a72961b6c3ff9b06c",
         "docs/dod-evals.md": "f25a5040ac5d197a45e299882447abc2080591914a455b6f239a10d19c77374f",
-        "docs/qa-checklist.md": "94797735f02ba65c7525165d17fc6c36db9375e406ff6c41babf4aa54983818a",
+        "docs/qa-checklist.md": "bd48b39ef29a0871f5944d790bdc36d43299a1310a986ae7e5c6a6a1cb14c4e2",
         "docs/model-settings.md": "86801751744742aa44a41b9f6d5c5192eabd22423323c83bdbddec431e47b4d5",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "package.json": "8bf0f784e299da4fa016ddee484ba905996dbec981e23c1b92381c706e055ee6",
@@ -5891,7 +5891,7 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "bf2f12f750ff49d987d74e642476fe393ea8b00d8b2d1e62a10e9a3728fc2396",
+      "content_hash": "f3dc0771375d5e4bbb90995fc33682fb31de2f4016b7b6cf06a2decd99539730",
       "validation": {
         "result": "passed",
         "working_language": "en",
@@ -7599,7 +7599,7 @@
   ],
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "bf2f12f750ff49d987d74e642476fe393ea8b00d8b2d1e62a10e9a3728fc2396",
+    "development_plan_hash": "f3dc0771375d5e4bbb90995fc33682fb31de2f4016b7b6cf06a2decd99539730",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-14T20:13:37+03:00",
     "prompt_id": "impl-r01-no-direct-head-20260915",
@@ -7608,7 +7608,7 @@
     "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
     "prompt_receipt": {
       "path": "forge/runs/implementation-prompt-20260915-r01-no-direct-head.json",
-      "content_hash": "a4cca4f4f34cc394ed6f893c18877dc48c62a21c61dbe6fc9ff932045e4ce1b5"
+      "content_hash": "3e12e90dd5e3a2d53a94c7f1d6a04a834b4f3b2d67ce3fd48cd003c0c8088ac6"
     },
     "reason": "The owner explicitly required that Head never answer without consulting the team, authorizing the R-01 production routing correction."
   },
@@ -8160,7 +8160,7 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "62254478cbc3e743061450cceab48ebc549f5abfc29d548d649c2296e79ec1d5"
+        "docs/architecture.md": "664f2f98743d65bcef90d34196194a64ea39c4a41f0fb89a72961b6c3ff9b06c"
       },
       "consumed_source_fragments": {}
     },
@@ -8178,7 +8178,7 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "62254478cbc3e743061450cceab48ebc549f5abfc29d548d649c2296e79ec1d5",
+        "docs/architecture.md": "664f2f98743d65bcef90d34196194a64ea39c4a41f0fb89a72961b6c3ff9b06c",
         "docs/dod-evals.md": "f25a5040ac5d197a45e299882447abc2080591914a455b6f239a10d19c77374f",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
@@ -8201,9 +8201,9 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "62254478cbc3e743061450cceab48ebc549f5abfc29d548d649c2296e79ec1d5",
+        "docs/architecture.md": "664f2f98743d65bcef90d34196194a64ea39c4a41f0fb89a72961b6c3ff9b06c",
         "docs/dod-evals.md": "f25a5040ac5d197a45e299882447abc2080591914a455b6f239a10d19c77374f",
-        "docs/qa-checklist.md": "94797735f02ba65c7525165d17fc6c36db9375e406ff6c41babf4aa54983818a",
+        "docs/qa-checklist.md": "bd48b39ef29a0871f5944d790bdc36d43299a1310a986ae7e5c6a6a1cb14c4e2",
         "docs/model-settings.md": "86801751744742aa44a41b9f6d5c5192eabd22423323c83bdbddec431e47b4d5",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "package.json": "8bf0f784e299da4fa016ddee484ba905996dbec981e23c1b92381c706e055ee6",
@@ -66543,7 +66543,7 @@
     "release_readiness": "not_evaluated",
     "source_hashes": {
       "docs/dod-evals.md": "f25a5040ac5d197a45e299882447abc2080591914a455b6f239a10d19c77374f",
-      "docs/qa-checklist.md": "94797735f02ba65c7525165d17fc6c36db9375e406ff6c41babf4aa54983818a"
+      "docs/qa-checklist.md": "bd48b39ef29a0871f5944d790bdc36d43299a1310a986ae7e5c6a6a1cb14c4e2"
     },
     "gates": [
       {

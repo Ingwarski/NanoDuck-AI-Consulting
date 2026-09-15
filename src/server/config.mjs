@@ -63,6 +63,28 @@ const optionalGzipBase64urlText = (value, name) => {
 
 const optionalString = value => typeof value === "string" && value.trim() ? value.trim() : undefined;
 
+const secretKeyBytes = (value, name, acceptsLength) => {
+  if (value === undefined) return undefined;
+  const secret = required(value, name);
+  const candidates = [];
+  const add = bytes => {
+    if (!candidates.some(candidate => candidate.equals(bytes))) candidates.push(bytes);
+  };
+  if (/^[A-Za-z0-9_-]+$/u.test(secret)) {
+    const decoded = Buffer.from(secret, "base64url");
+    if (decoded.byteLength && decoded.toString("base64url") === secret) add(decoded);
+  }
+  if (/^[A-Za-z0-9+/]+={0,2}$/u.test(secret) && secret.length % 4 === 0) {
+    const decoded = Buffer.from(secret, "base64");
+    if (decoded.byteLength && decoded.toString("base64") === secret) add(decoded);
+  }
+  if (/^[0-9A-Fa-f]{64}$/u.test(secret)) add(Buffer.from(secret, "hex"));
+  add(Buffer.from(secret, "utf8"));
+  const selected = candidates.find(candidate => acceptsLength(candidate.byteLength));
+  if (!selected) throw new Error(`${name} has an unsupported encoding or byte length.`);
+  return selected;
+};
+
 const goDaddyDatabaseUrl = environment => {
   const existing = optionalString(environment.DATABASE_URL);
   if (existing) return existing;
@@ -86,22 +108,22 @@ export function loadConfig(environment = process.env) {
   const origin = optionalUrl(environment.APP_ORIGIN ?? environment.SETTINGS_PUBLIC_ORIGIN, "APP_ORIGIN");
   if (mode === "production" && origin === undefined) throw new Error("APP_ORIGIN is required in production.");
   const dataKey = environment.DATA_ENCRYPTION_KEY;
-  const decodedKey = dataKey === undefined ? undefined : Buffer.from(dataKey, "base64url");
+  const decodedKey = secretKeyBytes(dataKey, "DATA_ENCRYPTION_KEY", length => length === 32);
   if (mode === "production" && (!decodedKey || decodedKey.byteLength !== 32)) {
-    throw new Error("DATA_ENCRYPTION_KEY must be a 32-byte base64url key in production.");
+    throw new Error("DATA_ENCRYPTION_KEY must be a supported 32-byte key in production.");
   }
   if (decodedKey !== undefined && decodedKey.byteLength !== 32) throw new Error("DATA_ENCRYPTION_KEY must contain 32 bytes.");
   const recoveryKey = environment.RECOVERY_ENCRYPTION_KEY;
-  const decodedRecoveryKey = recoveryKey === undefined ? undefined : Buffer.from(recoveryKey, "base64url");
+  const decodedRecoveryKey = secretKeyBytes(recoveryKey, "RECOVERY_ENCRYPTION_KEY", length => length === 32);
   if (mode === "production" && (!decodedRecoveryKey || decodedRecoveryKey.byteLength !== 32)) {
-    throw new Error("RECOVERY_ENCRYPTION_KEY must be a separate 32-byte base64url key in production.");
+    throw new Error("RECOVERY_ENCRYPTION_KEY must be a separate supported 32-byte key in production.");
   }
   if (decodedRecoveryKey !== undefined && decodedRecoveryKey.byteLength !== 32) throw new Error("RECOVERY_ENCRYPTION_KEY must contain 32 bytes.");
   if (decodedKey && decodedRecoveryKey && decodedKey.equals(decodedRecoveryKey)) throw new Error("RECOVERY_ENCRYPTION_KEY must differ from DATA_ENCRYPTION_KEY.");
   const sessionKeyValue = environment.SESSION_SIGNING_KEY ?? environment.SETTINGS_SESSION_HMAC_KEY;
   const sessionKey = sessionKeyValue === undefined
     ? (mode === "production" ? undefined : createHash("sha256").update("nanoduck-development-session-key").digest())
-    : Buffer.from(sessionKeyValue, "base64url");
+    : secretKeyBytes(sessionKeyValue, "SESSION_SIGNING_KEY", length => length >= 32);
   if (!sessionKey || sessionKey.byteLength < 32) throw new Error("SESSION_SIGNING_KEY must contain at least 32 bytes.");
   const databaseUrl = goDaddyDatabaseUrl(environment);
   if (mode === "production" && (typeof databaseUrl !== "string" || databaseUrl.length === 0)) {

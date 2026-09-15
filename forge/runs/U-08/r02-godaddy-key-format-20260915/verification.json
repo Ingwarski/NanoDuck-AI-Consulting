@@ -1,0 +1,29 @@
+{
+  "unit": "U-08",
+  "change": "R-02 GoDaddy key-format compatibility",
+  "recorded_at": "2026-09-15",
+  "scope": [
+    "accept existing exact 32-byte encryption and recovery keys without altering secrets",
+    "leave the GoDaddy app, database and all other GoDaddy resources unchanged"
+  ],
+  "host_observation": {
+    "status": "blocked_before_startup",
+    "attempted_commit": "a33bb54",
+    "rollback_commit": "bcf43a5",
+    "reason": "The production process rejected the existing DATA_ENCRYPTION_KEY under the former Base64URL-only parsing rule."
+  },
+  "local_verification": {
+    "command": "npm run check",
+    "result": "passed",
+    "tests": 51,
+    "observations": [
+      "Canonical Base64URL, padded standard Base64, hexadecimal and literal 32-byte data/recovery inputs resolve to the intended bytes.",
+      "Malformed or wrong-length input is rejected before startup.",
+      "No secret value was read, logged, committed or changed."
+    ]
+  },
+  "hosted_verification": {
+    "status": "not_run",
+    "reason": "The compatible commit is pushed but GoDaddy Preview has not yet deployed it."
+  }
+}

@@ -333,6 +333,23 @@ test("development cookies remain usable on localhost while production uses host-
   const production = createAuth({ config: loadConfig(productionEnvironment), store: createMemoryStore() });
   const productionSession = await production.developmentSignIn();
   assert.equal(productionSession, undefined);
+  const standardBase64Keys = loadConfig({
+    ...productionEnvironment,
+    DATA_ENCRYPTION_KEY: Buffer.alloc(32, 2).toString("base64"),
+    RECOVERY_ENCRYPTION_KEY: Buffer.alloc(32, 6).toString("hex"),
+    SESSION_SIGNING_KEY: "0123456789abcdefghijklmnopqrstuv"
+  });
+  assert.deepEqual(standardBase64Keys.dataKey, Buffer.alloc(32, 2));
+  assert.deepEqual(standardBase64Keys.recoveryKey, Buffer.alloc(32, 6));
+  assert.deepEqual(standardBase64Keys.sessionKey, Buffer.from("0123456789abcdefghijklmnopqrstuv", "utf8"));
+  const literalKeys = loadConfig({
+    ...productionEnvironment,
+    DATA_ENCRYPTION_KEY: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    RECOVERY_ENCRYPTION_KEY: "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+  });
+  assert.deepEqual(literalKeys.dataKey, Buffer.from("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "utf8"));
+  assert.deepEqual(literalKeys.recoveryKey, Buffer.from("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "utf8"));
+  assert.throws(() => loadConfig({ ...productionEnvironment, DATA_ENCRYPTION_KEY: Buffer.alloc(31, 2).toString("hex") }), /unsupported encoding or byte length/u);
   const encodedAuth = Buffer.from('{"test":"owned-auth-state"}').toString("base64url");
   const secretStoreConfig = loadConfig({ ...productionEnvironment, CODEX_APP_SERVER_AUTH_PATH: "", CODEX_APP_SERVER_AUTH_B64: encodedAuth });
   assert.deepEqual(secretStoreConfig.codexAuthBytes, Buffer.from('{"test":"owned-auth-state"}'));
