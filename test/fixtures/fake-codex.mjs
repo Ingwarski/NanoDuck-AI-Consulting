@@ -17,16 +17,13 @@ const replyFor = prompt => {
   if (prompt.includes("Use live public web research") && !prompt.includes("Use only English or Ukrainian sources")) return "The source language policy is missing.";
   return prompt.includes("Use live public web research") ? `${answer}\n<nanoduck-source>{\"title\":\"Buyer evidence\",\"url\":\"https://example.com/buyer-evidence\",\"claim\":\"Buyer willingness must be measured before positioning.\",\"publishedAt\":\"2026-09-01\"}</nanoduck-source>` : answer;
 };
-let deferredPollingReply;
-let deferredPollingFailure;
-
 createInterface({ input: process.stdin, crlfDelay: Infinity }).on("line", line => {
   const request = JSON.parse(line);
   if (request.method === "initialized" || request.id === undefined) return;
   if (request.method === "initialize") return send({ id: request.id, result: {} });
   if (request.method === "thread/start") {
     const config = request.params?.config;
-    const safe = request.params?.cwd === process.env.HOME && request.params?.environments?.length === 0 && expectedFeatures.every(key => config?.features?.[key] === false);
+    const safe = request.params?.ephemeral === true && request.params?.cwd === process.env.HOME && request.params?.environments?.length === 0 && expectedFeatures.every(key => config?.features?.[key] === false);
     return safe ? send({ id: request.id, result: { model: request.params.model, thread: { id: "isolated-thread", model: request.params.model } } }) : send({ id: request.id, error: { message: "unsafe_thread" } });
   }
   if (request.method === "account/read") return send({ id: request.id, result: { account: { type: "chatgpt" } } });
@@ -38,24 +35,35 @@ createInterface({ input: process.stdin, crlfDelay: Infinity }).on("line", line =
       send({ id: request.id, result: { turn: { id: "turn-1", status: "inProgress" } } });
       return setTimeout(() => send({ method: "turn/completed", params: { threadId: "isolated-thread", turn: { id: "turn-1", status: "completed", items: [{ type: "agentMessage", text: replyFor(prompt) }] } } }), 10);
     }
-    if (prompt.includes("Wait for thread read")) {
-      deferredPollingReply = replyFor(prompt);
-      return send({ id: request.id, result: { turn: { id: "turn-1", status: "inProgress" } } });
+    if (prompt.includes("Wait for a slow ephemeral turn")) {
+      send({ id: request.id, result: { turn: { id: "turn-1", status: "inProgress" } } });
+      send({ method: "turn/completed", params: { threadId: "another-thread", turn: { id: "turn-1", status: "completed", items: [{ type: "agentMessage", text: "Wrong thread." }] } } });
+      send({ method: "turn/completed", params: { threadId: "isolated-thread", turn: { id: "another-turn", status: "completed", items: [{ type: "agentMessage", text: "Wrong turn." }] } } });
+      send({ method: "item/agentMessage/delta", params: { threadId: "isolated-thread", turnId: "turn-1", delta: "Unconfirmed partial text." } });
+      return setTimeout(() => {
+        send({ method: "item/completed", params: { threadId: "isolated-thread", turnId: "turn-1", item: { type: "agentMessage", id: "answer", text: replyFor(prompt) } } });
+        send({ method: "turn/completed", params: { threadId: "isolated-thread", turn: { id: "turn-1", status: "completed", items: [] } } });
+      }, 2_800);
     }
-    if (prompt.includes("Fail during provider polling")) {
-      deferredPollingFailure = true;
-      return send({ id: request.id, result: { turn: { id: "turn-1", status: "inProgress" } } });
+    if (prompt.includes("Complete before the start response")) {
+      send({ method: "turn/completed", params: { threadId: "isolated-thread", turn: { id: "turn-1", status: "completed", items: [{ type: "agentMessage", text: replyFor(prompt) }] } } });
+      return setTimeout(() => send({ id: request.id, result: { turn: { id: "turn-1", status: "inProgress" } } }), 10);
     }
+    if (prompt.includes("Fail the turn RPC")) return send({ id: request.id, error: { code: -32601, message: "Method is unsupported; do not expose authentication material." } });
+    if (prompt.includes("Fail after a completed item")) {
+      send({ id: request.id, result: { turn: { id: "turn-1", status: "inProgress" } } });
+      send({ method: "item/completed", params: { threadId: "isolated-thread", turnId: "turn-1", item: { type: "agentMessage", text: "Do not accept this failed output." } } });
+      return send({ method: "turn/completed", params: { threadId: "isolated-thread", turn: { id: "turn-1", status: "failed", error: { message: "Usage limit reached; do not expose private diagnostic text." } } } });
+    }
+    if (prompt.includes("Close without completion")) {
+      send({ id: request.id, result: { turn: { id: "turn-1", status: "inProgress" } } });
+      return setTimeout(() => process.exit(0), 10);
+    }
+    if (prompt.includes("Wait until cancelled")) return send({ id: request.id, result: { turn: { id: "turn-1", status: "inProgress" } } });
     return send({ id: request.id, result: { turn: { id: "turn-1", status: "completed", items: [{ type: "agentMessage", text: replyFor(prompt) }] } } });
   }
   if (request.method === "thread/read") {
-    if (deferredPollingFailure) {
-      deferredPollingFailure = undefined;
-      return send({ id: request.id, error: { code: -32601, message: "Method is unsupported; do not expose authentication material." } });
-    }
-    const reply = deferredPollingReply;
-    deferredPollingReply = undefined;
-    return send({ id: request.id, result: { thread: { id: "isolated-thread", turns: reply ? [{ id: "turn-1", status: "completed", items: [{ type: "agentMessage", text: reply }] }] : [] } } });
+    return send({ id: request.id, error: { code: -32600, message: "ephemeral threads do not support includeTurns" } });
   }
   if (request.method === "thread/unsubscribe") return send({ id: request.id, result: {} });
   send({ id: request.id, error: { message: "unknown_method" } });

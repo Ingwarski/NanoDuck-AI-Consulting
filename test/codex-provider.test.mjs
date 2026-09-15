@@ -51,11 +51,39 @@ test("a completed provider notification clears its deadline waiter", async () =>
   assert.deepEqual(result, { ok: true, body: "A bounded answer.", sources: [] });
 });
 
-test("a completed thread read releases a turn when its notification is absent", async () => {
+test("a slow ephemeral turn uses matching completed items and terminal events without reading stored history", async () => {
   const command = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));
   const provider = createCodexProvider({ readyForProvider: true, codexCommand: command, codexAuthPath: undefined });
-  const result = await provider.invoke({ assignment: "Wait for thread read.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions, signal: new AbortController().signal });
+  const result = await provider.invoke({ assignment: "Wait for a slow ephemeral turn.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions, signal: new AbortController().signal });
   assert.deepEqual(result, { ok: true, body: "A bounded answer.", sources: [] });
+});
+
+test("a completion received before the start response is retained", async () => {
+  const provider = createCodexProvider({ readyForProvider: true, codexCommand: fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url)) });
+  const result = await provider.invoke({ assignment: "Complete before the start response.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions });
+  assert.deepEqual(result, { ok: true, body: "A bounded answer.", sources: [] });
+});
+
+test("a failed turn never accepts a previously completed message item", async () => {
+  const provider = createCodexProvider({ readyForProvider: true, codexCommand: fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url)) });
+  const result = await provider.invoke({ assignment: "Fail after a completed item.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions });
+  assert.deepEqual(result, { ok: false, code: "quota_blocked" });
+});
+
+test("a provider connection closing without completion releases the invocation", { timeout: 3_000 }, async () => {
+  const provider = createCodexProvider({ readyForProvider: true, codexCommand: fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url)) });
+  const result = await provider.invoke({ assignment: "Close without completion.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions });
+  assert.deepEqual(result, { ok: false, code: "provider_unavailable" });
+});
+
+test("Stop cancels an unresolved ephemeral turn", { timeout: 3_000 }, async () => {
+  const provider = createCodexProvider({ readyForProvider: true, codexCommand: fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url)) });
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 100);
+  try {
+    const result = await provider.invoke({ assignment: "Wait until cancelled.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions, signal: controller.signal });
+    assert.deepEqual(result, { ok: false, code: "cancelled" });
+  } finally { clearTimeout(timer); }
 });
 
 test("provider RPC failures retain a safe category and failed operation without logging the raw response", async () => {
@@ -68,13 +96,13 @@ test("provider RPC failures retain a safe category and failed operation without 
     return true;
   };
   try {
-    const result = await provider.invoke({ assignment: "Fail during provider polling.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions, signal: new AbortController().signal });
+    const result = await provider.invoke({ assignment: "Fail the turn RPC.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions, signal: new AbortController().signal });
     assert.deepEqual(result, { ok: false, code: "method_unavailable" });
   } finally {
     process.stdout.write = originalWrite;
   }
   assert.match(logs, /"code":"rpc_-32601"/u);
   assert.match(logs, /"category":"method_unavailable"/u);
-  assert.match(logs, /"request":"thread\/read"/u);
+  assert.match(logs, /"request":"turn\/start"/u);
   assert.doesNotMatch(logs, /authentication material/u);
 });

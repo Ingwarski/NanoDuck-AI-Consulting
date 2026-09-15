@@ -3749,13 +3749,13 @@
     "architecture": {
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "r08-godaddy-env-envelope-reconciliation-20260916T013900+0300",
+      "owner_invocation_id": "r09-ephemeral-event-reconciliation-architecture-2026-09-16T01:54:54+03:00",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r08-godaddy-env-envelope-reconciliation-20260916T013900+0300",
+      "source_version": "r09-ephemeral-event-reconciliation-architecture-2026-09-16T01:54:54+03:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3779,7 +3779,8 @@
         "test/codex-provider.test.mjs": "full",
         "test/consultation.test.mjs": "full",
         "test/http.test.mjs": "full",
-        ".env.example": "full"
+        ".env.example": "full",
+        "test/fixtures/fake-codex.mjs": "full"
       },
       "source_hashes": {
         "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
@@ -3799,12 +3800,13 @@
         "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
         "test/core.test.mjs": "0de9078abd52a192e67afb5ef13693652b4b9372bf8bf5ec0d2463ecc0283047",
-        "src/server/codex-provider.mjs": "87d9aa0ce66a7b1e785132649bdaf6d821e34bd3363ee20b3dbfdd286c312d13",
+        "src/server/codex-provider.mjs": "a84f5a433d4c74752afb133e39471c0d8cf3f853047ac6f95ef918073b05a151",
         "src/server/consultation.mjs": "417213aaf4732bcb707ab312b1fa6f166041bef3f375c46c76988e0d88cbcbc5",
-        "test/codex-provider.test.mjs": "54eb37342d0ee228e2581fc3734fbd01a42fb1e1ec3e795f4e44008b725b2c12",
+        "test/codex-provider.test.mjs": "f0734c813145c15a1282b60a0b34db1c8229a25c95d43f0573bb55d0fcb44eff",
         "test/consultation.test.mjs": "e1770d0db38c20458c759af3e00be9d2dc2acc21c055b7db75b5b2fbe65869b4",
         "test/http.test.mjs": "c2df9f4a4389122600cdea3f5e0024515a25b2830b4c7b8dfd465257e91a08aa",
-        ".env.example": "908e4483bcad524ca4c95e9d20bc57dd4f2fbc6156f17925728798f03e91620f"
+        ".env.example": "908e4483bcad524ca4c95e9d20bc57dd4f2fbc6156f17925728798f03e91620f",
+        "test/fixtures/fake-codex.mjs": "83ae4220e5b356d972005012150f62a7b397392d3340a27a9524cd9918035c01"
       },
       "dependencies": [
         "prd",
@@ -3816,12 +3818,12 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "63ef7dd0fd882c4e88b1d047cb3595ce67d8ed6e101a298b0f6e377aaef1e113",
+      "content_hash": "bd414d6d52a9b7e4bd34b06058eac8d87ffeeb413cef8d2415142fea41368467",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r08-godaddy-env-envelope-reconciliation",
-        "reviewed_at": "2026-09-16T01:39:00+03:00",
+        "kind": "r09-ephemeral-event-reconciliation",
+        "reviewed_at": "2026-09-16T01:54:54+03:00",
         "executor": "Codex inline to-architecture"
       },
       "open_questions": [],
@@ -3895,19 +3897,19 @@
           "heading": "## Security enforcement map"
         }
       },
-      "supersedes": "r07-provider-error-classification-reconciliation-20260916T011700+0300",
+      "supersedes": "r08-godaddy-env-envelope-reconciliation-20260916T013900+0300",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "dod-evals": {
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "r08-godaddy-env-envelope-reconciliation-20260916T014000+0300",
+      "owner_invocation_id": "r09-ephemeral-event-reconciliation-dod-evals-2026-09-16T01:55:09+03:00",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r08-godaddy-env-envelope-reconciliation-20260916T014000+0300",
+      "source_version": "r09-ephemeral-event-reconciliation-dod-evals-2026-09-16T01:55:09+03:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3928,7 +3930,7 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "63ef7dd0fd882c4e88b1d047cb3595ce67d8ed6e101a298b0f6e377aaef1e113"
+        "docs/architecture.md": "bd414d6d52a9b7e4bd34b06058eac8d87ffeeb413cef8d2415142fea41368467"
       },
       "dependencies": [
         "prd",
@@ -3941,12 +3943,12 @@
         "design-brief",
         "architecture"
       ],
-      "content_hash": "ddcfd37ad55e49f67b778def0a5b8509c27b319e3fe7fcda56ea079b9514271b",
+      "content_hash": "ced6b78b4e26c897fc9e1ab8f895f7d60eb6e97d818288e5dd8bf75cdeae3abf",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r08-godaddy-env-envelope-reconciliation",
-        "reviewed_at": "2026-09-16T01:40:00+03:00",
+        "kind": "r09-ephemeral-event-reconciliation",
+        "reviewed_at": "2026-09-16T01:55:09+03:00",
         "executor": "Codex inline to-dod-evals"
       },
       "open_questions": [],
@@ -4020,19 +4022,19 @@
           "heading": "### Product security membership"
         }
       },
-      "supersedes": "r07-provider-error-classification-reconciliation-20260916T011800+0300",
+      "supersedes": "r08-godaddy-env-envelope-reconciliation-20260916T014000+0300",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "qa-checklist": {
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "r08-godaddy-env-envelope-reconciliation-20260916T014100+0300",
+      "owner_invocation_id": "r09-ephemeral-event-reconciliation-qa-checklist-2026-09-16T01:55:25+03:00",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r08-godaddy-env-envelope-reconciliation-20260916T014100+0300",
+      "source_version": "r09-ephemeral-event-reconciliation-qa-checklist-2026-09-16T01:55:25+03:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -4058,7 +4060,8 @@
         "src/server/consultation.mjs": "full",
         "test/codex-provider.test.mjs": "full",
         "test/consultation.test.mjs": "full",
-        "test/http.test.mjs": "full"
+        "test/http.test.mjs": "full",
+        "test/fixtures/fake-codex.mjs": "full"
       },
       "source_hashes": {
         "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
@@ -4069,8 +4072,8 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "63ef7dd0fd882c4e88b1d047cb3595ce67d8ed6e101a298b0f6e377aaef1e113",
-        "docs/dod-evals.md": "ddcfd37ad55e49f67b778def0a5b8509c27b319e3fe7fcda56ea079b9514271b",
+        "docs/architecture.md": "bd414d6d52a9b7e4bd34b06058eac8d87ffeeb413cef8d2415142fea41368467",
+        "docs/dod-evals.md": "ced6b78b4e26c897fc9e1ab8f895f7d60eb6e97d818288e5dd8bf75cdeae3abf",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
         "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
@@ -4081,11 +4084,12 @@
         "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
         "test/core.test.mjs": "0de9078abd52a192e67afb5ef13693652b4b9372bf8bf5ec0d2463ecc0283047",
-        "src/server/codex-provider.mjs": "87d9aa0ce66a7b1e785132649bdaf6d821e34bd3363ee20b3dbfdd286c312d13",
+        "src/server/codex-provider.mjs": "a84f5a433d4c74752afb133e39471c0d8cf3f853047ac6f95ef918073b05a151",
         "src/server/consultation.mjs": "417213aaf4732bcb707ab312b1fa6f166041bef3f375c46c76988e0d88cbcbc5",
-        "test/codex-provider.test.mjs": "54eb37342d0ee228e2581fc3734fbd01a42fb1e1ec3e795f4e44008b725b2c12",
+        "test/codex-provider.test.mjs": "f0734c813145c15a1282b60a0b34db1c8229a25c95d43f0573bb55d0fcb44eff",
         "test/consultation.test.mjs": "e1770d0db38c20458c759af3e00be9d2dc2acc21c055b7db75b5b2fbe65869b4",
-        "test/http.test.mjs": "c2df9f4a4389122600cdea3f5e0024515a25b2830b4c7b8dfd465257e91a08aa"
+        "test/http.test.mjs": "c2df9f4a4389122600cdea3f5e0024515a25b2830b4c7b8dfd465257e91a08aa",
+        "test/fixtures/fake-codex.mjs": "83ae4220e5b356d972005012150f62a7b397392d3340a27a9524cd9918035c01"
       },
       "dependencies": [
         "prd",
@@ -4099,12 +4103,12 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "1137d410cc9b84092f32bb106a1a4d89e5af387685d2d5e802286c91df20017b",
+      "content_hash": "28a3bd244b4e3be20ca3dc9781aac94e05f47cc96f2b7946df90a7ded55def8d",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r08-godaddy-env-envelope-reconciliation",
-        "reviewed_at": "2026-09-16T01:41:00+03:00",
+        "kind": "r09-ephemeral-event-reconciliation",
+        "reviewed_at": "2026-09-16T01:55:25+03:00",
         "executor": "Codex inline to-qa-checklist"
       },
       "open_questions": [],
@@ -5867,19 +5871,19 @@
           "heading": "## Product acceptance"
         }
       },
-      "supersedes": "r07-provider-error-classification-reconciliation-20260916T011900+0300",
+      "supersedes": "r08-godaddy-env-envelope-reconciliation-20260916T014100+0300",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "development-plan": {
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "r08-godaddy-env-envelope-reconciliation-20260916T014200+0300",
+      "owner_invocation_id": "r09-ephemeral-event-reconciliation-development-plan-2026-09-16T01:55:42+03:00",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r08-godaddy-env-envelope-reconciliation-20260916T014200+0300",
+      "source_version": "r09-ephemeral-event-reconciliation-development-plan-2026-09-16T01:55:42+03:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -5910,7 +5914,8 @@
         "src/server/consultation.mjs": "full",
         "test/codex-provider.test.mjs": "full",
         "test/consultation.test.mjs": "full",
-        "test/http.test.mjs": "full"
+        "test/http.test.mjs": "full",
+        "test/fixtures/fake-codex.mjs": "full"
       },
       "source_hashes": {
         "docs/prd.md": "1f9faa5ad3bcf71d9fba64e9817f57ca496b64f772f57b5cac086537159a8faa",
@@ -5921,9 +5926,9 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "63ef7dd0fd882c4e88b1d047cb3595ce67d8ed6e101a298b0f6e377aaef1e113",
-        "docs/dod-evals.md": "ddcfd37ad55e49f67b778def0a5b8509c27b319e3fe7fcda56ea079b9514271b",
-        "docs/qa-checklist.md": "1137d410cc9b84092f32bb106a1a4d89e5af387685d2d5e802286c91df20017b",
+        "docs/architecture.md": "bd414d6d52a9b7e4bd34b06058eac8d87ffeeb413cef8d2415142fea41368467",
+        "docs/dod-evals.md": "ced6b78b4e26c897fc9e1ab8f895f7d60eb6e97d818288e5dd8bf75cdeae3abf",
+        "docs/qa-checklist.md": "28a3bd244b4e3be20ca3dc9781aac94e05f47cc96f2b7946df90a7ded55def8d",
         "docs/model-settings.md": "86801751744742aa44a41b9f6d5c5192eabd22423323c83bdbddec431e47b4d5",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "package.json": "39f69e8b9c352928595ab1b7a3e83437a0e74bbdd2e5874b7d552f77c03fe0e2",
@@ -5938,11 +5943,12 @@
         "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
         "test/core.test.mjs": "0de9078abd52a192e67afb5ef13693652b4b9372bf8bf5ec0d2463ecc0283047",
-        "src/server/codex-provider.mjs": "87d9aa0ce66a7b1e785132649bdaf6d821e34bd3363ee20b3dbfdd286c312d13",
+        "src/server/codex-provider.mjs": "a84f5a433d4c74752afb133e39471c0d8cf3f853047ac6f95ef918073b05a151",
         "src/server/consultation.mjs": "417213aaf4732bcb707ab312b1fa6f166041bef3f375c46c76988e0d88cbcbc5",
-        "test/codex-provider.test.mjs": "54eb37342d0ee228e2581fc3734fbd01a42fb1e1ec3e795f4e44008b725b2c12",
+        "test/codex-provider.test.mjs": "f0734c813145c15a1282b60a0b34db1c8229a25c95d43f0573bb55d0fcb44eff",
         "test/consultation.test.mjs": "e1770d0db38c20458c759af3e00be9d2dc2acc21c055b7db75b5b2fbe65869b4",
-        "test/http.test.mjs": "c2df9f4a4389122600cdea3f5e0024515a25b2830b4c7b8dfd465257e91a08aa"
+        "test/http.test.mjs": "c2df9f4a4389122600cdea3f5e0024515a25b2830b4c7b8dfd465257e91a08aa",
+        "test/fixtures/fake-codex.mjs": "83ae4220e5b356d972005012150f62a7b397392d3340a27a9524cd9918035c01"
       },
       "dependencies": [
         "prd",
@@ -5957,15 +5963,15 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "ffab21103667153244b1cd8d999adbb2c86cbb76d2caddae48168f3f0995c1b9",
+      "content_hash": "ebee3c499258362ca3f62b60486f1e01edbc319c0733d0f28974f1bd01d77a57",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r08-godaddy-env-envelope-reconciliation",
-        "reviewed_at": "2026-09-16T01:42:00+03:00",
+        "kind": "r09-ephemeral-event-reconciliation",
+        "reviewed_at": "2026-09-16T01:55:42+03:00",
         "executor": "Codex inline to-development-plan"
       },
-      "supersedes": "r07-provider-error-classification-reconciliation-20260916T012000+0300",
+      "supersedes": "r08-godaddy-env-envelope-reconciliation-20260916T014200+0300",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
       "traceability": {
         "definitions": [
@@ -7665,18 +7671,18 @@
   ],
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "ffab21103667153244b1cd8d999adbb2c86cbb76d2caddae48168f3f0995c1b9",
+    "development_plan_hash": "ebee3c499258362ca3f62b60486f1e01edbc319c0733d0f28974f1bd01d77a57",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-14T20:13:37+03:00",
-    "prompt_id": "impl-r08-godaddy-env-envelope-20260916",
+    "prompt_id": "impl-r09-ephemeral-events-20260916",
     "prompt_received_at": "2026-09-16T01:09:02+03:00",
     "released_at": "2026-09-16T01:09:02+03:00",
     "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
     "prompt_receipt": {
-      "path": "forge/runs/implementation-prompt-20260916-r08-godaddy-env-envelope.json",
-      "content_hash": "383ecbf8ec6991d5c260e263f872f8f8959b7ba56f61c86900d3aee081ba5328"
+      "path": "forge/runs/implementation-prompt-20260916-r09-ephemeral-events.json",
+      "content_hash": "cc4d17026f88a45b3ffc8597d2546d727c277f4939f1b664f0c4445951e337ed"
     },
-    "reason": "The owner reported a GoDaddy private Preview health-check rollback. The authorized repair adds strict same-name .env-envelope compatibility before existing key validation, without a Published release, secret or database change."
+    "reason": "Continuation of the already authorized repair of the reported provider failure, including a synthetic consultation on the named private Preview. No new user approval is inferred from this reconciliation; the scope and approved visual baseline are unchanged. No Published release, secret replacement, database reset or other GoDaddy resource change."
   },
   "input_requests": [],
   "last_resume_event": {
@@ -8078,6 +8084,38 @@
         "development-plan"
       ],
       "decision": "The MySQL adapter now normalizes JSON fields returned as text, buffers or decoded values before record rendering. The current GoDaddy Preview read failure is a verification target; no database mutation, secret change or Published release is recorded."
+    },
+    {
+      "event": "r09_owner_reconciled",
+      "at": "2026-09-16T01:54:54+03:00",
+      "artifact": "architecture",
+      "superseded_invocation": "r08-godaddy-env-envelope-reconciliation-20260916T013900+0300",
+      "superseded_content_hash": "63ef7dd0fd882c4e88b1d047cb3595ce67d8ed6e101a298b0f6e377aaef1e113",
+      "decision": "Replace unsupported ephemeral history polling with correlated completion events; preserve the existing privacy, timeout, cancellation and durable commit boundaries."
+    },
+    {
+      "event": "r09_owner_reconciled",
+      "at": "2026-09-16T01:55:09+03:00",
+      "artifact": "dod-evals",
+      "superseded_invocation": "r08-godaddy-env-envelope-reconciliation-20260916T014000+0300",
+      "superseded_content_hash": "ddcfd37ad55e49f67b778def0a5b8509c27b319e3fe7fcda56ea079b9514271b",
+      "decision": "Replace unsupported ephemeral history polling with correlated completion events; preserve the existing privacy, timeout, cancellation and durable commit boundaries."
+    },
+    {
+      "event": "r09_owner_reconciled",
+      "at": "2026-09-16T01:55:25+03:00",
+      "artifact": "qa-checklist",
+      "superseded_invocation": "r08-godaddy-env-envelope-reconciliation-20260916T014100+0300",
+      "superseded_content_hash": "1137d410cc9b84092f32bb106a1a4d89e5af387685d2d5e802286c91df20017b",
+      "decision": "Replace unsupported ephemeral history polling with correlated completion events; preserve the existing privacy, timeout, cancellation and durable commit boundaries."
+    },
+    {
+      "event": "r09_owner_reconciled",
+      "at": "2026-09-16T01:55:42+03:00",
+      "artifact": "development-plan",
+      "superseded_invocation": "r08-godaddy-env-envelope-reconciliation-20260916T014200+0300",
+      "superseded_content_hash": "ffab21103667153244b1cd8d999adbb2c86cbb76d2caddae48168f3f0995c1b9",
+      "decision": "Replace unsupported ephemeral history polling with correlated completion events; preserve the existing privacy, timeout, cancellation and durable commit boundaries."
     }
   ],
   "dispatches": {
@@ -8247,7 +8285,7 @@
       "consumed_source_fragments": {}
     },
     "architecture": {
-      "invocation_id": "r08-godaddy-env-envelope-reconciliation-20260916T013900+0300",
+      "invocation_id": "r09-ephemeral-event-reconciliation-architecture-2026-09-16T01:54:54+03:00",
       "outputs": [
         "docs/architecture.md"
       ],
@@ -8269,17 +8307,18 @@
         "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
         "test/core.test.mjs": "0de9078abd52a192e67afb5ef13693652b4b9372bf8bf5ec0d2463ecc0283047",
-        "src/server/codex-provider.mjs": "87d9aa0ce66a7b1e785132649bdaf6d821e34bd3363ee20b3dbfdd286c312d13",
+        "src/server/codex-provider.mjs": "a84f5a433d4c74752afb133e39471c0d8cf3f853047ac6f95ef918073b05a151",
         "src/server/consultation.mjs": "417213aaf4732bcb707ab312b1fa6f166041bef3f375c46c76988e0d88cbcbc5",
-        "test/codex-provider.test.mjs": "54eb37342d0ee228e2581fc3734fbd01a42fb1e1ec3e795f4e44008b725b2c12",
+        "test/codex-provider.test.mjs": "f0734c813145c15a1282b60a0b34db1c8229a25c95d43f0573bb55d0fcb44eff",
         "test/consultation.test.mjs": "e1770d0db38c20458c759af3e00be9d2dc2acc21c055b7db75b5b2fbe65869b4",
         "test/http.test.mjs": "c2df9f4a4389122600cdea3f5e0024515a25b2830b4c7b8dfd465257e91a08aa",
-        ".env.example": "908e4483bcad524ca4c95e9d20bc57dd4f2fbc6156f17925728798f03e91620f"
+        ".env.example": "908e4483bcad524ca4c95e9d20bc57dd4f2fbc6156f17925728798f03e91620f",
+        "test/fixtures/fake-codex.mjs": "83ae4220e5b356d972005012150f62a7b397392d3340a27a9524cd9918035c01"
       },
       "consumed_source_fragments": {}
     },
     "dod-evals": {
-      "invocation_id": "r08-godaddy-env-envelope-reconciliation-20260916T014000+0300",
+      "invocation_id": "r09-ephemeral-event-reconciliation-dod-evals-2026-09-16T01:55:09+03:00",
       "outputs": [
         "docs/dod-evals.md"
       ],
@@ -8292,12 +8331,12 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "63ef7dd0fd882c4e88b1d047cb3595ce67d8ed6e101a298b0f6e377aaef1e113"
+        "docs/architecture.md": "bd414d6d52a9b7e4bd34b06058eac8d87ffeeb413cef8d2415142fea41368467"
       },
       "consumed_source_fragments": {}
     },
     "qa-checklist": {
-      "invocation_id": "r08-godaddy-env-envelope-reconciliation-20260916T014100+0300",
+      "invocation_id": "r09-ephemeral-event-reconciliation-qa-checklist-2026-09-16T01:55:25+03:00",
       "outputs": [
         "docs/qa-checklist.md"
       ],
@@ -8310,8 +8349,8 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "63ef7dd0fd882c4e88b1d047cb3595ce67d8ed6e101a298b0f6e377aaef1e113",
-        "docs/dod-evals.md": "ddcfd37ad55e49f67b778def0a5b8509c27b319e3fe7fcda56ea079b9514271b",
+        "docs/architecture.md": "bd414d6d52a9b7e4bd34b06058eac8d87ffeeb413cef8d2415142fea41368467",
+        "docs/dod-evals.md": "ced6b78b4e26c897fc9e1ab8f895f7d60eb6e97d818288e5dd8bf75cdeae3abf",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
         "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
@@ -8322,16 +8361,17 @@
         "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
         "test/core.test.mjs": "0de9078abd52a192e67afb5ef13693652b4b9372bf8bf5ec0d2463ecc0283047",
-        "src/server/codex-provider.mjs": "87d9aa0ce66a7b1e785132649bdaf6d821e34bd3363ee20b3dbfdd286c312d13",
+        "src/server/codex-provider.mjs": "a84f5a433d4c74752afb133e39471c0d8cf3f853047ac6f95ef918073b05a151",
         "src/server/consultation.mjs": "417213aaf4732bcb707ab312b1fa6f166041bef3f375c46c76988e0d88cbcbc5",
-        "test/codex-provider.test.mjs": "54eb37342d0ee228e2581fc3734fbd01a42fb1e1ec3e795f4e44008b725b2c12",
+        "test/codex-provider.test.mjs": "f0734c813145c15a1282b60a0b34db1c8229a25c95d43f0573bb55d0fcb44eff",
         "test/consultation.test.mjs": "e1770d0db38c20458c759af3e00be9d2dc2acc21c055b7db75b5b2fbe65869b4",
-        "test/http.test.mjs": "c2df9f4a4389122600cdea3f5e0024515a25b2830b4c7b8dfd465257e91a08aa"
+        "test/http.test.mjs": "c2df9f4a4389122600cdea3f5e0024515a25b2830b4c7b8dfd465257e91a08aa",
+        "test/fixtures/fake-codex.mjs": "83ae4220e5b356d972005012150f62a7b397392d3340a27a9524cd9918035c01"
       },
       "consumed_source_fragments": {}
     },
     "development-plan": {
-      "invocation_id": "r08-godaddy-env-envelope-reconciliation-20260916T014200+0300",
+      "invocation_id": "r09-ephemeral-event-reconciliation-development-plan-2026-09-16T01:55:42+03:00",
       "outputs": [
         "docs/development-plan.md"
       ],
@@ -8344,9 +8384,9 @@
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
         "docs/wireframes.md": "3c674d11fc96c7a606b730e5eb2f6383a18528f7cdd748dccaad604ef462c051",
         "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "63ef7dd0fd882c4e88b1d047cb3595ce67d8ed6e101a298b0f6e377aaef1e113",
-        "docs/dod-evals.md": "ddcfd37ad55e49f67b778def0a5b8509c27b319e3fe7fcda56ea079b9514271b",
-        "docs/qa-checklist.md": "1137d410cc9b84092f32bb106a1a4d89e5af387685d2d5e802286c91df20017b",
+        "docs/architecture.md": "bd414d6d52a9b7e4bd34b06058eac8d87ffeeb413cef8d2415142fea41368467",
+        "docs/dod-evals.md": "ced6b78b4e26c897fc9e1ab8f895f7d60eb6e97d818288e5dd8bf75cdeae3abf",
+        "docs/qa-checklist.md": "28a3bd244b4e3be20ca3dc9781aac94e05f47cc96f2b7946df90a7ded55def8d",
         "docs/model-settings.md": "86801751744742aa44a41b9f6d5c5192eabd22423323c83bdbddec431e47b4d5",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "package.json": "39f69e8b9c352928595ab1b7a3e83437a0e74bbdd2e5874b7d552f77c03fe0e2",
@@ -8361,11 +8401,12 @@
         "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
         "test/core.test.mjs": "0de9078abd52a192e67afb5ef13693652b4b9372bf8bf5ec0d2463ecc0283047",
-        "src/server/codex-provider.mjs": "87d9aa0ce66a7b1e785132649bdaf6d821e34bd3363ee20b3dbfdd286c312d13",
+        "src/server/codex-provider.mjs": "a84f5a433d4c74752afb133e39471c0d8cf3f853047ac6f95ef918073b05a151",
         "src/server/consultation.mjs": "417213aaf4732bcb707ab312b1fa6f166041bef3f375c46c76988e0d88cbcbc5",
-        "test/codex-provider.test.mjs": "54eb37342d0ee228e2581fc3734fbd01a42fb1e1ec3e795f4e44008b725b2c12",
+        "test/codex-provider.test.mjs": "f0734c813145c15a1282b60a0b34db1c8229a25c95d43f0573bb55d0fcb44eff",
         "test/consultation.test.mjs": "e1770d0db38c20458c759af3e00be9d2dc2acc21c055b7db75b5b2fbe65869b4",
-        "test/http.test.mjs": "c2df9f4a4389122600cdea3f5e0024515a25b2830b4c7b8dfd465257e91a08aa"
+        "test/http.test.mjs": "c2df9f4a4389122600cdea3f5e0024515a25b2830b4c7b8dfd465257e91a08aa",
+        "test/fixtures/fake-codex.mjs": "83ae4220e5b356d972005012150f62a7b397392d3340a27a9524cd9918035c01"
       },
       "consumed_source_fragments": {}
     }
@@ -66695,8 +66736,8 @@
     "definition_status": "prepared",
     "release_readiness": "not_evaluated",
     "source_hashes": {
-      "docs/dod-evals.md": "ddcfd37ad55e49f67b778def0a5b8509c27b319e3fe7fcda56ea079b9514271b",
-      "docs/qa-checklist.md": "1137d410cc9b84092f32bb106a1a4d89e5af387685d2d5e802286c91df20017b"
+      "docs/dod-evals.md": "ced6b78b4e26c897fc9e1ab8f895f7d60eb6e97d818288e5dd8bf75cdeae3abf",
+      "docs/qa-checklist.md": "28a3bd244b4e3be20ca3dc9781aac94e05f47cc96f2b7946df90a7ded55def8d"
     },
     "gates": [
       {

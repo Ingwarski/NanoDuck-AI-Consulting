@@ -19,25 +19,10 @@ const waitFor = (promise, milliseconds, label, signal = undefined) => new Promis
   signal?.addEventListener("abort", abort, { once: true });
   Promise.resolve(promise).then(value => finish(resolve, value), error => finish(reject, error));
 });
-const pause = (milliseconds, signal = undefined) => new Promise((resolve, reject) => {
-  let settled = false;
-  const finish = (callback, value) => {
-    if (settled) return;
-    settled = true; clearTimeout(timer); signal?.removeEventListener("abort", abort); callback(value);
-  };
-  const abort = () => finish(reject, new Error("cancelled"));
-  const timer = setTimeout(() => finish(resolve), milliseconds);
-  if (signal?.aborted) abort();
-  else signal?.addEventListener("abort", abort, { once: true });
-});
 const record = value => typeof value === "object" && value !== null && !Array.isArray(value);
 const preservedModel = "gpt-6-astra";
 const preservedEfforts = new Set(["xhigh", "ultra"]);
 const terminalTurn = value => record(value) && ["completed", "interrupted", "failed"].includes(value.status) ? value : undefined;
-const readTurn = (value, turnId) => {
-  const turns = record(value) && record(value.thread) && Array.isArray(value.thread.turns) ? value.thread.turns : [];
-  return turns.find(turn => record(turn) && turn.id === turnId) ?? turns.at(-1);
-};
 const providerLog = (event, details) => process.stdout.write(`${JSON.stringify({ event, ...details })}\n`);
 
 const appServerErrorCategory = error => {
@@ -80,7 +65,10 @@ class AppServerConnection {
     this.child = child; this.workspace = workspace; this.cleanup = cleanup; this.pending = new Map(); this.notifications = new Set(); this.nextId = 1;
     this.reader = createInterface({ input: child.stdout, crlfDelay: Infinity });
     this.reader.on("line", line => this.receive(line));
+    this.closed = new Promise(resolve => { this.resolveClosed = resolve; });
     const fail = error => {
+      this.closeError = error;
+      this.resolveClosed(error);
       for (const pending of this.pending.values()) { clearTimeout(pending.timer); pending.reject(error); }
       this.pending.clear();
     };
@@ -97,6 +85,7 @@ class AppServerConnection {
     if (typeof value.method === "string") for (const listener of this.notifications) listener({ method: value.method, params: value.params });
   }
   request(method, params, milliseconds = 20_000) {
+    if (this.closeError) return Promise.reject(this.closeError);
     const id = this.nextId++;
     return new Promise((resolve, reject) => {
       const timer = setTimeout(() => { this.pending.delete(id); reject(new Error("app_server_timeout")); }, milliseconds);
@@ -217,37 +206,38 @@ export function createCodexProvider(config) {
       const prompts = createRuntimePrompts(runtimeInstructions);
       const outputContract = prompts.outputContract({ outputKind, maximumCharacters });
       const prompt = `${assignment}\n\nOwner question:\n${evidence.owner}\n\nPrior confirmed discussion:\n${evidence.discussion}\n\n${outputContract} ${prompts.providerPolicy(research)}`;
-      let resolveTurn; const turnDone = new Promise(resolve => { resolveTurn = resolve; }); let resultBody;
+      let resolveTurn; const turnDone = new Promise(resolve => { resolveTurn = resolve; });
+      let expectedTurnId;
+      const completedTurns = new Map();
+      const completedBodies = new Map();
       unsubscribe = connection.on(notification => {
-        if (notification.method !== "turn/completed" || !record(notification.params) || notification.params.threadId !== threadId || !record(notification.params.turn)) return;
-        const turn = terminalTurn(notification.params.turn);
-        if (turn) resolveTurn(turn);
+        const params = notification.params;
+        if (!record(params) || params.threadId !== threadId) return;
+        if (notification.method === "item/completed" && typeof params.turnId === "string") {
+          const body = bodyFrom({ items: [params.item] });
+          if (body) completedBodies.set(params.turnId, body);
+        }
+        if (notification.method !== "turn/completed") return;
+        const completed = terminalTurn(params.turn);
+        if (!completed || typeof completed.id !== "string") return;
+        completedTurns.set(completed.id, completed);
+        if (completed.id === expectedTurnId) resolveTurn(completed);
       });
       const turn = await connection.request("turn/start", { threadId, input: [{ type: "text", text: prompt, text_elements: [] }], model, approvalPolicy: "never", sandboxPolicy: { type: "readOnly", networkAccess: research }, environments: [], effort });
       const startedTurn = record(turn) && record(turn.turn) ? turn.turn : undefined;
       if (!record(startedTurn) || typeof startedTurn.id !== "string") throw new Error("provider_error");
+      expectedTurnId = startedTurn.id;
       const startedAt = Date.now();
       providerLog("nanoduck.provider.turn_started", { outputKind, research, effort });
-      let resolvedTurn = terminalTurn(startedTurn);
-      let completionSource = "turn_start";
-      while (!resolvedTurn) {
-        const remaining = 540_000 - (Date.now() - startedAt);
-        if (remaining <= 0) throw new Error("provider_timeout");
-        const notified = await Promise.race([turnDone, pause(Math.min(2_500, remaining), signal).then(() => undefined)]);
-        if (terminalTurn(notified)) {
-          resolvedTurn = notified;
-          completionSource = "notification";
-          break;
-        }
-        const read = await connection.request("thread/read", { threadId, includeTurns: true });
-        const observed = terminalTurn(readTurn(read, startedTurn.id));
-        if (observed) {
-          resolvedTurn = observed;
-          completionSource = "thread_read";
-        }
-      }
-      if (resolvedTurn.status !== "completed") throw new Error("provider_error");
-      resultBody = bodyFrom(resolvedTurn);
+      // Ephemeral threads have no saved turn history. Consume the subscribed event
+      // stream; thread/read(includeTurns:true) is rejected by the pinned app server.
+      const resolvedTurn = terminalTurn(startedTurn) ?? completedTurns.get(expectedTurnId) ?? await waitFor(
+        Promise.race([turnDone, connection.closed.then(error => { throw error; })]),
+        540_000, "provider_timeout", signal
+      );
+      if (resolvedTurn.status !== "completed") throw new AppServerRequestError("turn/completed", resolvedTurn.error);
+      const resultBody = bodyFrom(resolvedTurn) ?? completedBodies.get(expectedTurnId);
+      const completionSource = terminalTurn(startedTurn) ? "turn_start" : "notification";
       providerLog("nanoduck.provider.turn_completed", { outputKind, completionSource, durationMs: Date.now() - startedAt });
       unsubscribe();
       const output = typeof resultBody === "string" ? sourcesFrom(resultBody) : undefined;

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "unit": "U-04",
+  "repair": "R-09",
+  "observed_at": "2026-09-15T22:56:39.279616+00:00",
+  "executor": "Codex",
+  "scope": "Provider protocol correction; local deterministic checks and fresh private-Preview diagnosis only",
+  "diagnosis": {
+    "host_commit": "9a13a51d7d75aaef12316738bd67a48f412aac8b",
+    "preview_health": "infrastructure OK; site OK",
+    "fresh_failure": {
+      "code": "rpc_-32600",
+      "request": "thread/read",
+      "category": "provider_unavailable"
+    },
+    "local_pinned_codex": "0.153.1",
+    "local_probe_error": "ephemeral threads do not support includeTurns",
+    "local_probe_used_auth_or_model": false
+  },
+  "correction": "Consume correlated terminal events and completed message items without history polling; preserve ephemeral privacy and durable commit boundaries.",
+  "checks": {
+    "npm run check": "passed; 58 reported tests, no failures",
+    "sdd before/after owner checks": "passed for architecture, DoD, QA and plan",
+    "sdd audit": "passed"
+  },
+  "source_hashes": {
+    "src/server/codex-provider.mjs": "a84f5a433d4c74752afb133e39471c0d8cf3f853047ac6f95ef918073b05a151",
+    "test/codex-provider.test.mjs": "f0734c813145c15a1282b60a0b34db1c8229a25c95d43f0573bb55d0fcb44eff",
+    "test/fixtures/fake-codex.mjs": "83ae4220e5b356d972005012150f62a7b397392d3340a27a9524cd9918035c01",
+    "docs/architecture.md": "bd414d6d52a9b7e4bd34b06058eac8d87ffeeb413cef8d2415142fea41368467",
+    "docs/dod-evals.md": "ced6b78b4e26c897fc9e1ab8f895f7d60eb6e97d818288e5dd8bf75cdeae3abf",
+    "docs/qa-checklist.md": "28a3bd244b4e3be20ca3dc9781aac94e05f47cc96f2b7946df90a7ded55def8d",
+    "docs/development-plan.md": "ebee3c499258362ca3f62b60486f1e01edbc319c0733d0f28974f1bd01d77a57"
+  },
+  "hosted_repair_verification": "not_run",
+  "evidence_correction": "The R-08 fresh Preview encryption-key diagnosis was not supported; the rollback detail was older Published evidence. No secret change was made.",
+  "upstream_reference": "https://github.com/openai/codex/blob/rust-v0.153.1/codex-rs/app-server/src/bespoke_event_handling.rs",
+  "limits": [
+    "Not a release pass",
+    "No Published deployment",
+    "No secret replacement or disclosure",
+    "No database reset or unrelated resource change"
+  ]
+}
