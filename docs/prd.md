@@ -140,7 +140,7 @@ Obligations and acceptance: FR-04.1–FR-04.3, NFR-12.1, NFR-12.3; AC-008
 | FR-05.3 | Settings provides specialist count 1/2/3/5/Auto and discussion depth 1/3/5/Auto. Specialist count excludes Head and Critic. Each depth is one complete Critic ↔ specialist exchange; Auto depth stops at a supported consilium or after 10 exchanges. The 540,000 ms provider budget remains separate. | UC-005 |
 | FR-05.4 | Usage presents real known quota/reset information or explicitly unavailable information; it never invents a per-session charge. | UC-005 |
 | FR-05.5 | Only a genuine authorization failure for the selected provider offers contextual reauthorization; quota and outage show their actual next action. | UC-005 |
-| FR-05.6 | Settings shows the complete current runtime-instructions Markdown document. It accepts an owner edit only when all required runtime headings and placeholders validate, saves an identifiable revision for future runs, and never lets document text weaken server-enforced authorization, role topology, output bounds or language/source validation. | UC-005 |
+| FR-05.6 | Settings shows the complete current runtime-instructions Markdown document stored in the app database. A new installation creates it once from the checked-in seed; the seed never overrides it. Settings accepts an owner edit only when all required runtime headings and placeholders validate and the submitted revision still matches the current document, saves an identifiable revision for future runs, and never lets document text weaken server-enforced authorization, role topology, output bounds or language/source validation. | UC-005 |
 
 ### History
 

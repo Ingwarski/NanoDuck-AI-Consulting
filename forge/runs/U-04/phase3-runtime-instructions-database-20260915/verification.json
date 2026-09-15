@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "unit": "U-04",
+  "run_id": "phase3-runtime-instructions-database-20260915",
+  "executed_at": "2026-09-15T15:43:10+03:00",
+  "executor": "Codex local implementation runner",
+  "revision_base": "66d2f6d",
+  "baseline_id": "nanoduck-electric-a-v8-20260914",
+  "development_plan_hash": "f5ec69dfb7b06b7fe1bd11709316334274788862d06671d627df3ff706d7a061",
+  "scope": "Make the existing application database the single active runtime-instructions Markdown document store. Seed a new installation once without replacing an existing document, validate and snapshot accepted documents server-side, and reject stale Settings saves. No GoDaddy application, database, migration, reset, deletion, deployment or external upload was contacted.",
+  "checks": [
+    {
+      "name": "single database document semantics",
+      "evidence": "test/prompt-contracts.test.mjs",
+      "observed": "The installation seed creates one document, a valid edit changes its revision, later initialization preserves that edit, and a write with a stale revision is rejected.",
+      "result": "passed",
+      "limit": "This uses the local memory-store seam; hosted MySQL durability remains a release check."
+    },
+    {
+      "name": "authenticated Settings API and immutable run snapshot",
+      "evidence": "test/http.test.mjs",
+      "observed": "A signed-in owner receives a database-sourced document, saves a valid revision, receives a 422 for invalid Markdown and a 409 for a stale revision, and an accepted run retains only its accepted Markdown/revision snapshot.",
+      "result": "passed",
+      "limit": "The isolated HTTP fixture uses the local memory store and an unavailable provider."
+    },
+    {
+      "name": "local browser Settings review",
+      "evidence": "isolated local app at http://127.0.0.1:4324/ in the Codex in-app browser",
+      "observed": "After local sign-in and consent, Settings labelled the document as the single database-stored Markdown source. Replacing a Direct Head Answer sentence and saving produced a new database document revision and future-consultations confirmation.",
+      "result": "passed",
+      "limit": "This is local in-app-browser evidence only. It does not verify Safari, Chrome, hosted MySQL, a live provider or production deployment."
+    },
+    {
+      "name": "regression and SDD audit",
+      "evidence": "npm run check; to-sdd-pipeline sdd_check.py --audit",
+      "observed": "Artifact/link and JavaScript checks passed; 46 Node tests passed; the SDD audit reported zero issues and zero warnings.",
+      "result": "passed",
+      "limit": "Prepared formal QA/release gates remain not_run and release readiness remains not_evaluated."
+    }
+  ],
+  "formal_release_status": {
+    "canonical_qa": "83 prepared / not_run",
+    "release_readiness": "not_evaluated"
+  },
+  "release_effect": "not_release_evidence",
+  "source_hashes": {
+    "docs/runtime-instructions.md": "6a649e83c825cf04addddf97153bdc7772a6c20ccf9c73baebf6b7590860dfb6",
+    "docs/product-idea.md": "cea0e07c5cbfe325558f9874bb5c52f0abcfe3da4e2f550bf4d6a1122768f05f",
+    "docs/canonical-terms.md": "ba901cd99eee67c4ea30709e0311d19174d604fd7b7f5a4ade789631803c5f00",
+    "docs/prd.md": "3f6bf4dbc2fec7cb999021048314bd8f92835f0173ccb937968a3b7c1d198a12",
+    "docs/architecture.md": "db90d2183a9241c28ec8f819212feb69557de41796c1e71fd93451766ef685c2",
+    "docs/development-plan.md": "f5ec69dfb7b06b7fe1bd11709316334274788862d06671d627df3ff706d7a061",
+    "docs/qa-checklist.md": "4d85b821c841b884ba16bb6154ea8ac6538db51628f689e809b64c7622e11a96",
+    "docs/sdd-consistency-audit.md": "d9e571ffd4bcecfcc38ceef1e524fc2b0cef50039a6b903b9729f19b2d6c4efb",
+    "public/index.html": "69a033e56ed7682661fd388b941cb4cd0426ec1ed4e556416f87f87808441741",
+    "src/client/app.js": "7ad066c37cd2e9d8fe456576e2619aa8692658a33d1de308c3e6e210fc1534dd",
+    "src/server/prompt-contracts.mjs": "25df2943169e9b95cd18dbd9ed9f434bf9fc3f3ae1f1676c445733e226bcb2f7",
+    "src/server/codex-provider.mjs": "5bd0ff37ba12a3c15a88db137ca11146758ba721850c7d7693da6628d7734058",
+    "src/server/index.mjs": "1b8a187cc938cfff82220eaad13de77460ef8d1216a0636223fb92bb89dc5db2",
+    "src/server/store.mjs": "5572a2aa04c884ed6e580fbef4064ddbbf8fee090fb1c63b0ca6b8110f6d3b65",
+    "src/server/schema.sql": "3273be5c76a0a129fd90c2630fd5cded20a38e3b2f29df48e855dcc0a265826a",
+    "test/prompt-contracts.test.mjs": "6744f42a430164988572fa690072041e5985e6de6d45ad2adb482d0e1c200af3",
+    "test/http.test.mjs": "8a8ab3d20632f0ff187cf79044e83c9424499a5efe27f76eb9877b91687ac9d9",
+    "test/codex-provider.test.mjs": "c21d3b50ad5cd559c1ac1bd94d1d5a647665d5ab32fa1e6a34019548fff2996f",
+    "test/consultation.test.mjs": "384325a554b3c07c753936360547c8d23a9a13d36d35c8dfb68dac67e98e0e99"
+  }
+}

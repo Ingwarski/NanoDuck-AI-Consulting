@@ -4,7 +4,7 @@ import { createInterface } from "node:readline";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { randomId } from "./crypto.mjs";
-import { createRuntimePrompts, defaultRuntimeInstructions } from "./prompt-contracts.mjs";
+import { createRuntimePrompts, RuntimeInstructionError } from "./prompt-contracts.mjs";
 import { hasProhibitedLanguage, hasUnsafeExternalUrl, safeExternalUrl } from "./validation.mjs";
 
 const waitFor = (promise, milliseconds, label, signal = undefined) => new Promise((resolve, reject) => {
@@ -150,8 +150,9 @@ export function createCodexProvider(config) {
       await connection?.close().catch(() => {});
     }
   };
-  const invoke = async ({ assignment, model, effort, evidence, research, outputKind = "discussion", maximumCharacters = undefined, runtimeInstructions = defaultRuntimeInstructions, signal }) => {
+  const invoke = async ({ assignment, model, effort, evidence, research, outputKind = "discussion", maximumCharacters = undefined, runtimeInstructions, signal }) => {
     if (!config.readyForProvider) return { ok: false, code: "provider_unavailable" };
+    if (!runtimeInstructions) throw new RuntimeInstructionError("Provider invocation is missing its runtime-instructions contract.");
     let connection; let threadId; let unsubscribe = () => {};
     try {
       connection = await startConnection(config);

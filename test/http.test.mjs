@@ -63,17 +63,21 @@ test("the local HTTP flow protects data, saves settings and preserves an unavail
     assert.deepEqual((await (await fetch(`${origin}/api/settings`, { method: "PUT", headers, body: JSON.stringify(settings) })).json()).settings, settings);
 
     const initialInstructions = await (await fetch(`${origin}/api/runtime-instructions`, { headers: { cookie } })).json();
-    assert.equal(initialInstructions.runtimeInstructions.source, "baseline");
+    assert.equal(initialInstructions.runtimeInstructions.source, "database");
+    assert.equal(typeof initialInstructions.runtimeInstructions.updatedAt, "string");
     assert.match(initialInstructions.runtimeInstructions.markdown, /## Head Task/u);
     const markdown = initialInstructions.runtimeInstructions.markdown.replace("Give a direct, self-contained answer to this simple question.", "Give the owner a concise, concrete answer before any optional explanation.");
-    const savedInstructions = await (await fetch(`${origin}/api/runtime-instructions`, { method: "PUT", headers, body: JSON.stringify({ markdown }) })).json();
-    assert.equal(savedInstructions.runtimeInstructions.source, "saved");
+    const savedInstructions = await (await fetch(`${origin}/api/runtime-instructions`, { method: "PUT", headers, body: JSON.stringify({ markdown, revision: initialInstructions.runtimeInstructions.revision }) })).json();
+    assert.equal(savedInstructions.runtimeInstructions.source, "database");
     assert.match(savedInstructions.runtimeInstructions.revision, /^[a-f0-9]{64}$/u);
     const settingsWithInstructions = await (await fetch(`${origin}/api/settings`, { headers: { cookie } })).json();
     assert.equal(settingsWithInstructions.runtimeInstructions.revision, savedInstructions.runtimeInstructions.revision);
-    const invalidInstructions = await fetch(`${origin}/api/runtime-instructions`, { method: "PUT", headers, body: JSON.stringify({ markdown: "## Head Task\nIncomplete" }) });
+    const invalidInstructions = await fetch(`${origin}/api/runtime-instructions`, { method: "PUT", headers, body: JSON.stringify({ markdown: "## Head Task\nIncomplete", revision: savedInstructions.runtimeInstructions.revision }) });
     assert.equal(invalidInstructions.status, 422);
     assert.equal((await invalidInstructions.json()).error, "invalid_runtime_instructions");
+    const staleInstructions = await fetch(`${origin}/api/runtime-instructions`, { method: "PUT", headers, body: JSON.stringify({ markdown, revision: initialInstructions.runtimeInstructions.revision }) });
+    assert.equal(staleInstructions.status, 409);
+    assert.equal((await staleInstructions.json()).error, "stale_runtime_instructions");
 
     const message = { body: "What should we validate first?", clientRequestId: "integration-request-0001" };
     assert.equal((await fetch(`${origin}/api/conversations/${conversationId}/messages`, { method: "POST", headers, body: JSON.stringify(message) })).status, 202);

@@ -54,7 +54,9 @@ export function parseRuntimeInstructions(value) {
   return Object.freeze({ markdown: `${markdown}\n`, revision: revisionFor(`${markdown}\n`), sections: Object.freeze(Object.fromEntries(sections)) });
 }
 
-export const defaultRuntimeInstructions = parseRuntimeInstructions(readFileSync(documentUrl, "utf8"));
+// This is used only to create the first database document in a new installation.
+// The active runtime contract is always loaded from the accepted run snapshot.
+export const initialRuntimeInstructions = parseRuntimeInstructions(readFileSync(documentUrl, "utf8"));
 
 const render = (contract, section, values = {}) => {
   const body = contract.sections[section];
@@ -66,7 +68,9 @@ const withStandard = (contract, section, values) => `${render(contract, section,
 const roleGuidance = (contract, role) => contract.sections[role] ? ` ${render(contract, role)}` : "";
 
 export function runtimeInstructionsFor(snapshot) {
-  return parseRuntimeInstructions(snapshot?.runtimeInstructions?.markdown ?? defaultRuntimeInstructions.markdown);
+  const markdown = snapshot?.runtimeInstructions?.markdown;
+  if (typeof markdown !== "string") throw new RuntimeInstructionError("Accepted consultation is missing its runtime-instructions snapshot.");
+  return parseRuntimeInstructions(markdown);
 }
 
 export function createRuntimePrompts(contract) {

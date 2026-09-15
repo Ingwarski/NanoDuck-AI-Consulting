@@ -1,7 +1,10 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { createConsultationService } from "../src/server/consultation.mjs";
-import { createMemoryStore, defaultSettings } from "../src/server/store.mjs";
+import { createMemoryStore, defaultSettings as baseSettings } from "../src/server/store.mjs";
+import { initialRuntimeInstructions } from "../src/server/prompt-contracts.mjs";
+
+const defaultSettings = Object.freeze({ ...baseSettings, runtimeInstructions: { markdown: initialRuntimeInstructions.markdown, revision: initialRuntimeInstructions.revision } });
 
 const waitFor = async (predicate, milliseconds = 1_000) => {
   const deadline = Date.now() + milliseconds;
