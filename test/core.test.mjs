@@ -323,6 +323,7 @@ test("development cookies remain usable on localhost while production uses host-
   assert.match(development.sessionCookie(localSession), /Max-Age=86400/u);
 
   const productionEnvironment = { NODE_ENV: "production", APP_ORIGIN: "https://consulting.example.com", DATABASE_URL: "mysql://user:password@host/database", DATABASE_SSL_CA_PATH: "/run/secrets/mysql-ca.pem", DATA_ENCRYPTION_KEY: Buffer.alloc(32, 2).toString("base64url"), RECOVERY_ENCRYPTION_KEY: Buffer.alloc(32, 6).toString("base64url"), SESSION_SIGNING_KEY: Buffer.alloc(32, 3).toString("base64url"), OWNER_GOOGLE_SUBJECT: "owner-subject", GOOGLE_CLIENT_ID: "client", GOOGLE_CLIENT_SECRET: "secret", CODEX_APP_SERVER_AUTH_PATH: "/run/secrets/codex-auth.json" };
+  assert.equal(loadConfig({ ...productionEnvironment, NODE_ENV: "development", NANODUCK_RUNTIME_MODE: "production" }).mode, "production");
   assert.throws(() => loadConfig({ ...productionEnvironment, DATABASE_URL: "", DB_HOST: "host", DB_PORT: "not-a-port", DB_NAME: "database", DB_USER: "user", DB_PASSWORD: "password" }), /managed database/u);
   assert.throws(() => loadConfig({ ...productionEnvironment, RECOVERY_ENCRYPTION_KEY: productionEnvironment.DATA_ENCRYPTION_KEY }), /must differ/u);
   assert.throws(() => loadConfig({ ...productionEnvironment, MAX_ATTACHMENT_BYTES: String(8 * 1024 * 1024 + 1) }), /cannot exceed 8 MiB/u);

@@ -34,13 +34,13 @@
       "observed": "nanoduck_runtime_instructions contains one owner row with ciphertext, IV, authentication tag, revision and hash metadata; no instruction plaintext was inspected."
     },
     {
-      "name": "Google owner authentication",
-      "observed": "The existing OAuth client was extended with the Preview callback, and a real owner Google sign-in returned to the NanoDuck consent screen."
+      "name": "Google authentication configuration",
+      "observed": "The existing OAuth client was extended with the Preview callback. A Safari recheck exposed the host development sign-in path, so no Google completion is counted in this receipt."
     }
   ],
   "limits": [
     "The owner processing-consent checkbox was intentionally left unchecked.",
     "No provider preflight, model turn, live research, consultation, voice-recognition run, publication or database deletion was performed.",
-    "Google notes that callback changes can take time to propagate; the observed owner sign-in completed immediately."
+    "The initial consent screen used the development path; Google authentication requires the later production-mode deployment and a fresh browser check."
   ]
 }

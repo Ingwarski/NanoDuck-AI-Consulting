@@ -81,8 +81,8 @@ const goDaddyDatabaseUrl = environment => {
 };
 
 export function loadConfig(environment = process.env) {
-  const mode = environment.NODE_ENV ?? "production";
-  if (!["development", "test", "production"].includes(mode)) throw new Error("NODE_ENV is invalid.");
+  const mode = environment.NANODUCK_RUNTIME_MODE ?? environment.NODE_ENV ?? "production";
+  if (!["development", "test", "production"].includes(mode)) throw new Error("NANODUCK_RUNTIME_MODE or NODE_ENV is invalid.");
   const origin = optionalUrl(environment.APP_ORIGIN ?? environment.SETTINGS_PUBLIC_ORIGIN, "APP_ORIGIN");
   if (mode === "production" && origin === undefined) throw new Error("APP_ORIGIN is required in production.");
   const dataKey = environment.DATA_ENCRYPTION_KEY;
