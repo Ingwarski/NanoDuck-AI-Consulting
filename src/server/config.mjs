@@ -46,16 +46,19 @@ const optionalBase64urlBytes = (value, name) => {
   return decoded;
 };
 
-const optionalGzipBase64urlText = (value, name) => {
+const optionalGzipBase64urlBytes = (value, name) => {
   const compressed = optionalBase64urlBytes(value, name);
   if (!compressed) return undefined;
-  let decoded;
   try {
-    decoded = gunzipSync(compressed, { maxOutputLength: 64 * 1024 });
+    return gunzipSync(compressed, { maxOutputLength: 64 * 1024 });
   } catch {
-    throw new Error(`${name} must be a valid gzip-compressed base64url UTF-8 document of at most 64 KiB.`);
+    throw new Error(`${name} must be valid gzip-compressed base64url bytes of at most 64 KiB.`);
   }
-  return utf8Text(decoded, name);
+};
+
+const optionalGzipBase64urlText = (value, name) => {
+  const decoded = optionalGzipBase64urlBytes(value, name);
+  return decoded === undefined ? undefined : utf8Text(decoded, name);
 };
 
 const optionalString = value => typeof value === "string" && value.trim() ? value.trim() : undefined;
@@ -115,9 +118,14 @@ export function loadConfig(environment = process.env) {
   const codexAuthPath = typeof environment.CODEX_APP_SERVER_AUTH_PATH === "string" && environment.CODEX_APP_SERVER_AUTH_PATH.trim()
     ? environment.CODEX_APP_SERVER_AUTH_PATH.trim()
     : undefined;
-  const codexAuthBytes = optionalBase64urlBytes(environment.CODEX_APP_SERVER_AUTH_B64, "CODEX_APP_SERVER_AUTH_B64");
+  const codexAuthBase64Bytes = optionalBase64urlBytes(environment.CODEX_APP_SERVER_AUTH_B64, "CODEX_APP_SERVER_AUTH_B64");
+  const codexAuthGzipBytes = optionalGzipBase64urlBytes(environment.CODEX_APP_SERVER_AUTH_GZIP_B64, "CODEX_APP_SERVER_AUTH_GZIP_B64");
+  if (codexAuthBase64Bytes && codexAuthGzipBytes) {
+    throw new Error("Use only one Codex app-server auth secret.");
+  }
+  const codexAuthBytes = codexAuthBase64Bytes ?? codexAuthGzipBytes;
   if (mode === "production" && !codexAuthPath && !codexAuthBytes) {
-    throw new Error("CODEX_APP_SERVER_AUTH_PATH or CODEX_APP_SERVER_AUTH_B64 is required in production.");
+    throw new Error("CODEX_APP_SERVER_AUTH_PATH, CODEX_APP_SERVER_AUTH_B64 or CODEX_APP_SERVER_AUTH_GZIP_B64 is required in production.");
   }
 
   const runtimeDataKey = decodedKey ?? createHash("sha256").update("nanoduck-development-data-key").digest();

@@ -333,6 +333,9 @@ test("development cookies remain usable on localhost while production uses host-
   const secretStoreConfig = loadConfig({ ...productionEnvironment, CODEX_APP_SERVER_AUTH_PATH: "", CODEX_APP_SERVER_AUTH_B64: encodedAuth });
   assert.deepEqual(secretStoreConfig.codexAuthBytes, Buffer.from('{"test":"owned-auth-state"}'));
   assert.equal(secretStoreConfig.readyForProvider, true);
+  const compressedAuth = gzipSync(Buffer.from('{"test":"owned-auth-state"}', "utf8")).toString("base64url");
+  assert.deepEqual(loadConfig({ ...productionEnvironment, CODEX_APP_SERVER_AUTH_PATH: "", CODEX_APP_SERVER_AUTH_GZIP_B64: compressedAuth }).codexAuthBytes, Buffer.from('{"test":"owned-auth-state"}'));
+  assert.throws(() => loadConfig({ ...productionEnvironment, CODEX_APP_SERVER_AUTH_B64: encodedAuth, CODEX_APP_SERVER_AUTH_GZIP_B64: compressedAuth }), /only one Codex app-server auth secret/u);
   assert.throws(() => loadConfig({ ...productionEnvironment, CODEX_APP_SERVER_AUTH_PATH: "", CODEX_APP_SERVER_AUTH_B64: "not+base64url" }), /base64url/u);
   const compressedBootstrap = gzipSync(Buffer.from(testRuntimeInstructions.markdown, "utf8")).toString("base64url");
   assert.equal(loadConfig({ ...productionEnvironment, RUNTIME_INSTRUCTIONS_BOOTSTRAP_GZIP_B64: compressedBootstrap }).runtimeInstructionsBootstrap, testRuntimeInstructions.markdown);
