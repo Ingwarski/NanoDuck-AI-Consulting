@@ -67497,7 +67497,7 @@
           "heading": "## Product acceptance"
         },
         "definition_status": "prepared",
-        "execution_status": "not_run",
+        "execution_status": "passed",
         "phase": "implementation",
         "task": "History reopens complete confirmed conversation content, owned attachments and source records. On the GoDaddy MySQL route, run the same read when the driver returns JSON columns as decoded settings, run snapshot and source values; the browser receives the canonical record without service_unavailable.",
         "user_group": "Existing single owner",
@@ -67511,7 +67511,23 @@
           "UC-004"
         ],
         "applicability": "applicable",
-        "evidence": [],
+        "evidence": [
+          {
+            "path": "forge/runs/U-02/r06-mysql-json-preview-read-20260916/verification.json",
+            "content_hash": "25ca2e7c828098aceccc83a3bbe91df465c71a11b4e5aa7971fa8e5bac40b51c",
+            "kind": "functional"
+          }
+        ],
+        "executor": "Codex via GoDaddy dashboard and Chrome",
+        "executed_at": "2026-09-16T01:01:01+03:00",
+        "evaluated_source_hashes": {
+          "docs/architecture.md": "14fb2a13c51cc25a2897e3cea6d7d6024459179d909a7bdc48c8d8304f75fd61",
+          "docs/dod-evals.md": "e3e91b8529a1b4df4b4867ed1e73216e674038296d53da953be87769b1677825",
+          "docs/qa-checklist.md": "960478143edc0db36dccaecba0faac4e435bb533a352db54c4fc57b511c7b005",
+          "docs/development-plan.md": "576bb439e7266e6f07c7db33a5ba02fb9dd682a901e673e3c4bc55ced6a2df5a",
+          "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
+          "test/core.test.mjs": "e1fbc6e0995a3eacb179e31519982d5514bf8e9a01099e06d3ec71015c267ffb"
+        },
         "findings": [],
         "baseline_id": "nanoduck-electric-a-v8-20260914",
         "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
