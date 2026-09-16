@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "unit": "U-04",
+  "run_id": "r11-consolidation-20260916",
+  "recorded_at": "2026-09-17T01:03:05+03:00",
+  "executor": "Codex using Chrome through the existing owner session",
+  "kind": "hosted-browser-provider",
+  "environment": "GoDaddy private Preview for app wy2v0putg6 only",
+  "implementation_revision": "49242bd80f8b1406180251232b33bab523603adf",
+  "deployment_health": "Infrastructure OK and site OK; exact deployed commit observed in the Preview tab",
+  "checks": ["QA-R06", "QA-R08", "QA-R09", "QA-R21", "QA-R22", "QA-R36", "QA-R38"],
+  "result": "passed_with_limited_scope",
+  "fixture": "Synthetic consolidation verification: a fictional one-person bakery has two spare hours each week. Should it test preorders or a loyalty card first? Assess both and give one practical next step.",
+  "settings": {
+    "headModel": "gpt-6-astra",
+    "headReasoning": "xhigh",
+    "criticModel": "gpt-6-astra",
+    "criticReasoning": "xhigh",
+    "specialistCount": "2",
+    "discussionDepth": "1"
+  },
+  "observed_sequence": [
+    ["owner", null],
+    ["Head Consultant", "Strategy Consultant"],
+    ["Head Consultant", "Finance Consultant"],
+    ["Strategy Consultant", "Critic"],
+    ["Finance Consultant", "Critic"],
+    ["Critic", "Strategy Consultant"],
+    ["Strategy Consultant", "Critic"],
+    ["Critic", "Finance Consultant"],
+    ["Finance Consultant", "Critic"],
+    ["Strategy Consultant", "Head Consultant"],
+    ["Finance Consultant", "Head Consultant"],
+    ["Critic", "Head Consultant"],
+    ["Head Consultant", null]
+  ],
+  "observations": [
+    "The earlier Preview update had not completed: it still displayed fb5ec12 and an unsuccessful build state. A fresh Update Preview completed and displayed 49242bd with infrastructure and site OK. No specific root cause for the earlier attempt was established.",
+    "Settings displayed 19 required headings, including Specialist Final Position, Critic Final Review and Consolidated Advice. Saved versions showed a new routing_migration revision dated 17 September at 00:55 and retained earlier versions. Owner text was not edited or exported to this receipt.",
+    "The accepted synthetic consultation began at 00:56 and Head's final advice displayed at 01:02 Europe/Kyiv on 17 September 2026.",
+    "Critic challenged Strategy's inference from a single profitable batch. Strategy revised its position to distinguish feasibility from evidence of incremental demand.",
+    "Critic challenged Finance's positive-profit rule because it omitted the owner's minimum acceptable earnings per hour. Finance adopted that threshold and accounted for Strategy's attribution concern.",
+    "Strategy and Finance each submitted a distinct final position addressed to Head after both debate pairs completed. Both reconciled their position with the review and named unresolved inputs.",
+    "Critic then reviewed both final positions together, explicitly supported the conditional preorder recommendation, and preserved missing capacity, return threshold, costs and baseline variability.",
+    "Only after Critic's closing assessment did Head present Consolidated advice. The advice retained the agreed conditions, feasibility-versus-demand distinction, displaced-sales risk and conditional loyalty alternative.",
+    "Outcome remained empty during debate and after only Strategy's closing position. After completion, Discussion and Outcome both rendered Consolidated advice as a heading rather than raw Markdown.",
+    "Reloading the browser and reopening the synthetic record from Conversations restored all thirteen messages in the same directed order and the completed state. Outcome still displayed the final heading; its layout was visually inspected.",
+    "The original one-specialist/depth-1 preference was restored after test acceptance. A reload confirmed that preference and both Astra/xhigh settings.",
+    "An unauthenticated direct HTTP health request received the Preview access gate (401), so it is not reported as an application-health check. Hosted health evidence comes from the authenticated dashboard and completed browser/provider flow."
+  ],
+  "local_evidence": "The separate local receipt remains unchanged: 101 tests passed, with deterministic failure, restart, Auto disagreement/cap and fixed-count/depth coverage. The 13-artifact SDD audit passes without issues or warnings.",
+  "limits": [
+    "This is one actual-provider hosted run with two specialists and depth 1. Hosted Auto, provisional disagreement, failure and interrupted closure were not exercised; their regression evidence is local.",
+    "The observed Settings migration confirms headings and version metadata, not an independent plaintext or ciphertext comparison of every historical database record.",
+    "No performance, mobile voice, fresh Google OAuth, security certification or full release acceptance is claimed.",
+    "No Published deployment, secret replacement, database reset or unrelated GoDaddy resource change. No owner consultation text, runtime instruction text or share token is included."
+  ],
+  "release_readiness": "not_evaluated"
+}
