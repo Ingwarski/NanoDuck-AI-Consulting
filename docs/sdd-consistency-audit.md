@@ -1,5 +1,9 @@
 # SDD consistency audit
 
+## Current menu correction — 17 September 2026
+
+The owner requested Login in the global menu, replaced by Logoff when authenticated. R-13 adds the action to desktop and mobile navigation and reuses existing authentication/session routes, including consent-pending sessions. The [local verification receipt](../forge/runs/U-03/r13-login-menu-20260917/verification.json) records Chrome desktop/mobile interaction, logout invalidation and 101 passing checks. All 13 artifact bindings pass the [SDD audit](../forge/runs/U-03/r13-login-menu-20260917/sdd-audit.json); affected owner decisions are reconciled, unchanged security obligations and frozen A v8 files remain intact. This change is not deployed to Preview or Published.
+
 ## Current Published startup verification — 17 September 2026
 
 The R-12 missing-secret startup failure is resolved. After the owner's manual configuration/publication, the GoDaddy **Published** tab shows `1a2832e` with infrastructure and site OK. Direct HTTPS checks return the NanoDuck homepage with HTTP 200 and `/healthz` with `status: alive`, `store: mysql`. A fresh Chrome owner sign-in completes the Google callback on the Published origin and reaches the processing-consent screen. The optional instruction-bootstrap sync was skipped because the owned database is already initialized. The owner consent checkbox remains unchecked, so a fresh Published consultation and history/instruction reads are not claimed. The [Published receipt](../forge/runs/U-08/r12-published-config-20260917/published-verification.json) records these limits. Full release gates remain unevaluated.

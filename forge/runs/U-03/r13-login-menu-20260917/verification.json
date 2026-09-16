@@ -1,0 +1,48 @@
+{
+  "recorded_at": "2026-09-16T23:41:17+00:00",
+  "executor": "Codex",
+  "base_revision": "9618f1f",
+  "implementation_sha256": {
+    "public/index.html": "3b3875ee81005b50dc5b53a5b70188307b3b12c12980ac8b08af4eb6705d8fac",
+    "public/styles.css": "379a8e217fa34e20df512c37d0b5d35bf235d9c8b0b902e6b43af954ad412439",
+    "src/client/app.js": "420272b812d139e63ebd5629822f14db497e95a2529eebfd2e355d5b2ff049fc"
+  },
+  "environment": "Local development memory store at 127.0.0.1:4320; fictional owner; no model calls or production data",
+  "browser": {
+    "name": "Chrome",
+    "desktop": "1362x693",
+    "mobile": "390x844",
+    "breakpoint": "781x900",
+    "observed": [
+      "Anonymous desktop menu shows Login.",
+      "Login opens the existing local authentication flow; consent-pending state already shows Logoff.",
+      "Logoff before consent returns to anonymous Login.",
+      "Re-login and consent enter the workspace with Logoff.",
+      "Mobile disclosure contains Logoff; activating it closes the menu and returns to sign-in.",
+      "Mobile Login re-enters authentication and closes the disclosure.",
+      "At 781px desktop navigation fits without horizontal overflow; session button is 81.96x46.8px.",
+      "Browser console contained no warnings or errors."
+    ],
+    "method": "CUA browser DOM, real button interaction and rendered screenshots",
+    "limitations": [
+      "Google OAuth was not repeated against the new local menu; it reuses the existing Google entry handler and endpoint.",
+      "Safari was not rerun for this change.",
+      "No full release or representative-user gate claimed."
+    ]
+  },
+  "http_logout": {
+    "login": 200,
+    "authenticatedBefore": true,
+    "logout": 204,
+    "authenticatedAfter": false,
+    "oldSessionPrivateRead": 401
+  },
+  "tests": {
+    "command": "npm run check",
+    "result": "passed",
+    "total": 101,
+    "failed": 0
+  },
+  "sdd_audit": "passed",
+  "deployment": "Not deployed; Published remains at its previously verified revision."
+}

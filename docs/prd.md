@@ -24,7 +24,7 @@ Actors are the existing owner, separately invoked AI roles, Google, selected sub
 Jobs: JOB-003. Actors: Owner; Google identity provider; application.
 Trigger: Open the app or return after session expiry. Goal: Reach private work with the existing owner identity.
 Preconditions: Owner identity is provisioned; ordinary AI-processing consent has not been assumed.
-Success path: 1. Owner chooses Google sign-in. 2. System validates the response and owner identity. 3. First use presents concise AI-processing consent; returning use restores the latest record or a new consultation. 4. Owner may sign out.
+Success path: 1. Owner chooses Login in the desktop/mobile menu or Google sign-in on the entry screen. 2. System validates the response and owner identity. 3. First use presents concise AI-processing consent; returning use restores the latest record or a new consultation. 4. The authenticated menu shows Logoff, including while first-use consent is pending; it ends the app session and returns to sign-in, where Login is shown again.
 Alternates/recovery: Cancel or denied identity exposes no private record. Expiry asks for sign-in without mislabelling provider authorization. A failed callback does not establish a session. Normal returning use, including inactivity and browser reopening, stays signed in for 24 hours after successful sign-in; sign-out, revocation and security invalidation remain immediate exceptions.
 Postconditions: Only the authorized owner has a session; accepted history survives sign-out.
 Authority/privacy: Authentication assertions are untrusted until validated; provider grants remain server-side. No public registration or extra app MFA.
@@ -164,7 +164,7 @@ Obligations and acceptance: FR-04.1–FR-04.3, NFR-12.1, NFR-12.3; AC-008
 
 | ID | Observable obligation | Use cases |
 |---|---|---|
-| FR-08.1 | Desktop navigation is a standard floating bar available while scrolling; mobile navigation uses a labelled hamburger menu. Both contain Discussion, Conversations and Settings; New remains a contextual action. | UC-001, UC-003, UC-005 |
+| FR-08.1 | Desktop navigation is a standard floating bar available while scrolling; mobile navigation uses a labelled hamburger menu. Both contain Discussion, Conversations and Settings plus a session action: Login when signed out, Logoff when authenticated. The action is unavailable while session state or its request is pending. Failed authentication actions show retry feedback without falsely changing the session label; New remains a contextual action. | UC-001, UC-003, UC-005 |
 | FR-08.2 | The preference destination is literally labelled Settings; the rejected slogan and Your space label are removed. | UC-005 |
 | FR-08.3 | The initial three distinct full-product candidates establish the comparison. The owner-requested next revision combines Ember black styling, message formatting and local tabs with Cobalt chat/composer layout, an icon-only microphone and clearly visible Send. The three expressive agent-colour palettes have been presented with identical coverage; the owner accepted Electric A v8 for implementation fidelity. Solar and Prismatic remain historical comparison references, not a required app palette selector. Review states is absent from the app and normal preview; inspection remains a separate development surface. | UC-001, UC-002, UC-003, UC-004, UC-005, UC-006, UC-007 |
 

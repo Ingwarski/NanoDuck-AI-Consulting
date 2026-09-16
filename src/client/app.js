@@ -39,14 +39,54 @@ const attachmentTypes = new Set(["image/jpeg", "image/png", "image/webp"]);
 const formatBytes = value => value < 1024 * 1024 ? `${Math.ceil(value / 1024)} KB` : `${(value / (1024 * 1024)).toFixed(1)} MiB`;
 
 function nav(page) {
+  closeMenu();
+  if (!state.session?.authenticated || !state.session.consented) return;
   state.page = page;
   $("#discussion-page").hidden = page !== "discussion";
   $("#conversations-page").hidden = page !== "conversations";
   $("#settings-page").hidden = page !== "settings";
   document.querySelectorAll("[data-nav]").forEach(button => button.setAttribute("aria-current", String(button.dataset.nav === page ? "page" : false)));
-  $("#mobile-nav").hidden = true; $("#menu").setAttribute("aria-expanded", "false");
   if (page === "conversations") void loadConversations();
   if (page === "settings") void loadSettings();
+}
+
+function closeMenu() { $("#mobile-nav").hidden = true; $("#menu").setAttribute("aria-expanded", "false"); }
+
+function updateSessionActions(busy = false) {
+  document.querySelectorAll("[data-session-action]").forEach(button => {
+    button.textContent = state.session?.authenticated ? "Logoff" : "Login";
+    button.disabled = !state.session || busy;
+  });
+  $("#sign-out").disabled = busy;
+  $("#google-sign-in").disabled = busy;
+  $("#development-sign-in").disabled = busy;
+}
+
+async function signIn() {
+  closeMenu(); updateSessionActions(true);
+  try {
+    if (state.session?.development) {
+      await request("/api/auth/development", { method: "POST" });
+      await loadSession();
+    } else {
+      const { response } = await request("/auth/google/start", { method: "POST" });
+      location.assign(response.headers.get("location"));
+    }
+  } catch { toast("Sign-in could not start. Please try again."); }
+  finally { updateSessionActions(); }
+}
+
+async function signOut() {
+  closeMenu(); updateSessionActions(true);
+  try {
+    await request("/api/logout", { method: "POST" });
+    stopPolling(); releaseVoice();
+    // Reload clears private in-memory content and retrieves the signed-out session.
+    location.reload();
+  } catch {
+    toast("Logoff failed. You are still signed in. Please try again.");
+    updateSessionActions();
+  }
 }
 
 function showAuthenticated() { $("#sign-in").hidden = true; $("#consent").hidden = true; $("#app").hidden = false; nav("discussion"); }
@@ -63,6 +103,7 @@ function showConsent() { $("#sign-in").hidden = true; $("#app").hidden = true; $
 
 async function loadSession() {
   const { data } = await request("/api/session"); state.session = data;
+  updateSessionActions();
   if (!data.authenticated) return showSignIn(); state.csrf = data.csrfToken;
   if (!data.consented) return showConsent(); showAuthenticated();
 }
@@ -296,14 +337,11 @@ function voiceAction() {
 $("#menu").addEventListener("click", () => { const menu = $("#mobile-nav"); menu.hidden = !menu.hidden; $("#menu").setAttribute("aria-expanded", String(!menu.hidden)); });
 document.addEventListener("click", event => { const button = event.target.closest("[data-nav]"); if (button) nav(button.dataset.nav); const tab = event.target.closest("[data-tab]"); if (tab) setTab(tab.dataset.tab); });
 $("#new-conversation").addEventListener("click", () => { clearAttachmentDraft(); void newConversation(); }); $("#composer").addEventListener("submit", event => void acceptMessage(event)); $("#stop").addEventListener("click", () => void stop()); $("#continue").addEventListener("click", () => void continueRun());
-$("#google-sign-in").addEventListener("click", async () => {
-  try { const { response } = await request("/auth/google/start", { method: "POST" }); location.assign(response.headers.get("location")); }
-  catch { toast("Google sign-in is not available in this local workspace."); }
-});
-$("#development-sign-in").addEventListener("click", async () => {
-  try { await request("/api/auth/development", { method: "POST" }); await loadSession(); }
-  catch { toast("The local workspace could not open. Refresh and try again."); }
-});
+$("#google-sign-in").addEventListener("click", signIn);
+$("#development-sign-in").addEventListener("click", signIn);
+document.querySelectorAll("[data-session-action]").forEach(button => button.addEventListener("click", () => {
+  if (state.session?.authenticated) void signOut(); else void signIn();
+}));
 $("#consent-check").addEventListener("change", event => { $("#consent-button").disabled = !event.target.checked; }); $("#consent-button").addEventListener("click", async () => { await request("/api/consent", { method: "POST" }); await loadSession(); });
 $("#settings-form").addEventListener("submit", async event => { event.preventDefault(); const settings = { headModel: $("#head-model").value, headReasoning: $("#head-reasoning").value, criticModel: $("#critic-model").value, criticReasoning: $("#critic-reasoning").value, specialistCount: $("#specialist-count").value, discussionDepth: $("#discussion-depth").value }; await request("/api/settings", { method: "PUT", body: settings }); toast("Settings saved for future consultations."); });
 $("#runtime-instructions-form").addEventListener("submit", async event => {
@@ -322,7 +360,7 @@ $("#runtime-instructions-form").addEventListener("submit", async event => {
     toast(message);
   }
 });
-$("#sign-out").addEventListener("click", async () => { await request("/api/logout", { method: "POST" }); state.session = null; state.csrf = null; state.conversation = null; showSignIn(); });
+$("#sign-out").addEventListener("click", signOut);
 $("#runtime-instructions-version-restore").addEventListener("click", () => void restoreRuntimeInstructionVersion()); $("#runtime-instructions-version-cancel").addEventListener("click", () => $("#runtime-instructions-version-dialog").close()); $("#runtime-instructions-version-close").addEventListener("click", () => $("#runtime-instructions-version-dialog").close());
 $("#attach").addEventListener("click", () => $("#attachment").click()); $("#attachment").addEventListener("change", event => chooseAttachments(event.target.files));
 $("#voice").addEventListener("click", openVoice); $("#voice-action").addEventListener("click", event => { event.preventDefault(); voiceAction(); }); $("#voice-cancel").addEventListener("click", () => { releaseVoice(); $("#voice-dialog").close(); }); $("#voice-close").addEventListener("click", () => { releaseVoice(); $("#voice-dialog").close(); }); $("#voice-dialog").addEventListener("close", releaseVoice); window.addEventListener("pagehide", () => { stopPolling(); releaseVoice(); }); document.addEventListener("visibilitychange", () => { if (document.hidden && state.voiceMode === "listening") { releaseVoice(); voiceFailure("Voice interrupted", "Voice input stopped when the app moved to the background. Your typed draft is unchanged."); } });
