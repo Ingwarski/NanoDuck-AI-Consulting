@@ -1,5 +1,9 @@
 # SDD consistency audit
 
+## Current Published startup blocker — 17 September 2026
+
+The [R-12 diagnosis](../forge/runs/U-08/r12-published-config-20260917/verification.json) records the missing names and the prepared native Preview-to-Published synchronization. The owner must complete the security-sensitive secret transfer; then Published's `APP_ORIGIN` must use the Published host, and its callback/configuration must be checked before republishing. Existing database encryption keys must be preserved. No secret value was exposed or changed, no database was reset, and no unrelated app was touched. This operational receipt supplements the earlier Preview-only boundary; it does not change product behavior, SDD ownership, approved design or the dependency graph. Published readiness remains blocked.
+
 ## Current consolidation correction — 16 September 2026
 
 R-11 addresses the owner's report that Head concluded before a consolidated team response. R-10 proved per-specialist debate coverage, not final consolidation. Each selected specialist now submits a final position addressed to Head; Critic reviews those positions together and addresses its closing assessment to Head; only then may Head produce **Consolidated advice**. Auto continues within its existing ten-exchange-per-specialist cap when Critic still objects. Fixed depth and the cap allow an explicitly provisional conclusion with unresolved disagreement. Closing contributions do not count as extra debate exchanges.
