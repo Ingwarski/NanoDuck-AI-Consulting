@@ -8,13 +8,13 @@
     "product-idea": {
       "path": "docs/product-idea.md",
       "owner_skill": "to-product-idea",
-      "owner_invocation_id": "r13-login-menu-product-idea-2026-09-16T23:39:08+00:00",
+      "owner_invocation_id": "r14-visible-login-menu-product-idea-2026-09-16T23:53:41+00:00",
       "declared_output_set": [
         "docs/product-idea.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r13-login-menu-product-idea-2026-09-16T23:39:08+00:00",
+      "source_version": "r14-visible-login-menu-product-idea-2026-09-16T23:53:41+00:00",
       "source_usage": {
         "docs/model-settings.md": "full",
         "docs/deployment-boundary.md": "full",
@@ -28,14 +28,14 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2"
       },
       "dependencies": [],
-      "content_hash": "dacdb063ec00ae9733a4a2d944934d25d95afb5b377bd9da2dbfd063fe5df7b4",
+      "content_hash": "222bbe4994884059836a3a563f84b71ae725eb424b224b70b18d4f83f61e3a0b",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r13-login-menu-reconciliation",
-        "reviewed_at": "2026-09-16T23:39:08+00:00",
+        "kind": "r14-visible-login-menu-reconciliation",
+        "reviewed_at": "2026-09-16T23:53:41+00:00",
         "executor": "Codex inline to-product-idea",
-        "scope": "Record the explicit Login/Logoff menu correction; preserve the single-owner scope and all other product decisions."
+        "scope": "Record the explicit Login/Logoff menu correction; preserve the single-owner scope and all other product decisions. Correct placement to one always-visible bar button outside the collapsed mobile dropdown; no auth behavior or server changes."
       },
       "open_questions": [],
       "traceability": {
@@ -97,35 +97,35 @@
         ],
         "links": []
       },
-      "supersedes": "r11-consolidation-product-idea-2026-09-16T18:10:02+00:00"
+      "supersedes": "r13-login-menu-product-idea-2026-09-16T23:39:08+00:00"
     },
     "prd": {
       "path": "docs/prd.md",
       "owner_skill": "to-sdd-prd",
-      "owner_invocation_id": "r13-login-menu-prd-2026-09-16T23:39:08+00:00",
+      "owner_invocation_id": "r14-visible-login-menu-prd-2026-09-16T23:53:41+00:00",
       "declared_output_set": [
         "docs/prd.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r13-login-menu-prd-2026-09-16T23:39:08+00:00",
+      "source_version": "r14-visible-login-menu-prd-2026-09-16T23:53:41+00:00",
       "source_usage": {
         "docs/product-idea.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "dacdb063ec00ae9733a4a2d944934d25d95afb5b377bd9da2dbfd063fe5df7b4"
+        "docs/product-idea.md": "222bbe4994884059836a3a563f84b71ae725eb424b224b70b18d4f83f61e3a0b"
       },
       "dependencies": [
         "product-idea"
       ],
-      "content_hash": "693d764241ba28dde56bee94708ee2d93ece80ee6ac480719ac170f928df9d2e",
+      "content_hash": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r13-login-menu-reconciliation",
-        "reviewed_at": "2026-09-16T23:39:08+00:00",
+        "kind": "r14-visible-login-menu-reconciliation",
+        "reviewed_at": "2026-09-16T23:53:41+00:00",
         "executor": "Codex inline to-sdd-prd",
-        "scope": "Reconcile UC-001 and FR-08.1 session-action behavior. Existing NFR-10/11/14 controls remain required; no new identity or trust boundary."
+        "scope": "Reconcile UC-001 and FR-08.1 session-action behavior. Existing NFR-10/11/14 controls remain required; no new identity or trust boundary. Correct placement to one always-visible bar button outside the collapsed mobile dropdown; no auth behavior or server changes."
       },
       "open_questions": [],
       "traceability": {
@@ -2367,26 +2367,26 @@
           "reviewed_at": "2026-09-14T20:13:37+03:00"
         }
       },
-      "supersedes": "r11-consolidation-prd-2026-09-16T18:15:06+00:00"
+      "supersedes": "r13-login-menu-prd-2026-09-16T23:39:08+00:00"
     },
     "project-context": {
       "path": "docs/project-context.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "r13-login-menu-project-context-2026-09-16T23:39:08+00:00",
+      "owner_invocation_id": "r14-visible-login-menu-project-context-2026-09-16T23:53:41+00:00",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r13-login-menu-project-context-2026-09-16T23:39:08+00:00",
+      "source_version": "r14-visible-login-menu-project-context-2026-09-16T23:53:41+00:00",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "dacdb063ec00ae9733a4a2d944934d25d95afb5b377bd9da2dbfd063fe5df7b4",
-        "docs/prd.md": "693d764241ba28dde56bee94708ee2d93ece80ee6ac480719ac170f928df9d2e"
+        "docs/product-idea.md": "222bbe4994884059836a3a563f84b71ae725eb424b224b70b18d4f83f61e3a0b",
+        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba"
       },
       "dependencies": [
         "product-idea",
@@ -2396,68 +2396,68 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r13-login-menu-reconciliation",
-        "reviewed_at": "2026-09-16T23:39:08+00:00",
+        "kind": "r14-visible-login-menu-reconciliation",
+        "reviewed_at": "2026-09-16T23:53:41+00:00",
         "executor": "Codex inline to-project-context",
-        "scope": "Add canonical session-action labels; unchanged platform, users, language and boundaries remain consistent."
+        "scope": "Add canonical session-action labels; unchanged platform, users, language and boundaries remain consistent. Correct placement to one always-visible bar button outside the collapsed mobile dropdown; no auth behavior or server changes."
       },
       "open_questions": [],
-      "supersedes": "r11-consolidation-project-context-2026-09-16T18:15:38+00:00"
+      "supersedes": "r13-login-menu-project-context-2026-09-16T23:39:08+00:00"
     },
     "canonical-terms": {
       "path": "docs/canonical-terms.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "r13-login-menu-project-context-2026-09-16T23:39:08+00:00",
+      "owner_invocation_id": "r14-visible-login-menu-project-context-2026-09-16T23:53:41+00:00",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r13-login-menu-project-context-2026-09-16T23:39:08+00:00",
+      "source_version": "r14-visible-login-menu-project-context-2026-09-16T23:53:41+00:00",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "dacdb063ec00ae9733a4a2d944934d25d95afb5b377bd9da2dbfd063fe5df7b4",
-        "docs/prd.md": "693d764241ba28dde56bee94708ee2d93ece80ee6ac480719ac170f928df9d2e"
+        "docs/product-idea.md": "222bbe4994884059836a3a563f84b71ae725eb424b224b70b18d4f83f61e3a0b",
+        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "aadb2868f5a98e848687a8d8f13aa8e9753d889ea635520896c50213e58c3114",
+      "content_hash": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r13-login-menu-reconciliation",
-        "reviewed_at": "2026-09-16T23:39:08+00:00",
+        "kind": "r14-visible-login-menu-reconciliation",
+        "reviewed_at": "2026-09-16T23:53:41+00:00",
         "executor": "Codex inline to-project-context",
-        "scope": "Add canonical session-action labels; unchanged platform, users, language and boundaries remain consistent."
+        "scope": "Add canonical session-action labels; unchanged platform, users, language and boundaries remain consistent. Correct placement to one always-visible bar button outside the collapsed mobile dropdown; no auth behavior or server changes."
       },
       "open_questions": [],
-      "supersedes": "r11-consolidation-project-context-2026-09-16T18:15:38+00:00"
+      "supersedes": "r13-login-menu-project-context-2026-09-16T23:39:08+00:00"
     },
     "guardrails": {
       "path": "docs/guardrails.md",
       "owner_skill": "to-guardrails",
-      "owner_invocation_id": "r13-login-menu-guardrails-2026-09-16T23:39:08+00:00",
+      "owner_invocation_id": "r14-visible-login-menu-guardrails-2026-09-16T23:53:41+00:00",
       "declared_output_set": [
         "docs/guardrails.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r13-login-menu-guardrails-2026-09-16T23:39:08+00:00",
+      "source_version": "r14-visible-login-menu-guardrails-2026-09-16T23:53:41+00:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
         "docs/canonical-terms.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "693d764241ba28dde56bee94708ee2d93ece80ee6ac480719ac170f928df9d2e",
+        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "aadb2868f5a98e848687a8d8f13aa8e9753d889ea635520896c50213e58c3114"
+        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050"
       },
       "dependencies": [
         "prd",
@@ -2468,24 +2468,24 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r13-login-menu-reconciliation",
-        "reviewed_at": "2026-09-16T23:39:08+00:00",
+        "kind": "r14-visible-login-menu-reconciliation",
+        "reviewed_at": "2026-09-16T23:53:41+00:00",
         "executor": "Codex inline to-guardrails",
-        "scope": "No content change: existing explicit scoped-correction, verification and external-action boundaries cover this request."
+        "scope": "No content change: existing explicit scoped-correction, verification and external-action boundaries cover this request. Correct placement to one always-visible bar button outside the collapsed mobile dropdown; no auth behavior or server changes."
       },
       "open_questions": [],
-      "supersedes": "r11-consolidation-guardrails-2026-09-16T18:15:42+00:00"
+      "supersedes": "r13-login-menu-guardrails-2026-09-16T23:39:08+00:00"
     },
     "user-journey": {
       "path": "docs/user-journey.md",
       "owner_skill": "to-user-journey",
-      "owner_invocation_id": "r13-login-menu-user-journey-2026-09-16T23:39:08+00:00",
+      "owner_invocation_id": "r14-visible-login-menu-user-journey-2026-09-16T23:53:41+00:00",
       "declared_output_set": [
         "docs/user-journey.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r13-login-menu-user-journey-2026-09-16T23:39:08+00:00",
+      "source_version": "r14-visible-login-menu-user-journey-2026-09-16T23:53:41+00:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2493,9 +2493,9 @@
         "docs/guardrails.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "693d764241ba28dde56bee94708ee2d93ece80ee6ac480719ac170f928df9d2e",
+        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "aadb2868f5a98e848687a8d8f13aa8e9753d889ea635520896c50213e58c3114",
+        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a"
       },
       "dependencies": [
@@ -2504,28 +2504,28 @@
         "canonical-terms",
         "guardrails"
       ],
-      "content_hash": "83d11a77fc856b0cd9284f7b361b63c0f7871a82179b44861f7b49f7a07aa204",
+      "content_hash": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r13-login-menu-reconciliation",
-        "reviewed_at": "2026-09-16T23:39:08+00:00",
+        "kind": "r14-visible-login-menu-reconciliation",
+        "reviewed_at": "2026-09-16T23:53:41+00:00",
         "executor": "Codex inline to-user-journey",
-        "scope": "Reconcile entry and safe exit via the new global action without changing consent."
+        "scope": "Reconcile entry and safe exit via the new global action without changing consent. Correct placement to one always-visible bar button outside the collapsed mobile dropdown; no auth behavior or server changes."
       },
       "open_questions": [],
-      "supersedes": "r11-consolidation-user-journey-2026-09-16T18:15:46+00:00"
+      "supersedes": "r13-login-menu-user-journey-2026-09-16T23:39:08+00:00"
     },
     "screen-map": {
       "path": "docs/screen-map.md",
       "owner_skill": "to-screen-map",
-      "owner_invocation_id": "r13-login-menu-screen-map-2026-09-16T23:39:08+00:00",
+      "owner_invocation_id": "r14-visible-login-menu-screen-map-2026-09-16T23:53:41+00:00",
       "declared_output_set": [
         "docs/screen-map.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r13-login-menu-screen-map-2026-09-16T23:39:08+00:00",
+      "source_version": "r14-visible-login-menu-screen-map-2026-09-16T23:53:41+00:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2537,11 +2537,11 @@
         "forge/design/candidates/c/v1/app.js": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "693d764241ba28dde56bee94708ee2d93ece80ee6ac480719ac170f928df9d2e",
+        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "aadb2868f5a98e848687a8d8f13aa8e9753d889ea635520896c50213e58c3114",
+        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "83d11a77fc856b0cd9284f7b361b63c0f7871a82179b44861f7b49f7a07aa204",
+        "docs/user-journey.md": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
         "forge/design/candidates/a/v1/app.js": "a869dd42c95740bf7da4802934c3cd6f8d2e2243795ee20925cd5ee19f474531",
         "forge/design/candidates/b/v1/app.js": "17e37807a032c5ea1660efca698e21dc8baf29a3c5344067470b6b44311f9b39",
         "forge/design/candidates/c/v1/app.js": "f64ab8a6962cc700c8087803d33ecda68884da78158ea0e5547235c6d4fff530"
@@ -2553,14 +2553,14 @@
         "guardrails",
         "user-journey"
       ],
-      "content_hash": "c73a9cc7f675d554388af69ac98e771ac81422c9c8637aeedb948d7a6d625497",
+      "content_hash": "ee7989029e1a6ac88ab3550159b1c66bf50f2e5aeacf23f1a4c5de34afb3df6b",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r13-login-menu-reconciliation",
-        "reviewed_at": "2026-09-16T23:39:08+00:00",
+        "kind": "r14-visible-login-menu-reconciliation",
+        "reviewed_at": "2026-09-16T23:53:41+00:00",
         "executor": "Codex inline to-screen-map",
-        "scope": "Reconcile existing S-01/S-09 transitions; no new surface or state inventory."
+        "scope": "Reconcile existing S-01/S-09 transitions; no new surface or state inventory. Correct placement to one always-visible bar button outside the collapsed mobile dropdown; no auth behavior or server changes."
       },
       "open_questions": [],
       "traceability": {
@@ -3568,18 +3568,18 @@
           }
         ]
       },
-      "supersedes": "r11-consolidation-screen-map-2026-09-16T18:15:50+00:00"
+      "supersedes": "r13-login-menu-screen-map-2026-09-16T23:39:08+00:00"
     },
     "wireframes": {
       "path": "docs/wireframes.md",
       "owner_skill": "to-wireframes",
-      "owner_invocation_id": "r13-login-menu-wireframes-2026-09-16T23:39:08+00:00",
+      "owner_invocation_id": "r14-visible-login-menu-wireframes-2026-09-16T23:53:41+00:00",
       "declared_output_set": [
         "docs/wireframes.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r13-login-menu-wireframes-2026-09-16T23:39:08+00:00",
+      "source_version": "r14-visible-login-menu-wireframes-2026-09-16T23:53:41+00:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3589,12 +3589,12 @@
         "docs/screen-map.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "693d764241ba28dde56bee94708ee2d93ece80ee6ac480719ac170f928df9d2e",
+        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "aadb2868f5a98e848687a8d8f13aa8e9753d889ea635520896c50213e58c3114",
+        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "83d11a77fc856b0cd9284f7b361b63c0f7871a82179b44861f7b49f7a07aa204",
-        "docs/screen-map.md": "c73a9cc7f675d554388af69ac98e771ac81422c9c8637aeedb948d7a6d625497"
+        "docs/user-journey.md": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
+        "docs/screen-map.md": "ee7989029e1a6ac88ab3550159b1c66bf50f2e5aeacf23f1a4c5de34afb3df6b"
       },
       "dependencies": [
         "prd",
@@ -3604,28 +3604,28 @@
         "user-journey",
         "screen-map"
       ],
-      "content_hash": "75678a7307b537ac15a0905703aac5f14010d39daac8fcfdfb516f5acbf6b36d",
+      "content_hash": "0efebd20d9a1b8c73421a14c07a7e1ac45a93dcb838c6519be21fb7866eb2275",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r13-login-menu-reconciliation",
-        "reviewed_at": "2026-09-16T23:39:08+00:00",
+        "kind": "r14-visible-login-menu-reconciliation",
+        "reviewed_at": "2026-09-16T23:53:41+00:00",
         "executor": "Codex inline to-wireframes",
-        "scope": "Append the session action to desktop/mobile navigation and disable pending actions."
+        "scope": "Append the session action to desktop/mobile navigation and disable pending actions. Correct placement to one always-visible bar button outside the collapsed mobile dropdown; no auth behavior or server changes."
       },
       "open_questions": [],
-      "supersedes": "r11-consolidation-wireframes-2026-09-16T18:15:54+00:00"
+      "supersedes": "r13-login-menu-wireframes-2026-09-16T23:39:08+00:00"
     },
     "design-brief": {
       "path": "docs/design-brief.md",
       "owner_skill": "to-design-brief",
-      "owner_invocation_id": "r13-login-menu-design-brief-2026-09-16T23:39:08+00:00",
+      "owner_invocation_id": "r14-visible-login-menu-design-brief-2026-09-16T23:53:41+00:00",
       "declared_output_set": [
         "docs/design-brief.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r13-login-menu-design-brief-2026-09-16T23:39:08+00:00",
+      "source_version": "r14-visible-login-menu-design-brief-2026-09-16T23:53:41+00:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3681,14 +3681,14 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "693d764241ba28dde56bee94708ee2d93ece80ee6ac480719ac170f928df9d2e",
+        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "aadb2868f5a98e848687a8d8f13aa8e9753d889ea635520896c50213e58c3114",
+        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "83d11a77fc856b0cd9284f7b361b63c0f7871a82179b44861f7b49f7a07aa204",
-        "docs/screen-map.md": "c73a9cc7f675d554388af69ac98e771ac81422c9c8637aeedb948d7a6d625497",
-        "docs/wireframes.md": "75678a7307b537ac15a0905703aac5f14010d39daac8fcfdfb516f5acbf6b36d",
-        "docs/product-idea.md": "dacdb063ec00ae9733a4a2d944934d25d95afb5b377bd9da2dbfd063fe5df7b4",
+        "docs/user-journey.md": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
+        "docs/screen-map.md": "ee7989029e1a6ac88ab3550159b1c66bf50f2e5aeacf23f1a4c5de34afb3df6b",
+        "docs/wireframes.md": "0efebd20d9a1b8c73421a14c07a7e1ac45a93dcb838c6519be21fb7866eb2275",
+        "docs/product-idea.md": "222bbe4994884059836a3a563f84b71ae725eb424b224b70b18d4f83f61e3a0b",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "prototype/styles.css": "ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925",
         "prototype/app.js": "b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54",
@@ -3743,28 +3743,28 @@
         "screen-map",
         "wireframes"
       ],
-      "content_hash": "32ab3dbdc8cc46c7437a6eda027917501f01f61518ee8f08e60b4ce76e43992c",
+      "content_hash": "8691fb2246a4cef5223c8145ea53c678c0479f8333932e590cd8c73282ac0437",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r13-login-menu-reconciliation",
-        "reviewed_at": "2026-09-16T23:39:08+00:00",
+        "kind": "r14-visible-login-menu-reconciliation",
+        "reviewed_at": "2026-09-16T23:53:41+00:00",
         "executor": "Codex inline to-design-brief",
-        "scope": "Record the explicit scoped operator override and existing blue action styling; frozen A v8 remains immutable."
+        "scope": "Record the explicit scoped operator override and existing blue action styling; frozen A v8 remains immutable. Correct placement to one always-visible bar button outside the collapsed mobile dropdown; no auth behavior or server changes."
       },
       "open_questions": [],
-      "supersedes": "r11-consolidation-design-brief-2026-09-16T18:15:58+00:00"
+      "supersedes": "r13-login-menu-design-brief-2026-09-16T23:39:08+00:00"
     },
     "architecture": {
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "r13-login-menu-architecture-2026-09-16T23:39:56+00:00",
+      "owner_invocation_id": "r14-visible-login-menu-architecture-2026-09-16T23:53:41+00:00",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r13-login-menu-architecture-2026-09-16T23:39:56+00:00",
+      "source_version": "r14-visible-login-menu-architecture-2026-09-16T23:53:41+00:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3799,14 +3799,14 @@
         "public/styles.css": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "693d764241ba28dde56bee94708ee2d93ece80ee6ac480719ac170f928df9d2e",
+        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "aadb2868f5a98e848687a8d8f13aa8e9753d889ea635520896c50213e58c3114",
+        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "83d11a77fc856b0cd9284f7b361b63c0f7871a82179b44861f7b49f7a07aa204",
-        "docs/screen-map.md": "c73a9cc7f675d554388af69ac98e771ac81422c9c8637aeedb948d7a6d625497",
-        "docs/wireframes.md": "75678a7307b537ac15a0905703aac5f14010d39daac8fcfdfb516f5acbf6b36d",
-        "docs/design-brief.md": "32ab3dbdc8cc46c7437a6eda027917501f01f61518ee8f08e60b4ce76e43992c",
+        "docs/user-journey.md": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
+        "docs/screen-map.md": "ee7989029e1a6ac88ab3550159b1c66bf50f2e5aeacf23f1a4c5de34afb3df6b",
+        "docs/wireframes.md": "0efebd20d9a1b8c73421a14c07a7e1ac45a93dcb838c6519be21fb7866eb2275",
+        "docs/design-brief.md": "8691fb2246a4cef5223c8145ea53c678c0479f8333932e590cd8c73282ac0437",
         "docs/model-settings.md": "15a4ce817cd5c752a6a2b598dcf9de531338f12f4e6cb1ee1cc58ef1cca59a01",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "forge/runs/U-06/browser-speech-uk-20260914/README.md": "972494cb2d1dda8ae431f34bd2896eb6d5cb4642c838ae0b171d17ac931913d6",
@@ -3828,8 +3828,8 @@
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "d9d7bdcf1178fdc9581f8a58b511872518fdc2f92d0a27d77a8803af681cc889",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
-        "public/index.html": "3b3875ee81005b50dc5b53a5b70188307b3b12c12980ac8b08af4eb6705d8fac",
-        "public/styles.css": "379a8e217fa34e20df512c37d0b5d35bf235d9c8b0b902e6b43af954ad412439"
+        "public/index.html": "15e41ff1fe11e0574cb76ebf1407bcc5798df4436d4717d3c3c8ef3c0019cd77",
+        "public/styles.css": "538c7f8754e79955b2ee4a3875747d2c42b2749cfb008d48af6ad46714c19826"
       },
       "dependencies": [
         "prd",
@@ -3841,14 +3841,14 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "465072014a9be5d892f368868105a18362a5bb2bf61119ee1b281af673f08d3e",
+      "content_hash": "de7af6978e65f00e4c48a8aa75861e9681f7189899c55cdaa053e6eed339bb3b",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r13-login-menu-reconciliation",
-        "reviewed_at": "2026-09-16T23:39:56+00:00",
+        "kind": "r14-visible-login-menu-reconciliation",
+        "reviewed_at": "2026-09-16T23:53:41+00:00",
         "executor": "Codex inline to-architecture",
-        "scope": "Reuse current auth/session routes and server enforcement; clarify page-memory cleanup and consent gating."
+        "scope": "Reuse current auth/session routes and server enforcement; clarify page-memory cleanup and consent gating. Correct placement to one always-visible bar button outside the collapsed mobile dropdown; no auth behavior or server changes."
       },
       "open_questions": [],
       "security_coverage": {
@@ -3921,19 +3921,19 @@
           "heading": "## Security enforcement map"
         }
       },
-      "supersedes": "r13-login-menu-architecture-2026-09-16T23:39:08+00:00",
+      "supersedes": "r13-login-menu-architecture-2026-09-16T23:39:56+00:00",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "dod-evals": {
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "r13-login-menu-dod-evals-2026-09-16T23:39:56+00:00",
+      "owner_invocation_id": "r14-visible-login-menu-dod-evals-2026-09-16T23:53:41+00:00",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r13-login-menu-dod-evals-2026-09-16T23:39:56+00:00",
+      "source_version": "r14-visible-login-menu-dod-evals-2026-09-16T23:53:41+00:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3946,15 +3946,15 @@
         "docs/architecture.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "693d764241ba28dde56bee94708ee2d93ece80ee6ac480719ac170f928df9d2e",
+        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "aadb2868f5a98e848687a8d8f13aa8e9753d889ea635520896c50213e58c3114",
+        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "83d11a77fc856b0cd9284f7b361b63c0f7871a82179b44861f7b49f7a07aa204",
-        "docs/screen-map.md": "c73a9cc7f675d554388af69ac98e771ac81422c9c8637aeedb948d7a6d625497",
-        "docs/wireframes.md": "75678a7307b537ac15a0905703aac5f14010d39daac8fcfdfb516f5acbf6b36d",
-        "docs/design-brief.md": "32ab3dbdc8cc46c7437a6eda027917501f01f61518ee8f08e60b4ce76e43992c",
-        "docs/architecture.md": "465072014a9be5d892f368868105a18362a5bb2bf61119ee1b281af673f08d3e"
+        "docs/user-journey.md": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
+        "docs/screen-map.md": "ee7989029e1a6ac88ab3550159b1c66bf50f2e5aeacf23f1a4c5de34afb3df6b",
+        "docs/wireframes.md": "0efebd20d9a1b8c73421a14c07a7e1ac45a93dcb838c6519be21fb7866eb2275",
+        "docs/design-brief.md": "8691fb2246a4cef5223c8145ea53c678c0479f8333932e590cd8c73282ac0437",
+        "docs/architecture.md": "de7af6978e65f00e4c48a8aa75861e9681f7189899c55cdaa053e6eed339bb3b"
       },
       "dependencies": [
         "prd",
@@ -3971,10 +3971,10 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r13-login-menu-reconciliation",
-        "reviewed_at": "2026-09-16T23:39:56+00:00",
+        "kind": "r14-visible-login-menu-reconciliation",
+        "reviewed_at": "2026-09-16T23:53:41+00:00",
         "executor": "Codex inline to-dod-evals",
-        "scope": "No content change: existing functional/security/navigation gates cover the additional session-action entry points."
+        "scope": "No content change: existing functional/security/navigation gates cover the additional session-action entry points. Correct placement to one always-visible bar button outside the collapsed mobile dropdown; no auth behavior or server changes."
       },
       "open_questions": [],
       "security_coverage": {
@@ -4047,19 +4047,19 @@
           "heading": "### Product security membership"
         }
       },
-      "supersedes": "r13-login-menu-dod-evals-2026-09-16T23:39:08+00:00",
+      "supersedes": "r13-login-menu-dod-evals-2026-09-16T23:39:56+00:00",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "qa-checklist": {
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "r13-login-menu-qa-checklist-2026-09-16T23:39:56+00:00",
+      "owner_invocation_id": "r14-visible-login-menu-qa-checklist-2026-09-16T23:53:41+00:00",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r13-login-menu-qa-checklist-2026-09-16T23:39:56+00:00",
+      "source_version": "r14-visible-login-menu-qa-checklist-2026-09-16T23:53:41+00:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -4096,15 +4096,15 @@
         "public/styles.css": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "693d764241ba28dde56bee94708ee2d93ece80ee6ac480719ac170f928df9d2e",
+        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "aadb2868f5a98e848687a8d8f13aa8e9753d889ea635520896c50213e58c3114",
+        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "83d11a77fc856b0cd9284f7b361b63c0f7871a82179b44861f7b49f7a07aa204",
-        "docs/screen-map.md": "c73a9cc7f675d554388af69ac98e771ac81422c9c8637aeedb948d7a6d625497",
-        "docs/wireframes.md": "75678a7307b537ac15a0905703aac5f14010d39daac8fcfdfb516f5acbf6b36d",
-        "docs/design-brief.md": "32ab3dbdc8cc46c7437a6eda027917501f01f61518ee8f08e60b4ce76e43992c",
-        "docs/architecture.md": "465072014a9be5d892f368868105a18362a5bb2bf61119ee1b281af673f08d3e",
+        "docs/user-journey.md": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
+        "docs/screen-map.md": "ee7989029e1a6ac88ab3550159b1c66bf50f2e5aeacf23f1a4c5de34afb3df6b",
+        "docs/wireframes.md": "0efebd20d9a1b8c73421a14c07a7e1ac45a93dcb838c6519be21fb7866eb2275",
+        "docs/design-brief.md": "8691fb2246a4cef5223c8145ea53c678c0479f8333932e590cd8c73282ac0437",
+        "docs/architecture.md": "de7af6978e65f00e4c48a8aa75861e9681f7189899c55cdaa053e6eed339bb3b",
         "docs/dod-evals.md": "6e5c53a51e8cb289be423174ac7682057ca4e7fe140dd04a7f71b6e7d34f0c09",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
@@ -4127,8 +4127,8 @@
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "d9d7bdcf1178fdc9581f8a58b511872518fdc2f92d0a27d77a8803af681cc889",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
-        "public/index.html": "3b3875ee81005b50dc5b53a5b70188307b3b12c12980ac8b08af4eb6705d8fac",
-        "public/styles.css": "379a8e217fa34e20df512c37d0b5d35bf235d9c8b0b902e6b43af954ad412439"
+        "public/index.html": "15e41ff1fe11e0574cb76ebf1407bcc5798df4436d4717d3c3c8ef3c0019cd77",
+        "public/styles.css": "538c7f8754e79955b2ee4a3875747d2c42b2749cfb008d48af6ad46714c19826"
       },
       "dependencies": [
         "prd",
@@ -4142,14 +4142,14 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "8ba9bcb421e44382563c1a82fc18b3350e3aaf659b357682b062f381b6fdf23f",
+      "content_hash": "9f589be8a61e8c50cebf5c8b9d803e5bea2cdad95e23ee9117ab0aa456036cb3",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r13-login-menu-reconciliation",
-        "reviewed_at": "2026-09-16T23:39:56+00:00",
+        "kind": "r14-visible-login-menu-reconciliation",
+        "reviewed_at": "2026-09-16T23:53:41+00:00",
         "executor": "Codex inline to-qa-checklist",
-        "scope": "Extend QA-R33 for actual session labels, entry/exit, pending/error and responsive states; no full release pass claimed."
+        "scope": "Extend QA-R33 for actual session labels, entry/exit, pending/error and responsive states; no full release pass claimed. Correct placement to one always-visible bar button outside the collapsed mobile dropdown; no auth behavior or server changes."
       },
       "open_questions": [],
       "traceability": {
@@ -5911,19 +5911,19 @@
           "heading": "## Product acceptance"
         }
       },
-      "supersedes": "r11-consolidation-qa-checklist-2026-09-16T18:17:15+00:00",
+      "supersedes": "r13-login-menu-qa-checklist-2026-09-16T23:39:56+00:00",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "development-plan": {
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "r13-login-menu-development-plan-2026-09-16T23:39:56+00:00",
+      "owner_invocation_id": "r14-visible-login-menu-development-plan-2026-09-16T23:53:41+00:00",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r13-login-menu-development-plan-2026-09-16T23:39:56+00:00",
+      "source_version": "r14-visible-login-menu-development-plan-2026-09-16T23:53:41+00:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -5965,17 +5965,17 @@
         "public/styles.css": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "693d764241ba28dde56bee94708ee2d93ece80ee6ac480719ac170f928df9d2e",
+        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "aadb2868f5a98e848687a8d8f13aa8e9753d889ea635520896c50213e58c3114",
+        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "83d11a77fc856b0cd9284f7b361b63c0f7871a82179b44861f7b49f7a07aa204",
-        "docs/screen-map.md": "c73a9cc7f675d554388af69ac98e771ac81422c9c8637aeedb948d7a6d625497",
-        "docs/wireframes.md": "75678a7307b537ac15a0905703aac5f14010d39daac8fcfdfb516f5acbf6b36d",
-        "docs/design-brief.md": "32ab3dbdc8cc46c7437a6eda027917501f01f61518ee8f08e60b4ce76e43992c",
-        "docs/architecture.md": "465072014a9be5d892f368868105a18362a5bb2bf61119ee1b281af673f08d3e",
+        "docs/user-journey.md": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
+        "docs/screen-map.md": "ee7989029e1a6ac88ab3550159b1c66bf50f2e5aeacf23f1a4c5de34afb3df6b",
+        "docs/wireframes.md": "0efebd20d9a1b8c73421a14c07a7e1ac45a93dcb838c6519be21fb7866eb2275",
+        "docs/design-brief.md": "8691fb2246a4cef5223c8145ea53c678c0479f8333932e590cd8c73282ac0437",
+        "docs/architecture.md": "de7af6978e65f00e4c48a8aa75861e9681f7189899c55cdaa053e6eed339bb3b",
         "docs/dod-evals.md": "6e5c53a51e8cb289be423174ac7682057ca4e7fe140dd04a7f71b6e7d34f0c09",
-        "docs/qa-checklist.md": "8ba9bcb421e44382563c1a82fc18b3350e3aaf659b357682b062f381b6fdf23f",
+        "docs/qa-checklist.md": "9f589be8a61e8c50cebf5c8b9d803e5bea2cdad95e23ee9117ab0aa456036cb3",
         "docs/model-settings.md": "15a4ce817cd5c752a6a2b598dcf9de531338f12f4e6cb1ee1cc58ef1cca59a01",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "package.json": "39f69e8b9c352928595ab1b7a3e83437a0e74bbdd2e5874b7d552f77c03fe0e2",
@@ -6001,8 +6001,8 @@
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "d9d7bdcf1178fdc9581f8a58b511872518fdc2f92d0a27d77a8803af681cc889",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
-        "public/index.html": "3b3875ee81005b50dc5b53a5b70188307b3b12c12980ac8b08af4eb6705d8fac",
-        "public/styles.css": "379a8e217fa34e20df512c37d0b5d35bf235d9c8b0b902e6b43af954ad412439"
+        "public/index.html": "15e41ff1fe11e0574cb76ebf1407bcc5798df4436d4717d3c3c8ef3c0019cd77",
+        "public/styles.css": "538c7f8754e79955b2ee4a3875747d2c42b2749cfb008d48af6ad46714c19826"
       },
       "dependencies": [
         "prd",
@@ -6017,16 +6017,16 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "3d719f2d489f663298b5c335bdc7c97ba9d2089bbb7aa1bf610c63c358ed9666",
+      "content_hash": "f9d3e8a58b4d97e15af3ae4219d2ee77341f3cecaf270ba4d878ac040faf780d",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r13-login-menu-reconciliation",
-        "reviewed_at": "2026-09-16T23:39:56+00:00",
+        "kind": "r14-visible-login-menu-reconciliation",
+        "reviewed_at": "2026-09-16T23:53:41+00:00",
         "executor": "Codex inline to-development-plan",
-        "scope": "Reconcile U-03 implementation with U-02 session boundary and current QA definitions."
+        "scope": "Reconcile U-03 implementation with U-02 session boundary and current QA definitions. Correct placement to one always-visible bar button outside the collapsed mobile dropdown; no auth behavior or server changes."
       },
-      "supersedes": "r11-consolidation-development-plan-2026-09-16T18:17:19+00:00",
+      "supersedes": "r13-login-menu-development-plan-2026-09-16T23:39:56+00:00",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
       "traceability": {
         "definitions": [
@@ -7145,7 +7145,7 @@
       "executor-codex"
     ],
     "design_materials": "Existing rejected prototype and explicit owner corrections supplied; no additional materials required",
-    "product_idea_hash": "dacdb063ec00ae9733a4a2d944934d25d95afb5b377bd9da2dbfd063fe5df7b4"
+    "product_idea_hash": "222bbe4994884059836a3a563f84b71ae725eb424b224b70b18d4f83f61e3a0b"
   },
   "design_execution": {
     "mode": "codex",
@@ -7726,16 +7726,16 @@
   ],
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "3d719f2d489f663298b5c335bdc7c97ba9d2089bbb7aa1bf610c63c358ed9666",
+    "development_plan_hash": "f9d3e8a58b4d97e15af3ae4219d2ee77341f3cecaf270ba4d878ac040faf780d",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-14T20:13:37+03:00",
-    "prompt_id": "impl-r13-login-menu-20260917",
-    "prompt_received_at": "2026-09-16T23:39:56+00:00",
-    "released_at": "2026-09-16T23:41:16+00:00",
+    "prompt_id": "impl-r14-visible-login-menu-20260917",
+    "prompt_received_at": "2026-09-16T23:53:41+00:00",
+    "released_at": "2026-09-16T23:53:41+00:00",
     "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
     "prompt_receipt": {
-      "path": "forge/runs/implementation-prompt-20260917-r13-login-menu.json",
-      "content_hash": "3e5eac7090837f7d33471d94f8498d0d975add4d7e27e6ee2c7b389df3fba1ce"
+      "path": "forge/runs/implementation-prompt-20260917-r14-visible-login-menu.json",
+      "content_hash": "08541f62cae2e3a6d177e0ccb9b5a55c197de7176db11fc16a4490fffa9df88e"
     },
     "reason": "Implement the explicit Login/Logoff desktop and mobile menu correction and reconcile affected SDD owners. Existing single-owner authentication, consent, 24-hour session, approved A v8 design outside this override and deployment boundaries remain unchanged. No production deployment, secret replacement, data reset or unrelated app operation is authorized by this receipt."
   },
@@ -8595,11 +8595,115 @@
       "superseded_invocation": "r11-consolidation-development-plan-2026-09-16T18:17:19+00:00",
       "superseded_content_hash": "a11315d73bd43617d0b9928c706005cfa1fd9a2eb50238f592a28dc6ec5df2e1",
       "decision": "Reconcile U-03 implementation with U-02 session boundary and current QA definitions."
+    },
+    {
+      "event": "r14_owner_reconciled",
+      "at": "2026-09-16T23:53:41+00:00",
+      "artifact": "product-idea",
+      "superseded_invocation": "r13-login-menu-product-idea-2026-09-16T23:39:08+00:00",
+      "superseded_content_hash": "dacdb063ec00ae9733a4a2d944934d25d95afb5b377bd9da2dbfd063fe5df7b4",
+      "decision": "Record the explicit Login/Logoff menu correction; preserve the single-owner scope and all other product decisions."
+    },
+    {
+      "event": "r14_owner_reconciled",
+      "at": "2026-09-16T23:53:41+00:00",
+      "artifact": "prd",
+      "superseded_invocation": "r13-login-menu-prd-2026-09-16T23:39:08+00:00",
+      "superseded_content_hash": "693d764241ba28dde56bee94708ee2d93ece80ee6ac480719ac170f928df9d2e",
+      "decision": "Reconcile UC-001 and FR-08.1 session-action behavior. Existing NFR-10/11/14 controls remain required; no new identity or trust boundary."
+    },
+    {
+      "event": "r14_owner_reconciled",
+      "at": "2026-09-16T23:53:41+00:00",
+      "artifact": "project-context",
+      "superseded_invocation": "r13-login-menu-project-context-2026-09-16T23:39:08+00:00",
+      "superseded_content_hash": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
+      "decision": "Add canonical session-action labels; unchanged platform, users, language and boundaries remain consistent."
+    },
+    {
+      "event": "r14_owner_reconciled",
+      "at": "2026-09-16T23:53:41+00:00",
+      "artifact": "canonical-terms",
+      "superseded_invocation": "r13-login-menu-project-context-2026-09-16T23:39:08+00:00",
+      "superseded_content_hash": "aadb2868f5a98e848687a8d8f13aa8e9753d889ea635520896c50213e58c3114",
+      "decision": "Add canonical session-action labels; unchanged platform, users, language and boundaries remain consistent."
+    },
+    {
+      "event": "r14_owner_reconciled",
+      "at": "2026-09-16T23:53:41+00:00",
+      "artifact": "guardrails",
+      "superseded_invocation": "r13-login-menu-guardrails-2026-09-16T23:39:08+00:00",
+      "superseded_content_hash": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
+      "decision": "No content change: existing explicit scoped-correction, verification and external-action boundaries cover this request."
+    },
+    {
+      "event": "r14_owner_reconciled",
+      "at": "2026-09-16T23:53:41+00:00",
+      "artifact": "user-journey",
+      "superseded_invocation": "r13-login-menu-user-journey-2026-09-16T23:39:08+00:00",
+      "superseded_content_hash": "83d11a77fc856b0cd9284f7b361b63c0f7871a82179b44861f7b49f7a07aa204",
+      "decision": "Reconcile entry and safe exit via the new global action without changing consent."
+    },
+    {
+      "event": "r14_owner_reconciled",
+      "at": "2026-09-16T23:53:41+00:00",
+      "artifact": "screen-map",
+      "superseded_invocation": "r13-login-menu-screen-map-2026-09-16T23:39:08+00:00",
+      "superseded_content_hash": "c73a9cc7f675d554388af69ac98e771ac81422c9c8637aeedb948d7a6d625497",
+      "decision": "Reconcile existing S-01/S-09 transitions; no new surface or state inventory."
+    },
+    {
+      "event": "r14_owner_reconciled",
+      "at": "2026-09-16T23:53:41+00:00",
+      "artifact": "wireframes",
+      "superseded_invocation": "r13-login-menu-wireframes-2026-09-16T23:39:08+00:00",
+      "superseded_content_hash": "75678a7307b537ac15a0905703aac5f14010d39daac8fcfdfb516f5acbf6b36d",
+      "decision": "Append the session action to desktop/mobile navigation and disable pending actions."
+    },
+    {
+      "event": "r14_owner_reconciled",
+      "at": "2026-09-16T23:53:41+00:00",
+      "artifact": "design-brief",
+      "superseded_invocation": "r13-login-menu-design-brief-2026-09-16T23:39:08+00:00",
+      "superseded_content_hash": "32ab3dbdc8cc46c7437a6eda027917501f01f61518ee8f08e60b4ce76e43992c",
+      "decision": "Record the explicit scoped operator override and existing blue action styling; frozen A v8 remains immutable."
+    },
+    {
+      "event": "r14_owner_reconciled",
+      "at": "2026-09-16T23:53:41+00:00",
+      "artifact": "architecture",
+      "superseded_invocation": "r13-login-menu-architecture-2026-09-16T23:39:56+00:00",
+      "superseded_content_hash": "465072014a9be5d892f368868105a18362a5bb2bf61119ee1b281af673f08d3e",
+      "decision": "Reuse current auth/session routes and server enforcement; clarify page-memory cleanup and consent gating."
+    },
+    {
+      "event": "r14_owner_reconciled",
+      "at": "2026-09-16T23:53:41+00:00",
+      "artifact": "dod-evals",
+      "superseded_invocation": "r13-login-menu-dod-evals-2026-09-16T23:39:56+00:00",
+      "superseded_content_hash": "6e5c53a51e8cb289be423174ac7682057ca4e7fe140dd04a7f71b6e7d34f0c09",
+      "decision": "No content change: existing functional/security/navigation gates cover the additional session-action entry points."
+    },
+    {
+      "event": "r14_owner_reconciled",
+      "at": "2026-09-16T23:53:41+00:00",
+      "artifact": "qa-checklist",
+      "superseded_invocation": "r13-login-menu-qa-checklist-2026-09-16T23:39:56+00:00",
+      "superseded_content_hash": "8ba9bcb421e44382563c1a82fc18b3350e3aaf659b357682b062f381b6fdf23f",
+      "decision": "Extend QA-R33 for actual session labels, entry/exit, pending/error and responsive states; no full release pass claimed."
+    },
+    {
+      "event": "r14_owner_reconciled",
+      "at": "2026-09-16T23:53:41+00:00",
+      "artifact": "development-plan",
+      "superseded_invocation": "r13-login-menu-development-plan-2026-09-16T23:39:56+00:00",
+      "superseded_content_hash": "3d719f2d489f663298b5c335bdc7c97ba9d2089bbb7aa1bf610c63c358ed9666",
+      "decision": "Reconcile U-03 implementation with U-02 session boundary and current QA definitions."
     }
   ],
   "dispatches": {
     "product-idea": {
-      "invocation_id": "r13-login-menu-product-idea-2026-09-16T23:39:08+00:00",
+      "invocation_id": "r14-visible-login-menu-product-idea-2026-09-16T23:53:41+00:00",
       "outputs": [
         "docs/product-idea.md"
       ],
@@ -8612,75 +8716,75 @@
       "consumed_source_fragments": {}
     },
     "prd": {
-      "invocation_id": "r13-login-menu-prd-2026-09-16T23:39:08+00:00",
+      "invocation_id": "r14-visible-login-menu-prd-2026-09-16T23:53:41+00:00",
       "outputs": [
         "docs/prd.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "dacdb063ec00ae9733a4a2d944934d25d95afb5b377bd9da2dbfd063fe5df7b4"
+        "docs/product-idea.md": "222bbe4994884059836a3a563f84b71ae725eb424b224b70b18d4f83f61e3a0b"
       },
       "consumed_source_fragments": {}
     },
     "project-context": {
-      "invocation_id": "r13-login-menu-project-context-2026-09-16T23:39:08+00:00",
+      "invocation_id": "r14-visible-login-menu-project-context-2026-09-16T23:53:41+00:00",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "dacdb063ec00ae9733a4a2d944934d25d95afb5b377bd9da2dbfd063fe5df7b4",
-        "docs/prd.md": "693d764241ba28dde56bee94708ee2d93ece80ee6ac480719ac170f928df9d2e"
+        "docs/product-idea.md": "222bbe4994884059836a3a563f84b71ae725eb424b224b70b18d4f83f61e3a0b",
+        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba"
       },
       "consumed_source_fragments": {}
     },
     "canonical-terms": {
-      "invocation_id": "r13-login-menu-project-context-2026-09-16T23:39:08+00:00",
+      "invocation_id": "r14-visible-login-menu-project-context-2026-09-16T23:53:41+00:00",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "dacdb063ec00ae9733a4a2d944934d25d95afb5b377bd9da2dbfd063fe5df7b4",
-        "docs/prd.md": "693d764241ba28dde56bee94708ee2d93ece80ee6ac480719ac170f928df9d2e"
+        "docs/product-idea.md": "222bbe4994884059836a3a563f84b71ae725eb424b224b70b18d4f83f61e3a0b",
+        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba"
       },
       "consumed_source_fragments": {}
     },
     "guardrails": {
-      "invocation_id": "r13-login-menu-guardrails-2026-09-16T23:39:08+00:00",
+      "invocation_id": "r14-visible-login-menu-guardrails-2026-09-16T23:53:41+00:00",
       "outputs": [
         "docs/guardrails.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "693d764241ba28dde56bee94708ee2d93ece80ee6ac480719ac170f928df9d2e",
+        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "aadb2868f5a98e848687a8d8f13aa8e9753d889ea635520896c50213e58c3114"
+        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050"
       },
       "consumed_source_fragments": {}
     },
     "user-journey": {
-      "invocation_id": "r13-login-menu-user-journey-2026-09-16T23:39:08+00:00",
+      "invocation_id": "r14-visible-login-menu-user-journey-2026-09-16T23:53:41+00:00",
       "outputs": [
         "docs/user-journey.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "693d764241ba28dde56bee94708ee2d93ece80ee6ac480719ac170f928df9d2e",
+        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "aadb2868f5a98e848687a8d8f13aa8e9753d889ea635520896c50213e58c3114",
+        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a"
       },
       "consumed_source_fragments": {}
     },
     "screen-map": {
-      "invocation_id": "r13-login-menu-screen-map-2026-09-16T23:39:08+00:00",
+      "invocation_id": "r14-visible-login-menu-screen-map-2026-09-16T23:53:41+00:00",
       "outputs": [
         "docs/screen-map.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "693d764241ba28dde56bee94708ee2d93ece80ee6ac480719ac170f928df9d2e",
+        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "aadb2868f5a98e848687a8d8f13aa8e9753d889ea635520896c50213e58c3114",
+        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "83d11a77fc856b0cd9284f7b361b63c0f7871a82179b44861f7b49f7a07aa204",
+        "docs/user-journey.md": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
         "forge/design/candidates/a/v1/app.js": "a869dd42c95740bf7da4802934c3cd6f8d2e2243795ee20925cd5ee19f474531",
         "forge/design/candidates/b/v1/app.js": "17e37807a032c5ea1660efca698e21dc8baf29a3c5344067470b6b44311f9b39",
         "forge/design/candidates/c/v1/app.js": "f64ab8a6962cc700c8087803d33ecda68884da78158ea0e5547235c6d4fff530"
@@ -8688,34 +8792,34 @@
       "consumed_source_fragments": {}
     },
     "wireframes": {
-      "invocation_id": "r13-login-menu-wireframes-2026-09-16T23:39:08+00:00",
+      "invocation_id": "r14-visible-login-menu-wireframes-2026-09-16T23:53:41+00:00",
       "outputs": [
         "docs/wireframes.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "693d764241ba28dde56bee94708ee2d93ece80ee6ac480719ac170f928df9d2e",
+        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "aadb2868f5a98e848687a8d8f13aa8e9753d889ea635520896c50213e58c3114",
+        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "83d11a77fc856b0cd9284f7b361b63c0f7871a82179b44861f7b49f7a07aa204",
-        "docs/screen-map.md": "c73a9cc7f675d554388af69ac98e771ac81422c9c8637aeedb948d7a6d625497"
+        "docs/user-journey.md": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
+        "docs/screen-map.md": "ee7989029e1a6ac88ab3550159b1c66bf50f2e5aeacf23f1a4c5de34afb3df6b"
       },
       "consumed_source_fragments": {}
     },
     "design-brief": {
-      "invocation_id": "r13-login-menu-design-brief-2026-09-16T23:39:08+00:00",
+      "invocation_id": "r14-visible-login-menu-design-brief-2026-09-16T23:53:41+00:00",
       "outputs": [
         "docs/design-brief.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "693d764241ba28dde56bee94708ee2d93ece80ee6ac480719ac170f928df9d2e",
+        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "aadb2868f5a98e848687a8d8f13aa8e9753d889ea635520896c50213e58c3114",
+        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "83d11a77fc856b0cd9284f7b361b63c0f7871a82179b44861f7b49f7a07aa204",
-        "docs/screen-map.md": "c73a9cc7f675d554388af69ac98e771ac81422c9c8637aeedb948d7a6d625497",
-        "docs/wireframes.md": "75678a7307b537ac15a0905703aac5f14010d39daac8fcfdfb516f5acbf6b36d",
-        "docs/product-idea.md": "dacdb063ec00ae9733a4a2d944934d25d95afb5b377bd9da2dbfd063fe5df7b4",
+        "docs/user-journey.md": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
+        "docs/screen-map.md": "ee7989029e1a6ac88ab3550159b1c66bf50f2e5aeacf23f1a4c5de34afb3df6b",
+        "docs/wireframes.md": "0efebd20d9a1b8c73421a14c07a7e1ac45a93dcb838c6519be21fb7866eb2275",
+        "docs/product-idea.md": "222bbe4994884059836a3a563f84b71ae725eb424b224b70b18d4f83f61e3a0b",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "prototype/styles.css": "ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925",
         "prototype/app.js": "b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54",
@@ -8764,19 +8868,19 @@
       "consumed_source_fragments": {}
     },
     "architecture": {
-      "invocation_id": "r13-login-menu-architecture-2026-09-16T23:39:56+00:00",
+      "invocation_id": "r14-visible-login-menu-architecture-2026-09-16T23:53:41+00:00",
       "outputs": [
         "docs/architecture.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "693d764241ba28dde56bee94708ee2d93ece80ee6ac480719ac170f928df9d2e",
+        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "aadb2868f5a98e848687a8d8f13aa8e9753d889ea635520896c50213e58c3114",
+        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "83d11a77fc856b0cd9284f7b361b63c0f7871a82179b44861f7b49f7a07aa204",
-        "docs/screen-map.md": "c73a9cc7f675d554388af69ac98e771ac81422c9c8637aeedb948d7a6d625497",
-        "docs/wireframes.md": "75678a7307b537ac15a0905703aac5f14010d39daac8fcfdfb516f5acbf6b36d",
-        "docs/design-brief.md": "32ab3dbdc8cc46c7437a6eda027917501f01f61518ee8f08e60b4ce76e43992c",
+        "docs/user-journey.md": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
+        "docs/screen-map.md": "ee7989029e1a6ac88ab3550159b1c66bf50f2e5aeacf23f1a4c5de34afb3df6b",
+        "docs/wireframes.md": "0efebd20d9a1b8c73421a14c07a7e1ac45a93dcb838c6519be21fb7866eb2275",
+        "docs/design-brief.md": "8691fb2246a4cef5223c8145ea53c678c0479f8333932e590cd8c73282ac0437",
         "docs/model-settings.md": "15a4ce817cd5c752a6a2b598dcf9de531338f12f4e6cb1ee1cc58ef1cca59a01",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "forge/runs/U-06/browser-speech-uk-20260914/README.md": "972494cb2d1dda8ae431f34bd2896eb6d5cb4642c838ae0b171d17ac931913d6",
@@ -8798,44 +8902,44 @@
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "d9d7bdcf1178fdc9581f8a58b511872518fdc2f92d0a27d77a8803af681cc889",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
-        "public/index.html": "3b3875ee81005b50dc5b53a5b70188307b3b12c12980ac8b08af4eb6705d8fac",
-        "public/styles.css": "379a8e217fa34e20df512c37d0b5d35bf235d9c8b0b902e6b43af954ad412439"
+        "public/index.html": "15e41ff1fe11e0574cb76ebf1407bcc5798df4436d4717d3c3c8ef3c0019cd77",
+        "public/styles.css": "538c7f8754e79955b2ee4a3875747d2c42b2749cfb008d48af6ad46714c19826"
       },
       "consumed_source_fragments": {}
     },
     "dod-evals": {
-      "invocation_id": "r13-login-menu-dod-evals-2026-09-16T23:39:56+00:00",
+      "invocation_id": "r14-visible-login-menu-dod-evals-2026-09-16T23:53:41+00:00",
       "outputs": [
         "docs/dod-evals.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "693d764241ba28dde56bee94708ee2d93ece80ee6ac480719ac170f928df9d2e",
+        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "aadb2868f5a98e848687a8d8f13aa8e9753d889ea635520896c50213e58c3114",
+        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "83d11a77fc856b0cd9284f7b361b63c0f7871a82179b44861f7b49f7a07aa204",
-        "docs/screen-map.md": "c73a9cc7f675d554388af69ac98e771ac81422c9c8637aeedb948d7a6d625497",
-        "docs/wireframes.md": "75678a7307b537ac15a0905703aac5f14010d39daac8fcfdfb516f5acbf6b36d",
-        "docs/design-brief.md": "32ab3dbdc8cc46c7437a6eda027917501f01f61518ee8f08e60b4ce76e43992c",
-        "docs/architecture.md": "465072014a9be5d892f368868105a18362a5bb2bf61119ee1b281af673f08d3e"
+        "docs/user-journey.md": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
+        "docs/screen-map.md": "ee7989029e1a6ac88ab3550159b1c66bf50f2e5aeacf23f1a4c5de34afb3df6b",
+        "docs/wireframes.md": "0efebd20d9a1b8c73421a14c07a7e1ac45a93dcb838c6519be21fb7866eb2275",
+        "docs/design-brief.md": "8691fb2246a4cef5223c8145ea53c678c0479f8333932e590cd8c73282ac0437",
+        "docs/architecture.md": "de7af6978e65f00e4c48a8aa75861e9681f7189899c55cdaa053e6eed339bb3b"
       },
       "consumed_source_fragments": {}
     },
     "qa-checklist": {
-      "invocation_id": "r13-login-menu-qa-checklist-2026-09-16T23:39:56+00:00",
+      "invocation_id": "r14-visible-login-menu-qa-checklist-2026-09-16T23:53:41+00:00",
       "outputs": [
         "docs/qa-checklist.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "693d764241ba28dde56bee94708ee2d93ece80ee6ac480719ac170f928df9d2e",
+        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "aadb2868f5a98e848687a8d8f13aa8e9753d889ea635520896c50213e58c3114",
+        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "83d11a77fc856b0cd9284f7b361b63c0f7871a82179b44861f7b49f7a07aa204",
-        "docs/screen-map.md": "c73a9cc7f675d554388af69ac98e771ac81422c9c8637aeedb948d7a6d625497",
-        "docs/wireframes.md": "75678a7307b537ac15a0905703aac5f14010d39daac8fcfdfb516f5acbf6b36d",
-        "docs/design-brief.md": "32ab3dbdc8cc46c7437a6eda027917501f01f61518ee8f08e60b4ce76e43992c",
-        "docs/architecture.md": "465072014a9be5d892f368868105a18362a5bb2bf61119ee1b281af673f08d3e",
+        "docs/user-journey.md": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
+        "docs/screen-map.md": "ee7989029e1a6ac88ab3550159b1c66bf50f2e5aeacf23f1a4c5de34afb3df6b",
+        "docs/wireframes.md": "0efebd20d9a1b8c73421a14c07a7e1ac45a93dcb838c6519be21fb7866eb2275",
+        "docs/design-brief.md": "8691fb2246a4cef5223c8145ea53c678c0479f8333932e590cd8c73282ac0437",
+        "docs/architecture.md": "de7af6978e65f00e4c48a8aa75861e9681f7189899c55cdaa053e6eed339bb3b",
         "docs/dod-evals.md": "6e5c53a51e8cb289be423174ac7682057ca4e7fe140dd04a7f71b6e7d34f0c09",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
@@ -8858,28 +8962,28 @@
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "d9d7bdcf1178fdc9581f8a58b511872518fdc2f92d0a27d77a8803af681cc889",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
-        "public/index.html": "3b3875ee81005b50dc5b53a5b70188307b3b12c12980ac8b08af4eb6705d8fac",
-        "public/styles.css": "379a8e217fa34e20df512c37d0b5d35bf235d9c8b0b902e6b43af954ad412439"
+        "public/index.html": "15e41ff1fe11e0574cb76ebf1407bcc5798df4436d4717d3c3c8ef3c0019cd77",
+        "public/styles.css": "538c7f8754e79955b2ee4a3875747d2c42b2749cfb008d48af6ad46714c19826"
       },
       "consumed_source_fragments": {}
     },
     "development-plan": {
-      "invocation_id": "r13-login-menu-development-plan-2026-09-16T23:39:56+00:00",
+      "invocation_id": "r14-visible-login-menu-development-plan-2026-09-16T23:53:41+00:00",
       "outputs": [
         "docs/development-plan.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "693d764241ba28dde56bee94708ee2d93ece80ee6ac480719ac170f928df9d2e",
+        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "aadb2868f5a98e848687a8d8f13aa8e9753d889ea635520896c50213e58c3114",
+        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "83d11a77fc856b0cd9284f7b361b63c0f7871a82179b44861f7b49f7a07aa204",
-        "docs/screen-map.md": "c73a9cc7f675d554388af69ac98e771ac81422c9c8637aeedb948d7a6d625497",
-        "docs/wireframes.md": "75678a7307b537ac15a0905703aac5f14010d39daac8fcfdfb516f5acbf6b36d",
-        "docs/design-brief.md": "32ab3dbdc8cc46c7437a6eda027917501f01f61518ee8f08e60b4ce76e43992c",
-        "docs/architecture.md": "465072014a9be5d892f368868105a18362a5bb2bf61119ee1b281af673f08d3e",
+        "docs/user-journey.md": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
+        "docs/screen-map.md": "ee7989029e1a6ac88ab3550159b1c66bf50f2e5aeacf23f1a4c5de34afb3df6b",
+        "docs/wireframes.md": "0efebd20d9a1b8c73421a14c07a7e1ac45a93dcb838c6519be21fb7866eb2275",
+        "docs/design-brief.md": "8691fb2246a4cef5223c8145ea53c678c0479f8333932e590cd8c73282ac0437",
+        "docs/architecture.md": "de7af6978e65f00e4c48a8aa75861e9681f7189899c55cdaa053e6eed339bb3b",
         "docs/dod-evals.md": "6e5c53a51e8cb289be423174ac7682057ca4e7fe140dd04a7f71b6e7d34f0c09",
-        "docs/qa-checklist.md": "8ba9bcb421e44382563c1a82fc18b3350e3aaf659b357682b062f381b6fdf23f",
+        "docs/qa-checklist.md": "9f589be8a61e8c50cebf5c8b9d803e5bea2cdad95e23ee9117ab0aa456036cb3",
         "docs/model-settings.md": "15a4ce817cd5c752a6a2b598dcf9de531338f12f4e6cb1ee1cc58ef1cca59a01",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "package.json": "39f69e8b9c352928595ab1b7a3e83437a0e74bbdd2e5874b7d552f77c03fe0e2",
@@ -8905,8 +9009,8 @@
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "d9d7bdcf1178fdc9581f8a58b511872518fdc2f92d0a27d77a8803af681cc889",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
-        "public/index.html": "3b3875ee81005b50dc5b53a5b70188307b3b12c12980ac8b08af4eb6705d8fac",
-        "public/styles.css": "379a8e217fa34e20df512c37d0b5d35bf235d9c8b0b902e6b43af954ad412439"
+        "public/index.html": "15e41ff1fe11e0574cb76ebf1407bcc5798df4436d4717d3c3c8ef3c0019cd77",
+        "public/styles.css": "538c7f8754e79955b2ee4a3875747d2c42b2749cfb008d48af6ad46714c19826"
       },
       "consumed_source_fragments": {}
     }
@@ -67237,7 +67341,7 @@
     "release_readiness": "not_evaluated",
     "source_hashes": {
       "docs/dod-evals.md": "6e5c53a51e8cb289be423174ac7682057ca4e7fe140dd04a7f71b6e7d34f0c09",
-      "docs/qa-checklist.md": "8ba9bcb421e44382563c1a82fc18b3350e3aaf659b357682b062f381b6fdf23f"
+      "docs/qa-checklist.md": "9f589be8a61e8c50cebf5c8b9d803e5bea2cdad95e23ee9117ab0aa456036cb3"
     },
     "gates": [
       {

@@ -1,0 +1,33 @@
+{
+  "recorded_at": "2026-09-16T23:55:15+00:00",
+  "executor": "Codex",
+  "base_revision": "7bbe73d",
+  "implementation_sha256": {
+    "public/index.html": "15e41ff1fe11e0574cb76ebf1407bcc5798df4436d4717d3c3c8ef3c0019cd77",
+    "public/styles.css": "538c7f8754e79955b2ee4a3875747d2c42b2749cfb008d48af6ad46714c19826",
+    "src/client/app.js": "420272b812d139e63ebd5629822f14db497e95a2529eebfd2e355d5b2ff049fc"
+  },
+  "root_cause": "R-13 placed the mobile session action in the collapsed dropdown. The owner expected a directly visible button on the bar.",
+  "change": "One session button outside both destination lists. It stays beside the Menu trigger at narrow widths. Below 381px the accessible duck brand keeps its icon and hides its wordmark to retain space.",
+  "environment": "Local development memory store; fictional owner; no provider calls or production writes.",
+  "observations": [
+    "The actual in-app preview initially showed Menu and no visible Login with its dropdown closed.",
+    "After refresh the preview showed Login directly on the bar beside Menu.",
+    "Clicking Login established a local authenticated session and the same button changed to Logoff while consent remained pending.",
+    "Logoff returned to the signed-out screen and the same button changed back to Login.",
+    "In-app responsive checks at measured 256 and 1024 CSS pixels found exactly one session action and no horizontal page overflow.",
+    "Chrome at exactly 320 CSS pixels showed Login outside the collapsed menu; Login and Logoff both worked without opening Menu.",
+    "Chrome 320px Login target measured 73.96 by 46.80 CSS pixels.",
+    "Temporary viewport overrides were reset; the user preview was left on the signed-out screen with Login visible."
+  ],
+  "tests": {
+    "command": "npm run check",
+    "passed": 101,
+    "failed": 0
+  },
+  "sdd_audit": "passed",
+  "limits": [
+    "This is local UI and session evidence; the change is not yet on GoDaddy Published.",
+    "Actual Google OAuth and full release gates were not rerun for this markup/CSS correction."
+  ]
+}

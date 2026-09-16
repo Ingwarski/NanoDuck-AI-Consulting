@@ -1,6 +1,10 @@
 # SDD consistency audit
 
-## Current menu correction — 17 September 2026
+## Current visible menu-button correction — 17 September 2026
+
+R-14 corrects R-13 placement: the session button must be directly on the bar at all widths. The actual narrow in-app preview had hidden it inside the mobile dropdown. One persistent button now shows Login or Logoff beside the Menu trigger; no duplicate action remains in the dropdown. The [local verification](../forge/runs/U-03/r14-visible-login-menu-20260917/verification.json) records both label/action transitions in the owner-visible preview and Chrome at 320 CSS pixels. All 101 checks and the [13-artifact SDD audit](../forge/runs/U-03/r14-visible-login-menu-20260917/sdd-audit.json) pass. Frozen A v8 files and server authentication remain unchanged. The local preview is refreshed; GoDaddy deployment remains separate.
+
+## Previous menu implementation — 17 September 2026
 
 The owner requested Login in the global menu, replaced by Logoff when authenticated. R-13 adds the action to desktop and mobile navigation and reuses existing authentication/session routes, including consent-pending sessions. The [local verification receipt](../forge/runs/U-03/r13-login-menu-20260917/verification.json) records Chrome desktop/mobile interaction, logout invalidation and 101 passing checks. All 13 artifact bindings pass the [SDD audit](../forge/runs/U-03/r13-login-menu-20260917/sdd-audit.json); affected owner decisions are reconciled, unchanged security obligations and frozen A v8 files remain intact. This change is not deployed to Preview or Published.
 
