@@ -21,7 +21,8 @@ const validHeadTask = assignment => {
   const detail = /exact decision detail: “([^”]+)”/u.exec(assignment)?.[1];
   return `<nanoduck-task>Analyze ${anchor}${detail ? ` and ${detail}` : ""} from the assigned perspective and identify the decisive evidence.</nanoduck-task>`;
 };
-const successfulBody = (input, body = "A qualified answer.") => input.outputKind === "head_task" ? validHeadTask(input.assignment) : body;
+const successfulBody = (input, body = "A qualified answer.") => input.outputKind === "head_task" ? validHeadTask(input.assignment) : input.outputKind === "critic_final" && !body.includes("[CONSILIUM:") ? `${body} [CONSILIUM: REACHED]` : body;
+const closingSequence = team => [...team.map(role => [role, "Head Consultant"]), ["Critic", "Head Consultant"]];
 
 test("every specialist receives the selected depth before Head can conclude", async t => {
   for (const count of [1, 2, 3, 5]) for (const depth of [1, 3, 5]) {
@@ -35,7 +36,8 @@ test("every specialist receives the selected depth before Head can conclude", as
       const events = await store.events(conversation.id);
       const team = events.slice(1, count + 1).map(event => event.recipient);
       const expected = Array.from({ length: depth }, () => team.flatMap(role => [["Critic", role], [role, "Critic"]])).flat();
-      assert.deepEqual(events.slice(1 + count * 2, -1).map(event => [event.role, event.recipient]), expected);
+      assert.deepEqual(events.slice(1 + count * 2, -(count + 2)).map(event => [event.role, event.recipient]), expected);
+      assert.deepEqual(events.slice(-(count + 2), -1).map(event => [event.role, event.recipient]), closingSequence(team));
       assert.deepEqual([events.at(-1).role, events.at(-1).recipient], ["Head Consultant", null]);
     });
   }
@@ -85,7 +87,7 @@ test("resume finishes Finance review without repeating any confirmed exchange", 
       assert.deepEqual(events.slice(1, 9).map(event => [event.role, event.recipient]), sequence);
       assert.equal(events.slice(1, confirmedCount + 1).every(event => event.body === "Confirmed contribution."), true);
       assert.equal(calls.at(-1).outputKind, "head_final");
-      if (!automatic) assert.equal(calls.length, 9 - confirmedCount);
+      if (!automatic) assert.equal(calls.length, 12 - confirmedCount);
     });
   }
 });
@@ -109,7 +111,7 @@ test("a failed Finance review cannot produce a Head conclusion", async () => {
   assert.equal(events[0].body, "Should we test preorders?");
 });
 
-test("resuming saved whole-team agreement invokes only the missing final synthesis", async () => {
+test("saved specialist agreement still requires all closing positions and Critic review", async () => {
   const store = createMemoryStore();
   const conversation = await store.createConversation();
   const accepted = await store.acceptMessage(conversation.id, { body: "Should we test preorders?", clientRequestId: "saved-team-agreement-0001" }, { ...defaultSettings, discussionDepth: "auto", criticReview: { agreements: [true, true] } });
@@ -124,8 +126,8 @@ test("resuming saved whole-team agreement invokes only the missing final synthes
   const provider = { async invoke(input) { kinds.push(input.outputKind); return { ok: true, body: successfulBody(input), sources: [] }; } };
   await createConsultationService({ store, provider }).resume();
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
-  assert.deepEqual(kinds, ["head_final"]);
-  assert.equal((await store.events(conversation.id)).length, 10);
+  assert.deepEqual(kinds, ["specialist_final", "specialist_final", "critic_final", "head_final"]);
+  assert.equal((await store.events(conversation.id)).length, 13);
 });
 
 test("sensitive current-topic questions do not enable public web research", async () => {
@@ -137,7 +139,7 @@ test("sensitive current-topic questions do not enable public web research", asyn
   const service = createConsultationService({ store, provider });
   await service.start(conversation.id, accepted.run);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
-  assert.equal(calls.length, 9);
+  assert.equal(calls.length, 12);
   assert.equal(calls.every(call => call.research === false), true);
 });
 
@@ -150,9 +152,9 @@ test("ordinary consultations can use restricted live research without a keyword"
   const service = createConsultationService({ store, provider });
   await service.start(conversation.id, accepted.run);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
-  assert.equal(calls.length, 9);
+  assert.equal(calls.length, 12);
   assert.equal(calls.slice(0, 2).every(call => call.research === false), true);
-  assert.equal(calls.slice(2).every(call => call.research === true), true);
+  assert.equal(calls.slice(2, -1).every(call => call.research === true), true);
 });
 
 test("a simple Ukrainian explanation still convenes the configured specialists and Critic", async () => {
@@ -164,13 +166,14 @@ test("a simple Ukrainian explanation still convenes the configured specialists a
   const service = createConsultationService({ store, provider });
   await service.start(conversation.id, accepted.run);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
-  assert.equal(calls.length, 9);
+  assert.equal(calls.length, 12);
   assert.deepEqual((await store.events(conversation.id)).map(event => [event.role, event.recipient]), [
     ["owner", null],
     ["Head Consultant", "Finance Consultant"], ["Head Consultant", "Strategy Consultant"],
     ["Finance Consultant", "Critic"], ["Strategy Consultant", "Critic"],
     ["Critic", "Finance Consultant"], ["Finance Consultant", "Critic"],
-    ["Critic", "Strategy Consultant"], ["Strategy Consultant", "Critic"], ["Head Consultant", null]
+    ["Critic", "Strategy Consultant"], ["Strategy Consultant", "Critic"],
+    ...closingSequence(["Finance Consultant", "Strategy Consultant"]), ["Head Consultant", null]
   ]);
   assert.equal(calls.slice(0, 2).every(call => call.outputKind === "head_task" && /must not give the owner advice/u.test(call.assignment)), true);
 });
@@ -185,7 +188,7 @@ test("a fixed specialist count selects the requested team without changing the m
   const service = createConsultationService({ store, provider });
   await service.start(conversation.id, accepted.run);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
-  assert.equal(calls.length, 13);
+  assert.equal(calls.length, 17);
   assert.match(calls[0].assignment, /handoff to the Strategy Consultant/u);
   assert.equal(calls[0].outputKind, "head_task");
   assert.match(calls[5].assignment, /^You are the Operations Consultant/u);
@@ -199,7 +202,8 @@ test("a fixed specialist count selects the requested team without changing the m
     ["Strategy Consultant", "Critic"], ["Finance Consultant", "Critic"], ["Operations Consultant", "Critic"],
     ["Critic", "Strategy Consultant"], ["Strategy Consultant", "Critic"],
     ["Critic", "Finance Consultant"], ["Finance Consultant", "Critic"],
-    ["Critic", "Operations Consultant"], ["Operations Consultant", "Critic"], ["Head Consultant", null]
+    ["Critic", "Operations Consultant"], ["Operations Consultant", "Critic"],
+    ...closingSequence(["Strategy Consultant", "Finance Consultant", "Operations Consultant"]), ["Head Consultant", null]
   ]);
   assert.equal(calls.every(call => call.model === "gpt-6-astra" && call.effort === "xhigh"), true);
 });
@@ -213,7 +217,7 @@ test("five specialists remain distinct from Head Consultant and Critic", async (
   const service = createConsultationService({ store, provider });
   await service.start(conversation.id, accepted.run);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
-  assert.equal(calls.length, 21);
+  assert.equal(calls.length, 27);
   const events = await store.events(conversation.id);
   assert.deepEqual(events.slice(1, 6).map(event => [event.role, event.recipient]), [
     ["Head Consultant", "Strategy Consultant"], ["Head Consultant", "Finance Consultant"], ["Head Consultant", "Operations Consultant"], ["Head Consultant", "Product Consultant"], ["Head Consultant", "Risk Consultant"]
@@ -298,12 +302,12 @@ test("role contributions are trimmed at complete sentences within their stated b
     ["Strategy Consultant", "Critic"],
     ["Critic", "Strategy Consultant"],
     ["Strategy Consultant", "Critic"],
-    ["Head Consultant", null]
+    ...closingSequence(["Strategy Consultant"]), ["Head Consultant", null]
   ]);
   assert.equal(bounded[1].body.length <= 1_400, true);
   assert.equal(bounded[2].body.length <= 1_000, true);
   assert.equal(bounded[3].body.length <= 1_200, true);
-  assert.equal(bounded[4].body.length <= 2_000, true);
+  assert.equal(bounded.at(-1).body.length <= 2_000, true);
   assert.equal(bounded.slice(1).every(event => /[.!?]$/u.test(event.body)), true);
 });
 
@@ -316,8 +320,8 @@ test("discussion depth performs the requested number of Critic-specialist exchan
   const service = createConsultationService({ store, provider });
   await service.start(conversation.id, accepted.run);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
-  assert.equal(calls.length, 9);
-  assert.deepEqual((await store.events(conversation.id)).slice(3, -1).map(event => [event.role, event.recipient]), [
+  assert.equal(calls.length, 11);
+  assert.deepEqual((await store.events(conversation.id)).slice(3, -3).map(event => [event.role, event.recipient]), [
     ["Critic", "Strategy Consultant"], ["Strategy Consultant", "Critic"],
     ["Critic", "Strategy Consultant"], ["Strategy Consultant", "Critic"],
     ["Critic", "Strategy Consultant"], ["Strategy Consultant", "Critic"]
@@ -340,7 +344,7 @@ test("Auto lets Head choose the specialist count and stops at an agreed consiliu
   const service = createConsultationService({ store, provider });
   await service.start(conversation.id, accepted.run);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
-  assert.equal(calls.length, 18);
+  assert.equal(calls.length, 23);
   assert.match(calls[0].assignment, /Return exactly \[TEAM: N\]/u);
   const run = await store.run(conversation.id);
   assert.equal(run.snapshot.resolvedSpecialistCount, 4);
@@ -363,7 +367,7 @@ test("Auto discussion depth never performs more than ten exchanges per specialis
   const service = createConsultationService({ store, provider });
   await service.start(conversation.id, accepted.run);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
-  assert.equal(calls.length, 45);
+  assert.equal(calls.length, 48);
   for (const role of ["Strategy Consultant", "Finance Consultant"]) {
     assert.equal((await store.events(conversation.id)).filter(event => event.role === "Critic" && event.recipient === role).length, 10);
   }
@@ -392,7 +396,7 @@ test("a Ukrainian finance question assigns the Finance Consultant and directs th
     ["Finance Consultant", "Critic"], ["Strategy Consultant", "Critic"],
     ["Critic", "Finance Consultant"], ["Finance Consultant", "Critic"],
     ["Critic", "Strategy Consultant"], ["Strategy Consultant", "Critic"],
-    ["Head Consultant", null]
+    ...closingSequence(["Finance Consultant", "Strategy Consultant"]), ["Head Consultant", null]
   ]);
 });
 
@@ -441,7 +445,7 @@ test("a resumed consultation continues after its last confirmed message", async 
   const service = createConsultationService({ store, provider });
   await service.resume();
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
-  assert.equal(calls.length, 8);
+  assert.equal(calls.length, 11);
   assert.match(calls[0].assignment, /to the Finance Consultant/u);
   assert.deepEqual((await store.events(conversation.id)).map(event => [event.role, event.recipient]), [
     ["owner", null],
@@ -449,7 +453,7 @@ test("a resumed consultation continues after its last confirmed message", async 
     ["Strategy Consultant", "Critic"], ["Finance Consultant", "Critic"],
     ["Critic", "Strategy Consultant"], ["Strategy Consultant", "Critic"],
     ["Critic", "Finance Consultant"], ["Finance Consultant", "Critic"],
-    ["Head Consultant", null]
+    ...closingSequence(["Strategy Consultant", "Finance Consultant"]), ["Head Consultant", null]
   ]);
 });
 
@@ -464,7 +468,7 @@ test("Continue resumes at the next uncommitted turn after Stop", async () => {
   const service = createConsultationService({ store, provider });
   assert.ok(await service.continue(conversation.id));
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
-  assert.equal(calls.length, 8);
+  assert.equal(calls.length, 11);
   assert.match(calls[0].assignment, /to the Finance Consultant/u);
 });
 

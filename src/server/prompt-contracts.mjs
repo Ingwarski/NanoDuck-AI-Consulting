@@ -9,6 +9,9 @@ const requiredSections = Object.freeze({
   "Specialist Reply": ["specialist", "language"],
   "Auto Discussion Marker": [],
   "Head Synthesis": ["language"],
+  "Specialist Final Position": ["specialist", "language"],
+  "Critic Final Review": ["language"],
+  "Consolidated Advice": ["review_status", "language"],
   "Universal Response Standard": [],
   "Head Task Output Contract": [],
   "Natural Output Contract": ["output_kind", "maximum_characters"],
@@ -22,6 +25,14 @@ const requiredSections = Object.freeze({
 const legacyDirectHeadHeading = "Direct Head Answer";
 const consultationRouting = language => `Every accepted owner question must use the specialist-and-Critic consultation. Before the final synthesis, Head Consultant may send only a concise task addressed to a selected specialist; it must not give the owner advice, a recommendation, analysis, or a preliminary conclusion. The final Head synthesis comes only after the selected specialists and Critic have completed the configured exchanges. Write this message in ${language}.`;
 
+// Additive contract migration only. After migration these sections live in the
+// encrypted, editable database document; they are not runtime fallback prompts.
+const consolidationSections = Object.freeze({
+  "Specialist Final Position": "You are the {{specialist}}. Address the Head Consultant with your final position after reading the entire completed team discussion, including other specialists' replies. State the recommendation you support, the evidence or conditions it depends on, and any unresolved disagreement. Reconcile your earlier position with the review; do not merely repeat it or invent agreement with others. Keep this concise and specific. Write this message in {{language}}.",
+  "Critic Final Review": "You are the Critic. Address the Head Consultant after reviewing every selected specialist's final position together. Assess whether they support the same current recommendation; identify any incompatibility, unresolved objection, or condition the final advice must preserve. Do not treat a specialist accepting an earlier objection as proof of team agreement. Finish with [CONSILIUM: REACHED] only if all final positions support the same recommendation and you also support it; otherwise finish with [CONSILIUM: CONTINUE]. Write this message in {{language}}.",
+  "Consolidated Advice": "The closing review status is {{review_status}}. Deliver Consolidated advice only from the specialists' final positions and the Critic's closing assessment. Do not introduce your own fresh recommendation, evidence, or analysis. Preserve their conditions and unresolved disagreements. If agreement is unresolved or unconfirmed, explicitly call the advice provisional and name what remains unresolved; do not claim consensus. The application adds the heading Consolidated advice. Write this message in {{language}}."
+});
+
 export class RuntimeInstructionError extends Error {
   constructor(message) { super(message); this.code = "invalid_runtime_instructions"; }
 }
@@ -29,10 +40,16 @@ export class RuntimeInstructionError extends Error {
 const normalize = value => typeof value === "string" ? value.replace(/\r\n?/gu, "\n").trim() : "";
 const revisionFor = markdown => createHash("sha256").update(markdown).digest("hex");
 export const upgradeRuntimeInstructionMarkdown = value => {
-  const markdown = normalize(value);
-  if (!markdown || !new RegExp(`^## ${legacyDirectHeadHeading}\\n`, "mu").test(markdown)) return `${markdown}\n`;
+  let markdown = normalize(value);
+  if (!markdown) return `${markdown}\n`;
   const legacySection = new RegExp(`^## ${legacyDirectHeadHeading}\\n[\\s\\S]*?(?=^## |(?![\\s\\S]))`, "mu");
-  return `${markdown.replace(legacySection, `## Consultation Routing\n${consultationRouting("{{language}}")}\n\n`).trim()}\n`;
+  markdown = markdown.replace(legacySection, `## Consultation Routing\n${consultationRouting("{{language}}")}\n\n`).trim();
+  // Only the old complete schema is eligible. Partially removed new sections
+  // must fail validation, rather than silently undoing an owner's edit.
+  if (Object.keys(consolidationSections).every(heading => !markdown.includes(`## ${heading}\n`))) {
+    markdown += Object.entries(consolidationSections).map(([heading, body]) => `\n\n## ${heading}\n${body}`).join("");
+  }
+  return `${markdown}\n`;
 };
 const markdownSections = markdown => {
   const matches = [...markdown.matchAll(/^## ([^\n]+)\n([\s\S]*?)(?=^## |(?![\s\S]))/gmu)];
@@ -82,7 +99,9 @@ export function createRuntimePrompts(contract) {
     specialistPosition: ({ specialist, assignedBrief, language }) => `${withStandard(contract, "Specialist Position", { specialist, assigned_brief: assignedBrief, language })}${roleGuidance(contract, specialist)}`,
     criticChallenge: ({ specialist, exchange, language }) => withStandard(contract, "Critic Challenge", { specialist, exchange, language }),
     specialistReply: ({ specialist, language, automaticDepth }) => `${withStandard(contract, "Specialist Reply", { specialist, language })}${roleGuidance(contract, specialist)}${automaticDepth ? ` ${render(contract, "Auto Discussion Marker")}` : ""}`,
-    conclusion: language => `${withStandard(contract, "Head Synthesis", { language })} ${render(contract, "Consultation Routing", { language })}`,
+    specialistFinal: ({ specialist, language }) => `${withStandard(contract, "Specialist Final Position", { specialist, language })}${roleGuidance(contract, specialist)}`,
+    criticFinal: language => withStandard(contract, "Critic Final Review", { language }),
+    conclusion: (language, reviewStatus = "unconfirmed") => `${withStandard(contract, "Head Synthesis", { language })} ${render(contract, "Consultation Routing", { language })} ${render(contract, "Consolidated Advice", { language, review_status: reviewStatus })}`,
     outputContract: ({ outputKind, maximumCharacters }) => outputKind === "head_task"
       ? render(contract, "Head Task Output Contract")
       : render(contract, "Natural Output Contract", { output_kind: outputKind.replaceAll("_", " "), maximum_characters: maximumCharacters ?? 2_000 }),

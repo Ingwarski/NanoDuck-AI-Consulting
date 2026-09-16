@@ -120,6 +120,8 @@ Use role colour on names, avatar fills and restrained quote/edge accents; keep w
 
 ## Experience spine
 
+The owner's 16 September copy correction labels the final Head message **Consolidated advice**, rendered as a normal message heading in Discussion and Outcome. Closing specialist and Critic messages retain the existing addressed Ember message layout. This scoped content correction preserves the frozen Electric A v8 visual baseline.
+
 Use the canonical screen-map inventory and wireframe recovery contract. Navigation identifies the active destination; mobile menus close on selection/Escape and return focus. Native labelled selects make model and reasoning options recognizable. If a model change invalidates the selected effort, require a deliberate compatible choice rather than silently downgrading it. Unsupported Claude catalog state is contextual and does not interrupt the default Codex route.
 
 The composer offers text, owner-generated image attachment and voice without hiding voice in Settings. The approved presentation already includes this attachment control, so the JPEG/PNG/WebP-only runtime rule does not alter the Electric A v8 visual baseline. Ordinary progress uses one quiet line. An active consultation always exposes Stop within reach. A browser-recognized transcript never silently becomes a sent message; Use transcript inserts editable text and explicit Send remains separate. Preserve existing typed text during voice failure/cancel. Browser-native recognition and its disclosure are runtime behavior specified by the PRD; they do not alter the approved Electric A v8 visual baseline.

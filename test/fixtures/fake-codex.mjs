@@ -10,6 +10,8 @@ const replyFor = prompt => {
   else if (prompt.includes("Answer the Head's task")) answer = "The position is viable only if a defined buyer has an urgent problem; test that through targeted interviews before committing.";
   else if (prompt.includes("challenge one material gap")) answer = "That recommendation assumes those buyers will take calls; test their willingness before treating the interviews as evidence.";
   else if (prompt.includes("respond directly to the Critic")) answer = "I accept the gap: recruit calls from a defined prospect list and record acceptance rate before drawing the conclusion.";
+  else if (prompt.includes("your final position after reading")) answer = "My final position is to test buyer willingness before scaling, using confirmed interview acceptance as the condition.";
+  else if (prompt.includes("reviewing every selected specialist's final position")) answer = "The final positions support the same bounded buyer test, with no remaining conflict. [CONSILIUM: REACHED]";
   else if (prompt.includes("only owner-facing synthesis")) answer = "Start with a narrow buyer list, measure interview acceptance, then decide whether the position has evidence.";
   if (prompt.includes("Return a prohibited source")) return `${answer}\n<nanoduck-source>{\"title\":\"Как это работает\",\"url\":\"https://example.su/buyer-evidence\",\"claim\":\"Это запрещенный источник.\",\"publishedAt\":\"2026-09-01\"}</nanoduck-source>`;
   if (prompt.includes("Return prohibited body URL")) return "Read [blocked](https://example.su/buyer-evidence).";

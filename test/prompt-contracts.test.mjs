@@ -5,7 +5,7 @@ import { createMemoryStore } from "../src/server/store.mjs";
 import { testRuntimeInstructions } from "./fixtures/runtime-instructions.mjs";
 
 test("a database bootstrap contract parses into the complete contract", () => {
-  assert.equal(Object.keys(testRuntimeInstructions.sections).length, 16);
+  assert.equal(Object.keys(testRuntimeInstructions.sections).length, 19);
   assert.match(testRuntimeInstructions.markdown, /^## Consultation Routing/mu);
   assert.match(testRuntimeInstructions.revision, /^[a-f0-9]{64}$/u);
 });
@@ -13,6 +13,22 @@ test("a database bootstrap contract parses into the complete contract", () => {
 test("runtime instructions reject a missing required placeholder", () => {
   const invalid = testRuntimeInstructions.markdown.replace("Write this message in {{language}}.", "Write this message in the requested language.");
   assert.throws(() => parseRuntimeInstructions(invalid), RuntimeInstructionError);
+});
+
+test("consolidation migration preserves owner edits and is idempotent and reviewable", async () => {
+  const old = testRuntimeInstructions.markdown.split("\n\n## Specialist Final Position")[0] + "\n";
+  const store = createMemoryStore();
+  const previous = await store.bootstrapRuntimeInstructions({ markdown: old, revision: "legacy" });
+  const current = await store.migrateRuntimeInstructions(markdown => parseRuntimeInstructions(upgradeRuntimeInstructionMarkdown(markdown)));
+  assert.ok(current.markdown.startsWith(old.trim()));
+  assert.equal((await store.runtimeInstructionVersion(previous.revision)).markdown, old);
+  const edited = current.markdown.replace("Keep this concise and specific.", "Use my custom closing style.");
+  assert.equal(upgradeRuntimeInstructionMarkdown(edited), edited);
+  const prompts = createRuntimePrompts(parseRuntimeInstructions(edited));
+  assert.match(prompts.specialistFinal({ specialist: "Finance Consultant", language: "English" }), /my custom closing style/u);
+  assert.match(prompts.criticFinal("Ukrainian"), /Write this message in Ukrainian/u);
+  assert.match(prompts.conclusion("English", "unresolved or unconfirmed"), /explicitly call the advice provisional/u);
+  assert.throws(() => parseRuntimeInstructions(upgradeRuntimeInstructionMarkdown(edited.replace(/## Critic Final Review\n[\s\S]*?(?=## Consolidated Advice)/u, ""))), RuntimeInstructionError);
 });
 
 test("a saved Markdown contract renders the customised text for the model", () => {

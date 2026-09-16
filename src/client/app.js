@@ -70,7 +70,7 @@ async function loadSession() {
 function renderEvents() {
   const thread = clear($("#thread"));
   if (state.events.length === 0) {
-    const empty = node("div", { class: "empty" }); empty.append(node("h2", {}, "Bring in the decision."), node("p", {}, "Ask for a direct answer or a team discussion. The Critic challenges real weaknesses; it does not perform a ritual.")); thread.append(empty);
+    const empty = node("div", { class: "empty" }); empty.append(node("h2", {}, "Bring in the decision."), node("p", {}, "The specialists and Critic review your question before the Head presents consolidated advice.")); thread.append(empty);
   }
   for (const event of state.events) {
     const message = node("article", { class: "message", "data-role": event.role });
@@ -96,7 +96,7 @@ function renderEvents() {
   renderOutcome(); renderSources();
 }
 
-function renderOutcome() { const target = clear($("#outcome")); const outcome = [...state.events].reverse().find(event => event.role === "Head Consultant"); if (outcome) { const body = node("div", { class: "message-body outcome-body" }); renderMarkdown(body, outcome.body); target.append(node("h2", {}, "Current outcome"), body); } else target.append(node("div", { class: "empty" }, "A conclusion appears after the discussion has earned one.")); }
+function renderOutcome() { const target = clear($("#outcome")); const ownerIndex = state.events.map(event => event.role).lastIndexOf("owner"); const outcome = state.events.slice(ownerIndex + 1).find(event => event.role === "Head Consultant" && !event.recipient); if (outcome) { const body = node("div", { class: "message-body outcome-body" }); renderMarkdown(body, outcome.body); target.append(body); } else target.append(node("div", { class: "empty" }, "Consolidated advice appears after every specialist's final position and the Critic's closing review.")); }
 function renderSources() { const target = clear($("#sources")); const sources = [...new Map(state.events.flatMap(event => event.sources ?? []).map(source => [source.url, source])).values()]; if (!sources.length) { target.append(node("div", { class: "empty" }, "Sources appear here when live research materially informs the discussion.")); return; } for (const source of sources) { const dates = [`Retrieved ${formatDate(source.retrievedAt)}`]; if (source.publishedAt) dates.push(`Published ${formatDate(source.publishedAt)}`); const card = node("article", { class: "source-card" }); card.append(node("a", { href: source.url, target: "_blank", rel: "noopener noreferrer" }, source.title), node("p", {}, source.claim), node("p", { class: "hint" }, dates.join(" · "))); target.append(card); } }
 
 async function loadConversation(conversationId, { preserveAttachmentDraft = false } = {}) {

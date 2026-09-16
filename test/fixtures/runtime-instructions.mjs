@@ -1,7 +1,7 @@
-import { parseRuntimeInstructions } from "../../src/server/prompt-contracts.mjs";
+import { parseRuntimeInstructions, upgradeRuntimeInstructionMarkdown } from "../../src/server/prompt-contracts.mjs";
 
 // Test-only contract. Owner instructions are never stored in the repository.
-export const testRuntimeInstructions = parseRuntimeInstructions(`
+export const testRuntimeInstructions = parseRuntimeInstructions(upgradeRuntimeInstructionMarkdown(`
 ## Consultation Routing
 Every accepted owner question must use the specialist-and-Critic consultation. Before the final synthesis, Head Consultant may send only a concise task addressed to a selected specialist; it must not give the owner advice, a recommendation, analysis, or a preliminary conclusion. The final Head synthesis comes only after the selected specialists and Critic have completed the configured exchanges. Write this message in {{language}}.
 
@@ -51,6 +51,6 @@ Stay within a bounded faith scope.
 
 ## Psychotherapist
 Stay within a non-diagnostic support scope using applicable methods.
-`);
+`));
 
 export const testRuntimeInstructionsBootstrap = Buffer.from(testRuntimeInstructions.markdown, "utf8").toString("base64url");

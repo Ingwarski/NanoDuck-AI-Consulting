@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "unit": "U-04",
+  "run_id": "r11-consolidation-20260916",
+  "recorded_at": "2026-09-16T18:16:50.729703+00:00",
+  "executor": "Codex",
+  "base_revision": "9814b511a85519cce765926abc4e729fcbcf43df",
+  "kind": "local-regression-and-browser-fixture",
+  "checks": [
+    "QA-R06",
+    "QA-R08",
+    "QA-R09",
+    "QA-R22",
+    "QA-R38"
+  ],
+  "source_hashes": {
+    "src/server/consultation.mjs": "28ef05683422e6e8e99edc9173c780241d36143ef6e22925c41090238e50d793",
+    "src/server/prompt-contracts.mjs": "1dcaeb581105e1968859cf3ea1c44358c731882afd36cff3c7ad42d0d6ca3dfe",
+    "src/client/app.js": "1053f9de92d7aa62bd3b45bd5c4d5bffaab5de8161ea283fc5e47d54945ef783",
+    "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
+    "test/consultation.test.mjs": "81aacfb3bf151f5ffcf14f120caeebbdfaa0c3bd670ad66c15faff122d89e79a",
+    "test/prompt-contracts.test.mjs": "d9d7bdcf1178fdc9581f8a58b511872518fdc2f92d0a27d77a8803af681cc889",
+    "test/http.test.mjs": "c8801b9e2bdcc6f138b2bdaac8682fc027c3cdd50ee749471e9d382cf2a77c6a",
+    "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
+    "test/fixtures/fake-codex.mjs": "b4e10cdbd32011f0bc6a8e3747aad51bc5264f240fe8b647c4fedf01e2b1ccd2"
+  },
+  "result": "passed",
+  "commands": [
+    "node --test test/consolidation.test.mjs",
+    "npm run check",
+    "git diff --check"
+  ],
+  "test_result": {
+    "passed": 101,
+    "failed": 0
+  },
+  "browser": {
+    "kind": "Chrome extension",
+    "origin": "http://127.0.0.1:4319/",
+    "provider": "isolated fake Codex fixture",
+    "observations": [
+      "A fictional bakery question completed with two distinct specialist final positions addressed to Head, followed by Critic closing review addressed to Head, then final Head advice.",
+      "Discussion and Outcome visibly render Consolidated advice as a formatted heading.",
+      "Visual inspection shows the heading inside the existing Head message layout."
+    ]
+  },
+  "observations": [
+    "Head is not invoked while a closing review is delayed, or when any closing contribution fails.",
+    "All fixed specialist counts and depths retain every directed exchange and add required closure.",
+    "Restart reuses each confirmed closing message without duplication; unknown agreement remains unknown.",
+    "Auto continues when closing Critic rejects apparent specialist agreement and remains capped at ten exchanges per specialist.",
+    "Fixed-depth and capped unresolved closure instruct Head to produce explicitly provisional advice.",
+    "New instruction sections preserve existing owner text, are editable, and upgrade idempotently with review history.",
+    "Authenticated HTTP flow and export retain full closing sequence and final heading."
+  ],
+  "hosted_verification": "not_run",
+  "release_readiness": "not_evaluated",
+  "limits": [
+    "Deterministic fixtures and a local browser do not establish live-model quality or hosted persistence.",
+    "No public release, database reset, secret replacement or unrelated GoDaddy operation."
+  ]
+}

@@ -86,6 +86,12 @@ const compactMessage = (body, maximumCharacters = 2_000) => {
   return text.slice(0, ending ? (ending.index ?? 0) + 1 : maximumCharacters).trim();
 };
 const compactOutput = maximumCharacters => body => Object.freeze({ body: compactMessage(body, maximumCharacters) });
+const consolidatedOutput = body => {
+  const heading = "## Consolidated advice\n\n";
+  const text = body.replace(/^\s*(?:#{1,6}\s*|\*\*)?Consolidated advice(?:\*\*)?\s*:?\s*\n+/iu, "");
+  if (!text.trim()) throw new Error("provider_contract");
+  return Object.freeze({ body: heading + compactMessage(text, 2_000 - heading.length) });
+};
 const specialistFor = text => {
   const subject = text.toLocaleLowerCase();
   const matches = pattern => pattern.test(subject);
@@ -262,6 +268,8 @@ export function createConsultationService({ store, provider }) {
       // A depth step reviews the whole team. Legacy global consensus cannot
       // stand in for a missing specialist's challenge and response.
       const agreements = [...(snapshot.criticReview?.agreements ?? [])];
+      const closingReviews = [...(snapshot.consolidationReviews ?? [])];
+      let reviewStatus = "unconfirmed";
       for (let exchange = 1; exchange <= maximumDepth; exchange += 1) {
         let consensusReached = true;
         for (const [index, specialist] of team.entries()) {
@@ -292,17 +300,46 @@ export function createConsultationService({ store, provider }) {
           }
         }
         if (automaticDepth) {
-          await persistSnapshot({ autoDepthCompleted: exchange, consiliumReached: consensusReached });
-          if (consensusReached) break;
+          await persistSnapshot({ autoDepthCompleted: exchange, consiliumReached: false });
+        }
+        // Closing positions are distinct, confirmed messages, never inferred
+        // from a previous reply or a saved global agreement flag.
+        confirmed = (await current()).events.slice(ownerIndex + 1);
+        const closingStarted = confirmed[cursor]?.recipient === "Head Consultant";
+        if (exchange === maximumDepth || (automaticDepth && (consensusReached || closingStarted))) {
+          const closingSteps = [
+            ...team.map(specialist => ({ role: specialist, recipient: "Head Consultant", model: settings.consultant.model, effort: settings.consultant.effort, research, outputKind: "specialist_final", maximumCharacters: 1_200, runtimeInstructions: instructions, assignment: prompts.specialistFinal({ specialist, language }) })),
+            { role: "Critic", recipient: "Head Consultant", model: settings.critic.model, effort: settings.critic.effort, research, outputKind: "critic_final", maximumCharacters: 1_600, runtimeInstructions: instructions, assignment: prompts.criticFinal(language) }
+          ];
+          for (const step of closingSteps) {
+            if (!await isCurrent()) return;
+            const existing = confirmed[cursor];
+            if (existing) { if (!matches(existing, step)) throw new Error("invalid_run_state"); }
+            else {
+              const output = await invoke(step, step.outputKind === "critic_final" ? body => {
+                const marked = consensusMarker(body);
+                return Object.freeze({ ...marked, body: compactMessage(marked.body, step.maximumCharacters) });
+              } : undefined);
+              if (step.outputKind === "critic_final") {
+                closingReviews[exchange - 1] = { reached: output.reached };
+                await persistSnapshot({ consolidationReviews: [...closingReviews] });
+              }
+            }
+            cursor += 1;
+          }
+          const reached = closingReviews[exchange - 1]?.reached === true;
+          reviewStatus = reached ? "supported by the specialists and Critic" : "unresolved or unconfirmed";
+          await persistSnapshot({ consiliumReached: reached });
+          if (!automaticDepth || reached || exchange === maximumDepth) break;
         }
       }
       if (!await isCurrent()) return;
       confirmed = (await current()).events.slice(ownerIndex + 1);
       if (confirmed.length < cursor) throw new Error("invalid_run_state");
-      const conclusion = { role: "Head Consultant", recipient: null, model: settings.head.model, effort: settings.head.effort, research, outputKind: "head_final", maximumCharacters: 2_000, runtimeInstructions: instructions, assignment: prompts.conclusion(language) };
+      const conclusion = { role: "Head Consultant", recipient: null, model: settings.head.model, effort: settings.head.effort, research: false, outputKind: "head_final", maximumCharacters: 2_000, runtimeInstructions: instructions, assignment: prompts.conclusion(language, reviewStatus) };
       if (confirmed[cursor]) {
         if (!matches(confirmed[cursor], conclusion) || confirmed.length !== cursor + 1) throw new Error("invalid_run_state");
-      } else await invoke(conclusion);
+      } else await invoke(conclusion, consolidatedOutput);
       await store.finishRun(conversationId, runState.generation, "complete");
     } catch (error) {
       if (!controller.signal.aborted) {

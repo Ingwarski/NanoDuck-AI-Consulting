@@ -8,13 +8,13 @@
     "product-idea": {
       "path": "docs/product-idea.md",
       "owner_skill": "to-product-idea",
-      "owner_invocation_id": "r10-team-review-product-idea-2026-09-16T02:42:31+03:00",
+      "owner_invocation_id": "r11-consolidation-product-idea-2026-09-16T18:10:02+00:00",
       "declared_output_set": [
         "docs/product-idea.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r10-team-review-product-idea-2026-09-16T02:42:31+03:00",
+      "source_version": "r11-consolidation-product-idea-2026-09-16T18:10:02+00:00",
       "source_usage": {
         "docs/model-settings.md": "full",
         "docs/deployment-boundary.md": "full",
@@ -28,14 +28,14 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2"
       },
       "dependencies": [],
-      "content_hash": "57fee7434823080aacd17426ce6323dcc373db14d432d7bc48f35092f51d1075",
+      "content_hash": "66ba374e124fa9e4ab98c955009573ad5e794f66bb8f5882978c2f0e643830e3",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r10-team-review-reconciliation",
-        "reviewed_at": "2026-09-16T02:42:31+03:00",
+        "kind": "r11-consolidation-reconciliation",
+        "reviewed_at": "2026-09-16T18:10:02+00:00",
         "executor": "Codex inline to-product-idea",
-        "scope": "Every selected specialist receives the saved depth. Review confined to changed semantics and their dependencies; unaffected source bindings and baseline remain intact."
+        "scope": "Reviewed the approved closing-stage correction and current dependencies; unchanged historical source observations retained. No new actors, privileges, data exposure or integration. Original visual baseline and security obligations preserved."
       },
       "open_questions": [],
       "traceability": {
@@ -97,36 +97,35 @@
         ],
         "links": []
       },
-      "supersedes": "product-idea-r01-no-direct-head-routing-20260915T191200+0300"
+      "supersedes": "r10-team-review-product-idea-2026-09-16T02:42:31+03:00"
     },
     "prd": {
       "path": "docs/prd.md",
       "owner_skill": "to-sdd-prd",
-      "owner_invocation_id": "r10-team-review-prd-2026-09-16T02:42:34+03:00",
+      "owner_invocation_id": "r11-consolidation-prd-2026-09-16T18:15:06+00:00",
       "declared_output_set": [
         "docs/prd.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r10-team-review-prd-2026-09-16T02:42:34+03:00",
+      "source_version": "r11-consolidation-prd-2026-09-16T18:15:06+00:00",
       "source_usage": {
         "docs/product-idea.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "57fee7434823080aacd17426ce6323dcc373db14d432d7bc48f35092f51d1075"
+        "docs/product-idea.md": "66ba374e124fa9e4ab98c955009573ad5e794f66bb8f5882978c2f0e643830e3"
       },
       "dependencies": [
         "product-idea"
       ],
-      "content_hash": "0ae0173a1130ec90703066675e2a41b61930783fbf7bde842ec99c188116ff33",
+      "content_hash": "73841224aa835650ceb6106973e535be44f4c1e2698c9e0a76121a24e89cc077",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r10-team-review-reconciliation",
-        "reviewed_at": "2026-09-16T02:42:34+03:00",
+        "kind": "r11-consolidation-reconciliation",
+        "reviewed_at": "2026-09-16T18:15:06+00:00",
         "executor": "Codex inline to-sdd-prd",
-        "scope": "Every selected specialist receives the saved depth. Review confined to changed semantics and their dependencies; unaffected source bindings and baseline remain intact.",
-        "security_review_note": "Reassessed bounded consultation scheduling; same single owner, data, provider routes and privileges. Existing security IDs and enforcement obligations remain applicable and unchanged."
+        "scope": "Reviewed the approved closing-stage correction and current dependencies; unchanged historical source observations retained. No new actors, privileges, data exposure or integration. Original visual baseline and security obligations preserved."
       },
       "open_questions": [],
       "traceability": {
@@ -2368,26 +2367,26 @@
           "reviewed_at": "2026-09-14T20:13:37+03:00"
         }
       },
-      "supersedes": "prd-r01-no-direct-head-routing-20260915T191200+0300"
+      "supersedes": "r11-consolidation-prd-2026-09-16T18:10:06+00:00"
     },
     "project-context": {
       "path": "docs/project-context.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "r10-team-review-project-context-2026-09-16T02:42:37+03:00",
+      "owner_invocation_id": "r11-consolidation-project-context-2026-09-16T18:15:38+00:00",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r10-team-review-project-context-2026-09-16T02:42:37+03:00",
+      "source_version": "r11-consolidation-project-context-2026-09-16T18:15:38+00:00",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "57fee7434823080aacd17426ce6323dcc373db14d432d7bc48f35092f51d1075",
-        "docs/prd.md": "0ae0173a1130ec90703066675e2a41b61930783fbf7bde842ec99c188116ff33"
+        "docs/product-idea.md": "66ba374e124fa9e4ab98c955009573ad5e794f66bb8f5882978c2f0e643830e3",
+        "docs/prd.md": "73841224aa835650ceb6106973e535be44f4c1e2698c9e0a76121a24e89cc077"
       },
       "dependencies": [
         "product-idea",
@@ -2397,68 +2396,68 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r10-team-review-reconciliation",
-        "reviewed_at": "2026-09-16T02:42:37+03:00",
+        "kind": "r11-consolidation-reconciliation",
+        "reviewed_at": "2026-09-16T18:15:38+00:00",
         "executor": "Codex inline to-project-context",
-        "scope": "Every selected specialist receives the saved depth. Review confined to changed semantics and their dependencies; unaffected source bindings and baseline remain intact."
+        "scope": "Reviewed the approved closing-stage correction and current dependencies; unchanged historical source observations retained. No new actors, privileges, data exposure or integration. Original visual baseline and security obligations preserved."
       },
       "open_questions": [],
-      "supersedes": "project-context-r01-no-direct-head-routing-20260915T191200+0300"
+      "supersedes": "r11-consolidation-project-context-2026-09-16T18:10:10+00:00"
     },
     "canonical-terms": {
       "path": "docs/canonical-terms.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "r10-team-review-project-context-2026-09-16T02:42:37+03:00",
+      "owner_invocation_id": "r11-consolidation-project-context-2026-09-16T18:15:38+00:00",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r10-team-review-project-context-2026-09-16T02:42:37+03:00",
+      "source_version": "r11-consolidation-project-context-2026-09-16T18:15:38+00:00",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "57fee7434823080aacd17426ce6323dcc373db14d432d7bc48f35092f51d1075",
-        "docs/prd.md": "0ae0173a1130ec90703066675e2a41b61930783fbf7bde842ec99c188116ff33"
+        "docs/product-idea.md": "66ba374e124fa9e4ab98c955009573ad5e794f66bb8f5882978c2f0e643830e3",
+        "docs/prd.md": "73841224aa835650ceb6106973e535be44f4c1e2698c9e0a76121a24e89cc077"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "f907de843805c78e179f8ca1093bc2656ce76fc744cc378bc80d7f65c3c5f9e7",
+      "content_hash": "b28fd1076800610155bccfbe9761acb82fff69099ca6ba8a9f54241d95d25c83",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r10-team-review-reconciliation",
-        "reviewed_at": "2026-09-16T02:42:37+03:00",
+        "kind": "r11-consolidation-reconciliation",
+        "reviewed_at": "2026-09-16T18:15:38+00:00",
         "executor": "Codex inline to-project-context",
-        "scope": "Every selected specialist receives the saved depth. Review confined to changed semantics and their dependencies; unaffected source bindings and baseline remain intact."
+        "scope": "Reviewed the approved closing-stage correction and current dependencies; unchanged historical source observations retained. No new actors, privileges, data exposure or integration. Original visual baseline and security obligations preserved."
       },
       "open_questions": [],
-      "supersedes": "project-context-r01-no-direct-head-routing-20260915T191200+0300"
+      "supersedes": "r11-consolidation-project-context-2026-09-16T18:10:10+00:00"
     },
     "guardrails": {
       "path": "docs/guardrails.md",
       "owner_skill": "to-guardrails",
-      "owner_invocation_id": "r10-team-review-guardrails-2026-09-16T02:42:39+03:00",
+      "owner_invocation_id": "r11-consolidation-guardrails-2026-09-16T18:15:42+00:00",
       "declared_output_set": [
         "docs/guardrails.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r10-team-review-guardrails-2026-09-16T02:42:39+03:00",
+      "source_version": "r11-consolidation-guardrails-2026-09-16T18:15:42+00:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
         "docs/canonical-terms.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "0ae0173a1130ec90703066675e2a41b61930783fbf7bde842ec99c188116ff33",
+        "docs/prd.md": "73841224aa835650ceb6106973e535be44f4c1e2698c9e0a76121a24e89cc077",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "f907de843805c78e179f8ca1093bc2656ce76fc744cc378bc80d7f65c3c5f9e7"
+        "docs/canonical-terms.md": "b28fd1076800610155bccfbe9761acb82fff69099ca6ba8a9f54241d95d25c83"
       },
       "dependencies": [
         "prd",
@@ -2469,24 +2468,24 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r10-team-review-reconciliation",
-        "reviewed_at": "2026-09-16T02:42:39+03:00",
+        "kind": "r11-consolidation-reconciliation",
+        "reviewed_at": "2026-09-16T18:15:42+00:00",
         "executor": "Codex inline to-guardrails",
-        "scope": "Every selected specialist receives the saved depth. Review confined to changed semantics and their dependencies; unaffected source bindings and baseline remain intact."
+        "scope": "Reviewed the approved closing-stage correction and current dependencies; unchanged historical source observations retained. No new actors, privileges, data exposure or integration. Original visual baseline and security obligations preserved."
       },
       "open_questions": [],
-      "supersedes": "guardrails-r01-no-direct-head-routing-20260915T191200+0300"
+      "supersedes": "r11-consolidation-guardrails-2026-09-16T18:10:14+00:00"
     },
     "user-journey": {
       "path": "docs/user-journey.md",
       "owner_skill": "to-user-journey",
-      "owner_invocation_id": "r10-team-review-user-journey-2026-09-16T02:42:42+03:00",
+      "owner_invocation_id": "r11-consolidation-user-journey-2026-09-16T18:15:46+00:00",
       "declared_output_set": [
         "docs/user-journey.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r10-team-review-user-journey-2026-09-16T02:42:42+03:00",
+      "source_version": "r11-consolidation-user-journey-2026-09-16T18:15:46+00:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2494,9 +2493,9 @@
         "docs/guardrails.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "0ae0173a1130ec90703066675e2a41b61930783fbf7bde842ec99c188116ff33",
+        "docs/prd.md": "73841224aa835650ceb6106973e535be44f4c1e2698c9e0a76121a24e89cc077",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "f907de843805c78e179f8ca1093bc2656ce76fc744cc378bc80d7f65c3c5f9e7",
+        "docs/canonical-terms.md": "b28fd1076800610155bccfbe9761acb82fff69099ca6ba8a9f54241d95d25c83",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a"
       },
       "dependencies": [
@@ -2505,28 +2504,28 @@
         "canonical-terms",
         "guardrails"
       ],
-      "content_hash": "2114a9bcfef7d72a3efc2ed34ad81750cce059a7b7a64799542786d6e79cec5e",
+      "content_hash": "95bbc4700835b3cbc2a314e59ac34d77a63af70b2aaa9fb8ca7b8ecff95275f4",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r10-team-review-reconciliation",
-        "reviewed_at": "2026-09-16T02:42:42+03:00",
+        "kind": "r11-consolidation-reconciliation",
+        "reviewed_at": "2026-09-16T18:15:46+00:00",
         "executor": "Codex inline to-user-journey",
-        "scope": "Every selected specialist receives the saved depth. Review confined to changed semantics and their dependencies; unaffected source bindings and baseline remain intact."
+        "scope": "Reviewed the approved closing-stage correction and current dependencies; unchanged historical source observations retained. No new actors, privileges, data exposure or integration. Original visual baseline and security obligations preserved."
       },
       "open_questions": [],
-      "supersedes": "user-journey-r01-no-direct-head-routing-20260915T191200+0300"
+      "supersedes": "r11-consolidation-user-journey-2026-09-16T18:10:33+00:00"
     },
     "screen-map": {
       "path": "docs/screen-map.md",
       "owner_skill": "to-screen-map",
-      "owner_invocation_id": "r10-team-review-screen-map-2026-09-16T02:42:45+03:00",
+      "owner_invocation_id": "r11-consolidation-screen-map-2026-09-16T18:15:50+00:00",
       "declared_output_set": [
         "docs/screen-map.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r10-team-review-screen-map-2026-09-16T02:42:45+03:00",
+      "source_version": "r11-consolidation-screen-map-2026-09-16T18:15:50+00:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2538,11 +2537,11 @@
         "forge/design/candidates/c/v1/app.js": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "0ae0173a1130ec90703066675e2a41b61930783fbf7bde842ec99c188116ff33",
+        "docs/prd.md": "73841224aa835650ceb6106973e535be44f4c1e2698c9e0a76121a24e89cc077",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "f907de843805c78e179f8ca1093bc2656ce76fc744cc378bc80d7f65c3c5f9e7",
+        "docs/canonical-terms.md": "b28fd1076800610155bccfbe9761acb82fff69099ca6ba8a9f54241d95d25c83",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "2114a9bcfef7d72a3efc2ed34ad81750cce059a7b7a64799542786d6e79cec5e",
+        "docs/user-journey.md": "95bbc4700835b3cbc2a314e59ac34d77a63af70b2aaa9fb8ca7b8ecff95275f4",
         "forge/design/candidates/a/v1/app.js": "a869dd42c95740bf7da4802934c3cd6f8d2e2243795ee20925cd5ee19f474531",
         "forge/design/candidates/b/v1/app.js": "17e37807a032c5ea1660efca698e21dc8baf29a3c5344067470b6b44311f9b39",
         "forge/design/candidates/c/v1/app.js": "f64ab8a6962cc700c8087803d33ecda68884da78158ea0e5547235c6d4fff530"
@@ -2558,10 +2557,10 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r10-team-review-reconciliation",
-        "reviewed_at": "2026-09-16T02:42:45+03:00",
+        "kind": "r11-consolidation-reconciliation",
+        "reviewed_at": "2026-09-16T18:15:50+00:00",
         "executor": "Codex inline to-screen-map",
-        "scope": "Every selected specialist receives the saved depth. Review confined to changed semantics and their dependencies; unaffected source bindings and baseline remain intact."
+        "scope": "Reviewed the approved closing-stage correction and current dependencies; unchanged historical source observations retained. No new actors, privileges, data exposure or integration. Original visual baseline and security obligations preserved."
       },
       "open_questions": [],
       "traceability": {
@@ -3569,18 +3568,18 @@
           }
         ]
       },
-      "supersedes": "screen-map-r01-no-direct-head-routing-20260915T191200+0300"
+      "supersedes": "r11-consolidation-screen-map-2026-09-16T18:10:37+00:00"
     },
     "wireframes": {
       "path": "docs/wireframes.md",
       "owner_skill": "to-wireframes",
-      "owner_invocation_id": "r10-team-review-wireframes-2026-09-16T02:42:48+03:00",
+      "owner_invocation_id": "r11-consolidation-wireframes-2026-09-16T18:15:54+00:00",
       "declared_output_set": [
         "docs/wireframes.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r10-team-review-wireframes-2026-09-16T02:42:48+03:00",
+      "source_version": "r11-consolidation-wireframes-2026-09-16T18:15:54+00:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3590,11 +3589,11 @@
         "docs/screen-map.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "0ae0173a1130ec90703066675e2a41b61930783fbf7bde842ec99c188116ff33",
+        "docs/prd.md": "73841224aa835650ceb6106973e535be44f4c1e2698c9e0a76121a24e89cc077",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "f907de843805c78e179f8ca1093bc2656ce76fc744cc378bc80d7f65c3c5f9e7",
+        "docs/canonical-terms.md": "b28fd1076800610155bccfbe9761acb82fff69099ca6ba8a9f54241d95d25c83",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "2114a9bcfef7d72a3efc2ed34ad81750cce059a7b7a64799542786d6e79cec5e",
+        "docs/user-journey.md": "95bbc4700835b3cbc2a314e59ac34d77a63af70b2aaa9fb8ca7b8ecff95275f4",
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e"
       },
       "dependencies": [
@@ -3605,28 +3604,28 @@
         "user-journey",
         "screen-map"
       ],
-      "content_hash": "2028a9e15f39c74c214d09d22d6ef3889b44a8e267040a32c6ff04e4df572d5e",
+      "content_hash": "5c271094bb2f141e1d6fe84f73548e95398afcba4245a4a6c7c6b412fded4833",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r10-team-review-reconciliation",
-        "reviewed_at": "2026-09-16T02:42:48+03:00",
+        "kind": "r11-consolidation-reconciliation",
+        "reviewed_at": "2026-09-16T18:15:54+00:00",
         "executor": "Codex inline to-wireframes",
-        "scope": "Every selected specialist receives the saved depth. Review confined to changed semantics and their dependencies; unaffected source bindings and baseline remain intact."
+        "scope": "Reviewed the approved closing-stage correction and current dependencies; unchanged historical source observations retained. No new actors, privileges, data exposure or integration. Original visual baseline and security obligations preserved."
       },
       "open_questions": [],
-      "supersedes": "wireframes-r01-no-direct-head-routing-20260915T191200+0300"
+      "supersedes": "r11-consolidation-wireframes-2026-09-16T18:10:40+00:00"
     },
     "design-brief": {
       "path": "docs/design-brief.md",
       "owner_skill": "to-design-brief",
-      "owner_invocation_id": "r10-team-review-design-brief-2026-09-16T02:42:50+03:00",
+      "owner_invocation_id": "r11-consolidation-design-brief-2026-09-16T18:15:58+00:00",
       "declared_output_set": [
         "docs/design-brief.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r10-team-review-design-brief-2026-09-16T02:42:50+03:00",
+      "source_version": "r11-consolidation-design-brief-2026-09-16T18:15:58+00:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3682,14 +3681,14 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "0ae0173a1130ec90703066675e2a41b61930783fbf7bde842ec99c188116ff33",
+        "docs/prd.md": "73841224aa835650ceb6106973e535be44f4c1e2698c9e0a76121a24e89cc077",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "f907de843805c78e179f8ca1093bc2656ce76fc744cc378bc80d7f65c3c5f9e7",
+        "docs/canonical-terms.md": "b28fd1076800610155bccfbe9761acb82fff69099ca6ba8a9f54241d95d25c83",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "2114a9bcfef7d72a3efc2ed34ad81750cce059a7b7a64799542786d6e79cec5e",
+        "docs/user-journey.md": "95bbc4700835b3cbc2a314e59ac34d77a63af70b2aaa9fb8ca7b8ecff95275f4",
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
-        "docs/wireframes.md": "2028a9e15f39c74c214d09d22d6ef3889b44a8e267040a32c6ff04e4df572d5e",
-        "docs/product-idea.md": "57fee7434823080aacd17426ce6323dcc373db14d432d7bc48f35092f51d1075",
+        "docs/wireframes.md": "5c271094bb2f141e1d6fe84f73548e95398afcba4245a4a6c7c6b412fded4833",
+        "docs/product-idea.md": "66ba374e124fa9e4ab98c955009573ad5e794f66bb8f5882978c2f0e643830e3",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "prototype/styles.css": "ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925",
         "prototype/app.js": "b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54",
@@ -3744,28 +3743,28 @@
         "screen-map",
         "wireframes"
       ],
-      "content_hash": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
+      "content_hash": "b23eb3f97e767d9a3660958ae6ad816e099224d43d169f92259b03c9de5d5e9b",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r10-team-review-reconciliation",
-        "reviewed_at": "2026-09-16T02:42:50+03:00",
+        "kind": "r11-consolidation-reconciliation",
+        "reviewed_at": "2026-09-16T18:15:58+00:00",
         "executor": "Codex inline to-design-brief",
-        "scope": "Every selected specialist receives the saved depth. Review confined to changed semantics and their dependencies; unaffected source bindings and baseline remain intact."
+        "scope": "Reviewed the approved closing-stage correction and current dependencies; unchanged historical source observations retained. No new actors, privileges, data exposure or integration. Original visual baseline and security obligations preserved."
       },
       "open_questions": [],
-      "supersedes": "design-brief-r01-no-direct-head-routing-20260915T191200+0300"
+      "supersedes": "r11-consolidation-design-brief-2026-09-16T18:10:44+00:00"
     },
     "architecture": {
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "r10-team-review-architecture-2026-09-16T02:42:53+03:00",
+      "owner_invocation_id": "r11-consolidation-architecture-2026-09-16T18:17:07+00:00",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r10-team-review-architecture-2026-09-16T02:42:53+03:00",
+      "source_version": "r11-consolidation-architecture-2026-09-16T18:17:07+00:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3790,17 +3789,22 @@
         "test/consultation.test.mjs": "full",
         "test/http.test.mjs": "full",
         ".env.example": "full",
-        "test/fixtures/fake-codex.mjs": "full"
+        "test/fixtures/fake-codex.mjs": "full",
+        "src/server/prompt-contracts.mjs": "full",
+        "src/client/app.js": "full",
+        "test/consolidation.test.mjs": "full",
+        "test/prompt-contracts.test.mjs": "full",
+        "test/fixtures/runtime-instructions.mjs": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "0ae0173a1130ec90703066675e2a41b61930783fbf7bde842ec99c188116ff33",
+        "docs/prd.md": "73841224aa835650ceb6106973e535be44f4c1e2698c9e0a76121a24e89cc077",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "f907de843805c78e179f8ca1093bc2656ce76fc744cc378bc80d7f65c3c5f9e7",
+        "docs/canonical-terms.md": "b28fd1076800610155bccfbe9761acb82fff69099ca6ba8a9f54241d95d25c83",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "2114a9bcfef7d72a3efc2ed34ad81750cce059a7b7a64799542786d6e79cec5e",
+        "docs/user-journey.md": "95bbc4700835b3cbc2a314e59ac34d77a63af70b2aaa9fb8ca7b8ecff95275f4",
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
-        "docs/wireframes.md": "2028a9e15f39c74c214d09d22d6ef3889b44a8e267040a32c6ff04e4df572d5e",
-        "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
+        "docs/wireframes.md": "5c271094bb2f141e1d6fe84f73548e95398afcba4245a4a6c7c6b412fded4833",
+        "docs/design-brief.md": "b23eb3f97e767d9a3660958ae6ad816e099224d43d169f92259b03c9de5d5e9b",
         "docs/model-settings.md": "15a4ce817cd5c752a6a2b598dcf9de531338f12f4e6cb1ee1cc58ef1cca59a01",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "forge/runs/U-06/browser-speech-uk-20260914/README.md": "972494cb2d1dda8ae431f34bd2896eb6d5cb4642c838ae0b171d17ac931913d6",
@@ -3811,12 +3815,17 @@
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
         "test/core.test.mjs": "0de9078abd52a192e67afb5ef13693652b4b9372bf8bf5ec0d2463ecc0283047",
         "src/server/codex-provider.mjs": "a84f5a433d4c74752afb133e39471c0d8cf3f853047ac6f95ef918073b05a151",
-        "src/server/consultation.mjs": "6b06a23f30fb1badb4aff077393d3beaaba106d68b98bacaa5ab170815e38efb",
+        "src/server/consultation.mjs": "28ef05683422e6e8e99edc9173c780241d36143ef6e22925c41090238e50d793",
         "test/codex-provider.test.mjs": "f0734c813145c15a1282b60a0b34db1c8229a25c95d43f0573bb55d0fcb44eff",
-        "test/consultation.test.mjs": "3486b3e923734b0f840eb8fab5eff809dbf2eea993dd9253e6a5b531e586de15",
-        "test/http.test.mjs": "ae8da3e1d23df40e41b6923b1270ab9de43f1873945f4fe2b8bf9f94c282e75e",
+        "test/consultation.test.mjs": "81aacfb3bf151f5ffcf14f120caeebbdfaa0c3bd670ad66c15faff122d89e79a",
+        "test/http.test.mjs": "c8801b9e2bdcc6f138b2bdaac8682fc027c3cdd50ee749471e9d382cf2a77c6a",
         ".env.example": "908e4483bcad524ca4c95e9d20bc57dd4f2fbc6156f17925728798f03e91620f",
-        "test/fixtures/fake-codex.mjs": "83ae4220e5b356d972005012150f62a7b397392d3340a27a9524cd9918035c01"
+        "test/fixtures/fake-codex.mjs": "b4e10cdbd32011f0bc6a8e3747aad51bc5264f240fe8b647c4fedf01e2b1ccd2",
+        "src/server/prompt-contracts.mjs": "1dcaeb581105e1968859cf3ea1c44358c731882afd36cff3c7ad42d0d6ca3dfe",
+        "src/client/app.js": "1053f9de92d7aa62bd3b45bd5c4d5bffaab5de8161ea283fc5e47d54945ef783",
+        "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
+        "test/prompt-contracts.test.mjs": "d9d7bdcf1178fdc9581f8a58b511872518fdc2f92d0a27d77a8803af681cc889",
+        "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f"
       },
       "dependencies": [
         "prd",
@@ -3828,14 +3837,14 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "a3884c5e2821f0aa350c7184352ca1ee0bd451575f28e03af417d9398c6f04d6",
+      "content_hash": "ee85ffe9ab74a94a5e9733ad0dba12e3666e070c4e004e106b1428642407e903",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r10-team-review-reconciliation",
-        "reviewed_at": "2026-09-16T02:42:53+03:00",
+        "kind": "r11-consolidation-reconciliation",
+        "reviewed_at": "2026-09-16T18:17:07+00:00",
         "executor": "Codex inline to-architecture",
-        "scope": "Every selected specialist receives the saved depth. Review confined to changed semantics and their dependencies; unaffected source bindings and baseline remain intact."
+        "scope": "Reviewed the approved closing-stage correction and current dependencies; unchanged historical source observations retained. No new actors, privileges, data exposure or integration. Original visual baseline and security obligations preserved."
       },
       "open_questions": [],
       "security_coverage": {
@@ -3908,19 +3917,19 @@
           "heading": "## Security enforcement map"
         }
       },
-      "supersedes": "r09-ephemeral-event-reconciliation-architecture-2026-09-16T01:54:54+03:00",
+      "supersedes": "r11-consolidation-architecture-2026-09-16T18:11:00+00:00",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "dod-evals": {
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "r10-team-review-dod-evals-2026-09-16T02:42:56+03:00",
+      "owner_invocation_id": "r11-consolidation-dod-evals-2026-09-16T18:17:11+00:00",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r10-team-review-dod-evals-2026-09-16T02:42:56+03:00",
+      "source_version": "r11-consolidation-dod-evals-2026-09-16T18:17:11+00:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3933,15 +3942,15 @@
         "docs/architecture.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "0ae0173a1130ec90703066675e2a41b61930783fbf7bde842ec99c188116ff33",
+        "docs/prd.md": "73841224aa835650ceb6106973e535be44f4c1e2698c9e0a76121a24e89cc077",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "f907de843805c78e179f8ca1093bc2656ce76fc744cc378bc80d7f65c3c5f9e7",
+        "docs/canonical-terms.md": "b28fd1076800610155bccfbe9761acb82fff69099ca6ba8a9f54241d95d25c83",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "2114a9bcfef7d72a3efc2ed34ad81750cce059a7b7a64799542786d6e79cec5e",
+        "docs/user-journey.md": "95bbc4700835b3cbc2a314e59ac34d77a63af70b2aaa9fb8ca7b8ecff95275f4",
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
-        "docs/wireframes.md": "2028a9e15f39c74c214d09d22d6ef3889b44a8e267040a32c6ff04e4df572d5e",
-        "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "a3884c5e2821f0aa350c7184352ca1ee0bd451575f28e03af417d9398c6f04d6"
+        "docs/wireframes.md": "5c271094bb2f141e1d6fe84f73548e95398afcba4245a4a6c7c6b412fded4833",
+        "docs/design-brief.md": "b23eb3f97e767d9a3660958ae6ad816e099224d43d169f92259b03c9de5d5e9b",
+        "docs/architecture.md": "ee85ffe9ab74a94a5e9733ad0dba12e3666e070c4e004e106b1428642407e903"
       },
       "dependencies": [
         "prd",
@@ -3954,14 +3963,14 @@
         "design-brief",
         "architecture"
       ],
-      "content_hash": "83fd137a0a56d2e331b590f5346051e3298b6dd64547c87e0ba4bf97d2fcec59",
+      "content_hash": "6e5c53a51e8cb289be423174ac7682057ca4e7fe140dd04a7f71b6e7d34f0c09",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r10-team-review-reconciliation",
-        "reviewed_at": "2026-09-16T02:42:56+03:00",
+        "kind": "r11-consolidation-reconciliation",
+        "reviewed_at": "2026-09-16T18:17:11+00:00",
         "executor": "Codex inline to-dod-evals",
-        "scope": "Every selected specialist receives the saved depth. Review confined to changed semantics and their dependencies; unaffected source bindings and baseline remain intact."
+        "scope": "Reviewed the approved closing-stage correction and current dependencies; unchanged historical source observations retained. No new actors, privileges, data exposure or integration. Original visual baseline and security obligations preserved."
       },
       "open_questions": [],
       "security_coverage": {
@@ -4034,19 +4043,19 @@
           "heading": "### Product security membership"
         }
       },
-      "supersedes": "r09-ephemeral-event-reconciliation-dod-evals-2026-09-16T01:55:09+03:00",
+      "supersedes": "r11-consolidation-dod-evals-2026-09-16T18:11:04+00:00",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "qa-checklist": {
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "r10-team-review-qa-checklist-2026-09-16T02:43:00+03:00",
+      "owner_invocation_id": "r11-consolidation-qa-checklist-2026-09-16T18:17:15+00:00",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r10-team-review-qa-checklist-2026-09-16T02:43:00+03:00",
+      "source_version": "r11-consolidation-qa-checklist-2026-09-16T18:17:15+00:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -4073,19 +4082,24 @@
         "test/codex-provider.test.mjs": "full",
         "test/consultation.test.mjs": "full",
         "test/http.test.mjs": "full",
-        "test/fixtures/fake-codex.mjs": "full"
+        "test/fixtures/fake-codex.mjs": "full",
+        "src/server/prompt-contracts.mjs": "full",
+        "src/client/app.js": "full",
+        "test/consolidation.test.mjs": "full",
+        "test/prompt-contracts.test.mjs": "full",
+        "test/fixtures/runtime-instructions.mjs": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "0ae0173a1130ec90703066675e2a41b61930783fbf7bde842ec99c188116ff33",
+        "docs/prd.md": "73841224aa835650ceb6106973e535be44f4c1e2698c9e0a76121a24e89cc077",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "f907de843805c78e179f8ca1093bc2656ce76fc744cc378bc80d7f65c3c5f9e7",
+        "docs/canonical-terms.md": "b28fd1076800610155bccfbe9761acb82fff69099ca6ba8a9f54241d95d25c83",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "2114a9bcfef7d72a3efc2ed34ad81750cce059a7b7a64799542786d6e79cec5e",
+        "docs/user-journey.md": "95bbc4700835b3cbc2a314e59ac34d77a63af70b2aaa9fb8ca7b8ecff95275f4",
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
-        "docs/wireframes.md": "2028a9e15f39c74c214d09d22d6ef3889b44a8e267040a32c6ff04e4df572d5e",
-        "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "a3884c5e2821f0aa350c7184352ca1ee0bd451575f28e03af417d9398c6f04d6",
-        "docs/dod-evals.md": "83fd137a0a56d2e331b590f5346051e3298b6dd64547c87e0ba4bf97d2fcec59",
+        "docs/wireframes.md": "5c271094bb2f141e1d6fe84f73548e95398afcba4245a4a6c7c6b412fded4833",
+        "docs/design-brief.md": "b23eb3f97e767d9a3660958ae6ad816e099224d43d169f92259b03c9de5d5e9b",
+        "docs/architecture.md": "ee85ffe9ab74a94a5e9733ad0dba12e3666e070c4e004e106b1428642407e903",
+        "docs/dod-evals.md": "6e5c53a51e8cb289be423174ac7682057ca4e7fe140dd04a7f71b6e7d34f0c09",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
         "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
@@ -4097,11 +4111,16 @@
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
         "test/core.test.mjs": "0de9078abd52a192e67afb5ef13693652b4b9372bf8bf5ec0d2463ecc0283047",
         "src/server/codex-provider.mjs": "a84f5a433d4c74752afb133e39471c0d8cf3f853047ac6f95ef918073b05a151",
-        "src/server/consultation.mjs": "6b06a23f30fb1badb4aff077393d3beaaba106d68b98bacaa5ab170815e38efb",
+        "src/server/consultation.mjs": "28ef05683422e6e8e99edc9173c780241d36143ef6e22925c41090238e50d793",
         "test/codex-provider.test.mjs": "f0734c813145c15a1282b60a0b34db1c8229a25c95d43f0573bb55d0fcb44eff",
-        "test/consultation.test.mjs": "3486b3e923734b0f840eb8fab5eff809dbf2eea993dd9253e6a5b531e586de15",
-        "test/http.test.mjs": "ae8da3e1d23df40e41b6923b1270ab9de43f1873945f4fe2b8bf9f94c282e75e",
-        "test/fixtures/fake-codex.mjs": "83ae4220e5b356d972005012150f62a7b397392d3340a27a9524cd9918035c01"
+        "test/consultation.test.mjs": "81aacfb3bf151f5ffcf14f120caeebbdfaa0c3bd670ad66c15faff122d89e79a",
+        "test/http.test.mjs": "c8801b9e2bdcc6f138b2bdaac8682fc027c3cdd50ee749471e9d382cf2a77c6a",
+        "test/fixtures/fake-codex.mjs": "b4e10cdbd32011f0bc6a8e3747aad51bc5264f240fe8b647c4fedf01e2b1ccd2",
+        "src/server/prompt-contracts.mjs": "1dcaeb581105e1968859cf3ea1c44358c731882afd36cff3c7ad42d0d6ca3dfe",
+        "src/client/app.js": "1053f9de92d7aa62bd3b45bd5c4d5bffaab5de8161ea283fc5e47d54945ef783",
+        "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
+        "test/prompt-contracts.test.mjs": "d9d7bdcf1178fdc9581f8a58b511872518fdc2f92d0a27d77a8803af681cc889",
+        "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f"
       },
       "dependencies": [
         "prd",
@@ -4115,14 +4134,14 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "7ecc7605a3abcf7876687be479dfc225748d436851e5db7c6eef92daf5548fb1",
+      "content_hash": "e392aee5b0ad0747e97b001cfb2210a5b6be56861cebffde54a30071aac6ae78",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r10-team-review-reconciliation",
-        "reviewed_at": "2026-09-16T02:43:00+03:00",
+        "kind": "r11-consolidation-reconciliation",
+        "reviewed_at": "2026-09-16T18:17:15+00:00",
         "executor": "Codex inline to-qa-checklist",
-        "scope": "Every selected specialist receives the saved depth. Review confined to changed semantics and their dependencies; unaffected source bindings and baseline remain intact."
+        "scope": "Reviewed the approved closing-stage correction and current dependencies; unchanged historical source observations retained. No new actors, privileges, data exposure or integration. Original visual baseline and security obligations preserved."
       },
       "open_questions": [],
       "traceability": {
@@ -5884,19 +5903,19 @@
           "heading": "## Product acceptance"
         }
       },
-      "supersedes": "r09-ephemeral-event-reconciliation-qa-checklist-2026-09-16T01:55:25+03:00",
+      "supersedes": "r11-consolidation-qa-checklist-2026-09-16T18:11:09+00:00",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "development-plan": {
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "r10-team-review-development-plan-2026-09-16T02:43:04+03:00",
+      "owner_invocation_id": "r11-consolidation-development-plan-2026-09-16T18:17:19+00:00",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r10-team-review-development-plan-2026-09-16T02:43:04+03:00",
+      "source_version": "r11-consolidation-development-plan-2026-09-16T18:17:19+00:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -5928,20 +5947,25 @@
         "test/codex-provider.test.mjs": "full",
         "test/consultation.test.mjs": "full",
         "test/http.test.mjs": "full",
-        "test/fixtures/fake-codex.mjs": "full"
+        "test/fixtures/fake-codex.mjs": "full",
+        "src/server/prompt-contracts.mjs": "full",
+        "src/client/app.js": "full",
+        "test/consolidation.test.mjs": "full",
+        "test/prompt-contracts.test.mjs": "full",
+        "test/fixtures/runtime-instructions.mjs": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "0ae0173a1130ec90703066675e2a41b61930783fbf7bde842ec99c188116ff33",
+        "docs/prd.md": "73841224aa835650ceb6106973e535be44f4c1e2698c9e0a76121a24e89cc077",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "f907de843805c78e179f8ca1093bc2656ce76fc744cc378bc80d7f65c3c5f9e7",
+        "docs/canonical-terms.md": "b28fd1076800610155bccfbe9761acb82fff69099ca6ba8a9f54241d95d25c83",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "2114a9bcfef7d72a3efc2ed34ad81750cce059a7b7a64799542786d6e79cec5e",
+        "docs/user-journey.md": "95bbc4700835b3cbc2a314e59ac34d77a63af70b2aaa9fb8ca7b8ecff95275f4",
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
-        "docs/wireframes.md": "2028a9e15f39c74c214d09d22d6ef3889b44a8e267040a32c6ff04e4df572d5e",
-        "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "a3884c5e2821f0aa350c7184352ca1ee0bd451575f28e03af417d9398c6f04d6",
-        "docs/dod-evals.md": "83fd137a0a56d2e331b590f5346051e3298b6dd64547c87e0ba4bf97d2fcec59",
-        "docs/qa-checklist.md": "7ecc7605a3abcf7876687be479dfc225748d436851e5db7c6eef92daf5548fb1",
+        "docs/wireframes.md": "5c271094bb2f141e1d6fe84f73548e95398afcba4245a4a6c7c6b412fded4833",
+        "docs/design-brief.md": "b23eb3f97e767d9a3660958ae6ad816e099224d43d169f92259b03c9de5d5e9b",
+        "docs/architecture.md": "ee85ffe9ab74a94a5e9733ad0dba12e3666e070c4e004e106b1428642407e903",
+        "docs/dod-evals.md": "6e5c53a51e8cb289be423174ac7682057ca4e7fe140dd04a7f71b6e7d34f0c09",
+        "docs/qa-checklist.md": "e392aee5b0ad0747e97b001cfb2210a5b6be56861cebffde54a30071aac6ae78",
         "docs/model-settings.md": "15a4ce817cd5c752a6a2b598dcf9de531338f12f4e6cb1ee1cc58ef1cca59a01",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "package.json": "39f69e8b9c352928595ab1b7a3e83437a0e74bbdd2e5874b7d552f77c03fe0e2",
@@ -5957,11 +5981,16 @@
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
         "test/core.test.mjs": "0de9078abd52a192e67afb5ef13693652b4b9372bf8bf5ec0d2463ecc0283047",
         "src/server/codex-provider.mjs": "a84f5a433d4c74752afb133e39471c0d8cf3f853047ac6f95ef918073b05a151",
-        "src/server/consultation.mjs": "6b06a23f30fb1badb4aff077393d3beaaba106d68b98bacaa5ab170815e38efb",
+        "src/server/consultation.mjs": "28ef05683422e6e8e99edc9173c780241d36143ef6e22925c41090238e50d793",
         "test/codex-provider.test.mjs": "f0734c813145c15a1282b60a0b34db1c8229a25c95d43f0573bb55d0fcb44eff",
-        "test/consultation.test.mjs": "3486b3e923734b0f840eb8fab5eff809dbf2eea993dd9253e6a5b531e586de15",
-        "test/http.test.mjs": "ae8da3e1d23df40e41b6923b1270ab9de43f1873945f4fe2b8bf9f94c282e75e",
-        "test/fixtures/fake-codex.mjs": "83ae4220e5b356d972005012150f62a7b397392d3340a27a9524cd9918035c01"
+        "test/consultation.test.mjs": "81aacfb3bf151f5ffcf14f120caeebbdfaa0c3bd670ad66c15faff122d89e79a",
+        "test/http.test.mjs": "c8801b9e2bdcc6f138b2bdaac8682fc027c3cdd50ee749471e9d382cf2a77c6a",
+        "test/fixtures/fake-codex.mjs": "b4e10cdbd32011f0bc6a8e3747aad51bc5264f240fe8b647c4fedf01e2b1ccd2",
+        "src/server/prompt-contracts.mjs": "1dcaeb581105e1968859cf3ea1c44358c731882afd36cff3c7ad42d0d6ca3dfe",
+        "src/client/app.js": "1053f9de92d7aa62bd3b45bd5c4d5bffaab5de8161ea283fc5e47d54945ef783",
+        "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
+        "test/prompt-contracts.test.mjs": "d9d7bdcf1178fdc9581f8a58b511872518fdc2f92d0a27d77a8803af681cc889",
+        "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f"
       },
       "dependencies": [
         "prd",
@@ -5976,16 +6005,16 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "840533fd7f4ab5c97a4c5ce09d294bd44fffedc41a2c8f2407de3e79518acbd6",
+      "content_hash": "a11315d73bd43617d0b9928c706005cfa1fd9a2eb50238f592a28dc6ec5df2e1",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r10-team-review-reconciliation",
-        "reviewed_at": "2026-09-16T02:43:04+03:00",
+        "kind": "r11-consolidation-reconciliation",
+        "reviewed_at": "2026-09-16T18:17:19+00:00",
         "executor": "Codex inline to-development-plan",
-        "scope": "Every selected specialist receives the saved depth. Review confined to changed semantics and their dependencies; unaffected source bindings and baseline remain intact."
+        "scope": "Reviewed the approved closing-stage correction and current dependencies; unchanged historical source observations retained. No new actors, privileges, data exposure or integration. Original visual baseline and security obligations preserved."
       },
-      "supersedes": "r09-ephemeral-event-reconciliation-development-plan-2026-09-16T01:55:42+03:00",
+      "supersedes": "r11-consolidation-development-plan-2026-09-16T18:11:14+00:00",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
       "traceability": {
         "definitions": [
@@ -7104,7 +7133,7 @@
       "executor-codex"
     ],
     "design_materials": "Existing rejected prototype and explicit owner corrections supplied; no additional materials required",
-    "product_idea_hash": "57fee7434823080aacd17426ce6323dcc373db14d432d7bc48f35092f51d1075"
+    "product_idea_hash": "66ba374e124fa9e4ab98c955009573ad5e794f66bb8f5882978c2f0e643830e3"
   },
   "design_execution": {
     "mode": "codex",
@@ -7685,18 +7714,18 @@
   ],
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "840533fd7f4ab5c97a4c5ce09d294bd44fffedc41a2c8f2407de3e79518acbd6",
+    "development_plan_hash": "a11315d73bd43617d0b9928c706005cfa1fd9a2eb50238f592a28dc6ec5df2e1",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-14T20:13:37+03:00",
-    "prompt_id": "impl-r10-team-review-20260916",
+    "prompt_id": "impl-r11-consolidation-20260916",
     "prompt_received_at": "2026-09-16T01:09:02+03:00",
     "released_at": "2026-09-16T01:09:02+03:00",
     "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
     "prompt_receipt": {
-      "path": "forge/runs/implementation-prompt-20260916-r10-team-review.json",
-      "content_hash": "925a8c3d3d326fe5bbc99e2ab5b28b293ab1eb2d12c9808446334dbd22deb7fb"
+      "path": "forge/runs/implementation-prompt-20260916-r11-consolidation.json",
+      "content_hash": "131d1e163277a1e3879230c6f0867de6ef8a82e11f7973d980884a2c30cdb971"
     },
-    "reason": "The owner explicitly requests the repair: critic did not reply to financial. So this whole thing is still incomplete. Find the cause and fix it. Continue the existing authorized implementation and scoped private Preview verification. No Published release, database reset, secret replacement or unrelated GoDaddy changes."
+    "reason": "Owner accepted implementation of final positions from every selected specialist, Critic closing review and only then Head synthesis. Add the literal Consolidated advice heading. Continue existing repair authorization and private Preview scope only. No Published release, data reset, secret replacement or unrelated app operation."
   },
   "input_requests": [],
   "last_resume_event": {
@@ -8234,11 +8263,211 @@
       "superseded_invocation": "r09-ephemeral-event-reconciliation-development-plan-2026-09-16T01:55:42+03:00",
       "superseded_content_hash": "ebee3c499258362ca3f62b60486f1e01edbc319c0733d0f28974f1bd01d77a57",
       "decision": "Require Critic review and reply for every selected specialist before synthesis; preserve existing model, privacy, ownership and visual boundaries."
+    },
+    {
+      "event": "r11_owner_reconciled",
+      "at": "2026-09-16T18:10:02+00:00",
+      "artifact": "product-idea",
+      "superseded_invocation": "r10-team-review-product-idea-2026-09-16T02:42:31+03:00",
+      "superseded_content_hash": "57fee7434823080aacd17426ce6323dcc373db14d432d7bc48f35092f51d1075",
+      "decision": "Require final positions from every selected specialist and Critic closing assessment before Head Consolidated advice; preserve disagreement and bounded Auto."
+    },
+    {
+      "event": "r11_owner_reconciled",
+      "at": "2026-09-16T18:10:06+00:00",
+      "artifact": "prd",
+      "superseded_invocation": "r10-team-review-prd-2026-09-16T02:42:34+03:00",
+      "superseded_content_hash": "0ae0173a1130ec90703066675e2a41b61930783fbf7bde842ec99c188116ff33",
+      "decision": "Require final positions from every selected specialist and Critic closing assessment before Head Consolidated advice; preserve disagreement and bounded Auto."
+    },
+    {
+      "event": "r11_owner_reconciled",
+      "at": "2026-09-16T18:10:10+00:00",
+      "artifact": "project-context",
+      "superseded_invocation": "r10-team-review-project-context-2026-09-16T02:42:37+03:00",
+      "superseded_content_hash": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
+      "decision": "Require final positions from every selected specialist and Critic closing assessment before Head Consolidated advice; preserve disagreement and bounded Auto."
+    },
+    {
+      "event": "r11_owner_reconciled",
+      "at": "2026-09-16T18:10:10+00:00",
+      "artifact": "canonical-terms",
+      "superseded_invocation": "r10-team-review-project-context-2026-09-16T02:42:37+03:00",
+      "superseded_content_hash": "f907de843805c78e179f8ca1093bc2656ce76fc744cc378bc80d7f65c3c5f9e7",
+      "decision": "Require final positions from every selected specialist and Critic closing assessment before Head Consolidated advice; preserve disagreement and bounded Auto."
+    },
+    {
+      "event": "r11_owner_reconciled",
+      "at": "2026-09-16T18:10:14+00:00",
+      "artifact": "guardrails",
+      "superseded_invocation": "r10-team-review-guardrails-2026-09-16T02:42:39+03:00",
+      "superseded_content_hash": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
+      "decision": "Require final positions from every selected specialist and Critic closing assessment before Head Consolidated advice; preserve disagreement and bounded Auto."
+    },
+    {
+      "event": "r11_owner_reconciled",
+      "at": "2026-09-16T18:10:33+00:00",
+      "artifact": "user-journey",
+      "superseded_invocation": "r10-team-review-user-journey-2026-09-16T02:42:42+03:00",
+      "superseded_content_hash": "2114a9bcfef7d72a3efc2ed34ad81750cce059a7b7a64799542786d6e79cec5e",
+      "decision": "Require final positions from every selected specialist and Critic closing assessment before Head Consolidated advice; preserve disagreement and bounded Auto."
+    },
+    {
+      "event": "r11_owner_reconciled",
+      "at": "2026-09-16T18:10:37+00:00",
+      "artifact": "screen-map",
+      "superseded_invocation": "r10-team-review-screen-map-2026-09-16T02:42:45+03:00",
+      "superseded_content_hash": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
+      "decision": "Require final positions from every selected specialist and Critic closing assessment before Head Consolidated advice; preserve disagreement and bounded Auto."
+    },
+    {
+      "event": "r11_owner_reconciled",
+      "at": "2026-09-16T18:10:40+00:00",
+      "artifact": "wireframes",
+      "superseded_invocation": "r10-team-review-wireframes-2026-09-16T02:42:48+03:00",
+      "superseded_content_hash": "2028a9e15f39c74c214d09d22d6ef3889b44a8e267040a32c6ff04e4df572d5e",
+      "decision": "Require final positions from every selected specialist and Critic closing assessment before Head Consolidated advice; preserve disagreement and bounded Auto."
+    },
+    {
+      "event": "r11_owner_reconciled",
+      "at": "2026-09-16T18:10:44+00:00",
+      "artifact": "design-brief",
+      "superseded_invocation": "r10-team-review-design-brief-2026-09-16T02:42:50+03:00",
+      "superseded_content_hash": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
+      "decision": "Require final positions from every selected specialist and Critic closing assessment before Head Consolidated advice; preserve disagreement and bounded Auto."
+    },
+    {
+      "event": "r11_owner_reconciled",
+      "at": "2026-09-16T18:11:00+00:00",
+      "artifact": "architecture",
+      "superseded_invocation": "r10-team-review-architecture-2026-09-16T02:42:53+03:00",
+      "superseded_content_hash": "a3884c5e2821f0aa350c7184352ca1ee0bd451575f28e03af417d9398c6f04d6",
+      "decision": "Require final positions from every selected specialist and Critic closing assessment before Head Consolidated advice; preserve disagreement and bounded Auto."
+    },
+    {
+      "event": "r11_owner_reconciled",
+      "at": "2026-09-16T18:11:04+00:00",
+      "artifact": "dod-evals",
+      "superseded_invocation": "r10-team-review-dod-evals-2026-09-16T02:42:56+03:00",
+      "superseded_content_hash": "83fd137a0a56d2e331b590f5346051e3298b6dd64547c87e0ba4bf97d2fcec59",
+      "decision": "Require final positions from every selected specialist and Critic closing assessment before Head Consolidated advice; preserve disagreement and bounded Auto."
+    },
+    {
+      "event": "r11_owner_reconciled",
+      "at": "2026-09-16T18:11:09+00:00",
+      "artifact": "qa-checklist",
+      "superseded_invocation": "r10-team-review-qa-checklist-2026-09-16T02:43:00+03:00",
+      "superseded_content_hash": "7ecc7605a3abcf7876687be479dfc225748d436851e5db7c6eef92daf5548fb1",
+      "decision": "Require final positions from every selected specialist and Critic closing assessment before Head Consolidated advice; preserve disagreement and bounded Auto."
+    },
+    {
+      "event": "r11_owner_reconciled",
+      "at": "2026-09-16T18:11:14+00:00",
+      "artifact": "development-plan",
+      "superseded_invocation": "r10-team-review-development-plan-2026-09-16T02:43:04+03:00",
+      "superseded_content_hash": "840533fd7f4ab5c97a4c5ce09d294bd44fffedc41a2c8f2407de3e79518acbd6",
+      "decision": "Require final positions from every selected specialist and Critic closing assessment before Head Consolidated advice; preserve disagreement and bounded Auto."
+    },
+    {
+      "event": "r11_owner_reconciled",
+      "at": "2026-09-16T18:15:06+00:00",
+      "artifact": "prd",
+      "superseded_invocation": "r11-consolidation-prd-2026-09-16T18:10:06+00:00",
+      "superseded_content_hash": "f8bd59a9421e2d5170f7cc5bd5d24277019cc0a04b3a9946db37afe89d3287e5",
+      "decision": "Require final positions from every selected specialist and Critic closing assessment before Head Consolidated advice; preserve disagreement and bounded Auto."
+    },
+    {
+      "event": "r11_owner_reconciled",
+      "at": "2026-09-16T18:15:38+00:00",
+      "artifact": "project-context",
+      "superseded_invocation": "r11-consolidation-project-context-2026-09-16T18:10:10+00:00",
+      "superseded_content_hash": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
+      "decision": "Require final positions from every selected specialist and Critic closing assessment before Head Consolidated advice; preserve disagreement and bounded Auto."
+    },
+    {
+      "event": "r11_owner_reconciled",
+      "at": "2026-09-16T18:15:38+00:00",
+      "artifact": "canonical-terms",
+      "superseded_invocation": "r11-consolidation-project-context-2026-09-16T18:10:10+00:00",
+      "superseded_content_hash": "b28fd1076800610155bccfbe9761acb82fff69099ca6ba8a9f54241d95d25c83",
+      "decision": "Require final positions from every selected specialist and Critic closing assessment before Head Consolidated advice; preserve disagreement and bounded Auto."
+    },
+    {
+      "event": "r11_owner_reconciled",
+      "at": "2026-09-16T18:15:42+00:00",
+      "artifact": "guardrails",
+      "superseded_invocation": "r11-consolidation-guardrails-2026-09-16T18:10:14+00:00",
+      "superseded_content_hash": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
+      "decision": "Require final positions from every selected specialist and Critic closing assessment before Head Consolidated advice; preserve disagreement and bounded Auto."
+    },
+    {
+      "event": "r11_owner_reconciled",
+      "at": "2026-09-16T18:15:46+00:00",
+      "artifact": "user-journey",
+      "superseded_invocation": "r11-consolidation-user-journey-2026-09-16T18:10:33+00:00",
+      "superseded_content_hash": "95bbc4700835b3cbc2a314e59ac34d77a63af70b2aaa9fb8ca7b8ecff95275f4",
+      "decision": "Require final positions from every selected specialist and Critic closing assessment before Head Consolidated advice; preserve disagreement and bounded Auto."
+    },
+    {
+      "event": "r11_owner_reconciled",
+      "at": "2026-09-16T18:15:50+00:00",
+      "artifact": "screen-map",
+      "superseded_invocation": "r11-consolidation-screen-map-2026-09-16T18:10:37+00:00",
+      "superseded_content_hash": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
+      "decision": "Require final positions from every selected specialist and Critic closing assessment before Head Consolidated advice; preserve disagreement and bounded Auto."
+    },
+    {
+      "event": "r11_owner_reconciled",
+      "at": "2026-09-16T18:15:54+00:00",
+      "artifact": "wireframes",
+      "superseded_invocation": "r11-consolidation-wireframes-2026-09-16T18:10:40+00:00",
+      "superseded_content_hash": "5c271094bb2f141e1d6fe84f73548e95398afcba4245a4a6c7c6b412fded4833",
+      "decision": "Require final positions from every selected specialist and Critic closing assessment before Head Consolidated advice; preserve disagreement and bounded Auto."
+    },
+    {
+      "event": "r11_owner_reconciled",
+      "at": "2026-09-16T18:15:58+00:00",
+      "artifact": "design-brief",
+      "superseded_invocation": "r11-consolidation-design-brief-2026-09-16T18:10:44+00:00",
+      "superseded_content_hash": "b23eb3f97e767d9a3660958ae6ad816e099224d43d169f92259b03c9de5d5e9b",
+      "decision": "Require final positions from every selected specialist and Critic closing assessment before Head Consolidated advice; preserve disagreement and bounded Auto."
+    },
+    {
+      "event": "r11_owner_reconciled",
+      "at": "2026-09-16T18:17:07+00:00",
+      "artifact": "architecture",
+      "superseded_invocation": "r11-consolidation-architecture-2026-09-16T18:11:00+00:00",
+      "superseded_content_hash": "ee85ffe9ab74a94a5e9733ad0dba12e3666e070c4e004e106b1428642407e903",
+      "decision": "Require final positions from every selected specialist and Critic closing assessment before Head Consolidated advice; preserve disagreement and bounded Auto."
+    },
+    {
+      "event": "r11_owner_reconciled",
+      "at": "2026-09-16T18:17:11+00:00",
+      "artifact": "dod-evals",
+      "superseded_invocation": "r11-consolidation-dod-evals-2026-09-16T18:11:04+00:00",
+      "superseded_content_hash": "6e5c53a51e8cb289be423174ac7682057ca4e7fe140dd04a7f71b6e7d34f0c09",
+      "decision": "Require final positions from every selected specialist and Critic closing assessment before Head Consolidated advice; preserve disagreement and bounded Auto."
+    },
+    {
+      "event": "r11_owner_reconciled",
+      "at": "2026-09-16T18:17:15+00:00",
+      "artifact": "qa-checklist",
+      "superseded_invocation": "r11-consolidation-qa-checklist-2026-09-16T18:11:09+00:00",
+      "superseded_content_hash": "e392aee5b0ad0747e97b001cfb2210a5b6be56861cebffde54a30071aac6ae78",
+      "decision": "Require final positions from every selected specialist and Critic closing assessment before Head Consolidated advice; preserve disagreement and bounded Auto."
+    },
+    {
+      "event": "r11_owner_reconciled",
+      "at": "2026-09-16T18:17:19+00:00",
+      "artifact": "development-plan",
+      "superseded_invocation": "r11-consolidation-development-plan-2026-09-16T18:11:14+00:00",
+      "superseded_content_hash": "a11315d73bd43617d0b9928c706005cfa1fd9a2eb50238f592a28dc6ec5df2e1",
+      "decision": "Require final positions from every selected specialist and Critic closing assessment before Head Consolidated advice; preserve disagreement and bounded Auto."
     }
   ],
   "dispatches": {
     "product-idea": {
-      "invocation_id": "r10-team-review-product-idea-2026-09-16T02:42:31+03:00",
+      "invocation_id": "r11-consolidation-product-idea-2026-09-16T18:10:02+00:00",
       "outputs": [
         "docs/product-idea.md"
       ],
@@ -8251,75 +8480,75 @@
       "consumed_source_fragments": {}
     },
     "prd": {
-      "invocation_id": "r10-team-review-prd-2026-09-16T02:42:34+03:00",
+      "invocation_id": "r11-consolidation-prd-2026-09-16T18:15:06+00:00",
       "outputs": [
         "docs/prd.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "57fee7434823080aacd17426ce6323dcc373db14d432d7bc48f35092f51d1075"
+        "docs/product-idea.md": "66ba374e124fa9e4ab98c955009573ad5e794f66bb8f5882978c2f0e643830e3"
       },
       "consumed_source_fragments": {}
     },
     "project-context": {
-      "invocation_id": "r10-team-review-project-context-2026-09-16T02:42:37+03:00",
+      "invocation_id": "r11-consolidation-project-context-2026-09-16T18:15:38+00:00",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "57fee7434823080aacd17426ce6323dcc373db14d432d7bc48f35092f51d1075",
-        "docs/prd.md": "0ae0173a1130ec90703066675e2a41b61930783fbf7bde842ec99c188116ff33"
+        "docs/product-idea.md": "66ba374e124fa9e4ab98c955009573ad5e794f66bb8f5882978c2f0e643830e3",
+        "docs/prd.md": "73841224aa835650ceb6106973e535be44f4c1e2698c9e0a76121a24e89cc077"
       },
       "consumed_source_fragments": {}
     },
     "canonical-terms": {
-      "invocation_id": "r10-team-review-project-context-2026-09-16T02:42:37+03:00",
+      "invocation_id": "r11-consolidation-project-context-2026-09-16T18:15:38+00:00",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "57fee7434823080aacd17426ce6323dcc373db14d432d7bc48f35092f51d1075",
-        "docs/prd.md": "0ae0173a1130ec90703066675e2a41b61930783fbf7bde842ec99c188116ff33"
+        "docs/product-idea.md": "66ba374e124fa9e4ab98c955009573ad5e794f66bb8f5882978c2f0e643830e3",
+        "docs/prd.md": "73841224aa835650ceb6106973e535be44f4c1e2698c9e0a76121a24e89cc077"
       },
       "consumed_source_fragments": {}
     },
     "guardrails": {
-      "invocation_id": "r10-team-review-guardrails-2026-09-16T02:42:39+03:00",
+      "invocation_id": "r11-consolidation-guardrails-2026-09-16T18:15:42+00:00",
       "outputs": [
         "docs/guardrails.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "0ae0173a1130ec90703066675e2a41b61930783fbf7bde842ec99c188116ff33",
+        "docs/prd.md": "73841224aa835650ceb6106973e535be44f4c1e2698c9e0a76121a24e89cc077",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "f907de843805c78e179f8ca1093bc2656ce76fc744cc378bc80d7f65c3c5f9e7"
+        "docs/canonical-terms.md": "b28fd1076800610155bccfbe9761acb82fff69099ca6ba8a9f54241d95d25c83"
       },
       "consumed_source_fragments": {}
     },
     "user-journey": {
-      "invocation_id": "r10-team-review-user-journey-2026-09-16T02:42:42+03:00",
+      "invocation_id": "r11-consolidation-user-journey-2026-09-16T18:15:46+00:00",
       "outputs": [
         "docs/user-journey.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "0ae0173a1130ec90703066675e2a41b61930783fbf7bde842ec99c188116ff33",
+        "docs/prd.md": "73841224aa835650ceb6106973e535be44f4c1e2698c9e0a76121a24e89cc077",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "f907de843805c78e179f8ca1093bc2656ce76fc744cc378bc80d7f65c3c5f9e7",
+        "docs/canonical-terms.md": "b28fd1076800610155bccfbe9761acb82fff69099ca6ba8a9f54241d95d25c83",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a"
       },
       "consumed_source_fragments": {}
     },
     "screen-map": {
-      "invocation_id": "r10-team-review-screen-map-2026-09-16T02:42:45+03:00",
+      "invocation_id": "r11-consolidation-screen-map-2026-09-16T18:15:50+00:00",
       "outputs": [
         "docs/screen-map.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "0ae0173a1130ec90703066675e2a41b61930783fbf7bde842ec99c188116ff33",
+        "docs/prd.md": "73841224aa835650ceb6106973e535be44f4c1e2698c9e0a76121a24e89cc077",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "f907de843805c78e179f8ca1093bc2656ce76fc744cc378bc80d7f65c3c5f9e7",
+        "docs/canonical-terms.md": "b28fd1076800610155bccfbe9761acb82fff69099ca6ba8a9f54241d95d25c83",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "2114a9bcfef7d72a3efc2ed34ad81750cce059a7b7a64799542786d6e79cec5e",
+        "docs/user-journey.md": "95bbc4700835b3cbc2a314e59ac34d77a63af70b2aaa9fb8ca7b8ecff95275f4",
         "forge/design/candidates/a/v1/app.js": "a869dd42c95740bf7da4802934c3cd6f8d2e2243795ee20925cd5ee19f474531",
         "forge/design/candidates/b/v1/app.js": "17e37807a032c5ea1660efca698e21dc8baf29a3c5344067470b6b44311f9b39",
         "forge/design/candidates/c/v1/app.js": "f64ab8a6962cc700c8087803d33ecda68884da78158ea0e5547235c6d4fff530"
@@ -8327,34 +8556,34 @@
       "consumed_source_fragments": {}
     },
     "wireframes": {
-      "invocation_id": "r10-team-review-wireframes-2026-09-16T02:42:48+03:00",
+      "invocation_id": "r11-consolidation-wireframes-2026-09-16T18:15:54+00:00",
       "outputs": [
         "docs/wireframes.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "0ae0173a1130ec90703066675e2a41b61930783fbf7bde842ec99c188116ff33",
+        "docs/prd.md": "73841224aa835650ceb6106973e535be44f4c1e2698c9e0a76121a24e89cc077",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "f907de843805c78e179f8ca1093bc2656ce76fc744cc378bc80d7f65c3c5f9e7",
+        "docs/canonical-terms.md": "b28fd1076800610155bccfbe9761acb82fff69099ca6ba8a9f54241d95d25c83",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "2114a9bcfef7d72a3efc2ed34ad81750cce059a7b7a64799542786d6e79cec5e",
+        "docs/user-journey.md": "95bbc4700835b3cbc2a314e59ac34d77a63af70b2aaa9fb8ca7b8ecff95275f4",
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e"
       },
       "consumed_source_fragments": {}
     },
     "design-brief": {
-      "invocation_id": "r10-team-review-design-brief-2026-09-16T02:42:50+03:00",
+      "invocation_id": "r11-consolidation-design-brief-2026-09-16T18:15:58+00:00",
       "outputs": [
         "docs/design-brief.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "0ae0173a1130ec90703066675e2a41b61930783fbf7bde842ec99c188116ff33",
+        "docs/prd.md": "73841224aa835650ceb6106973e535be44f4c1e2698c9e0a76121a24e89cc077",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "f907de843805c78e179f8ca1093bc2656ce76fc744cc378bc80d7f65c3c5f9e7",
+        "docs/canonical-terms.md": "b28fd1076800610155bccfbe9761acb82fff69099ca6ba8a9f54241d95d25c83",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "2114a9bcfef7d72a3efc2ed34ad81750cce059a7b7a64799542786d6e79cec5e",
+        "docs/user-journey.md": "95bbc4700835b3cbc2a314e59ac34d77a63af70b2aaa9fb8ca7b8ecff95275f4",
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
-        "docs/wireframes.md": "2028a9e15f39c74c214d09d22d6ef3889b44a8e267040a32c6ff04e4df572d5e",
-        "docs/product-idea.md": "57fee7434823080aacd17426ce6323dcc373db14d432d7bc48f35092f51d1075",
+        "docs/wireframes.md": "5c271094bb2f141e1d6fe84f73548e95398afcba4245a4a6c7c6b412fded4833",
+        "docs/product-idea.md": "66ba374e124fa9e4ab98c955009573ad5e794f66bb8f5882978c2f0e643830e3",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "prototype/styles.css": "ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925",
         "prototype/app.js": "b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54",
@@ -8403,19 +8632,19 @@
       "consumed_source_fragments": {}
     },
     "architecture": {
-      "invocation_id": "r10-team-review-architecture-2026-09-16T02:42:53+03:00",
+      "invocation_id": "r11-consolidation-architecture-2026-09-16T18:17:07+00:00",
       "outputs": [
         "docs/architecture.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "0ae0173a1130ec90703066675e2a41b61930783fbf7bde842ec99c188116ff33",
+        "docs/prd.md": "73841224aa835650ceb6106973e535be44f4c1e2698c9e0a76121a24e89cc077",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "f907de843805c78e179f8ca1093bc2656ce76fc744cc378bc80d7f65c3c5f9e7",
+        "docs/canonical-terms.md": "b28fd1076800610155bccfbe9761acb82fff69099ca6ba8a9f54241d95d25c83",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "2114a9bcfef7d72a3efc2ed34ad81750cce059a7b7a64799542786d6e79cec5e",
+        "docs/user-journey.md": "95bbc4700835b3cbc2a314e59ac34d77a63af70b2aaa9fb8ca7b8ecff95275f4",
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
-        "docs/wireframes.md": "2028a9e15f39c74c214d09d22d6ef3889b44a8e267040a32c6ff04e4df572d5e",
-        "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
+        "docs/wireframes.md": "5c271094bb2f141e1d6fe84f73548e95398afcba4245a4a6c7c6b412fded4833",
+        "docs/design-brief.md": "b23eb3f97e767d9a3660958ae6ad816e099224d43d169f92259b03c9de5d5e9b",
         "docs/model-settings.md": "15a4ce817cd5c752a6a2b598dcf9de531338f12f4e6cb1ee1cc58ef1cca59a01",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "forge/runs/U-06/browser-speech-uk-20260914/README.md": "972494cb2d1dda8ae431f34bd2896eb6d5cb4642c838ae0b171d17ac931913d6",
@@ -8426,49 +8655,54 @@
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
         "test/core.test.mjs": "0de9078abd52a192e67afb5ef13693652b4b9372bf8bf5ec0d2463ecc0283047",
         "src/server/codex-provider.mjs": "a84f5a433d4c74752afb133e39471c0d8cf3f853047ac6f95ef918073b05a151",
-        "src/server/consultation.mjs": "6b06a23f30fb1badb4aff077393d3beaaba106d68b98bacaa5ab170815e38efb",
+        "src/server/consultation.mjs": "28ef05683422e6e8e99edc9173c780241d36143ef6e22925c41090238e50d793",
         "test/codex-provider.test.mjs": "f0734c813145c15a1282b60a0b34db1c8229a25c95d43f0573bb55d0fcb44eff",
-        "test/consultation.test.mjs": "3486b3e923734b0f840eb8fab5eff809dbf2eea993dd9253e6a5b531e586de15",
-        "test/http.test.mjs": "ae8da3e1d23df40e41b6923b1270ab9de43f1873945f4fe2b8bf9f94c282e75e",
+        "test/consultation.test.mjs": "81aacfb3bf151f5ffcf14f120caeebbdfaa0c3bd670ad66c15faff122d89e79a",
+        "test/http.test.mjs": "c8801b9e2bdcc6f138b2bdaac8682fc027c3cdd50ee749471e9d382cf2a77c6a",
         ".env.example": "908e4483bcad524ca4c95e9d20bc57dd4f2fbc6156f17925728798f03e91620f",
-        "test/fixtures/fake-codex.mjs": "83ae4220e5b356d972005012150f62a7b397392d3340a27a9524cd9918035c01"
+        "test/fixtures/fake-codex.mjs": "b4e10cdbd32011f0bc6a8e3747aad51bc5264f240fe8b647c4fedf01e2b1ccd2",
+        "src/server/prompt-contracts.mjs": "1dcaeb581105e1968859cf3ea1c44358c731882afd36cff3c7ad42d0d6ca3dfe",
+        "src/client/app.js": "1053f9de92d7aa62bd3b45bd5c4d5bffaab5de8161ea283fc5e47d54945ef783",
+        "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
+        "test/prompt-contracts.test.mjs": "d9d7bdcf1178fdc9581f8a58b511872518fdc2f92d0a27d77a8803af681cc889",
+        "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f"
       },
       "consumed_source_fragments": {}
     },
     "dod-evals": {
-      "invocation_id": "r10-team-review-dod-evals-2026-09-16T02:42:56+03:00",
+      "invocation_id": "r11-consolidation-dod-evals-2026-09-16T18:17:11+00:00",
       "outputs": [
         "docs/dod-evals.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "0ae0173a1130ec90703066675e2a41b61930783fbf7bde842ec99c188116ff33",
+        "docs/prd.md": "73841224aa835650ceb6106973e535be44f4c1e2698c9e0a76121a24e89cc077",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "f907de843805c78e179f8ca1093bc2656ce76fc744cc378bc80d7f65c3c5f9e7",
+        "docs/canonical-terms.md": "b28fd1076800610155bccfbe9761acb82fff69099ca6ba8a9f54241d95d25c83",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "2114a9bcfef7d72a3efc2ed34ad81750cce059a7b7a64799542786d6e79cec5e",
+        "docs/user-journey.md": "95bbc4700835b3cbc2a314e59ac34d77a63af70b2aaa9fb8ca7b8ecff95275f4",
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
-        "docs/wireframes.md": "2028a9e15f39c74c214d09d22d6ef3889b44a8e267040a32c6ff04e4df572d5e",
-        "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "a3884c5e2821f0aa350c7184352ca1ee0bd451575f28e03af417d9398c6f04d6"
+        "docs/wireframes.md": "5c271094bb2f141e1d6fe84f73548e95398afcba4245a4a6c7c6b412fded4833",
+        "docs/design-brief.md": "b23eb3f97e767d9a3660958ae6ad816e099224d43d169f92259b03c9de5d5e9b",
+        "docs/architecture.md": "ee85ffe9ab74a94a5e9733ad0dba12e3666e070c4e004e106b1428642407e903"
       },
       "consumed_source_fragments": {}
     },
     "qa-checklist": {
-      "invocation_id": "r10-team-review-qa-checklist-2026-09-16T02:43:00+03:00",
+      "invocation_id": "r11-consolidation-qa-checklist-2026-09-16T18:17:15+00:00",
       "outputs": [
         "docs/qa-checklist.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "0ae0173a1130ec90703066675e2a41b61930783fbf7bde842ec99c188116ff33",
+        "docs/prd.md": "73841224aa835650ceb6106973e535be44f4c1e2698c9e0a76121a24e89cc077",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "f907de843805c78e179f8ca1093bc2656ce76fc744cc378bc80d7f65c3c5f9e7",
+        "docs/canonical-terms.md": "b28fd1076800610155bccfbe9761acb82fff69099ca6ba8a9f54241d95d25c83",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "2114a9bcfef7d72a3efc2ed34ad81750cce059a7b7a64799542786d6e79cec5e",
+        "docs/user-journey.md": "95bbc4700835b3cbc2a314e59ac34d77a63af70b2aaa9fb8ca7b8ecff95275f4",
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
-        "docs/wireframes.md": "2028a9e15f39c74c214d09d22d6ef3889b44a8e267040a32c6ff04e4df572d5e",
-        "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "a3884c5e2821f0aa350c7184352ca1ee0bd451575f28e03af417d9398c6f04d6",
-        "docs/dod-evals.md": "83fd137a0a56d2e331b590f5346051e3298b6dd64547c87e0ba4bf97d2fcec59",
+        "docs/wireframes.md": "5c271094bb2f141e1d6fe84f73548e95398afcba4245a4a6c7c6b412fded4833",
+        "docs/design-brief.md": "b23eb3f97e767d9a3660958ae6ad816e099224d43d169f92259b03c9de5d5e9b",
+        "docs/architecture.md": "ee85ffe9ab74a94a5e9733ad0dba12e3666e070c4e004e106b1428642407e903",
+        "docs/dod-evals.md": "6e5c53a51e8cb289be423174ac7682057ca4e7fe140dd04a7f71b6e7d34f0c09",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
         "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
@@ -8480,31 +8714,36 @@
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
         "test/core.test.mjs": "0de9078abd52a192e67afb5ef13693652b4b9372bf8bf5ec0d2463ecc0283047",
         "src/server/codex-provider.mjs": "a84f5a433d4c74752afb133e39471c0d8cf3f853047ac6f95ef918073b05a151",
-        "src/server/consultation.mjs": "6b06a23f30fb1badb4aff077393d3beaaba106d68b98bacaa5ab170815e38efb",
+        "src/server/consultation.mjs": "28ef05683422e6e8e99edc9173c780241d36143ef6e22925c41090238e50d793",
         "test/codex-provider.test.mjs": "f0734c813145c15a1282b60a0b34db1c8229a25c95d43f0573bb55d0fcb44eff",
-        "test/consultation.test.mjs": "3486b3e923734b0f840eb8fab5eff809dbf2eea993dd9253e6a5b531e586de15",
-        "test/http.test.mjs": "ae8da3e1d23df40e41b6923b1270ab9de43f1873945f4fe2b8bf9f94c282e75e",
-        "test/fixtures/fake-codex.mjs": "83ae4220e5b356d972005012150f62a7b397392d3340a27a9524cd9918035c01"
+        "test/consultation.test.mjs": "81aacfb3bf151f5ffcf14f120caeebbdfaa0c3bd670ad66c15faff122d89e79a",
+        "test/http.test.mjs": "c8801b9e2bdcc6f138b2bdaac8682fc027c3cdd50ee749471e9d382cf2a77c6a",
+        "test/fixtures/fake-codex.mjs": "b4e10cdbd32011f0bc6a8e3747aad51bc5264f240fe8b647c4fedf01e2b1ccd2",
+        "src/server/prompt-contracts.mjs": "1dcaeb581105e1968859cf3ea1c44358c731882afd36cff3c7ad42d0d6ca3dfe",
+        "src/client/app.js": "1053f9de92d7aa62bd3b45bd5c4d5bffaab5de8161ea283fc5e47d54945ef783",
+        "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
+        "test/prompt-contracts.test.mjs": "d9d7bdcf1178fdc9581f8a58b511872518fdc2f92d0a27d77a8803af681cc889",
+        "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f"
       },
       "consumed_source_fragments": {}
     },
     "development-plan": {
-      "invocation_id": "r10-team-review-development-plan-2026-09-16T02:43:04+03:00",
+      "invocation_id": "r11-consolidation-development-plan-2026-09-16T18:17:19+00:00",
       "outputs": [
         "docs/development-plan.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "0ae0173a1130ec90703066675e2a41b61930783fbf7bde842ec99c188116ff33",
+        "docs/prd.md": "73841224aa835650ceb6106973e535be44f4c1e2698c9e0a76121a24e89cc077",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "f907de843805c78e179f8ca1093bc2656ce76fc744cc378bc80d7f65c3c5f9e7",
+        "docs/canonical-terms.md": "b28fd1076800610155bccfbe9761acb82fff69099ca6ba8a9f54241d95d25c83",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "2114a9bcfef7d72a3efc2ed34ad81750cce059a7b7a64799542786d6e79cec5e",
+        "docs/user-journey.md": "95bbc4700835b3cbc2a314e59ac34d77a63af70b2aaa9fb8ca7b8ecff95275f4",
         "docs/screen-map.md": "45ae17c63f49ecad31733e636d59048c8bdf889b1944fc900de6c43148b0bb4e",
-        "docs/wireframes.md": "2028a9e15f39c74c214d09d22d6ef3889b44a8e267040a32c6ff04e4df572d5e",
-        "docs/design-brief.md": "673e5f7589e8f001b4e5b343419ba379139347b3bf52ed5aa60fbfe3c0083df9",
-        "docs/architecture.md": "a3884c5e2821f0aa350c7184352ca1ee0bd451575f28e03af417d9398c6f04d6",
-        "docs/dod-evals.md": "83fd137a0a56d2e331b590f5346051e3298b6dd64547c87e0ba4bf97d2fcec59",
-        "docs/qa-checklist.md": "7ecc7605a3abcf7876687be479dfc225748d436851e5db7c6eef92daf5548fb1",
+        "docs/wireframes.md": "5c271094bb2f141e1d6fe84f73548e95398afcba4245a4a6c7c6b412fded4833",
+        "docs/design-brief.md": "b23eb3f97e767d9a3660958ae6ad816e099224d43d169f92259b03c9de5d5e9b",
+        "docs/architecture.md": "ee85ffe9ab74a94a5e9733ad0dba12e3666e070c4e004e106b1428642407e903",
+        "docs/dod-evals.md": "6e5c53a51e8cb289be423174ac7682057ca4e7fe140dd04a7f71b6e7d34f0c09",
+        "docs/qa-checklist.md": "e392aee5b0ad0747e97b001cfb2210a5b6be56861cebffde54a30071aac6ae78",
         "docs/model-settings.md": "15a4ce817cd5c752a6a2b598dcf9de531338f12f4e6cb1ee1cc58ef1cca59a01",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "package.json": "39f69e8b9c352928595ab1b7a3e83437a0e74bbdd2e5874b7d552f77c03fe0e2",
@@ -8520,11 +8759,16 @@
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
         "test/core.test.mjs": "0de9078abd52a192e67afb5ef13693652b4b9372bf8bf5ec0d2463ecc0283047",
         "src/server/codex-provider.mjs": "a84f5a433d4c74752afb133e39471c0d8cf3f853047ac6f95ef918073b05a151",
-        "src/server/consultation.mjs": "6b06a23f30fb1badb4aff077393d3beaaba106d68b98bacaa5ab170815e38efb",
+        "src/server/consultation.mjs": "28ef05683422e6e8e99edc9173c780241d36143ef6e22925c41090238e50d793",
         "test/codex-provider.test.mjs": "f0734c813145c15a1282b60a0b34db1c8229a25c95d43f0573bb55d0fcb44eff",
-        "test/consultation.test.mjs": "3486b3e923734b0f840eb8fab5eff809dbf2eea993dd9253e6a5b531e586de15",
-        "test/http.test.mjs": "ae8da3e1d23df40e41b6923b1270ab9de43f1873945f4fe2b8bf9f94c282e75e",
-        "test/fixtures/fake-codex.mjs": "83ae4220e5b356d972005012150f62a7b397392d3340a27a9524cd9918035c01"
+        "test/consultation.test.mjs": "81aacfb3bf151f5ffcf14f120caeebbdfaa0c3bd670ad66c15faff122d89e79a",
+        "test/http.test.mjs": "c8801b9e2bdcc6f138b2bdaac8682fc027c3cdd50ee749471e9d382cf2a77c6a",
+        "test/fixtures/fake-codex.mjs": "b4e10cdbd32011f0bc6a8e3747aad51bc5264f240fe8b647c4fedf01e2b1ccd2",
+        "src/server/prompt-contracts.mjs": "1dcaeb581105e1968859cf3ea1c44358c731882afd36cff3c7ad42d0d6ca3dfe",
+        "src/client/app.js": "1053f9de92d7aa62bd3b45bd5c4d5bffaab5de8161ea283fc5e47d54945ef783",
+        "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
+        "test/prompt-contracts.test.mjs": "d9d7bdcf1178fdc9581f8a58b511872518fdc2f92d0a27d77a8803af681cc889",
+        "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f"
       },
       "consumed_source_fragments": {}
     }
@@ -66854,8 +67098,8 @@
     "definition_status": "prepared",
     "release_readiness": "not_evaluated",
     "source_hashes": {
-      "docs/dod-evals.md": "83fd137a0a56d2e331b590f5346051e3298b6dd64547c87e0ba4bf97d2fcec59",
-      "docs/qa-checklist.md": "7ecc7605a3abcf7876687be479dfc225748d436851e5db7c6eef92daf5548fb1"
+      "docs/dod-evals.md": "6e5c53a51e8cb289be423174ac7682057ca4e7fe140dd04a7f71b6e7d34f0c09",
+      "docs/qa-checklist.md": "e392aee5b0ad0747e97b001cfb2210a5b6be56861cebffde54a30071aac6ae78"
     },
     "gates": [
       {
