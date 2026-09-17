@@ -146,7 +146,7 @@ Obligations and acceptance: FR-04.1–FR-04.3, NFR-12.1, NFR-12.3; AC-008
 
 | ID | Observable obligation | Use cases |
 |---|---|---|
-| FR-06.1 | Clicking or keyboard-activating a saved conversation row reopens its complete confirmed conversation content, owned attachments and source records. Export and Delete remain separate row actions. | UC-004 |
+| FR-06.1 | Clicking or keyboard-activating a saved conversation row reopens its complete confirmed conversation content, owned attachments and source records. A same-tab browser refresh restores the authenticated owner to the active surface and reading position; when Discussion had an open record, it reopens that record and selected local tab. The short-lived tab state contains no draft or conversation content and is cleared at Logoff. Export and Delete remain separate row actions. | UC-004 |
 | FR-06.2 | Export downloads the selected complete confirmed discussion as an RTF attachment: conversation title, bold speaker/recipient names, date/time stamps in the browser time zone (explicit UTC if absent), paragraphs, supported emphasis/lists/headings and source references. Unicode English/Ukrainian text is preserved; valid emphasis appears formatted instead of raw Markdown markers. Include saved image references; image binaries remain available separately in the conversation. Exclude unsent drafts, credentials, runtime instructions and hidden run metadata. | UC-004 |
 | FR-06.3 | Explicit whole-conversation deletion removes its record and owned attachments; cancellation leaves them unchanged. | UC-004 |
 
@@ -172,7 +172,7 @@ Obligations and acceptance: FR-04.1–FR-04.3, NFR-12.1, NFR-12.3; AC-008
 
 | ID | Observable obligation | Use cases |
 |---|---|---|
-| NFR-01.1 | An acknowledged message survives browser refresh, network interruption and application restart. | UC-003 |
+| NFR-01.1 | An acknowledged message survives browser refresh, network interruption and application restart. A browser refresh remains in the same tab and restores the authenticated owner’s surface, open record where applicable and reading position without persisting draft text or conversation content. | UC-003 |
 | NFR-01.2 | Reconnect/retry cannot duplicate a confirmed reply or allow concurrent runs to corrupt the canonical record. | UC-003 |
 | NFR-01.3 | Enforce the saved discussion-depth boundary: Auto stops after a complete team review supports consensus, or after 10 complete Critic ↔ specialist exchanges per specialist. Explicit depth never requires filler or ceremonial rounds. Retain the ten-minute continuation boundary. | UC-003 |
 | NFR-01.4 | Measure the existing 5-second acknowledgment, 30-second first useful contribution and 60-second stalled-work visibility targets without presenting filler as useful output. | UC-003 |

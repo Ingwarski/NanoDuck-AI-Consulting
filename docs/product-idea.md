@@ -97,7 +97,7 @@ Image attachments are a single-owner convenience, not a public file-exchange fea
 
 Keep one concise initial explanation/consent for ordinary AI processing, existing minimization and specific permission for sensitive transfers. Voice has a separate, just-in-time browser permission and disclosure because its recognition service can receive speech; NanoDuck receives only text the owner chooses to insert and send. Do not repeatedly ask for unchanged permission. Keep secrets and prohibited sensitive records out of agent messages, logs and the public repository.
 
-An accepted message survives refresh/restart. Unsent drafts remain clearly distinct from accepted work. Reconnecting resumes the saved conversation and does not insert a second copy of an already confirmed reply. Stop prevents late work from becoming a new visible result. A failed research/provider step preserves the record and reports the actual limitation.
+An accepted message survives refresh/restart. A browser refresh stays in the same tab and restores the authenticated owner to the active app surface, selected discussion tab, saved conversation when it was open, and prior reading position. That short-lived tab state contains no draft or conversation content and is cleared at Logoff. Unsent drafts remain clearly distinct from accepted work. Reconnecting resumes the saved conversation and does not insert a second copy of an already confirmed reply. Stop prevents late work from becoming a new visible result. A failed research/provider step preserves the record and reports the actual limitation.
 
 ## Success and release evidence
 

@@ -61,7 +61,12 @@ test("the local HTTP flow protects data, saves settings and preserves a truthful
     assert.match(client, /critic-provider/u);
     assert.match(client, /requestSubmit\(\)/u);
     assert.match(client, /setTab\("discussion"\)/u);
+    assert.match(client, /refresh-state\.js/u);
+    assert.match(client, /saveRefreshState\(\)/u);
+    assert.match(client, /restoreScroll\(saved\.scrollY\)/u);
     assert.doesNotMatch(client, /MediaRecorder|voice\/transcribe/u);
+    const refreshState = await (await fetch(`${origin}/client/refresh-state.js`)).text();
+    assert.match(refreshState, /nanoduck-page-state-v1/u);
     const shell = await (await fetch(`${origin}/`)).text();
     assert.match(shell, /id="notification-sound"/u);
     assert.doesNotMatch(shell, /id="conversation-title"/u);

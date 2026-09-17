@@ -1,4 +1,5 @@
 import { parseMarkdown } from "/client/markdown.js";
+import { normalizeRefreshState, refreshStateKey, serializeRefreshState } from "/client/refresh-state.js";
 
 const state = { session: null, csrf: null, page: "discussion", tab: "discussion", conversation: null, events: [], run: null, poll: null, recognition: null, voiceTimer: null, voiceMode: "ready", voiceTranscript: "", attachmentFiles: [], attachmentError: "", runtimeInstructionHistory: [], notificationSound: "knock", conversations: [], selectedConversationIds: new Set(), criticSettings: null, criticProviders: null };
 const $ = selector => document.querySelector(selector);
@@ -77,6 +78,29 @@ const announceIncomingMessages = (before, after) => {
   $("#message-announcement").textContent = incoming.length === 1 ? `${displayRole(incoming[0].role)} sent a message.` : `${incoming.length} new consultation messages are available.`;
 };
 
+const saveRefreshState = () => {
+  if (!state.session?.authenticated || !state.session.consented) return;
+  try {
+    sessionStorage.setItem(refreshStateKey, serializeRefreshState({
+      page: state.page,
+      tab: state.tab,
+      conversationId: state.conversation?.id,
+      scrollY: window.scrollY
+    }));
+  } catch { /* Browser storage can be unavailable without affecting the consultation. */ }
+};
+const takeRefreshState = () => {
+  try {
+    const raw = sessionStorage.getItem(refreshStateKey);
+    sessionStorage.removeItem(refreshStateKey);
+    return raw ? normalizeRefreshState(JSON.parse(raw)) : undefined;
+  } catch { return undefined; }
+};
+const clearRefreshState = () => {
+  try { sessionStorage.removeItem(refreshStateKey); } catch { /* Browser storage can be unavailable. */ }
+};
+const restoreScroll = scrollY => requestAnimationFrame(() => requestAnimationFrame(() => window.scrollTo(0, scrollY)));
+
 function nav(page) {
   closeMenu();
   if (!state.session?.authenticated || !state.session.consented) return;
@@ -85,8 +109,9 @@ function nav(page) {
   $("#conversations-page").hidden = page !== "conversations";
   $("#settings-page").hidden = page !== "settings";
   document.querySelectorAll("[data-nav]").forEach(button => button.setAttribute("aria-current", String(button.dataset.nav === page ? "page" : false)));
-  if (page === "conversations") void loadConversations();
-  if (page === "settings") void loadSettings();
+  if (page === "conversations") return loadConversations();
+  if (page === "settings") return loadSettings();
+  return Promise.resolve();
 }
 
 function closeMenu() { $("#mobile-nav").hidden = true; $("#menu").setAttribute("aria-expanded", "false"); }
@@ -120,6 +145,7 @@ async function signOut() {
   try {
     await request("/api/logout", { method: "POST" });
     stopPolling(); releaseVoice();
+    state.session = null; clearRefreshState();
     // Reload clears private in-memory content and retrieves the signed-out session.
     location.reload();
   } catch {
@@ -184,7 +210,7 @@ function renderOutcome() { const target = clear($("#outcome")); const ownerIndex
 function renderSources() { const target = clear($("#sources")); const sources = [...new Map(state.events.flatMap(event => event.sources ?? []).map(source => [source.url, source])).values()]; if (!sources.length) { target.append(node("div", { class: "empty" }, "Sources appear here when live research materially informs the discussion.")); return; } for (const source of sources) { const dates = [`Retrieved ${formatDate(source.retrievedAt)}`]; if (source.publishedAt) dates.push(`Published ${formatDate(source.publishedAt)}`); const card = node("article", { class: "source-card" }); card.append(node("a", { href: source.url, target: "_blank", rel: "noopener noreferrer" }, source.title), node("p", {}, source.claim), node("p", { class: "hint" }, dates.join(" · "))); target.append(card); } }
 
 async function loadConversation(conversationId, { preserveAttachmentDraft = false } = {}) {
-  const { data } = await request(`/api/conversations/${conversationId}`); state.conversation = data.conversation; state.events = data.events; state.run = data.run; renderEvents(); nav("discussion"); setTab("discussion"); startPolling();
+  const { data } = await request(`/api/conversations/${encodeURIComponent(conversationId)}`); state.conversation = data.conversation; state.events = data.events; state.run = data.run; renderEvents(); await nav("discussion"); setTab("discussion"); startPolling();
   if (!preserveAttachmentDraft) clearAttachmentDraft();
 }
 
@@ -485,7 +511,7 @@ function voiceAction() {
 }
 
 $("#menu").addEventListener("click", () => { const menu = $("#mobile-nav"); menu.hidden = !menu.hidden; $("#menu").setAttribute("aria-expanded", String(!menu.hidden)); });
-document.addEventListener("click", event => { const button = event.target.closest("[data-nav]"); if (button) nav(button.dataset.nav); const tab = event.target.closest("[data-tab]"); if (tab) setTab(tab.dataset.tab); });
+document.addEventListener("click", event => { const button = event.target.closest("[data-nav]"); if (button) void nav(button.dataset.nav).catch(() => toast("That page could not be loaded. Please try again.")); const tab = event.target.closest("[data-tab]"); if (tab) setTab(tab.dataset.tab); });
 $("#new-conversation").addEventListener("click", () => { clearAttachmentDraft(); void newConversation(); }); $("#composer").addEventListener("submit", event => void acceptMessage(event)); $("#message").addEventListener("keydown", event => { if (event.key !== "Enter" || event.shiftKey || event.isComposing) return; event.preventDefault(); $("#composer").requestSubmit(); }); $("#stop").addEventListener("click", () => void stop()); $("#continue").addEventListener("click", () => void continueRun());
 $("#google-sign-in").addEventListener("click", signIn);
 $("#development-sign-in").addEventListener("click", signIn);
@@ -529,6 +555,21 @@ $("#runtime-instructions-form").addEventListener("submit", async event => {
 $("#sign-out").addEventListener("click", signOut);
 $("#runtime-instructions-version-restore").addEventListener("click", () => void restoreRuntimeInstructionVersion()); $("#runtime-instructions-version-cancel").addEventListener("click", () => $("#runtime-instructions-version-dialog").close()); $("#runtime-instructions-version-close").addEventListener("click", () => $("#runtime-instructions-version-dialog").close());
 $("#attach").addEventListener("click", () => $("#attachment").click()); $("#attachment").addEventListener("change", event => chooseAttachments(event.target.files));
-$("#voice").addEventListener("click", openVoice); $("#voice-action").addEventListener("click", event => { event.preventDefault(); voiceAction(); }); $("#voice-cancel").addEventListener("click", () => { releaseVoice(); $("#voice-dialog").close(); }); $("#voice-close").addEventListener("click", () => { releaseVoice(); $("#voice-dialog").close(); }); $("#voice-dialog").addEventListener("close", releaseVoice); window.addEventListener("pagehide", () => { stopPolling(); releaseVoice(); }); document.addEventListener("visibilitychange", () => { if (document.hidden && state.voiceMode === "listening") { releaseVoice(); voiceFailure("Voice interrupted", "Voice input stopped when the app moved to the background. Your typed draft is unchanged."); } });
+$("#voice").addEventListener("click", openVoice); $("#voice-action").addEventListener("click", event => { event.preventDefault(); voiceAction(); }); $("#voice-cancel").addEventListener("click", () => { releaseVoice(); $("#voice-dialog").close(); }); $("#voice-close").addEventListener("click", () => { releaseVoice(); $("#voice-dialog").close(); }); $("#voice-dialog").addEventListener("close", releaseVoice); window.addEventListener("pagehide", () => { saveRefreshState(); stopPolling(); releaseVoice(); }); document.addEventListener("visibilitychange", () => { if (document.hidden && state.voiceMode === "listening") { releaseVoice(); voiceFailure("Voice interrupted", "Voice input stopped when the app moved to the background. Your typed draft is unchanged."); } });
 
-void loadSession().catch(() => toast("The app could not initialize."));
+async function initialize() {
+  const saved = takeRefreshState();
+  await loadSession();
+  if (!saved || !state.session?.authenticated || !state.session.consented) return;
+  try {
+    if (saved.page === "discussion" && saved.conversationId) await loadConversation(saved.conversationId);
+    else await nav(saved.page);
+    if (saved.page === "discussion") setTab(saved.tab);
+  } catch {
+    // A deleted or unavailable record falls back to the normal authenticated discussion.
+    await nav("discussion");
+  }
+  restoreScroll(saved.scrollY);
+}
+
+void initialize().catch(() => toast("The app could not initialize."));
