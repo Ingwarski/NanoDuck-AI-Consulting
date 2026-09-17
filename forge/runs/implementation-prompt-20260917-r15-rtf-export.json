@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "event": "implementation_prompt",
+  "role": "user",
+  "intent": "start_production_implementation",
+  "prompt_id": "impl-r15-rtf-export-20260917",
+  "message": "One correction unit - make export in properly formatted rich text file - names in bold, time stamps, paragraphs. or is md better for that type of text (One would need something to properly display bald font, not just with ** **)?",
+  "recorded_at": "2026-09-17T18:32:08+00:00",
+  "received_at": "2026-09-17T18:32:08+00:00",
+  "message_provenance": "Exact current user message; received_at and recorded_at capture receipt creation, not an inferred exact message-arrival time.",
+  "development_plan_hash": "1b9f158c68d1d28ee9dca9ebc8558fc8c01251aec6999f51bf504515319b6907",
+  "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
+  "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
+  "scope_note": "Implement the explicit rich-text conversation export correction and reconcile affected SDD owners. Existing single-owner authentication, consent, 24-hour session, approved A v8 design outside this override and deployment boundaries remain unchanged. No production deployment, secret replacement, data reset or unrelated app operation is authorized by this receipt."
+}

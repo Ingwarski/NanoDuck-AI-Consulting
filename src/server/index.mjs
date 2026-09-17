@@ -8,6 +8,7 @@ import { createCodexProvider } from "./codex-provider.mjs";
 import { createConsultationService } from "./consultation.mjs";
 import { parseRuntimeInstructions, RuntimeInstructionError, upgradeRuntimeInstructionMarkdown } from "./prompt-contracts.mjs";
 import { attachmentExtension, readImageAttachment } from "./attachments.mjs";
+import { exportConversationRtf } from "./conversation-export.mjs";
 import { messageError, parseConversationId, parseMessage, parseSettings } from "./validation.mjs";
 
 const config = loadConfig();
@@ -131,7 +132,14 @@ const handler = async (request, response) => {
       }
       if (request.method === "POST" && action === "stop") { const run = await consultation.stop(conversationId); return run ? send(response, 200, { run }) : send(response, 409, { error: "no_active_run" }); }
       if (request.method === "POST" && action === "continue") { const run = await consultation.continue(conversationId); return run ? send(response, 202, { run }) : send(response, 409, { error: "not_stopped" }); }
-      if (request.method === "GET" && action === "export") { const exported = await store.exportConversation(conversationId); return exported ? send(response, 200, exported, { "content-disposition": `attachment; filename="nanoduck-${conversationId}.json"` }) : send(response, 404, { error: "not_found" }); }
+      if (request.method === "GET" && action === "export") {
+        const exported = await store.exportConversation(conversationId);
+        if (!exported) return send(response, 404, { error: "not_found" });
+        let document;
+        try { document = exportConversationRtf(exported, url.searchParams.get("timeZone") ?? "UTC"); }
+        catch (error) { if (error instanceof RangeError) return send(response, 422, { error: "invalid_time_zone" }); throw error; }
+        return bytes(response, 200, document, { "content-type": "application/rtf", "content-disposition": `attachment; filename="nanoduck-${conversationId}.rtf"` });
+      }
       if (request.method === "DELETE" && !action) { return (await store.deleteConversation(conversationId)) ? empty(response, 204) : send(response, 404, { error: "not_found" }); }
     }
     if (request.method === "GET" && await staticFile(request, response, url.pathname)) return;

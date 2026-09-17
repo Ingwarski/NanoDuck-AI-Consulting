@@ -8,13 +8,13 @@
     "product-idea": {
       "path": "docs/product-idea.md",
       "owner_skill": "to-product-idea",
-      "owner_invocation_id": "r14-visible-login-menu-product-idea-2026-09-16T23:53:41+00:00",
+      "owner_invocation_id": "r15-rtf-export-product-idea-2026-09-17T18:32:08+00:00",
       "declared_output_set": [
         "docs/product-idea.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r14-visible-login-menu-product-idea-2026-09-16T23:53:41+00:00",
+      "source_version": "r15-rtf-export-product-idea-2026-09-17T18:32:08+00:00",
       "source_usage": {
         "docs/model-settings.md": "full",
         "docs/deployment-boundary.md": "full",
@@ -28,14 +28,14 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2"
       },
       "dependencies": [],
-      "content_hash": "222bbe4994884059836a3a563f84b71ae725eb424b224b70b18d4f83f61e3a0b",
+      "content_hash": "d0fc4b60d6db1b56ea5b6264740ec68b0c8ac78433182fc37f3fbdf6a88b714f",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r14-visible-login-menu-reconciliation",
-        "reviewed_at": "2026-09-16T23:53:41+00:00",
+        "kind": "r15-rtf-export-reconciliation",
+        "reviewed_at": "2026-09-17T18:32:08+00:00",
         "executor": "Codex inline to-product-idea",
-        "scope": "Record the explicit Login/Logoff menu correction; preserve the single-owner scope and all other product decisions. Correct placement to one always-visible bar button outside the collapsed mobile dropdown; no auth behavior or server changes."
+        "scope": "Record the owner-requested readable rich-text export with bold names, timestamps and paragraphs."
       },
       "open_questions": [],
       "traceability": {
@@ -97,35 +97,35 @@
         ],
         "links": []
       },
-      "supersedes": "r13-login-menu-product-idea-2026-09-16T23:39:08+00:00"
+      "supersedes": "r14-visible-login-menu-product-idea-2026-09-16T23:53:41+00:00"
     },
     "prd": {
       "path": "docs/prd.md",
       "owner_skill": "to-sdd-prd",
-      "owner_invocation_id": "r14-visible-login-menu-prd-2026-09-16T23:53:41+00:00",
+      "owner_invocation_id": "r15-rtf-export-prd-2026-09-17T18:32:08+00:00",
       "declared_output_set": [
         "docs/prd.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r14-visible-login-menu-prd-2026-09-16T23:53:41+00:00",
+      "source_version": "r15-rtf-export-prd-2026-09-17T18:32:08+00:00",
       "source_usage": {
         "docs/product-idea.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "222bbe4994884059836a3a563f84b71ae725eb424b224b70b18d4f83f61e3a0b"
+        "docs/product-idea.md": "d0fc4b60d6db1b56ea5b6264740ec68b0c8ac78433182fc37f3fbdf6a88b714f"
       },
       "dependencies": [
         "product-idea"
       ],
-      "content_hash": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
+      "content_hash": "6887e7e06f70b763db6a95d4335be50921cc6f2139de33d3b625ac31ab97a499",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r14-visible-login-menu-reconciliation",
-        "reviewed_at": "2026-09-16T23:53:41+00:00",
+        "kind": "r15-rtf-export-reconciliation",
+        "reviewed_at": "2026-09-17T18:32:08+00:00",
         "executor": "Codex inline to-sdd-prd",
-        "scope": "Reconcile UC-001 and FR-08.1 session-action behavior. Existing NFR-10/11/14 controls remain required; no new identity or trust boundary. Correct placement to one always-visible bar button outside the collapsed mobile dropdown; no auth behavior or server changes."
+        "scope": "Reconcile UC-004/FR-06.2 for RTF, preserved content, time-zone display and existing privacy/input controls."
       },
       "open_questions": [],
       "traceability": {
@@ -2367,26 +2367,26 @@
           "reviewed_at": "2026-09-14T20:13:37+03:00"
         }
       },
-      "supersedes": "r13-login-menu-prd-2026-09-16T23:39:08+00:00"
+      "supersedes": "r14-visible-login-menu-prd-2026-09-16T23:53:41+00:00"
     },
     "project-context": {
       "path": "docs/project-context.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "r14-visible-login-menu-project-context-2026-09-16T23:53:41+00:00",
+      "owner_invocation_id": "r15-rtf-export-project-context-2026-09-17T18:32:08+00:00",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r14-visible-login-menu-project-context-2026-09-16T23:53:41+00:00",
+      "source_version": "r15-rtf-export-project-context-2026-09-17T18:32:08+00:00",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "222bbe4994884059836a3a563f84b71ae725eb424b224b70b18d4f83f61e3a0b",
-        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba"
+        "docs/product-idea.md": "d0fc4b60d6db1b56ea5b6264740ec68b0c8ac78433182fc37f3fbdf6a88b714f",
+        "docs/prd.md": "6887e7e06f70b763db6a95d4335be50921cc6f2139de33d3b625ac31ab97a499"
       },
       "dependencies": [
         "product-idea",
@@ -2396,68 +2396,68 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r14-visible-login-menu-reconciliation",
-        "reviewed_at": "2026-09-16T23:53:41+00:00",
+        "kind": "r15-rtf-export-reconciliation",
+        "reviewed_at": "2026-09-17T18:32:08+00:00",
         "executor": "Codex inline to-project-context",
-        "scope": "Add canonical session-action labels; unchanged platform, users, language and boundaries remain consistent. Correct placement to one always-visible bar button outside the collapsed mobile dropdown; no auth behavior or server changes."
+        "scope": "Clarify RTF terminology; unchanged user, language and deployment context remains consistent."
       },
       "open_questions": [],
-      "supersedes": "r13-login-menu-project-context-2026-09-16T23:39:08+00:00"
+      "supersedes": "r14-visible-login-menu-project-context-2026-09-16T23:53:41+00:00"
     },
     "canonical-terms": {
       "path": "docs/canonical-terms.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "r14-visible-login-menu-project-context-2026-09-16T23:53:41+00:00",
+      "owner_invocation_id": "r15-rtf-export-project-context-2026-09-17T18:32:08+00:00",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r14-visible-login-menu-project-context-2026-09-16T23:53:41+00:00",
+      "source_version": "r15-rtf-export-project-context-2026-09-17T18:32:08+00:00",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "222bbe4994884059836a3a563f84b71ae725eb424b224b70b18d4f83f61e3a0b",
-        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba"
+        "docs/product-idea.md": "d0fc4b60d6db1b56ea5b6264740ec68b0c8ac78433182fc37f3fbdf6a88b714f",
+        "docs/prd.md": "6887e7e06f70b763db6a95d4335be50921cc6f2139de33d3b625ac31ab97a499"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
+      "content_hash": "bc15168fa45c74b3694515b2d9890a4208c35c8c0f94e3cd3bbae1feaeba0e47",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r14-visible-login-menu-reconciliation",
-        "reviewed_at": "2026-09-16T23:53:41+00:00",
+        "kind": "r15-rtf-export-reconciliation",
+        "reviewed_at": "2026-09-17T18:32:08+00:00",
         "executor": "Codex inline to-project-context",
-        "scope": "Add canonical session-action labels; unchanged platform, users, language and boundaries remain consistent. Correct placement to one always-visible bar button outside the collapsed mobile dropdown; no auth behavior or server changes."
+        "scope": "Clarify RTF terminology; unchanged user, language and deployment context remains consistent."
       },
       "open_questions": [],
-      "supersedes": "r13-login-menu-project-context-2026-09-16T23:39:08+00:00"
+      "supersedes": "r14-visible-login-menu-project-context-2026-09-16T23:53:41+00:00"
     },
     "guardrails": {
       "path": "docs/guardrails.md",
       "owner_skill": "to-guardrails",
-      "owner_invocation_id": "r14-visible-login-menu-guardrails-2026-09-16T23:53:41+00:00",
+      "owner_invocation_id": "r15-rtf-export-guardrails-2026-09-17T18:32:08+00:00",
       "declared_output_set": [
         "docs/guardrails.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r14-visible-login-menu-guardrails-2026-09-16T23:53:41+00:00",
+      "source_version": "r15-rtf-export-guardrails-2026-09-17T18:32:08+00:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
         "docs/canonical-terms.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
+        "docs/prd.md": "6887e7e06f70b763db6a95d4335be50921cc6f2139de33d3b625ac31ab97a499",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050"
+        "docs/canonical-terms.md": "bc15168fa45c74b3694515b2d9890a4208c35c8c0f94e3cd3bbae1feaeba0e47"
       },
       "dependencies": [
         "prd",
@@ -2468,24 +2468,24 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r14-visible-login-menu-reconciliation",
-        "reviewed_at": "2026-09-16T23:53:41+00:00",
+        "kind": "r15-rtf-export-reconciliation",
+        "reviewed_at": "2026-09-17T18:32:08+00:00",
         "executor": "Codex inline to-guardrails",
-        "scope": "No content change: existing explicit scoped-correction, verification and external-action boundaries cover this request. Correct placement to one always-visible bar button outside the collapsed mobile dropdown; no auth behavior or server changes."
+        "scope": "No content change: authenticated private export and scoped implementation retain existing authorization/evidence rules."
       },
       "open_questions": [],
-      "supersedes": "r13-login-menu-guardrails-2026-09-16T23:39:08+00:00"
+      "supersedes": "r14-visible-login-menu-guardrails-2026-09-16T23:53:41+00:00"
     },
     "user-journey": {
       "path": "docs/user-journey.md",
       "owner_skill": "to-user-journey",
-      "owner_invocation_id": "r14-visible-login-menu-user-journey-2026-09-16T23:53:41+00:00",
+      "owner_invocation_id": "r15-rtf-export-user-journey-2026-09-17T18:32:08+00:00",
       "declared_output_set": [
         "docs/user-journey.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r14-visible-login-menu-user-journey-2026-09-16T23:53:41+00:00",
+      "source_version": "r15-rtf-export-user-journey-2026-09-17T18:32:08+00:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2493,9 +2493,9 @@
         "docs/guardrails.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
+        "docs/prd.md": "6887e7e06f70b763db6a95d4335be50921cc6f2139de33d3b625ac31ab97a499",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
+        "docs/canonical-terms.md": "bc15168fa45c74b3694515b2d9890a4208c35c8c0f94e3cd3bbae1feaeba0e47",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a"
       },
       "dependencies": [
@@ -2504,28 +2504,28 @@
         "canonical-terms",
         "guardrails"
       ],
-      "content_hash": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
+      "content_hash": "2d5b12a49c1698b4adcf002e829f54e455a69f65fa7b9d59670040f03175c5db",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r14-visible-login-menu-reconciliation",
-        "reviewed_at": "2026-09-16T23:53:41+00:00",
+        "kind": "r15-rtf-export-reconciliation",
+        "reviewed_at": "2026-09-17T18:32:08+00:00",
         "executor": "Codex inline to-user-journey",
-        "scope": "Reconcile entry and safe exit via the new global action without changing consent. Correct placement to one always-visible bar button outside the collapsed mobile dropdown; no auth behavior or server changes."
+        "scope": "Update saved-record export to a directly readable document without a Markdown-viewer step."
       },
       "open_questions": [],
-      "supersedes": "r13-login-menu-user-journey-2026-09-16T23:39:08+00:00"
+      "supersedes": "r14-visible-login-menu-user-journey-2026-09-16T23:53:41+00:00"
     },
     "screen-map": {
       "path": "docs/screen-map.md",
       "owner_skill": "to-screen-map",
-      "owner_invocation_id": "r14-visible-login-menu-screen-map-2026-09-16T23:53:41+00:00",
+      "owner_invocation_id": "r15-rtf-export-screen-map-2026-09-17T18:32:08+00:00",
       "declared_output_set": [
         "docs/screen-map.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r14-visible-login-menu-screen-map-2026-09-16T23:53:41+00:00",
+      "source_version": "r15-rtf-export-screen-map-2026-09-17T18:32:08+00:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2537,11 +2537,11 @@
         "forge/design/candidates/c/v1/app.js": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
+        "docs/prd.md": "6887e7e06f70b763db6a95d4335be50921cc6f2139de33d3b625ac31ab97a499",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
+        "docs/canonical-terms.md": "bc15168fa45c74b3694515b2d9890a4208c35c8c0f94e3cd3bbae1feaeba0e47",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
+        "docs/user-journey.md": "2d5b12a49c1698b4adcf002e829f54e455a69f65fa7b9d59670040f03175c5db",
         "forge/design/candidates/a/v1/app.js": "a869dd42c95740bf7da4802934c3cd6f8d2e2243795ee20925cd5ee19f474531",
         "forge/design/candidates/b/v1/app.js": "17e37807a032c5ea1660efca698e21dc8baf29a3c5344067470b6b44311f9b39",
         "forge/design/candidates/c/v1/app.js": "f64ab8a6962cc700c8087803d33ecda68884da78158ea0e5547235c6d4fff530"
@@ -2553,14 +2553,14 @@
         "guardrails",
         "user-journey"
       ],
-      "content_hash": "ee7989029e1a6ac88ab3550159b1c66bf50f2e5aeacf23f1a4c5de34afb3df6b",
+      "content_hash": "9a9027c586203c64c6d81a8040c52c190ab5fc59b66a5ed52bdb343cc2d7a757",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r14-visible-login-menu-reconciliation",
-        "reviewed_at": "2026-09-16T23:53:41+00:00",
+        "kind": "r15-rtf-export-reconciliation",
+        "reviewed_at": "2026-09-17T18:32:08+00:00",
         "executor": "Codex inline to-screen-map",
-        "scope": "Reconcile existing S-01/S-09 transitions; no new surface or state inventory. Correct placement to one always-visible bar button outside the collapsed mobile dropdown; no auth behavior or server changes."
+        "scope": "Reconcile the existing S-08 export action; no new screen or format selector."
       },
       "open_questions": [],
       "traceability": {
@@ -3568,18 +3568,18 @@
           }
         ]
       },
-      "supersedes": "r13-login-menu-screen-map-2026-09-16T23:39:08+00:00"
+      "supersedes": "r14-visible-login-menu-screen-map-2026-09-16T23:53:41+00:00"
     },
     "wireframes": {
       "path": "docs/wireframes.md",
       "owner_skill": "to-wireframes",
-      "owner_invocation_id": "r14-visible-login-menu-wireframes-2026-09-16T23:53:41+00:00",
+      "owner_invocation_id": "r15-rtf-export-wireframes-2026-09-17T18:32:08+00:00",
       "declared_output_set": [
         "docs/wireframes.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r14-visible-login-menu-wireframes-2026-09-16T23:53:41+00:00",
+      "source_version": "r15-rtf-export-wireframes-2026-09-17T18:32:08+00:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3589,12 +3589,12 @@
         "docs/screen-map.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
+        "docs/prd.md": "6887e7e06f70b763db6a95d4335be50921cc6f2139de33d3b625ac31ab97a499",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
+        "docs/canonical-terms.md": "bc15168fa45c74b3694515b2d9890a4208c35c8c0f94e3cd3bbae1feaeba0e47",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
-        "docs/screen-map.md": "ee7989029e1a6ac88ab3550159b1c66bf50f2e5aeacf23f1a4c5de34afb3df6b"
+        "docs/user-journey.md": "2d5b12a49c1698b4adcf002e829f54e455a69f65fa7b9d59670040f03175c5db",
+        "docs/screen-map.md": "9a9027c586203c64c6d81a8040c52c190ab5fc59b66a5ed52bdb343cc2d7a757"
       },
       "dependencies": [
         "prd",
@@ -3604,28 +3604,28 @@
         "user-journey",
         "screen-map"
       ],
-      "content_hash": "0efebd20d9a1b8c73421a14c07a7e1ac45a93dcb838c6519be21fb7866eb2275",
+      "content_hash": "cbe97feaa1633cb79643abb3a7e26a3af08406ed1337a3e9b7c687b93d85b2b5",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r14-visible-login-menu-reconciliation",
-        "reviewed_at": "2026-09-16T23:53:41+00:00",
+        "kind": "r15-rtf-export-reconciliation",
+        "reviewed_at": "2026-09-17T18:32:08+00:00",
         "executor": "Codex inline to-wireframes",
-        "scope": "Append the session action to desktop/mobile navigation and disable pending actions. Correct placement to one always-visible bar button outside the collapsed mobile dropdown; no auth behavior or server changes."
+        "scope": "Define document content hierarchy and the existing Export tooltip."
       },
       "open_questions": [],
-      "supersedes": "r13-login-menu-wireframes-2026-09-16T23:39:08+00:00"
+      "supersedes": "r14-visible-login-menu-wireframes-2026-09-16T23:53:41+00:00"
     },
     "design-brief": {
       "path": "docs/design-brief.md",
       "owner_skill": "to-design-brief",
-      "owner_invocation_id": "r14-visible-login-menu-design-brief-2026-09-16T23:53:41+00:00",
+      "owner_invocation_id": "r15-rtf-export-design-brief-2026-09-17T18:32:08+00:00",
       "declared_output_set": [
         "docs/design-brief.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r14-visible-login-menu-design-brief-2026-09-16T23:53:41+00:00",
+      "source_version": "r15-rtf-export-design-brief-2026-09-17T18:32:08+00:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3681,14 +3681,14 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
+        "docs/prd.md": "6887e7e06f70b763db6a95d4335be50921cc6f2139de33d3b625ac31ab97a499",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
+        "docs/canonical-terms.md": "bc15168fa45c74b3694515b2d9890a4208c35c8c0f94e3cd3bbae1feaeba0e47",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
-        "docs/screen-map.md": "ee7989029e1a6ac88ab3550159b1c66bf50f2e5aeacf23f1a4c5de34afb3df6b",
-        "docs/wireframes.md": "0efebd20d9a1b8c73421a14c07a7e1ac45a93dcb838c6519be21fb7866eb2275",
-        "docs/product-idea.md": "222bbe4994884059836a3a563f84b71ae725eb424b224b70b18d4f83f61e3a0b",
+        "docs/user-journey.md": "2d5b12a49c1698b4adcf002e829f54e455a69f65fa7b9d59670040f03175c5db",
+        "docs/screen-map.md": "9a9027c586203c64c6d81a8040c52c190ab5fc59b66a5ed52bdb343cc2d7a757",
+        "docs/wireframes.md": "cbe97feaa1633cb79643abb3a7e26a3af08406ed1337a3e9b7c687b93d85b2b5",
+        "docs/product-idea.md": "d0fc4b60d6db1b56ea5b6264740ec68b0c8ac78433182fc37f3fbdf6a88b714f",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "prototype/styles.css": "ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925",
         "prototype/app.js": "b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54",
@@ -3743,28 +3743,28 @@
         "screen-map",
         "wireframes"
       ],
-      "content_hash": "8691fb2246a4cef5223c8145ea53c678c0479f8333932e590cd8c73282ac0437",
+      "content_hash": "b593a405cbfb427053ce7d9e1d2ddd15362568a2ea98c2b0b5e1b7c49cecf8df",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r14-visible-login-menu-reconciliation",
-        "reviewed_at": "2026-09-16T23:53:41+00:00",
+        "kind": "r15-rtf-export-reconciliation",
+        "reviewed_at": "2026-09-17T18:32:08+00:00",
         "executor": "Codex inline to-design-brief",
-        "scope": "Record the explicit scoped operator override and existing blue action styling; frozen A v8 remains immutable. Correct placement to one always-visible bar button outside the collapsed mobile dropdown; no auth behavior or server changes."
+        "scope": "Define readable exported document treatment without modifying the frozen A v8 app layout."
       },
       "open_questions": [],
-      "supersedes": "r13-login-menu-design-brief-2026-09-16T23:39:08+00:00"
+      "supersedes": "r14-visible-login-menu-design-brief-2026-09-16T23:53:41+00:00"
     },
     "architecture": {
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "r14-visible-login-menu-architecture-2026-09-16T23:53:41+00:00",
+      "owner_invocation_id": "r15-rtf-export-architecture-2026-09-17T18:32:08+00:00",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r14-visible-login-menu-architecture-2026-09-16T23:53:41+00:00",
+      "source_version": "r15-rtf-export-architecture-2026-09-17T18:32:08+00:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3796,23 +3796,26 @@
         "test/prompt-contracts.test.mjs": "full",
         "test/fixtures/runtime-instructions.mjs": "full",
         "public/index.html": "full",
-        "public/styles.css": "full"
+        "public/styles.css": "full",
+        "src/server/conversation-export.mjs": "full",
+        "src/client/markdown.js": "full",
+        "test/conversation-export.test.mjs": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
+        "docs/prd.md": "6887e7e06f70b763db6a95d4335be50921cc6f2139de33d3b625ac31ab97a499",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
+        "docs/canonical-terms.md": "bc15168fa45c74b3694515b2d9890a4208c35c8c0f94e3cd3bbae1feaeba0e47",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
-        "docs/screen-map.md": "ee7989029e1a6ac88ab3550159b1c66bf50f2e5aeacf23f1a4c5de34afb3df6b",
-        "docs/wireframes.md": "0efebd20d9a1b8c73421a14c07a7e1ac45a93dcb838c6519be21fb7866eb2275",
-        "docs/design-brief.md": "8691fb2246a4cef5223c8145ea53c678c0479f8333932e590cd8c73282ac0437",
+        "docs/user-journey.md": "2d5b12a49c1698b4adcf002e829f54e455a69f65fa7b9d59670040f03175c5db",
+        "docs/screen-map.md": "9a9027c586203c64c6d81a8040c52c190ab5fc59b66a5ed52bdb343cc2d7a757",
+        "docs/wireframes.md": "cbe97feaa1633cb79643abb3a7e26a3af08406ed1337a3e9b7c687b93d85b2b5",
+        "docs/design-brief.md": "b593a405cbfb427053ce7d9e1d2ddd15362568a2ea98c2b0b5e1b7c49cecf8df",
         "docs/model-settings.md": "15a4ce817cd5c752a6a2b598dcf9de531338f12f4e6cb1ee1cc58ef1cca59a01",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "forge/runs/U-06/browser-speech-uk-20260914/README.md": "972494cb2d1dda8ae431f34bd2896eb6d5cb4642c838ae0b171d17ac931913d6",
         "package.json": "39f69e8b9c352928595ab1b7a3e83437a0e74bbdd2e5874b7d552f77c03fe0e2",
         "src/server/config.mjs": "4e7816297d1bbe6be98c00ed530041db9383c6354222a0f000e0181e321f1de9",
-        "src/server/index.mjs": "a4cc8c53b4e36f65bac8d4dca70b029d9065ed7d1c306e3034f84cd06b761c26",
+        "src/server/index.mjs": "f0bf703fa6d9488bc71d126733e774aea8a0bf2a0efbcc84d83609e0d8e521fc",
         "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
         "test/core.test.mjs": "0de9078abd52a192e67afb5ef13693652b4b9372bf8bf5ec0d2463ecc0283047",
@@ -3820,16 +3823,19 @@
         "src/server/consultation.mjs": "28ef05683422e6e8e99edc9173c780241d36143ef6e22925c41090238e50d793",
         "test/codex-provider.test.mjs": "f0734c813145c15a1282b60a0b34db1c8229a25c95d43f0573bb55d0fcb44eff",
         "test/consultation.test.mjs": "81aacfb3bf151f5ffcf14f120caeebbdfaa0c3bd670ad66c15faff122d89e79a",
-        "test/http.test.mjs": "c8801b9e2bdcc6f138b2bdaac8682fc027c3cdd50ee749471e9d382cf2a77c6a",
+        "test/http.test.mjs": "58beaf89669c6cb40f4452470155b17082c814ad3d035711bd2f3aca5edaafa4",
         ".env.example": "908e4483bcad524ca4c95e9d20bc57dd4f2fbc6156f17925728798f03e91620f",
         "test/fixtures/fake-codex.mjs": "b4e10cdbd32011f0bc6a8e3747aad51bc5264f240fe8b647c4fedf01e2b1ccd2",
         "src/server/prompt-contracts.mjs": "1dcaeb581105e1968859cf3ea1c44358c731882afd36cff3c7ad42d0d6ca3dfe",
-        "src/client/app.js": "420272b812d139e63ebd5629822f14db497e95a2529eebfd2e355d5b2ff049fc",
+        "src/client/app.js": "63554448752e6546da7c0dc5e1194879bbedbf5705016fb17b16009aaa3b5206",
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "d9d7bdcf1178fdc9581f8a58b511872518fdc2f92d0a27d77a8803af681cc889",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
         "public/index.html": "15e41ff1fe11e0574cb76ebf1407bcc5798df4436d4717d3c3c8ef3c0019cd77",
-        "public/styles.css": "538c7f8754e79955b2ee4a3875747d2c42b2749cfb008d48af6ad46714c19826"
+        "public/styles.css": "538c7f8754e79955b2ee4a3875747d2c42b2749cfb008d48af6ad46714c19826",
+        "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
+        "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
+        "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259"
       },
       "dependencies": [
         "prd",
@@ -3841,14 +3847,14 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "de7af6978e65f00e4c48a8aa75861e9681f7189899c55cdaa053e6eed339bb3b",
+      "content_hash": "6853fe18615ee612bb13e03288290576f3a9bf91125fbd9f1c44989ea4115b95",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r14-visible-login-menu-reconciliation",
-        "reviewed_at": "2026-09-16T23:53:41+00:00",
+        "kind": "r15-rtf-export-reconciliation",
+        "reviewed_at": "2026-09-17T18:32:08+00:00",
         "executor": "Codex inline to-architecture",
-        "scope": "Reuse current auth/session routes and server enforcement; clarify page-memory cleanup and consent gating. Correct placement to one always-visible bar button outside the collapsed mobile dropdown; no auth behavior or server changes."
+        "scope": "Reconcile authenticated RTF serialization, shared Markdown parsing, time-zone validation and inert escaped content; no storage/provider changes."
       },
       "open_questions": [],
       "security_coverage": {
@@ -3921,19 +3927,19 @@
           "heading": "## Security enforcement map"
         }
       },
-      "supersedes": "r13-login-menu-architecture-2026-09-16T23:39:56+00:00",
+      "supersedes": "r14-visible-login-menu-architecture-2026-09-16T23:53:41+00:00",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "dod-evals": {
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "r14-visible-login-menu-dod-evals-2026-09-16T23:53:41+00:00",
+      "owner_invocation_id": "r15-rtf-export-dod-evals-2026-09-17T18:32:08+00:00",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r14-visible-login-menu-dod-evals-2026-09-16T23:53:41+00:00",
+      "source_version": "r15-rtf-export-dod-evals-2026-09-17T18:32:08+00:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3946,15 +3952,15 @@
         "docs/architecture.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
+        "docs/prd.md": "6887e7e06f70b763db6a95d4335be50921cc6f2139de33d3b625ac31ab97a499",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
+        "docs/canonical-terms.md": "bc15168fa45c74b3694515b2d9890a4208c35c8c0f94e3cd3bbae1feaeba0e47",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
-        "docs/screen-map.md": "ee7989029e1a6ac88ab3550159b1c66bf50f2e5aeacf23f1a4c5de34afb3df6b",
-        "docs/wireframes.md": "0efebd20d9a1b8c73421a14c07a7e1ac45a93dcb838c6519be21fb7866eb2275",
-        "docs/design-brief.md": "8691fb2246a4cef5223c8145ea53c678c0479f8333932e590cd8c73282ac0437",
-        "docs/architecture.md": "de7af6978e65f00e4c48a8aa75861e9681f7189899c55cdaa053e6eed339bb3b"
+        "docs/user-journey.md": "2d5b12a49c1698b4adcf002e829f54e455a69f65fa7b9d59670040f03175c5db",
+        "docs/screen-map.md": "9a9027c586203c64c6d81a8040c52c190ab5fc59b66a5ed52bdb343cc2d7a757",
+        "docs/wireframes.md": "cbe97feaa1633cb79643abb3a7e26a3af08406ed1337a3e9b7c687b93d85b2b5",
+        "docs/design-brief.md": "b593a405cbfb427053ce7d9e1d2ddd15362568a2ea98c2b0b5e1b7c49cecf8df",
+        "docs/architecture.md": "6853fe18615ee612bb13e03288290576f3a9bf91125fbd9f1c44989ea4115b95"
       },
       "dependencies": [
         "prd",
@@ -3971,10 +3977,10 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r14-visible-login-menu-reconciliation",
-        "reviewed_at": "2026-09-16T23:53:41+00:00",
+        "kind": "r15-rtf-export-reconciliation",
+        "reviewed_at": "2026-09-17T18:32:08+00:00",
         "executor": "Codex inline to-dod-evals",
-        "scope": "No content change: existing functional/security/navigation gates cover the additional session-action entry points. Correct placement to one always-visible bar button outside the collapsed mobile dropdown; no auth behavior or server changes."
+        "scope": "No content change: existing functional, content-security, continuity and UI gates cover RTF export; no release pass claimed."
       },
       "open_questions": [],
       "security_coverage": {
@@ -4047,19 +4053,19 @@
           "heading": "### Product security membership"
         }
       },
-      "supersedes": "r13-login-menu-dod-evals-2026-09-16T23:39:56+00:00",
+      "supersedes": "r14-visible-login-menu-dod-evals-2026-09-16T23:53:41+00:00",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "qa-checklist": {
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "r14-visible-login-menu-qa-checklist-2026-09-16T23:53:41+00:00",
+      "owner_invocation_id": "r15-rtf-export-qa-checklist-2026-09-17T18:32:08+00:00",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r14-visible-login-menu-qa-checklist-2026-09-16T23:53:41+00:00",
+      "source_version": "r15-rtf-export-qa-checklist-2026-09-17T18:32:08+00:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -4093,18 +4099,21 @@
         "test/prompt-contracts.test.mjs": "full",
         "test/fixtures/runtime-instructions.mjs": "full",
         "public/index.html": "full",
-        "public/styles.css": "full"
+        "public/styles.css": "full",
+        "src/server/conversation-export.mjs": "full",
+        "src/client/markdown.js": "full",
+        "test/conversation-export.test.mjs": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
+        "docs/prd.md": "6887e7e06f70b763db6a95d4335be50921cc6f2139de33d3b625ac31ab97a499",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
+        "docs/canonical-terms.md": "bc15168fa45c74b3694515b2d9890a4208c35c8c0f94e3cd3bbae1feaeba0e47",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
-        "docs/screen-map.md": "ee7989029e1a6ac88ab3550159b1c66bf50f2e5aeacf23f1a4c5de34afb3df6b",
-        "docs/wireframes.md": "0efebd20d9a1b8c73421a14c07a7e1ac45a93dcb838c6519be21fb7866eb2275",
-        "docs/design-brief.md": "8691fb2246a4cef5223c8145ea53c678c0479f8333932e590cd8c73282ac0437",
-        "docs/architecture.md": "de7af6978e65f00e4c48a8aa75861e9681f7189899c55cdaa053e6eed339bb3b",
+        "docs/user-journey.md": "2d5b12a49c1698b4adcf002e829f54e455a69f65fa7b9d59670040f03175c5db",
+        "docs/screen-map.md": "9a9027c586203c64c6d81a8040c52c190ab5fc59b66a5ed52bdb343cc2d7a757",
+        "docs/wireframes.md": "cbe97feaa1633cb79643abb3a7e26a3af08406ed1337a3e9b7c687b93d85b2b5",
+        "docs/design-brief.md": "b593a405cbfb427053ce7d9e1d2ddd15362568a2ea98c2b0b5e1b7c49cecf8df",
+        "docs/architecture.md": "6853fe18615ee612bb13e03288290576f3a9bf91125fbd9f1c44989ea4115b95",
         "docs/dod-evals.md": "6e5c53a51e8cb289be423174ac7682057ca4e7fe140dd04a7f71b6e7d34f0c09",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
@@ -4112,7 +4121,7 @@
         "forge/design/evidence/c-v1-visual-qa.json": "b5517ae544724b5ae54c60f63e328797b4788b4abda5828ceaea81f439c4ae83",
         "package.json": "39f69e8b9c352928595ab1b7a3e83437a0e74bbdd2e5874b7d552f77c03fe0e2",
         "src/server/config.mjs": "4e7816297d1bbe6be98c00ed530041db9383c6354222a0f000e0181e321f1de9",
-        "src/server/index.mjs": "a4cc8c53b4e36f65bac8d4dca70b029d9065ed7d1c306e3034f84cd06b761c26",
+        "src/server/index.mjs": "f0bf703fa6d9488bc71d126733e774aea8a0bf2a0efbcc84d83609e0d8e521fc",
         "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
         "test/core.test.mjs": "0de9078abd52a192e67afb5ef13693652b4b9372bf8bf5ec0d2463ecc0283047",
@@ -4120,15 +4129,18 @@
         "src/server/consultation.mjs": "28ef05683422e6e8e99edc9173c780241d36143ef6e22925c41090238e50d793",
         "test/codex-provider.test.mjs": "f0734c813145c15a1282b60a0b34db1c8229a25c95d43f0573bb55d0fcb44eff",
         "test/consultation.test.mjs": "81aacfb3bf151f5ffcf14f120caeebbdfaa0c3bd670ad66c15faff122d89e79a",
-        "test/http.test.mjs": "c8801b9e2bdcc6f138b2bdaac8682fc027c3cdd50ee749471e9d382cf2a77c6a",
+        "test/http.test.mjs": "58beaf89669c6cb40f4452470155b17082c814ad3d035711bd2f3aca5edaafa4",
         "test/fixtures/fake-codex.mjs": "b4e10cdbd32011f0bc6a8e3747aad51bc5264f240fe8b647c4fedf01e2b1ccd2",
         "src/server/prompt-contracts.mjs": "1dcaeb581105e1968859cf3ea1c44358c731882afd36cff3c7ad42d0d6ca3dfe",
-        "src/client/app.js": "420272b812d139e63ebd5629822f14db497e95a2529eebfd2e355d5b2ff049fc",
+        "src/client/app.js": "63554448752e6546da7c0dc5e1194879bbedbf5705016fb17b16009aaa3b5206",
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "d9d7bdcf1178fdc9581f8a58b511872518fdc2f92d0a27d77a8803af681cc889",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
         "public/index.html": "15e41ff1fe11e0574cb76ebf1407bcc5798df4436d4717d3c3c8ef3c0019cd77",
-        "public/styles.css": "538c7f8754e79955b2ee4a3875747d2c42b2749cfb008d48af6ad46714c19826"
+        "public/styles.css": "538c7f8754e79955b2ee4a3875747d2c42b2749cfb008d48af6ad46714c19826",
+        "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
+        "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
+        "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259"
       },
       "dependencies": [
         "prd",
@@ -4142,14 +4154,14 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "9f589be8a61e8c50cebf5c8b9d803e5bea2cdad95e23ee9117ab0aa456036cb3",
+      "content_hash": "0b65bf4db59b573a2af9eeecebb072ef46864d7ac761b685892cf4961153f9ee",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r14-visible-login-menu-reconciliation",
-        "reviewed_at": "2026-09-16T23:53:41+00:00",
+        "kind": "r15-rtf-export-reconciliation",
+        "reviewed_at": "2026-09-17T18:32:08+00:00",
         "executor": "Codex inline to-qa-checklist",
-        "scope": "Extend QA-R33 for actual session labels, entry/exit, pending/error and responsive states; no full release pass claimed. Correct placement to one always-visible bar button outside the collapsed mobile dropdown; no auth behavior or server changes."
+        "scope": "Extend QA-R26 with API privacy, Unicode/RTF injection, time-zone and actual reader checks."
       },
       "open_questions": [],
       "traceability": {
@@ -5911,19 +5923,19 @@
           "heading": "## Product acceptance"
         }
       },
-      "supersedes": "r13-login-menu-qa-checklist-2026-09-16T23:39:56+00:00",
+      "supersedes": "r14-visible-login-menu-qa-checklist-2026-09-16T23:53:41+00:00",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     },
     "development-plan": {
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "r14-visible-login-menu-development-plan-2026-09-16T23:53:41+00:00",
+      "owner_invocation_id": "r15-rtf-export-development-plan-2026-09-17T18:32:08+00:00",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r14-visible-login-menu-development-plan-2026-09-16T23:53:41+00:00",
+      "source_version": "r15-rtf-export-development-plan-2026-09-17T18:32:08+00:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -5962,20 +5974,23 @@
         "test/prompt-contracts.test.mjs": "full",
         "test/fixtures/runtime-instructions.mjs": "full",
         "public/index.html": "full",
-        "public/styles.css": "full"
+        "public/styles.css": "full",
+        "src/server/conversation-export.mjs": "full",
+        "src/client/markdown.js": "full",
+        "test/conversation-export.test.mjs": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
+        "docs/prd.md": "6887e7e06f70b763db6a95d4335be50921cc6f2139de33d3b625ac31ab97a499",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
+        "docs/canonical-terms.md": "bc15168fa45c74b3694515b2d9890a4208c35c8c0f94e3cd3bbae1feaeba0e47",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
-        "docs/screen-map.md": "ee7989029e1a6ac88ab3550159b1c66bf50f2e5aeacf23f1a4c5de34afb3df6b",
-        "docs/wireframes.md": "0efebd20d9a1b8c73421a14c07a7e1ac45a93dcb838c6519be21fb7866eb2275",
-        "docs/design-brief.md": "8691fb2246a4cef5223c8145ea53c678c0479f8333932e590cd8c73282ac0437",
-        "docs/architecture.md": "de7af6978e65f00e4c48a8aa75861e9681f7189899c55cdaa053e6eed339bb3b",
+        "docs/user-journey.md": "2d5b12a49c1698b4adcf002e829f54e455a69f65fa7b9d59670040f03175c5db",
+        "docs/screen-map.md": "9a9027c586203c64c6d81a8040c52c190ab5fc59b66a5ed52bdb343cc2d7a757",
+        "docs/wireframes.md": "cbe97feaa1633cb79643abb3a7e26a3af08406ed1337a3e9b7c687b93d85b2b5",
+        "docs/design-brief.md": "b593a405cbfb427053ce7d9e1d2ddd15362568a2ea98c2b0b5e1b7c49cecf8df",
+        "docs/architecture.md": "6853fe18615ee612bb13e03288290576f3a9bf91125fbd9f1c44989ea4115b95",
         "docs/dod-evals.md": "6e5c53a51e8cb289be423174ac7682057ca4e7fe140dd04a7f71b6e7d34f0c09",
-        "docs/qa-checklist.md": "9f589be8a61e8c50cebf5c8b9d803e5bea2cdad95e23ee9117ab0aa456036cb3",
+        "docs/qa-checklist.md": "0b65bf4db59b573a2af9eeecebb072ef46864d7ac761b685892cf4961153f9ee",
         "docs/model-settings.md": "15a4ce817cd5c752a6a2b598dcf9de531338f12f4e6cb1ee1cc58ef1cca59a01",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "package.json": "39f69e8b9c352928595ab1b7a3e83437a0e74bbdd2e5874b7d552f77c03fe0e2",
@@ -5986,7 +6001,7 @@
         "forge/design/candidates/a/v8/nanoduck-original.svg": "e8b786961dc9a3b4d5450d3d20c3fd25cb6b2a9e7dc3034d23202d1a6dd2f528",
         "forge/design/candidates/a/v8/app.js": "d7ac2287ce8496772592d42d134fc530affcb9147f0a7641655a56c6cf83775f",
         "src/server/config.mjs": "4e7816297d1bbe6be98c00ed530041db9383c6354222a0f000e0181e321f1de9",
-        "src/server/index.mjs": "a4cc8c53b4e36f65bac8d4dca70b029d9065ed7d1c306e3034f84cd06b761c26",
+        "src/server/index.mjs": "f0bf703fa6d9488bc71d126733e774aea8a0bf2a0efbcc84d83609e0d8e521fc",
         "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
         "test/core.test.mjs": "0de9078abd52a192e67afb5ef13693652b4b9372bf8bf5ec0d2463ecc0283047",
@@ -5994,15 +6009,18 @@
         "src/server/consultation.mjs": "28ef05683422e6e8e99edc9173c780241d36143ef6e22925c41090238e50d793",
         "test/codex-provider.test.mjs": "f0734c813145c15a1282b60a0b34db1c8229a25c95d43f0573bb55d0fcb44eff",
         "test/consultation.test.mjs": "81aacfb3bf151f5ffcf14f120caeebbdfaa0c3bd670ad66c15faff122d89e79a",
-        "test/http.test.mjs": "c8801b9e2bdcc6f138b2bdaac8682fc027c3cdd50ee749471e9d382cf2a77c6a",
+        "test/http.test.mjs": "58beaf89669c6cb40f4452470155b17082c814ad3d035711bd2f3aca5edaafa4",
         "test/fixtures/fake-codex.mjs": "b4e10cdbd32011f0bc6a8e3747aad51bc5264f240fe8b647c4fedf01e2b1ccd2",
         "src/server/prompt-contracts.mjs": "1dcaeb581105e1968859cf3ea1c44358c731882afd36cff3c7ad42d0d6ca3dfe",
-        "src/client/app.js": "420272b812d139e63ebd5629822f14db497e95a2529eebfd2e355d5b2ff049fc",
+        "src/client/app.js": "63554448752e6546da7c0dc5e1194879bbedbf5705016fb17b16009aaa3b5206",
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "d9d7bdcf1178fdc9581f8a58b511872518fdc2f92d0a27d77a8803af681cc889",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
         "public/index.html": "15e41ff1fe11e0574cb76ebf1407bcc5798df4436d4717d3c3c8ef3c0019cd77",
-        "public/styles.css": "538c7f8754e79955b2ee4a3875747d2c42b2749cfb008d48af6ad46714c19826"
+        "public/styles.css": "538c7f8754e79955b2ee4a3875747d2c42b2749cfb008d48af6ad46714c19826",
+        "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
+        "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
+        "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259"
       },
       "dependencies": [
         "prd",
@@ -6017,16 +6035,16 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "f9d3e8a58b4d97e15af3ae4219d2ee77341f3cecaf270ba4d878ac040faf780d",
+      "content_hash": "1b9f158c68d1d28ee9dca9ebc8558fc8c01251aec6999f51bf504515319b6907",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r14-visible-login-menu-reconciliation",
-        "reviewed_at": "2026-09-16T23:53:41+00:00",
+        "kind": "r15-rtf-export-reconciliation",
+        "reviewed_at": "2026-09-17T18:32:08+00:00",
         "executor": "Codex inline to-development-plan",
-        "scope": "Reconcile U-03 implementation with U-02 session boundary and current QA definitions. Correct placement to one always-visible bar button outside the collapsed mobile dropdown; no auth behavior or server changes."
+        "scope": "Add the bounded R-15 export correction under existing U-07 and its existing QA mappings."
       },
-      "supersedes": "r13-login-menu-development-plan-2026-09-16T23:39:56+00:00",
+      "supersedes": "r14-visible-login-menu-development-plan-2026-09-16T23:53:41+00:00",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
       "traceability": {
         "definitions": [
@@ -7145,7 +7163,7 @@
       "executor-codex"
     ],
     "design_materials": "Existing rejected prototype and explicit owner corrections supplied; no additional materials required",
-    "product_idea_hash": "222bbe4994884059836a3a563f84b71ae725eb424b224b70b18d4f83f61e3a0b"
+    "product_idea_hash": "d0fc4b60d6db1b56ea5b6264740ec68b0c8ac78433182fc37f3fbdf6a88b714f"
   },
   "design_execution": {
     "mode": "codex",
@@ -7726,18 +7744,18 @@
   ],
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "f9d3e8a58b4d97e15af3ae4219d2ee77341f3cecaf270ba4d878ac040faf780d",
+    "development_plan_hash": "1b9f158c68d1d28ee9dca9ebc8558fc8c01251aec6999f51bf504515319b6907",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-14T20:13:37+03:00",
-    "prompt_id": "impl-r14-visible-login-menu-20260917",
-    "prompt_received_at": "2026-09-16T23:53:41+00:00",
-    "released_at": "2026-09-16T23:53:41+00:00",
+    "prompt_id": "impl-r15-rtf-export-20260917",
+    "prompt_received_at": "2026-09-17T18:32:08+00:00",
+    "released_at": "2026-09-17T18:32:08+00:00",
     "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
     "prompt_receipt": {
-      "path": "forge/runs/implementation-prompt-20260917-r14-visible-login-menu.json",
-      "content_hash": "08541f62cae2e3a6d177e0ccb9b5a55c197de7176db11fc16a4490fffa9df88e"
+      "path": "forge/runs/implementation-prompt-20260917-r15-rtf-export.json",
+      "content_hash": "afb88fccdaed870e92f6314e358ad338f80544d0cbd31678ec6270fb8cdb55e4"
     },
-    "reason": "Implement the explicit Login/Logoff desktop and mobile menu correction and reconcile affected SDD owners. Existing single-owner authentication, consent, 24-hour session, approved A v8 design outside this override and deployment boundaries remain unchanged. No production deployment, secret replacement, data reset or unrelated app operation is authorized by this receipt."
+    "reason": "Implement the explicit rich-text conversation export correction and reconcile affected SDD owners. Existing single-owner authentication, consent, 24-hour session, approved A v8 design outside this override and deployment boundaries remain unchanged. No production deployment, secret replacement, data reset or unrelated app operation is authorized by this receipt."
   },
   "input_requests": [],
   "last_resume_event": {
@@ -8699,11 +8717,115 @@
       "superseded_invocation": "r13-login-menu-development-plan-2026-09-16T23:39:56+00:00",
       "superseded_content_hash": "3d719f2d489f663298b5c335bdc7c97ba9d2089bbb7aa1bf610c63c358ed9666",
       "decision": "Reconcile U-03 implementation with U-02 session boundary and current QA definitions."
+    },
+    {
+      "event": "r15_owner_reconciled",
+      "at": "2026-09-17T18:32:08+00:00",
+      "artifact": "product-idea",
+      "superseded_invocation": "r14-visible-login-menu-product-idea-2026-09-16T23:53:41+00:00",
+      "superseded_content_hash": "222bbe4994884059836a3a563f84b71ae725eb424b224b70b18d4f83f61e3a0b",
+      "decision": "Record the owner-requested readable rich-text export with bold names, timestamps and paragraphs."
+    },
+    {
+      "event": "r15_owner_reconciled",
+      "at": "2026-09-17T18:32:08+00:00",
+      "artifact": "prd",
+      "superseded_invocation": "r14-visible-login-menu-prd-2026-09-16T23:53:41+00:00",
+      "superseded_content_hash": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
+      "decision": "Reconcile UC-004/FR-06.2 for RTF, preserved content, time-zone display and existing privacy/input controls."
+    },
+    {
+      "event": "r15_owner_reconciled",
+      "at": "2026-09-17T18:32:08+00:00",
+      "artifact": "project-context",
+      "superseded_invocation": "r14-visible-login-menu-project-context-2026-09-16T23:53:41+00:00",
+      "superseded_content_hash": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
+      "decision": "Clarify RTF terminology; unchanged user, language and deployment context remains consistent."
+    },
+    {
+      "event": "r15_owner_reconciled",
+      "at": "2026-09-17T18:32:08+00:00",
+      "artifact": "canonical-terms",
+      "superseded_invocation": "r14-visible-login-menu-project-context-2026-09-16T23:53:41+00:00",
+      "superseded_content_hash": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
+      "decision": "Clarify RTF terminology; unchanged user, language and deployment context remains consistent."
+    },
+    {
+      "event": "r15_owner_reconciled",
+      "at": "2026-09-17T18:32:08+00:00",
+      "artifact": "guardrails",
+      "superseded_invocation": "r14-visible-login-menu-guardrails-2026-09-16T23:53:41+00:00",
+      "superseded_content_hash": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
+      "decision": "No content change: authenticated private export and scoped implementation retain existing authorization/evidence rules."
+    },
+    {
+      "event": "r15_owner_reconciled",
+      "at": "2026-09-17T18:32:08+00:00",
+      "artifact": "user-journey",
+      "superseded_invocation": "r14-visible-login-menu-user-journey-2026-09-16T23:53:41+00:00",
+      "superseded_content_hash": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
+      "decision": "Update saved-record export to a directly readable document without a Markdown-viewer step."
+    },
+    {
+      "event": "r15_owner_reconciled",
+      "at": "2026-09-17T18:32:08+00:00",
+      "artifact": "screen-map",
+      "superseded_invocation": "r14-visible-login-menu-screen-map-2026-09-16T23:53:41+00:00",
+      "superseded_content_hash": "ee7989029e1a6ac88ab3550159b1c66bf50f2e5aeacf23f1a4c5de34afb3df6b",
+      "decision": "Reconcile the existing S-08 export action; no new screen or format selector."
+    },
+    {
+      "event": "r15_owner_reconciled",
+      "at": "2026-09-17T18:32:08+00:00",
+      "artifact": "wireframes",
+      "superseded_invocation": "r14-visible-login-menu-wireframes-2026-09-16T23:53:41+00:00",
+      "superseded_content_hash": "0efebd20d9a1b8c73421a14c07a7e1ac45a93dcb838c6519be21fb7866eb2275",
+      "decision": "Define document content hierarchy and the existing Export tooltip."
+    },
+    {
+      "event": "r15_owner_reconciled",
+      "at": "2026-09-17T18:32:08+00:00",
+      "artifact": "design-brief",
+      "superseded_invocation": "r14-visible-login-menu-design-brief-2026-09-16T23:53:41+00:00",
+      "superseded_content_hash": "8691fb2246a4cef5223c8145ea53c678c0479f8333932e590cd8c73282ac0437",
+      "decision": "Define readable exported document treatment without modifying the frozen A v8 app layout."
+    },
+    {
+      "event": "r15_owner_reconciled",
+      "at": "2026-09-17T18:32:08+00:00",
+      "artifact": "architecture",
+      "superseded_invocation": "r14-visible-login-menu-architecture-2026-09-16T23:53:41+00:00",
+      "superseded_content_hash": "de7af6978e65f00e4c48a8aa75861e9681f7189899c55cdaa053e6eed339bb3b",
+      "decision": "Reconcile authenticated RTF serialization, shared Markdown parsing, time-zone validation and inert escaped content; no storage/provider changes."
+    },
+    {
+      "event": "r15_owner_reconciled",
+      "at": "2026-09-17T18:32:08+00:00",
+      "artifact": "dod-evals",
+      "superseded_invocation": "r14-visible-login-menu-dod-evals-2026-09-16T23:53:41+00:00",
+      "superseded_content_hash": "6e5c53a51e8cb289be423174ac7682057ca4e7fe140dd04a7f71b6e7d34f0c09",
+      "decision": "No content change: existing functional, content-security, continuity and UI gates cover RTF export; no release pass claimed."
+    },
+    {
+      "event": "r15_owner_reconciled",
+      "at": "2026-09-17T18:32:08+00:00",
+      "artifact": "qa-checklist",
+      "superseded_invocation": "r14-visible-login-menu-qa-checklist-2026-09-16T23:53:41+00:00",
+      "superseded_content_hash": "9f589be8a61e8c50cebf5c8b9d803e5bea2cdad95e23ee9117ab0aa456036cb3",
+      "decision": "Extend QA-R26 with API privacy, Unicode/RTF injection, time-zone and actual reader checks."
+    },
+    {
+      "event": "r15_owner_reconciled",
+      "at": "2026-09-17T18:32:08+00:00",
+      "artifact": "development-plan",
+      "superseded_invocation": "r14-visible-login-menu-development-plan-2026-09-16T23:53:41+00:00",
+      "superseded_content_hash": "f9d3e8a58b4d97e15af3ae4219d2ee77341f3cecaf270ba4d878ac040faf780d",
+      "decision": "Add the bounded R-15 export correction under existing U-07 and its existing QA mappings."
     }
   ],
   "dispatches": {
     "product-idea": {
-      "invocation_id": "r14-visible-login-menu-product-idea-2026-09-16T23:53:41+00:00",
+      "invocation_id": "r15-rtf-export-product-idea-2026-09-17T18:32:08+00:00",
       "outputs": [
         "docs/product-idea.md"
       ],
@@ -8716,75 +8838,75 @@
       "consumed_source_fragments": {}
     },
     "prd": {
-      "invocation_id": "r14-visible-login-menu-prd-2026-09-16T23:53:41+00:00",
+      "invocation_id": "r15-rtf-export-prd-2026-09-17T18:32:08+00:00",
       "outputs": [
         "docs/prd.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "222bbe4994884059836a3a563f84b71ae725eb424b224b70b18d4f83f61e3a0b"
+        "docs/product-idea.md": "d0fc4b60d6db1b56ea5b6264740ec68b0c8ac78433182fc37f3fbdf6a88b714f"
       },
       "consumed_source_fragments": {}
     },
     "project-context": {
-      "invocation_id": "r14-visible-login-menu-project-context-2026-09-16T23:53:41+00:00",
+      "invocation_id": "r15-rtf-export-project-context-2026-09-17T18:32:08+00:00",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "222bbe4994884059836a3a563f84b71ae725eb424b224b70b18d4f83f61e3a0b",
-        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba"
+        "docs/product-idea.md": "d0fc4b60d6db1b56ea5b6264740ec68b0c8ac78433182fc37f3fbdf6a88b714f",
+        "docs/prd.md": "6887e7e06f70b763db6a95d4335be50921cc6f2139de33d3b625ac31ab97a499"
       },
       "consumed_source_fragments": {}
     },
     "canonical-terms": {
-      "invocation_id": "r14-visible-login-menu-project-context-2026-09-16T23:53:41+00:00",
+      "invocation_id": "r15-rtf-export-project-context-2026-09-17T18:32:08+00:00",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "222bbe4994884059836a3a563f84b71ae725eb424b224b70b18d4f83f61e3a0b",
-        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba"
+        "docs/product-idea.md": "d0fc4b60d6db1b56ea5b6264740ec68b0c8ac78433182fc37f3fbdf6a88b714f",
+        "docs/prd.md": "6887e7e06f70b763db6a95d4335be50921cc6f2139de33d3b625ac31ab97a499"
       },
       "consumed_source_fragments": {}
     },
     "guardrails": {
-      "invocation_id": "r14-visible-login-menu-guardrails-2026-09-16T23:53:41+00:00",
+      "invocation_id": "r15-rtf-export-guardrails-2026-09-17T18:32:08+00:00",
       "outputs": [
         "docs/guardrails.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
+        "docs/prd.md": "6887e7e06f70b763db6a95d4335be50921cc6f2139de33d3b625ac31ab97a499",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050"
+        "docs/canonical-terms.md": "bc15168fa45c74b3694515b2d9890a4208c35c8c0f94e3cd3bbae1feaeba0e47"
       },
       "consumed_source_fragments": {}
     },
     "user-journey": {
-      "invocation_id": "r14-visible-login-menu-user-journey-2026-09-16T23:53:41+00:00",
+      "invocation_id": "r15-rtf-export-user-journey-2026-09-17T18:32:08+00:00",
       "outputs": [
         "docs/user-journey.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
+        "docs/prd.md": "6887e7e06f70b763db6a95d4335be50921cc6f2139de33d3b625ac31ab97a499",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
+        "docs/canonical-terms.md": "bc15168fa45c74b3694515b2d9890a4208c35c8c0f94e3cd3bbae1feaeba0e47",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a"
       },
       "consumed_source_fragments": {}
     },
     "screen-map": {
-      "invocation_id": "r14-visible-login-menu-screen-map-2026-09-16T23:53:41+00:00",
+      "invocation_id": "r15-rtf-export-screen-map-2026-09-17T18:32:08+00:00",
       "outputs": [
         "docs/screen-map.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
+        "docs/prd.md": "6887e7e06f70b763db6a95d4335be50921cc6f2139de33d3b625ac31ab97a499",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
+        "docs/canonical-terms.md": "bc15168fa45c74b3694515b2d9890a4208c35c8c0f94e3cd3bbae1feaeba0e47",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
+        "docs/user-journey.md": "2d5b12a49c1698b4adcf002e829f54e455a69f65fa7b9d59670040f03175c5db",
         "forge/design/candidates/a/v1/app.js": "a869dd42c95740bf7da4802934c3cd6f8d2e2243795ee20925cd5ee19f474531",
         "forge/design/candidates/b/v1/app.js": "17e37807a032c5ea1660efca698e21dc8baf29a3c5344067470b6b44311f9b39",
         "forge/design/candidates/c/v1/app.js": "f64ab8a6962cc700c8087803d33ecda68884da78158ea0e5547235c6d4fff530"
@@ -8792,34 +8914,34 @@
       "consumed_source_fragments": {}
     },
     "wireframes": {
-      "invocation_id": "r14-visible-login-menu-wireframes-2026-09-16T23:53:41+00:00",
+      "invocation_id": "r15-rtf-export-wireframes-2026-09-17T18:32:08+00:00",
       "outputs": [
         "docs/wireframes.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
+        "docs/prd.md": "6887e7e06f70b763db6a95d4335be50921cc6f2139de33d3b625ac31ab97a499",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
+        "docs/canonical-terms.md": "bc15168fa45c74b3694515b2d9890a4208c35c8c0f94e3cd3bbae1feaeba0e47",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
-        "docs/screen-map.md": "ee7989029e1a6ac88ab3550159b1c66bf50f2e5aeacf23f1a4c5de34afb3df6b"
+        "docs/user-journey.md": "2d5b12a49c1698b4adcf002e829f54e455a69f65fa7b9d59670040f03175c5db",
+        "docs/screen-map.md": "9a9027c586203c64c6d81a8040c52c190ab5fc59b66a5ed52bdb343cc2d7a757"
       },
       "consumed_source_fragments": {}
     },
     "design-brief": {
-      "invocation_id": "r14-visible-login-menu-design-brief-2026-09-16T23:53:41+00:00",
+      "invocation_id": "r15-rtf-export-design-brief-2026-09-17T18:32:08+00:00",
       "outputs": [
         "docs/design-brief.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
+        "docs/prd.md": "6887e7e06f70b763db6a95d4335be50921cc6f2139de33d3b625ac31ab97a499",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
+        "docs/canonical-terms.md": "bc15168fa45c74b3694515b2d9890a4208c35c8c0f94e3cd3bbae1feaeba0e47",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
-        "docs/screen-map.md": "ee7989029e1a6ac88ab3550159b1c66bf50f2e5aeacf23f1a4c5de34afb3df6b",
-        "docs/wireframes.md": "0efebd20d9a1b8c73421a14c07a7e1ac45a93dcb838c6519be21fb7866eb2275",
-        "docs/product-idea.md": "222bbe4994884059836a3a563f84b71ae725eb424b224b70b18d4f83f61e3a0b",
+        "docs/user-journey.md": "2d5b12a49c1698b4adcf002e829f54e455a69f65fa7b9d59670040f03175c5db",
+        "docs/screen-map.md": "9a9027c586203c64c6d81a8040c52c190ab5fc59b66a5ed52bdb343cc2d7a757",
+        "docs/wireframes.md": "cbe97feaa1633cb79643abb3a7e26a3af08406ed1337a3e9b7c687b93d85b2b5",
+        "docs/product-idea.md": "d0fc4b60d6db1b56ea5b6264740ec68b0c8ac78433182fc37f3fbdf6a88b714f",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "prototype/styles.css": "ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925",
         "prototype/app.js": "b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54",
@@ -8868,25 +8990,25 @@
       "consumed_source_fragments": {}
     },
     "architecture": {
-      "invocation_id": "r14-visible-login-menu-architecture-2026-09-16T23:53:41+00:00",
+      "invocation_id": "r15-rtf-export-architecture-2026-09-17T18:32:08+00:00",
       "outputs": [
         "docs/architecture.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
+        "docs/prd.md": "6887e7e06f70b763db6a95d4335be50921cc6f2139de33d3b625ac31ab97a499",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
+        "docs/canonical-terms.md": "bc15168fa45c74b3694515b2d9890a4208c35c8c0f94e3cd3bbae1feaeba0e47",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
-        "docs/screen-map.md": "ee7989029e1a6ac88ab3550159b1c66bf50f2e5aeacf23f1a4c5de34afb3df6b",
-        "docs/wireframes.md": "0efebd20d9a1b8c73421a14c07a7e1ac45a93dcb838c6519be21fb7866eb2275",
-        "docs/design-brief.md": "8691fb2246a4cef5223c8145ea53c678c0479f8333932e590cd8c73282ac0437",
+        "docs/user-journey.md": "2d5b12a49c1698b4adcf002e829f54e455a69f65fa7b9d59670040f03175c5db",
+        "docs/screen-map.md": "9a9027c586203c64c6d81a8040c52c190ab5fc59b66a5ed52bdb343cc2d7a757",
+        "docs/wireframes.md": "cbe97feaa1633cb79643abb3a7e26a3af08406ed1337a3e9b7c687b93d85b2b5",
+        "docs/design-brief.md": "b593a405cbfb427053ce7d9e1d2ddd15362568a2ea98c2b0b5e1b7c49cecf8df",
         "docs/model-settings.md": "15a4ce817cd5c752a6a2b598dcf9de531338f12f4e6cb1ee1cc58ef1cca59a01",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "forge/runs/U-06/browser-speech-uk-20260914/README.md": "972494cb2d1dda8ae431f34bd2896eb6d5cb4642c838ae0b171d17ac931913d6",
         "package.json": "39f69e8b9c352928595ab1b7a3e83437a0e74bbdd2e5874b7d552f77c03fe0e2",
         "src/server/config.mjs": "4e7816297d1bbe6be98c00ed530041db9383c6354222a0f000e0181e321f1de9",
-        "src/server/index.mjs": "a4cc8c53b4e36f65bac8d4dca70b029d9065ed7d1c306e3034f84cd06b761c26",
+        "src/server/index.mjs": "f0bf703fa6d9488bc71d126733e774aea8a0bf2a0efbcc84d83609e0d8e521fc",
         "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
         "test/core.test.mjs": "0de9078abd52a192e67afb5ef13693652b4b9372bf8bf5ec0d2463ecc0283047",
@@ -8894,52 +9016,55 @@
         "src/server/consultation.mjs": "28ef05683422e6e8e99edc9173c780241d36143ef6e22925c41090238e50d793",
         "test/codex-provider.test.mjs": "f0734c813145c15a1282b60a0b34db1c8229a25c95d43f0573bb55d0fcb44eff",
         "test/consultation.test.mjs": "81aacfb3bf151f5ffcf14f120caeebbdfaa0c3bd670ad66c15faff122d89e79a",
-        "test/http.test.mjs": "c8801b9e2bdcc6f138b2bdaac8682fc027c3cdd50ee749471e9d382cf2a77c6a",
+        "test/http.test.mjs": "58beaf89669c6cb40f4452470155b17082c814ad3d035711bd2f3aca5edaafa4",
         ".env.example": "908e4483bcad524ca4c95e9d20bc57dd4f2fbc6156f17925728798f03e91620f",
         "test/fixtures/fake-codex.mjs": "b4e10cdbd32011f0bc6a8e3747aad51bc5264f240fe8b647c4fedf01e2b1ccd2",
         "src/server/prompt-contracts.mjs": "1dcaeb581105e1968859cf3ea1c44358c731882afd36cff3c7ad42d0d6ca3dfe",
-        "src/client/app.js": "420272b812d139e63ebd5629822f14db497e95a2529eebfd2e355d5b2ff049fc",
+        "src/client/app.js": "63554448752e6546da7c0dc5e1194879bbedbf5705016fb17b16009aaa3b5206",
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "d9d7bdcf1178fdc9581f8a58b511872518fdc2f92d0a27d77a8803af681cc889",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
         "public/index.html": "15e41ff1fe11e0574cb76ebf1407bcc5798df4436d4717d3c3c8ef3c0019cd77",
-        "public/styles.css": "538c7f8754e79955b2ee4a3875747d2c42b2749cfb008d48af6ad46714c19826"
+        "public/styles.css": "538c7f8754e79955b2ee4a3875747d2c42b2749cfb008d48af6ad46714c19826",
+        "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
+        "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
+        "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259"
       },
       "consumed_source_fragments": {}
     },
     "dod-evals": {
-      "invocation_id": "r14-visible-login-menu-dod-evals-2026-09-16T23:53:41+00:00",
+      "invocation_id": "r15-rtf-export-dod-evals-2026-09-17T18:32:08+00:00",
       "outputs": [
         "docs/dod-evals.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
+        "docs/prd.md": "6887e7e06f70b763db6a95d4335be50921cc6f2139de33d3b625ac31ab97a499",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
+        "docs/canonical-terms.md": "bc15168fa45c74b3694515b2d9890a4208c35c8c0f94e3cd3bbae1feaeba0e47",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
-        "docs/screen-map.md": "ee7989029e1a6ac88ab3550159b1c66bf50f2e5aeacf23f1a4c5de34afb3df6b",
-        "docs/wireframes.md": "0efebd20d9a1b8c73421a14c07a7e1ac45a93dcb838c6519be21fb7866eb2275",
-        "docs/design-brief.md": "8691fb2246a4cef5223c8145ea53c678c0479f8333932e590cd8c73282ac0437",
-        "docs/architecture.md": "de7af6978e65f00e4c48a8aa75861e9681f7189899c55cdaa053e6eed339bb3b"
+        "docs/user-journey.md": "2d5b12a49c1698b4adcf002e829f54e455a69f65fa7b9d59670040f03175c5db",
+        "docs/screen-map.md": "9a9027c586203c64c6d81a8040c52c190ab5fc59b66a5ed52bdb343cc2d7a757",
+        "docs/wireframes.md": "cbe97feaa1633cb79643abb3a7e26a3af08406ed1337a3e9b7c687b93d85b2b5",
+        "docs/design-brief.md": "b593a405cbfb427053ce7d9e1d2ddd15362568a2ea98c2b0b5e1b7c49cecf8df",
+        "docs/architecture.md": "6853fe18615ee612bb13e03288290576f3a9bf91125fbd9f1c44989ea4115b95"
       },
       "consumed_source_fragments": {}
     },
     "qa-checklist": {
-      "invocation_id": "r14-visible-login-menu-qa-checklist-2026-09-16T23:53:41+00:00",
+      "invocation_id": "r15-rtf-export-qa-checklist-2026-09-17T18:32:08+00:00",
       "outputs": [
         "docs/qa-checklist.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
+        "docs/prd.md": "6887e7e06f70b763db6a95d4335be50921cc6f2139de33d3b625ac31ab97a499",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
+        "docs/canonical-terms.md": "bc15168fa45c74b3694515b2d9890a4208c35c8c0f94e3cd3bbae1feaeba0e47",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
-        "docs/screen-map.md": "ee7989029e1a6ac88ab3550159b1c66bf50f2e5aeacf23f1a4c5de34afb3df6b",
-        "docs/wireframes.md": "0efebd20d9a1b8c73421a14c07a7e1ac45a93dcb838c6519be21fb7866eb2275",
-        "docs/design-brief.md": "8691fb2246a4cef5223c8145ea53c678c0479f8333932e590cd8c73282ac0437",
-        "docs/architecture.md": "de7af6978e65f00e4c48a8aa75861e9681f7189899c55cdaa053e6eed339bb3b",
+        "docs/user-journey.md": "2d5b12a49c1698b4adcf002e829f54e455a69f65fa7b9d59670040f03175c5db",
+        "docs/screen-map.md": "9a9027c586203c64c6d81a8040c52c190ab5fc59b66a5ed52bdb343cc2d7a757",
+        "docs/wireframes.md": "cbe97feaa1633cb79643abb3a7e26a3af08406ed1337a3e9b7c687b93d85b2b5",
+        "docs/design-brief.md": "b593a405cbfb427053ce7d9e1d2ddd15362568a2ea98c2b0b5e1b7c49cecf8df",
+        "docs/architecture.md": "6853fe18615ee612bb13e03288290576f3a9bf91125fbd9f1c44989ea4115b95",
         "docs/dod-evals.md": "6e5c53a51e8cb289be423174ac7682057ca4e7fe140dd04a7f71b6e7d34f0c09",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
@@ -8947,7 +9072,7 @@
         "forge/design/evidence/c-v1-visual-qa.json": "b5517ae544724b5ae54c60f63e328797b4788b4abda5828ceaea81f439c4ae83",
         "package.json": "39f69e8b9c352928595ab1b7a3e83437a0e74bbdd2e5874b7d552f77c03fe0e2",
         "src/server/config.mjs": "4e7816297d1bbe6be98c00ed530041db9383c6354222a0f000e0181e321f1de9",
-        "src/server/index.mjs": "a4cc8c53b4e36f65bac8d4dca70b029d9065ed7d1c306e3034f84cd06b761c26",
+        "src/server/index.mjs": "f0bf703fa6d9488bc71d126733e774aea8a0bf2a0efbcc84d83609e0d8e521fc",
         "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
         "test/core.test.mjs": "0de9078abd52a192e67afb5ef13693652b4b9372bf8bf5ec0d2463ecc0283047",
@@ -8955,35 +9080,38 @@
         "src/server/consultation.mjs": "28ef05683422e6e8e99edc9173c780241d36143ef6e22925c41090238e50d793",
         "test/codex-provider.test.mjs": "f0734c813145c15a1282b60a0b34db1c8229a25c95d43f0573bb55d0fcb44eff",
         "test/consultation.test.mjs": "81aacfb3bf151f5ffcf14f120caeebbdfaa0c3bd670ad66c15faff122d89e79a",
-        "test/http.test.mjs": "c8801b9e2bdcc6f138b2bdaac8682fc027c3cdd50ee749471e9d382cf2a77c6a",
+        "test/http.test.mjs": "58beaf89669c6cb40f4452470155b17082c814ad3d035711bd2f3aca5edaafa4",
         "test/fixtures/fake-codex.mjs": "b4e10cdbd32011f0bc6a8e3747aad51bc5264f240fe8b647c4fedf01e2b1ccd2",
         "src/server/prompt-contracts.mjs": "1dcaeb581105e1968859cf3ea1c44358c731882afd36cff3c7ad42d0d6ca3dfe",
-        "src/client/app.js": "420272b812d139e63ebd5629822f14db497e95a2529eebfd2e355d5b2ff049fc",
+        "src/client/app.js": "63554448752e6546da7c0dc5e1194879bbedbf5705016fb17b16009aaa3b5206",
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "d9d7bdcf1178fdc9581f8a58b511872518fdc2f92d0a27d77a8803af681cc889",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
         "public/index.html": "15e41ff1fe11e0574cb76ebf1407bcc5798df4436d4717d3c3c8ef3c0019cd77",
-        "public/styles.css": "538c7f8754e79955b2ee4a3875747d2c42b2749cfb008d48af6ad46714c19826"
+        "public/styles.css": "538c7f8754e79955b2ee4a3875747d2c42b2749cfb008d48af6ad46714c19826",
+        "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
+        "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
+        "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259"
       },
       "consumed_source_fragments": {}
     },
     "development-plan": {
-      "invocation_id": "r14-visible-login-menu-development-plan-2026-09-16T23:53:41+00:00",
+      "invocation_id": "r15-rtf-export-development-plan-2026-09-17T18:32:08+00:00",
       "outputs": [
         "docs/development-plan.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "2b1bc794ccea13248f9e704ca7ac6194a7b283bf5b362c6c767b0e912c0b31ba",
+        "docs/prd.md": "6887e7e06f70b763db6a95d4335be50921cc6f2139de33d3b625ac31ab97a499",
         "docs/project-context.md": "b9d9f7b39151250a6f6467bbc7ef6370e075732e3aad2724e07ab111946af856",
-        "docs/canonical-terms.md": "d9696edbd92d368c99b0e430e38d2606eba9efac6dd67f9e53a2640b94939050",
+        "docs/canonical-terms.md": "bc15168fa45c74b3694515b2d9890a4208c35c8c0f94e3cd3bbae1feaeba0e47",
         "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "52fb080ce6ad5fc9681ce214c583062895bc1400060fb1a25828ac2716e17d1f",
-        "docs/screen-map.md": "ee7989029e1a6ac88ab3550159b1c66bf50f2e5aeacf23f1a4c5de34afb3df6b",
-        "docs/wireframes.md": "0efebd20d9a1b8c73421a14c07a7e1ac45a93dcb838c6519be21fb7866eb2275",
-        "docs/design-brief.md": "8691fb2246a4cef5223c8145ea53c678c0479f8333932e590cd8c73282ac0437",
-        "docs/architecture.md": "de7af6978e65f00e4c48a8aa75861e9681f7189899c55cdaa053e6eed339bb3b",
+        "docs/user-journey.md": "2d5b12a49c1698b4adcf002e829f54e455a69f65fa7b9d59670040f03175c5db",
+        "docs/screen-map.md": "9a9027c586203c64c6d81a8040c52c190ab5fc59b66a5ed52bdb343cc2d7a757",
+        "docs/wireframes.md": "cbe97feaa1633cb79643abb3a7e26a3af08406ed1337a3e9b7c687b93d85b2b5",
+        "docs/design-brief.md": "b593a405cbfb427053ce7d9e1d2ddd15362568a2ea98c2b0b5e1b7c49cecf8df",
+        "docs/architecture.md": "6853fe18615ee612bb13e03288290576f3a9bf91125fbd9f1c44989ea4115b95",
         "docs/dod-evals.md": "6e5c53a51e8cb289be423174ac7682057ca4e7fe140dd04a7f71b6e7d34f0c09",
-        "docs/qa-checklist.md": "9f589be8a61e8c50cebf5c8b9d803e5bea2cdad95e23ee9117ab0aa456036cb3",
+        "docs/qa-checklist.md": "0b65bf4db59b573a2af9eeecebb072ef46864d7ac761b685892cf4961153f9ee",
         "docs/model-settings.md": "15a4ce817cd5c752a6a2b598dcf9de531338f12f4e6cb1ee1cc58ef1cca59a01",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "package.json": "39f69e8b9c352928595ab1b7a3e83437a0e74bbdd2e5874b7d552f77c03fe0e2",
@@ -8994,7 +9122,7 @@
         "forge/design/candidates/a/v8/nanoduck-original.svg": "e8b786961dc9a3b4d5450d3d20c3fd25cb6b2a9e7dc3034d23202d1a6dd2f528",
         "forge/design/candidates/a/v8/app.js": "d7ac2287ce8496772592d42d134fc530affcb9147f0a7641655a56c6cf83775f",
         "src/server/config.mjs": "4e7816297d1bbe6be98c00ed530041db9383c6354222a0f000e0181e321f1de9",
-        "src/server/index.mjs": "a4cc8c53b4e36f65bac8d4dca70b029d9065ed7d1c306e3034f84cd06b761c26",
+        "src/server/index.mjs": "f0bf703fa6d9488bc71d126733e774aea8a0bf2a0efbcc84d83609e0d8e521fc",
         "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
         "test/core.test.mjs": "0de9078abd52a192e67afb5ef13693652b4b9372bf8bf5ec0d2463ecc0283047",
@@ -9002,15 +9130,18 @@
         "src/server/consultation.mjs": "28ef05683422e6e8e99edc9173c780241d36143ef6e22925c41090238e50d793",
         "test/codex-provider.test.mjs": "f0734c813145c15a1282b60a0b34db1c8229a25c95d43f0573bb55d0fcb44eff",
         "test/consultation.test.mjs": "81aacfb3bf151f5ffcf14f120caeebbdfaa0c3bd670ad66c15faff122d89e79a",
-        "test/http.test.mjs": "c8801b9e2bdcc6f138b2bdaac8682fc027c3cdd50ee749471e9d382cf2a77c6a",
+        "test/http.test.mjs": "58beaf89669c6cb40f4452470155b17082c814ad3d035711bd2f3aca5edaafa4",
         "test/fixtures/fake-codex.mjs": "b4e10cdbd32011f0bc6a8e3747aad51bc5264f240fe8b647c4fedf01e2b1ccd2",
         "src/server/prompt-contracts.mjs": "1dcaeb581105e1968859cf3ea1c44358c731882afd36cff3c7ad42d0d6ca3dfe",
-        "src/client/app.js": "420272b812d139e63ebd5629822f14db497e95a2529eebfd2e355d5b2ff049fc",
+        "src/client/app.js": "63554448752e6546da7c0dc5e1194879bbedbf5705016fb17b16009aaa3b5206",
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "d9d7bdcf1178fdc9581f8a58b511872518fdc2f92d0a27d77a8803af681cc889",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
         "public/index.html": "15e41ff1fe11e0574cb76ebf1407bcc5798df4436d4717d3c3c8ef3c0019cd77",
-        "public/styles.css": "538c7f8754e79955b2ee4a3875747d2c42b2749cfb008d48af6ad46714c19826"
+        "public/styles.css": "538c7f8754e79955b2ee4a3875747d2c42b2749cfb008d48af6ad46714c19826",
+        "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
+        "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
+        "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259"
       },
       "consumed_source_fragments": {}
     }
@@ -67341,7 +67472,7 @@
     "release_readiness": "not_evaluated",
     "source_hashes": {
       "docs/dod-evals.md": "6e5c53a51e8cb289be423174ac7682057ca4e7fe140dd04a7f71b6e7d34f0c09",
-      "docs/qa-checklist.md": "9f589be8a61e8c50cebf5c8b9d803e5bea2cdad95e23ee9117ab0aa456036cb3"
+      "docs/qa-checklist.md": "0b65bf4db59b573a2af9eeecebb072ef46864d7ac761b685892cf4961153f9ee"
     },
     "gates": [
       {

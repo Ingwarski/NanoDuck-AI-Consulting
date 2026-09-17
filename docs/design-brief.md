@@ -120,6 +120,8 @@ Use role colour on names, avatar fills and restrained quote/edge accents; keep w
 
 ## Experience spine
 
+The owner's 17 September rich-text export correction affects the downloaded document, not the frozen app layout. Use readable black text on a plain page, a clear document title, bold speaker/recipient names, compact date/time labels, paragraph spacing, list indentation and preserved emphasis. Keep the existing Export action with a rich-text (.rtf) tooltip. RTF is the default; no extra format picker or Markdown viewer is required.
+
 The owner's 17 September request explicitly overrides the frozen A v8 menu to add **Login / Logoff** according to authentication state. The repeated correction makes its bar placement explicit: it must remain visible alongside Menu at narrow widths, rather than requiring the owner to expand the dropdown. This is a scoped navigation correction; the approved candidate files and all other visual decisions remain unchanged. Source: the active user request recorded in `forge/runs/implementation-prompt-20260917-r14-visible-login-menu.json`.
 
 The owner's 16 September copy correction labels the final Head message **Consolidated advice**, rendered as a normal message heading in Discussion and Outcome. Closing specialist and Critic messages retain the existing addressed Ember message layout. This scoped content correction preserves the frozen Electric A v8 visual baseline.

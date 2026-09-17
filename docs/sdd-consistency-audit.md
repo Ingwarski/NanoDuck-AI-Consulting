@@ -1,6 +1,12 @@
 # SDD consistency audit
 
-## Current visible menu-button correction — 17 September 2026
+## Current rich-text export correction — 17 September 2026
+
+R-15 replaces the normal raw JSON download with a readable RTF document. The existing Export action produces bold speaker/recipient names, explicit local timestamps, formatted paragraphs, emphasis, lists and source references in saved-message order. Image references are retained; image binaries are not embedded. The server escapes all text before serialization and preserves the existing authentication, no-store and deletion boundaries. No package, database schema or extra format-selection screen is added.
+
+The [local verification](../forge/runs/U-07/r15-rtf-export-20260917/verification.json) records 105 passing checks, an actual Chrome download with all thirteen saved speakers, native macOS RTF parsing, and [visual LibreOffice rendering](../forge/runs/U-07/r15-rtf-export-20260917/formatting-example.png) of a [fictional formatting example](../forge/runs/U-07/r15-rtf-export-20260917/formatting-example.rtf). TextEdit GUI opening was not completed; that limitation and font-dependent emoji rendering are recorded without claiming a pass. All thirteen source-bound artifacts pass the [SDD audit](../forge/runs/U-07/r15-rtf-export-20260917/sdd-audit.json). The Electric A v8 baseline, security obligations, models and consultation behavior remain unchanged. GoDaddy publication and full release gates remain separate.
+
+## Previous visible menu-button correction — 17 September 2026
 
 R-14 corrects R-13 placement: the session button must be directly on the bar at all widths. The actual narrow in-app preview had hidden it inside the mobile dropdown. One persistent button now shows Login or Logoff beside the Menu trigger; no duplicate action remains in the dropdown. The [local verification](../forge/runs/U-03/r14-visible-login-menu-20260917/verification.json) records both label/action transitions in the owner-visible preview and Chrome at 320 CSS pixels. All 101 checks and the [13-artifact SDD audit](../forge/runs/U-03/r14-visible-login-menu-20260917/sdd-audit.json) pass. Frozen A v8 files and server authentication remain unchanged. The local preview is refreshed; GoDaddy deployment remains separate.
 

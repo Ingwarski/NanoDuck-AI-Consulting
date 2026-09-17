@@ -1,0 +1,70 @@
+{
+  "recorded_at": "2026-09-17T18:38:01+00:00",
+  "executor": "Codex",
+  "base_revision": "046b2e3",
+  "unit": "U-07",
+  "correction": "R-15",
+  "implementation_sha256": {
+    "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
+    "src/server/index.mjs": "f0bf703fa6d9488bc71d126733e774aea8a0bf2a0efbcc84d83609e0d8e521fc",
+    "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
+    "src/client/app.js": "63554448752e6546da7c0dc5e1194879bbedbf5705016fb17b16009aaa3b5206",
+    "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
+    "test/http.test.mjs": "58beaf89669c6cb40f4452470155b17082c814ad3d035711bd2f3aca5edaafa4"
+  },
+  "change": "Replace the normal JSON export download with a safely escaped RTF document containing the complete saved transcript, bold role/recipient names, local timestamps, formatted message paragraphs and source references. Saved image references are retained; image binaries are not embedded.",
+  "environment": "Local development memory store with a fictional owner and the existing fake Codex provider. No live provider, database, hosted secrets or GoDaddy operation.",
+  "tests": {
+    "command": "npm run check",
+    "passed": 105,
+    "failed": 0,
+    "targeted_coverage": [
+      "ordered transcript roles and recipients",
+      "timestamp timezone and invalid-zone rejection",
+      "bold/italic/heading/list/link/quote formatting",
+      "RTF command escaping and Unicode including surrogate pairs",
+      "exclude draft, credentials and runtime instructions",
+      "retain image references",
+      "authenticated download, no-store headers and deleted-record denial"
+    ]
+  },
+  "browser": {
+    "browser": "Chrome",
+    "result": "passed",
+    "observations": [
+      "Signed in to the isolated local fixture and completed its processing consent.",
+      "Opened Conversations and clicked its existing Export button.",
+      "Chrome emitted a successful download event, remained on Conversations and reported no console warnings/errors.",
+      "The actual 7407-byte .rtf download was found on disk and parsed by macOS textutil. All 13 saved speakers, final Consolidated advice, sources and Europe/Kyiv timestamps were present."
+    ],
+    "download_sha256": "9c725398dd1a0e2bb8a00e22447605e639db4a846ae1b52d6cbc1c6a54450c98",
+    "exported_roles": [
+      "You",
+      "Head Consultant → Strategy Consultant",
+      "Head Consultant → Finance Consultant",
+      "Strategy Consultant → Critic",
+      "Finance Consultant → Critic",
+      "Critic → Strategy Consultant",
+      "Strategy Consultant → Critic",
+      "Critic → Finance Consultant",
+      "Finance Consultant → Critic",
+      "Strategy Consultant → Head Consultant",
+      "Finance Consultant → Head Consultant",
+      "Critic → Head Consultant",
+      "Head Consultant"
+    ]
+  },
+  "rich_text_readers": {
+    "macos_textutil": "passed: native RTF-to-HTML/text preserved bold role and body spans, paragraphs, Ukrainian and the duck emoji",
+    "libreoffice": "passed: headless RTF-to-PDF conversion; visual review of the single-page rendering confirmed role emphasis, spacing, lists and Cyrillic without clipping or raw Markdown",
+    "visual_evidence": "formatting-example.png",
+    "source_fixture": "formatting-example.rtf"
+  },
+  "sdd_audit": "passed; all 13 source-bound artifacts, no issues or warnings",
+  "limits": [
+    "Actual TextEdit GUI opening was not completed because its file picker did not advance; native macOS parsing and LibreOffice rendering are the verified reader paths.",
+    "Emoji bytes round-trip correctly in the native reader; the LibreOffice PDF had no visible duck glyph with its available fonts.",
+    "No production deployment, real-provider consultation or full release-gate pass is claimed.",
+    "Image files remain available in the saved conversation; this text export includes references only."
+  ]
+}

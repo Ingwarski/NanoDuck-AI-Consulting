@@ -19,6 +19,7 @@ Working language: English. Product content and source metadata: English and Ukra
 | Consolidated advice | Literal heading on Head's final summary after every selected specialist's final position and Critic's closing review; can be explicitly provisional. | Fresh Head advice or an automatic consensus claim |
 | Outcome | Current question's final Consolidated advice, risk and up to three next actions. | Consensus when participants have not agreed |
 | Sources | Direct evidence links, claims, freshness and limitations. | Invented research or unsupported certainty |
+| RTF export | Rich Text Format document downloaded by Export; bold names, timestamps and formatted paragraphs can be read without a Markdown renderer. Image references do not embed the image files. | Raw JSON as the normal export; renaming plain text to .rtf |
 | Model | Selected provider model, kept separately for consultants and Critic. | An invented capability list |
 | Reasoning strength | User-facing selection of supported provider effort. Labels: Low, Medium, High, Extra high, Maximum, Ultra where actually supported. | Quietly mapping an unsupported value to a default |
 | Number of specialists | Owner setting for 1, 2, 3, 5 or Auto relevant specialists. The count excludes Head Consultant and Critic; Auto lets Head select 1–5. | Treating Head or Critic as part of the count |

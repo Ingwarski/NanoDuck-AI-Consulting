@@ -1,6 +1,6 @@
 # NanoDuck Consulting Group
 
-Current product brief · 17 September 2026 · Browser replacement · Revision 12
+Current product brief · 17 September 2026 · Browser replacement · Revision 13
 
 ## Product identity
 
@@ -29,7 +29,7 @@ The primary user is the existing single owner, working across phone, tablet and 
 | JOB-001 — Reach a decision | When a business or personal question needs judgment, get relevant expertise and challenge so I can choose a practical action. Current alternative: the existing messenger consultation. | A clear recommendation or a clearly bounded unresolved question, with evidence, risks and up to three next actions. | Retained product intent; confirmed. |
 | JOB-002 — Follow and steer | When consultants work on my question, see their actual contributions, add context and stop or resume the work. | I can identify the disagreement, see a response or revision, and interrupt without losing accepted messages. | Existing control requirements and current request; confirmed. |
 | JOB-003 — Keep my preferences | When I return on any device, use the existing models and settings without reconnecting integrations. | Sign-in leads to a usable conversation; active runs keep their exact settings. | Current request; confirmed. |
-| JOB-004 — Return to the record | When I revisit a decision, recover the complete conversation and sources, and control its retention. | Open, export or delete a complete saved conversation; a reconnect does not duplicate replies. | Retained history/control requirements; confirmed. |
+| JOB-004 — Return to the record | When I revisit a decision, recover the complete conversation and sources, and control its retention. | Open, export or delete a complete saved conversation; a reconnect does not duplicate replies. The owner's 17 September export correction requires a readable rich-text document with bold speaker names, timestamps and paragraphs; use RTF so it opens formatted without a Markdown renderer. | Retained history/control requirements; confirmed. |
 | JOB-006 — Capture a thought | When typing on a phone is inconvenient, dictate a thought, review its transcript and choose what to send. Current alternative: type the whole request. | Start/stop/cancel browser recognition; edit the transcript before sending; retain the existing typed draft when permission or recognition fails. | Explicit owner correction; confirmed. |
 | JOB-005 — Understand limits | When a provider limit affects work, know what is available and what action is needed. | Real quota/reset information where available; no invented per-session charge or connection warning for an unused provider. | Retained usage truth and simplified daily workflow; confirmed. |
 

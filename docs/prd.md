@@ -54,7 +54,7 @@ Obligations and acceptance: FR-03.3–FR-03.6, NFR-01.1–NFR-01.4, NFR-11.2; AC
 Jobs: JOB-004. Actors: Owner; private record store.
 Trigger: Owner opens history, a source, export or whole-conversation deletion. Goal: Recover complete evidence and control the saved record.
 Preconditions: Signed in; a saved consultation exists.
-Success path: 1. Owner opens a conversation. 2. System returns its complete confirmed messages, attachments and sources. 3. Owner exports the conversation or explicitly confirms its deletion. 4. System reports the actual outcome.
+Success path: 1. Owner opens a conversation. 2. System returns its complete confirmed messages, attachments and sources. 3. Owner downloads the conversation as a formatted RTF document or explicitly confirms its deletion. 4. System reports the actual outcome.
 Alternates/recovery: Missing/denied identifiers return no protected data. Cancel deletion preserves everything. Failed export/deletion retains truthful recoverable state; retries do not corrupt another conversation.
 Postconditions: Export contains the selected record; confirmed deletion removes that conversation and its owned attachments under the deletion policy.
 Authority/privacy: Private data never enters the public repository. A guessed resource ID or client-edited field grants no access.
@@ -147,7 +147,7 @@ Obligations and acceptance: FR-04.1–FR-04.3, NFR-12.1, NFR-12.3; AC-008
 | ID | Observable obligation | Use cases |
 |---|---|---|
 | FR-06.1 | History reopens complete confirmed conversation content, owned attachments and source records. | UC-004 |
-| FR-06.2 | Export produces the selected complete conversation record and excludes unsent drafts and credentials. | UC-004 |
+| FR-06.2 | Export downloads the selected complete confirmed discussion as an RTF attachment: conversation title, bold speaker/recipient names, date/time stamps in the browser time zone (explicit UTC if absent), paragraphs, supported emphasis/lists/headings and source references. Unicode English/Ukrainian text is preserved; valid emphasis appears formatted instead of raw Markdown markers. Include saved image references; image binaries remain available separately in the conversation. Exclude unsent drafts, credentials, runtime instructions and hidden run metadata. | UC-004 |
 | FR-06.3 | Explicit whole-conversation deletion removes its record and owned attachments; cancellation leaves them unchanged. | UC-004 |
 
 ### Voice
