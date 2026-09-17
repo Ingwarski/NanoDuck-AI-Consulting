@@ -56,6 +56,8 @@ test("the local HTTP flow protects data, saves settings and preserves a truthful
     const client = await (await fetch(`${origin}/client/app.js`)).text();
     assert.match(client, /SpeechRecognition/u);
     assert.match(client, /AudioContext/u);
+    assert.match(client, /View conversation/u);
+    assert.match(client, /setTab\("discussion"\)/u);
     assert.doesNotMatch(client, /MediaRecorder|voice\/transcribe/u);
     const shell = await (await fetch(`${origin}/`)).text();
     assert.match(shell, /id="notification-sound"/u);

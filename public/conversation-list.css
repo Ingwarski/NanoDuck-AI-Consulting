@@ -1,0 +1,24 @@
+.conversation-summary { min-width: 0; }
+
+.conversation-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.conversation-actions button {
+  flex: initial;
+  min-height: 40px;
+  padding: 8px 12px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.conversation-open { min-width: 142px; }
+
+@media (max-width: 700px) {
+  .conversation-row { align-items: flex-start; flex-direction: column; }
+  .conversation-actions { width: 100%; justify-content: flex-start; }
+}
