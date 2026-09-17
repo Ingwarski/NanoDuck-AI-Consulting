@@ -29,7 +29,7 @@ export function messageError(value) {
 }
 
 const knownCodexEfforts = new Set(["xhigh", "ultra"]);
-const knownClaudeEfforts = new Set(["default", "low", "medium", "high", "xhigh", "max"]);
+const knownClaudeEfforts = new Set(["low", "medium", "high", "extra", "max"]);
 const catalogFor = (catalog, provider) => Array.isArray(catalog)
   ? (provider === "codex" ? catalog : [])
   : Array.isArray(catalog?.[provider]?.models) ? catalog[provider].models : [];
@@ -50,10 +50,13 @@ export function parseSettings(value, catalog = undefined) {
   const criticProvider = body.criticProvider ?? "codex";
   const criticCodexModel = body.criticCodexModel ?? body.criticModel;
   const criticCodexReasoning = body.criticCodexReasoning ?? body.criticReasoning;
-  const criticClaudeModel = body.criticClaudeModel;
-  const criticClaudeReasoning = body.criticClaudeReasoning;
-  const activeClaudeModel = criticClaudeModel ?? "claude-code-default";
-  const activeClaudeReasoning = criticClaudeReasoning ?? "default";
+  // Revision 2 stored placeholders that were never valid Claude desktop
+  // choices. Treat them as an absent inactive preference so the owner sees
+  // the verified Opus 5 / High defaults instead of being locked out of saving.
+  const criticClaudeModel = body.criticClaudeModel === "claude-code-default" ? undefined : body.criticClaudeModel;
+  const criticClaudeReasoning = ["default", "xhigh"].includes(body.criticClaudeReasoning) ? undefined : body.criticClaudeReasoning;
+  const activeClaudeModel = criticClaudeModel ?? "claude-opus-5";
+  const activeClaudeReasoning = criticClaudeReasoning ?? "high";
   const criticAllowed = criticProvider === "codex"
     ? codexAllowed(criticCodexModel, criticCodexReasoning)
     : criticProvider === "claude_code" && claudeModels.length > 0 && modelSupports(claudeModels, activeClaudeModel, activeClaudeReasoning);

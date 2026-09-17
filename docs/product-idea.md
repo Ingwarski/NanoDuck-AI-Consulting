@@ -77,9 +77,9 @@ App login cannot create a ChatGPT/Claude subscription grant. If the selected pro
 | Head and specialists | Codex, `gpt-6-astra`, `xhigh` | Existing repository's live-review record dated 7 September 2026. |
 | Critic | Codex, `gpt-6-astra`, `xhigh` | Current authenticated settings read on 14 September 2026; the old screen's catalog was stale/unavailable, but its saved raw value was exact. |
 | Legacy orchestration preset | Balanced (`збалансовано`) | Historical GoDaddy observation only; it did not expose the new separate specialist-count and discussion-depth choices. |
-| Optional Critic route | Claude Code, preserving its separately saved model/effort if selected | Supported in current system; saved inactive values not established by this review. |
+| Optional Critic route | Claude Code: Opus 5 (`claude-opus-5`) with Low, Medium, High, Extra or Max | The 18 September owner-supplied Claude picker confirms supported UI vocabulary; an existing inactive saved preference remains unknown until selected. |
 
-A current content-free read confirms the active Codex settings above. The inactive Claude branch remains unknown and must not be replaced with defaults. Independently verify each exact active provider/model/effort combination before cutover; Astra/xhigh catalog evidence alone is not an execution proof.
+A current content-free read confirms the active Codex settings above. The inactive Claude branch has no known saved preference; Settings starts a newly selected Claude branch at the screenshot-confirmed Opus 5 / High values, while a previously saved supported choice remains intact. Independently verify each exact active provider/model/effort combination before cutover; Astra/xhigh catalog evidence alone is not an execution proof.
 
 Preserve subscription use, no silent model/effort substitution, no API-key/PAYG fallback, no automatic usage credits and no Claude Fast Mode. Current provider package pins are Codex `0.153.1` and Claude Code `2.1.258`; this implementation stores independent specialist-count and discussion-depth choices, defaults to 2 specialists and 1 exchange per specialist, and retains a 540,000 ms provider budget. Model settings and orchestration limits are separate concerns.
 

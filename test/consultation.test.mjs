@@ -65,9 +65,9 @@ test("a selected Claude Code Critic never moves Head or specialist work off Code
   const accepted = await store.acceptMessage(conversation.id, { body: "Should we test preorders?", clientRequestId: "claude-critic-routing-0001" }, {
     ...defaultSettings,
     criticProvider: "claude_code",
-    criticClaudeModel: "claude-code-default",
+    criticClaudeModel: "claude-opus-5",
     criticClaudeReasoning: "high",
-    criticModel: "claude-code-default",
+    criticModel: "claude-opus-5",
     criticReasoning: "high"
   });
   const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input), sources: [] }; } };

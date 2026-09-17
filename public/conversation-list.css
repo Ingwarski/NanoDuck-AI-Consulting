@@ -30,7 +30,13 @@
   gap: 16px;
 }
 
-.conversation-summary { min-width: 0; }
+.conversation-summary { min-width: 0; cursor: pointer; }
+
+.conversation-summary:focus-visible {
+  outline: 3px solid #3979e8;
+  outline-offset: 6px;
+  border-radius: 8px;
+}
 
 .conversation-actions {
   display: flex;

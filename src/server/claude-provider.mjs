@@ -6,7 +6,9 @@ import { hasProhibitedLanguage, hasUnsafeExternalUrl, safeExternalUrl } from "./
 
 const maxOutputBytes = 96 * 1024;
 const maxPromptBytes = 128 * 1024;
-const supportedEfforts = Object.freeze(["default", "low", "medium", "high", "xhigh", "max"]);
+// The owner confirmed these current Claude desktop choices. Keep the same
+// vocabulary at this provider boundary so Settings cannot save an invalid one.
+const supportedEfforts = Object.freeze(["low", "medium", "high", "extra", "max"]);
 const record = value => typeof value === "object" && value !== null && !Array.isArray(value);
 const supportedEffort = value => supportedEfforts.includes(value);
 const safeModel = value => typeof value === "string" && /^[A-Za-z0-9._-]{1,128}$/u.test(value);
@@ -75,10 +77,17 @@ export const runClaudeCommand = ({ command, args, environment, cwd, signal, time
   signal?.addEventListener("abort", abort, { once: true });
 });
 
-const catalog = config => Object.freeze([
-  Object.freeze({ id: "claude-code-default", label: "Claude Code default", efforts: supportedEfforts }),
-  ...[...new Set(config.claudeModelCandidates ?? [])].filter(safeModel).map(id => Object.freeze({ id, label: id, efforts: supportedEfforts }))
-]);
+const modelLabel = id => id === "claude-opus-5" ? "Opus 5" : id;
+// Claude Code uses concise CLI values while its owner-facing desktop picker
+// names the same choices Opus 5 and Extra. Persist and display the picker
+// vocabulary; translate only at the isolated process boundary.
+const cliModel = id => id === "claude-opus-5" ? "opus" : id;
+const cliEffort = effort => effort === "extra" ? "xhigh" : effort;
+const catalog = config => Object.freeze(
+  [...new Set(["claude-opus-5", ...(config.claudeModelCandidates ?? [])])]
+    .filter(safeModel)
+    .map(id => Object.freeze({ id, label: modelLabel(id), efforts: supportedEfforts }))
+);
 
 export function createClaudeProvider(config, { run = runClaudeCommand } = {}) {
   const models = catalog(config);
@@ -108,7 +117,7 @@ export function createClaudeProvider(config, { run = runClaudeCommand } = {}) {
     },
     async invoke(input) {
       if (!available || !safeModel(input.model) || !supportedEffort(input.effort) || typeof input.assignment !== "string" || Buffer.byteLength(input.assignment, "utf8") > maxPromptBytes) return { ok: false, code: available ? "incompatible" : "auth_required" };
-      const args = ["--print", "--output-format", "json", "--no-session-persistence", "--safe-mode", "--restricted", "--tools", "", "--strict-mcp-config", "--permission-mode", "dontAsk", ...(input.model === "claude-code-default" ? [] : ["--model", input.model]), ...(input.effort === "default" ? [] : ["--effort", input.effort]), input.assignment];
+      const args = ["--print", "--output-format", "json", "--no-session-persistence", "--safe-mode", "--restricted", "--tools", "", "--strict-mcp-config", "--permission-mode", "dontAsk", "--model", cliModel(input.model), "--effort", cliEffort(input.effort), input.assignment];
       try {
         const result = await execute(args, input.signal);
         if (input.signal?.aborted || result.aborted) return { ok: false, code: "cancelled" };

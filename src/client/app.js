@@ -1,6 +1,6 @@
 import { parseMarkdown } from "/client/markdown.js";
 
-const state = { session: null, csrf: null, page: "discussion", tab: "discussion", conversation: null, events: [], run: null, poll: null, recognition: null, voiceTimer: null, voiceMode: "ready", voiceTranscript: "", attachmentFiles: [], attachmentError: "", runtimeInstructionHistory: [], notificationSound: "knock", audioContext: null, conversations: [], selectedConversationIds: new Set(), criticSettings: null, criticProviders: null };
+const state = { session: null, csrf: null, page: "discussion", tab: "discussion", conversation: null, events: [], run: null, poll: null, recognition: null, voiceTimer: null, voiceMode: "ready", voiceTranscript: "", attachmentFiles: [], attachmentError: "", runtimeInstructionHistory: [], notificationSound: "knock", conversations: [], selectedConversationIds: new Set(), criticSettings: null, criticProviders: null };
 const $ = selector => document.querySelector(selector);
 const roleInitials = { owner: "I", "Head Consultant": "HC", "Strategy Consultant": "SC", "Finance Consultant": "FC", "Operations Consultant": "OC", "Sales Consultant": "SL", "Marketing Consultant": "MC", "Product Consultant": "PC", "Spiritual Consultant": "SP", Psychotherapist: "PT", "Risk Consultant": "RC", Critic: "CR", System: "•" };
 const displayRole = role => role === "owner" ? "You" : role;
@@ -42,34 +42,38 @@ const notificationPatterns = Object.freeze({
   chime: Object.freeze([[659, 0, .32], [880, .13, .44]]),
   ripple: Object.freeze([[523, 0, .16], [659, .10, .18], [784, .21, .24]])
 });
-const audioContext = () => {
-  const AudioContext = window.AudioContext ?? window.webkitAudioContext;
-  if (!AudioContext) return undefined;
-  state.audioContext ??= new AudioContext();
-  return state.audioContext;
-};
-const unlockNotificationSound = async () => {
-  const context = audioContext();
-  if (!context) return false;
-  try { if (context.state !== "running") await context.resume(); return context.state === "running"; } catch { return false; }
-};
-const playNotificationSound = () => {
-  const pattern = notificationPatterns[state.notificationSound]; const context = audioContext();
-  if (!pattern || !context) return false;
-  if (context.state !== "running") void context.resume().catch(() => undefined);
-  for (const [frequency, offset, duration] of pattern) {
-    const oscillator = context.createOscillator(); const gain = context.createGain(); const start = context.currentTime + .025 + offset;
-    oscillator.type = state.notificationSound === "knock" ? "triangle" : "sine"; oscillator.frequency.setValueAtTime(frequency, start);
-    gain.gain.setValueAtTime(.0001, start); gain.gain.exponentialRampToValueAtTime(state.notificationSound === "knock" ? .22 : .16, start + .016); gain.gain.exponentialRampToValueAtTime(.0001, start + duration);
-    oscillator.connect(gain).connect(context.destination); oscillator.start(start); oscillator.stop(start + duration + .02);
+const notificationSoundUrls = new Map();
+const notificationPlayers = new Set();
+const soundUrl = name => {
+  if (notificationSoundUrls.has(name)) return notificationSoundUrls.get(name);
+  const pattern = notificationPatterns[name]; if (!pattern || typeof Blob !== "function" || !URL.createObjectURL) return undefined;
+  const rate = 44_100; const seconds = Math.max(...pattern.map(([, offset, duration]) => offset + duration)) + .08; const samples = Math.ceil(seconds * rate);
+  const wav = new ArrayBuffer(44 + samples * 2); const view = new DataView(wav);
+  const tag = (offset, text) => [...text].forEach((character, index) => view.setUint8(offset + index, character.charCodeAt(0)));
+  tag(0, "RIFF"); view.setUint32(4, 36 + samples * 2, true); tag(8, "WAVE"); tag(12, "fmt "); view.setUint32(16, 16, true); view.setUint16(20, 1, true); view.setUint16(22, 1, true); view.setUint32(24, rate, true); view.setUint32(28, rate * 2, true); view.setUint16(32, 2, true); view.setUint16(34, 16, true); tag(36, "data"); view.setUint32(40, samples * 2, true);
+  for (let index = 0; index < samples; index += 1) {
+    const time = index / rate; let value = 0;
+    for (const [frequency, offset, duration] of pattern) {
+      const progress = (time - offset) / duration; if (progress < 0 || progress > 1) continue;
+      const envelope = Math.min(1, progress / .025) * Math.pow(1 - progress, 1.35) * .58;
+      const phase = 2 * Math.PI * frequency * (time - offset); const wave = name === "knock" ? (2 / Math.PI) * Math.asin(Math.sin(phase)) : Math.sin(phase);
+      value += wave * envelope;
+    }
+    view.setInt16(44 + index * 2, Math.round(Math.max(-1, Math.min(1, value)) * 0x7fff), true);
   }
-  return true;
+  const url = URL.createObjectURL(new Blob([wav], { type: "audio/wav" })); notificationSoundUrls.set(name, url); return url;
+};
+const playNotificationSound = async () => {
+  const url = soundUrl(state.notificationSound); if (!url || typeof Audio !== "function") return false;
+  const player = new Audio(url); player.preload = "auto"; player.volume = .85; notificationPlayers.add(player);
+  const clearPlayer = () => notificationPlayers.delete(player); player.addEventListener("ended", clearPlayer, { once: true }); player.addEventListener("error", clearPlayer, { once: true });
+  try { await player.play(); return true; } catch { clearPlayer(); return false; }
 };
 const announceIncomingMessages = (before, after) => {
   const previous = new Set(before.map(event => event.id));
   const incoming = after.filter(event => event.role !== "owner" && !previous.has(event.id));
   if (!incoming.length) return;
-  playNotificationSound();
+  void playNotificationSound();
   $("#message-announcement").textContent = incoming.length === 1 ? `${displayRole(incoming[0].role)} sent a message.` : `${incoming.length} new consultation messages are available.`;
 };
 
@@ -226,15 +230,15 @@ function renderConversations() {
     const select = node("input", { type: "checkbox", checked: state.selectedConversationIds.has(conversation.id), "aria-label": `Select ${conversation.title}` });
     select.addEventListener("change", () => { if (select.checked) state.selectedConversationIds.add(conversation.id); else state.selectedConversationIds.delete(conversation.id); renderConversations(); });
     const selectLabel = node("label", { class: "conversation-select" }); selectLabel.append(select, node("span", {}, "Select"));
-    const summary = node("div", { class: "conversation-summary" }); summary.append(node("h2", {}, conversation.title), node("small", {}, new Intl.DateTimeFormat(undefined, { dateStyle: "medium" }).format(new Date(conversation.updatedAt))));
     const openConversation = async () => { try { await loadConversation(conversation.id); } catch { toast("That conversation could not be opened. Please try again."); } };
-    const tools = node("div", { class: "conversation-actions" }); const openButton = node("button", { type: "button", class: "primary conversation-open" }, "View conversation"); openButton.addEventListener("click", () => void openConversation());
+    const summary = node("div", { class: "conversation-summary", tabIndex: 0 }); summary.setAttribute("role", "button"); summary.setAttribute("aria-label", `Open ${conversation.title}`); summary.append(node("h2", {}, conversation.title), node("small", {}, new Intl.DateTimeFormat(undefined, { dateStyle: "medium" }).format(new Date(conversation.updatedAt)))); summary.addEventListener("click", () => void openConversation()); summary.addEventListener("keydown", event => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); void openConversation(); } });
+    const tools = node("div", { class: "conversation-actions" });
     const exportButton = node("button", { type: "button", class: "secondary" }, "Export"); exportButton.title = "Download formatted rich text (.rtf)"; exportButton.addEventListener("click", () => { const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone; window.location.assign(`/api/conversations/${conversation.id}/export?timeZone=${encodeURIComponent(timeZone)}`); });
     const deleteButton = node("button", { type: "button", class: "secondary" }, "Delete"); deleteButton.addEventListener("click", async () => {
       if (!confirm(`Delete “${conversation.title}”? This cannot be undone.`)) return;
       try { await request(`/api/conversations/${conversation.id}`, { method: "DELETE" }); clearDeletedConversation([conversation.id]); state.selectedConversationIds.delete(conversation.id); toast("Conversation deleted."); await loadConversations(); } catch { toast("Conversation could not be deleted. Please try again."); }
     });
-    tools.append(openButton, exportButton, deleteButton); row.append(selectLabel, summary, tools); list.append(row);
+    tools.append(exportButton, deleteButton); row.append(selectLabel, summary, tools); list.append(row);
   }
 }
 async function loadConversations() {
@@ -282,12 +286,13 @@ function renderCriticControls() {
   $("#critic-provider").value = provider;
   const models = capability.models?.length ? capability.models : provider === "codex"
     ? [{ id: "gpt-6-astra", label: "gpt-6-astra", efforts: ["xhigh", "ultra"] }]
-    : [{ id: "claude-code-default", label: "Claude Code default", efforts: ["default", "low", "medium", "high", "xhigh", "max"] }];
+    : [{ id: "claude-opus-5", label: "Opus 5", efforts: ["low", "medium", "high", "extra", "max"] }];
   const selectedModel = provider === "claude_code" ? state.criticSettings.criticClaudeModel : state.criticSettings.criticCodexModel;
-  const selectedEffort = provider === "claude_code" ? state.criticSettings.criticClaudeReasoning : state.criticSettings.criticCodexReasoning;
+  const selectedEffort = provider === "claude_code" ? state.criticSettings.criticClaudeReasoning ?? "high" : state.criticSettings.criticCodexReasoning;
   replaceOptions($("#critic-model"), models, selectedModel);
   const current = models.find(model => model.id === $("#critic-model").value) ?? models[0];
-  replaceOptions($("#critic-reasoning"), current.efforts.map(id => ({ id, label: id })), selectedEffort);
+  const effortLabel = id => provider === "claude_code" ? ({ low: "Low", medium: "Medium", high: "High (Default)", extra: "Extra", max: "Max" }[id] ?? id) : id;
+  replaceOptions($("#critic-reasoning"), current.efforts.map(id => ({ id, label: effortLabel(id) })), selectedEffort);
   const unavailable = provider === "claude_code" && capability.status !== "ready";
   $("#critic-model").disabled = unavailable; $("#critic-reasoning").disabled = unavailable;
   $("#settings-status").textContent = `${criticProviderStatus("codex")} ${criticProviderStatus("claude_code")}`;
@@ -300,8 +305,8 @@ async function loadSettings() {
     criticProvider: settings.criticProvider ?? "codex",
     criticCodexModel: settings.criticCodexModel ?? settings.criticModel,
     criticCodexReasoning: settings.criticCodexReasoning ?? settings.criticReasoning,
-    criticClaudeModel: settings.criticClaudeModel,
-    criticClaudeReasoning: settings.criticClaudeReasoning
+    criticClaudeModel: settings.criticClaudeModel === "claude-code-default" ? undefined : settings.criticClaudeModel,
+    criticClaudeReasoning: ["default", "xhigh"].includes(settings.criticClaudeReasoning) ? undefined : settings.criticClaudeReasoning
   };
   ensureCriticProviderControl(); replaceOptions($("#critic-provider"), [{ id: "codex", label: "GPT (Codex)" }, { id: "claude_code", label: "Claude Code" }], state.criticSettings.criticProvider); renderCriticControls();
   $("#specialist-count").value = settings.specialistCount; $("#discussion-depth").value = settings.discussionDepth; $("#notification-sound").value = settings.notificationSound ?? "knock"; state.notificationSound = $("#notification-sound").value;
@@ -377,7 +382,7 @@ async function uploadAttachments(conversationId) {
 }
 async function removePendingAttachments(conversationId, attachmentIds) { await Promise.all(attachmentIds.map(attachmentId => request(`/api/conversations/${conversationId}/attachments/${attachmentId}`, { method: "DELETE" }).catch(() => undefined))); }
 async function acceptMessage(event) {
-  event.preventDefault(); void unlockNotificationSound(); const body = $("#message").value.trim(); if (!body) return; if (!state.conversation) await newConversation(); if (!state.conversation) return;
+  event.preventDefault(); const body = $("#message").value.trim(); if (!body) return; if (!state.conversation) await newConversation(); if (!state.conversation) return;
   let attachmentIds = [];
   try {
     attachmentIds = await uploadAttachments(state.conversation.id);
@@ -391,7 +396,7 @@ async function acceptMessage(event) {
 }
 
 async function stop() { if (!state.conversation) return; const { data } = await request(`/api/conversations/${state.conversation.id}/stop`, { method: "POST" }); state.run = data.run; renderEvents(); }
-async function continueRun() { if (!state.conversation) return; void unlockNotificationSound(); const { data } = await request(`/api/conversations/${state.conversation.id}/continue`, { method: "POST" }); state.run = data.run; renderEvents(); startPolling(); }
+async function continueRun() { if (!state.conversation) return; const { data } = await request(`/api/conversations/${state.conversation.id}/continue`, { method: "POST" }); state.run = data.run; renderEvents(); startPolling(); }
 function startPolling() { stopPolling(); if (state.run?.status !== "active") return; state.poll = setInterval(async () => { try { const { data } = await request(`/api/conversations/${state.conversation.id}`); const previous = state.events; state.conversation = data.conversation; state.events = data.events; state.run = data.run; announceIncomingMessages(previous, state.events); renderEvents(); if (state.run?.status !== "active") stopPolling(); } catch { stopPolling(); } }, 2_000); }
 function stopPolling() { if (state.poll) clearInterval(state.poll); state.poll = null; }
 
@@ -481,7 +486,7 @@ function voiceAction() {
 
 $("#menu").addEventListener("click", () => { const menu = $("#mobile-nav"); menu.hidden = !menu.hidden; $("#menu").setAttribute("aria-expanded", String(!menu.hidden)); });
 document.addEventListener("click", event => { const button = event.target.closest("[data-nav]"); if (button) nav(button.dataset.nav); const tab = event.target.closest("[data-tab]"); if (tab) setTab(tab.dataset.tab); });
-$("#new-conversation").addEventListener("click", () => { clearAttachmentDraft(); void newConversation(); }); $("#composer").addEventListener("submit", event => void acceptMessage(event)); $("#stop").addEventListener("click", () => void stop()); $("#continue").addEventListener("click", () => void continueRun());
+$("#new-conversation").addEventListener("click", () => { clearAttachmentDraft(); void newConversation(); }); $("#composer").addEventListener("submit", event => void acceptMessage(event)); $("#message").addEventListener("keydown", event => { if (event.key !== "Enter" || event.shiftKey || event.isComposing) return; event.preventDefault(); $("#composer").requestSubmit(); }); $("#stop").addEventListener("click", () => void stop()); $("#continue").addEventListener("click", () => void continueRun());
 $("#google-sign-in").addEventListener("click", signIn);
 $("#development-sign-in").addEventListener("click", signIn);
 document.querySelectorAll("[data-session-action]").forEach(button => button.addEventListener("click", () => {
@@ -499,10 +504,10 @@ $("#settings-form").addEventListener("submit", async event => {
     state.criticSettings = { ...state.criticSettings, ...data.settings }; state.notificationSound = data.settings.notificationSound; toast("Settings saved for future consultations.");
   } catch { toast("Settings were not saved. Check the selected provider and try again."); }
 });
-$("#preview-notification-sound").addEventListener("click", () => {
+$("#preview-notification-sound").addEventListener("click", async () => {
   state.notificationSound = $("#notification-sound").value;
   if (state.notificationSound === "off") return toast("Message sound is off.");
-  if (!playNotificationSound()) return toast("Your browser does not support notification sounds.");
+  if (!await playNotificationSound()) return toast("Your browser blocked the sound preview. Check the tab and device sound, then try again.");
   toast(`Playing the ${state.notificationSound} preview.`);
 });
 $("#runtime-instructions-form").addEventListener("submit", async event => {
@@ -525,6 +530,5 @@ $("#sign-out").addEventListener("click", signOut);
 $("#runtime-instructions-version-restore").addEventListener("click", () => void restoreRuntimeInstructionVersion()); $("#runtime-instructions-version-cancel").addEventListener("click", () => $("#runtime-instructions-version-dialog").close()); $("#runtime-instructions-version-close").addEventListener("click", () => $("#runtime-instructions-version-dialog").close());
 $("#attach").addEventListener("click", () => $("#attachment").click()); $("#attachment").addEventListener("change", event => chooseAttachments(event.target.files));
 $("#voice").addEventListener("click", openVoice); $("#voice-action").addEventListener("click", event => { event.preventDefault(); voiceAction(); }); $("#voice-cancel").addEventListener("click", () => { releaseVoice(); $("#voice-dialog").close(); }); $("#voice-close").addEventListener("click", () => { releaseVoice(); $("#voice-dialog").close(); }); $("#voice-dialog").addEventListener("close", releaseVoice); window.addEventListener("pagehide", () => { stopPolling(); releaseVoice(); }); document.addEventListener("visibilitychange", () => { if (document.hidden && state.voiceMode === "listening") { releaseVoice(); voiceFailure("Voice interrupted", "Voice input stopped when the app moved to the background. Your typed draft is unchanged."); } });
-document.addEventListener("pointerdown", () => { void unlockNotificationSound(); }, { capture: true, once: true });
 
 void loadSession().catch(() => toast("The app could not initialize."));
