@@ -19,6 +19,7 @@
     "node": ">=22"
   },
   "dependencies": {
+    "@anthropic-ai/claude-code": "2.1.258",
     "@openai/codex": "0.153.1",
     "google-auth-library": "11.0.2",
     "mysql2": "3.24.2"

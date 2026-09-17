@@ -1,6 +1,6 @@
 import { parseMarkdown } from "/client/markdown.js";
 
-const state = { session: null, csrf: null, page: "discussion", tab: "discussion", conversation: null, events: [], run: null, poll: null, recognition: null, voiceTimer: null, voiceMode: "ready", voiceTranscript: "", attachmentFiles: [], attachmentError: "", runtimeInstructionHistory: [], notificationSound: "knock", audioContext: null };
+const state = { session: null, csrf: null, page: "discussion", tab: "discussion", conversation: null, events: [], run: null, poll: null, recognition: null, voiceTimer: null, voiceMode: "ready", voiceTranscript: "", attachmentFiles: [], attachmentError: "", runtimeInstructionHistory: [], notificationSound: "knock", audioContext: null, conversations: [], selectedConversationIds: new Set(), criticSettings: null, criticProviders: null };
 const $ = selector => document.querySelector(selector);
 const roleInitials = { owner: "I", "Head Consultant": "HC", "Strategy Consultant": "SC", "Finance Consultant": "FC", "Operations Consultant": "OC", "Sales Consultant": "SL", "Marketing Consultant": "MC", "Product Consultant": "PC", "Spiritual Consultant": "SP", Psychotherapist: "PT", "Risk Consultant": "RC", Critic: "CR", System: "•" };
 const displayRole = role => role === "owner" ? "You" : role;
@@ -38,9 +38,9 @@ const attachmentCountLimit = 4;
 const attachmentTypes = new Set(["image/jpeg", "image/png", "image/webp"]);
 const formatBytes = value => value < 1024 * 1024 ? `${Math.ceil(value / 1024)} KB` : `${(value / (1024 * 1024)).toFixed(1)} MiB`;
 const notificationPatterns = Object.freeze({
-  knock: Object.freeze([[206, 0, .06], [188, .12, .06], [206, .24, .08]]),
-  chime: Object.freeze([[659, 0, .28], [880, .09, .34]]),
-  ripple: Object.freeze([[523, 0, .12], [659, .08, .14], [784, .17, .18]])
+  knock: Object.freeze([[206, 0, .10], [188, .15, .10], [206, .30, .16]]),
+  chime: Object.freeze([[659, 0, .32], [880, .13, .44]]),
+  ripple: Object.freeze([[523, 0, .16], [659, .10, .18], [784, .21, .24]])
 });
 const audioContext = () => {
   const AudioContext = window.AudioContext ?? window.webkitAudioContext;
@@ -55,11 +55,12 @@ const unlockNotificationSound = async () => {
 };
 const playNotificationSound = () => {
   const pattern = notificationPatterns[state.notificationSound]; const context = audioContext();
-  if (!pattern || !context || context.state !== "running") return false;
+  if (!pattern || !context) return false;
+  if (context.state !== "running") void context.resume().catch(() => undefined);
   for (const [frequency, offset, duration] of pattern) {
-    const oscillator = context.createOscillator(); const gain = context.createGain(); const start = context.currentTime + offset;
+    const oscillator = context.createOscillator(); const gain = context.createGain(); const start = context.currentTime + .025 + offset;
     oscillator.type = state.notificationSound === "knock" ? "triangle" : "sine"; oscillator.frequency.setValueAtTime(frequency, start);
-    gain.gain.setValueAtTime(.0001, start); gain.gain.exponentialRampToValueAtTime(state.notificationSound === "knock" ? .11 : .07, start + .012); gain.gain.exponentialRampToValueAtTime(.0001, start + duration);
+    gain.gain.setValueAtTime(.0001, start); gain.gain.exponentialRampToValueAtTime(state.notificationSound === "knock" ? .22 : .16, start + .016); gain.gain.exponentialRampToValueAtTime(.0001, start + duration);
     oscillator.connect(gain).connect(context.destination); oscillator.start(start); oscillator.stop(start + duration + .02);
   }
   return true;
@@ -184,26 +185,130 @@ async function loadConversation(conversationId, { preserveAttachmentDraft = fals
 }
 
 async function newConversation() { try { const { data } = await request("/api/conversations", { method: "POST" }); await loadConversation(data.conversation.id, { preserveAttachmentDraft: true }); $("#message").focus(); } catch { toast("Could not create a conversation."); } }
-async function loadConversations() {
-  const { data } = await request("/api/conversations"); const list = clear($("#conversation-list"));
-  if (!data.conversations.length) { list.append(node("div", { class: "empty" }, "No saved conversations yet.")); return; }
-  for (const conversation of data.conversations) {
-    const row = node("article", { class: "conversation-row" }); const summary = node("div", { class: "conversation-summary" }); summary.append(node("h2", {}, conversation.title), node("small", {}, new Intl.DateTimeFormat(undefined, { dateStyle: "medium" }).format(new Date(conversation.updatedAt))));
+function prepareConversationsPage() {
+  const page = $("#conversations-page"); const intro = page.querySelector(".page-intro");
+  if (!intro.dataset.prepared) { clear(intro).append(node("p", { class: "eyebrow" }, "Conversations")); intro.dataset.prepared = "true"; }
+  if ($("#conversation-toolbar")) return;
+  const toolbar = node("div", { id: "conversation-toolbar", class: "conversation-toolbar" });
+  page.insertBefore(toolbar, $("#conversation-list"));
+}
+function clearDeletedConversation(ids) {
+  if (!state.conversation || !ids.includes(state.conversation.id)) return;
+  stopPolling(); state.conversation = null; state.events = []; state.run = null; renderEvents();
+}
+async function deleteSelectedConversations() {
+  const ids = [...state.selectedConversationIds];
+  if (!ids.length || !confirm(`Delete ${ids.length} selected conversation${ids.length === 1 ? "" : "s"}? This cannot be undone.`)) return;
+  try {
+    const { data } = await request("/api/conversations", { method: "DELETE", body: { conversationIds: ids } });
+    clearDeletedConversation(data.deletedConversationIds); state.selectedConversationIds.clear();
+    toast(`${data.deletedConversationIds.length} conversation${data.deletedConversationIds.length === 1 ? "" : "s"} deleted.`); await loadConversations();
+  } catch { toast("Selected conversations could not be deleted. Please try again."); }
+}
+function renderConversationToolbar() {
+  const toolbar = clear($("#conversation-toolbar")); const conversations = state.conversations;
+  toolbar.hidden = !conversations.length;
+  if (!conversations.length) return;
+  const selectedCount = state.selectedConversationIds.size;
+  const selectAll = node("input", { type: "checkbox", id: "select-all-conversations" });
+  selectAll.checked = selectedCount === conversations.length; selectAll.indeterminate = selectedCount > 0 && selectedCount < conversations.length;
+  selectAll.addEventListener("change", () => { state.selectedConversationIds = new Set(selectAll.checked ? conversations.map(item => item.id) : []); renderConversations(); });
+  const selectLabel = node("label", { class: "conversation-select-all", htmlFor: "select-all-conversations" }); selectLabel.append(selectAll, node("span", {}, "Select all"));
+  const deleteButton = node("button", { type: "button", class: "secondary" }, selectedCount ? `Delete selected (${selectedCount})` : "Delete selected");
+  deleteButton.disabled = selectedCount === 0; deleteButton.addEventListener("click", () => void deleteSelectedConversations());
+  toolbar.append(selectLabel, deleteButton);
+}
+function renderConversations() {
+  prepareConversationsPage(); renderConversationToolbar(); const list = clear($("#conversation-list"));
+  if (!state.conversations.length) { list.append(node("div", { class: "empty" }, "No saved conversations yet.")); return; }
+  for (const conversation of state.conversations) {
+    const row = node("article", { class: "conversation-row" });
+    const select = node("input", { type: "checkbox", checked: state.selectedConversationIds.has(conversation.id), "aria-label": `Select ${conversation.title}` });
+    select.addEventListener("change", () => { if (select.checked) state.selectedConversationIds.add(conversation.id); else state.selectedConversationIds.delete(conversation.id); renderConversations(); });
+    const selectLabel = node("label", { class: "conversation-select" }); selectLabel.append(select, node("span", {}, "Select"));
+    const summary = node("div", { class: "conversation-summary" }); summary.append(node("h2", {}, conversation.title), node("small", {}, new Intl.DateTimeFormat(undefined, { dateStyle: "medium" }).format(new Date(conversation.updatedAt))));
     const openConversation = async () => { try { await loadConversation(conversation.id); } catch { toast("That conversation could not be opened. Please try again."); } };
     const tools = node("div", { class: "conversation-actions" }); const openButton = node("button", { type: "button", class: "primary conversation-open" }, "View conversation"); openButton.addEventListener("click", () => void openConversation());
-    const exportButton = node("button", { type: "button", class: "secondary" }, "Export"); exportButton.title = "Download formatted rich text (.rtf)"; exportButton.addEventListener("click", () => { const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone; window.location.assign(`/api/conversations/${conversation.id}/export?timeZone=${encodeURIComponent(timeZone)}`); }); const deleteButton = node("button", { type: "button", class: "secondary" }, "Delete"); deleteButton.addEventListener("click", async () => { if (!confirm(`Delete “${conversation.title}”? This cannot be undone.`)) return; await request(`/api/conversations/${conversation.id}`, { method: "DELETE" }); if (state.conversation?.id === conversation.id) state.conversation = null; toast("Conversation deleted."); void loadConversations(); }); tools.append(openButton, exportButton, deleteButton); row.append(summary, tools); list.append(row);
+    const exportButton = node("button", { type: "button", class: "secondary" }, "Export"); exportButton.title = "Download formatted rich text (.rtf)"; exportButton.addEventListener("click", () => { const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone; window.location.assign(`/api/conversations/${conversation.id}/export?timeZone=${encodeURIComponent(timeZone)}`); });
+    const deleteButton = node("button", { type: "button", class: "secondary" }, "Delete"); deleteButton.addEventListener("click", async () => {
+      if (!confirm(`Delete “${conversation.title}”? This cannot be undone.`)) return;
+      try { await request(`/api/conversations/${conversation.id}`, { method: "DELETE" }); clearDeletedConversation([conversation.id]); state.selectedConversationIds.delete(conversation.id); toast("Conversation deleted."); await loadConversations(); } catch { toast("Conversation could not be deleted. Please try again."); }
+    });
+    tools.append(openButton, exportButton, deleteButton); row.append(selectLabel, summary, tools); list.append(row);
   }
 }
+async function loadConversations() {
+  const { data } = await request("/api/conversations"); state.conversations = data.conversations;
+  const available = new Set(state.conversations.map(item => item.id)); state.selectedConversationIds = new Set([...state.selectedConversationIds].filter(id => available.has(id)));
+  renderConversations();
+}
 
+const criticProviderName = provider => provider === "claude_code" ? "Claude Code" : "GPT (Codex)";
+const criticProviderStatus = provider => {
+  const status = state.criticProviders?.[provider]?.status;
+  if (status === "ready") return `${criticProviderName(provider)} is ready for this runtime.`;
+  if (status === "auth_required") return `${criticProviderName(provider)} needs its managed sign-in renewed.`;
+  if (status === "quota_blocked") return `${criticProviderName(provider)} has reached its current limit.`;
+  return `${criticProviderName(provider)} is unavailable on this runtime.`;
+};
+const replaceOptions = (select, options, selected) => {
+  clear(select);
+  for (const option of options) select.append(node("option", { value: option.id }, option.label ?? option.id));
+  if (options.some(option => option.id === selected)) select.value = selected;
+};
+function ensureCriticProviderControl() {
+  if ($("#critic-provider")) return;
+  const fieldset = $("#critic-model").closest("fieldset"); const first = fieldset.querySelector("label");
+  const label = node("label", {}, "Provider"); const select = node("select", { id: "critic-provider" });
+  label.append(select); fieldset.insertBefore(label, first);
+  select.addEventListener("change", () => {
+    const next = select.value;
+    if (next === "claude_code" && state.criticProviders?.claude_code?.status !== "ready") {
+      select.value = state.criticSettings.criticProvider; toast("Claude Code needs its managed sign-in before it can be selected."); return;
+    }
+    saveVisibleCriticSettings(); state.criticSettings.criticProvider = next; renderCriticControls();
+  });
+}
+function saveVisibleCriticSettings() {
+  if (!state.criticSettings) return;
+  if ($("#critic-provider").value === "claude_code") {
+    state.criticSettings.criticClaudeModel = $("#critic-model").value; state.criticSettings.criticClaudeReasoning = $("#critic-reasoning").value;
+  } else {
+    state.criticSettings.criticCodexModel = $("#critic-model").value; state.criticSettings.criticCodexReasoning = $("#critic-reasoning").value;
+  }
+}
+function renderCriticControls() {
+  const provider = state.criticSettings.criticProvider; const capability = state.criticProviders?.[provider] ?? { status: "unavailable", models: [] };
+  $("#critic-provider").value = provider;
+  const models = capability.models?.length ? capability.models : provider === "codex"
+    ? [{ id: "gpt-6-astra", label: "gpt-6-astra", efforts: ["xhigh", "ultra"] }]
+    : [{ id: "claude-code-default", label: "Claude Code default", efforts: ["default", "low", "medium", "high", "xhigh", "max"] }];
+  const selectedModel = provider === "claude_code" ? state.criticSettings.criticClaudeModel : state.criticSettings.criticCodexModel;
+  const selectedEffort = provider === "claude_code" ? state.criticSettings.criticClaudeReasoning : state.criticSettings.criticCodexReasoning;
+  replaceOptions($("#critic-model"), models, selectedModel);
+  const current = models.find(model => model.id === $("#critic-model").value) ?? models[0];
+  replaceOptions($("#critic-reasoning"), current.efforts.map(id => ({ id, label: id })), selectedEffort);
+  const unavailable = provider === "claude_code" && capability.status !== "ready";
+  $("#critic-model").disabled = unavailable; $("#critic-reasoning").disabled = unavailable;
+  $("#settings-status").textContent = `${criticProviderStatus("codex")} ${criticProviderStatus("claude_code")}`;
+}
 async function loadSettings() {
   const [{ data: settingsData }, { data: instructionsData }] = await Promise.all([request("/api/settings"), request("/api/runtime-instructions")]); const settings = settingsData.settings; const instructions = instructionsData.runtimeInstructions;
-  $("#head-model").value = settings.headModel; $("#head-reasoning").value = settings.headReasoning; $("#critic-model").value = settings.criticModel; $("#critic-reasoning").value = settings.criticReasoning; $("#specialist-count").value = settings.specialistCount; $("#discussion-depth").value = settings.discussionDepth; $("#notification-sound").value = settings.notificationSound ?? "knock"; state.notificationSound = $("#notification-sound").value;
+  $("#head-model").value = settings.headModel; $("#head-reasoning").value = settings.headReasoning;
+  state.criticProviders = settingsData.criticProviders ?? { codex: { status: settingsData.provider, models: settingsData.catalog ?? [] }, claude_code: { status: "unavailable", models: [] } };
+  state.criticSettings = {
+    criticProvider: settings.criticProvider ?? "codex",
+    criticCodexModel: settings.criticCodexModel ?? settings.criticModel,
+    criticCodexReasoning: settings.criticCodexReasoning ?? settings.criticReasoning,
+    criticClaudeModel: settings.criticClaudeModel,
+    criticClaudeReasoning: settings.criticClaudeReasoning
+  };
+  ensureCriticProviderControl(); replaceOptions($("#critic-provider"), [{ id: "codex", label: "GPT (Codex)" }, { id: "claude_code", label: "Claude Code" }], state.criticSettings.criticProvider); renderCriticControls();
+  $("#specialist-count").value = settings.specialistCount; $("#discussion-depth").value = settings.discussionDepth; $("#notification-sound").value = settings.notificationSound ?? "knock"; state.notificationSound = $("#notification-sound").value;
   $("#runtime-instructions").value = instructions.markdown;
   $("#runtime-instructions").dataset.revision = instructions.revision;
   $("#runtime-instructions-status").textContent = `Current encrypted database revision ${instructions.revision.slice(0, 12)}. Required headings and placeholders are validated before save.`;
   state.runtimeInstructionHistory = instructionsData.history; renderRuntimeInstructionHistory();
-  const providerMessage = { ready: "Selected Codex route is ready for this runtime.", quota_blocked: "Selected Codex route has reached its current limit; saved preferences are preserved.", auth_required: "Selected Codex route needs its managed sign-in renewed.", incompatible: "The selected Codex route does not expose the preserved model and reasoning settings.", unavailable: "Selected Codex route is unavailable on this runtime; saved preferences are preserved." };
-  $("#settings-status").textContent = providerMessage[settingsData.provider] ?? providerMessage.unavailable;
   $("#session-expiry").textContent = `This session expires ${new Intl.DateTimeFormat(undefined, { dateStyle: "medium", timeStyle: "short" }).format(new Date(state.session.expiresAt))}. Activity does not extend the 24-hour boundary.`;
 }
 
@@ -383,8 +488,23 @@ document.querySelectorAll("[data-session-action]").forEach(button => button.addE
   if (state.session?.authenticated) void signOut(); else void signIn();
 }));
 $("#consent-check").addEventListener("change", event => { $("#consent-button").disabled = !event.target.checked; }); $("#consent-button").addEventListener("click", async () => { await request("/api/consent", { method: "POST" }); await loadSession(); });
-$("#settings-form").addEventListener("submit", async event => { event.preventDefault(); const settings = { headModel: $("#head-model").value, headReasoning: $("#head-reasoning").value, criticModel: $("#critic-model").value, criticReasoning: $("#critic-reasoning").value, specialistCount: $("#specialist-count").value, discussionDepth: $("#discussion-depth").value, notificationSound: $("#notification-sound").value }; await request("/api/settings", { method: "PUT", body: settings }); state.notificationSound = settings.notificationSound; toast("Settings saved for future consultations."); });
-$("#preview-notification-sound").addEventListener("click", async () => { state.notificationSound = $("#notification-sound").value; if (state.notificationSound === "off") return toast("Message sound is off."); if (!await unlockNotificationSound() || !playNotificationSound()) toast("Your browser did not allow a sound preview."); });
+$("#settings-form").addEventListener("submit", async event => {
+  event.preventDefault(); saveVisibleCriticSettings();
+  const activeCritic = state.criticSettings.criticProvider === "claude_code"
+    ? { model: state.criticSettings.criticClaudeModel, reasoning: state.criticSettings.criticClaudeReasoning }
+    : { model: state.criticSettings.criticCodexModel, reasoning: state.criticSettings.criticCodexReasoning };
+  const settings = { headModel: $("#head-model").value, headReasoning: $("#head-reasoning").value, ...state.criticSettings, criticModel: activeCritic.model, criticReasoning: activeCritic.reasoning, specialistCount: $("#specialist-count").value, discussionDepth: $("#discussion-depth").value, notificationSound: $("#notification-sound").value };
+  try {
+    const { data } = await request("/api/settings", { method: "PUT", body: settings });
+    state.criticSettings = { ...state.criticSettings, ...data.settings }; state.notificationSound = data.settings.notificationSound; toast("Settings saved for future consultations.");
+  } catch { toast("Settings were not saved. Check the selected provider and try again."); }
+});
+$("#preview-notification-sound").addEventListener("click", () => {
+  state.notificationSound = $("#notification-sound").value;
+  if (state.notificationSound === "off") return toast("Message sound is off.");
+  if (!playNotificationSound()) return toast("Your browser does not support notification sounds.");
+  toast(`Playing the ${state.notificationSound} preview.`);
+});
 $("#runtime-instructions-form").addEventListener("submit", async event => {
   event.preventDefault();
   try {
@@ -405,5 +525,6 @@ $("#sign-out").addEventListener("click", signOut);
 $("#runtime-instructions-version-restore").addEventListener("click", () => void restoreRuntimeInstructionVersion()); $("#runtime-instructions-version-cancel").addEventListener("click", () => $("#runtime-instructions-version-dialog").close()); $("#runtime-instructions-version-close").addEventListener("click", () => $("#runtime-instructions-version-dialog").close());
 $("#attach").addEventListener("click", () => $("#attachment").click()); $("#attachment").addEventListener("change", event => chooseAttachments(event.target.files));
 $("#voice").addEventListener("click", openVoice); $("#voice-action").addEventListener("click", event => { event.preventDefault(); voiceAction(); }); $("#voice-cancel").addEventListener("click", () => { releaseVoice(); $("#voice-dialog").close(); }); $("#voice-close").addEventListener("click", () => { releaseVoice(); $("#voice-dialog").close(); }); $("#voice-dialog").addEventListener("close", releaseVoice); window.addEventListener("pagehide", () => { stopPolling(); releaseVoice(); }); document.addEventListener("visibilitychange", () => { if (document.hidden && state.voiceMode === "listening") { releaseVoice(); voiceFailure("Voice interrupted", "Voice input stopped when the app moved to the background. Your typed draft is unchanged."); } });
+document.addEventListener("pointerdown", () => { void unlockNotificationSound(); }, { capture: true, once: true });
 
 void loadSession().catch(() => toast("The app could not initialize."));

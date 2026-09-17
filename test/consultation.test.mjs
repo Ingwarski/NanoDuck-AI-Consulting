@@ -60,6 +60,23 @@ test("a policy-rejected draft is replaced before the consultation can fail", asy
   assert.equal((await store.events(conversation.id)).some(event => event.role === "System"), false);
 });
 
+test("a selected Claude Code Critic never moves Head or specialist work off Codex", async () => {
+  const store = createMemoryStore(); const conversation = await store.createConversation(); const calls = [];
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we test preorders?", clientRequestId: "claude-critic-routing-0001" }, {
+    ...defaultSettings,
+    criticProvider: "claude_code",
+    criticClaudeModel: "claude-code-default",
+    criticClaudeReasoning: "high",
+    criticModel: "claude-code-default",
+    criticReasoning: "high"
+  });
+  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input), sources: [] }; } };
+  await createConsultationService({ store, provider }).start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  assert.equal(calls.filter(call => call.outputKind.startsWith("critic_")).every(call => call.provider === "claude_code"), true);
+  assert.equal(calls.filter(call => !call.outputKind.startsWith("critic_")).every(call => call.provider === "codex"), true);
+});
+
 test("the discussion is unnamed until the completed consultation creates its saved title", async () => {
   const store = createMemoryStore();
   const conversation = await store.createConversation();

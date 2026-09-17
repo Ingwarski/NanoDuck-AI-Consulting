@@ -1,4 +1,5 @@
 import { createHash } from "node:crypto";
+import { resolve } from "node:path";
 import { gunzipSync } from "node:zlib";
 
 const required = (value, name) => {
@@ -62,6 +63,14 @@ const optionalGzipBase64urlText = (value, name) => {
 };
 
 const optionalString = value => typeof value === "string" && value.trim() ? value.trim() : undefined;
+
+const optionalModelCandidates = value => {
+  if (value === undefined || value === "") return Object.freeze([]);
+  if (typeof value !== "string") throw new Error("CLAUDE_CODE_MODEL_CANDIDATES must be a comma-separated model list.");
+  const candidates = [...new Set(value.split(",").map(item => item.trim()).filter(Boolean))];
+  if (candidates.length > 12 || candidates.some(item => !/^[A-Za-z0-9._-]{1,128}$/u.test(item))) throw new Error("CLAUDE_CODE_MODEL_CANDIDATES contains an invalid model id.");
+  return Object.freeze(candidates);
+};
 
 const quotedInner = value => {
   const quote = value[0];
@@ -205,6 +214,9 @@ export function loadConfig(environment = process.env) {
     codexCommand: environment.CODEX_APP_SERVER_COMMAND ?? "codex",
     codexAuthPath,
     codexAuthBytes,
-    readyForProvider: Boolean(codexAuthPath || codexAuthBytes)
+    readyForProvider: Boolean(codexAuthPath || codexAuthBytes),
+    claudeCommand: environment.CLAUDE_CODE_COMMAND ?? resolve(process.cwd(), "node_modules", ".bin", "claude"),
+    claudeOAuthToken: optionalString(environment.CLAUDE_CODE_OAUTH_TOKEN),
+    claudeModelCandidates: optionalModelCandidates(environment.CLAUDE_CODE_MODEL_CANDIDATES)
   });
 }

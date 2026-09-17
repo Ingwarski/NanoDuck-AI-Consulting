@@ -4,12 +4,12 @@ import { extname, join, normalize } from "node:path";
 import { loadConfig } from "./config.mjs";
 import { createMemoryStore, createMySqlStore } from "./store.mjs";
 import { createAuth } from "./auth.mjs";
-import { createCodexProvider } from "./codex-provider.mjs";
+import { createProviders } from "./providers.mjs";
 import { createConsultationService } from "./consultation.mjs";
 import { parseRuntimeInstructions, RuntimeInstructionError, upgradeRuntimeInstructionMarkdown } from "./prompt-contracts.mjs";
 import { attachmentExtension, readImageAttachment } from "./attachments.mjs";
 import { exportConversationRtf } from "./conversation-export.mjs";
-import { messageError, parseConversationId, parseMessage, parseSettings } from "./validation.mjs";
+import { messageError, parseConversationId, parseConversationIds, parseMessage, parseSettings } from "./validation.mjs";
 
 const config = loadConfig();
 const store = config.databaseUrl ? await createMySqlStore(config.databaseUrl, config.dataKey, config.databaseSslCaPath) : createMemoryStore();
@@ -19,8 +19,8 @@ await store.migrateRuntimeInstructions(markdown => {
   return upgraded === markdown ? undefined : parseRuntimeInstructions(upgraded);
 });
 const auth = createAuth({ config, store });
-const provider = createCodexProvider(config);
-const consultation = createConsultationService({ store, provider });
+const providers = createProviders(config);
+const consultation = createConsultationService({ store, provider: providers });
 const publicDirectory = new URL("../../public/", import.meta.url).pathname;
 const clientDirectory = new URL("../client/", import.meta.url).pathname;
 const mime = { ".html": "text/html; charset=utf-8", ".css": "text/css; charset=utf-8", ".js": "application/javascript; charset=utf-8", ".svg": "image/svg+xml", ".json": "application/json; charset=utf-8" };
@@ -79,8 +79,8 @@ const handler = async (request, response) => {
       const session = await auth.consent(request); return session ? send(response, 200, { consented: true }) : send(response, 403, { error: "consent_denied" });
     }
     if (request.method === "POST" && url.pathname === "/api/logout") { await auth.signOut(request); return empty(response, 204, { "set-cookie": auth.clearSessionCookie() }); }
-    if (request.method === "GET" && url.pathname === "/api/settings") { if (!await protectedSession(request, response)) return; const [capabilities, runtimeInstructions] = await Promise.all([provider.inspect(), activeRuntimeInstructions()]); return send(response, 200, { settings: await store.settings(), runtimeInstructions, provider: capabilities.status, catalog: capabilities.models }); }
-    if (request.method === "PUT" && url.pathname === "/api/settings") { if (!await protectedSession(request, response, { csrf: true })) return; const capabilities = await provider.inspect(); const next = parseSettings(await json(request), capabilities.models); return next ? send(response, 200, { settings: await store.saveSettings(next) }) : send(response, 422, { error: "invalid_settings" }); }
+    if (request.method === "GET" && url.pathname === "/api/settings") { if (!await protectedSession(request, response)) return; const [capabilities, runtimeInstructions] = await Promise.all([providers.inspect(), activeRuntimeInstructions()]); return send(response, 200, { settings: await store.settings(), runtimeInstructions, provider: capabilities.codex.status, catalog: capabilities.codex.models, criticProviders: capabilities }); }
+    if (request.method === "PUT" && url.pathname === "/api/settings") { if (!await protectedSession(request, response, { csrf: true })) return; const capabilities = await providers.inspect(); const next = parseSettings(await json(request), capabilities); return next ? send(response, 200, { settings: await store.saveSettings(next) }) : send(response, 422, { error: "invalid_settings" }); }
     if (request.method === "GET" && url.pathname === "/api/runtime-instructions") {
       if (!await protectedSession(request, response)) return;
       const [runtimeInstructions, history] = await Promise.all([activeRuntimeInstructions(), store.listRuntimeInstructionHistory()]);
@@ -109,6 +109,13 @@ const handler = async (request, response) => {
     }
     if (request.method === "GET" && url.pathname === "/api/conversations") { if (!await protectedSession(request, response)) return; return send(response, 200, { conversations: await store.listConversations() }); }
     if (request.method === "POST" && url.pathname === "/api/conversations") { if (!await protectedSession(request, response, { csrf: true })) return; return send(response, 201, { conversation: await store.createConversation() }); }
+    if (request.method === "DELETE" && url.pathname === "/api/conversations") {
+      if (!await protectedSession(request, response, { csrf: true })) return;
+      const conversationIds = parseConversationIds(await json(request));
+      if (!conversationIds) return send(response, 422, { error: "invalid_conversations" });
+      const deletedConversationIds = await store.deleteConversations(conversationIds);
+      return send(response, 200, { deletedConversationIds });
+    }
     const matched = routeId(url.pathname);
     if (matched) {
       const [, conversationId, action, resourceId] = matched; if (!parseConversationId(conversationId)) return send(response, 404, { error: "not_found" });

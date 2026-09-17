@@ -39,7 +39,7 @@ Store source title, direct URL, supported claim and retrieval/publication inform
 
 ## Identity, grants and preferences
 
-Retain the current Google identity boundary for the sole owner and secure server sessions, authorization and CSRF protection. App login protects application access; it does not authorize an AI subscription. Provider credentials remain server-only, encrypted with keys separated from database data. Verify supported renewal for the active route. Do not probe or require unused Claude access.
+Retain the current Google identity boundary for the sole owner and secure server sessions, authorization and CSRF protection. App login protects application access; it does not authorize an AI subscription. Provider credentials remain server-only, encrypted with keys separated from database data. Settings may make a content-free managed-authentication check for a configured Critic provider so it can truthfully expose or refuse that selector; an inactive provider is never invoked with consultation content. The server verifies the selected provider/model/effort tuple again before it accepts a changed preference.
 
 Before cutover, take a content-free saved-settings snapshot and verify the exact active tuples independently. Routine refresh should be automatic; revoked access gets one contextual reconnect action. Quota exhaustion gets reset/retry information. No automatic model downgrade or paid fallback.
 

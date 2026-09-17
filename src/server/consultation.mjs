@@ -2,18 +2,21 @@ import { createRuntimePrompts, runtimeInstructionsFor } from "./prompt-contracts
 import { deriveConversationTitle } from "./conversation-title.mjs";
 
 const roleSettings = snapshot => Object.freeze({
-  head: { model: snapshot.headModel, effort: snapshot.headReasoning },
-  consultant: { model: snapshot.headModel, effort: snapshot.headReasoning },
-  critic: { model: snapshot.criticModel, effort: snapshot.criticReasoning }
+  head: { provider: "codex", model: snapshot.headModel, effort: snapshot.headReasoning },
+  consultant: { provider: "codex", model: snapshot.headModel, effort: snapshot.headReasoning },
+  critic: snapshot.criticProvider === "claude_code"
+    ? { provider: "claude_code", model: snapshot.criticClaudeModel ?? snapshot.criticModel, effort: snapshot.criticClaudeReasoning ?? snapshot.criticReasoning }
+    : { provider: "codex", model: snapshot.criticCodexModel ?? snapshot.criticModel, effort: snapshot.criticCodexReasoning ?? snapshot.criticReasoning }
 });
 
-const providerFailureMessage = code => ({
-  auth_required: "The selected Codex route needs its managed sign-in renewed. Your question remains saved.",
-  quota_blocked: "The selected Codex route has reached its current usage limit. Your question remains saved.",
-  incompatible: "The selected Codex model and reasoning configuration is unavailable on this route. Your question remains saved.",
-  subscription_unavailable: "The selected Codex subscription is unavailable. Your question remains saved.",
-  method_unavailable: "The selected Codex runtime cannot complete a required consultation step. Your question remains saved.",
-  provider_unavailable: "The selected Codex route could not complete this request. Your question remains saved."
+const providerName = provider => provider === "claude_code" ? "Claude Code" : "Codex";
+const providerFailureMessage = (code, provider) => ({
+  auth_required: `The selected ${providerName(provider)} route needs its managed sign-in renewed. Your question remains saved.`,
+  quota_blocked: `The selected ${providerName(provider)} route has reached its current usage limit. Your question remains saved.`,
+  incompatible: `The selected ${providerName(provider)} model and reasoning configuration is unavailable on this route. Your question remains saved.`,
+  subscription_unavailable: `The selected ${providerName(provider)} subscription is unavailable. Your question remains saved.`,
+  method_unavailable: `The selected ${providerName(provider)} runtime cannot complete a required consultation step. Your question remains saved.`,
+  provider_unavailable: `The selected ${providerName(provider)} route could not complete this request. Your question remains saved.`
 }[code]);
 
 const hasSensitiveResearchContext = text => /(?:\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b|\b(?:password|passcode|api[ _-]?key|secret|access[ _-]?token|iban|credit[ _-]?card|passport|medical)\b|(?:\+?\d[\d\s().-]{7,}\d)|\b(?:парол\p{L}*|ключ\p{L}*\s*api|секрет\p{L}*|токен\p{L}*|iban|картк\p{L}*|паспорт\p{L}*|медич\p{L}*)\b)/iu.test(text);
@@ -125,6 +128,11 @@ const specialistCandidates = text => {
 const legacySpecialistCount = speed => ({ fast: "1", balanced: "2", thorough: "3", ultra: "5" })[speed] ?? "2";
 const normalizedSnapshot = snapshot => Object.freeze({
   ...snapshot,
+  criticProvider: snapshot.criticProvider ?? "codex",
+  criticCodexModel: snapshot.criticCodexModel ?? snapshot.criticModel,
+  criticCodexReasoning: snapshot.criticCodexReasoning ?? snapshot.criticReasoning,
+  criticClaudeModel: snapshot.criticClaudeModel,
+  criticClaudeReasoning: snapshot.criticClaudeReasoning,
   specialistCount: snapshot.specialistCount ?? legacySpecialistCount(snapshot.speed),
   discussionDepth: snapshot.discussionDepth ?? "1"
 });
@@ -152,12 +160,14 @@ export function createConsultationService({ store, provider }) {
       return stored?.status === "active" && stored.generation === runState.generation;
     };
     let snapshot = normalizedSnapshot(runState.snapshot);
+    let failedProvider = "codex";
     const persistSnapshot = async patch => {
       snapshot = Object.freeze({ ...snapshot, ...patch });
       if (!await store.updateRunSnapshot(conversationId, runState.generation, snapshot)) throw new Error("invalid_run_state");
     };
     const invokeProvider = async step => {
-      const input = { assignment: step.assignment, model: step.model, effort: step.effort, evidence: await current(), research: step.research, outputKind: step.outputKind, maximumCharacters: step.maximumCharacters, runtimeInstructions: step.runtimeInstructions, signal: controller.signal };
+      const input = { provider: step.provider, assignment: step.assignment, model: step.model, effort: step.effort, evidence: await current(), research: step.research, outputKind: step.outputKind, maximumCharacters: step.maximumCharacters, runtimeInstructions: step.runtimeInstructions, signal: controller.signal };
+      failedProvider = input.provider ?? "codex";
       let result = await provider.invoke(input);
       if (!result.ok && result.code === "language_policy" && await isCurrent()) result = await provider.invoke({ ...input, assignment: policyCorrection(step.assignment), evidence: await current() });
       return result;
@@ -204,6 +214,7 @@ export function createConsultationService({ store, provider }) {
       const selectAutomaticTeam = async () => {
         if (!await isCurrent()) return undefined;
         const result = await provider.invoke({
+          provider: settings.head.provider,
           assignment: prompts.autoTeam({ candidates, language }),
           model: settings.head.model,
           effort: settings.head.effort,
@@ -214,6 +225,7 @@ export function createConsultationService({ store, provider }) {
           runtimeInstructions: instructions,
           signal: controller.signal
         });
+        failedProvider = settings.head.provider;
         if (!result.ok) throw new Error(result.code ?? "provider_unavailable");
         return teamMarker(result.body).count;
       };
@@ -231,6 +243,7 @@ export function createConsultationService({ store, provider }) {
       const headTasks = team.map(specialist => ({
           role: "Head Consultant",
           recipient: specialist,
+          provider: settings.head.provider,
           model: settings.head.model,
           effort: settings.head.effort,
           research: false,
@@ -253,6 +266,7 @@ export function createConsultationService({ store, provider }) {
         return {
           role: specialist,
           recipient: "Critic",
+          provider: settings.consultant.provider,
           model: settings.consultant.model,
           effort: settings.consultant.effort,
           research,
@@ -282,8 +296,8 @@ export function createConsultationService({ store, provider }) {
         let consensusReached = true;
         for (const [index, specialist] of team.entries()) {
           if (!await isCurrent()) return;
-          const challenge = { role: "Critic", recipient: specialist, model: settings.critic.model, effort: settings.critic.effort, research, outputKind: "critic_challenge", maximumCharacters: 1_000, runtimeInstructions: instructions, assignment: prompts.criticChallenge({ specialist, exchange, language }) };
-          const reply = { role: specialist, recipient: "Critic", model: settings.consultant.model, effort: settings.consultant.effort, research, outputKind: "specialist_reply", maximumCharacters: 1_200, runtimeInstructions: instructions, assignment: prompts.specialistReply({ specialist, language, automaticDepth }) };
+          const challenge = { role: "Critic", recipient: specialist, provider: settings.critic.provider, model: settings.critic.model, effort: settings.critic.effort, research, outputKind: "critic_challenge", maximumCharacters: 1_000, runtimeInstructions: instructions, assignment: prompts.criticChallenge({ specialist, exchange, language }) };
+          const reply = { role: specialist, recipient: "Critic", provider: settings.consultant.provider, model: settings.consultant.model, effort: settings.consultant.effort, research, outputKind: "specialist_reply", maximumCharacters: 1_200, runtimeInstructions: instructions, assignment: prompts.specialistReply({ specialist, language, automaticDepth }) };
           const existingChallenge = confirmed[cursor];
           if (existingChallenge) { if (!matches(existingChallenge, challenge)) throw new Error("invalid_run_state"); }
           else await invoke(challenge);
@@ -316,8 +330,8 @@ export function createConsultationService({ store, provider }) {
         const closingStarted = confirmed[cursor]?.recipient === "Head Consultant";
         if (exchange === maximumDepth || (automaticDepth && (consensusReached || closingStarted))) {
           const closingSteps = [
-            ...team.map(specialist => ({ role: specialist, recipient: "Head Consultant", model: settings.consultant.model, effort: settings.consultant.effort, research, outputKind: "specialist_final", maximumCharacters: 1_200, runtimeInstructions: instructions, assignment: prompts.specialistFinal({ specialist, language }) })),
-            { role: "Critic", recipient: "Head Consultant", model: settings.critic.model, effort: settings.critic.effort, research, outputKind: "critic_final", maximumCharacters: 1_600, runtimeInstructions: instructions, assignment: prompts.criticFinal(language) }
+            ...team.map(specialist => ({ role: specialist, recipient: "Head Consultant", provider: settings.consultant.provider, model: settings.consultant.model, effort: settings.consultant.effort, research, outputKind: "specialist_final", maximumCharacters: 1_200, runtimeInstructions: instructions, assignment: prompts.specialistFinal({ specialist, language }) })),
+            { role: "Critic", recipient: "Head Consultant", provider: settings.critic.provider, model: settings.critic.model, effort: settings.critic.effort, research, outputKind: "critic_final", maximumCharacters: 1_600, runtimeInstructions: instructions, assignment: prompts.criticFinal(language) }
           ];
           for (const step of closingSteps) {
             if (!await isCurrent()) return;
@@ -344,14 +358,14 @@ export function createConsultationService({ store, provider }) {
       if (!await isCurrent()) return;
       confirmed = (await current()).events.slice(ownerIndex + 1);
       if (confirmed.length < cursor) throw new Error("invalid_run_state");
-      const conclusion = { role: "Head Consultant", recipient: null, model: settings.head.model, effort: settings.head.effort, research: false, outputKind: "head_final", maximumCharacters: 2_000, runtimeInstructions: instructions, assignment: prompts.conclusion(language, reviewStatus) };
+      const conclusion = { role: "Head Consultant", recipient: null, provider: settings.head.provider, model: settings.head.model, effort: settings.head.effort, research: false, outputKind: "head_final", maximumCharacters: 2_000, runtimeInstructions: instructions, assignment: prompts.conclusion(language, reviewStatus) };
       if (confirmed[cursor]) {
         if (!matches(confirmed[cursor], conclusion) || confirmed.length !== cursor + 1) throw new Error("invalid_run_state");
       } else await invoke(conclusion, consolidatedOutput);
       await store.finishRun(conversationId, runState.generation, "complete", deriveConversationTitle(first.owner));
     } catch (error) {
       if (!controller.signal.aborted) {
-        const body = providerFailureMessage(error.message) ?? (error.message === "language_policy" ? "A response did not meet the English/Ukrainian language policy. Your question remains saved." : "The consultation paused before a confirmed response. Your saved discussion remains available.");
+        const body = providerFailureMessage(error.message, failedProvider) ?? (error.message === "language_policy" ? "A response did not meet the English/Ukrainian language policy. Your question remains saved." : "The consultation paused before a confirmed response. Your saved discussion remains available.");
         await store.appendAgentMessage(conversationId, runState.generation, { role: "System", body, sources: [] });
         await store.finishRun(conversationId, runState.generation, "failed");
       }

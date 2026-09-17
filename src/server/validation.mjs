@@ -28,23 +28,52 @@ export function messageError(value) {
   return body && (hasProhibitedLanguage(body.body) || hasUnsafeExternalUrl(body.body)) ? "language_not_supported" : "invalid_message";
 }
 
+const knownCodexEfforts = new Set(["xhigh", "ultra"]);
+const knownClaudeEfforts = new Set(["default", "low", "medium", "high", "xhigh", "max"]);
+const catalogFor = (catalog, provider) => Array.isArray(catalog)
+  ? (provider === "codex" ? catalog : [])
+  : Array.isArray(catalog?.[provider]?.models) ? catalog[provider].models : [];
+const modelSupports = (models, model, effort) => models.some(candidate => candidate?.id === model && Array.isArray(candidate.efforts) && candidate.efforts.includes(effort));
+const validModelId = value => typeof value === "string" && /^[A-Za-z0-9._-]{1,128}$/u.test(value);
+
 export function parseSettings(value, catalog = undefined) {
   const body = parseJson(value);
   if (!body) return undefined;
-  const validEfforts = new Set(["xhigh", "ultra"]);
   const validSpecialistCounts = new Set(["1", "2", "3", "5", "auto"]);
   const validDiscussionDepths = new Set(["1", "3", "5", "auto"]);
   const validNotificationSounds = new Set(["knock", "chime", "ripple", "off"]);
-  const allowed = Array.isArray(catalog) && catalog.length
-    ? catalog.some(model => model?.id === body.headModel && model.id === body.criticModel && Array.isArray(model.efforts) && model.efforts.includes(body.headReasoning) && model.efforts.includes(body.criticReasoning))
-    : body.headModel === "gpt-6-astra" && body.criticModel === "gpt-6-astra" && validEfforts.has(body.headReasoning) && validEfforts.has(body.criticReasoning);
+  const codexModels = catalogFor(catalog, "codex");
+  const claudeModels = catalogFor(catalog, "claude_code");
+  const codexAllowed = (model, effort) => codexModels.length
+    ? modelSupports(codexModels, model, effort)
+    : model === "gpt-6-astra" && knownCodexEfforts.has(effort);
+  const criticProvider = body.criticProvider ?? "codex";
+  const criticCodexModel = body.criticCodexModel ?? body.criticModel;
+  const criticCodexReasoning = body.criticCodexReasoning ?? body.criticReasoning;
+  const criticClaudeModel = body.criticClaudeModel;
+  const criticClaudeReasoning = body.criticClaudeReasoning;
+  const activeClaudeModel = criticClaudeModel ?? "claude-code-default";
+  const activeClaudeReasoning = criticClaudeReasoning ?? "default";
+  const criticAllowed = criticProvider === "codex"
+    ? codexAllowed(criticCodexModel, criticCodexReasoning)
+    : criticProvider === "claude_code" && claudeModels.length > 0 && modelSupports(claudeModels, activeClaudeModel, activeClaudeReasoning);
   const notificationSound = body.notificationSound ?? "knock";
-  if (!allowed || !validSpecialistCounts.has(body.specialistCount) || !validDiscussionDepths.has(body.discussionDepth) || !validNotificationSounds.has(notificationSound)) return undefined;
-  return Object.freeze({ headModel: body.headModel, headReasoning: body.headReasoning, criticModel: body.criticModel, criticReasoning: body.criticReasoning, specialistCount: body.specialistCount, discussionDepth: body.discussionDepth, notificationSound });
+  const inactiveClaudeValid = (criticClaudeModel === undefined || validModelId(criticClaudeModel)) && (criticClaudeReasoning === undefined || knownClaudeEfforts.has(criticClaudeReasoning));
+  if (!codexAllowed(body.headModel, body.headReasoning) || !criticAllowed || !validModelId(criticCodexModel) || !knownCodexEfforts.has(criticCodexReasoning) || !inactiveClaudeValid || !validSpecialistCounts.has(body.specialistCount) || !validDiscussionDepths.has(body.discussionDepth) || !validNotificationSounds.has(notificationSound)) return undefined;
+  const criticModel = criticProvider === "claude_code" ? activeClaudeModel : criticCodexModel;
+  const criticReasoning = criticProvider === "claude_code" ? activeClaudeReasoning : criticCodexReasoning;
+  return Object.freeze({ headModel: body.headModel, headReasoning: body.headReasoning, criticProvider, criticCodexModel, criticCodexReasoning, ...(criticClaudeModel === undefined ? {} : { criticClaudeModel }), ...(criticClaudeReasoning === undefined ? {} : { criticClaudeReasoning }), criticModel, criticReasoning, specialistCount: body.specialistCount, discussionDepth: body.discussionDepth, notificationSound });
 }
 
 export function parseConversationId(value) {
   return identifier(value) ? value : undefined;
+}
+
+export function parseConversationIds(value) {
+  const body = parseJson(value);
+  const ids = body?.conversationIds;
+  if (!Array.isArray(ids) || ids.length < 1 || ids.length > 100 || ids.some(item => !identifier(item)) || new Set(ids).size !== ids.length) return undefined;
+  return Object.freeze([...ids]);
 }
 
 export function safeExternalUrl(value) {

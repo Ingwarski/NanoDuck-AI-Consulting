@@ -5,6 +5,9 @@ import { normalizeRecoverySnapshot } from "./recovery.mjs";
 const defaults = Object.freeze({
   headModel: "gpt-6-astra",
   headReasoning: "xhigh",
+  criticProvider: "codex",
+  criticCodexModel: "gpt-6-astra",
+  criticCodexReasoning: "xhigh",
   criticModel: "gpt-6-astra",
   criticReasoning: "xhigh",
   specialistCount: "2",
@@ -194,6 +197,11 @@ export function createMemoryStore() {
     async deleteConversation(conversationId) {
       const conversation = conversations.get(conversationId); if (!conversation || conversation.deletedAt) return false;
       conversation.deletedAt = now(); conversation.updatedAt = conversation.deletedAt; messages.set(conversationId, []); for (const attachment of [...attachments.values()].filter(item => item.conversationId === conversationId)) attachments.delete(attachment.id); const run = runs.get(conversationId); if (run) { run.generation += 1; run.status = "deleted"; } return true;
+    },
+    async deleteConversations(conversationIds) {
+      const deleted = [];
+      for (const conversationId of conversationIds) if (await this.deleteConversation(conversationId)) deleted.push(conversationId);
+      return Object.freeze(deleted);
     }
   });
 }
@@ -489,6 +497,11 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
         await connection.execute("UPDATE nanoduck_runs SET generation=generation+1,status='deleted',updated_at=? WHERE conversation_id=? AND status IN ('active','stopped')", [deletedAt,id]);
         await connection.commit(); return true;
       } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
+    },
+    async deleteConversations(conversationIds) {
+      const deleted = [];
+      for (const conversationId of conversationIds) if (await this.deleteConversation(conversationId)) deleted.push(conversationId);
+      return Object.freeze(deleted);
     },
     async close() { await pool.end(); }
   });

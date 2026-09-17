@@ -57,6 +57,8 @@ test("the local HTTP flow protects data, saves settings and preserves a truthful
     assert.match(client, /SpeechRecognition/u);
     assert.match(client, /AudioContext/u);
     assert.match(client, /View conversation/u);
+    assert.match(client, /Delete selected/u);
+    assert.match(client, /critic-provider/u);
     assert.match(client, /setTab\("discussion"\)/u);
     assert.doesNotMatch(client, /MediaRecorder|voice\/transcribe/u);
     const shell = await (await fetch(`${origin}/`)).text();
@@ -66,8 +68,10 @@ test("the local HTTP flow protects data, saves settings and preserves a truthful
 
     const created = await (await fetch(`${origin}/api/conversations`, { method: "POST", headers })).json();
     const conversationId = created.conversation.id;
-    const settings = { headModel: "gpt-6-astra", headReasoning: "ultra", criticModel: "gpt-6-astra", criticReasoning: "xhigh", specialistCount: "3", discussionDepth: "3", notificationSound: "ripple" };
+    const settings = { headModel: "gpt-6-astra", headReasoning: "ultra", criticProvider: "codex", criticCodexModel: "gpt-6-astra", criticCodexReasoning: "xhigh", criticModel: "gpt-6-astra", criticReasoning: "xhigh", specialistCount: "3", discussionDepth: "3", notificationSound: "ripple" };
     assert.deepEqual((await (await fetch(`${origin}/api/settings`, { method: "PUT", headers, body: JSON.stringify(settings) })).json()).settings, settings);
+    const bulk = await (await fetch(`${origin}/api/conversations`, { method: "POST", headers })).json();
+    assert.deepEqual((await (await fetch(`${origin}/api/conversations`, { method: "DELETE", headers, body: JSON.stringify({ conversationIds: [bulk.conversation.id] }) })).json()).deletedConversationIds, [bulk.conversation.id]);
 
     const initialInstructions = await (await fetch(`${origin}/api/runtime-instructions`, { headers: { cookie } })).json();
     assert.equal(initialInstructions.runtimeInstructions.source, "database");

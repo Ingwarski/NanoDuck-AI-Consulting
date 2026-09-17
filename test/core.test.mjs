@@ -7,19 +7,30 @@ import { openRecoveryEnvelope, sealRecoverySnapshot } from "../src/server/recove
 import { createAuth } from "../src/server/auth.mjs";
 import { loadConfig } from "../src/server/config.mjs";
 import { createMemoryStore, createMySqlStore, defaultSettings } from "../src/server/store.mjs";
-import { parseMessage, parseSettings, safeExternalUrl } from "../src/server/validation.mjs";
+import { parseConversationIds, parseMessage, parseSettings, safeExternalUrl } from "../src/server/validation.mjs";
 import { testRuntimeInstructions } from "./fixtures/runtime-instructions.mjs";
 
 test("new consultations default to the current saved Codex settings", () => {
   assert.deepEqual(defaultSettings, {
     headModel: "gpt-6-astra",
     headReasoning: "xhigh",
+    criticProvider: "codex",
+    criticCodexModel: "gpt-6-astra",
+    criticCodexReasoning: "xhigh",
     criticModel: "gpt-6-astra",
     criticReasoning: "xhigh",
     specialistCount: "2",
     discussionDepth: "1",
     notificationSound: "knock"
   });
+});
+
+test("Claude Code accepts only a managed token and bounded owner-configured candidates", () => {
+  const config = loadConfig({ NODE_ENV: "development", DEV_OWNER_EMAIL: "owner@local.test", CLAUDE_CODE_OAUTH_TOKEN: " managed-token ", CLAUDE_CODE_MODEL_CANDIDATES: "claude-sonnet, claude-opus,claude-sonnet" });
+  assert.equal(config.claudeOAuthToken, "managed-token");
+  assert.deepEqual(config.claudeModelCandidates, ["claude-sonnet", "claude-opus"]);
+  assert.match(config.claudeCommand, /node_modules[/\\]\.bin[/\\]claude$/u);
+  assert.throws(() => loadConfig({ NODE_ENV: "development", CLAUDE_CODE_MODEL_CANDIDATES: "not valid" }), /invalid model id/u);
 });
 
 const key = Buffer.alloc(32, 7);
@@ -92,6 +103,15 @@ test("encrypted recovery restores confirmed records but never resurrects a delet
   assert.deepEqual(await restored.restoreRecovery(openRecoveryEnvelope(envelope, backupKey)), { restored: 0, tombstones: 0, preservedTombstones: 1 });
   assert.equal(await restored.getConversation(conversation.id), undefined);
   assert.equal((await restored.recoverySnapshot()).conversations[0].messages.length, 0);
+});
+
+test("multiple selected conversations are tombstoned together", async () => {
+  const store = createMemoryStore();
+  const first = await store.createConversation(); const second = await store.createConversation(); const third = await store.createConversation();
+  assert.deepEqual(await store.deleteConversations([first.id, second.id]), [first.id, second.id]);
+  assert.deepEqual((await store.listConversations()).map(item => item.id), [third.id]);
+  assert.deepEqual(await store.deleteConversations([first.id, third.id]), [third.id]);
+  assert.deepEqual(await store.listConversations(), []);
 });
 
 test("accepted owner messages are idempotent and a stopped run fences later agent output", async () => {
@@ -319,7 +339,10 @@ test("settings and message validation reject unsupported model values and malfor
   assert.deepEqual(parseSettings({ ...defaultSettings, specialistCount: "auto", discussionDepth: "auto" }), { ...defaultSettings, specialistCount: "auto", discussionDepth: "auto" });
   assert.equal(parseSettings({ ...defaultSettings, specialistCount: "4" }), undefined);
   assert.equal(parseSettings({ ...defaultSettings, discussionDepth: "2" }), undefined);
-  assert.equal(parseSettings({ ...defaultSettings, criticModel: "another-model" }), undefined);
+  assert.equal(parseSettings({ ...defaultSettings, criticCodexModel: "another-model" }), undefined);
+  const claudeCatalog = { codex: { models: [{ id: "gpt-6-astra", efforts: ["xhigh", "ultra"] }] }, claude_code: { models: [{ id: "claude-code-default", efforts: ["default", "low", "medium", "high", "xhigh", "max"] }] } };
+  assert.deepEqual(parseSettings({ ...defaultSettings, criticProvider: "claude_code", criticModel: "claude-code-default", criticReasoning: "high", criticClaudeReasoning: "high" }, claudeCatalog), { ...defaultSettings, criticProvider: "claude_code", criticModel: "claude-code-default", criticReasoning: "high", criticClaudeReasoning: "high" });
+  assert.equal(parseSettings({ ...defaultSettings, criticProvider: "claude_code" }, { codex: { models: [{ id: "gpt-6-astra", efforts: ["xhigh", "ultra"] }] }, claude_code: { models: [] } }), undefined);
   assert.deepEqual(parseSettings({ ...defaultSettings, notificationSound: "ripple" }), { ...defaultSettings, notificationSound: "ripple" });
   assert.equal(parseSettings({ ...defaultSettings, notificationSound: "loud" }), undefined);
   assert.equal(parseMessage({ body: "Question", clientRequestId: "short" }), undefined);
@@ -329,6 +352,8 @@ test("settings and message validation reject unsupported model values and malfor
   assert.equal(parseMessage({ body: "Как это работает?", clientRequestId: "language-policy-request-0001" }), undefined);
   assert.equal(parseMessage({ body: "Як гэта працуе?", clientRequestId: "language-policy-request-0002" }), undefined);
   assert.equal(parseMessage({ body: "Read https://example.su/report", clientRequestId: "url-policy-request-0003" }), undefined);
+  assert.deepEqual(parseConversationIds({ conversationIds: ["conversation-identifier-0001", "conversation-identifier-0002"] }), ["conversation-identifier-0001", "conversation-identifier-0002"]);
+  assert.equal(parseConversationIds({ conversationIds: ["conversation-identifier-0001", "conversation-identifier-0001"] }), undefined);
 });
 
 test("source links accept only public HTTPS destinations", () => {
