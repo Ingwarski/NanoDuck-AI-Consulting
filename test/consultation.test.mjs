@@ -75,6 +75,29 @@ test("a selected Claude Code Critic never moves Head or specialist work off Code
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
   assert.equal(calls.filter(call => call.outputKind.startsWith("critic_")).every(call => call.provider === "claude_code"), true);
   assert.equal(calls.filter(call => !call.outputKind.startsWith("critic_")).every(call => call.provider === "codex"), true);
+  assert.equal(calls.filter(call => call.outputKind.startsWith("critic_")).every(call => call.research === false), true);
+});
+
+test("an internal provider tool trace cannot be committed to a consultation", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we fund the expansion?", clientRequestId: "internal-tool-trace-0001" }, {
+    ...defaultSettings,
+    criticProvider: "claude_code",
+    criticClaudeModel: "claude-opus-5",
+    criticClaudeReasoning: "high"
+  });
+  const provider = { async invoke(input) {
+    if (input.outputKind === "critic_challenge") return { ok: true, body: '<invoke name="Bash"><parameter name="command">pwd</parameter></invoke>', sources: [] };
+    return { ok: true, body: successfulBody(input), sources: [] };
+  } };
+  await createConsultationService({ store, provider }).start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "failed");
+  const events = await store.events(conversation.id);
+  assert.equal(events.some(event => /<\s*invoke\b|\bBash\b/u.test(event.body)), false);
+  assert.equal(events.at(-1).role, "System");
+  assert.equal(events.at(-1).recipient, null);
+  assert.equal(events.at(-1).body, "The consultation paused before a confirmed response. Your saved discussion remains available.");
 });
 
 test("the discussion is unnamed until the completed consultation creates its saved title", async () => {

@@ -1,5 +1,6 @@
 import { createRuntimePrompts, runtimeInstructionsFor } from "./prompt-contracts.mjs";
 import { deriveConversationTitle } from "./conversation-title.mjs";
+import { containsInternalToolTrace } from "./output-safety.mjs";
 
 const roleSettings = snapshot => Object.freeze({
   head: { provider: "codex", model: snapshot.headModel, effort: snapshot.headReasoning },
@@ -166,7 +167,7 @@ export function createConsultationService({ store, provider }) {
       if (!await store.updateRunSnapshot(conversationId, runState.generation, snapshot)) throw new Error("invalid_run_state");
     };
     const invokeProvider = async step => {
-      const input = { provider: step.provider, assignment: step.assignment, model: step.model, effort: step.effort, evidence: await current(), research: step.research, outputKind: step.outputKind, maximumCharacters: step.maximumCharacters, runtimeInstructions: step.runtimeInstructions, signal: controller.signal };
+      const input = { provider: step.provider, assignment: step.assignment, model: step.model, effort: step.effort, evidence: await current(), research: step.provider === "claude_code" ? false : step.research, outputKind: step.outputKind, maximumCharacters: step.maximumCharacters, runtimeInstructions: step.runtimeInstructions, signal: controller.signal };
       failedProvider = input.provider ?? "codex";
       let result = await provider.invoke(input);
       if (!result.ok && result.code === "language_policy" && await isCurrent()) result = await provider.invoke({ ...input, assignment: policyCorrection(step.assignment), evidence: await current() });
@@ -176,6 +177,7 @@ export function createConsultationService({ store, provider }) {
       if (!await isCurrent()) return undefined;
       const result = await invokeProvider(step);
       if (!result.ok) throw new Error(result.code ?? "provider_unavailable");
+      if (containsInternalToolTrace(result.body)) throw new Error("provider_contract");
       const output = (transform ?? compactOutput(step.maximumCharacters))(result.body) ?? (fallback ? { body: fallback() } : undefined);
       if (!output?.body) throw new Error("provider_contract");
       const committed = await store.appendAgentMessage(conversationId, runState.generation, { role: step.role, recipient: step.recipient, body: output.body, sources: output.sources ?? result.sources });
@@ -187,6 +189,7 @@ export function createConsultationService({ store, provider }) {
         if (!await isCurrent()) return undefined;
         const result = await invokeProvider({ ...step, assignment });
         if (!result.ok) throw new Error(result.code ?? "provider_unavailable");
+        if (containsInternalToolTrace(result.body)) throw new Error("provider_contract");
         return result;
       };
       let result = await request(step.assignment);

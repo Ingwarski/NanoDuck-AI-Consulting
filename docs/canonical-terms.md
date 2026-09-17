@@ -17,7 +17,7 @@ Working language: English. Product content and source metadata: English and Ukra
 | Spiritual Consultant | AI specialist using evangelical Protestant doctrine: Jesus Christ as Lord and Saviour, finished work, salvation by faith alone and salvation that cannot be lost. | Esoteric, occult, syncretic, manifestation or therapeutic claims |
 | Psychotherapist | AI specialist that may use major classical psychotherapy schools and Internal Family Systems, without diagnosing or replacing clinical/emergency care. | A licensed human clinician or emergency service |
 | Prohibited language/source | Russian and Belarusian language, terminology, sources and URLs including `.ru`, `.by`, `.su` and Cyrillic equivalents; reject before storing/displaying. | Treating a source as acceptable because its domain uses another TLD |
-| Critic | Separate AI role that challenges material weaknesses and can agree when warranted. | Forced opposition or automatic approval |
+| Critic | Separate AI role that challenges material weaknesses and can agree when warranted. It receives the owner question and prior confirmed discussion; the optional Claude Critic is text-only and has no direct browsing or tool authority. | Forced opposition, automatic approval or an internal tool transcript |
 | Discussion | Complete confirmed, ordered business messages. | Hidden reasoning, tool logs, service announcements |
 | Consolidated advice | Literal heading on Head's final summary after every selected specialist's final position and Critic's closing review; can be explicitly provisional. | Fresh Head advice or an automatic consensus claim |
 | Outcome | Current question's final Consolidated advice, risk and up to three next actions. | Consensus when participants have not agreed |

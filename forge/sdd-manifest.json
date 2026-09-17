@@ -8,13 +8,13 @@
     "product-idea": {
       "path": "docs/product-idea.md",
       "owner_skill": "to-product-idea",
-      "owner_invocation_id": "r17-same-tab-refresh-product-idea-2026-09-18T02:25:16+03:00",
+      "owner_invocation_id": "r18-claude-critic-context-product-idea-2026-09-18T02:42:28+03:00",
       "declared_output_set": [
         "docs/product-idea.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r17-same-tab-refresh-product-idea-2026-09-18T02:25:16+03:00",
+      "source_version": "r18-claude-critic-context-product-idea-2026-09-18T02:42:28+03:00",
       "source_usage": {
         "docs/model-settings.md": "full",
         "docs/deployment-boundary.md": "full",
@@ -28,14 +28,14 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2"
       },
       "dependencies": [],
-      "content_hash": "a081dc891067e40d5b338e502532d931883309c5162be956b406f0cc21c0f534",
+      "content_hash": "800c453d6d22d8e57127d9b5c70df98aae065a790b62afffcd493bf425c35879",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r17-same-tab-refresh-reconciliation",
-        "reviewed_at": "2026-09-18T02:25:16+03:00",
+        "kind": "r18-claude-critic-context-reconciliation",
+        "reviewed_at": "2026-09-18T02:42:28+03:00",
         "executor": "Codex inline to-product-idea",
-        "scope": "Reconcile owner intent for same-tab refresh, position restoration and private short-lived state."
+        "scope": "Reconcile the actual Claude Critic boundary: it receives confirmed consultation context but remains text-only with no direct research or tools."
       },
       "open_questions": [],
       "traceability": {
@@ -102,30 +102,30 @@
     "prd": {
       "path": "docs/prd.md",
       "owner_skill": "to-sdd-prd",
-      "owner_invocation_id": "r17-same-tab-refresh-prd-2026-09-18T02:25:16+03:00",
+      "owner_invocation_id": "r18-claude-critic-context-prd-2026-09-18T02:42:28+03:00",
       "declared_output_set": [
         "docs/prd.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r17-same-tab-refresh-prd-2026-09-18T02:25:16+03:00",
+      "source_version": "r18-claude-critic-context-prd-2026-09-18T02:42:28+03:00",
       "source_usage": {
         "docs/product-idea.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "a081dc891067e40d5b338e502532d931883309c5162be956b406f0cc21c0f534"
+        "docs/product-idea.md": "800c453d6d22d8e57127d9b5c70df98aae065a790b62afffcd493bf425c35879"
       },
       "dependencies": [
         "product-idea"
       ],
-      "content_hash": "ea82d138d5d592dd989596e1d81149789efcc13b775bcf26ad9c39402349e3ad",
+      "content_hash": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r17-same-tab-refresh-reconciliation",
-        "reviewed_at": "2026-09-18T02:25:16+03:00",
+        "kind": "r18-claude-critic-context-reconciliation",
+        "reviewed_at": "2026-09-18T02:42:28+03:00",
         "executor": "Codex inline to-sdd-prd",
-        "scope": "Reconcile FR-06.1 and NFR-01.1 for same-tab refresh, record reload and private state boundaries."
+        "scope": "Reconcile Critic context, text-only authority and tool-trace rejection requirements."
       },
       "open_questions": [],
       "traceability": {
@@ -2372,21 +2372,21 @@
     "project-context": {
       "path": "docs/project-context.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "r17-same-tab-refresh-project-context-2026-09-18T02:25:16+03:00",
+      "owner_invocation_id": "r18-claude-critic-context-project-context-2026-09-18T02:42:28+03:00",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r17-same-tab-refresh-project-context-2026-09-18T02:25:16+03:00",
+      "source_version": "r18-claude-critic-context-project-context-2026-09-18T02:42:28+03:00",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "a081dc891067e40d5b338e502532d931883309c5162be956b406f0cc21c0f534",
-        "docs/prd.md": "ea82d138d5d592dd989596e1d81149789efcc13b775bcf26ad9c39402349e3ad"
+        "docs/product-idea.md": "800c453d6d22d8e57127d9b5c70df98aae065a790b62afffcd493bf425c35879",
+        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416"
       },
       "dependencies": [
         "product-idea",
@@ -2396,10 +2396,10 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r17-same-tab-refresh-reconciliation",
-        "reviewed_at": "2026-09-18T02:25:16+03:00",
+        "kind": "r18-claude-critic-context-reconciliation",
+        "reviewed_at": "2026-09-18T02:42:28+03:00",
         "executor": "Codex inline to-project-context",
-        "scope": "Revalidate coupled project context against the R-17 implementation boundary; no semantic context change."
+        "scope": "Revalidate the coupled project context against the corrected Critic context and provider boundary."
       },
       "open_questions": [],
       "supersedes": "r16-discussion-feedback-project-context-2026-09-18T00:00:00+00:00"
@@ -2407,34 +2407,34 @@
     "canonical-terms": {
       "path": "docs/canonical-terms.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "r17-same-tab-refresh-canonical-terms-2026-09-18T02:25:16+03:00",
+      "owner_invocation_id": "r18-claude-critic-context-canonical-terms-2026-09-18T02:42:28+03:00",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r17-same-tab-refresh-canonical-terms-2026-09-18T02:25:16+03:00",
+      "source_version": "r18-claude-critic-context-canonical-terms-2026-09-18T02:42:28+03:00",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "a081dc891067e40d5b338e502532d931883309c5162be956b406f0cc21c0f534",
-        "docs/prd.md": "ea82d138d5d592dd989596e1d81149789efcc13b775bcf26ad9c39402349e3ad"
+        "docs/product-idea.md": "800c453d6d22d8e57127d9b5c70df98aae065a790b62afffcd493bf425c35879",
+        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "70547a048ad6138198aacf19951b6df67b0a5357b5b850e0356bb9651876df73",
+      "content_hash": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r17-same-tab-refresh-reconciliation",
-        "reviewed_at": "2026-09-18T02:25:16+03:00",
+        "kind": "r18-claude-critic-context-reconciliation",
+        "reviewed_at": "2026-09-18T02:42:28+03:00",
         "executor": "Codex inline to-project-context",
-        "scope": "Revalidate canonical terminology and surface names against the R-17 implementation; no terminology change."
+        "scope": "Reconcile the Critic and Discussion terms with the text-only context and tool-trace boundary."
       },
       "open_questions": [],
       "supersedes": "r16-discussion-feedback-canonical-terms-2026-09-18T00:00:00+00:00"
@@ -2442,36 +2442,36 @@
     "guardrails": {
       "path": "docs/guardrails.md",
       "owner_skill": "to-guardrails",
-      "owner_invocation_id": "r17-same-tab-refresh-guardrails-2026-09-18T02:25:16+03:00",
+      "owner_invocation_id": "r18-claude-critic-context-guardrails-2026-09-18T02:42:28+03:00",
       "declared_output_set": [
         "docs/guardrails.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r17-same-tab-refresh-guardrails-2026-09-18T02:25:16+03:00",
+      "source_version": "r18-claude-critic-context-guardrails-2026-09-18T02:42:28+03:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
         "docs/canonical-terms.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "ea82d138d5d592dd989596e1d81149789efcc13b775bcf26ad9c39402349e3ad",
+        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
-        "docs/canonical-terms.md": "70547a048ad6138198aacf19951b6df67b0a5357b5b850e0356bb9651876df73"
+        "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329"
       },
       "dependencies": [
         "prd",
         "project-context",
         "canonical-terms"
       ],
-      "content_hash": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
+      "content_hash": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r17-same-tab-refresh-reconciliation",
-        "reviewed_at": "2026-09-18T02:25:16+03:00",
+        "kind": "r18-claude-critic-context-reconciliation",
+        "reviewed_at": "2026-09-18T02:42:28+03:00",
         "executor": "Codex inline to-guardrails",
-        "scope": "Revalidate client privacy and session boundary guardrails for the R-17 refresh implementation; no guardrail change."
+        "scope": "Reconcile no-tool Claude Critic and invalid tool-trace provider-output guardrails."
       },
       "open_questions": [],
       "supersedes": "r15-rtf-export-guardrails-2026-09-17T18:32:08+00:00"
@@ -2479,13 +2479,13 @@
     "user-journey": {
       "path": "docs/user-journey.md",
       "owner_skill": "to-user-journey",
-      "owner_invocation_id": "r17-same-tab-refresh-user-journey-2026-09-18T02:25:16+03:00",
+      "owner_invocation_id": "r18-claude-critic-context-user-journey-2026-09-18T02:42:28+03:00",
       "declared_output_set": [
         "docs/user-journey.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r17-same-tab-refresh-user-journey-2026-09-18T02:25:16+03:00",
+      "source_version": "r18-claude-critic-context-user-journey-2026-09-18T02:42:28+03:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2493,10 +2493,10 @@
         "docs/guardrails.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "ea82d138d5d592dd989596e1d81149789efcc13b775bcf26ad9c39402349e3ad",
+        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
-        "docs/canonical-terms.md": "70547a048ad6138198aacf19951b6df67b0a5357b5b850e0356bb9651876df73",
-        "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a"
+        "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
+        "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7"
       },
       "dependencies": [
         "prd",
@@ -2504,14 +2504,14 @@
         "canonical-terms",
         "guardrails"
       ],
-      "content_hash": "773aff020b18a6a9f97bf3708596643e14fce47211c771926b421879a745006f",
+      "content_hash": "20b907e7cbad37b224749e075de1c9c658665cb3893a1c750d44501fc8642669",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r17-same-tab-refresh-reconciliation",
-        "reviewed_at": "2026-09-18T02:25:16+03:00",
+        "kind": "r18-claude-critic-context-reconciliation",
+        "reviewed_at": "2026-09-18T02:42:28+03:00",
         "executor": "Codex inline to-user-journey",
-        "scope": "Reconcile continuity journey with same-tab refresh and restored reading context."
+        "scope": "Reconcile the visible Critic exchange with the required confirmed specialist context."
       },
       "open_questions": [],
       "supersedes": "r15-rtf-export-user-journey-2026-09-17T18:32:08+00:00"
@@ -2519,13 +2519,13 @@
     "screen-map": {
       "path": "docs/screen-map.md",
       "owner_skill": "to-screen-map",
-      "owner_invocation_id": "r17-same-tab-refresh-screen-map-2026-09-18T02:25:16+03:00",
+      "owner_invocation_id": "r18-claude-critic-context-screen-map-2026-09-18T02:42:28+03:00",
       "declared_output_set": [
         "docs/screen-map.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r17-same-tab-refresh-screen-map-2026-09-18T02:25:16+03:00",
+      "source_version": "r18-claude-critic-context-screen-map-2026-09-18T02:42:28+03:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2537,11 +2537,11 @@
         "forge/design/candidates/c/v1/app.js": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "ea82d138d5d592dd989596e1d81149789efcc13b775bcf26ad9c39402349e3ad",
+        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
-        "docs/canonical-terms.md": "70547a048ad6138198aacf19951b6df67b0a5357b5b850e0356bb9651876df73",
-        "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "773aff020b18a6a9f97bf3708596643e14fce47211c771926b421879a745006f",
+        "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
+        "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
+        "docs/user-journey.md": "20b907e7cbad37b224749e075de1c9c658665cb3893a1c750d44501fc8642669",
         "forge/design/candidates/a/v1/app.js": "a869dd42c95740bf7da4802934c3cd6f8d2e2243795ee20925cd5ee19f474531",
         "forge/design/candidates/b/v1/app.js": "17e37807a032c5ea1660efca698e21dc8baf29a3c5344067470b6b44311f9b39",
         "forge/design/candidates/c/v1/app.js": "f64ab8a6962cc700c8087803d33ecda68884da78158ea0e5547235c6d4fff530"
@@ -2557,10 +2557,10 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r17-same-tab-refresh-reconciliation",
-        "reviewed_at": "2026-09-18T02:25:16+03:00",
+        "kind": "r18-claude-critic-context-reconciliation",
+        "reviewed_at": "2026-09-18T02:42:28+03:00",
         "executor": "Codex inline to-screen-map",
-        "scope": "Reconcile screen transitions for same-tab refresh without URL state."
+        "scope": "Revalidate screens and state mapping; no visual surface change."
       },
       "open_questions": [],
       "traceability": {
@@ -3573,13 +3573,13 @@
     "wireframes": {
       "path": "docs/wireframes.md",
       "owner_skill": "to-wireframes",
-      "owner_invocation_id": "r17-same-tab-refresh-wireframes-2026-09-18T02:25:16+03:00",
+      "owner_invocation_id": "r18-claude-critic-context-wireframes-2026-09-18T02:42:28+03:00",
       "declared_output_set": [
         "docs/wireframes.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r17-same-tab-refresh-wireframes-2026-09-18T02:25:16+03:00",
+      "source_version": "r18-claude-critic-context-wireframes-2026-09-18T02:42:28+03:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3589,11 +3589,11 @@
         "docs/screen-map.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "ea82d138d5d592dd989596e1d81149789efcc13b775bcf26ad9c39402349e3ad",
+        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
-        "docs/canonical-terms.md": "70547a048ad6138198aacf19951b6df67b0a5357b5b850e0356bb9651876df73",
-        "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "773aff020b18a6a9f97bf3708596643e14fce47211c771926b421879a745006f",
+        "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
+        "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
+        "docs/user-journey.md": "20b907e7cbad37b224749e075de1c9c658665cb3893a1c750d44501fc8642669",
         "docs/screen-map.md": "94747be308a5c5e6c0ab7f2dd9eb1b8fb0c0f9374a8ee13080a71184a50e0aaf"
       },
       "dependencies": [
@@ -3608,10 +3608,10 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r17-same-tab-refresh-reconciliation",
-        "reviewed_at": "2026-09-18T02:25:16+03:00",
+        "kind": "r18-claude-critic-context-reconciliation",
+        "reviewed_at": "2026-09-18T02:42:28+03:00",
         "executor": "Codex inline to-wireframes",
-        "scope": "Reconcile visible Discussion and Conversations refresh behavior."
+        "scope": "Revalidate interaction layout; no visual surface change."
       },
       "open_questions": [],
       "supersedes": "r15-rtf-export-wireframes-2026-09-17T18:32:08+00:00"
@@ -3619,13 +3619,13 @@
     "design-brief": {
       "path": "docs/design-brief.md",
       "owner_skill": "to-design-brief",
-      "owner_invocation_id": "r17-same-tab-refresh-design-brief-2026-09-18T02:25:16+03:00",
+      "owner_invocation_id": "r18-claude-critic-context-design-brief-2026-09-18T02:42:28+03:00",
       "declared_output_set": [
         "docs/design-brief.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r17-same-tab-refresh-design-brief-2026-09-18T02:25:16+03:00",
+      "source_version": "r18-claude-critic-context-design-brief-2026-09-18T02:42:28+03:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3681,14 +3681,14 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "ea82d138d5d592dd989596e1d81149789efcc13b775bcf26ad9c39402349e3ad",
+        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
-        "docs/canonical-terms.md": "70547a048ad6138198aacf19951b6df67b0a5357b5b850e0356bb9651876df73",
-        "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "773aff020b18a6a9f97bf3708596643e14fce47211c771926b421879a745006f",
+        "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
+        "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
+        "docs/user-journey.md": "20b907e7cbad37b224749e075de1c9c658665cb3893a1c750d44501fc8642669",
         "docs/screen-map.md": "94747be308a5c5e6c0ab7f2dd9eb1b8fb0c0f9374a8ee13080a71184a50e0aaf",
         "docs/wireframes.md": "43bbdd29cb698cf5a75cf9dff882925ac707bfebb4ed952aebe1c8fd3a83e741",
-        "docs/product-idea.md": "a081dc891067e40d5b338e502532d931883309c5162be956b406f0cc21c0f534",
+        "docs/product-idea.md": "800c453d6d22d8e57127d9b5c70df98aae065a790b62afffcd493bf425c35879",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "prototype/styles.css": "ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925",
         "prototype/app.js": "b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54",
@@ -3747,10 +3747,10 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r17-same-tab-refresh-reconciliation",
-        "reviewed_at": "2026-09-18T02:25:16+03:00",
+        "kind": "r18-claude-critic-context-reconciliation",
+        "reviewed_at": "2026-09-18T02:42:28+03:00",
         "executor": "Codex inline to-design-brief",
-        "scope": "Revalidate the accepted Electric A v8 visual baseline; R-17 changes behavior only."
+        "scope": "Revalidate approved visual baseline; provider context correction has no visual-baseline change."
       },
       "open_questions": [],
       "supersedes": "r15-rtf-export-design-brief-2026-09-17T18:32:08+00:00"
@@ -3758,13 +3758,13 @@
     "architecture": {
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "r17-same-tab-refresh-architecture-2026-09-18T02:25:16+03:00",
+      "owner_invocation_id": "r18-claude-critic-context-architecture-2026-09-18T02:42:28+03:00",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r17-same-tab-refresh-architecture-2026-09-18T02:25:16+03:00",
+      "source_version": "r18-claude-critic-context-architecture-2026-09-18T02:42:28+03:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3804,14 +3804,17 @@
         "src/server/conversation-title.mjs": "full",
         "test/conversation-title.test.mjs": "full",
         "src/client/refresh-state.js": "full",
-        "test/refresh-state.test.mjs": "full"
+        "test/refresh-state.test.mjs": "full",
+        "src/server/claude-provider.mjs": "full",
+        "src/server/output-safety.mjs": "full",
+        "test/claude-provider.test.mjs": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "ea82d138d5d592dd989596e1d81149789efcc13b775bcf26ad9c39402349e3ad",
+        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
-        "docs/canonical-terms.md": "70547a048ad6138198aacf19951b6df67b0a5357b5b850e0356bb9651876df73",
-        "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "773aff020b18a6a9f97bf3708596643e14fce47211c771926b421879a745006f",
+        "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
+        "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
+        "docs/user-journey.md": "20b907e7cbad37b224749e075de1c9c658665cb3893a1c750d44501fc8642669",
         "docs/screen-map.md": "94747be308a5c5e6c0ab7f2dd9eb1b8fb0c0f9374a8ee13080a71184a50e0aaf",
         "docs/wireframes.md": "43bbdd29cb698cf5a75cf9dff882925ac707bfebb4ed952aebe1c8fd3a83e741",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
@@ -3825,9 +3828,9 @@
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
         "test/core.test.mjs": "0eb47766366714510e7e220f5adfebba2233018a3da9be7adf84100baeb210f4",
         "src/server/codex-provider.mjs": "a84f5a433d4c74752afb133e39471c0d8cf3f853047ac6f95ef918073b05a151",
-        "src/server/consultation.mjs": "f330033ed552594e063e69ec1611dfa1346729523ecd1cada3de12edcc99ae28",
+        "src/server/consultation.mjs": "48174db5db717543c91af0d21f8c5027d0522e4c2d9ee6c9e5c04c92dd73e935",
         "test/codex-provider.test.mjs": "f0734c813145c15a1282b60a0b34db1c8229a25c95d43f0573bb55d0fcb44eff",
-        "test/consultation.test.mjs": "0668df1eb5035ea867023d733e251b6e6133faacc8a9d824ce4b34e07d6ab24a",
+        "test/consultation.test.mjs": "a07798c78e68016daf1cdfa20079bdae1e9ea8508d4d112aea5f26a18f8fb27f",
         "test/http.test.mjs": "8c5bee27805f16974c1660158d4df9a4bddfe37c5f5c1d67e3fe0376fb45175d",
         ".env.example": "908e4483bcad524ca4c95e9d20bc57dd4f2fbc6156f17925728798f03e91620f",
         "test/fixtures/fake-codex.mjs": "b4e10cdbd32011f0bc6a8e3747aad51bc5264f240fe8b647c4fedf01e2b1ccd2",
@@ -3845,7 +3848,10 @@
         "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
         "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
-        "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9"
+        "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
+        "src/server/claude-provider.mjs": "ea68bbffab0b9b55d626ecbafd3cdb665ebbc65925f547e50fc478316670298c",
+        "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
+        "test/claude-provider.test.mjs": "c0be1e4fa87816c510c9aa139350191d30d7aaefab6a6a7cb14cce77a70691b3"
       },
       "dependencies": [
         "prd",
@@ -3857,14 +3863,14 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "1cea59ab1b68af692dd819aa0ba31140956defc2a34e22d2cec4154ef46975ad",
+      "content_hash": "868fd3d02404d921efa64f13be8ff24c7801ce0de16d47fafa921d691219f421",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r17-same-tab-refresh-reconciliation",
-        "reviewed_at": "2026-09-18T02:25:16+03:00",
+        "kind": "r18-claude-critic-context-reconciliation",
+        "reviewed_at": "2026-09-18T02:42:28+03:00",
         "executor": "Codex inline to-architecture",
-        "scope": "Reconcile the session-storage allow-list, logout clearing and protected-record recovery boundary."
+        "scope": "Reconcile Claude Critic context reconstruction, command-level tool denial, trace filtering and no direct research."
       },
       "open_questions": [],
       "security_coverage": {
@@ -3943,13 +3949,13 @@
     "dod-evals": {
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "r17-same-tab-refresh-dod-evals-2026-09-18T02:25:16+03:00",
+      "owner_invocation_id": "r18-claude-critic-context-dod-evals-2026-09-18T02:42:28+03:00",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r17-same-tab-refresh-dod-evals-2026-09-18T02:25:16+03:00",
+      "source_version": "r18-claude-critic-context-dod-evals-2026-09-18T02:42:28+03:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3961,20 +3967,30 @@
         "docs/design-brief.md": "full",
         "docs/architecture.md": "full",
         "src/client/refresh-state.js": "full",
-        "test/refresh-state.test.mjs": "full"
+        "test/refresh-state.test.mjs": "full",
+        "src/server/claude-provider.mjs": "full",
+        "src/server/output-safety.mjs": "full",
+        "src/server/consultation.mjs": "full",
+        "test/claude-provider.test.mjs": "full",
+        "test/consultation.test.mjs": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "ea82d138d5d592dd989596e1d81149789efcc13b775bcf26ad9c39402349e3ad",
+        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
-        "docs/canonical-terms.md": "70547a048ad6138198aacf19951b6df67b0a5357b5b850e0356bb9651876df73",
-        "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "773aff020b18a6a9f97bf3708596643e14fce47211c771926b421879a745006f",
+        "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
+        "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
+        "docs/user-journey.md": "20b907e7cbad37b224749e075de1c9c658665cb3893a1c750d44501fc8642669",
         "docs/screen-map.md": "94747be308a5c5e6c0ab7f2dd9eb1b8fb0c0f9374a8ee13080a71184a50e0aaf",
         "docs/wireframes.md": "43bbdd29cb698cf5a75cf9dff882925ac707bfebb4ed952aebe1c8fd3a83e741",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/architecture.md": "1cea59ab1b68af692dd819aa0ba31140956defc2a34e22d2cec4154ef46975ad",
+        "docs/architecture.md": "868fd3d02404d921efa64f13be8ff24c7801ce0de16d47fafa921d691219f421",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
-        "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9"
+        "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
+        "src/server/claude-provider.mjs": "ea68bbffab0b9b55d626ecbafd3cdb665ebbc65925f547e50fc478316670298c",
+        "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
+        "src/server/consultation.mjs": "48174db5db717543c91af0d21f8c5027d0522e4c2d9ee6c9e5c04c92dd73e935",
+        "test/claude-provider.test.mjs": "c0be1e4fa87816c510c9aa139350191d30d7aaefab6a6a7cb14cce77a70691b3",
+        "test/consultation.test.mjs": "a07798c78e68016daf1cdfa20079bdae1e9ea8508d4d112aea5f26a18f8fb27f"
       },
       "dependencies": [
         "prd",
@@ -3987,14 +4003,14 @@
         "design-brief",
         "architecture"
       ],
-      "content_hash": "e6a592fb45c149b2f9144c208704aa8519402412ffcd083310ca7ab819be2756",
+      "content_hash": "dba7a17d1e83eb6afd059de73d103fd2a5452257e795875d948081eb1ec85592",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r17-same-tab-refresh-reconciliation",
-        "reviewed_at": "2026-09-18T02:25:16+03:00",
+        "kind": "r18-claude-critic-context-reconciliation",
+        "reviewed_at": "2026-09-18T02:42:28+03:00",
         "executor": "Codex inline to-dod-evals",
-        "scope": "Reconcile lifecycle/continuity gate with same-tab refresh, state privacy and Logoff clearing evidence."
+        "scope": "Reconcile functional and security gates for Claude Critic context, denied tools and trace handling."
       },
       "open_questions": [],
       "security_coverage": {
@@ -4073,13 +4089,13 @@
     "qa-checklist": {
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "r17-same-tab-refresh-qa-checklist-2026-09-18T02:25:16+03:00",
+      "owner_invocation_id": "r18-claude-critic-context-qa-checklist-2026-09-18T02:42:28+03:00",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r17-same-tab-refresh-qa-checklist-2026-09-18T02:25:16+03:00",
+      "source_version": "r18-claude-critic-context-qa-checklist-2026-09-18T02:42:28+03:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -4121,19 +4137,22 @@
         "src/server/conversation-title.mjs": "full",
         "test/conversation-title.test.mjs": "full",
         "src/client/refresh-state.js": "full",
-        "test/refresh-state.test.mjs": "full"
+        "test/refresh-state.test.mjs": "full",
+        "src/server/claude-provider.mjs": "full",
+        "src/server/output-safety.mjs": "full",
+        "test/claude-provider.test.mjs": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "ea82d138d5d592dd989596e1d81149789efcc13b775bcf26ad9c39402349e3ad",
+        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
-        "docs/canonical-terms.md": "70547a048ad6138198aacf19951b6df67b0a5357b5b850e0356bb9651876df73",
-        "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "773aff020b18a6a9f97bf3708596643e14fce47211c771926b421879a745006f",
+        "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
+        "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
+        "docs/user-journey.md": "20b907e7cbad37b224749e075de1c9c658665cb3893a1c750d44501fc8642669",
         "docs/screen-map.md": "94747be308a5c5e6c0ab7f2dd9eb1b8fb0c0f9374a8ee13080a71184a50e0aaf",
         "docs/wireframes.md": "43bbdd29cb698cf5a75cf9dff882925ac707bfebb4ed952aebe1c8fd3a83e741",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/architecture.md": "1cea59ab1b68af692dd819aa0ba31140956defc2a34e22d2cec4154ef46975ad",
-        "docs/dod-evals.md": "e6a592fb45c149b2f9144c208704aa8519402412ffcd083310ca7ab819be2756",
+        "docs/architecture.md": "868fd3d02404d921efa64f13be8ff24c7801ce0de16d47fafa921d691219f421",
+        "docs/dod-evals.md": "dba7a17d1e83eb6afd059de73d103fd2a5452257e795875d948081eb1ec85592",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
         "forge/design/evidence/b-v1-visual-qa.json": "6222ca43aada1038ee6b0cd9b5481f13fa1874976bf98d0a5e60e29e04ce0437",
@@ -4145,9 +4164,9 @@
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
         "test/core.test.mjs": "0eb47766366714510e7e220f5adfebba2233018a3da9be7adf84100baeb210f4",
         "src/server/codex-provider.mjs": "a84f5a433d4c74752afb133e39471c0d8cf3f853047ac6f95ef918073b05a151",
-        "src/server/consultation.mjs": "f330033ed552594e063e69ec1611dfa1346729523ecd1cada3de12edcc99ae28",
+        "src/server/consultation.mjs": "48174db5db717543c91af0d21f8c5027d0522e4c2d9ee6c9e5c04c92dd73e935",
         "test/codex-provider.test.mjs": "f0734c813145c15a1282b60a0b34db1c8229a25c95d43f0573bb55d0fcb44eff",
-        "test/consultation.test.mjs": "0668df1eb5035ea867023d733e251b6e6133faacc8a9d824ce4b34e07d6ab24a",
+        "test/consultation.test.mjs": "a07798c78e68016daf1cdfa20079bdae1e9ea8508d4d112aea5f26a18f8fb27f",
         "test/http.test.mjs": "8c5bee27805f16974c1660158d4df9a4bddfe37c5f5c1d67e3fe0376fb45175d",
         "test/fixtures/fake-codex.mjs": "b4e10cdbd32011f0bc6a8e3747aad51bc5264f240fe8b647c4fedf01e2b1ccd2",
         "src/server/prompt-contracts.mjs": "e9ad56fdb433979e2c818706b31316a80e8dae1b3af92282fc0b000394230a9b",
@@ -4164,7 +4183,10 @@
         "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
         "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
-        "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9"
+        "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
+        "src/server/claude-provider.mjs": "ea68bbffab0b9b55d626ecbafd3cdb665ebbc65925f547e50fc478316670298c",
+        "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
+        "test/claude-provider.test.mjs": "c0be1e4fa87816c510c9aa139350191d30d7aaefab6a6a7cb14cce77a70691b3"
       },
       "dependencies": [
         "prd",
@@ -4178,14 +4200,14 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "39988ee953eb49ec487f21163a19145e4b4c3963856a7611e4832edd056a431e",
+      "content_hash": "77475e7301f861dc45532de4722245776e44757877c1db60f9e99daf9b31d4ec",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r17-same-tab-refresh-reconciliation",
-        "reviewed_at": "2026-09-18T02:25:16+03:00",
+        "kind": "r18-claude-critic-context-reconciliation",
+        "reviewed_at": "2026-09-18T02:42:28+03:00",
         "executor": "Codex inline to-qa-checklist",
-        "scope": "Reconcile browser and storage-privacy regression checks for same-tab refresh."
+        "scope": "Reconcile QA-R06, QA-R51 and QA-R59 for Critic context, tool denial and trace recovery."
       },
       "open_questions": [],
       "traceability": {
@@ -5953,13 +5975,13 @@
     "development-plan": {
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "r17-same-tab-refresh-development-plan-2026-09-18T02:25:16+03:00",
+      "owner_invocation_id": "r18-claude-critic-context-development-plan-2026-09-18T02:42:28+03:00",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r17-same-tab-refresh-development-plan-2026-09-18T02:25:16+03:00",
+      "source_version": "r18-claude-critic-context-development-plan-2026-09-18T02:42:28+03:00",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -6006,20 +6028,23 @@
         "src/server/conversation-title.mjs": "full",
         "test/conversation-title.test.mjs": "full",
         "src/client/refresh-state.js": "full",
-        "test/refresh-state.test.mjs": "full"
+        "test/refresh-state.test.mjs": "full",
+        "src/server/claude-provider.mjs": "full",
+        "src/server/output-safety.mjs": "full",
+        "test/claude-provider.test.mjs": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "ea82d138d5d592dd989596e1d81149789efcc13b775bcf26ad9c39402349e3ad",
+        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
-        "docs/canonical-terms.md": "70547a048ad6138198aacf19951b6df67b0a5357b5b850e0356bb9651876df73",
-        "docs/guardrails.md": "76944c952b36badcc46b5c994b5f8820c0896e95be4c35945f1132c79587b59a",
-        "docs/user-journey.md": "773aff020b18a6a9f97bf3708596643e14fce47211c771926b421879a745006f",
+        "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
+        "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
+        "docs/user-journey.md": "20b907e7cbad37b224749e075de1c9c658665cb3893a1c750d44501fc8642669",
         "docs/screen-map.md": "94747be308a5c5e6c0ab7f2dd9eb1b8fb0c0f9374a8ee13080a71184a50e0aaf",
         "docs/wireframes.md": "43bbdd29cb698cf5a75cf9dff882925ac707bfebb4ed952aebe1c8fd3a83e741",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/architecture.md": "1cea59ab1b68af692dd819aa0ba31140956defc2a34e22d2cec4154ef46975ad",
-        "docs/dod-evals.md": "e6a592fb45c149b2f9144c208704aa8519402412ffcd083310ca7ab819be2756",
-        "docs/qa-checklist.md": "39988ee953eb49ec487f21163a19145e4b4c3963856a7611e4832edd056a431e",
+        "docs/architecture.md": "868fd3d02404d921efa64f13be8ff24c7801ce0de16d47fafa921d691219f421",
+        "docs/dod-evals.md": "dba7a17d1e83eb6afd059de73d103fd2a5452257e795875d948081eb1ec85592",
+        "docs/qa-checklist.md": "77475e7301f861dc45532de4722245776e44757877c1db60f9e99daf9b31d4ec",
         "docs/model-settings.md": "778151e8528c7bb7b04ca7c4e25a07f101dd532fcb9d63247dbe6999e4fd6ab1",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "package.json": "b419996e8bf38f22580ef3ad31398dd2c699bfe02057c3ffef333423c63d82f7",
@@ -6035,9 +6060,9 @@
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
         "test/core.test.mjs": "0eb47766366714510e7e220f5adfebba2233018a3da9be7adf84100baeb210f4",
         "src/server/codex-provider.mjs": "a84f5a433d4c74752afb133e39471c0d8cf3f853047ac6f95ef918073b05a151",
-        "src/server/consultation.mjs": "f330033ed552594e063e69ec1611dfa1346729523ecd1cada3de12edcc99ae28",
+        "src/server/consultation.mjs": "48174db5db717543c91af0d21f8c5027d0522e4c2d9ee6c9e5c04c92dd73e935",
         "test/codex-provider.test.mjs": "f0734c813145c15a1282b60a0b34db1c8229a25c95d43f0573bb55d0fcb44eff",
-        "test/consultation.test.mjs": "0668df1eb5035ea867023d733e251b6e6133faacc8a9d824ce4b34e07d6ab24a",
+        "test/consultation.test.mjs": "a07798c78e68016daf1cdfa20079bdae1e9ea8508d4d112aea5f26a18f8fb27f",
         "test/http.test.mjs": "8c5bee27805f16974c1660158d4df9a4bddfe37c5f5c1d67e3fe0376fb45175d",
         "test/fixtures/fake-codex.mjs": "b4e10cdbd32011f0bc6a8e3747aad51bc5264f240fe8b647c4fedf01e2b1ccd2",
         "src/server/prompt-contracts.mjs": "e9ad56fdb433979e2c818706b31316a80e8dae1b3af92282fc0b000394230a9b",
@@ -6054,7 +6079,10 @@
         "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
         "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
-        "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9"
+        "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
+        "src/server/claude-provider.mjs": "ea68bbffab0b9b55d626ecbafd3cdb665ebbc65925f547e50fc478316670298c",
+        "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
+        "test/claude-provider.test.mjs": "c0be1e4fa87816c510c9aa139350191d30d7aaefab6a6a7cb14cce77a70691b3"
       },
       "dependencies": [
         "prd",
@@ -6069,14 +6097,14 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "6f31f35b187d91c130763d591b744a600aca191faee7231fefd33d3579d8b445",
+      "content_hash": "276fd1e76828c30291dbe472922dcab8df4adebfd0dc2750cf2c18f60875121c",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r17-same-tab-refresh-reconciliation",
-        "reviewed_at": "2026-09-18T02:25:16+03:00",
+        "kind": "r18-claude-critic-context-reconciliation",
+        "reviewed_at": "2026-09-18T02:42:28+03:00",
         "executor": "Codex inline to-development-plan",
-        "scope": "Reconcile U-07 work and acceptance for same-tab refresh behavior."
+        "scope": "Reconcile U-04 implementation work, interface and verification for Claude Critic context and trace filtering."
       },
       "supersedes": "r15-rtf-export-development-plan-2026-09-17T18:32:08+00:00",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
@@ -7778,18 +7806,18 @@
   ],
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "6f31f35b187d91c130763d591b744a600aca191faee7231fefd33d3579d8b445",
+    "development_plan_hash": "276fd1e76828c30291dbe472922dcab8df4adebfd0dc2750cf2c18f60875121c",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-14T20:13:37+03:00",
-    "prompt_id": "impl-r17-same-tab-refresh-20260918",
-    "prompt_received_at": "2026-09-18T02:25:16+03:00",
-    "released_at": "2026-09-18T02:25:16+03:00",
+    "prompt_id": "impl-r18-claude-critic-context-20260918",
+    "prompt_received_at": "2026-09-18T02:42:28+03:00",
+    "released_at": "2026-09-18T02:42:28+03:00",
     "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
     "prompt_receipt": {
-      "path": "forge/runs/implementation-prompt-20260918-r17-same-tab-refresh.json",
-      "content_hash": "64448a3c249a053c32ff421d3cd12a53eec992cd3e3dadc35f31a66af367dd9b"
+      "path": "forge/runs/implementation-prompt-20260918-r18-claude-critic-context.json",
+      "content_hash": "7c60fb4aeb32259c9b88ea44f5363648077a525931de6521cda3b77f30ac13ec"
     },
-    "reason": "Implement R-17 same-tab refresh and scroll restoration only. Preserve private URL/content boundaries, clear refresh state at Logoff, reconcile affected SDD owners, and do not deploy or alter GoDaddy resources."
+    "reason": "R-18 repairs the active authorized implementation: Claude Critic now receives the same reconstructed consultation context as Codex, direct Claude research/tools remain disabled, and internal tool traces are rejected before persistence. No GoDaddy deployment, database or secret operation is authorized."
   },
   "input_requests": [],
   "last_resume_event": {
@@ -8867,6 +8895,19 @@
       },
       "pipeline_checker": "not run: installed Python is 3.9.6; the current SDD checker requires Python 3.12+.",
       "scope": "No GoDaddy, database, secret, Preview or Published deployment operation."
+    },
+    {
+      "at": "2026-09-18T02:42:28+03:00",
+      "event": "r18_claude_critic_context_reconciled",
+      "implementation_prompt": "forge/runs/implementation-prompt-20260918-r18-claude-critic-context.json",
+      "verification_receipt": "forge/runs/U-04/r18-claude-critic-context-20260918/verification.json",
+      "automated_evidence": {
+        "npm_run_check": "119 passed; artifact hygiene passed",
+        "focused_claude_and_consultation": "51 passed"
+      },
+      "native_claude_cli": "not run: installed Claude package reports native binary unavailable; no credentials or model call used.",
+      "pipeline_checker": "blocked: installed Python is 3.9.6; current SDD checker requires Python 3.12+.",
+      "scope": "No GoDaddy deployment, database mutation, secret change, hosted conversation modification or release claim."
     }
   ],
   "dispatches": {
@@ -67526,8 +67567,8 @@
     "definition_status": "prepared",
     "release_readiness": "not_evaluated",
     "source_hashes": {
-      "docs/dod-evals.md": "e6a592fb45c149b2f9144c208704aa8519402412ffcd083310ca7ab819be2756",
-      "docs/qa-checklist.md": "39988ee953eb49ec487f21163a19145e4b4c3963856a7611e4832edd056a431e"
+      "docs/dod-evals.md": "dba7a17d1e83eb6afd059de73d103fd2a5452257e795875d948081eb1ec85592",
+      "docs/qa-checklist.md": "77475e7301f861dc45532de4722245776e44757877c1db60f9e99daf9b31d4ec"
     },
     "gates": [
       {
@@ -67851,7 +67892,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Every participating consultant and Critic is a separate actual invocation/context with a distinct assignment. For every accepted question, observe Head → each selected specialist with concise tasks only; each specialist → Critic with an independent position; only Critic → relevant specialist → Critic exchanges; and Head → owner once for final synthesis. No specialist-to-specialist routing, direct Head-answer route or pre-conclusion Head advice appears. Verify Consultation Routing and the encrypted routing_migration history behavior.",
+        "task": "Every role receives a separate invocation with its distinct assignment, owner question, prior confirmed discussion and role/output contract. Verify the required directed topology and that Head cannot synthesize before all selected Critic exchanges and closing messages are committed.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -69182,7 +69223,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Inject requests for secrets, tools, paid fallback and external messages; no permission or provider boundary expands.",
+        "task": "Inject secrets, tools, paid fallback and external-message requests without expanding authority. For Claude Critic, prove direct research is disabled, known tools are denied, the prompt includes the current owner question and confirmed discussion, and an internal tool trace is retried once but never stored or rendered.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -69468,7 +69509,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Fail validation/provider/research/storage/logging paths then retry; access stays denied where required and invalid partial commits never appear.",
+        "task": "Fail validation/provider/research/storage/logging paths without partial invalid commits. Return two Claude tool traces and verify accepted context remains, no trace reaches events/sources/browser, and no Head synthesis occurs.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -103987,10 +104028,20 @@
           "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
         }
       ]
+    },
+    {
+      "at": "2026-09-18T02:42:28+03:00",
+      "event": "r18_claude_critic_context_local_verification",
+      "receipt": {
+        "path": "forge/runs/U-04/r18-claude-critic-context-20260918/verification.json",
+        "content_hash": "d3e8ed799ce8a94b9bcd8fbad7ddbb12d211e771809934d921e839824557e7bd"
+      },
+      "result": "passed_local_adapter_and_coordinator",
+      "limitation": "No local native Claude binary, live Claude call, browser real-Claude turn or GoDaddy operation."
     }
   ],
   "last_resume": {
-    "reason": "Owner-authorized R-01 no-direct-Head routing correction and SDD reconciliation",
+    "reason": "Owner-reported Claude Critic context and tool-trace defect",
     "result": "implementation-in-progress"
   },
   "design_execution_history": [
@@ -107967,7 +108018,7 @@
       }
     }
   ],
-  "pause_reason": "The corrected development-plan hash supersedes the prior Phase 3 gate. Existing local implementation evidence remains preserved.",
+  "pause_reason": "R-18 local adapter/coordinator correction is complete; native Claude, browser real-Claude and GoDaddy evidence remain separate.",
   "next_ready_nodes": [
     "implementation"
   ],
