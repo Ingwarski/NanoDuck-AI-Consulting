@@ -17,7 +17,8 @@ test("new consultations default to the current saved Codex settings", () => {
     criticModel: "gpt-6-astra",
     criticReasoning: "xhigh",
     specialistCount: "2",
-    discussionDepth: "1"
+    discussionDepth: "1",
+    notificationSound: "knock"
   });
 });
 
@@ -257,7 +258,7 @@ test("MySQL acceptance holds the owner lock before allowing an active run", asyn
       if (statement.startsWith("SELECT id FROM nanoduck_runs WHERE status='active'")) return [active ? [{ id: "other-active-run" }] : []];
       if (statement.startsWith("SELECT COALESCE(MAX(sequence)")) return [[{ max_sequence: 0 }]];
       if (statement.startsWith("SELECT COALESCE(MAX(generation)")) return [[{ max_generation: 0 }]];
-      if (statement.startsWith("INSERT INTO nanoduck_messages") || statement.startsWith("INSERT INTO nanoduck_runs") || statement.startsWith("INSERT INTO nanoduck_requests") || statement.startsWith("UPDATE nanoduck_conversations SET title")) return [{ affectedRows: 1 }];
+      if (statement.startsWith("INSERT INTO nanoduck_messages") || statement.startsWith("INSERT INTO nanoduck_runs") || statement.startsWith("INSERT INTO nanoduck_requests") || statement.startsWith("UPDATE nanoduck_conversations SET title") || statement.startsWith("UPDATE nanoduck_conversations SET updated_at")) return [{ affectedRows: 1 }];
       throw new Error(`Unexpected statement: ${statement}`);
     }
   };
@@ -288,7 +289,7 @@ test("MySQL image attachments are encrypted at rest and linked in the message tr
       if (statement.startsWith("SELECT id,content_type,byte_length,created_at FROM nanoduck_attachments")) return [[{ id: pendingId, content_type: "image/jpeg", byte_length: image.byteLength, created_at: "2026-09-14T00:00:00.000Z" }]];
       if (statement.startsWith("SELECT COALESCE(MAX(sequence)")) return [[{ max_sequence: 0 }]];
       if (statement.startsWith("SELECT COALESCE(MAX(generation)")) return [[{ max_generation: 0 }]];
-      if (statement.startsWith("INSERT INTO nanoduck_messages") || statement.startsWith("UPDATE nanoduck_attachments SET message_id") || statement.startsWith("INSERT INTO nanoduck_runs") || statement.startsWith("INSERT INTO nanoduck_requests") || statement.startsWith("UPDATE nanoduck_conversations SET title")) return [{ affectedRows: 1 }];
+      if (statement.startsWith("INSERT INTO nanoduck_messages") || statement.startsWith("UPDATE nanoduck_attachments SET message_id") || statement.startsWith("INSERT INTO nanoduck_runs") || statement.startsWith("INSERT INTO nanoduck_requests") || statement.startsWith("UPDATE nanoduck_conversations SET title") || statement.startsWith("UPDATE nanoduck_conversations SET updated_at")) return [{ affectedRows: 1 }];
       throw new Error(`Unexpected statement: ${statement}`);
     }
   };
@@ -319,6 +320,8 @@ test("settings and message validation reject unsupported model values and malfor
   assert.equal(parseSettings({ ...defaultSettings, specialistCount: "4" }), undefined);
   assert.equal(parseSettings({ ...defaultSettings, discussionDepth: "2" }), undefined);
   assert.equal(parseSettings({ ...defaultSettings, criticModel: "another-model" }), undefined);
+  assert.deepEqual(parseSettings({ ...defaultSettings, notificationSound: "ripple" }), { ...defaultSettings, notificationSound: "ripple" });
+  assert.equal(parseSettings({ ...defaultSettings, notificationSound: "loud" }), undefined);
   assert.equal(parseMessage({ body: "Question", clientRequestId: "short" }), undefined);
   assert.deepEqual(parseMessage({ body: " Question ", clientRequestId: "request-identifier-0002" }), { body: "Question", clientRequestId: "request-identifier-0002", attachmentIds: [] });
   assert.equal(parseMessage({ body: "Question", clientRequestId: "request-identifier-0002", attachmentIds: ["short"] }), undefined);

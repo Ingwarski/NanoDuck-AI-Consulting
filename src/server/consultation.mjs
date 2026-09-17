@@ -1,4 +1,5 @@
 import { createRuntimePrompts, runtimeInstructionsFor } from "./prompt-contracts.mjs";
+import { deriveConversationTitle } from "./conversation-title.mjs";
 
 const roleSettings = snapshot => Object.freeze({
   head: { model: snapshot.headModel, effort: snapshot.headReasoning },
@@ -92,6 +93,7 @@ const consolidatedOutput = body => {
   if (!text.trim()) throw new Error("provider_contract");
   return Object.freeze({ body: heading + compactMessage(text, 2_000 - heading.length) });
 };
+const policyCorrection = assignment => `${assignment}\n\nA prior draft was withheld before it reached the consultation because it did not meet the language-and-source policy. Return a complete replacement now. Use only English or Ukrainian. Do not use Russian or Belarusian language, terms, sources, or URLs, including .ru, .by, .su or their Cyrillic equivalents. Remove any disallowed citation rather than mentioning it. Do not explain this correction.`;
 const specialistFor = text => {
   const subject = text.toLocaleLowerCase();
   const matches = pattern => pattern.test(subject);
@@ -154,9 +156,15 @@ export function createConsultationService({ store, provider }) {
       snapshot = Object.freeze({ ...snapshot, ...patch });
       if (!await store.updateRunSnapshot(conversationId, runState.generation, snapshot)) throw new Error("invalid_run_state");
     };
+    const invokeProvider = async step => {
+      const input = { assignment: step.assignment, model: step.model, effort: step.effort, evidence: await current(), research: step.research, outputKind: step.outputKind, maximumCharacters: step.maximumCharacters, runtimeInstructions: step.runtimeInstructions, signal: controller.signal };
+      let result = await provider.invoke(input);
+      if (!result.ok && result.code === "language_policy" && await isCurrent()) result = await provider.invoke({ ...input, assignment: policyCorrection(step.assignment), evidence: await current() });
+      return result;
+    };
     const invoke = async (step, transform = undefined, fallback = undefined) => {
       if (!await isCurrent()) return undefined;
-      const result = await provider.invoke({ assignment: step.assignment, model: step.model, effort: step.effort, evidence: await current(), research: step.research, outputKind: step.outputKind, maximumCharacters: step.maximumCharacters, runtimeInstructions: step.runtimeInstructions, signal: controller.signal });
+      const result = await invokeProvider(step);
       if (!result.ok) throw new Error(result.code ?? "provider_unavailable");
       const output = (transform ?? compactOutput(step.maximumCharacters))(result.body) ?? (fallback ? { body: fallback() } : undefined);
       if (!output?.body) throw new Error("provider_contract");
@@ -167,7 +175,7 @@ export function createConsultationService({ store, provider }) {
     const invokeHeadTask = async (step, { question, language }) => {
       const request = async assignment => {
         if (!await isCurrent()) return undefined;
-        const result = await provider.invoke({ assignment, model: step.model, effort: step.effort, evidence: await current(), research: step.research, outputKind: step.outputKind, maximumCharacters: step.maximumCharacters, runtimeInstructions: step.runtimeInstructions, signal: controller.signal });
+        const result = await invokeProvider({ ...step, assignment });
         if (!result.ok) throw new Error(result.code ?? "provider_unavailable");
         return result;
       };
@@ -340,7 +348,7 @@ export function createConsultationService({ store, provider }) {
       if (confirmed[cursor]) {
         if (!matches(confirmed[cursor], conclusion) || confirmed.length !== cursor + 1) throw new Error("invalid_run_state");
       } else await invoke(conclusion, consolidatedOutput);
-      await store.finishRun(conversationId, runState.generation, "complete");
+      await store.finishRun(conversationId, runState.generation, "complete", deriveConversationTitle(first.owner));
     } catch (error) {
       if (!controller.signal.aborted) {
         const body = providerFailureMessage(error.message) ?? (error.message === "language_policy" ? "A response did not meet the English/Ukrainian language policy. Your question remains saved." : "The consultation paused before a confirmed response. Your saved discussion remains available.");

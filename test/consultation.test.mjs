@@ -43,6 +43,34 @@ test("every specialist receives the selected depth before Head can conclude", as
   }
 });
 
+test("a policy-rejected draft is replaced before the consultation can fail", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we test preorders?", clientRequestId: "policy-replacement-0001" }, defaultSettings);
+  const calls = [];
+  const provider = { async invoke(input) {
+    calls.push(input);
+    if (input.outputKind === "critic_challenge" && !input.assignment.includes("A prior draft was withheld")) return { ok: false, code: "language_policy" };
+    return { ok: true, body: successfulBody(input), sources: [] };
+  } };
+  await createConsultationService({ store, provider }).start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  assert.equal(calls.filter(call => call.outputKind === "critic_challenge").length, 4);
+  assert.match(calls.find(call => call.outputKind === "critic_challenge" && call.assignment.includes("A prior draft was withheld")).assignment, /Do not use Russian or Belarusian/u);
+  assert.equal((await store.events(conversation.id)).some(event => event.role === "System"), false);
+});
+
+test("the discussion is unnamed until the completed consultation creates its saved title", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should I sell, hold or buy BTC right now?", clientRequestId: "completed-title-0001" }, defaultSettings);
+  assert.equal((await store.getConversation(conversation.id)).title, "New consultation");
+  const provider = { async invoke(input) { return { ok: true, body: successfulBody(input), sources: [] }; } };
+  await createConsultationService({ store, provider }).start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  assert.equal((await store.getConversation(conversation.id)).title, "Sell, hold or buy BTC right now?");
+});
+
 test("Auto cannot conclude on one specialist's agreement while Finance still disagrees", async () => {
   const store = createMemoryStore();
   const conversation = await store.createConversation();

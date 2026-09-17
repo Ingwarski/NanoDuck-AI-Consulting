@@ -1,5 +1,13 @@
 # SDD consistency audit
 
+## Current discussion-feedback correction — 18 September 2026
+
+R-16 removes the oversized in-progress conversation heading. While the team works, Discussion shows a compact, labelled thought bubble and reachable Stop; after final synthesis, the saved record receives a deterministic concise decision title. Settings adds owner-selected native incoming-message sounds: Knock (tuk-tuk-tuk), Chime, Ripple and Off, with an explicit preview and a visual equivalent that remains when browser audio is blocked.
+
+The latest failed consultation exposed a control-flow error, not an allowed-policy exception: the provider correctly withheld a draft containing prohibited language or source material, then the coordinator treated that one withheld draft as terminal. R-16 re-invokes the exact same role/task once with a server-owned language/source correction. Neither rejected draft nor its source data is stored, rendered or announced. A second failure follows the existing recoverable-failure path.
+
+The [R-16 verification receipt](../forge/runs/U-04/r16-discussion-feedback-20260918/verification.json) records 109 passing local tests, the controlled policy-replacement fixture, a Chrome local walkthrough and 390px mobile check. Its automated browser surface lacks a native Web Audio context, so audible playback is explicitly unverified there; the selected UI and browser-block fallback are observed. The [SDD audit](../forge/sdd-manifest.json) passes all thirteen source-bound artifacts without issues or warnings. GoDaddy deployment and release gates remain separate.
+
 ## Current rich-text export correction — 17 September 2026
 
 R-15 replaces the normal raw JSON download with a readable RTF document. The existing Export action produces bold speaker/recipient names, explicit local timestamps, formatted paragraphs, emphasis, lists and source references in saved-message order. Image references are retained; image binaries are not embedded. The server escapes all text before serialization and preserves the existing authentication, no-store and deletion boundaries. No package, database schema or extra format-selection screen is added.

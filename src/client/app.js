@@ -1,6 +1,6 @@
 import { parseMarkdown } from "/client/markdown.js";
 
-const state = { session: null, csrf: null, page: "discussion", tab: "discussion", conversation: null, events: [], run: null, poll: null, recognition: null, voiceTimer: null, voiceMode: "ready", voiceTranscript: "", attachmentFiles: [], attachmentError: "", runtimeInstructionHistory: [] };
+const state = { session: null, csrf: null, page: "discussion", tab: "discussion", conversation: null, events: [], run: null, poll: null, recognition: null, voiceTimer: null, voiceMode: "ready", voiceTranscript: "", attachmentFiles: [], attachmentError: "", runtimeInstructionHistory: [], notificationSound: "knock", audioContext: null };
 const $ = selector => document.querySelector(selector);
 const roleInitials = { owner: "I", "Head Consultant": "HC", "Strategy Consultant": "SC", "Finance Consultant": "FC", "Operations Consultant": "OC", "Sales Consultant": "SL", "Marketing Consultant": "MC", "Product Consultant": "PC", "Spiritual Consultant": "SP", Psychotherapist: "PT", "Risk Consultant": "RC", Critic: "CR", System: "•" };
 const displayRole = role => role === "owner" ? "You" : role;
@@ -37,6 +37,40 @@ const attachmentLimit = 8 * 1024 * 1024;
 const attachmentCountLimit = 4;
 const attachmentTypes = new Set(["image/jpeg", "image/png", "image/webp"]);
 const formatBytes = value => value < 1024 * 1024 ? `${Math.ceil(value / 1024)} KB` : `${(value / (1024 * 1024)).toFixed(1)} MiB`;
+const notificationPatterns = Object.freeze({
+  knock: Object.freeze([[206, 0, .06], [188, .12, .06], [206, .24, .08]]),
+  chime: Object.freeze([[659, 0, .28], [880, .09, .34]]),
+  ripple: Object.freeze([[523, 0, .12], [659, .08, .14], [784, .17, .18]])
+});
+const audioContext = () => {
+  const AudioContext = window.AudioContext ?? window.webkitAudioContext;
+  if (!AudioContext) return undefined;
+  state.audioContext ??= new AudioContext();
+  return state.audioContext;
+};
+const unlockNotificationSound = async () => {
+  const context = audioContext();
+  if (!context) return false;
+  try { if (context.state !== "running") await context.resume(); return context.state === "running"; } catch { return false; }
+};
+const playNotificationSound = () => {
+  const pattern = notificationPatterns[state.notificationSound]; const context = audioContext();
+  if (!pattern || !context || context.state !== "running") return false;
+  for (const [frequency, offset, duration] of pattern) {
+    const oscillator = context.createOscillator(); const gain = context.createGain(); const start = context.currentTime + offset;
+    oscillator.type = state.notificationSound === "knock" ? "triangle" : "sine"; oscillator.frequency.setValueAtTime(frequency, start);
+    gain.gain.setValueAtTime(.0001, start); gain.gain.exponentialRampToValueAtTime(state.notificationSound === "knock" ? .11 : .07, start + .012); gain.gain.exponentialRampToValueAtTime(.0001, start + duration);
+    oscillator.connect(gain).connect(context.destination); oscillator.start(start); oscillator.stop(start + duration + .02);
+  }
+  return true;
+};
+const announceIncomingMessages = (before, after) => {
+  const previous = new Set(before.map(event => event.id));
+  const incoming = after.filter(event => event.role !== "owner" && !previous.has(event.id));
+  if (!incoming.length) return;
+  playNotificationSound();
+  $("#message-announcement").textContent = incoming.length === 1 ? `${displayRole(incoming[0].role)} sent a message.` : `${incoming.length} new consultation messages are available.`;
+};
 
 function nav(page) {
   closeMenu();
@@ -131,9 +165,13 @@ function renderEvents() {
     message.append(content); thread.append(message);
   }
   const active = state.run?.status === "active"; $("#stop").hidden = !active; $("#continue").hidden = state.run?.status !== "stopped";
-  const labels = { active: "Consultants are working on the accepted question.", stopped: "Consultation stopped. Confirmed discussion is preserved.", complete: "Discussion complete.", failed: "Consultation needs attention. Confirmed discussion is preserved." };
+  if (active) {
+    const indicator = node("div", { class: "thinking-indicator", role: "img", ariaLabel: "The consultation is thinking. The next message will appear here." });
+    const cloud = node("span", { class: "thought-cloud", ariaHidden: true }); cloud.append(node("i"), node("i"), node("i"));
+    indicator.append(cloud, node("span", {}, "The team is thinking…")); thread.append(indicator);
+  }
+  const labels = { active: "The team is preparing the next message.", stopped: "Consultation stopped. Confirmed discussion is preserved.", complete: "Discussion complete.", failed: "Consultation needs attention. Confirmed discussion is preserved." };
   $("#run-status").textContent = labels[state.run?.status] ?? "Describe the decision you want to make.";
-  $("#conversation-title").textContent = state.conversation?.title ?? "New consultation";
   renderOutcome(); renderSources();
 }
 
@@ -157,7 +195,7 @@ async function loadConversations() {
 
 async function loadSettings() {
   const [{ data: settingsData }, { data: instructionsData }] = await Promise.all([request("/api/settings"), request("/api/runtime-instructions")]); const settings = settingsData.settings; const instructions = instructionsData.runtimeInstructions;
-  $("#head-model").value = settings.headModel; $("#head-reasoning").value = settings.headReasoning; $("#critic-model").value = settings.criticModel; $("#critic-reasoning").value = settings.criticReasoning; $("#specialist-count").value = settings.specialistCount; $("#discussion-depth").value = settings.discussionDepth;
+  $("#head-model").value = settings.headModel; $("#head-reasoning").value = settings.headReasoning; $("#critic-model").value = settings.criticModel; $("#critic-reasoning").value = settings.criticReasoning; $("#specialist-count").value = settings.specialistCount; $("#discussion-depth").value = settings.discussionDepth; $("#notification-sound").value = settings.notificationSound ?? "knock"; state.notificationSound = $("#notification-sound").value;
   $("#runtime-instructions").value = instructions.markdown;
   $("#runtime-instructions").dataset.revision = instructions.revision;
   $("#runtime-instructions-status").textContent = `Current encrypted database revision ${instructions.revision.slice(0, 12)}. Required headings and placeholders are validated before save.`;
@@ -232,12 +270,12 @@ async function uploadAttachments(conversationId) {
 }
 async function removePendingAttachments(conversationId, attachmentIds) { await Promise.all(attachmentIds.map(attachmentId => request(`/api/conversations/${conversationId}/attachments/${attachmentId}`, { method: "DELETE" }).catch(() => undefined))); }
 async function acceptMessage(event) {
-  event.preventDefault(); const body = $("#message").value.trim(); if (!body) return; if (!state.conversation) await newConversation(); if (!state.conversation) return;
+  event.preventDefault(); void unlockNotificationSound(); const body = $("#message").value.trim(); if (!body) return; if (!state.conversation) await newConversation(); if (!state.conversation) return;
   let attachmentIds = [];
   try {
     attachmentIds = await uploadAttachments(state.conversation.id);
     const { data } = await request(`/api/conversations/${state.conversation.id}/messages`, { method: "POST", body: { body, attachmentIds, clientRequestId: id() } });
-    $("#message").value = ""; clearAttachmentDraft(); if (state.conversation.title === "New consultation") state.conversation.title = body.slice(0, 72); state.events.push(data.message); state.run = data.run; renderEvents(); startPolling();
+    $("#message").value = ""; clearAttachmentDraft(); state.events.push(data.message); state.run = data.run; renderEvents(); startPolling();
   } catch (error) {
     if (attachmentIds.length) await removePendingAttachments(state.conversation.id, attachmentIds);
     state.attachmentError = error.data?.error === "attachment_too_large" ? "This image is larger than the 8 MiB limit. Your draft is unchanged." : error.data?.error === "invalid_image_attachment" ? "This file is not a complete JPEG, PNG or WebP image. Your draft is unchanged." : "Image upload was not accepted. Your draft is unchanged.";
@@ -246,8 +284,8 @@ async function acceptMessage(event) {
 }
 
 async function stop() { if (!state.conversation) return; const { data } = await request(`/api/conversations/${state.conversation.id}/stop`, { method: "POST" }); state.run = data.run; renderEvents(); }
-async function continueRun() { if (!state.conversation) return; const { data } = await request(`/api/conversations/${state.conversation.id}/continue`, { method: "POST" }); state.run = data.run; renderEvents(); startPolling(); }
-function startPolling() { stopPolling(); if (state.run?.status !== "active") return; state.poll = setInterval(async () => { try { const { data } = await request(`/api/conversations/${state.conversation.id}`); state.events = data.events; state.run = data.run; renderEvents(); if (state.run?.status !== "active") stopPolling(); } catch { stopPolling(); } }, 2_000); }
+async function continueRun() { if (!state.conversation) return; void unlockNotificationSound(); const { data } = await request(`/api/conversations/${state.conversation.id}/continue`, { method: "POST" }); state.run = data.run; renderEvents(); startPolling(); }
+function startPolling() { stopPolling(); if (state.run?.status !== "active") return; state.poll = setInterval(async () => { try { const { data } = await request(`/api/conversations/${state.conversation.id}`); const previous = state.events; state.conversation = data.conversation; state.events = data.events; state.run = data.run; announceIncomingMessages(previous, state.events); renderEvents(); if (state.run?.status !== "active") stopPolling(); } catch { stopPolling(); } }, 2_000); }
 function stopPolling() { if (state.poll) clearInterval(state.poll); state.poll = null; }
 
 function setTab(tab) { state.tab = tab; document.querySelectorAll("[data-tab]").forEach(button => button.setAttribute("aria-selected", String(button.dataset.tab === tab))); $("#thread").hidden = tab !== "discussion"; $("#composer").hidden = tab !== "discussion"; $("#outcome").hidden = tab !== "outcome"; $("#sources").hidden = tab !== "sources"; }
@@ -343,7 +381,8 @@ document.querySelectorAll("[data-session-action]").forEach(button => button.addE
   if (state.session?.authenticated) void signOut(); else void signIn();
 }));
 $("#consent-check").addEventListener("change", event => { $("#consent-button").disabled = !event.target.checked; }); $("#consent-button").addEventListener("click", async () => { await request("/api/consent", { method: "POST" }); await loadSession(); });
-$("#settings-form").addEventListener("submit", async event => { event.preventDefault(); const settings = { headModel: $("#head-model").value, headReasoning: $("#head-reasoning").value, criticModel: $("#critic-model").value, criticReasoning: $("#critic-reasoning").value, specialistCount: $("#specialist-count").value, discussionDepth: $("#discussion-depth").value }; await request("/api/settings", { method: "PUT", body: settings }); toast("Settings saved for future consultations."); });
+$("#settings-form").addEventListener("submit", async event => { event.preventDefault(); const settings = { headModel: $("#head-model").value, headReasoning: $("#head-reasoning").value, criticModel: $("#critic-model").value, criticReasoning: $("#critic-reasoning").value, specialistCount: $("#specialist-count").value, discussionDepth: $("#discussion-depth").value, notificationSound: $("#notification-sound").value }; await request("/api/settings", { method: "PUT", body: settings }); state.notificationSound = settings.notificationSound; toast("Settings saved for future consultations."); });
+$("#preview-notification-sound").addEventListener("click", async () => { state.notificationSound = $("#notification-sound").value; if (state.notificationSound === "off") return toast("Message sound is off."); if (!await unlockNotificationSound() || !playNotificationSound()) toast("Your browser did not allow a sound preview."); });
 $("#runtime-instructions-form").addEventListener("submit", async event => {
   event.preventDefault();
   try {

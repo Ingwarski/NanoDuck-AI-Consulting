@@ -34,11 +34,13 @@ export function parseSettings(value, catalog = undefined) {
   const validEfforts = new Set(["xhigh", "ultra"]);
   const validSpecialistCounts = new Set(["1", "2", "3", "5", "auto"]);
   const validDiscussionDepths = new Set(["1", "3", "5", "auto"]);
+  const validNotificationSounds = new Set(["knock", "chime", "ripple", "off"]);
   const allowed = Array.isArray(catalog) && catalog.length
     ? catalog.some(model => model?.id === body.headModel && model.id === body.criticModel && Array.isArray(model.efforts) && model.efforts.includes(body.headReasoning) && model.efforts.includes(body.criticReasoning))
     : body.headModel === "gpt-6-astra" && body.criticModel === "gpt-6-astra" && validEfforts.has(body.headReasoning) && validEfforts.has(body.criticReasoning);
-  if (!allowed || !validSpecialistCounts.has(body.specialistCount) || !validDiscussionDepths.has(body.discussionDepth)) return undefined;
-  return Object.freeze({ headModel: body.headModel, headReasoning: body.headReasoning, criticModel: body.criticModel, criticReasoning: body.criticReasoning, specialistCount: body.specialistCount, discussionDepth: body.discussionDepth });
+  const notificationSound = body.notificationSound ?? "knock";
+  if (!allowed || !validSpecialistCounts.has(body.specialistCount) || !validDiscussionDepths.has(body.discussionDepth) || !validNotificationSounds.has(notificationSound)) return undefined;
+  return Object.freeze({ headModel: body.headModel, headReasoning: body.headReasoning, criticModel: body.criticModel, criticReasoning: body.criticReasoning, specialistCount: body.specialistCount, discussionDepth: body.discussionDepth, notificationSound });
 }
 
 export function parseConversationId(value) {

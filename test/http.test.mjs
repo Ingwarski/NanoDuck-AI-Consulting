@@ -55,12 +55,16 @@ test("the local HTTP flow protects data, saves settings and preserves a truthful
     assert.equal((await fetch(`${origin}/api/voice/transcribe`, { method: "POST", headers, body: "not audio" })).status, 404);
     const client = await (await fetch(`${origin}/client/app.js`)).text();
     assert.match(client, /SpeechRecognition/u);
+    assert.match(client, /AudioContext/u);
     assert.doesNotMatch(client, /MediaRecorder|voice\/transcribe/u);
+    const shell = await (await fetch(`${origin}/`)).text();
+    assert.match(shell, /id="notification-sound"/u);
+    assert.doesNotMatch(shell, /id="conversation-title"/u);
     assert.equal((await fetch(`${origin}/api/conversations`, { method: "POST", headers })).status, 201);
 
     const created = await (await fetch(`${origin}/api/conversations`, { method: "POST", headers })).json();
     const conversationId = created.conversation.id;
-    const settings = { headModel: "gpt-6-astra", headReasoning: "ultra", criticModel: "gpt-6-astra", criticReasoning: "xhigh", specialistCount: "3", discussionDepth: "3" };
+    const settings = { headModel: "gpt-6-astra", headReasoning: "ultra", criticModel: "gpt-6-astra", criticReasoning: "xhigh", specialistCount: "3", discussionDepth: "3", notificationSound: "ripple" };
     assert.deepEqual((await (await fetch(`${origin}/api/settings`, { method: "PUT", headers, body: JSON.stringify(settings) })).json()).settings, settings);
 
     const initialInstructions = await (await fetch(`${origin}/api/runtime-instructions`, { headers: { cookie } })).json();

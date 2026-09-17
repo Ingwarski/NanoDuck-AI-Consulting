@@ -4,11 +4,11 @@
 
 ## Language and vocabulary
 
-Working language is English, from the owner's latest substantive request. Product conversations and source metadata support English and Ukrainian only; the first substantive request sets the language and an explicit supported-language change wins. Russian and Belarusian language, terminology, sources and URLs are prohibited, including `.ru`, `.by`, `.su` and Cyrillic equivalents. Role names and provider/model identifiers remain English. The [canonical terms](canonical-terms.md) distinguish product labels from internal mechanisms.
+Working language is English, from the owner's latest substantive request. Product conversations and source metadata support English and Ukrainian only; the first substantive request sets the language and an explicit supported-language change wins. Russian and Belarusian language, terminology, sources and URLs are prohibited, including `.ru`, `.by`, `.su` and Cyrillic equivalents. A prohibited provider draft is discarded before persistence and gets one same-role, same-task compliant-replacement attempt; the first policy rejection is not a terminal consultation outcome. Role names and provider/model identifiers remain English. The [canonical terms](canonical-terms.md) distinguish product labels from internal mechanisms.
 
 ## Product and user
 
-NanoDuck Consulting Group is a private decision-support and coaching product for one existing owner. The owner is both user and decision maker. They want substantive consultant/Critic exchanges, practical outcomes and inspectable evidence, with little operational effort. Their rejection of the old UI and request for bold alternatives are direct feedback, not representative-user research.
+NanoDuck Consulting Group is a private decision-support and coaching product for one existing owner. The owner is both user and decision maker. They want substantive consultant/Critic exchanges, practical outcomes and inspectable evidence, with little operational effort. During active work the UI reports that the team is thinking; a completed record, not the active discussion, receives its compact decision-derived title. Their rejection of the old UI and request for bold alternatives are direct feedback, not representative-user research.
 
 The seven PRD use cases cover entry, consultation, interruption, history, Settings, dictation and research. No additional persona, audience segment or commercial service is assumed.
 

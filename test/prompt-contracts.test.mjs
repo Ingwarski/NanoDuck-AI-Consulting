@@ -39,6 +39,7 @@ test("a saved Markdown contract renders the customised text for the model", () =
   assert.match(prompts.headTask({ specialist: "Finance Consultant", caseAnchor: "BTC", caseDetail: "bearish", language: "English" }), /distinct task for every selected specialist/u);
   assert.doesNotMatch(prompts.headTask({ specialist: "Finance Consultant", caseAnchor: "BTC", caseDetail: "bearish", language: "English" }), /\{\{/u);
   assert.match(prompts.outputContract({ outputKind: "head_final", maximumCharacters: 2_000 }), /2_000|2000/u);
+  assert.match(prompts.providerPolicy(false), /Never use Russian or Belarusian/u);
 });
 
 test("a legacy direct-answer section becomes an enforced consultation-routing revision", () => {

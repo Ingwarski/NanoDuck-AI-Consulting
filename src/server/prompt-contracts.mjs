@@ -105,6 +105,6 @@ export function createRuntimePrompts(contract) {
     outputContract: ({ outputKind, maximumCharacters }) => outputKind === "head_task"
       ? render(contract, "Head Task Output Contract")
       : render(contract, "Natural Output Contract", { output_kind: outputKind.replaceAll("_", " "), maximum_characters: maximumCharacters ?? 2_000 }),
-    providerPolicy: research => `${render(contract, "Global Output Policy")} ${render(contract, research ? "Research Protocol" : "No Research Protocol")}`
+    providerPolicy: research => `${render(contract, "Global Output Policy")} ${render(contract, research ? "Research Protocol" : "No Research Protocol")} Use only English or Ukrainian. Never use Russian or Belarusian language, terminology, sources or URLs, including .ru, .by, .su and Cyrillic equivalents.`
   });
 }

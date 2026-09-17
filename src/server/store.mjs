@@ -8,7 +8,8 @@ const defaults = Object.freeze({
   criticModel: "gpt-6-astra",
   criticReasoning: "xhigh",
   specialistCount: "2",
-  discussionDepth: "1"
+  discussionDepth: "1",
+  notificationSound: "knock"
 });
 
 const now = () => new Date().toISOString();
@@ -135,7 +136,7 @@ export function createMemoryStore() {
       linked.forEach(attachment => { attachment.messageId = message.id; });
       stream.push(message); messages.set(conversationId, stream);
       const run = { id: randomId(), conversationId, status: "active", generation: (runs.get(conversationId)?.generation ?? 0) + 1, snapshot, createdAt: now(), updatedAt: now() };
-      runs.set(conversationId, run); conversation.title = conversation.title === "New consultation" ? input.body.slice(0, 72) : conversation.title; conversation.updatedAt = now();
+      runs.set(conversationId, run); conversation.updatedAt = now();
       const result = { message: publicMessage(message), run: { ...run }, replayed: false }; requests.set(requestKey, result); return result;
     },
     async run(conversationId) { const run = runs.get(conversationId); return run ? { ...run } : undefined; },
@@ -152,9 +153,13 @@ export function createMemoryStore() {
       if (!run || run.status !== "active" || run.generation !== generation) return undefined;
       run.snapshot = Object.freeze({ ...snapshot }); run.updatedAt = now(); return { ...run };
     },
-    async finishRun(conversationId, generation, status) {
+    async finishRun(conversationId, generation, status, completedTitle = undefined) {
       const run = runs.get(conversationId); if (!run || run.generation !== generation) return false;
-      run.status = status; run.updatedAt = now(); return true;
+      run.status = status; run.updatedAt = now();
+      const conversation = conversations.get(conversationId);
+      if (status === "complete" && conversation && conversation.title === "New consultation" && typeof completedTitle === "string" && completedTitle.trim()) conversation.title = completedTitle.trim();
+      if (conversation) conversation.updatedAt = now();
+      return true;
     },
     async stop(conversationId) {
       const run = runs.get(conversationId); if (!run || run.status !== "active") return undefined;
@@ -353,7 +358,7 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
         }
         await connection.execute("INSERT INTO nanoduck_runs (id,conversation_id,status,generation,snapshot_json,created_at,updated_at) VALUES (?,?,?,?,?,?,?)", [run.id, id, run.status, run.generation, JSON.stringify(snapshot), run.createdAt, run.updatedAt]);
         await connection.execute("INSERT INTO nanoduck_requests (conversation_id,request_id,message_id,run_id) VALUES (?,?,?,?)", [id, input.clientRequestId, message.id, run.id]);
-        await connection.execute("UPDATE nanoduck_conversations SET title=IF(title='New consultation', ?, title), updated_at=? WHERE id=?", [input.body.slice(0, 72), now(), id]);
+        await connection.execute("UPDATE nanoduck_conversations SET updated_at=? WHERE id=?", [now(), id]);
         await connection.commit(); return { message: publicMessage(message), run, replayed: false };
       } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
     },
@@ -380,7 +385,18 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
       const [result] = await query("UPDATE nanoduck_runs SET snapshot_json=?, updated_at=? WHERE conversation_id=? AND generation=? AND status='active'", [JSON.stringify(snapshot), now(), id, generation]);
       return result.affectedRows === 1 ? { ...snapshot } : undefined;
     },
-    async finishRun(id, generation, status) { const [result] = await query("UPDATE nanoduck_runs SET status=?, updated_at=? WHERE conversation_id=? AND generation=? AND status='active'", [status, now(), id, generation]); return result.affectedRows === 1; },
+    async finishRun(id, generation, status, completedTitle = undefined) {
+      const connection = await pool.getConnection();
+      try {
+        await connection.beginTransaction(); await lockOwner(connection);
+        const [result] = await connection.execute("UPDATE nanoduck_runs SET status=?, updated_at=? WHERE conversation_id=? AND generation=? AND status='active'", [status, now(), id, generation]);
+        if (result.affectedRows !== 1) { await connection.rollback(); return false; }
+        if (status === "complete" && typeof completedTitle === "string" && completedTitle.trim()) {
+          await connection.execute("UPDATE nanoduck_conversations SET title=IF(title='New consultation', ?, title), updated_at=? WHERE id=?", [completedTitle.trim(), now(), id]);
+        } else await connection.execute("UPDATE nanoduck_conversations SET updated_at=? WHERE id=?", [now(), id]);
+        await connection.commit(); return true;
+      } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
+    },
     async stop(id) {
       const connection = await pool.getConnection();
       try {
