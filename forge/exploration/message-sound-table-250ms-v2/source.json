@@ -1,0 +1,46 @@
+{
+  "status": "unapproved_sound_preview",
+  "applied_to_app": false,
+  "source_page": "https://freesound.org/people/giddster/sounds/414460/",
+  "source_download": "https://cdn.freesound.org/previews/414/414460_1738686-hq.mp3",
+  "title": "Dropping ping pong ball on table",
+  "creator": "giddster",
+  "license": "CC0",
+  "source_sha256": "380fec20b4e6a289af202a5e64a9769c92ea0dcf06e471b4e610a0a82c652aa7",
+  "edit": "Brighten the recorded table-bounce attack, remove low-frequency body, collapse room width to mono and suppress the reverberant tail; three impacts 250 ms apart.",
+  "measurements": {
+    "sample_rate": 48000,
+    "channels": 1,
+    "duration_seconds": 0.59,
+    "tap_length_ms": 40,
+    "onset_interval_ms": 250,
+    "high_pass_hz": 850,
+    "treble_split_hz": 2800,
+    "treble_emphasis": "parallel high-frequency emphasis, 1.15 gain added above the split",
+    "decay_after_ms": 3.5,
+    "decay_time_constant_ms": 5.5,
+    "source_segment_seconds": [
+      0.3945,
+      0.4345
+    ],
+    "peak_fraction": 0.88,
+    "clipped_samples": 0,
+    "pitch": "unchanged; no resampling"
+  },
+  "preview_sha256": "03b90255971d003fa044249cb75a8720b3beec25409098319bd1c6f2cc16428d",
+  "script_sha256": "79045f48db8d6ac598167cb6f086e89898d652e3c68569d593d8103f0b8ee160",
+  "owner_timbre_verdict": "pending",
+  "pcm_verification": {
+    "peak_intervals_ms": [
+      250.0,
+      250.0
+    ],
+    "clipped_samples": 0,
+    "late_to_attack_mean_power_db": -55.00628292799157,
+    "previous_late_to_attack_mean_power_db": -16.929153616684214,
+    "attack_spectral_centroid_hz": 6541.5373195298025,
+    "previous_attack_spectral_centroid_hz": 4016.364544276761
+  },
+  "supersedes_preview": "forge/exploration/message-sound-table-250ms/preview.wav",
+  "owner_feedback_on_previous": "better but the sound is too dull end too much echo."
+}
