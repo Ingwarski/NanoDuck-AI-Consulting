@@ -39,13 +39,13 @@ const attachmentCountLimit = 4;
 const attachmentTypes = new Set(["image/jpeg", "image/png", "image/webp"]);
 const formatBytes = value => value < 1024 * 1024 ? `${Math.ceil(value / 1024)} KB` : `${(value / (1024 * 1024)).toFixed(1)} MiB`;
 const notificationPatterns = Object.freeze({
-  knock: Object.freeze([[206, 0, .10], [188, .15, .10], [206, .30, .16]]),
   chime: Object.freeze([[659, 0, .32], [880, .13, .44]]),
   ripple: Object.freeze([[523, 0, .16], [659, .10, .18], [784, .21, .24]])
 });
 const notificationSoundUrls = new Map();
 const notificationPlayers = new Set();
 const soundUrl = name => {
+  if (name === "knock") return "/sounds/nokia-three-knocks-quick.wav";
   if (notificationSoundUrls.has(name)) return notificationSoundUrls.get(name);
   const pattern = notificationPatterns[name]; if (!pattern || typeof Blob !== "function" || !URL.createObjectURL) return undefined;
   const rate = 44_100; const seconds = Math.max(...pattern.map(([, offset, duration]) => offset + duration)) + .08; const samples = Math.ceil(seconds * rate);
@@ -57,7 +57,7 @@ const soundUrl = name => {
     for (const [frequency, offset, duration] of pattern) {
       const progress = (time - offset) / duration; if (progress < 0 || progress > 1) continue;
       const envelope = Math.min(1, progress / .025) * Math.pow(1 - progress, 1.35) * .58;
-      const phase = 2 * Math.PI * frequency * (time - offset); const wave = name === "knock" ? (2 / Math.PI) * Math.asin(Math.sin(phase)) : Math.sin(phase);
+      const phase = 2 * Math.PI * frequency * (time - offset); const wave = Math.sin(phase);
       value += wave * envelope;
     }
     view.setInt16(44 + index * 2, Math.round(Math.max(-1, Math.min(1, value)) * 0x7fff), true);

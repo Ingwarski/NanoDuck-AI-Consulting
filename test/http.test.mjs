@@ -71,6 +71,12 @@ test("the local HTTP flow protects data, saves settings and preserves a truthful
     assert.match(shell, /id="notification-sound"/u);
     assert.doesNotMatch(shell, /id="conversation-title"/u);
     assert.match((await fetch(`${origin}/`)).headers.get("content-security-policy"), /media-src 'self' blob:/u);
+    const knockResponse = await fetch(`${origin}/sounds/nokia-three-knocks-quick.wav`);
+    assert.equal(knockResponse.status, 200);
+    assert.equal(knockResponse.headers.get("content-type"), "audio/wav");
+    const knockBytes = Buffer.from(await knockResponse.arrayBuffer());
+    assert.equal(knockBytes.toString("ascii", 0, 4), "RIFF");
+    assert.equal(knockBytes.toString("ascii", 8, 12), "WAVE");
     assert.equal((await fetch(`${origin}/api/conversations`, { method: "POST", headers })).status, 201);
 
     const created = await (await fetch(`${origin}/api/conversations`, { method: "POST", headers })).json();
