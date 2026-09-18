@@ -51,6 +51,15 @@ test("a completed provider notification clears its deadline waiter", async () =>
   assert.deepEqual(result, { ok: true, body: "A bounded answer.", sources: [] });
 });
 
+test("valid Ukrainian prose and source metadata survive Codex output validation", async () => {
+  const provider = createCodexProvider({ readyForProvider: true, codexCommand: fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url)) });
+  const result = await provider.invoke({ assignment: "Return a Ukrainian relative-pronoun example.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Які умови вступу?", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions });
+  assert.equal(result.ok, true);
+  assert.equal(result.body, "Уточніть, які умови потрібно виконати.");
+  assert.equal(result.sources[0].title, "Курси, які доступні");
+  assert.equal(result.sources[0].claim, "Вимоги, які підтверджує програма.");
+});
+
 test("a slow ephemeral turn uses matching completed items and terminal events without reading stored history", async () => {
   const command = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));
   const provider = createCodexProvider({ readyForProvider: true, codexCommand: command, codexAuthPath: undefined });

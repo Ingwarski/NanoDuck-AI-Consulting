@@ -5,6 +5,7 @@ const send = value => process.stdout.write(`${JSON.stringify({ jsonrpc: "2.0", .
 const expectedFeatures = ["shell_tool", "unified_exec", "view_image", "shell_snapshot", "apps", "plugins", "hooks", "memories", "browser_use", "browser_use_external", "browser_use_full_cdp_access", "computer_use", "image_generation", "workspace_dependencies", "code_mode", "code_mode_host", "multi_agent", "multi_agent_v2", "skill_search", "tool_suggest", "request_permissions_tool"];
 const replyFor = prompt => {
   let answer = "A bounded answer.";
+  if (prompt.includes("Return a Ukrainian relative-pronoun example")) return 'Уточніть, які умови потрібно виконати.\n<nanoduck-source>{"title":"Курси, які доступні","url":"https://example.com/courses","claim":"Вимоги, які підтверджує програма."}</nanoduck-source>';
   if (prompt.includes("Return exactly [TEAM: N]")) answer = "[TEAM: 3]";
   else if (prompt.includes("Give only a concise, concrete task")) answer = "Assess the buyer evidence and name the one test that would change the decision.";
   else if (prompt.includes("Answer the Head's task")) answer = "The position is viable only if a defined buyer has an urgent problem; test that through targeted interviews before committing.";

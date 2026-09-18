@@ -195,13 +195,14 @@ function renderEvents() {
     if (event.sources?.length) { const links = node("div", { class: "source-links" }); for (const source of event.sources) { const link = node("a", { href: source.url, target: "_blank", rel: "noopener noreferrer" }, source.title); links.append(link); } content.append(links); }
     message.append(content); thread.append(message);
   }
-  const active = state.run?.status === "active"; $("#stop").hidden = !active; $("#continue").hidden = state.run?.status !== "stopped";
+  const active = state.run?.status === "active"; $("#stop").hidden = !active; $("#continue").hidden = !["stopped", "failed"].includes(state.run?.status);
+  $("#continue").textContent = state.run?.status === "failed" ? "Retry" : "Continue";
   if (active) {
     const indicator = node("div", { class: "thinking-indicator", role: "img", ariaLabel: "The consultation is thinking. The next message will appear here." });
     const cloud = node("span", { class: "thought-cloud", ariaHidden: true }); cloud.append(node("i"), node("i"), node("i"));
     indicator.append(cloud, node("span", {}, "The team is thinking…")); thread.append(indicator);
   }
-  const labels = { active: "The team is preparing the next message.", stopped: "Consultation stopped. Confirmed discussion is preserved.", complete: "Discussion complete.", failed: "Consultation needs attention. Confirmed discussion is preserved." };
+  const labels = { active: "The team is preparing the next message.", stopped: "Consultation stopped. Confirmed discussion is preserved.", complete: "Discussion complete.", failed: "Paused before the next reply. Retry to continue here." };
   $("#run-status").textContent = labels[state.run?.status] ?? "Describe the decision you want to make.";
   renderOutcome(); renderSources();
 }
@@ -422,7 +423,13 @@ async function acceptMessage(event) {
 }
 
 async function stop() { if (!state.conversation) return; const { data } = await request(`/api/conversations/${state.conversation.id}/stop`, { method: "POST" }); state.run = data.run; renderEvents(); }
-async function continueRun() { if (!state.conversation) return; const { data } = await request(`/api/conversations/${state.conversation.id}/continue`, { method: "POST" }); state.run = data.run; renderEvents(); startPolling(); }
+async function continueRun() {
+  if (!state.conversation || $("#continue").disabled) return;
+  $("#continue").disabled = true;
+  try { const { data } = await request(`/api/conversations/${state.conversation.id}/continue`, { method: "POST" }); state.run = data.run; renderEvents(); startPolling(); }
+  catch (error) { toast(error.response?.status === 409 ? "Another consultation is running or this one is no longer paused. Reopen it and try again." : "Could not resume. Your saved discussion is unchanged. Try again."); }
+  finally { $("#continue").disabled = false; }
+}
 function startPolling() { stopPolling(); if (state.run?.status !== "active") return; state.poll = setInterval(async () => { try { const { data } = await request(`/api/conversations/${state.conversation.id}`); const previous = state.events; state.conversation = data.conversation; state.events = data.events; state.run = data.run; announceIncomingMessages(previous, state.events); renderEvents(); if (state.run?.status !== "active") stopPolling(); } catch { stopPolling(); } }, 2_000); }
 function stopPolling() { if (state.poll) clearInterval(state.poll); state.poll = null; }
 

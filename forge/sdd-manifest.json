@@ -8,13 +8,13 @@
     "product-idea": {
       "path": "docs/product-idea.md",
       "owner_skill": "to-product-idea",
-      "owner_invocation_id": "r19-quick-knock-product-idea-2026-09-18T00:17:10.275Z",
+      "owner_invocation_id": "r20-policy-recovery-product-idea-2026-09-18T00:33:43.756Z",
       "declared_output_set": [
         "docs/product-idea.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r19-quick-knock-product-idea-2026-09-18T00:17:10.275Z",
+      "source_version": "r20-policy-recovery-product-idea-2026-09-18T00:33:43.756Z",
       "source_usage": {
         "docs/model-settings.md": "full",
         "docs/deployment-boundary.md": "full",
@@ -28,14 +28,14 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2"
       },
       "dependencies": [],
-      "content_hash": "800c453d6d22d8e57127d9b5c70df98aae065a790b62afffcd493bf425c35879",
+      "content_hash": "a9e092556a2e50a5c126a03744ff15db059dcbf974581a18a5ce90f516e0248a",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r19-quick-knock-scoped-reconciliation",
-        "reviewed_at": "2026-09-18T00:17:10.275Z",
+        "kind": "r20-ukrainian-policy-recovery-scoped-reconciliation",
+        "reviewed_at": "2026-09-18T00:33:43.756Z",
         "executor": "Codex inline to-product-idea",
-        "scope": "No document changes. Revalidate existing sound choice, privacy, role/model and approved-baseline decisions; repair stale dispatch identity/source bindings without changing their meaning."
+        "scope": "Clarify existing allowed Ukrainian and same-record recovery requirements with the observed implementation repair. Preserve all language/source prohibitions, role completion and authorization boundaries."
       },
       "open_questions": [],
       "traceability": {
@@ -102,30 +102,30 @@
     "prd": {
       "path": "docs/prd.md",
       "owner_skill": "to-sdd-prd",
-      "owner_invocation_id": "r19-quick-knock-prd-2026-09-18T00:17:10.275Z",
+      "owner_invocation_id": "r20-policy-recovery-prd-2026-09-18T00:33:43.756Z",
       "declared_output_set": [
         "docs/prd.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r19-quick-knock-prd-2026-09-18T00:17:10.275Z",
+      "source_version": "r20-policy-recovery-prd-2026-09-18T00:33:43.756Z",
       "source_usage": {
         "docs/product-idea.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "800c453d6d22d8e57127d9b5c70df98aae065a790b62afffcd493bf425c35879"
+        "docs/product-idea.md": "a9e092556a2e50a5c126a03744ff15db059dcbf974581a18a5ce90f516e0248a"
       },
       "dependencies": [
         "product-idea"
       ],
-      "content_hash": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416",
+      "content_hash": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r19-quick-knock-scoped-reconciliation",
-        "reviewed_at": "2026-09-18T00:17:10.275Z",
+        "kind": "r20-ukrainian-policy-recovery-scoped-reconciliation",
+        "reviewed_at": "2026-09-18T00:33:43.756Z",
         "executor": "Codex inline to-sdd-prd",
-        "scope": "No document changes. Revalidate existing sound choice, privacy, role/model and approved-baseline decisions; repair stale dispatch identity/source bindings without changing their meaning."
+        "scope": "Clarify existing allowed Ukrainian and same-record recovery requirements with the observed implementation repair. Preserve all language/source prohibitions, role completion and authorization boundaries."
       },
       "open_questions": [],
       "traceability": {
@@ -2372,21 +2372,21 @@
     "project-context": {
       "path": "docs/project-context.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "r19-quick-knock-project-context-bundle-2026-09-18T00:17:10.275Z",
+      "owner_invocation_id": "r20-policy-recovery-project-context-bundle-2026-09-18T00:33:43.756Z",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r19-quick-knock-project-context-bundle-2026-09-18T00:17:10.275Z",
+      "source_version": "r20-policy-recovery-project-context-bundle-2026-09-18T00:33:43.756Z",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "800c453d6d22d8e57127d9b5c70df98aae065a790b62afffcd493bf425c35879",
-        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416"
+        "docs/product-idea.md": "a9e092556a2e50a5c126a03744ff15db059dcbf974581a18a5ce90f516e0248a",
+        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679"
       },
       "dependencies": [
         "product-idea",
@@ -2396,10 +2396,10 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r19-quick-knock-scoped-reconciliation",
-        "reviewed_at": "2026-09-18T00:17:10.275Z",
+        "kind": "r20-ukrainian-policy-recovery-scoped-reconciliation",
+        "reviewed_at": "2026-09-18T00:33:43.756Z",
         "executor": "Codex inline to-project-context",
-        "scope": "No document changes. Revalidate existing sound choice, privacy, role/model and approved-baseline decisions; repair stale dispatch identity/source bindings without changing their meaning."
+        "scope": "No document changes. Revalidate existing terms, source authority, visual baseline and gate definitions against the clarified acceptance/recovery behavior."
       },
       "open_questions": [],
       "supersedes": "r16-discussion-feedback-project-context-2026-09-18T00:00:00+00:00"
@@ -2407,21 +2407,21 @@
     "canonical-terms": {
       "path": "docs/canonical-terms.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "r19-quick-knock-project-context-bundle-2026-09-18T00:17:10.275Z",
+      "owner_invocation_id": "r20-policy-recovery-project-context-bundle-2026-09-18T00:33:43.756Z",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r19-quick-knock-project-context-bundle-2026-09-18T00:17:10.275Z",
+      "source_version": "r20-policy-recovery-project-context-bundle-2026-09-18T00:33:43.756Z",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "800c453d6d22d8e57127d9b5c70df98aae065a790b62afffcd493bf425c35879",
-        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416"
+        "docs/product-idea.md": "a9e092556a2e50a5c126a03744ff15db059dcbf974581a18a5ce90f516e0248a",
+        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679"
       },
       "dependencies": [
         "product-idea",
@@ -2431,10 +2431,10 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r19-quick-knock-scoped-reconciliation",
-        "reviewed_at": "2026-09-18T00:17:10.275Z",
+        "kind": "r20-ukrainian-policy-recovery-scoped-reconciliation",
+        "reviewed_at": "2026-09-18T00:33:43.756Z",
         "executor": "Codex inline to-project-context",
-        "scope": "No document changes. Revalidate existing sound choice, privacy, role/model and approved-baseline decisions; repair stale dispatch identity/source bindings without changing their meaning."
+        "scope": "No document changes. Revalidate existing terms, source authority, visual baseline and gate definitions against the clarified acceptance/recovery behavior."
       },
       "open_questions": [],
       "supersedes": "r16-discussion-feedback-canonical-terms-2026-09-18T00:00:00+00:00"
@@ -2442,20 +2442,20 @@
     "guardrails": {
       "path": "docs/guardrails.md",
       "owner_skill": "to-guardrails",
-      "owner_invocation_id": "r19-quick-knock-guardrails-2026-09-18T00:17:10.275Z",
+      "owner_invocation_id": "r20-policy-recovery-guardrails-2026-09-18T00:33:43.756Z",
       "declared_output_set": [
         "docs/guardrails.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r19-quick-knock-guardrails-2026-09-18T00:17:10.275Z",
+      "source_version": "r20-policy-recovery-guardrails-2026-09-18T00:33:43.756Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
         "docs/canonical-terms.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416",
+        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
         "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329"
       },
@@ -2468,10 +2468,10 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r19-quick-knock-scoped-reconciliation",
-        "reviewed_at": "2026-09-18T00:17:10.275Z",
+        "kind": "r20-ukrainian-policy-recovery-scoped-reconciliation",
+        "reviewed_at": "2026-09-18T00:33:43.756Z",
         "executor": "Codex inline to-guardrails",
-        "scope": "No document changes. Revalidate existing sound choice, privacy, role/model and approved-baseline decisions; repair stale dispatch identity/source bindings without changing their meaning."
+        "scope": "No document changes. Revalidate existing terms, source authority, visual baseline and gate definitions against the clarified acceptance/recovery behavior."
       },
       "open_questions": [],
       "supersedes": "r15-rtf-export-guardrails-2026-09-17T18:32:08+00:00"
@@ -2479,13 +2479,13 @@
     "user-journey": {
       "path": "docs/user-journey.md",
       "owner_skill": "to-user-journey",
-      "owner_invocation_id": "r19-quick-knock-user-journey-2026-09-18T00:17:10.275Z",
+      "owner_invocation_id": "r20-policy-recovery-user-journey-2026-09-18T00:33:43.756Z",
       "declared_output_set": [
         "docs/user-journey.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r19-quick-knock-user-journey-2026-09-18T00:17:10.275Z",
+      "source_version": "r20-policy-recovery-user-journey-2026-09-18T00:33:43.756Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2493,7 +2493,7 @@
         "docs/guardrails.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416",
+        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
         "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
         "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7"
@@ -2504,14 +2504,14 @@
         "canonical-terms",
         "guardrails"
       ],
-      "content_hash": "20b907e7cbad37b224749e075de1c9c658665cb3893a1c750d44501fc8642669",
+      "content_hash": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r19-quick-knock-scoped-reconciliation",
-        "reviewed_at": "2026-09-18T00:17:10.275Z",
+        "kind": "r20-ukrainian-policy-recovery-scoped-reconciliation",
+        "reviewed_at": "2026-09-18T00:33:43.756Z",
         "executor": "Codex inline to-user-journey",
-        "scope": "No document changes. Revalidate existing sound choice, privacy, role/model and approved-baseline decisions; repair stale dispatch identity/source bindings without changing their meaning."
+        "scope": "Clarify existing allowed Ukrainian and same-record recovery requirements with the observed implementation repair. Preserve all language/source prohibitions, role completion and authorization boundaries."
       },
       "open_questions": [],
       "supersedes": "r15-rtf-export-user-journey-2026-09-17T18:32:08+00:00"
@@ -2519,13 +2519,13 @@
     "screen-map": {
       "path": "docs/screen-map.md",
       "owner_skill": "to-screen-map",
-      "owner_invocation_id": "r19-quick-knock-screen-map-2026-09-18T00:17:10.275Z",
+      "owner_invocation_id": "r20-policy-recovery-screen-map-2026-09-18T00:33:43.756Z",
       "declared_output_set": [
         "docs/screen-map.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r19-quick-knock-screen-map-2026-09-18T00:17:10.275Z",
+      "source_version": "r20-policy-recovery-screen-map-2026-09-18T00:33:43.756Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2537,11 +2537,11 @@
         "forge/design/candidates/c/v1/app.js": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416",
+        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
         "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
         "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
-        "docs/user-journey.md": "20b907e7cbad37b224749e075de1c9c658665cb3893a1c750d44501fc8642669",
+        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "forge/design/candidates/a/v1/app.js": "a869dd42c95740bf7da4802934c3cd6f8d2e2243795ee20925cd5ee19f474531",
         "forge/design/candidates/b/v1/app.js": "17e37807a032c5ea1660efca698e21dc8baf29a3c5344067470b6b44311f9b39",
         "forge/design/candidates/c/v1/app.js": "f64ab8a6962cc700c8087803d33ecda68884da78158ea0e5547235c6d4fff530"
@@ -2553,14 +2553,14 @@
         "guardrails",
         "user-journey"
       ],
-      "content_hash": "94747be308a5c5e6c0ab7f2dd9eb1b8fb0c0f9374a8ee13080a71184a50e0aaf",
+      "content_hash": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r19-quick-knock-scoped-reconciliation",
-        "reviewed_at": "2026-09-18T00:17:10.275Z",
+        "kind": "r20-ukrainian-policy-recovery-scoped-reconciliation",
+        "reviewed_at": "2026-09-18T00:33:43.756Z",
         "executor": "Codex inline to-screen-map",
-        "scope": "No document changes. Revalidate existing sound choice, privacy, role/model and approved-baseline decisions; repair stale dispatch identity/source bindings without changing their meaning."
+        "scope": "Clarify existing allowed Ukrainian and same-record recovery requirements with the observed implementation repair. Preserve all language/source prohibitions, role completion and authorization boundaries."
       },
       "open_questions": [],
       "traceability": {
@@ -3573,13 +3573,13 @@
     "wireframes": {
       "path": "docs/wireframes.md",
       "owner_skill": "to-wireframes",
-      "owner_invocation_id": "r19-quick-knock-wireframes-2026-09-18T00:17:10.275Z",
+      "owner_invocation_id": "r20-policy-recovery-wireframes-2026-09-18T00:33:43.756Z",
       "declared_output_set": [
         "docs/wireframes.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r19-quick-knock-wireframes-2026-09-18T00:17:10.275Z",
+      "source_version": "r20-policy-recovery-wireframes-2026-09-18T00:33:43.756Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3589,12 +3589,12 @@
         "docs/screen-map.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416",
+        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
         "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
         "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
-        "docs/user-journey.md": "20b907e7cbad37b224749e075de1c9c658665cb3893a1c750d44501fc8642669",
-        "docs/screen-map.md": "94747be308a5c5e6c0ab7f2dd9eb1b8fb0c0f9374a8ee13080a71184a50e0aaf"
+        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
+        "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2"
       },
       "dependencies": [
         "prd",
@@ -3604,14 +3604,14 @@
         "user-journey",
         "screen-map"
       ],
-      "content_hash": "43bbdd29cb698cf5a75cf9dff882925ac707bfebb4ed952aebe1c8fd3a83e741",
+      "content_hash": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r19-quick-knock-scoped-reconciliation",
-        "reviewed_at": "2026-09-18T00:17:10.275Z",
+        "kind": "r20-ukrainian-policy-recovery-scoped-reconciliation",
+        "reviewed_at": "2026-09-18T00:33:43.756Z",
         "executor": "Codex inline to-wireframes",
-        "scope": "No document changes. Revalidate existing sound choice, privacy, role/model and approved-baseline decisions; repair stale dispatch identity/source bindings without changing their meaning."
+        "scope": "Clarify existing allowed Ukrainian and same-record recovery requirements with the observed implementation repair. Preserve all language/source prohibitions, role completion and authorization boundaries."
       },
       "open_questions": [],
       "supersedes": "r15-rtf-export-wireframes-2026-09-17T18:32:08+00:00"
@@ -3619,13 +3619,13 @@
     "design-brief": {
       "path": "docs/design-brief.md",
       "owner_skill": "to-design-brief",
-      "owner_invocation_id": "r19-quick-knock-design-brief-2026-09-18T00:17:10.275Z",
+      "owner_invocation_id": "r20-policy-recovery-design-brief-2026-09-18T00:33:43.756Z",
       "declared_output_set": [
         "docs/design-brief.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r19-quick-knock-design-brief-2026-09-18T00:17:10.275Z",
+      "source_version": "r20-policy-recovery-design-brief-2026-09-18T00:33:43.756Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3681,14 +3681,14 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416",
+        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
         "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
         "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
-        "docs/user-journey.md": "20b907e7cbad37b224749e075de1c9c658665cb3893a1c750d44501fc8642669",
-        "docs/screen-map.md": "94747be308a5c5e6c0ab7f2dd9eb1b8fb0c0f9374a8ee13080a71184a50e0aaf",
-        "docs/wireframes.md": "43bbdd29cb698cf5a75cf9dff882925ac707bfebb4ed952aebe1c8fd3a83e741",
-        "docs/product-idea.md": "800c453d6d22d8e57127d9b5c70df98aae065a790b62afffcd493bf425c35879",
+        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
+        "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
+        "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
+        "docs/product-idea.md": "a9e092556a2e50a5c126a03744ff15db059dcbf974581a18a5ce90f516e0248a",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "prototype/styles.css": "ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925",
         "prototype/app.js": "b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54",
@@ -3747,10 +3747,10 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r19-quick-knock-scoped-reconciliation",
-        "reviewed_at": "2026-09-18T00:17:10.275Z",
+        "kind": "r20-ukrainian-policy-recovery-scoped-reconciliation",
+        "reviewed_at": "2026-09-18T00:33:43.756Z",
         "executor": "Codex inline to-design-brief",
-        "scope": "No document changes. Revalidate existing sound choice, privacy, role/model and approved-baseline decisions; repair stale dispatch identity/source bindings without changing their meaning."
+        "scope": "No document changes. Revalidate existing terms, source authority, visual baseline and gate definitions against the clarified acceptance/recovery behavior."
       },
       "open_questions": [],
       "supersedes": "r15-rtf-export-design-brief-2026-09-17T18:32:08+00:00"
@@ -3758,13 +3758,13 @@
     "architecture": {
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "r19-quick-knock-architecture-approved-2026-09-18T00:17:10.275Z",
+      "owner_invocation_id": "r20-policy-recovery-architecture-approved-2026-09-18T00:33:43.756Z",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r19-quick-knock-architecture-approved-2026-09-18T00:17:10.275Z",
+      "source_version": "r20-policy-recovery-architecture-approved-2026-09-18T00:33:43.756Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3812,13 +3812,13 @@
         "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416",
+        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
         "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
         "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
-        "docs/user-journey.md": "20b907e7cbad37b224749e075de1c9c658665cb3893a1c750d44501fc8642669",
-        "docs/screen-map.md": "94747be308a5c5e6c0ab7f2dd9eb1b8fb0c0f9374a8ee13080a71184a50e0aaf",
-        "docs/wireframes.md": "43bbdd29cb698cf5a75cf9dff882925ac707bfebb4ed952aebe1c8fd3a83e741",
+        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
+        "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
+        "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
         "docs/model-settings.md": "778151e8528c7bb7b04ca7c4e25a07f101dd532fcb9d63247dbe6999e4fd6ab1",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
@@ -3826,18 +3826,18 @@
         "package.json": "b419996e8bf38f22580ef3ad31398dd2c699bfe02057c3ffef333423c63d82f7",
         "src/server/config.mjs": "fbfbb92d01dc442b20c459217f498e5fefef522d5f940bd403e0d2683b63704f",
         "src/server/index.mjs": "f88413ed8a4d4c6bdc6864700f9e1112d4466ec711a7ea1873f77db1123c3d55",
-        "src/server/store.mjs": "44c965f32edfd3724d2999bc8b47c2f7f5b156b6c65ae416b9734efae16e6d91",
+        "src/server/store.mjs": "4ff546243ea43306cd5b424e080d25be64e86dece102260acca51eaadca845cb",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
-        "test/core.test.mjs": "0eb47766366714510e7e220f5adfebba2233018a3da9be7adf84100baeb210f4",
+        "test/core.test.mjs": "0b2e424fd4c19eb9b1d897932418bbb377bbf1ef0d5802ef159d2a506c0f8fcf",
         "src/server/codex-provider.mjs": "a84f5a433d4c74752afb133e39471c0d8cf3f853047ac6f95ef918073b05a151",
-        "src/server/consultation.mjs": "48174db5db717543c91af0d21f8c5027d0522e4c2d9ee6c9e5c04c92dd73e935",
-        "test/codex-provider.test.mjs": "f0734c813145c15a1282b60a0b34db1c8229a25c95d43f0573bb55d0fcb44eff",
-        "test/consultation.test.mjs": "a07798c78e68016daf1cdfa20079bdae1e9ea8508d4d112aea5f26a18f8fb27f",
-        "test/http.test.mjs": "dd70ead0c51936dc2ca302da532be99a739e9cdee6bdc36584c39ee9801e6c17",
+        "src/server/consultation.mjs": "ed754ba21d10991b7fb0af7ade03aa2fe7078850aaea45bbae6d649b644021f7",
+        "test/codex-provider.test.mjs": "279004a4b2afd8e99989949581e90754db44e43d76663fdd072fcf1f8b070362",
+        "test/consultation.test.mjs": "443cab205fd5b7093df101b81dc23a3e342fe1e087a1ec6721fe88daa21583a7",
+        "test/http.test.mjs": "3c45c00a633d9057af28cd373183da0935a4771cae4e6eebc3adba021193c12f",
         ".env.example": "908e4483bcad524ca4c95e9d20bc57dd4f2fbc6156f17925728798f03e91620f",
-        "test/fixtures/fake-codex.mjs": "b4e10cdbd32011f0bc6a8e3747aad51bc5264f240fe8b647c4fedf01e2b1ccd2",
+        "test/fixtures/fake-codex.mjs": "ddb3b4fd9f1e07f30df8006f7e74db7edabb55a29536e1f9274f07b0ce672c66",
         "src/server/prompt-contracts.mjs": "e9ad56fdb433979e2c818706b31316a80e8dae1b3af92282fc0b000394230a9b",
-        "src/client/app.js": "9d6d48959ca8fd4587ca7251c6b71a41352af880ffc08f29c681b2d2dda47434",
+        "src/client/app.js": "235157830fc742ad4784ca3bee8ef00e572b788f8e9b6612273b5360df953b6f",
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -3846,14 +3846,14 @@
         "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
         "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
         "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
-        "src/server/validation.mjs": "d27a46a9ed45fb10c3c3d55bcc6cd4b16f39f2aa43a54d992ea3e2c4d198749c",
+        "src/server/validation.mjs": "54663bca65fbba070c19a1176968835b95dd0b90ffb44f3140147f9db06e9653",
         "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
         "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
         "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
         "src/server/claude-provider.mjs": "ea68bbffab0b9b55d626ecbafd3cdb665ebbc65925f547e50fc478316670298c",
         "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
-        "test/claude-provider.test.mjs": "c0be1e4fa87816c510c9aa139350191d30d7aaefab6a6a7cb14cce77a70691b3",
+        "test/claude-provider.test.mjs": "b2152039c3954bcf58005ea179ed0cf7bd574271663bc468d0aa4869555c9174",
         "public/sounds/nokia-three-knocks-quick.wav": "c593d959457a011f63f85cedcc2c42efe503b0b13fa1d0a44f3aab1746c9268a",
         "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e"
       },
@@ -3867,14 +3867,14 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "1e4c8146c20138a1c94addfb88ea5de088f85a6442b8be8ace802fbaad5d4ede",
+      "content_hash": "acb55f1e14de46745600f6c1ec05a16a26245aa469adb59b2e4220597566da89",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r19-quick-knock-scoped-reconciliation",
-        "reviewed_at": "2026-09-18T00:17:10.275Z",
+        "kind": "r20-ukrainian-policy-recovery-scoped-reconciliation",
+        "reviewed_at": "2026-09-18T00:33:43.756Z",
         "executor": "Codex inline to-architecture",
-        "scope": "Reconcile the bundled original-tap audio edit, shared preview/notification playback, same-origin WAV delivery and listening-verification limits."
+        "scope": "Clarify existing allowed Ukrainian and same-record recovery requirements with the observed implementation repair. Preserve all language/source prohibitions, role completion and authorization boundaries."
       },
       "open_questions": [],
       "security_coverage": {
@@ -3953,13 +3953,13 @@
     "dod-evals": {
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "r19-quick-knock-dod-evals-approved-2026-09-18T00:17:10.275Z",
+      "owner_invocation_id": "r20-policy-recovery-dod-evals-approved-2026-09-18T00:33:43.756Z",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r19-quick-knock-dod-evals-approved-2026-09-18T00:17:10.275Z",
+      "source_version": "r20-policy-recovery-dod-evals-approved-2026-09-18T00:33:43.756Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3979,22 +3979,22 @@
         "test/consultation.test.mjs": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416",
+        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
         "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
         "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
-        "docs/user-journey.md": "20b907e7cbad37b224749e075de1c9c658665cb3893a1c750d44501fc8642669",
-        "docs/screen-map.md": "94747be308a5c5e6c0ab7f2dd9eb1b8fb0c0f9374a8ee13080a71184a50e0aaf",
-        "docs/wireframes.md": "43bbdd29cb698cf5a75cf9dff882925ac707bfebb4ed952aebe1c8fd3a83e741",
+        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
+        "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
+        "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/architecture.md": "1e4c8146c20138a1c94addfb88ea5de088f85a6442b8be8ace802fbaad5d4ede",
+        "docs/architecture.md": "acb55f1e14de46745600f6c1ec05a16a26245aa469adb59b2e4220597566da89",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
         "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
         "src/server/claude-provider.mjs": "ea68bbffab0b9b55d626ecbafd3cdb665ebbc65925f547e50fc478316670298c",
         "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
-        "src/server/consultation.mjs": "48174db5db717543c91af0d21f8c5027d0522e4c2d9ee6c9e5c04c92dd73e935",
-        "test/claude-provider.test.mjs": "c0be1e4fa87816c510c9aa139350191d30d7aaefab6a6a7cb14cce77a70691b3",
-        "test/consultation.test.mjs": "a07798c78e68016daf1cdfa20079bdae1e9ea8508d4d112aea5f26a18f8fb27f"
+        "src/server/consultation.mjs": "ed754ba21d10991b7fb0af7ade03aa2fe7078850aaea45bbae6d649b644021f7",
+        "test/claude-provider.test.mjs": "b2152039c3954bcf58005ea179ed0cf7bd574271663bc468d0aa4869555c9174",
+        "test/consultation.test.mjs": "443cab205fd5b7093df101b81dc23a3e342fe1e087a1ec6721fe88daa21583a7"
       },
       "dependencies": [
         "prd",
@@ -4011,10 +4011,10 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r19-quick-knock-scoped-reconciliation",
-        "reviewed_at": "2026-09-18T00:17:10.275Z",
+        "kind": "r20-ukrainian-policy-recovery-scoped-reconciliation",
+        "reviewed_at": "2026-09-18T00:33:43.756Z",
         "executor": "Codex inline to-dod-evals",
-        "scope": "No document changes. Revalidate existing sound choice, privacy, role/model and approved-baseline decisions; repair stale dispatch identity/source bindings without changing their meaning."
+        "scope": "No document changes. Revalidate existing terms, source authority, visual baseline and gate definitions against the clarified acceptance/recovery behavior."
       },
       "open_questions": [],
       "security_coverage": {
@@ -4093,13 +4093,13 @@
     "qa-checklist": {
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "r19-quick-knock-qa-checklist-approved-2026-09-18T00:17:10.275Z",
+      "owner_invocation_id": "r20-policy-recovery-qa-checklist-approved-2026-09-18T00:33:43.756Z",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r19-quick-knock-qa-checklist-approved-2026-09-18T00:17:10.275Z",
+      "source_version": "r20-policy-recovery-qa-checklist-approved-2026-09-18T00:33:43.756Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -4149,15 +4149,15 @@
         "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416",
+        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
         "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
         "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
-        "docs/user-journey.md": "20b907e7cbad37b224749e075de1c9c658665cb3893a1c750d44501fc8642669",
-        "docs/screen-map.md": "94747be308a5c5e6c0ab7f2dd9eb1b8fb0c0f9374a8ee13080a71184a50e0aaf",
-        "docs/wireframes.md": "43bbdd29cb698cf5a75cf9dff882925ac707bfebb4ed952aebe1c8fd3a83e741",
+        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
+        "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
+        "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/architecture.md": "1e4c8146c20138a1c94addfb88ea5de088f85a6442b8be8ace802fbaad5d4ede",
+        "docs/architecture.md": "acb55f1e14de46745600f6c1ec05a16a26245aa469adb59b2e4220597566da89",
         "docs/dod-evals.md": "dba7a17d1e83eb6afd059de73d103fd2a5452257e795875d948081eb1ec85592",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
@@ -4166,17 +4166,17 @@
         "package.json": "b419996e8bf38f22580ef3ad31398dd2c699bfe02057c3ffef333423c63d82f7",
         "src/server/config.mjs": "fbfbb92d01dc442b20c459217f498e5fefef522d5f940bd403e0d2683b63704f",
         "src/server/index.mjs": "f88413ed8a4d4c6bdc6864700f9e1112d4466ec711a7ea1873f77db1123c3d55",
-        "src/server/store.mjs": "44c965f32edfd3724d2999bc8b47c2f7f5b156b6c65ae416b9734efae16e6d91",
+        "src/server/store.mjs": "4ff546243ea43306cd5b424e080d25be64e86dece102260acca51eaadca845cb",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
-        "test/core.test.mjs": "0eb47766366714510e7e220f5adfebba2233018a3da9be7adf84100baeb210f4",
+        "test/core.test.mjs": "0b2e424fd4c19eb9b1d897932418bbb377bbf1ef0d5802ef159d2a506c0f8fcf",
         "src/server/codex-provider.mjs": "a84f5a433d4c74752afb133e39471c0d8cf3f853047ac6f95ef918073b05a151",
-        "src/server/consultation.mjs": "48174db5db717543c91af0d21f8c5027d0522e4c2d9ee6c9e5c04c92dd73e935",
-        "test/codex-provider.test.mjs": "f0734c813145c15a1282b60a0b34db1c8229a25c95d43f0573bb55d0fcb44eff",
-        "test/consultation.test.mjs": "a07798c78e68016daf1cdfa20079bdae1e9ea8508d4d112aea5f26a18f8fb27f",
-        "test/http.test.mjs": "dd70ead0c51936dc2ca302da532be99a739e9cdee6bdc36584c39ee9801e6c17",
-        "test/fixtures/fake-codex.mjs": "b4e10cdbd32011f0bc6a8e3747aad51bc5264f240fe8b647c4fedf01e2b1ccd2",
+        "src/server/consultation.mjs": "ed754ba21d10991b7fb0af7ade03aa2fe7078850aaea45bbae6d649b644021f7",
+        "test/codex-provider.test.mjs": "279004a4b2afd8e99989949581e90754db44e43d76663fdd072fcf1f8b070362",
+        "test/consultation.test.mjs": "443cab205fd5b7093df101b81dc23a3e342fe1e087a1ec6721fe88daa21583a7",
+        "test/http.test.mjs": "3c45c00a633d9057af28cd373183da0935a4771cae4e6eebc3adba021193c12f",
+        "test/fixtures/fake-codex.mjs": "ddb3b4fd9f1e07f30df8006f7e74db7edabb55a29536e1f9274f07b0ce672c66",
         "src/server/prompt-contracts.mjs": "e9ad56fdb433979e2c818706b31316a80e8dae1b3af92282fc0b000394230a9b",
-        "src/client/app.js": "9d6d48959ca8fd4587ca7251c6b71a41352af880ffc08f29c681b2d2dda47434",
+        "src/client/app.js": "235157830fc742ad4784ca3bee8ef00e572b788f8e9b6612273b5360df953b6f",
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -4185,14 +4185,14 @@
         "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
         "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
         "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
-        "src/server/validation.mjs": "d27a46a9ed45fb10c3c3d55bcc6cd4b16f39f2aa43a54d992ea3e2c4d198749c",
+        "src/server/validation.mjs": "54663bca65fbba070c19a1176968835b95dd0b90ffb44f3140147f9db06e9653",
         "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
         "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
         "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
         "src/server/claude-provider.mjs": "ea68bbffab0b9b55d626ecbafd3cdb665ebbc65925f547e50fc478316670298c",
         "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
-        "test/claude-provider.test.mjs": "c0be1e4fa87816c510c9aa139350191d30d7aaefab6a6a7cb14cce77a70691b3",
+        "test/claude-provider.test.mjs": "b2152039c3954bcf58005ea179ed0cf7bd574271663bc468d0aa4869555c9174",
         "public/sounds/nokia-three-knocks-quick.wav": "c593d959457a011f63f85cedcc2c42efe503b0b13fa1d0a44f3aab1746c9268a",
         "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e"
       },
@@ -4208,14 +4208,14 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "8256e786c2e2dab58036087b5544abcf5a42363263a19d9be87f7db017a13ae1",
+      "content_hash": "ff888bb43c0447271c52855f672fa99e947782509953d7d302fbf9cad4d3b932",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r19-quick-knock-scoped-reconciliation",
-        "reviewed_at": "2026-09-18T00:17:10.275Z",
+        "kind": "r20-ukrainian-policy-recovery-scoped-reconciliation",
+        "reviewed_at": "2026-09-18T00:33:43.756Z",
         "executor": "Codex inline to-qa-checklist",
-        "scope": "Reconcile the bundled original-tap audio edit, shared preview/notification playback, same-origin WAV delivery and listening-verification limits."
+        "scope": "Clarify existing allowed Ukrainian and same-record recovery requirements with the observed implementation repair. Preserve all language/source prohibitions, role completion and authorization boundaries."
       },
       "open_questions": [],
       "traceability": {
@@ -5983,13 +5983,13 @@
     "development-plan": {
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "r19-quick-knock-development-plan-2026-09-18T00:17:10.275Z",
+      "owner_invocation_id": "r20-policy-recovery-development-plan-2026-09-18T00:33:43.756Z",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r19-quick-knock-development-plan-2026-09-18T00:17:10.275Z",
+      "source_version": "r20-policy-recovery-development-plan-2026-09-18T00:33:43.756Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -6044,17 +6044,17 @@
         "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416",
+        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
         "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
         "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
-        "docs/user-journey.md": "20b907e7cbad37b224749e075de1c9c658665cb3893a1c750d44501fc8642669",
-        "docs/screen-map.md": "94747be308a5c5e6c0ab7f2dd9eb1b8fb0c0f9374a8ee13080a71184a50e0aaf",
-        "docs/wireframes.md": "43bbdd29cb698cf5a75cf9dff882925ac707bfebb4ed952aebe1c8fd3a83e741",
+        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
+        "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
+        "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/architecture.md": "1e4c8146c20138a1c94addfb88ea5de088f85a6442b8be8ace802fbaad5d4ede",
+        "docs/architecture.md": "acb55f1e14de46745600f6c1ec05a16a26245aa469adb59b2e4220597566da89",
         "docs/dod-evals.md": "dba7a17d1e83eb6afd059de73d103fd2a5452257e795875d948081eb1ec85592",
-        "docs/qa-checklist.md": "8256e786c2e2dab58036087b5544abcf5a42363263a19d9be87f7db017a13ae1",
+        "docs/qa-checklist.md": "ff888bb43c0447271c52855f672fa99e947782509953d7d302fbf9cad4d3b932",
         "docs/model-settings.md": "778151e8528c7bb7b04ca7c4e25a07f101dd532fcb9d63247dbe6999e4fd6ab1",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "package.json": "b419996e8bf38f22580ef3ad31398dd2c699bfe02057c3ffef333423c63d82f7",
@@ -6066,17 +6066,17 @@
         "forge/design/candidates/a/v8/app.js": "d7ac2287ce8496772592d42d134fc530affcb9147f0a7641655a56c6cf83775f",
         "src/server/config.mjs": "fbfbb92d01dc442b20c459217f498e5fefef522d5f940bd403e0d2683b63704f",
         "src/server/index.mjs": "f88413ed8a4d4c6bdc6864700f9e1112d4466ec711a7ea1873f77db1123c3d55",
-        "src/server/store.mjs": "44c965f32edfd3724d2999bc8b47c2f7f5b156b6c65ae416b9734efae16e6d91",
+        "src/server/store.mjs": "4ff546243ea43306cd5b424e080d25be64e86dece102260acca51eaadca845cb",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
-        "test/core.test.mjs": "0eb47766366714510e7e220f5adfebba2233018a3da9be7adf84100baeb210f4",
+        "test/core.test.mjs": "0b2e424fd4c19eb9b1d897932418bbb377bbf1ef0d5802ef159d2a506c0f8fcf",
         "src/server/codex-provider.mjs": "a84f5a433d4c74752afb133e39471c0d8cf3f853047ac6f95ef918073b05a151",
-        "src/server/consultation.mjs": "48174db5db717543c91af0d21f8c5027d0522e4c2d9ee6c9e5c04c92dd73e935",
-        "test/codex-provider.test.mjs": "f0734c813145c15a1282b60a0b34db1c8229a25c95d43f0573bb55d0fcb44eff",
-        "test/consultation.test.mjs": "a07798c78e68016daf1cdfa20079bdae1e9ea8508d4d112aea5f26a18f8fb27f",
-        "test/http.test.mjs": "dd70ead0c51936dc2ca302da532be99a739e9cdee6bdc36584c39ee9801e6c17",
-        "test/fixtures/fake-codex.mjs": "b4e10cdbd32011f0bc6a8e3747aad51bc5264f240fe8b647c4fedf01e2b1ccd2",
+        "src/server/consultation.mjs": "ed754ba21d10991b7fb0af7ade03aa2fe7078850aaea45bbae6d649b644021f7",
+        "test/codex-provider.test.mjs": "279004a4b2afd8e99989949581e90754db44e43d76663fdd072fcf1f8b070362",
+        "test/consultation.test.mjs": "443cab205fd5b7093df101b81dc23a3e342fe1e087a1ec6721fe88daa21583a7",
+        "test/http.test.mjs": "3c45c00a633d9057af28cd373183da0935a4771cae4e6eebc3adba021193c12f",
+        "test/fixtures/fake-codex.mjs": "ddb3b4fd9f1e07f30df8006f7e74db7edabb55a29536e1f9274f07b0ce672c66",
         "src/server/prompt-contracts.mjs": "e9ad56fdb433979e2c818706b31316a80e8dae1b3af92282fc0b000394230a9b",
-        "src/client/app.js": "9d6d48959ca8fd4587ca7251c6b71a41352af880ffc08f29c681b2d2dda47434",
+        "src/client/app.js": "235157830fc742ad4784ca3bee8ef00e572b788f8e9b6612273b5360df953b6f",
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -6085,14 +6085,14 @@
         "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
         "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
         "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
-        "src/server/validation.mjs": "d27a46a9ed45fb10c3c3d55bcc6cd4b16f39f2aa43a54d992ea3e2c4d198749c",
+        "src/server/validation.mjs": "54663bca65fbba070c19a1176968835b95dd0b90ffb44f3140147f9db06e9653",
         "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
         "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
         "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
         "src/server/claude-provider.mjs": "ea68bbffab0b9b55d626ecbafd3cdb665ebbc65925f547e50fc478316670298c",
         "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
-        "test/claude-provider.test.mjs": "c0be1e4fa87816c510c9aa139350191d30d7aaefab6a6a7cb14cce77a70691b3",
+        "test/claude-provider.test.mjs": "b2152039c3954bcf58005ea179ed0cf7bd574271663bc468d0aa4869555c9174",
         "public/sounds/nokia-three-knocks-quick.wav": "c593d959457a011f63f85cedcc2c42efe503b0b13fa1d0a44f3aab1746c9268a",
         "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e"
       },
@@ -6109,14 +6109,14 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "408d067cd0595a26e4d1b5a17eca25111cc5159ee734bd6a7aaed87dd9f2bc01",
+      "content_hash": "e09f74ec215e2c4cd956164b4a2f1d643e291cf69df01670e55f756fb3cf8f46",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r19-quick-knock-scoped-reconciliation",
-        "reviewed_at": "2026-09-18T00:17:10.275Z",
+        "kind": "r20-ukrainian-policy-recovery-scoped-reconciliation",
+        "reviewed_at": "2026-09-18T00:33:43.756Z",
         "executor": "Codex inline to-development-plan",
-        "scope": "Reconcile the bundled original-tap audio edit, shared preview/notification playback, same-origin WAV delivery and listening-verification limits."
+        "scope": "Clarify existing allowed Ukrainian and same-record recovery requirements with the observed implementation repair. Preserve all language/source prohibitions, role completion and authorization boundaries."
       },
       "supersedes": "r15-rtf-export-development-plan-2026-09-17T18:32:08+00:00",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
@@ -7818,18 +7818,18 @@
   ],
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "408d067cd0595a26e4d1b5a17eca25111cc5159ee734bd6a7aaed87dd9f2bc01",
+    "development_plan_hash": "e09f74ec215e2c4cd956164b4a2f1d643e291cf69df01670e55f756fb3cf8f46",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-14T20:13:37+03:00",
-    "prompt_id": "impl-r19-quick-knock-20260918",
-    "prompt_received_at": "2026-09-18T00:18:41.183Z",
-    "released_at": "2026-09-18T00:18:41.183Z",
+    "prompt_id": "impl-r20-ukrainian-policy-recovery-20260918",
+    "prompt_received_at": "2026-09-18T00:36:06.166Z",
+    "released_at": "2026-09-18T00:36:06.166Z",
     "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
     "prompt_receipt": {
-      "path": "forge/runs/implementation-prompt-20260918-r19-quick-knock.json",
-      "content_hash": "e07be62fc0a298a4a39be9787a5ee6d8e39d36dde2dbeb46284eb2576aed9629"
+      "path": "forge/runs/implementation-prompt-20260918-r20-ukrainian-policy-recovery.json",
+      "content_hash": "fbdf778ac70eab9ef0b9203e4d0c47e2c4755ae8eb435595f5878ee08dc76c56"
     },
-    "reason": "Owner correction to the existing authorized sound implementation; preserve the approved visual baseline, models, providers and data boundaries."
+    "reason": "Explicit owner request to repair an existing consultation blocker. Current plan clarifies the previously authorized Ukrainian and recovery behavior; preserve role completion, policy boundaries and approved design."
   },
   "input_requests": [],
   "last_resume_event": {
@@ -8926,11 +8926,18 @@
       "event": "r19_quick_knock_reconciled",
       "verification_receipt": "forge/runs/U-03/r19-quick-knock-20260918/verification.json",
       "scope": "Edited recorded triple knock at 140 ms spacing; shared preview/alert path; no hosting or data change."
+    },
+    {
+      "at": "2026-09-18T00:36:06.166Z",
+      "event": "r20_existing_consultation_repair_authorized",
+      "previous_prompt_id": "impl-r19-quick-knock-20260918",
+      "prompt_id": "impl-r20-ukrainian-policy-recovery-20260918",
+      "scope": "Repair the existing authorized Ukrainian acceptance and failed-run recovery. Hosted consultation inspection is read-only; no deployment, live provider call, database mutation or schema change."
     }
   ],
   "dispatches": {
     "product-idea": {
-      "invocation_id": "r19-quick-knock-product-idea-2026-09-18T00:17:10.275Z",
+      "invocation_id": "r20-policy-recovery-product-idea-2026-09-18T00:33:43.756Z",
       "outputs": [
         "docs/product-idea.md"
       ],
@@ -8943,58 +8950,58 @@
       "consumed_source_fragments": {}
     },
     "prd": {
-      "invocation_id": "r19-quick-knock-prd-2026-09-18T00:17:10.275Z",
+      "invocation_id": "r20-policy-recovery-prd-2026-09-18T00:33:43.756Z",
       "outputs": [
         "docs/prd.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "800c453d6d22d8e57127d9b5c70df98aae065a790b62afffcd493bf425c35879"
+        "docs/product-idea.md": "a9e092556a2e50a5c126a03744ff15db059dcbf974581a18a5ce90f516e0248a"
       },
       "consumed_source_fragments": {}
     },
     "project-context": {
-      "invocation_id": "r19-quick-knock-project-context-bundle-2026-09-18T00:17:10.275Z",
+      "invocation_id": "r20-policy-recovery-project-context-bundle-2026-09-18T00:33:43.756Z",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "800c453d6d22d8e57127d9b5c70df98aae065a790b62afffcd493bf425c35879",
-        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416"
+        "docs/product-idea.md": "a9e092556a2e50a5c126a03744ff15db059dcbf974581a18a5ce90f516e0248a",
+        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679"
       },
       "consumed_source_fragments": {}
     },
     "canonical-terms": {
-      "invocation_id": "r19-quick-knock-project-context-bundle-2026-09-18T00:17:10.275Z",
+      "invocation_id": "r20-policy-recovery-project-context-bundle-2026-09-18T00:33:43.756Z",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "800c453d6d22d8e57127d9b5c70df98aae065a790b62afffcd493bf425c35879",
-        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416"
+        "docs/product-idea.md": "a9e092556a2e50a5c126a03744ff15db059dcbf974581a18a5ce90f516e0248a",
+        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679"
       },
       "consumed_source_fragments": {}
     },
     "guardrails": {
-      "invocation_id": "r19-quick-knock-guardrails-2026-09-18T00:17:10.275Z",
+      "invocation_id": "r20-policy-recovery-guardrails-2026-09-18T00:33:43.756Z",
       "outputs": [
         "docs/guardrails.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416",
+        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
         "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329"
       },
       "consumed_source_fragments": {}
     },
     "user-journey": {
-      "invocation_id": "r19-quick-knock-user-journey-2026-09-18T00:17:10.275Z",
+      "invocation_id": "r20-policy-recovery-user-journey-2026-09-18T00:33:43.756Z",
       "outputs": [
         "docs/user-journey.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416",
+        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
         "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
         "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7"
@@ -9002,16 +9009,16 @@
       "consumed_source_fragments": {}
     },
     "screen-map": {
-      "invocation_id": "r19-quick-knock-screen-map-2026-09-18T00:17:10.275Z",
+      "invocation_id": "r20-policy-recovery-screen-map-2026-09-18T00:33:43.756Z",
       "outputs": [
         "docs/screen-map.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416",
+        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
         "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
         "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
-        "docs/user-journey.md": "20b907e7cbad37b224749e075de1c9c658665cb3893a1c750d44501fc8642669",
+        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "forge/design/candidates/a/v1/app.js": "a869dd42c95740bf7da4802934c3cd6f8d2e2243795ee20925cd5ee19f474531",
         "forge/design/candidates/b/v1/app.js": "17e37807a032c5ea1660efca698e21dc8baf29a3c5344067470b6b44311f9b39",
         "forge/design/candidates/c/v1/app.js": "f64ab8a6962cc700c8087803d33ecda68884da78158ea0e5547235c6d4fff530"
@@ -9019,34 +9026,34 @@
       "consumed_source_fragments": {}
     },
     "wireframes": {
-      "invocation_id": "r19-quick-knock-wireframes-2026-09-18T00:17:10.275Z",
+      "invocation_id": "r20-policy-recovery-wireframes-2026-09-18T00:33:43.756Z",
       "outputs": [
         "docs/wireframes.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416",
+        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
         "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
         "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
-        "docs/user-journey.md": "20b907e7cbad37b224749e075de1c9c658665cb3893a1c750d44501fc8642669",
-        "docs/screen-map.md": "94747be308a5c5e6c0ab7f2dd9eb1b8fb0c0f9374a8ee13080a71184a50e0aaf"
+        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
+        "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2"
       },
       "consumed_source_fragments": {}
     },
     "design-brief": {
-      "invocation_id": "r19-quick-knock-design-brief-2026-09-18T00:17:10.275Z",
+      "invocation_id": "r20-policy-recovery-design-brief-2026-09-18T00:33:43.756Z",
       "outputs": [
         "docs/design-brief.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416",
+        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
         "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
         "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
-        "docs/user-journey.md": "20b907e7cbad37b224749e075de1c9c658665cb3893a1c750d44501fc8642669",
-        "docs/screen-map.md": "94747be308a5c5e6c0ab7f2dd9eb1b8fb0c0f9374a8ee13080a71184a50e0aaf",
-        "docs/wireframes.md": "43bbdd29cb698cf5a75cf9dff882925ac707bfebb4ed952aebe1c8fd3a83e741",
-        "docs/product-idea.md": "800c453d6d22d8e57127d9b5c70df98aae065a790b62afffcd493bf425c35879",
+        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
+        "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
+        "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
+        "docs/product-idea.md": "a9e092556a2e50a5c126a03744ff15db059dcbf974581a18a5ce90f516e0248a",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "prototype/styles.css": "ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925",
         "prototype/app.js": "b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54",
@@ -9095,18 +9102,18 @@
       "consumed_source_fragments": {}
     },
     "architecture": {
-      "invocation_id": "r19-quick-knock-architecture-approved-2026-09-18T00:17:10.275Z",
+      "invocation_id": "r20-policy-recovery-architecture-approved-2026-09-18T00:33:43.756Z",
       "outputs": [
         "docs/architecture.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416",
+        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
         "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
         "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
-        "docs/user-journey.md": "20b907e7cbad37b224749e075de1c9c658665cb3893a1c750d44501fc8642669",
-        "docs/screen-map.md": "94747be308a5c5e6c0ab7f2dd9eb1b8fb0c0f9374a8ee13080a71184a50e0aaf",
-        "docs/wireframes.md": "43bbdd29cb698cf5a75cf9dff882925ac707bfebb4ed952aebe1c8fd3a83e741",
+        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
+        "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
+        "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
         "docs/model-settings.md": "778151e8528c7bb7b04ca7c4e25a07f101dd532fcb9d63247dbe6999e4fd6ab1",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
@@ -9114,18 +9121,18 @@
         "package.json": "b419996e8bf38f22580ef3ad31398dd2c699bfe02057c3ffef333423c63d82f7",
         "src/server/config.mjs": "fbfbb92d01dc442b20c459217f498e5fefef522d5f940bd403e0d2683b63704f",
         "src/server/index.mjs": "f88413ed8a4d4c6bdc6864700f9e1112d4466ec711a7ea1873f77db1123c3d55",
-        "src/server/store.mjs": "44c965f32edfd3724d2999bc8b47c2f7f5b156b6c65ae416b9734efae16e6d91",
+        "src/server/store.mjs": "4ff546243ea43306cd5b424e080d25be64e86dece102260acca51eaadca845cb",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
-        "test/core.test.mjs": "0eb47766366714510e7e220f5adfebba2233018a3da9be7adf84100baeb210f4",
+        "test/core.test.mjs": "0b2e424fd4c19eb9b1d897932418bbb377bbf1ef0d5802ef159d2a506c0f8fcf",
         "src/server/codex-provider.mjs": "a84f5a433d4c74752afb133e39471c0d8cf3f853047ac6f95ef918073b05a151",
-        "src/server/consultation.mjs": "48174db5db717543c91af0d21f8c5027d0522e4c2d9ee6c9e5c04c92dd73e935",
-        "test/codex-provider.test.mjs": "f0734c813145c15a1282b60a0b34db1c8229a25c95d43f0573bb55d0fcb44eff",
-        "test/consultation.test.mjs": "a07798c78e68016daf1cdfa20079bdae1e9ea8508d4d112aea5f26a18f8fb27f",
-        "test/http.test.mjs": "dd70ead0c51936dc2ca302da532be99a739e9cdee6bdc36584c39ee9801e6c17",
+        "src/server/consultation.mjs": "ed754ba21d10991b7fb0af7ade03aa2fe7078850aaea45bbae6d649b644021f7",
+        "test/codex-provider.test.mjs": "279004a4b2afd8e99989949581e90754db44e43d76663fdd072fcf1f8b070362",
+        "test/consultation.test.mjs": "443cab205fd5b7093df101b81dc23a3e342fe1e087a1ec6721fe88daa21583a7",
+        "test/http.test.mjs": "3c45c00a633d9057af28cd373183da0935a4771cae4e6eebc3adba021193c12f",
         ".env.example": "908e4483bcad524ca4c95e9d20bc57dd4f2fbc6156f17925728798f03e91620f",
-        "test/fixtures/fake-codex.mjs": "b4e10cdbd32011f0bc6a8e3747aad51bc5264f240fe8b647c4fedf01e2b1ccd2",
+        "test/fixtures/fake-codex.mjs": "ddb3b4fd9f1e07f30df8006f7e74db7edabb55a29536e1f9274f07b0ce672c66",
         "src/server/prompt-contracts.mjs": "e9ad56fdb433979e2c818706b31316a80e8dae1b3af92282fc0b000394230a9b",
-        "src/client/app.js": "9d6d48959ca8fd4587ca7251c6b71a41352af880ffc08f29c681b2d2dda47434",
+        "src/client/app.js": "235157830fc742ad4784ca3bee8ef00e572b788f8e9b6612273b5360df953b6f",
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -9134,59 +9141,59 @@
         "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
         "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
         "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
-        "src/server/validation.mjs": "d27a46a9ed45fb10c3c3d55bcc6cd4b16f39f2aa43a54d992ea3e2c4d198749c",
+        "src/server/validation.mjs": "54663bca65fbba070c19a1176968835b95dd0b90ffb44f3140147f9db06e9653",
         "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
         "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
         "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
         "src/server/claude-provider.mjs": "ea68bbffab0b9b55d626ecbafd3cdb665ebbc65925f547e50fc478316670298c",
         "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
-        "test/claude-provider.test.mjs": "c0be1e4fa87816c510c9aa139350191d30d7aaefab6a6a7cb14cce77a70691b3",
+        "test/claude-provider.test.mjs": "b2152039c3954bcf58005ea179ed0cf7bd574271663bc468d0aa4869555c9174",
         "public/sounds/nokia-three-knocks-quick.wav": "c593d959457a011f63f85cedcc2c42efe503b0b13fa1d0a44f3aab1746c9268a",
         "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e"
       },
       "consumed_source_fragments": {}
     },
     "dod-evals": {
-      "invocation_id": "r19-quick-knock-dod-evals-approved-2026-09-18T00:17:10.275Z",
+      "invocation_id": "r20-policy-recovery-dod-evals-approved-2026-09-18T00:33:43.756Z",
       "outputs": [
         "docs/dod-evals.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416",
+        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
         "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
         "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
-        "docs/user-journey.md": "20b907e7cbad37b224749e075de1c9c658665cb3893a1c750d44501fc8642669",
-        "docs/screen-map.md": "94747be308a5c5e6c0ab7f2dd9eb1b8fb0c0f9374a8ee13080a71184a50e0aaf",
-        "docs/wireframes.md": "43bbdd29cb698cf5a75cf9dff882925ac707bfebb4ed952aebe1c8fd3a83e741",
+        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
+        "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
+        "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/architecture.md": "1e4c8146c20138a1c94addfb88ea5de088f85a6442b8be8ace802fbaad5d4ede",
+        "docs/architecture.md": "acb55f1e14de46745600f6c1ec05a16a26245aa469adb59b2e4220597566da89",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
         "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
         "src/server/claude-provider.mjs": "ea68bbffab0b9b55d626ecbafd3cdb665ebbc65925f547e50fc478316670298c",
         "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
-        "src/server/consultation.mjs": "48174db5db717543c91af0d21f8c5027d0522e4c2d9ee6c9e5c04c92dd73e935",
-        "test/claude-provider.test.mjs": "c0be1e4fa87816c510c9aa139350191d30d7aaefab6a6a7cb14cce77a70691b3",
-        "test/consultation.test.mjs": "a07798c78e68016daf1cdfa20079bdae1e9ea8508d4d112aea5f26a18f8fb27f"
+        "src/server/consultation.mjs": "ed754ba21d10991b7fb0af7ade03aa2fe7078850aaea45bbae6d649b644021f7",
+        "test/claude-provider.test.mjs": "b2152039c3954bcf58005ea179ed0cf7bd574271663bc468d0aa4869555c9174",
+        "test/consultation.test.mjs": "443cab205fd5b7093df101b81dc23a3e342fe1e087a1ec6721fe88daa21583a7"
       },
       "consumed_source_fragments": {}
     },
     "qa-checklist": {
-      "invocation_id": "r19-quick-knock-qa-checklist-approved-2026-09-18T00:17:10.275Z",
+      "invocation_id": "r20-policy-recovery-qa-checklist-approved-2026-09-18T00:33:43.756Z",
       "outputs": [
         "docs/qa-checklist.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416",
+        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
         "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
         "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
-        "docs/user-journey.md": "20b907e7cbad37b224749e075de1c9c658665cb3893a1c750d44501fc8642669",
-        "docs/screen-map.md": "94747be308a5c5e6c0ab7f2dd9eb1b8fb0c0f9374a8ee13080a71184a50e0aaf",
-        "docs/wireframes.md": "43bbdd29cb698cf5a75cf9dff882925ac707bfebb4ed952aebe1c8fd3a83e741",
+        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
+        "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
+        "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/architecture.md": "1e4c8146c20138a1c94addfb88ea5de088f85a6442b8be8ace802fbaad5d4ede",
+        "docs/architecture.md": "acb55f1e14de46745600f6c1ec05a16a26245aa469adb59b2e4220597566da89",
         "docs/dod-evals.md": "dba7a17d1e83eb6afd059de73d103fd2a5452257e795875d948081eb1ec85592",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
@@ -9195,17 +9202,17 @@
         "package.json": "b419996e8bf38f22580ef3ad31398dd2c699bfe02057c3ffef333423c63d82f7",
         "src/server/config.mjs": "fbfbb92d01dc442b20c459217f498e5fefef522d5f940bd403e0d2683b63704f",
         "src/server/index.mjs": "f88413ed8a4d4c6bdc6864700f9e1112d4466ec711a7ea1873f77db1123c3d55",
-        "src/server/store.mjs": "44c965f32edfd3724d2999bc8b47c2f7f5b156b6c65ae416b9734efae16e6d91",
+        "src/server/store.mjs": "4ff546243ea43306cd5b424e080d25be64e86dece102260acca51eaadca845cb",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
-        "test/core.test.mjs": "0eb47766366714510e7e220f5adfebba2233018a3da9be7adf84100baeb210f4",
+        "test/core.test.mjs": "0b2e424fd4c19eb9b1d897932418bbb377bbf1ef0d5802ef159d2a506c0f8fcf",
         "src/server/codex-provider.mjs": "a84f5a433d4c74752afb133e39471c0d8cf3f853047ac6f95ef918073b05a151",
-        "src/server/consultation.mjs": "48174db5db717543c91af0d21f8c5027d0522e4c2d9ee6c9e5c04c92dd73e935",
-        "test/codex-provider.test.mjs": "f0734c813145c15a1282b60a0b34db1c8229a25c95d43f0573bb55d0fcb44eff",
-        "test/consultation.test.mjs": "a07798c78e68016daf1cdfa20079bdae1e9ea8508d4d112aea5f26a18f8fb27f",
-        "test/http.test.mjs": "dd70ead0c51936dc2ca302da532be99a739e9cdee6bdc36584c39ee9801e6c17",
-        "test/fixtures/fake-codex.mjs": "b4e10cdbd32011f0bc6a8e3747aad51bc5264f240fe8b647c4fedf01e2b1ccd2",
+        "src/server/consultation.mjs": "ed754ba21d10991b7fb0af7ade03aa2fe7078850aaea45bbae6d649b644021f7",
+        "test/codex-provider.test.mjs": "279004a4b2afd8e99989949581e90754db44e43d76663fdd072fcf1f8b070362",
+        "test/consultation.test.mjs": "443cab205fd5b7093df101b81dc23a3e342fe1e087a1ec6721fe88daa21583a7",
+        "test/http.test.mjs": "3c45c00a633d9057af28cd373183da0935a4771cae4e6eebc3adba021193c12f",
+        "test/fixtures/fake-codex.mjs": "ddb3b4fd9f1e07f30df8006f7e74db7edabb55a29536e1f9274f07b0ce672c66",
         "src/server/prompt-contracts.mjs": "e9ad56fdb433979e2c818706b31316a80e8dae1b3af92282fc0b000394230a9b",
-        "src/client/app.js": "9d6d48959ca8fd4587ca7251c6b71a41352af880ffc08f29c681b2d2dda47434",
+        "src/client/app.js": "235157830fc742ad4784ca3bee8ef00e572b788f8e9b6612273b5360df953b6f",
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -9214,36 +9221,36 @@
         "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
         "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
         "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
-        "src/server/validation.mjs": "d27a46a9ed45fb10c3c3d55bcc6cd4b16f39f2aa43a54d992ea3e2c4d198749c",
+        "src/server/validation.mjs": "54663bca65fbba070c19a1176968835b95dd0b90ffb44f3140147f9db06e9653",
         "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
         "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
         "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
         "src/server/claude-provider.mjs": "ea68bbffab0b9b55d626ecbafd3cdb665ebbc65925f547e50fc478316670298c",
         "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
-        "test/claude-provider.test.mjs": "c0be1e4fa87816c510c9aa139350191d30d7aaefab6a6a7cb14cce77a70691b3",
+        "test/claude-provider.test.mjs": "b2152039c3954bcf58005ea179ed0cf7bd574271663bc468d0aa4869555c9174",
         "public/sounds/nokia-three-knocks-quick.wav": "c593d959457a011f63f85cedcc2c42efe503b0b13fa1d0a44f3aab1746c9268a",
         "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e"
       },
       "consumed_source_fragments": {}
     },
     "development-plan": {
-      "invocation_id": "r19-quick-knock-development-plan-2026-09-18T00:17:10.275Z",
+      "invocation_id": "r20-policy-recovery-development-plan-2026-09-18T00:33:43.756Z",
       "outputs": [
         "docs/development-plan.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "e104d8f3c099362c2e62b3ac24acff162dd97d2779efed8a21c8d2cd65a0e416",
+        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
         "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
         "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
-        "docs/user-journey.md": "20b907e7cbad37b224749e075de1c9c658665cb3893a1c750d44501fc8642669",
-        "docs/screen-map.md": "94747be308a5c5e6c0ab7f2dd9eb1b8fb0c0f9374a8ee13080a71184a50e0aaf",
-        "docs/wireframes.md": "43bbdd29cb698cf5a75cf9dff882925ac707bfebb4ed952aebe1c8fd3a83e741",
+        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
+        "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
+        "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/architecture.md": "1e4c8146c20138a1c94addfb88ea5de088f85a6442b8be8ace802fbaad5d4ede",
+        "docs/architecture.md": "acb55f1e14de46745600f6c1ec05a16a26245aa469adb59b2e4220597566da89",
         "docs/dod-evals.md": "dba7a17d1e83eb6afd059de73d103fd2a5452257e795875d948081eb1ec85592",
-        "docs/qa-checklist.md": "8256e786c2e2dab58036087b5544abcf5a42363263a19d9be87f7db017a13ae1",
+        "docs/qa-checklist.md": "ff888bb43c0447271c52855f672fa99e947782509953d7d302fbf9cad4d3b932",
         "docs/model-settings.md": "778151e8528c7bb7b04ca7c4e25a07f101dd532fcb9d63247dbe6999e4fd6ab1",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "package.json": "b419996e8bf38f22580ef3ad31398dd2c699bfe02057c3ffef333423c63d82f7",
@@ -9255,17 +9262,17 @@
         "forge/design/candidates/a/v8/app.js": "d7ac2287ce8496772592d42d134fc530affcb9147f0a7641655a56c6cf83775f",
         "src/server/config.mjs": "fbfbb92d01dc442b20c459217f498e5fefef522d5f940bd403e0d2683b63704f",
         "src/server/index.mjs": "f88413ed8a4d4c6bdc6864700f9e1112d4466ec711a7ea1873f77db1123c3d55",
-        "src/server/store.mjs": "44c965f32edfd3724d2999bc8b47c2f7f5b156b6c65ae416b9734efae16e6d91",
+        "src/server/store.mjs": "4ff546243ea43306cd5b424e080d25be64e86dece102260acca51eaadca845cb",
         "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
-        "test/core.test.mjs": "0eb47766366714510e7e220f5adfebba2233018a3da9be7adf84100baeb210f4",
+        "test/core.test.mjs": "0b2e424fd4c19eb9b1d897932418bbb377bbf1ef0d5802ef159d2a506c0f8fcf",
         "src/server/codex-provider.mjs": "a84f5a433d4c74752afb133e39471c0d8cf3f853047ac6f95ef918073b05a151",
-        "src/server/consultation.mjs": "48174db5db717543c91af0d21f8c5027d0522e4c2d9ee6c9e5c04c92dd73e935",
-        "test/codex-provider.test.mjs": "f0734c813145c15a1282b60a0b34db1c8229a25c95d43f0573bb55d0fcb44eff",
-        "test/consultation.test.mjs": "a07798c78e68016daf1cdfa20079bdae1e9ea8508d4d112aea5f26a18f8fb27f",
-        "test/http.test.mjs": "dd70ead0c51936dc2ca302da532be99a739e9cdee6bdc36584c39ee9801e6c17",
-        "test/fixtures/fake-codex.mjs": "b4e10cdbd32011f0bc6a8e3747aad51bc5264f240fe8b647c4fedf01e2b1ccd2",
+        "src/server/consultation.mjs": "ed754ba21d10991b7fb0af7ade03aa2fe7078850aaea45bbae6d649b644021f7",
+        "test/codex-provider.test.mjs": "279004a4b2afd8e99989949581e90754db44e43d76663fdd072fcf1f8b070362",
+        "test/consultation.test.mjs": "443cab205fd5b7093df101b81dc23a3e342fe1e087a1ec6721fe88daa21583a7",
+        "test/http.test.mjs": "3c45c00a633d9057af28cd373183da0935a4771cae4e6eebc3adba021193c12f",
+        "test/fixtures/fake-codex.mjs": "ddb3b4fd9f1e07f30df8006f7e74db7edabb55a29536e1f9274f07b0ce672c66",
         "src/server/prompt-contracts.mjs": "e9ad56fdb433979e2c818706b31316a80e8dae1b3af92282fc0b000394230a9b",
-        "src/client/app.js": "9d6d48959ca8fd4587ca7251c6b71a41352af880ffc08f29c681b2d2dda47434",
+        "src/client/app.js": "235157830fc742ad4784ca3bee8ef00e572b788f8e9b6612273b5360df953b6f",
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -9274,14 +9281,14 @@
         "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
         "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
         "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
-        "src/server/validation.mjs": "d27a46a9ed45fb10c3c3d55bcc6cd4b16f39f2aa43a54d992ea3e2c4d198749c",
+        "src/server/validation.mjs": "54663bca65fbba070c19a1176968835b95dd0b90ffb44f3140147f9db06e9653",
         "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
         "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
         "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
         "src/server/claude-provider.mjs": "ea68bbffab0b9b55d626ecbafd3cdb665ebbc65925f547e50fc478316670298c",
         "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
-        "test/claude-provider.test.mjs": "c0be1e4fa87816c510c9aa139350191d30d7aaefab6a6a7cb14cce77a70691b3",
+        "test/claude-provider.test.mjs": "b2152039c3954bcf58005ea179ed0cf7bd574271663bc468d0aa4869555c9174",
         "public/sounds/nokia-three-knocks-quick.wav": "c593d959457a011f63f85cedcc2c42efe503b0b13fa1d0a44f3aab1746c9268a",
         "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e"
       },
@@ -67614,7 +67621,7 @@
     "release_readiness": "not_evaluated",
     "source_hashes": {
       "docs/dod-evals.md": "dba7a17d1e83eb6afd059de73d103fd2a5452257e795875d948081eb1ec85592",
-      "docs/qa-checklist.md": "8256e786c2e2dab58036087b5544abcf5a42363263a19d9be87f7db017a13ae1"
+      "docs/qa-checklist.md": "ff888bb43c0447271c52855f672fa99e947782509953d7d302fbf9cad4d3b932"
     },
     "gates": [
       {
@@ -68100,7 +68107,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "The first substantive request sets session language; explicit changes win and role names remain English.",
+        "task": "Exercise the referenced use-case path and verify: The first substantive request sets English/Ukrainian session language; explicit supported changes win and role names remain English. Russian/Belarusian owner input, generated prose and source metadata are rejected rather than stored or rendered. Verify that valid Ukrainian containing `які` passes owner input, both provider adapters and source-title/claim validation, while distinctive prohibited words/letters and forbidden hosts still fail. Supply one prohibited generated draft and verify that it is withheld, exactly one code-owned replacement invocation of the same role/task completes the step, and no System error or rejected text/source reaches the record.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -68181,7 +68188,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Continue resumes a stopped or bounded consultation with its accepted context.",
+        "task": "Exercise the referenced use-case path and verify: Continue resumes a stopped or bounded consultation with its accepted context; a failed consultation visibly offers Retry. Fail the specialist reply after its third Critic challenge, including the bounded replacement attempt. Retry must preserve the full saved prefix, resume that specialist reply, exclude System notices from provider context/step counts, then commit the specialist final position, Critic closing review and Head synthesis in order. Verify the same snapshot and generation fencing in memory/MySQL, denial while another run is active, stale conditional-update refusal, disabled repeat activation and useful feedback on a refused retry.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -72617,6 +72624,12 @@
       "event": "r19_reconcile_stale_dispatch_metadata",
       "previous_commit": "3ed00ec374a0ed3c0d93d6358557937e708c091b",
       "reason": "R18 artifact returns were current but dispatch entries still bound R16; context outputs had separate invocation IDs. Current unchanged decisions are revalidated, and affected audio implementation sources are reconciled."
+    },
+    {
+      "at": "2026-09-18T00:33:43.756Z",
+      "event": "r20_ukrainian_policy_and_failed_run_reconciliation",
+      "previous_commit": "6a6ac79",
+      "reason": "Repair existing English/Ukrainian acceptance and failed-run recovery; no new model, role, permission, database schema or visual baseline."
     }
   ],
   "verification_history": [
@@ -104100,6 +104113,16 @@
       },
       "result": "passed_local_checks_and_chrome_playback",
       "limitation": "Perceived sound remains for owner listening; no Safari audibility or hosted verification."
+    },
+    {
+      "at": "2026-09-18T00:36:06.166Z",
+      "event": "r20_ukrainian_policy_recovery_local_verification",
+      "receipt": {
+        "path": "forge/runs/U-04/r20-ukrainian-policy-recovery-20260918/verification.json",
+        "content_hash": "d1f385a94b572de8c507695ae5385037cbf17e685e7d44e37fc0598c93f94596"
+      },
+      "result": "passed_129_tests_and_local_chrome_recovery",
+      "limitation": "Hosted discussion inspected read-only. No deployment, live provider, real MySQL integration or full release verification."
     }
   ],
   "last_resume": {

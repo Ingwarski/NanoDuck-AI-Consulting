@@ -7,7 +7,7 @@ import { openRecoveryEnvelope, sealRecoverySnapshot } from "../src/server/recove
 import { createAuth } from "../src/server/auth.mjs";
 import { loadConfig } from "../src/server/config.mjs";
 import { createMemoryStore, createMySqlStore, defaultSettings } from "../src/server/store.mjs";
-import { parseConversationIds, parseMessage, parseSettings, safeExternalUrl } from "../src/server/validation.mjs";
+import { hasProhibitedLanguage, parseConversationIds, parseMessage, parseSettings, safeExternalUrl } from "../src/server/validation.mjs";
 import { testRuntimeInstructions } from "./fixtures/runtime-instructions.mjs";
 
 test("new consultations default to the current saved Codex settings", () => {
@@ -358,6 +358,15 @@ test("settings and message validation reject unsupported model values and malfor
   assert.equal(parseConversationIds({ conversationIds: ["conversation-identifier-0001", "conversation-identifier-0001"] }), undefined);
 });
 
+test("Ukrainian shared words are allowed without permitting distinctive prohibited language", () => {
+  for (const body of ["Які умови вступу?", "Перевірте курси, які викладають англійською.", "Уточніть, які саме дані потрібно надати."]) {
+    assert.equal(hasProhibitedLanguage(body), false, body);
+    assert.equal(parseMessage({ body, clientRequestId: "ukrainian-word-check-0001" })?.body, body);
+  }
+  for (const body of ["Как это работает?", "Які гэта мае вынікі?", "Якія сёння ўмовы?", "Якая крыніца?"]) assert.equal(hasProhibitedLanguage(body), true);
+  for (const suffix of ["ru", "by", "su"]) assert.equal(safeExternalUrl(`https://example.${suffix}/report`), undefined);
+});
+
 test("source links accept only public HTTPS destinations", () => {
   assert.equal(safeExternalUrl("https://example.com/report"), "https://example.com/report");
   assert.equal(safeExternalUrl("http://example.com/report"), undefined);
@@ -526,4 +535,38 @@ test("Google callback requires the nonce bound to its signed OAuth flow", async 
   const emailFlow = await emailAuth.beginGoogle();
   const emailState = new URL(emailFlow.location).searchParams.get("state");
   assert.equal((await emailAuth.finishGoogle(`https://consulting.example.com/auth/google/callback?code=one-time-code&state=${encodeURIComponent(emailState)}`, { headers: { cookie: emailFlow.cookie } })).session.ownerSubject, "stable-subject");
+});
+
+test("MySQL retry preserves the snapshot and serializes failed-run recovery with active work", async t => {
+  for (const scenario of [
+    { status: "failed", busy: false, affectedRows: 1, allowed: true },
+    { status: "stopped", busy: false, affectedRows: 1, allowed: true },
+    { status: "failed", busy: true, affectedRows: 1, allowed: false },
+    { status: "failed", busy: false, affectedRows: 0, allowed: false },
+    { status: "complete", busy: false, affectedRows: 1, allowed: false }
+  ]) await t.test(JSON.stringify(scenario), async () => {
+    const commands = []; const snapshot = { ...defaultSettings };
+    const connection = {
+      async beginTransaction() { commands.push({ statement: "BEGIN" }); },
+      async commit() { commands.push({ statement: "COMMIT" }); },
+      async rollback() { commands.push({ statement: "ROLLBACK" }); },
+      release() {},
+      async execute(statement, values = []) {
+        commands.push({ statement, values });
+        if (statement.startsWith("SELECT owner_id")) return [[{ owner_id: "owner" }]];
+        if (statement.startsWith("SELECT id,conversation_id,status")) return [[{ id: "run", conversation_id: "conversation", status: scenario.status, generation: 4, snapshot_json: snapshot, created_at: "2026-09-18T00:00:00.000Z" }]];
+        if (statement.startsWith("SELECT id FROM nanoduck_runs")) return [scenario.busy ? [{ id: "another-run" }] : []];
+        if (statement.startsWith("UPDATE nanoduck_runs")) return [{ affectedRows: scenario.affectedRows }];
+        throw new Error(`Unexpected query: ${statement}`);
+      }
+    };
+    const store = await createMySqlStore("mysql://unused", key, undefined, { createPool: () => ({ getConnection: async () => connection, end: async () => {} }) });
+    const run = await store.continueRun("conversation");
+    assert.equal(Boolean(run), scenario.allowed);
+    assert.equal(commands[1].statement, "SELECT owner_id FROM nanoduck_owner_locks WHERE owner_id='owner' FOR UPDATE");
+    if (run) { assert.equal(run.generation, 5); assert.deepEqual(run.snapshot, snapshot); }
+    const update = commands.find(item => item.statement.startsWith("UPDATE"));
+    if (update) { assert.match(update.statement, /generation=\? AND status=\?/u); assert.deepEqual(update.values.slice(1), ["run", 4, scenario.status]); }
+    assert.equal(commands.at(-1).statement, scenario.allowed ? "COMMIT" : "ROLLBACK");
+  });
 });

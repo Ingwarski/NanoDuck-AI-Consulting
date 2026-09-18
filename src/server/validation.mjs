@@ -1,7 +1,9 @@
 const text = (value, maximum) => typeof value === "string" && value.trim().length > 0 && value.length <= maximum;
 const identifier = value => typeof value === "string" && /^[A-Za-z0-9_-]{16,128}$/u.test(value);
 const forbiddenHostSuffixes = Object.freeze([".ru", ".by", ".su", ".xn--p1ai", ".xn--90ais"]);
-const forbiddenLanguage = /[ЁёЫыЪъЭэЎў]|(?:^|[^\p{L}])(?:russian|belarusian|россия|русск(?:ий|ая|ие|ого|им|их)?|беларус(?:ь|ский|кая|кие|кого|ким|ких)?|как|это|какой|какая|какие|котор(?:ый|ая|ые|ого|ому|ых|ыми)?|сегодня|сейчас|только|может|нужно|должен|будет|время|деньги|рынок|решение|вопрос|источник|исследование|данные|продажи|цена|цены|гэта|які|якая|якія|крыніца|даследаванне|рашэнне|пытанне|сёння|цяпер|толькі|можа|павінен|будзе|рынак)(?=$|[^\p{L}])/iu;
+// Shared vocabulary such as Ukrainian "які" cannot identify a prohibited
+// language by itself. Match distinctive letters/words, including in mixed prose.
+const forbiddenLanguage = /[ЁёЫыЪъЭэЎў]|(?:^|[^\p{L}])(?:russian|belarusian|россия|русск(?:ий|ая|ие|ого|им|их)?|беларус(?:ь|ский|кая|кие|кого|ким|ких)?|как|это|какой|какая|какие|котор(?:ый|ая|ые|ого|ому|ых|ыми)?|сегодня|сейчас|только|может|нужно|должен|будет|время|деньги|рынок|решение|вопрос|источник|исследование|данные|продажи|цена|цены|гэта|якая|якія|крыніца|даследаванне|рашэнне|пытанне|сёння|цяпер|толькі|можа|павінен|будзе|рынак)(?=$|[^\p{L}])/iu;
 
 export const hasProhibitedLanguage = value => typeof value === "string" && forbiddenLanguage.test(value);
 export const hasProhibitedSourceHost = hostname => hostname === "ru" || hostname === "by" || hostname === "su" || hostname === "xn--p1ai" || hostname === "xn--90ais" || forbiddenHostSuffixes.some(suffix => hostname.endsWith(suffix));

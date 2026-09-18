@@ -124,6 +124,16 @@ test("the local HTTP flow protects data, saves settings and preserves a truthful
     assert.equal(detail.events[1].body, "The selected Codex route could not complete this request. Your question remains saved.");
     assert.equal(detail.run.snapshot.runtimeInstructions.revision, restored.runtimeInstructions.revision);
     assert.equal(detail.run.snapshot.runtimeInstructions.markdown, restored.runtimeInstructions.markdown);
+    const retry = await fetch(`${origin}/api/conversations/${conversationId}/continue`, { method: "POST", headers });
+    assert.equal(retry.status, 202);
+    const retried = await retry.json();
+    assert.equal(retried.run.generation, detail.run.generation + 1);
+    const failedAgain = await waitFor(async () => {
+      const value = await (await fetch(`${origin}/api/conversations/${conversationId}`, { headers: { cookie } })).json();
+      return value.run?.status === "failed" ? value : undefined;
+    });
+    assert.deepEqual(failedAgain.events.map(event => event.role), ["owner", "System", "System"]);
+    assert.deepEqual(failedAgain.events.slice(0, 2), detail.events);
   } finally {
     child.kill("SIGTERM");
     await once(child, "exit").catch(() => {});

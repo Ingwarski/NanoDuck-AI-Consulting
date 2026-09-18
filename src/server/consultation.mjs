@@ -153,8 +153,11 @@ export function createConsultationService({ store, provider }) {
   const run = async (conversationId, runState) => {
     const controller = new AbortController(); controllers.set(conversationId, controller);
     const current = () => store.events(conversationId).then(events => {
-      const ownerMessages = events.filter(event => event.role === "owner");
-      return { events, owner: ownerMessages.at(-1)?.body ?? "", sessionLanguage: responseLanguage(ownerMessages[0]?.body ?? ""), discussion: discussion(events) };
+      // Recovery notices stay in the saved transcript, but never count as a
+      // completed consultant step or become evidence on a resumed attempt.
+      const confirmed = events.filter(event => event.role !== "System");
+      const ownerMessages = confirmed.filter(event => event.role === "owner");
+      return { events: confirmed, owner: ownerMessages.at(-1)?.body ?? "", sessionLanguage: responseLanguage(ownerMessages[0]?.body ?? ""), discussion: discussion(confirmed) };
     });
     const isCurrent = async () => {
       const stored = await store.run(conversationId);

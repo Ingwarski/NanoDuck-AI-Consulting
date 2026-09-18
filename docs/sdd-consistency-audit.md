@@ -1,5 +1,13 @@
 # SDD consistency audit
 
+## Current Ukrainian validation and failed-run recovery correction — 18 September 2026
+
+R-20 follows a read-only inspection of the latest hosted discussion: it stopped on a language-policy failure after the third Critic challenge, before the next specialist reply, and offered no continuation control. Rejected drafts are deliberately ephemeral, so the exact triggering text in that hosted draft is unavailable. A local regression reproduces a concrete validator defect: the common Ukrainian word “які” was in the prohibited-language blacklist. Removing that ambiguous entry accepts valid Ukrainian in owner input, both provider adapters and source metadata while preserving distinctive prohibited-language markers and forbidden hosts.
+
+Failed runs now expose Retry and use the existing owner-authorized continuation route in both stores. Recovery preserves the accepted snapshot, serializes with other active work and advances the generation. Saved System notices remain visible but are excluded from provider context and coordinator step matching. The missing role resumes without replay, and every required specialist final position and Critic closing review still precedes Head synthesis. No schema, model, role, provider, permission or approved visual-baseline change is introduced.
+
+The [R-20 receipt](../forge/runs/U-04/r20-ukrainian-policy-recovery-20260918/verification.json) records 129 passing tests, including the previously failing Ukrainian acceptance and interrupted-third-exchange cases, both adapters, HTTP retry and mocked MySQL transaction checks. Native Chrome inspection of an isolated local workspace confirms visible Retry, preserved messages, a restarted attempt and accepted Ukrainian input. The browser provider was deliberately unavailable; successful completion is fixture-backed coordinator evidence. Hosted repair verification, actual MySQL concurrency and full cross-browser release checks remain separate. SDD owner/source bindings and the coupled context invocation are reconciled in dependency order.
+
 ## Current quick-knock sound correction — 18 September 2026
 
 R-19 replaces the synthesized low-frequency Knock with an edited Nokia N73 Message 2 recording from the owner-supplied archive URL. Three recorded taps now start 140 ms apart instead of approximately 280 ms, with original pitch preserved, entry silence removed and no clipped samples. This is explicitly an edited version, not an unmodified original. Settings Preview and incoming-message alerts share the same bundled same-origin PCM WAV; Chime/Ripple retain generated local WAVs. The server serves WAV as `audio/wav`, so playback needs no third-party request or additional browser permission.

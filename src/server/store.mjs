@@ -169,7 +169,7 @@ export function createMemoryStore() {
       run.generation += 1; run.status = "stopped"; run.updatedAt = now(); return { ...run };
     },
     async continueRun(conversationId) {
-      const run = runs.get(conversationId); if (!run || run.status !== "stopped" || hasActiveRun()) return undefined;
+      const run = runs.get(conversationId); if (!run || !["stopped", "failed"].includes(run.status) || hasActiveRun()) return undefined;
       run.generation += 1; run.status = "active"; run.updatedAt = now(); return { ...run };
     },
     async exportConversation(conversationId) {
@@ -421,10 +421,10 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
       try {
         await connection.beginTransaction(); await lockOwner(connection);
         const [rows] = await connection.execute("SELECT id,conversation_id,status,generation,snapshot_json,created_at,updated_at FROM nanoduck_runs WHERE conversation_id=? ORDER BY created_at DESC LIMIT 1 FOR UPDATE", [id]);
-        const run = rows[0]; if (!run || run.status !== "stopped") { await connection.rollback(); return undefined; }
+        const run = rows[0]; if (!run || !["stopped", "failed"].includes(run.status)) { await connection.rollback(); return undefined; }
         const [activeRows] = await connection.execute("SELECT id FROM nanoduck_runs WHERE status='active' LIMIT 1");
         if (activeRows.length) { await connection.rollback(); return undefined; }
-        const updatedAt = now(); const [result] = await connection.execute("UPDATE nanoduck_runs SET generation=generation+1,status='active',updated_at=? WHERE id=? AND generation=? AND status='stopped'", [updatedAt,run.id,run.generation]);
+        const updatedAt = now(); const [result] = await connection.execute("UPDATE nanoduck_runs SET generation=generation+1,status='active',updated_at=? WHERE id=? AND generation=? AND status=?", [updatedAt,run.id,run.generation,run.status]);
         if (result.affectedRows !== 1) { await connection.rollback(); return undefined; }
         await connection.commit(); return { id: run.id, conversationId: run.conversation_id, status: "active", generation: Number(run.generation) + 1, snapshot: storedObject(run.snapshot_json, "run_snapshot"), createdAt: run.created_at, updatedAt };
       } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }

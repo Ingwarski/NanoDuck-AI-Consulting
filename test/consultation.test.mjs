@@ -78,6 +78,37 @@ test("a selected Claude Code Critic never moves Head or specialist work off Code
   assert.equal(calls.filter(call => call.outputKind.startsWith("critic_")).every(call => call.research === false), true);
 });
 
+test("a failed specialist reply resumes after the last confirmed challenge without replaying or skipping the review", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Які курси допоможуть підготуватися до навчання?", clientRequestId: "retry-ukrainian-reply-0001" }, { ...defaultSettings, specialistCount: "1", discussionDepth: "3" });
+  let reject = true; const calls = [];
+  const provider = { async invoke(input) {
+    calls.push(input);
+    if (reject && input.outputKind === "specialist_reply" && calls.filter(call => call.outputKind === "critic_challenge").length === 3) return { ok: false, code: "language_policy" };
+    return { ok: true, body: successfulBody(input, "Перевірте, які умови підтверджено."), sources: [] };
+  } };
+  const service = createConsultationService({ store, provider });
+  await service.start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "failed");
+  const preserved = await store.events(conversation.id);
+  assert.equal(preserved.at(-1).role, "System");
+  assert.equal(preserved.at(-2).role, "Critic");
+  assert.equal(preserved.some(event => event.role === "Head Consultant" && !event.recipient), false);
+  assert.equal(calls.filter(call => call.outputKind === "specialist_reply").length, 4);
+  const callCount = calls.length; reject = false;
+  assert.ok(await service.continue(conversation.id));
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  const resumed = calls.slice(callCount);
+  assert.equal(resumed[0].outputKind, "specialist_reply");
+  assert.equal(resumed[0].evidence.discussion.includes("System:"), false);
+  assert.equal(resumed.some(call => call.outputKind === "critic_challenge"), false);
+  const events = await store.events(conversation.id);
+  assert.deepEqual(events.slice(0, preserved.length), preserved);
+  assert.deepEqual(events.slice(preserved.length).map(event => [event.role, event.recipient ?? null]), [["Strategy Consultant", "Critic"], ["Strategy Consultant", "Head Consultant"], ["Critic", "Head Consultant"], ["Head Consultant", null]]);
+  assert.equal(await service.continue(conversation.id), undefined);
+});
+
 test("an internal provider tool trace cannot be committed to a consultation", async () => {
   const store = createMemoryStore();
   const conversation = await store.createConversation();

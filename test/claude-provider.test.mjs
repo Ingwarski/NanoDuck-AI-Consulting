@@ -80,3 +80,12 @@ test("Claude Code cannot be selected until its managed sign-in is configured", a
   assert.deepEqual(await provider.inspect(), { status: "unavailable", models: [] });
   assert.deepEqual(await provider.invoke({ model: "claude-opus-5", effort: "high", assignment: "Challenge the premise." }), { ok: false, code: "auth_required" });
 });
+
+test("valid Ukrainian Critic prose survives Claude output validation", async () => {
+  const provider = createClaudeProvider({ claudeCommand: "claude", claudeOAuthToken: "managed-token", claudeModelCandidates: [] }, {
+    run: async input => input.args[0] === "auth"
+      ? { exitCode: 0, stdout: JSON.stringify({ loggedIn: true, authMethod: "oauth_token", apiProvider: "firstParty" }), stderr: "" }
+      : { exitCode: 0, stdout: JSON.stringify({ subtype: "success", result: "Назвіть умови, які змінять рекомендацію." }), stderr: "" }
+  });
+  assert.deepEqual(await provider.invoke(criticInput), { ok: true, body: "Назвіть умови, які змінять рекомендацію.", sources: [] });
+});
