@@ -1,0 +1,143 @@
+{
+  "recorded_at": "2026-09-18T00:41:49.177Z",
+  "inspected_commit": "909c771e759aeca646a396965ddb45c1b9cc8d4c",
+  "validation_source": {
+    "path": "src/server/validation.mjs",
+    "sha256": "54663bca65fbba070c19a1176968835b95dd0b90ffb44f3140147f9db06e9653"
+  },
+  "filter_changed": false,
+  "matching": "Case insensitive. Listed Cyrillic characters match anywhere. Listed words match when not adjacent to a Unicode letter, including in quotes, code, mixed-language prose, URLs and hyphenated expressions.",
+  "blocked_letters": [
+    "ё",
+    "ы",
+    "ъ",
+    "э",
+    "ў"
+  ],
+  "blocked_words": [
+    "russian",
+    "belarusian",
+    "россия",
+    "русск",
+    "русский",
+    "русская",
+    "русские",
+    "русского",
+    "русским",
+    "русских",
+    "беларус",
+    "беларусь",
+    "беларусский",
+    "беларуская",
+    "беларуские",
+    "беларуского",
+    "беларуским",
+    "беларуских",
+    "как",
+    "это",
+    "какой",
+    "какая",
+    "какие",
+    "котор",
+    "который",
+    "которая",
+    "которые",
+    "которого",
+    "которому",
+    "которых",
+    "которыми",
+    "сегодня",
+    "сейчас",
+    "только",
+    "может",
+    "нужно",
+    "должен",
+    "будет",
+    "время",
+    "деньги",
+    "рынок",
+    "решение",
+    "вопрос",
+    "источник",
+    "исследование",
+    "данные",
+    "продажи",
+    "цена",
+    "цены",
+    "гэта",
+    "якая",
+    "якія",
+    "крыніца",
+    "даследаванне",
+    "рашэнне",
+    "пытанне",
+    "сёння",
+    "цяпер",
+    "толькі",
+    "можа",
+    "павінен",
+    "будзе",
+    "рынак"
+  ],
+  "blocked_hosts": [
+    ".ru",
+    ".by",
+    ".su",
+    ".рф (.xn--p1ai)",
+    ".бел (.xn--90ais)"
+  ],
+  "url_safety": {
+    "scheme": "Only HTTPS is accepted by safeExternalUrl.",
+    "credentials": "Nonempty URL username or password rejected.",
+    "local_hosts": [
+      "localhost",
+      "*.local",
+      "*.internal"
+    ],
+    "ipv4": [
+      "0.0.0.0/8",
+      "10.0.0.0/8",
+      "127.0.0.0/8",
+      "169.254.0.0/16",
+      "172.16.0.0/12",
+      "192.168.0.0/16"
+    ],
+    "ipv6_checks": [
+      "::1",
+      "prefix fc",
+      "prefix fd",
+      "prefix fe80:"
+    ],
+    "malformed": "Unparseable URL or out-of-range IPv4 component rejected.",
+    "unexpected_false_positive": "fc/fd prefix checks are applied to all hostnames, not only IPv6. fda.gov and fcbarcelona.com are currently rejected.",
+    "body_extraction": "Only lowercase http:// or https:// spans are extracted from message bodies; direct source metadata URLs are parsed separately."
+  },
+  "application": [
+    "Owner message body before acceptance",
+    "Both Codex and Claude generated message bodies before commit",
+    "Source titles, claims and URLs before keeping source metadata",
+    "Backup/restore text fields and source metadata"
+  ],
+  "failure_behavior": "A blocked owner message is refused. A blocked generated body receives one same-role correction attempt, then the run pauses after a repeated failure. Invalid structured source entries are discarded; they do not always reject otherwise accepted prose.",
+  "separate_tool_trace_filter": {
+    "path": "src/server/output-safety.mjs",
+    "sha256": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
+    "patterns": [
+      "XML opening markers: invoke, parameter, tool, tool_use, tool_result (optional whitespace after <; word boundary after marker)",
+      "Whole ASCII-word-boundary tokens tool_use or tool_result"
+    ],
+    "effect": "Rejected provider output, separate from language classification."
+  },
+  "limitations": [
+    "This is a fixed substring/word blacklist, not comprehensive language identification.",
+    "It does not inspect source ownership or the complete language of each cited page.",
+    "Bare domains without a URL scheme are not extracted by the message URL scan.",
+    "Last deployed host revision is not reverified by this inventory.",
+    "The valid Ukrainian word які is no longer on this list after commit 909c771."
+  ],
+  "verified_examples": {
+    "valid_ukrainian": true,
+    "fda_hostname_rejected": true,
+    "fc_hostname_rejected": true
+  }
+}
