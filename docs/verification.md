@@ -148,4 +148,4 @@ One whole-design choice or a revision request is next. Post-approval architectur
 
 ## Earlier review
 
-Initial prototype verification is retained in [the initial verification record](archive/verification-initial.md). The initial green prototype is rejected historical evidence; its earlier gaps are not current approval or release claims.
+The [initial verification record](archive/verification-initial.md) records the first prototype checks. The initial green prototype is rejected historical evidence; its earlier gaps are not current approval or release claims.

@@ -1,6 +1,6 @@
 # Historical verification — rejected initial candidate
 
-13 September 2026. Evidence applies to the reviewed source and this design candidate, not a deployed replacement.
+13 September 2026. Evidence applies to this design candidate, not a deployed replacement.
 
 ## Design candidate
 

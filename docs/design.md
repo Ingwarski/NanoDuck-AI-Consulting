@@ -6,6 +6,8 @@ Historical record · 13 September 2026. The owner rejected this initial green de
 
 An editorial workspace with warm paper, deep green navigation, a restrained clay accent for Critic and readable system typography. The conversation has the visual priority. Distinct role initials, English role names, addressed recipients and contextual quotations make the discussion legible without theatrical avatars or procedural stage headings.
 
+This candidate is freshly authored. The short “Consulting Group” wordmark is an interface treatment of the existing name, not a new product-name decision.
+
 Two layout approaches were considered: a dashboard of agent/report cards, and a single conversation with optional context. The conversation approach is proposed because the owner's job is to follow discussion and reach a decision. On a phone, history and preferences open as dialogs; on a larger desktop, history and a quiet participant/context column can remain visible. This is design judgment, not usability-research evidence.
 
 ## Primary surfaces and states

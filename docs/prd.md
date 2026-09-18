@@ -4,15 +4,17 @@
 
 ## Product identity
 
-Use **NanoDuck Consulting Group** as the app name, following the product idea. The SVG brand mark and palette belong to the design brief. Product behavior, IDs and security obligations are unchanged; the legacy GoDaddy target keeps its existing name.
+Use **NanoDuck Consulting Group** as the app name, following the product idea. The SVG brand mark and palette belong to the design brief. Product behavior, IDs and security obligations are unchanged; the named GoDaddy deployment target keeps its existing name.
 
 ## Problem Statement
 
-The single owner needs useful advice, real expert challenge and an inspectable record on phone or desktop. The reported weak points are messenger operations, ceremonial agent exchanges, repeated connection setup and rejected visual design. The replacement should reduce the effort of reaching a decision; this specification does not claim to identify every production incident cause.
+The single owner needs useful advice, real expert challenge and an inspectable record on phone or desktop. The application should provide substantive agent exchanges, persistent preferences and a clear interface that reduces the effort of reaching a decision; this specification does not claim to identify every production incident cause.
 
 ## Solution and Product Boundary
 
-Sign in with the existing Google owner identity; describe or dictate a question; follow separate consultants and Critic; inspect fresh sources; stop, continue, export or revisit the record. Normal use requires no messenger or integration setup. The public repository contains source and fictional design data; deployed account content stays private.
+The browser is the sole supported user interface.
+
+Sign in with the existing Google owner identity; describe or dictate a question; follow separate consultants and Critic; inspect fresh sources; stop, continue, export or revisit the record. Normal use begins with owner sign-in and requires no routine integration setup. The public repository contains source and fictional design data; deployed account content stays private.
 
 Phase 3 implementation is authorized in this repository, with Codex as executor. Deployment, GoDaddy changes and database deletion remain outside that authorization. The owner accepted Electric A v8 after the three-direction and three-palette comparisons. The use cases below define the intended product; local implementation and tests do not prove production provider operation, deployment or data migration.
 
@@ -296,7 +298,9 @@ Every listed applicable control is an obligation above. Exclusions below are mec
 
 ## Product-level Implementation Decisions
 
-The authenticated 14 September content-free GoDaddy settings read confirms Head/specialists Codex `gpt-6-astra` / `xhigh`, Critic Codex `gpt-6-astra` / `xhigh`, and a legacy Balanced preset. The inactive provider branch remains unknown. The replacement preserves the recorded model/effort values and introduces separate specialist-count and discussion-depth settings with defaults of 2 and 1. Verify each exact active provider/model/reasoning tuple separately before cutover; no reset to defaults. Preserve Codex `0.153.1` and Claude Code `2.1.258` in this phase. Architecture owns mechanisms; this PRD does not select a stack or build order.
+Use the approved permitted specialist pool and high-stakes/external-action boundaries. These are AI roles; no claim of human employment or licensure is allowed. Psychotherapist does not diagnose, replace clinical care or handle emergencies, while Spiritual Consultant follows the specified evangelical Protestant doctrine and excludes esoteric practice. Use the existing Codex live search and the supported browser-native recognition path, without an application transcription provider or invented Claude tool access.
+
+The authenticated 14 September content-free GoDaddy settings read confirms Head/specialists Codex `gpt-6-astra` / `xhigh`, Critic Codex `gpt-6-astra` / `xhigh`, as recorded in the model-preservation document. The inactive provider branch remains unknown. The replacement preserves the recorded model/effort values and introduces separate specialist-count and discussion-depth settings with defaults of 2 and 1. Verify each exact active provider/model/reasoning tuple separately before cutover; no reset to defaults. Preserve Codex `0.153.1` and Claude Code `2.1.258` in this phase. Architecture owns mechanisms; this PRD does not select a stack or build order.
 
 All three design candidates cover the same use cases and recovery states, including interactive model/reasoning selection and the complete voice lifecycle. The initial comparison used three substantial design directions. The owner subsequently selected and approved Electric A v8 within that combined layout; its full flow coverage is retained. The floating bar remains available on scroll and is not arbitrarily draggable. A 44 CSS px touch target is the design default; WCAG 2.2 AA minimum-target rules are distinct. Longer calculations are allowed; the proposed 60–140-word ordinary-reply target never permits truncation of an actual message.
 
@@ -329,6 +333,8 @@ Use the highest practical external seam: authenticated browser through the inten
 | AC-010 — Security/lifecycle (all UCs) | Allowed operations and adversarial denied outcomes cover every NFR security clause. Exact deployed artifact, dependency/configuration, authorization, file, session, encryption, restore and operational evidence are required later; design review supplies none of these runtime results. |
 
 ## Out Of Scope
+
+Public registration or multiuser SaaS; payments; extra hosts or paid research by default; automatic external business actions; required notifications; native apps; PDF/SVG/video/audio/archive and arbitrary file uploads; restoration of the rejected green design. Production GoDaddy changes and any deletion are excluded from this phase. Only the named Personal AI Consulting Group app and its proven-owned database may be reset later; no other app, database, shared table or credential is authorized.
 
 ## Open Questions and Resolution Owners
 

@@ -10,7 +10,7 @@
   },
   "current_brief": {
     "path": "docs/product-idea.md",
-    "sha256": "122c7fed5979a0c8c298181c71fe73588c32859b689cb8d6d7dde80e7f41435e"
+    "sha256": "96199961a76c8379e586b7c4234b5bbb77450a5a56b32c9cf0d6924bb0b24dd1"
   },
   "design_traceability": [
     {
@@ -65,6 +65,7 @@
   ],
   "limits": [
     "Prototype uses fictional data and no live services.",
+    "The current SDD manifest owns current dependencies, state coverage, candidate hashes and review receipts; Electric A v8 is explicitly approved.",
     "Historical settings are not fresh saved-setting or entitlement evidence."
   ],
   "current_pipeline_manifest": "forge/sdd-manifest.json",

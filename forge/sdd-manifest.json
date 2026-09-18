@@ -22,13 +22,13 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "full"
       },
       "source_hashes": {
-        "docs/model-settings.md": "778151e8528c7bb7b04ca7c4e25a07f101dd532fcb9d63247dbe6999e4fd6ab1",
-        "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
+        "docs/model-settings.md": "471304f397c128dced4860a137db829cb26e532b375ee9376e3a078a12e0b50d",
+        "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2"
       },
       "dependencies": [],
-      "content_hash": "a9e092556a2e50a5c126a03744ff15db059dcbf974581a18a5ce90f516e0248a",
+      "content_hash": "96199961a76c8379e586b7c4234b5bbb77450a5a56b32c9cf0d6924bb0b24dd1",
       "validation": {
         "result": "passed",
         "working_language": "en",
@@ -113,12 +113,12 @@
         "docs/product-idea.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "a9e092556a2e50a5c126a03744ff15db059dcbf974581a18a5ce90f516e0248a"
+        "docs/product-idea.md": "96199961a76c8379e586b7c4234b5bbb77450a5a56b32c9cf0d6924bb0b24dd1"
       },
       "dependencies": [
         "product-idea"
       ],
-      "content_hash": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
+      "content_hash": "889580d3fa81c0f541cce7bff58dc10d528460ce74080d2881fc4161acbe1726",
       "validation": {
         "result": "passed",
         "working_language": "en",
@@ -2385,8 +2385,8 @@
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "a9e092556a2e50a5c126a03744ff15db059dcbf974581a18a5ce90f516e0248a",
-        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679"
+        "docs/product-idea.md": "96199961a76c8379e586b7c4234b5bbb77450a5a56b32c9cf0d6924bb0b24dd1",
+        "docs/prd.md": "889580d3fa81c0f541cce7bff58dc10d528460ce74080d2881fc4161acbe1726"
       },
       "dependencies": [
         "product-idea",
@@ -2420,14 +2420,14 @@
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "a9e092556a2e50a5c126a03744ff15db059dcbf974581a18a5ce90f516e0248a",
-        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679"
+        "docs/product-idea.md": "96199961a76c8379e586b7c4234b5bbb77450a5a56b32c9cf0d6924bb0b24dd1",
+        "docs/prd.md": "889580d3fa81c0f541cce7bff58dc10d528460ce74080d2881fc4161acbe1726"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
+      "content_hash": "798277faf0f438ecb7121239bb238058c42e88ceb88459a0538e7c7d0d1bf663",
       "validation": {
         "result": "passed",
         "working_language": "en",
@@ -2455,16 +2455,16 @@
         "docs/canonical-terms.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
+        "docs/prd.md": "889580d3fa81c0f541cce7bff58dc10d528460ce74080d2881fc4161acbe1726",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
-        "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329"
+        "docs/canonical-terms.md": "798277faf0f438ecb7121239bb238058c42e88ceb88459a0538e7c7d0d1bf663"
       },
       "dependencies": [
         "prd",
         "project-context",
         "canonical-terms"
       ],
-      "content_hash": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
+      "content_hash": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
       "validation": {
         "result": "passed",
         "working_language": "en",
@@ -2493,10 +2493,10 @@
         "docs/guardrails.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
+        "docs/prd.md": "889580d3fa81c0f541cce7bff58dc10d528460ce74080d2881fc4161acbe1726",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
-        "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
-        "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7"
+        "docs/canonical-terms.md": "798277faf0f438ecb7121239bb238058c42e88ceb88459a0538e7c7d0d1bf663",
+        "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb"
       },
       "dependencies": [
         "prd",
@@ -2537,10 +2537,10 @@
         "forge/design/candidates/c/v1/app.js": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
+        "docs/prd.md": "889580d3fa81c0f541cce7bff58dc10d528460ce74080d2881fc4161acbe1726",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
-        "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
-        "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
+        "docs/canonical-terms.md": "798277faf0f438ecb7121239bb238058c42e88ceb88459a0538e7c7d0d1bf663",
+        "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
         "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "forge/design/candidates/a/v1/app.js": "a869dd42c95740bf7da4802934c3cd6f8d2e2243795ee20925cd5ee19f474531",
         "forge/design/candidates/b/v1/app.js": "17e37807a032c5ea1660efca698e21dc8baf29a3c5344067470b6b44311f9b39",
@@ -3589,10 +3589,10 @@
         "docs/screen-map.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
+        "docs/prd.md": "889580d3fa81c0f541cce7bff58dc10d528460ce74080d2881fc4161acbe1726",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
-        "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
-        "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
+        "docs/canonical-terms.md": "798277faf0f438ecb7121239bb238058c42e88ceb88459a0538e7c7d0d1bf663",
+        "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
         "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2"
       },
@@ -3681,14 +3681,14 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
+        "docs/prd.md": "889580d3fa81c0f541cce7bff58dc10d528460ce74080d2881fc4161acbe1726",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
-        "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
-        "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
+        "docs/canonical-terms.md": "798277faf0f438ecb7121239bb238058c42e88ceb88459a0538e7c7d0d1bf663",
+        "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
         "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
-        "docs/product-idea.md": "a9e092556a2e50a5c126a03744ff15db059dcbf974581a18a5ce90f516e0248a",
+        "docs/product-idea.md": "96199961a76c8379e586b7c4234b5bbb77450a5a56b32c9cf0d6924bb0b24dd1",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "prototype/styles.css": "ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925",
         "prototype/app.js": "b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54",
@@ -3820,16 +3820,16 @@
         "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
+        "docs/prd.md": "889580d3fa81c0f541cce7bff58dc10d528460ce74080d2881fc4161acbe1726",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
-        "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
-        "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
+        "docs/canonical-terms.md": "798277faf0f438ecb7121239bb238058c42e88ceb88459a0538e7c7d0d1bf663",
+        "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
         "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/model-settings.md": "778151e8528c7bb7b04ca7c4e25a07f101dd532fcb9d63247dbe6999e4fd6ab1",
-        "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
+        "docs/model-settings.md": "471304f397c128dced4860a137db829cb26e532b375ee9376e3a078a12e0b50d",
+        "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
         "forge/runs/U-06/browser-speech-uk-20260914/README.md": "972494cb2d1dda8ae431f34bd2896eb6d5cb4642c838ae0b171d17ac931913d6",
         "package.json": "b419996e8bf38f22580ef3ad31398dd2c699bfe02057c3ffef333423c63d82f7",
         "src/server/config.mjs": "fbfbb92d01dc442b20c459217f498e5fefef522d5f940bd403e0d2683b63704f",
@@ -3883,7 +3883,7 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "30ffb59c86122f9ca9927a1f5060ba61d8c44d7c7a70a010baa7baa508a8b3a1",
+      "content_hash": "840e4a41f3d38a51cf1b1383e7e6bfcbf1a23599e3f68b5be578add9d7c0507a",
       "validation": {
         "result": "passed",
         "working_language": "en",
@@ -3995,15 +3995,15 @@
         "test/consultation.test.mjs": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
+        "docs/prd.md": "889580d3fa81c0f541cce7bff58dc10d528460ce74080d2881fc4161acbe1726",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
-        "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
-        "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
+        "docs/canonical-terms.md": "798277faf0f438ecb7121239bb238058c42e88ceb88459a0538e7c7d0d1bf663",
+        "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
         "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/architecture.md": "30ffb59c86122f9ca9927a1f5060ba61d8c44d7c7a70a010baa7baa508a8b3a1",
+        "docs/architecture.md": "840e4a41f3d38a51cf1b1383e7e6bfcbf1a23599e3f68b5be578add9d7c0507a",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
         "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
         "src/server/claude-provider.mjs": "ea68bbffab0b9b55d626ecbafd3cdb665ebbc65925f547e50fc478316670298c",
@@ -4173,15 +4173,15 @@
         "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
+        "docs/prd.md": "889580d3fa81c0f541cce7bff58dc10d528460ce74080d2881fc4161acbe1726",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
-        "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
-        "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
+        "docs/canonical-terms.md": "798277faf0f438ecb7121239bb238058c42e88ceb88459a0538e7c7d0d1bf663",
+        "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
         "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/architecture.md": "30ffb59c86122f9ca9927a1f5060ba61d8c44d7c7a70a010baa7baa508a8b3a1",
+        "docs/architecture.md": "840e4a41f3d38a51cf1b1383e7e6bfcbf1a23599e3f68b5be578add9d7c0507a",
         "docs/dod-evals.md": "dba7a17d1e83eb6afd059de73d103fd2a5452257e795875d948081eb1ec85592",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
@@ -6084,19 +6084,19 @@
         "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
+        "docs/prd.md": "889580d3fa81c0f541cce7bff58dc10d528460ce74080d2881fc4161acbe1726",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
-        "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
-        "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
+        "docs/canonical-terms.md": "798277faf0f438ecb7121239bb238058c42e88ceb88459a0538e7c7d0d1bf663",
+        "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
         "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/architecture.md": "30ffb59c86122f9ca9927a1f5060ba61d8c44d7c7a70a010baa7baa508a8b3a1",
+        "docs/architecture.md": "840e4a41f3d38a51cf1b1383e7e6bfcbf1a23599e3f68b5be578add9d7c0507a",
         "docs/dod-evals.md": "dba7a17d1e83eb6afd059de73d103fd2a5452257e795875d948081eb1ec85592",
         "docs/qa-checklist.md": "b51bc71d9123cada54c807d320e80c34c7a6526a34599d3caf6ce88972b0f436",
-        "docs/model-settings.md": "778151e8528c7bb7b04ca7c4e25a07f101dd532fcb9d63247dbe6999e4fd6ab1",
-        "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
+        "docs/model-settings.md": "471304f397c128dced4860a137db829cb26e532b375ee9376e3a078a12e0b50d",
+        "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
         "package.json": "b419996e8bf38f22580ef3ad31398dd2c699bfe02057c3ffef333423c63d82f7",
         "scripts/serve-prototype.mjs": "f1232082074d76e12713267d3bc10bd546a69f4a9a8836b5a073887f9c374b4d",
         "forge/design/candidates/a/v8/index.html": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
@@ -6157,7 +6157,7 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "954fd0b8c3c210a9b683e554d8870bfa20f719d23e6046fd7cc4edf1daea3ad6",
+      "content_hash": "209ea0c9cd7ae35de28dfc913396e90a91dfea2ce8cc3812031b928acfd3297a",
       "validation": {
         "result": "passed",
         "working_language": "en",
@@ -7866,18 +7866,18 @@
   ],
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "954fd0b8c3c210a9b683e554d8870bfa20f719d23e6046fd7cc4edf1daea3ad6",
+    "development_plan_hash": "209ea0c9cd7ae35de28dfc913396e90a91dfea2ce8cc3812031b928acfd3297a",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-14T20:13:37+03:00",
-    "prompt_id": "impl-r23-accepted-knock-20260918",
-    "prompt_received_at": "2026-09-18T01:13:25.320Z",
-    "released_at": "2026-09-18T01:13:25.320Z",
+    "prompt_id": "impl-repository-cleanup-20260918",
+    "prompt_received_at": "2026-09-18T12:54:32.331612+00:00",
+    "released_at": "2026-09-18T12:54:32.331612+00:00",
     "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
     "prompt_receipt": {
-      "path": "forge/runs/implementation-prompt-20260918-r23-accepted-knock.json",
-      "content_hash": "78f862682904cbb727988ecbfe0c5557ba462f18ef2321b76171abcd591aa5ac"
+      "path": "forge/runs/implementation-prompt-20260918-repository-cleanup.json",
+      "content_hash": "710eb480c0236951eaea398fc5df426a140cccd4d6f664db96dc863390d07a8d"
     },
-    "reason": "Continue the already authorized notification-sound correction using the exact owner-accepted v5 asset. Scope and visual baseline remain unchanged."
+    "reason": "Documentation, provenance and Git history maintenance only. Preserve executable application, tests, dependency manifests, assets, current product behavior and approved visual baseline. No feature implementation, database operation or host configuration change is authorized by this receipt."
   },
   "input_requests": [],
   "last_resume_event": {
@@ -9002,8 +9002,8 @@
         "docs/product-idea.md"
       ],
       "source_hashes": {
-        "docs/model-settings.md": "778151e8528c7bb7b04ca7c4e25a07f101dd532fcb9d63247dbe6999e4fd6ab1",
-        "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
+        "docs/model-settings.md": "471304f397c128dced4860a137db829cb26e532b375ee9376e3a078a12e0b50d",
+        "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2"
       },
@@ -9015,7 +9015,7 @@
         "docs/prd.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "a9e092556a2e50a5c126a03744ff15db059dcbf974581a18a5ce90f516e0248a"
+        "docs/product-idea.md": "96199961a76c8379e586b7c4234b5bbb77450a5a56b32c9cf0d6924bb0b24dd1"
       },
       "consumed_source_fragments": {}
     },
@@ -9026,8 +9026,8 @@
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "a9e092556a2e50a5c126a03744ff15db059dcbf974581a18a5ce90f516e0248a",
-        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679"
+        "docs/product-idea.md": "96199961a76c8379e586b7c4234b5bbb77450a5a56b32c9cf0d6924bb0b24dd1",
+        "docs/prd.md": "889580d3fa81c0f541cce7bff58dc10d528460ce74080d2881fc4161acbe1726"
       },
       "consumed_source_fragments": {}
     },
@@ -9038,8 +9038,8 @@
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "a9e092556a2e50a5c126a03744ff15db059dcbf974581a18a5ce90f516e0248a",
-        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679"
+        "docs/product-idea.md": "96199961a76c8379e586b7c4234b5bbb77450a5a56b32c9cf0d6924bb0b24dd1",
+        "docs/prd.md": "889580d3fa81c0f541cce7bff58dc10d528460ce74080d2881fc4161acbe1726"
       },
       "consumed_source_fragments": {}
     },
@@ -9049,9 +9049,9 @@
         "docs/guardrails.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
+        "docs/prd.md": "889580d3fa81c0f541cce7bff58dc10d528460ce74080d2881fc4161acbe1726",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
-        "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329"
+        "docs/canonical-terms.md": "798277faf0f438ecb7121239bb238058c42e88ceb88459a0538e7c7d0d1bf663"
       },
       "consumed_source_fragments": {}
     },
@@ -9061,10 +9061,10 @@
         "docs/user-journey.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
+        "docs/prd.md": "889580d3fa81c0f541cce7bff58dc10d528460ce74080d2881fc4161acbe1726",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
-        "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
-        "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7"
+        "docs/canonical-terms.md": "798277faf0f438ecb7121239bb238058c42e88ceb88459a0538e7c7d0d1bf663",
+        "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb"
       },
       "consumed_source_fragments": {}
     },
@@ -9074,10 +9074,10 @@
         "docs/screen-map.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
+        "docs/prd.md": "889580d3fa81c0f541cce7bff58dc10d528460ce74080d2881fc4161acbe1726",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
-        "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
-        "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
+        "docs/canonical-terms.md": "798277faf0f438ecb7121239bb238058c42e88ceb88459a0538e7c7d0d1bf663",
+        "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
         "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "forge/design/candidates/a/v1/app.js": "a869dd42c95740bf7da4802934c3cd6f8d2e2243795ee20925cd5ee19f474531",
         "forge/design/candidates/b/v1/app.js": "17e37807a032c5ea1660efca698e21dc8baf29a3c5344067470b6b44311f9b39",
@@ -9091,10 +9091,10 @@
         "docs/wireframes.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
+        "docs/prd.md": "889580d3fa81c0f541cce7bff58dc10d528460ce74080d2881fc4161acbe1726",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
-        "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
-        "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
+        "docs/canonical-terms.md": "798277faf0f438ecb7121239bb238058c42e88ceb88459a0538e7c7d0d1bf663",
+        "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
         "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2"
       },
@@ -9106,14 +9106,14 @@
         "docs/design-brief.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
+        "docs/prd.md": "889580d3fa81c0f541cce7bff58dc10d528460ce74080d2881fc4161acbe1726",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
-        "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
-        "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
+        "docs/canonical-terms.md": "798277faf0f438ecb7121239bb238058c42e88ceb88459a0538e7c7d0d1bf663",
+        "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
         "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
-        "docs/product-idea.md": "a9e092556a2e50a5c126a03744ff15db059dcbf974581a18a5ce90f516e0248a",
+        "docs/product-idea.md": "96199961a76c8379e586b7c4234b5bbb77450a5a56b32c9cf0d6924bb0b24dd1",
         "prototype/index.html": "e26bba619844fa83597abbf5b8e8aec21b9c96082488d100a39d99df589be6b5",
         "prototype/styles.css": "ebe099d7a6e793ab68f6debcbbe322a5a4f35cc34f1927b6b607b1c0ab185925",
         "prototype/app.js": "b6c35932375f6bf05b9a5ddbed22d9a9279b2c18a2692001ed49af978fcb8a54",
@@ -9167,16 +9167,16 @@
         "docs/architecture.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
+        "docs/prd.md": "889580d3fa81c0f541cce7bff58dc10d528460ce74080d2881fc4161acbe1726",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
-        "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
-        "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
+        "docs/canonical-terms.md": "798277faf0f438ecb7121239bb238058c42e88ceb88459a0538e7c7d0d1bf663",
+        "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
         "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/model-settings.md": "778151e8528c7bb7b04ca7c4e25a07f101dd532fcb9d63247dbe6999e4fd6ab1",
-        "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
+        "docs/model-settings.md": "471304f397c128dced4860a137db829cb26e532b375ee9376e3a078a12e0b50d",
+        "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
         "forge/runs/U-06/browser-speech-uk-20260914/README.md": "972494cb2d1dda8ae431f34bd2896eb6d5cb4642c838ae0b171d17ac931913d6",
         "package.json": "b419996e8bf38f22580ef3ad31398dd2c699bfe02057c3ffef333423c63d82f7",
         "src/server/config.mjs": "fbfbb92d01dc442b20c459217f498e5fefef522d5f940bd403e0d2683b63704f",
@@ -9228,15 +9228,15 @@
         "docs/dod-evals.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
+        "docs/prd.md": "889580d3fa81c0f541cce7bff58dc10d528460ce74080d2881fc4161acbe1726",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
-        "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
-        "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
+        "docs/canonical-terms.md": "798277faf0f438ecb7121239bb238058c42e88ceb88459a0538e7c7d0d1bf663",
+        "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
         "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/architecture.md": "30ffb59c86122f9ca9927a1f5060ba61d8c44d7c7a70a010baa7baa508a8b3a1",
+        "docs/architecture.md": "840e4a41f3d38a51cf1b1383e7e6bfcbf1a23599e3f68b5be578add9d7c0507a",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
         "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
         "src/server/claude-provider.mjs": "ea68bbffab0b9b55d626ecbafd3cdb665ebbc65925f547e50fc478316670298c",
@@ -9253,15 +9253,15 @@
         "docs/qa-checklist.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
+        "docs/prd.md": "889580d3fa81c0f541cce7bff58dc10d528460ce74080d2881fc4161acbe1726",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
-        "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
-        "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
+        "docs/canonical-terms.md": "798277faf0f438ecb7121239bb238058c42e88ceb88459a0538e7c7d0d1bf663",
+        "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
         "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/architecture.md": "30ffb59c86122f9ca9927a1f5060ba61d8c44d7c7a70a010baa7baa508a8b3a1",
+        "docs/architecture.md": "840e4a41f3d38a51cf1b1383e7e6bfcbf1a23599e3f68b5be578add9d7c0507a",
         "docs/dod-evals.md": "dba7a17d1e83eb6afd059de73d103fd2a5452257e795875d948081eb1ec85592",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
@@ -9316,19 +9316,19 @@
         "docs/development-plan.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
+        "docs/prd.md": "889580d3fa81c0f541cce7bff58dc10d528460ce74080d2881fc4161acbe1726",
         "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
-        "docs/canonical-terms.md": "10bbf5a89249ab1d49de3a3b2e54c421923716917ffe078558fc6d87af5a5329",
-        "docs/guardrails.md": "d7b259aa51425886ae7294700541407fd4a59ed914b21db537b3173cb3edb0f7",
+        "docs/canonical-terms.md": "798277faf0f438ecb7121239bb238058c42e88ceb88459a0538e7c7d0d1bf663",
+        "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
         "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/architecture.md": "30ffb59c86122f9ca9927a1f5060ba61d8c44d7c7a70a010baa7baa508a8b3a1",
+        "docs/architecture.md": "840e4a41f3d38a51cf1b1383e7e6bfcbf1a23599e3f68b5be578add9d7c0507a",
         "docs/dod-evals.md": "dba7a17d1e83eb6afd059de73d103fd2a5452257e795875d948081eb1ec85592",
         "docs/qa-checklist.md": "b51bc71d9123cada54c807d320e80c34c7a6526a34599d3caf6ce88972b0f436",
-        "docs/model-settings.md": "778151e8528c7bb7b04ca7c4e25a07f101dd532fcb9d63247dbe6999e4fd6ab1",
-        "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
+        "docs/model-settings.md": "471304f397c128dced4860a137db829cb26e532b375ee9376e3a078a12e0b50d",
+        "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
         "package.json": "b419996e8bf38f22580ef3ad31398dd2c699bfe02057c3ffef333423c63d82f7",
         "scripts/serve-prototype.mjs": "f1232082074d76e12713267d3bc10bd546a69f4a9a8836b5a073887f9c374b4d",
         "forge/design/candidates/a/v8/index.html": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
@@ -108326,6 +108326,29 @@
       },
       "execution_invalidated_at": "2026-09-14T20:13:37+03:00",
       "invalidation_reason": "The active development-plan hash changed for the owner-only image attachment policy. The U-03 promotion receipt remains historical evidence and must not assert the revised-plan binding."
+    }
+  ],
+  "documentation_maintenance": {
+    "recorded_at": "2026-09-18T12:52:58.014608+00:00",
+    "scope": "Owner-authorized removal of obsolete transport documentation and historical source references; current application behavior and accepted visual baseline are unchanged.",
+    "source_bindings": "Current artifact and dispatch hashes reconciled after reviewing the scoped documentation diff. Historical verification results remain dated evidence and are not represented as fresh execution.",
+    "runtime_verification": "Runtime, tests, assets and dependency manifests are compared byte-for-byte with the pre-maintenance checkout; application checks must pass before publication."
+  },
+  "implementation_gate_history": [
+    {
+      "state": "authorized_for_phase3",
+      "development_plan_hash": "954fd0b8c3c210a9b683e554d8870bfa20f719d23e6046fd7cc4edf1daea3ad6",
+      "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
+      "awaiting_at": "2026-09-14T20:13:37+03:00",
+      "prompt_id": "impl-r23-accepted-knock-20260918",
+      "prompt_received_at": "2026-09-18T01:13:25.320Z",
+      "released_at": "2026-09-18T01:13:25.320Z",
+      "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
+      "prompt_receipt": {
+        "path": "forge/runs/implementation-prompt-20260918-r23-accepted-knock.json",
+        "content_hash": "78f862682904cbb727988ecbfe0c5557ba462f18ef2321b76171abcd591aa5ac"
+      },
+      "reason": "Continue the already authorized notification-sound correction using the exact owner-accepted v5 asset. Scope and visual baseline remain unchanged."
     }
   ]
 }

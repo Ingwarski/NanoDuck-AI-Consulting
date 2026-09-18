@@ -5,7 +5,6 @@ A simpler, private, mobile-first browser product for genuine consultant and Crit
 **Electric A v8 is approved and production implementation is in progress.** The application includes browser UI, server routes, Google-owner authentication wiring, encrypted MySQL persistence, consultation orchestration and a controlled Codex app-server adapter. The named GoDaddy app has a private Preview deployment with its owned migration; Published remains unchanged. Use `NANODUCK_RUNTIME_MODE=production` on hosts that reserve `NODE_ENV` for Preview.
 
 - [Product idea](docs/product-idea.md) — the recreated current brief.
--  — findings and all legacy decision dispositions.
 - [Reconciled architecture](docs/architecture.md) — one Node app, one database, durable consultation work.
 - [Models to preserve](docs/model-settings.md) — exact recorded values and evidence limits.
 - [Development plan](docs/development-plan.md) — 8 implementation units, complete requirement/state coverage and release evidence.
@@ -13,7 +12,7 @@ A simpler, private, mobile-first browser product for genuine consultant and Crit
 - [Screen map](docs/screen-map.md) — 9 surfaces and 44 review states.
 - [SDD manifest](forge/sdd-manifest.json) — source hashes, traceability and design-stage progress.
 - [Verification](docs/verification.md) — actual checks and unresolved limits.
-- [Source provenance](docs/source-provenance.json) — consumed source hashes and job-to-design mapping.
+- [Source provenance](docs/source-provenance.json) — approved design provenance and job-to-design mapping.
 - [GoDaddy boundary](docs/deployment-boundary.md) — only the existing consulting app and its own verified data.
 
 <a id="compare-the-three-designs"></a>

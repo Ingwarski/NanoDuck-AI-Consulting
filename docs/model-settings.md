@@ -4,7 +4,7 @@
 
 ## Current local capability read
 
-On 14 September 2026, the replacement checkout's controlled Codex app-server preflight read the current account/catalog/rate-limit state without starting a model turn, creating a conversation, contacting MySQL or changing GoDaddy. It returned `ready` and listed `gpt-6-astra` with both `xhigh` and `ultra` reasoning efforts. The [U-01 capability matrix](../forge/runs/U-01/phase3-local-preflight-20260914/capability-matrix.json) records the content-free result.
+On 14 September 2026, this checkout's controlled Codex app-server preflight read the current account/catalog/rate-limit state without starting a model turn, creating a conversation, contacting MySQL or changing GoDaddy. It returned `ready` and listed `gpt-6-astra` with both `xhigh` and `ultra` reasoning efforts. The [U-01 capability matrix](../forge/runs/U-01/phase3-local-preflight-20260914/capability-matrix.json) records the content-free result.
 
 This confirms that the current Codex catalog supports the current tuples. It does not independently prove a model invocation at either effort or record actual rate-limit quantities.
 
@@ -20,11 +20,10 @@ On 14 September 2026, an authenticated owner session viewed the named current Go
 | Critic provider | `codex` |
 | Critic model | `gpt-6-astra` |
 | Critic reasoning | `xhigh` |
-| Legacy orchestration preset | `збалансовано` (balanced) |
 
-The settings UI labelled the selectable catalog entries unavailable because its catalog snapshot was stale, but the saved raw provider/model/effort values above were present and exact. The inactive Claude branch was not selected or exposed as a saved current value, so it remains unknown. The replacement defaults preserve the verified active Codex values; they do not infer a Claude configuration.
+The settings UI labelled the selectable catalog entries unavailable because its catalog snapshot was stale, but the saved raw provider/model/effort values above were present and exact. The inactive Claude branch was not selected or exposed as a saved current value, so it remains unknown. The application defaults preserve the verified active Codex values; they do not infer a Claude configuration.
 
-## Historical record
+## Selection and execution rules
 
 Do not silently substitute a model or effort from an unavailable catalog or from a historical record. An absent inactive Claude preference remains absent until the owner selects Claude Code; that Settings control then starts at the verified Opus 5 / High defaults. The obsolete revision-2 `Claude Code default`, `default`, and `xhigh` placeholders are normalized to that absent state on the next save.
 
@@ -32,6 +31,6 @@ The current source pins `@openai/codex` to `0.153.1` and `@anthropic-ai/claude-c
 
 Preserve independent consultant settings and Critic provider/branch settings, specialist count, discussion depth, and immutable effective settings for a running consultation. Changing preferences affects future runs. Keep the no-API-key/PAYG/automatic-credit/Claude-Fast-Mode rule.
 
-The legacy source policies (`src/settings/speed-policy.ts:57–75`) used named speed presets. NanoDuck replaces that single field with two independent controls: specialist count 1/2/3/5/Auto and discussion depth 1/3/5/Auto. Head selects an Auto team from one through five. Depth applies to every selected specialist; Auto assesses a complete team review and stops at supported consensus or 10 complete Critic ↔ specialist exchanges per specialist. The replacement defaults to 2 specialists and 1 exchange per specialist, while preserving the 540,000 ms provider budget. The 16 September correction explicitly rules out ending after Critic has reviewed only one team member.
+NanoDuck uses two independent controls: specialist count 1/2/3/5/Auto and discussion depth 1/3/5/Auto. Head selects an Auto team from one through five. Depth applies to every selected specialist; Auto assesses a complete team review and stops at supported consensus or 10 complete Critic ↔ specialist exchanges per specialist. The application defaults to 2 specialists and 1 exchange per specialist, while preserving the 540,000 ms provider budget. The 16 September correction explicitly rules out ending after Critic has reviewed only one team member.
 
 Before cutover, verify each exact active `(provider, model, effort)` separately without private conversation content. The existing Astra entitlement probe at xhigh supports catalog compatibility but is not an invocation proof. If an exact selection cannot run, preserve it, report the limitation and obtain a decision; never substitute a model/effort just to pass readiness.

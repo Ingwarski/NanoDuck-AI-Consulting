@@ -23,6 +23,7 @@ Working language: English. Product content and source metadata: English and Ukra
 | Outcome | Current question's final Consolidated advice, risk and up to three next actions. | Consensus when participants have not agreed |
 | Sources | Direct evidence links, claims, freshness and limitations. | Invented research or unsupported certainty |
 | RTF export | Rich Text Format document downloaded by Export; bold names, timestamps and formatted paragraphs can be read without a Markdown renderer. Image references do not embed the image files. | Raw JSON as the normal export; renaming plain text to .rtf |
+| Conversations | The owner's saved consultation history. | Infrastructure identifiers |
 | Model | Selected provider model, kept separately for consultants and Critic. | An invented capability list |
 | Reasoning strength | User-facing selection of supported provider effort. Codex exposes its inspected tuple; the verified Claude Code choices are Low, Medium, High (default), Extra and Max. | Quietly mapping an unsupported value to a default |
 | Number of specialists | Owner setting for 1, 2, 3, 5 or Auto relevant specialists. The count excludes Head Consultant and Critic; Auto lets Head select 1–5. | Treating Head or Critic as part of the count |

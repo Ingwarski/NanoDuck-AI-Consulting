@@ -29,7 +29,8 @@
     },
     {
       "name": "target MySQL and GoDaddy lifecycle",
-      "status": "partially_observed"
+      "status": "partially_observed",
+      "observation": "A read-only audit of only Personal AI Consulting Group (wy2v0putg6) found a healthy published Node.js 22 app in Europe and a managed MySQL inventory shared by Preview and Published. No rows, schema details, secret values, export or mutation were opened. The dashboard did not expose a database ID or owner principal."
     },
     {
       "name": "current saved/effective active Codex settings",

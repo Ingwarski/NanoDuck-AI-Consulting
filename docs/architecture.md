@@ -1,6 +1,6 @@
 # Proposed architecture
 
-Browser-voice reconciliation, 14 September 2026; Preview-activation reconciliation, 15 September 2026. The named GoDaddy app's Preview deployment and owned migration are observed. The deployed NanoDuck production-mode override takes precedence over host-owned development `NODE_ENV`; a private Chrome browser reached first-use consent and an existing private Safari session reached Settings, but fresh Google OAuth remains a separate verification. Publication, a real consultation and authorized database deletion remain separate gates.
+Browser-voice reconciliation, 14 September 2026; Preview-activation reconciliation, 15 September 2026. The named GoDaddy app's Preview deployment and owned migration are observed. The deployed NanoDuck production-mode override takes precedence over host-owned development `NODE_ENV`; a private Chrome browser reached first-use consent and an existing private Safari session reached Settings, but fresh Google OAuth remains a separate verification. Publication, a real consultation and database deletion remain separate gates.
 
 ## One application with durable work
 
@@ -15,7 +15,7 @@ flowchart LR
   Evidence --> App
 ```
 
-Serve the UI, Google owner login, consultation endpoints and bounded work coordinator from one Node application in the existing GoDaddy app. Retain the provider process adapters and subscription grants. MySQL stores the authoritative conversation and work state. Do not add Redis, a queue service, microservices, a separate AI host or another messenger.
+Serve the UI, Google owner login, consultation endpoints and bounded work coordinator from one Node application in the existing GoDaddy app. Retain the provider process adapters and subscription grants. MySQL stores the authoritative conversation and work state. Keep the browser service, work coordinator and persistence within this application boundary; do not add Redis, a queue service, microservices or a separate AI host.
 
 ## Minimum persistence contract
 
@@ -47,7 +47,9 @@ Before cutover, take a content-free saved-settings snapshot and verify the exact
 
 ## Data and product boundaries
 
-The [deployment boundary](deployment-boundary.md) names the only allowed target. The source switch, Preview secrets, owned migration and encrypted instruction bootstrap are evidenced on that app. The deployed production-mode override has reached private browser sessions, but a fresh Google callback has not yet been observed. Provider reauthorization/preflight, streaming behavior, a real consultation, browser voice, publication and authorized database deletion remain release evidence to obtain.
+Retain complete saved conversations, protected owner-generated image attachments, sources, settings, the owner's single private database-stored runtime-instructions document and run state. Whole-conversation export/delete are owner actions. Sanitize rendered model content and links. Keep public code separate from private runtime state. HTTPS protects browser-to-server traffic, and protected server storage holds private records; do not claim device-to-device E2EE for this architecture.
+
+The [deployment boundary](deployment-boundary.md) names the only allowed target. The source switch, Preview secrets, owned migration and encrypted instruction bootstrap are evidenced on that app. The deployed production-mode override has reached private browser sessions, but a fresh Google callback has not yet been observed. Provider reauthorization/preflight, streaming behavior, a real consultation, browser voice, publication and any authorized database deletion remain release evidence to obtain.
 
 ## External capability references
 
@@ -107,7 +109,7 @@ Runtime remains one Node application plus the existing isolated provider subproc
 
 ## Architecture decisions, operations and risks
 
-The earlier messenger-removal and single-store decisions remain. Voice adds a browser recognition-service boundary, not a NanoDuck audio service or a general-purpose integration. Dynamic Settings uses provider-specific capabilities and retains independent branch preferences. A selected Claude route with unavailable capability evidence remains explicitly unavailable; it never silently falls back.
+The application uses one browser service and one authoritative store. Voice adds a browser recognition-service boundary, not a NanoDuck audio service or a general-purpose integration. Dynamic Settings uses provider-specific capabilities and retains independent branch preferences. A selected Claude route with unavailable capability evidence remains explicitly unavailable; it never silently falls back.
 
 Operational responsibility belongs to the product owner and the later authorized implementation operator, not to a fictional support team. Before production release they must record actual session/resource configuration, recovery objectives, backup/deletion propagation, incident access and risk-based dependency remediation timing. Performance measurement uses the existing product targets and subscription ceilings, not an invented availability SLA. Restore must run in isolation and must not touch another GoDaddy app. The provider receives the protected Codex `auth.json` through a mounted secret file where available or its base64url bytes from the host secret store; it writes the file only to each ephemeral app-server home and deletes that home after use. This is an operator provisioning boundary, never a Settings or routine owner action.
 
