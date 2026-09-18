@@ -1,5 +1,11 @@
 # SDD consistency audit
 
+## Current dry table-tap alert — 18 September 2026
+
+R-22 replaces the rejected Nokia-based Knock with the owner-refined CC0 ping-pong-ball-on-table sample. The owner accepted v2’s bright, dry character and requested slightly more emphasis. V3 keeps its 40 ms impact, pitch, EQ, decay and exactly 250 ms onset-to-onset spacing, with mild compression and a peak of 0.96. Measured RMS level rises approximately 3.03 dB, with no clipped samples and silence between impacts. Settings Preview and incoming alerts use the same bundled WAV and playback path. Chime/Ripple and all other settings remain unchanged. Earlier exploratory audio files and source receipts are preserved.
+
+The [R-22 receipt](../forge/runs/U-03/r22-table-tap-20260918/verification.json) records 129 passing tests, HTTP media delivery and independent PCM checks. Owner listening established the v2 character; v3 is the requested emphasis refinement. There is no claim of a new hosted deployment, physical-device audibility check or full cross-browser release verification. Architecture, QA and U-03 planning use the current 250 ms dry-tap contract and are reconciled through their owners.
+
 ## Current Ukrainian validation and failed-run recovery correction — 18 September 2026
 
 R-20 follows a read-only inspection of the latest hosted discussion: it stopped on a language-policy failure after the third Critic challenge, before the next specialist reply, and offered no continuation control. Rejected drafts are deliberately ephemeral, so the exact triggering text in that hosted draft is unavailable. A local regression reproduces a concrete validator defect: the common Ukrainian word “які” was in the prohibited-language blacklist. Removing that ambiguous entry accepts valid Ukrainian in owner input, both provider adapters and source metadata while preserving distinctive prohibited-language markers and forbidden hosts.
@@ -8,7 +14,7 @@ Failed runs now expose Retry and use the existing owner-authorized continuation 
 
 The [R-20 receipt](../forge/runs/U-04/r20-ukrainian-policy-recovery-20260918/verification.json) records 129 passing tests, including the previously failing Ukrainian acceptance and interrupted-third-exchange cases, both adapters, HTTP retry and mocked MySQL transaction checks. Native Chrome inspection of an isolated local workspace confirms visible Retry, preserved messages, a restarted attempt and accepted Ukrainian input. The browser provider was deliberately unavailable; successful completion is fixture-backed coordinator evidence. Hosted repair verification, actual MySQL concurrency and full cross-browser release checks remain separate. SDD owner/source bindings and the coupled context invocation are reconciled in dependency order.
 
-## Current quick-knock sound correction — 18 September 2026
+## Superseded quick-knock sound correction — 18 September 2026
 
 R-19 replaces the synthesized low-frequency Knock with an edited Nokia N73 Message 2 recording from the owner-supplied archive URL. Three recorded taps now start 140 ms apart instead of approximately 280 ms, with original pitch preserved, entry silence removed and no clipped samples. This is explicitly an edited version, not an unmodified original. Settings Preview and incoming-message alerts share the same bundled same-origin PCM WAV; Chime/Ripple retain generated local WAVs. The server serves WAV as `audio/wav`, so playback needs no third-party request or additional browser permission.
 

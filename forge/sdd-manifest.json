@@ -3758,13 +3758,13 @@
     "architecture": {
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "r20-policy-recovery-architecture-approved-2026-09-18T00:33:43.756Z",
+      "owner_invocation_id": "r22-table-tap-architecture-approved-2026-09-18T00:59:30.491Z",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r20-policy-recovery-architecture-approved-2026-09-18T00:33:43.756Z",
+      "source_version": "r22-table-tap-architecture-approved-2026-09-18T00:59:30.491Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3809,7 +3809,10 @@
         "src/server/output-safety.mjs": "full",
         "test/claude-provider.test.mjs": "full",
         "public/sounds/nokia-three-knocks-quick.wav": "full",
-        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "full"
+        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "full",
+        "public/sounds/table-taps-250ms.wav": "full",
+        "forge/exploration/message-sound-table-250ms-v3/source.json": "full",
+        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "full"
       },
       "source_hashes": {
         "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
@@ -3833,11 +3836,11 @@
         "src/server/consultation.mjs": "ed754ba21d10991b7fb0af7ade03aa2fe7078850aaea45bbae6d649b644021f7",
         "test/codex-provider.test.mjs": "279004a4b2afd8e99989949581e90754db44e43d76663fdd072fcf1f8b070362",
         "test/consultation.test.mjs": "443cab205fd5b7093df101b81dc23a3e342fe1e087a1ec6721fe88daa21583a7",
-        "test/http.test.mjs": "3c45c00a633d9057af28cd373183da0935a4771cae4e6eebc3adba021193c12f",
+        "test/http.test.mjs": "f65da0fe5221630437267f794f286c292edace071e21c6e2b1e93ad3aa6c6ec7",
         ".env.example": "908e4483bcad524ca4c95e9d20bc57dd4f2fbc6156f17925728798f03e91620f",
         "test/fixtures/fake-codex.mjs": "ddb3b4fd9f1e07f30df8006f7e74db7edabb55a29536e1f9274f07b0ce672c66",
         "src/server/prompt-contracts.mjs": "e9ad56fdb433979e2c818706b31316a80e8dae1b3af92282fc0b000394230a9b",
-        "src/client/app.js": "235157830fc742ad4784ca3bee8ef00e572b788f8e9b6612273b5360df953b6f",
+        "src/client/app.js": "80c8dbf5d6af9d781812e3f702b93cf7e119209cc8bc29f2503cd7330a12fe24",
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -3855,7 +3858,10 @@
         "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
         "test/claude-provider.test.mjs": "b2152039c3954bcf58005ea179ed0cf7bd574271663bc468d0aa4869555c9174",
         "public/sounds/nokia-three-knocks-quick.wav": "c593d959457a011f63f85cedcc2c42efe503b0b13fa1d0a44f3aab1746c9268a",
-        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e"
+        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e",
+        "public/sounds/table-taps-250ms.wav": "433bfd84f11cba34941526d970f222b10e154a68af26594e50e34e2aa1e8459c",
+        "forge/exploration/message-sound-table-250ms-v3/source.json": "93af5d762e68fc236d1424d93d702256264f71ed60fddab287ed277f5c4b71fc",
+        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "1990cdfdbd13bb8a3a69cdecae365f4c8e81510c0741f0e60cbfb302da70e719"
       },
       "dependencies": [
         "prd",
@@ -3867,14 +3873,14 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "acb55f1e14de46745600f6c1ec05a16a26245aa469adb59b2e4220597566da89",
+      "content_hash": "08da4984b807ffba45d31950dc0dee64a0e5db13080561a2ffdeb4fbfc72a202",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r20-ukrainian-policy-recovery-scoped-reconciliation",
-        "reviewed_at": "2026-09-18T00:33:43.756Z",
+        "kind": "r22-table-tap-scoped-reconciliation",
+        "reviewed_at": "2026-09-18T00:59:30.491Z",
         "executor": "Codex inline to-architecture",
-        "scope": "Clarify existing allowed Ukrainian and same-record recovery requirements with the observed implementation repair. Preserve all language/source prohibitions, role completion and authorization boundaries."
+        "scope": "Reconcile accepted dry table-tap character, requested emphasis and 250 ms spacing through the existing shared audio path; all models, language policy and permissions remain unchanged."
       },
       "open_questions": [],
       "security_coverage": {
@@ -3953,13 +3959,13 @@
     "dod-evals": {
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "r20-policy-recovery-dod-evals-approved-2026-09-18T00:33:43.756Z",
+      "owner_invocation_id": "r22-table-tap-dod-evals-approved-2026-09-18T00:59:30.491Z",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r20-policy-recovery-dod-evals-approved-2026-09-18T00:33:43.756Z",
+      "source_version": "r22-table-tap-dod-evals-approved-2026-09-18T00:59:30.491Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3987,7 +3993,7 @@
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/architecture.md": "acb55f1e14de46745600f6c1ec05a16a26245aa469adb59b2e4220597566da89",
+        "docs/architecture.md": "08da4984b807ffba45d31950dc0dee64a0e5db13080561a2ffdeb4fbfc72a202",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
         "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
         "src/server/claude-provider.mjs": "ea68bbffab0b9b55d626ecbafd3cdb665ebbc65925f547e50fc478316670298c",
@@ -4011,10 +4017,10 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r20-ukrainian-policy-recovery-scoped-reconciliation",
-        "reviewed_at": "2026-09-18T00:33:43.756Z",
+        "kind": "r22-table-tap-scoped-reconciliation",
+        "reviewed_at": "2026-09-18T00:59:30.491Z",
         "executor": "Codex inline to-dod-evals",
-        "scope": "No document changes. Revalidate existing terms, source authority, visual baseline and gate definitions against the clarified acceptance/recovery behavior."
+        "scope": "Unchanged gate definitions; refresh current architecture binding."
       },
       "open_questions": [],
       "security_coverage": {
@@ -4093,13 +4099,13 @@
     "qa-checklist": {
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "r20-policy-recovery-qa-checklist-approved-2026-09-18T00:33:43.756Z",
+      "owner_invocation_id": "r22-table-tap-qa-checklist-approved-2026-09-18T00:59:30.491Z",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r20-policy-recovery-qa-checklist-approved-2026-09-18T00:33:43.756Z",
+      "source_version": "r22-table-tap-qa-checklist-approved-2026-09-18T00:59:30.491Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -4146,7 +4152,10 @@
         "src/server/output-safety.mjs": "full",
         "test/claude-provider.test.mjs": "full",
         "public/sounds/nokia-three-knocks-quick.wav": "full",
-        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "full"
+        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "full",
+        "public/sounds/table-taps-250ms.wav": "full",
+        "forge/exploration/message-sound-table-250ms-v3/source.json": "full",
+        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "full"
       },
       "source_hashes": {
         "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
@@ -4157,7 +4166,7 @@
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/architecture.md": "acb55f1e14de46745600f6c1ec05a16a26245aa469adb59b2e4220597566da89",
+        "docs/architecture.md": "08da4984b807ffba45d31950dc0dee64a0e5db13080561a2ffdeb4fbfc72a202",
         "docs/dod-evals.md": "dba7a17d1e83eb6afd059de73d103fd2a5452257e795875d948081eb1ec85592",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
@@ -4173,10 +4182,10 @@
         "src/server/consultation.mjs": "ed754ba21d10991b7fb0af7ade03aa2fe7078850aaea45bbae6d649b644021f7",
         "test/codex-provider.test.mjs": "279004a4b2afd8e99989949581e90754db44e43d76663fdd072fcf1f8b070362",
         "test/consultation.test.mjs": "443cab205fd5b7093df101b81dc23a3e342fe1e087a1ec6721fe88daa21583a7",
-        "test/http.test.mjs": "3c45c00a633d9057af28cd373183da0935a4771cae4e6eebc3adba021193c12f",
+        "test/http.test.mjs": "f65da0fe5221630437267f794f286c292edace071e21c6e2b1e93ad3aa6c6ec7",
         "test/fixtures/fake-codex.mjs": "ddb3b4fd9f1e07f30df8006f7e74db7edabb55a29536e1f9274f07b0ce672c66",
         "src/server/prompt-contracts.mjs": "e9ad56fdb433979e2c818706b31316a80e8dae1b3af92282fc0b000394230a9b",
-        "src/client/app.js": "235157830fc742ad4784ca3bee8ef00e572b788f8e9b6612273b5360df953b6f",
+        "src/client/app.js": "80c8dbf5d6af9d781812e3f702b93cf7e119209cc8bc29f2503cd7330a12fe24",
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -4194,7 +4203,10 @@
         "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
         "test/claude-provider.test.mjs": "b2152039c3954bcf58005ea179ed0cf7bd574271663bc468d0aa4869555c9174",
         "public/sounds/nokia-three-knocks-quick.wav": "c593d959457a011f63f85cedcc2c42efe503b0b13fa1d0a44f3aab1746c9268a",
-        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e"
+        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e",
+        "public/sounds/table-taps-250ms.wav": "433bfd84f11cba34941526d970f222b10e154a68af26594e50e34e2aa1e8459c",
+        "forge/exploration/message-sound-table-250ms-v3/source.json": "93af5d762e68fc236d1424d93d702256264f71ed60fddab287ed277f5c4b71fc",
+        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "1990cdfdbd13bb8a3a69cdecae365f4c8e81510c0741f0e60cbfb302da70e719"
       },
       "dependencies": [
         "prd",
@@ -4208,14 +4220,14 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "ff888bb43c0447271c52855f672fa99e947782509953d7d302fbf9cad4d3b932",
+      "content_hash": "c2b9653e378b5c7f000e7d153e14b86b5f3e77c2aea82e6ed6709faaea1a51ea",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r20-ukrainian-policy-recovery-scoped-reconciliation",
-        "reviewed_at": "2026-09-18T00:33:43.756Z",
+        "kind": "r22-table-tap-scoped-reconciliation",
+        "reviewed_at": "2026-09-18T00:59:30.491Z",
         "executor": "Codex inline to-qa-checklist",
-        "scope": "Clarify existing allowed Ukrainian and same-record recovery requirements with the observed implementation repair. Preserve all language/source prohibitions, role completion and authorization boundaries."
+        "scope": "Reconcile accepted dry table-tap character, requested emphasis and 250 ms spacing through the existing shared audio path; all models, language policy and permissions remain unchanged."
       },
       "open_questions": [],
       "traceability": {
@@ -5983,13 +5995,13 @@
     "development-plan": {
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "r20-policy-recovery-development-plan-2026-09-18T00:33:43.756Z",
+      "owner_invocation_id": "r22-table-tap-development-plan-2026-09-18T00:59:30.491Z",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r20-policy-recovery-development-plan-2026-09-18T00:33:43.756Z",
+      "source_version": "r22-table-tap-development-plan-2026-09-18T00:59:30.491Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -6041,7 +6053,10 @@
         "src/server/output-safety.mjs": "full",
         "test/claude-provider.test.mjs": "full",
         "public/sounds/nokia-three-knocks-quick.wav": "full",
-        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "full"
+        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "full",
+        "public/sounds/table-taps-250ms.wav": "full",
+        "forge/exploration/message-sound-table-250ms-v3/source.json": "full",
+        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "full"
       },
       "source_hashes": {
         "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
@@ -6052,9 +6067,9 @@
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/architecture.md": "acb55f1e14de46745600f6c1ec05a16a26245aa469adb59b2e4220597566da89",
+        "docs/architecture.md": "08da4984b807ffba45d31950dc0dee64a0e5db13080561a2ffdeb4fbfc72a202",
         "docs/dod-evals.md": "dba7a17d1e83eb6afd059de73d103fd2a5452257e795875d948081eb1ec85592",
-        "docs/qa-checklist.md": "ff888bb43c0447271c52855f672fa99e947782509953d7d302fbf9cad4d3b932",
+        "docs/qa-checklist.md": "c2b9653e378b5c7f000e7d153e14b86b5f3e77c2aea82e6ed6709faaea1a51ea",
         "docs/model-settings.md": "778151e8528c7bb7b04ca7c4e25a07f101dd532fcb9d63247dbe6999e4fd6ab1",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "package.json": "b419996e8bf38f22580ef3ad31398dd2c699bfe02057c3ffef333423c63d82f7",
@@ -6073,10 +6088,10 @@
         "src/server/consultation.mjs": "ed754ba21d10991b7fb0af7ade03aa2fe7078850aaea45bbae6d649b644021f7",
         "test/codex-provider.test.mjs": "279004a4b2afd8e99989949581e90754db44e43d76663fdd072fcf1f8b070362",
         "test/consultation.test.mjs": "443cab205fd5b7093df101b81dc23a3e342fe1e087a1ec6721fe88daa21583a7",
-        "test/http.test.mjs": "3c45c00a633d9057af28cd373183da0935a4771cae4e6eebc3adba021193c12f",
+        "test/http.test.mjs": "f65da0fe5221630437267f794f286c292edace071e21c6e2b1e93ad3aa6c6ec7",
         "test/fixtures/fake-codex.mjs": "ddb3b4fd9f1e07f30df8006f7e74db7edabb55a29536e1f9274f07b0ce672c66",
         "src/server/prompt-contracts.mjs": "e9ad56fdb433979e2c818706b31316a80e8dae1b3af92282fc0b000394230a9b",
-        "src/client/app.js": "235157830fc742ad4784ca3bee8ef00e572b788f8e9b6612273b5360df953b6f",
+        "src/client/app.js": "80c8dbf5d6af9d781812e3f702b93cf7e119209cc8bc29f2503cd7330a12fe24",
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -6094,7 +6109,10 @@
         "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
         "test/claude-provider.test.mjs": "b2152039c3954bcf58005ea179ed0cf7bd574271663bc468d0aa4869555c9174",
         "public/sounds/nokia-three-knocks-quick.wav": "c593d959457a011f63f85cedcc2c42efe503b0b13fa1d0a44f3aab1746c9268a",
-        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e"
+        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e",
+        "public/sounds/table-taps-250ms.wav": "433bfd84f11cba34941526d970f222b10e154a68af26594e50e34e2aa1e8459c",
+        "forge/exploration/message-sound-table-250ms-v3/source.json": "93af5d762e68fc236d1424d93d702256264f71ed60fddab287ed277f5c4b71fc",
+        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "1990cdfdbd13bb8a3a69cdecae365f4c8e81510c0741f0e60cbfb302da70e719"
       },
       "dependencies": [
         "prd",
@@ -6109,14 +6127,14 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "e09f74ec215e2c4cd956164b4a2f1d643e291cf69df01670e55f756fb3cf8f46",
+      "content_hash": "694c24e45ba914fdbc7dd234bc3fa826c0497afe15d523c79eae28d69df750f4",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r20-ukrainian-policy-recovery-scoped-reconciliation",
-        "reviewed_at": "2026-09-18T00:33:43.756Z",
+        "kind": "r22-table-tap-scoped-reconciliation",
+        "reviewed_at": "2026-09-18T00:59:30.491Z",
         "executor": "Codex inline to-development-plan",
-        "scope": "Clarify existing allowed Ukrainian and same-record recovery requirements with the observed implementation repair. Preserve all language/source prohibitions, role completion and authorization boundaries."
+        "scope": "Reconcile accepted dry table-tap character, requested emphasis and 250 ms spacing through the existing shared audio path; all models, language policy and permissions remain unchanged."
       },
       "supersedes": "r15-rtf-export-development-plan-2026-09-17T18:32:08+00:00",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
@@ -7818,18 +7836,18 @@
   ],
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "e09f74ec215e2c4cd956164b4a2f1d643e291cf69df01670e55f756fb3cf8f46",
+    "development_plan_hash": "694c24e45ba914fdbc7dd234bc3fa826c0497afe15d523c79eae28d69df750f4",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-14T20:13:37+03:00",
-    "prompt_id": "impl-r20-ukrainian-policy-recovery-20260918",
-    "prompt_received_at": "2026-09-18T00:36:06.166Z",
-    "released_at": "2026-09-18T00:36:06.166Z",
+    "prompt_id": "impl-r22-table-tap-20260918",
+    "prompt_received_at": "2026-09-18T01:00:46.476Z",
+    "released_at": "2026-09-18T01:00:46.476Z",
     "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
     "prompt_receipt": {
-      "path": "forge/runs/implementation-prompt-20260918-r20-ukrainian-policy-recovery.json",
-      "content_hash": "fbdf778ac70eab9ef0b9203e4d0c47e2c4755ae8eb435595f5878ee08dc76c56"
+      "path": "forge/runs/implementation-prompt-20260918-r22-table-tap.json",
+      "content_hash": "5d87c0fb5d55ad4142215e8d9d75b8ae709dda19b3cce0849e98865adf69b4de"
     },
-    "reason": "Explicit owner request to repair an existing consultation blocker. Current plan clarifies the previously authorized Ukrainian and recovery behavior; preserve role completion, policy boundaries and approved design."
+    "reason": "Explicit owner refinement of the existing authorized Knock alert; preserve approved design, role/model choices, provider and data boundaries."
   },
   "input_requests": [],
   "last_resume_event": {
@@ -8933,6 +8951,12 @@
       "previous_prompt_id": "impl-r19-quick-knock-20260918",
       "prompt_id": "impl-r20-ukrainian-policy-recovery-20260918",
       "scope": "Repair the existing authorized Ukrainian acceptance and failed-run recovery. Hosted consultation inspection is read-only; no deployment, live provider call, database mutation or schema change."
+    },
+    {
+      "at": "2026-09-18T01:00:46.476Z",
+      "event": "r22_existing_sound_refinement",
+      "previous_prompt_id": "impl-r20-ukrainian-policy-recovery-20260918",
+      "prompt_id": "impl-r22-table-tap-20260918"
     }
   ],
   "dispatches": {
@@ -9102,7 +9126,7 @@
       "consumed_source_fragments": {}
     },
     "architecture": {
-      "invocation_id": "r20-policy-recovery-architecture-approved-2026-09-18T00:33:43.756Z",
+      "invocation_id": "r22-table-tap-architecture-approved-2026-09-18T00:59:30.491Z",
       "outputs": [
         "docs/architecture.md"
       ],
@@ -9128,11 +9152,11 @@
         "src/server/consultation.mjs": "ed754ba21d10991b7fb0af7ade03aa2fe7078850aaea45bbae6d649b644021f7",
         "test/codex-provider.test.mjs": "279004a4b2afd8e99989949581e90754db44e43d76663fdd072fcf1f8b070362",
         "test/consultation.test.mjs": "443cab205fd5b7093df101b81dc23a3e342fe1e087a1ec6721fe88daa21583a7",
-        "test/http.test.mjs": "3c45c00a633d9057af28cd373183da0935a4771cae4e6eebc3adba021193c12f",
+        "test/http.test.mjs": "f65da0fe5221630437267f794f286c292edace071e21c6e2b1e93ad3aa6c6ec7",
         ".env.example": "908e4483bcad524ca4c95e9d20bc57dd4f2fbc6156f17925728798f03e91620f",
         "test/fixtures/fake-codex.mjs": "ddb3b4fd9f1e07f30df8006f7e74db7edabb55a29536e1f9274f07b0ce672c66",
         "src/server/prompt-contracts.mjs": "e9ad56fdb433979e2c818706b31316a80e8dae1b3af92282fc0b000394230a9b",
-        "src/client/app.js": "235157830fc742ad4784ca3bee8ef00e572b788f8e9b6612273b5360df953b6f",
+        "src/client/app.js": "80c8dbf5d6af9d781812e3f702b93cf7e119209cc8bc29f2503cd7330a12fe24",
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -9150,12 +9174,15 @@
         "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
         "test/claude-provider.test.mjs": "b2152039c3954bcf58005ea179ed0cf7bd574271663bc468d0aa4869555c9174",
         "public/sounds/nokia-three-knocks-quick.wav": "c593d959457a011f63f85cedcc2c42efe503b0b13fa1d0a44f3aab1746c9268a",
-        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e"
+        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e",
+        "public/sounds/table-taps-250ms.wav": "433bfd84f11cba34941526d970f222b10e154a68af26594e50e34e2aa1e8459c",
+        "forge/exploration/message-sound-table-250ms-v3/source.json": "93af5d762e68fc236d1424d93d702256264f71ed60fddab287ed277f5c4b71fc",
+        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "1990cdfdbd13bb8a3a69cdecae365f4c8e81510c0741f0e60cbfb302da70e719"
       },
       "consumed_source_fragments": {}
     },
     "dod-evals": {
-      "invocation_id": "r20-policy-recovery-dod-evals-approved-2026-09-18T00:33:43.756Z",
+      "invocation_id": "r22-table-tap-dod-evals-approved-2026-09-18T00:59:30.491Z",
       "outputs": [
         "docs/dod-evals.md"
       ],
@@ -9168,7 +9195,7 @@
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/architecture.md": "acb55f1e14de46745600f6c1ec05a16a26245aa469adb59b2e4220597566da89",
+        "docs/architecture.md": "08da4984b807ffba45d31950dc0dee64a0e5db13080561a2ffdeb4fbfc72a202",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
         "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
         "src/server/claude-provider.mjs": "ea68bbffab0b9b55d626ecbafd3cdb665ebbc65925f547e50fc478316670298c",
@@ -9180,7 +9207,7 @@
       "consumed_source_fragments": {}
     },
     "qa-checklist": {
-      "invocation_id": "r20-policy-recovery-qa-checklist-approved-2026-09-18T00:33:43.756Z",
+      "invocation_id": "r22-table-tap-qa-checklist-approved-2026-09-18T00:59:30.491Z",
       "outputs": [
         "docs/qa-checklist.md"
       ],
@@ -9193,7 +9220,7 @@
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/architecture.md": "acb55f1e14de46745600f6c1ec05a16a26245aa469adb59b2e4220597566da89",
+        "docs/architecture.md": "08da4984b807ffba45d31950dc0dee64a0e5db13080561a2ffdeb4fbfc72a202",
         "docs/dod-evals.md": "dba7a17d1e83eb6afd059de73d103fd2a5452257e795875d948081eb1ec85592",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
@@ -9209,10 +9236,10 @@
         "src/server/consultation.mjs": "ed754ba21d10991b7fb0af7ade03aa2fe7078850aaea45bbae6d649b644021f7",
         "test/codex-provider.test.mjs": "279004a4b2afd8e99989949581e90754db44e43d76663fdd072fcf1f8b070362",
         "test/consultation.test.mjs": "443cab205fd5b7093df101b81dc23a3e342fe1e087a1ec6721fe88daa21583a7",
-        "test/http.test.mjs": "3c45c00a633d9057af28cd373183da0935a4771cae4e6eebc3adba021193c12f",
+        "test/http.test.mjs": "f65da0fe5221630437267f794f286c292edace071e21c6e2b1e93ad3aa6c6ec7",
         "test/fixtures/fake-codex.mjs": "ddb3b4fd9f1e07f30df8006f7e74db7edabb55a29536e1f9274f07b0ce672c66",
         "src/server/prompt-contracts.mjs": "e9ad56fdb433979e2c818706b31316a80e8dae1b3af92282fc0b000394230a9b",
-        "src/client/app.js": "235157830fc742ad4784ca3bee8ef00e572b788f8e9b6612273b5360df953b6f",
+        "src/client/app.js": "80c8dbf5d6af9d781812e3f702b93cf7e119209cc8bc29f2503cd7330a12fe24",
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -9230,12 +9257,15 @@
         "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
         "test/claude-provider.test.mjs": "b2152039c3954bcf58005ea179ed0cf7bd574271663bc468d0aa4869555c9174",
         "public/sounds/nokia-three-knocks-quick.wav": "c593d959457a011f63f85cedcc2c42efe503b0b13fa1d0a44f3aab1746c9268a",
-        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e"
+        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e",
+        "public/sounds/table-taps-250ms.wav": "433bfd84f11cba34941526d970f222b10e154a68af26594e50e34e2aa1e8459c",
+        "forge/exploration/message-sound-table-250ms-v3/source.json": "93af5d762e68fc236d1424d93d702256264f71ed60fddab287ed277f5c4b71fc",
+        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "1990cdfdbd13bb8a3a69cdecae365f4c8e81510c0741f0e60cbfb302da70e719"
       },
       "consumed_source_fragments": {}
     },
     "development-plan": {
-      "invocation_id": "r20-policy-recovery-development-plan-2026-09-18T00:33:43.756Z",
+      "invocation_id": "r22-table-tap-development-plan-2026-09-18T00:59:30.491Z",
       "outputs": [
         "docs/development-plan.md"
       ],
@@ -9248,9 +9278,9 @@
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/architecture.md": "acb55f1e14de46745600f6c1ec05a16a26245aa469adb59b2e4220597566da89",
+        "docs/architecture.md": "08da4984b807ffba45d31950dc0dee64a0e5db13080561a2ffdeb4fbfc72a202",
         "docs/dod-evals.md": "dba7a17d1e83eb6afd059de73d103fd2a5452257e795875d948081eb1ec85592",
-        "docs/qa-checklist.md": "ff888bb43c0447271c52855f672fa99e947782509953d7d302fbf9cad4d3b932",
+        "docs/qa-checklist.md": "c2b9653e378b5c7f000e7d153e14b86b5f3e77c2aea82e6ed6709faaea1a51ea",
         "docs/model-settings.md": "778151e8528c7bb7b04ca7c4e25a07f101dd532fcb9d63247dbe6999e4fd6ab1",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "package.json": "b419996e8bf38f22580ef3ad31398dd2c699bfe02057c3ffef333423c63d82f7",
@@ -9269,10 +9299,10 @@
         "src/server/consultation.mjs": "ed754ba21d10991b7fb0af7ade03aa2fe7078850aaea45bbae6d649b644021f7",
         "test/codex-provider.test.mjs": "279004a4b2afd8e99989949581e90754db44e43d76663fdd072fcf1f8b070362",
         "test/consultation.test.mjs": "443cab205fd5b7093df101b81dc23a3e342fe1e087a1ec6721fe88daa21583a7",
-        "test/http.test.mjs": "3c45c00a633d9057af28cd373183da0935a4771cae4e6eebc3adba021193c12f",
+        "test/http.test.mjs": "f65da0fe5221630437267f794f286c292edace071e21c6e2b1e93ad3aa6c6ec7",
         "test/fixtures/fake-codex.mjs": "ddb3b4fd9f1e07f30df8006f7e74db7edabb55a29536e1f9274f07b0ce672c66",
         "src/server/prompt-contracts.mjs": "e9ad56fdb433979e2c818706b31316a80e8dae1b3af92282fc0b000394230a9b",
-        "src/client/app.js": "235157830fc742ad4784ca3bee8ef00e572b788f8e9b6612273b5360df953b6f",
+        "src/client/app.js": "80c8dbf5d6af9d781812e3f702b93cf7e119209cc8bc29f2503cd7330a12fe24",
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -9290,7 +9320,10 @@
         "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
         "test/claude-provider.test.mjs": "b2152039c3954bcf58005ea179ed0cf7bd574271663bc468d0aa4869555c9174",
         "public/sounds/nokia-three-knocks-quick.wav": "c593d959457a011f63f85cedcc2c42efe503b0b13fa1d0a44f3aab1746c9268a",
-        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e"
+        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e",
+        "public/sounds/table-taps-250ms.wav": "433bfd84f11cba34941526d970f222b10e154a68af26594e50e34e2aa1e8459c",
+        "forge/exploration/message-sound-table-250ms-v3/source.json": "93af5d762e68fc236d1424d93d702256264f71ed60fddab287ed277f5c4b71fc",
+        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "1990cdfdbd13bb8a3a69cdecae365f4c8e81510c0741f0e60cbfb302da70e719"
       },
       "consumed_source_fragments": {}
     }
@@ -67621,7 +67654,7 @@
     "release_readiness": "not_evaluated",
     "source_hashes": {
       "docs/dod-evals.md": "dba7a17d1e83eb6afd059de73d103fd2a5452257e795875d948081eb1ec85592",
-      "docs/qa-checklist.md": "ff888bb43c0447271c52855f672fa99e947782509953d7d302fbf9cad4d3b932"
+      "docs/qa-checklist.md": "c2b9653e378b5c7f000e7d153e14b86b5f3e77c2aea82e6ed6709faaea1a51ea"
     },
     "gates": [
       {
@@ -68382,7 +68415,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Settings accepts specialist counts 1/2/3/5/Auto and discussion depth 1/3/5/Auto. It also exposes Knock, Chime, Ripple and Off with an owner-activated local browser WAV preview; browser audio blocking leaves visible feedback intact. Knock must use the same bundled recording for Preview and incoming alerts, with three tap onsets approximately 140 ms apart, native pitch and no clipping. Check HTTP `audio/wav`, successful browser playback, and separately have the owner listen for the requested quick glass-tap character. Verify Head chooses an Auto team from 1–5, each explicit depth produces that many Critic ↔ specialist exchanges per specialist, and Auto stops only after whole-team agreement or 10 exchanges per specialist. Cover every fixed count/depth combination; Strategy agreement must not bypass Finance disagreement. Resume after either side of a pair without duplicating confirmed messages, including legacy global consensus metadata and missing saved agreement. A Finance provider failure preserves the discussion without a Head conclusion. Specialist agreement alone cannot end Auto: a closing Critic objection continues review within the cap. At fixed depth or the cap, unresolved advice is explicitly provisional; closing messages do not add to depth.",
+        "task": "Exercise the referenced use-case path and verify: Settings accepts specialist counts 1/2/3/5/Auto and discussion depth 1/3/5/Auto. It also exposes Knock, Chime, Ripple and Off with an owner-activated local browser WAV preview; browser audio blocking leaves visible feedback intact. Knock must use the same bundled recording for Preview and incoming alerts, with three dry table-ball impacts exactly 250 ms apart, preserved pitch, no clipping and silence between their 40 ms windows. Verify that the emphasized version retains the accepted bright, short-tail character rather than restoring room echo. Check HTTP `audio/wav`, successful browser playback, and separately have the owner listen for the requested quick glass-tap character. Verify Head chooses an Auto team from 1–5, each explicit depth produces that many Critic ↔ specialist exchanges per specialist, and Auto stops only after whole-team agreement or 10 exchanges per specialist. Cover every fixed count/depth combination; Strategy agreement must not bypass Finance disagreement. Resume after either side of a pair without duplicating confirmed messages, including legacy global consensus metadata and missing saved agreement. A Finance provider failure preserves the discussion without a Head conclusion. Specialist agreement alone cannot end Auto: a closing Critic objection continues review within the cap. At fixed depth or the cap, unresolved advice is explicitly provisional; closing messages do not add to depth.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -72630,6 +72663,11 @@
       "event": "r20_ukrainian_policy_and_failed_run_reconciliation",
       "previous_commit": "6a6ac79",
       "reason": "Repair existing English/Ukrainian acceptance and failed-run recovery; no new model, role, permission, database schema or visual baseline."
+    },
+    {
+      "at": "2026-09-18T00:59:30.491Z",
+      "event": "r22_table_tap_reconciliation",
+      "reason": "Owner accepted the v2 dry table-bounce sound and requested more emphasis. Reconcile existing audio behavior without changing upstream scope or approved design."
     }
   ],
   "verification_history": [
@@ -104123,6 +104161,16 @@
       },
       "result": "passed_129_tests_and_local_chrome_recovery",
       "limitation": "Hosted discussion inspected read-only. No deployment, live provider, real MySQL integration or full release verification."
+    },
+    {
+      "at": "2026-09-18T01:00:46.476Z",
+      "event": "r22_table_tap_local_verification",
+      "receipt": {
+        "path": "forge/runs/U-03/r22-table-tap-20260918/verification.json",
+        "content_hash": "8674590238522a564c7bf4ded368b9446fc29a11a330b7cb2f82990dae984cfe"
+      },
+      "result": "passed_129_tests_and_pcm_verification",
+      "limitation": "No new hosted deployment or app-browser playback check; final refinement provided to owner for listening."
     }
   ],
   "last_resume": {

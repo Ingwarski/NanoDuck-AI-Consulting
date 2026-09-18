@@ -71,7 +71,7 @@ test("the local HTTP flow protects data, saves settings and preserves a truthful
     assert.match(shell, /id="notification-sound"/u);
     assert.doesNotMatch(shell, /id="conversation-title"/u);
     assert.match((await fetch(`${origin}/`)).headers.get("content-security-policy"), /media-src 'self' blob:/u);
-    const knockResponse = await fetch(`${origin}/sounds/nokia-three-knocks-quick.wav`);
+    const knockResponse = await fetch(`${origin}/sounds/table-taps-250ms.wav`);
     assert.equal(knockResponse.status, 200);
     assert.equal(knockResponse.headers.get("content-type"), "audio/wav");
     const knockBytes = Buffer.from(await knockResponse.arrayBuffer());
