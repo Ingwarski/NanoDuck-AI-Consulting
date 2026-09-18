@@ -45,7 +45,7 @@ const notificationPatterns = Object.freeze({
 const notificationSoundUrls = new Map();
 const notificationPlayers = new Set();
 const soundUrl = name => {
-  if (name === "knock") return "/sounds/table-taps-250ms.wav";
+  if (name === "knock") return "/sounds/table-taps-250ms-v5.wav";
   if (notificationSoundUrls.has(name)) return notificationSoundUrls.get(name);
   const pattern = notificationPatterns[name]; if (!pattern || typeof Blob !== "function" || !URL.createObjectURL) return undefined;
   const rate = 44_100; const seconds = Math.max(...pattern.map(([, offset, duration]) => offset + duration)) + .08; const samples = Math.ceil(seconds * rate);

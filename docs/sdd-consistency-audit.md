@@ -1,6 +1,14 @@
 # SDD consistency audit
 
-## Current dry table-tap alert — 18 September 2026
+## Current accepted Knock sound — 18 September 2026
+
+R-23 promotes the exact v5 sample accepted by the owner: “this is it.” The sound blends the sharper v3 and woody v4 impacts with quiet early reflections, keeping three taps exactly 250 ms apart. The 45 ms direct impact and tiny echo end within 92 ms per tap. The new versioned path, `/sounds/table-taps-250ms-v5.wav`, is shared by Settings Preview and incoming-message alerts and prevents reuse of the cached v3 file. Chime/Ripple and the existing sound setting are unchanged.
+
+The [owner acceptance](../forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json) binds the accepted file to the identical application bytes. Earlier exploration receipts retain their original pre-acceptance status as history. The [verification receipt](../forge/runs/U-03/r23-accepted-knock-20260918/verification.json) records 129 passing tests, HTTP WAV delivery identical to the accepted file, exact 250 ms PCM timing without clipping, and successful local Chrome playback from Settings. The architecture, QA and U-03 plan now describe the accepted blended sound with a tiny echo; the outdated glass-tap description is removed. The DoD definitions remain valid and their architecture binding is refreshed. All four affected owner checks, the SDD audit and implementation check passed.
+
+This is a repository/local correction. No GoDaddy deployment, live provider, production database operation, new Safari test or full release evaluation is claimed.
+
+## Superseded dry table-tap alert — 18 September 2026
 
 R-22 replaces the rejected Nokia-based Knock with the owner-refined CC0 ping-pong-ball-on-table sample. The owner accepted v2’s bright, dry character and requested slightly more emphasis. V3 keeps its 40 ms impact, pitch, EQ, decay and exactly 250 ms onset-to-onset spacing, with mild compression and a peak of 0.96. Measured RMS level rises approximately 3.03 dB, with no clipped samples and silence between impacts. Settings Preview and incoming alerts use the same bundled WAV and playback path. Chime/Ripple and all other settings remain unchanged. Earlier exploratory audio files and source receipts are preserved.
 

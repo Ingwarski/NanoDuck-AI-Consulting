@@ -3758,13 +3758,13 @@
     "architecture": {
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "r22-table-tap-architecture-approved-2026-09-18T00:59:30.491Z",
+      "owner_invocation_id": "r23-accepted-knock-architecture-approved-2026-09-18T01:13:25.320Z",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r22-table-tap-architecture-approved-2026-09-18T00:59:30.491Z",
+      "source_version": "r23-accepted-knock-architecture-approved-2026-09-18T01:13:25.320Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3812,7 +3812,12 @@
         "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "full",
         "public/sounds/table-taps-250ms.wav": "full",
         "forge/exploration/message-sound-table-250ms-v3/source.json": "full",
-        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "full"
+        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "full",
+        "forge/exploration/message-sound-table-250ms-v5/preview.wav": "full",
+        "public/sounds/table-taps-250ms-v5.wav": "full",
+        "forge/exploration/message-sound-table-250ms-v5/source.json": "full",
+        "forge/exploration/message-sound-table-250ms-v5/edit-audio.py": "full",
+        "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "full"
       },
       "source_hashes": {
         "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
@@ -3836,11 +3841,11 @@
         "src/server/consultation.mjs": "ed754ba21d10991b7fb0af7ade03aa2fe7078850aaea45bbae6d649b644021f7",
         "test/codex-provider.test.mjs": "279004a4b2afd8e99989949581e90754db44e43d76663fdd072fcf1f8b070362",
         "test/consultation.test.mjs": "443cab205fd5b7093df101b81dc23a3e342fe1e087a1ec6721fe88daa21583a7",
-        "test/http.test.mjs": "f65da0fe5221630437267f794f286c292edace071e21c6e2b1e93ad3aa6c6ec7",
+        "test/http.test.mjs": "308793fdb20e22317df65c867f02b4ca1f558469ec22bb4b5e9f459d424d0ea5",
         ".env.example": "908e4483bcad524ca4c95e9d20bc57dd4f2fbc6156f17925728798f03e91620f",
         "test/fixtures/fake-codex.mjs": "ddb3b4fd9f1e07f30df8006f7e74db7edabb55a29536e1f9274f07b0ce672c66",
         "src/server/prompt-contracts.mjs": "e9ad56fdb433979e2c818706b31316a80e8dae1b3af92282fc0b000394230a9b",
-        "src/client/app.js": "80c8dbf5d6af9d781812e3f702b93cf7e119209cc8bc29f2503cd7330a12fe24",
+        "src/client/app.js": "4f88878672536ad884a092e39f321ecb3a5e88ffe40852899541ebf59f048e9a",
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -3861,7 +3866,12 @@
         "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e",
         "public/sounds/table-taps-250ms.wav": "433bfd84f11cba34941526d970f222b10e154a68af26594e50e34e2aa1e8459c",
         "forge/exploration/message-sound-table-250ms-v3/source.json": "93af5d762e68fc236d1424d93d702256264f71ed60fddab287ed277f5c4b71fc",
-        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "1990cdfdbd13bb8a3a69cdecae365f4c8e81510c0741f0e60cbfb302da70e719"
+        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "1990cdfdbd13bb8a3a69cdecae365f4c8e81510c0741f0e60cbfb302da70e719",
+        "forge/exploration/message-sound-table-250ms-v5/preview.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
+        "public/sounds/table-taps-250ms-v5.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
+        "forge/exploration/message-sound-table-250ms-v5/source.json": "6f700507f98b6ec595c4ef356e5ce2a5a6a3e8b516cfc4b246a75bd87ea7976b",
+        "forge/exploration/message-sound-table-250ms-v5/edit-audio.py": "a9f947960fc1ac70d4172d0dc08275236bd95e8eeeef950960beb8413fb63b2e",
+        "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "867ed009230b2a3b15407fb88182caa720663af4df338e9cb6dfdc2abbb9fa22"
       },
       "dependencies": [
         "prd",
@@ -3873,14 +3883,14 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "08da4984b807ffba45d31950dc0dee64a0e5db13080561a2ffdeb4fbfc72a202",
+      "content_hash": "30ffb59c86122f9ca9927a1f5060ba61d8c44d7c7a70a010baa7baa508a8b3a1",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r22-table-tap-scoped-reconciliation",
-        "reviewed_at": "2026-09-18T00:59:30.491Z",
+        "kind": "r23-accepted-knock-scoped-reconciliation",
+        "reviewed_at": "2026-09-18T01:13:25.320Z",
         "executor": "Codex inline to-architecture",
-        "scope": "Reconcile accepted dry table-tap character, requested emphasis and 250 ms spacing through the existing shared audio path; all models, language policy and permissions remain unchanged."
+        "scope": "Reconcile the accepted blended v5 sound and tiny echo for the existing Knock preference. Preserve models, permissions, visual baseline and other sound choices."
       },
       "open_questions": [],
       "security_coverage": {
@@ -3959,13 +3969,13 @@
     "dod-evals": {
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "r22-table-tap-dod-evals-approved-2026-09-18T00:59:30.491Z",
+      "owner_invocation_id": "r23-accepted-knock-dod-evals-approved-2026-09-18T01:13:25.320Z",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r22-table-tap-dod-evals-approved-2026-09-18T00:59:30.491Z",
+      "source_version": "r23-accepted-knock-dod-evals-approved-2026-09-18T01:13:25.320Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3993,7 +4003,7 @@
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/architecture.md": "08da4984b807ffba45d31950dc0dee64a0e5db13080561a2ffdeb4fbfc72a202",
+        "docs/architecture.md": "30ffb59c86122f9ca9927a1f5060ba61d8c44d7c7a70a010baa7baa508a8b3a1",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
         "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
         "src/server/claude-provider.mjs": "ea68bbffab0b9b55d626ecbafd3cdb665ebbc65925f547e50fc478316670298c",
@@ -4017,10 +4027,10 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r22-table-tap-scoped-reconciliation",
-        "reviewed_at": "2026-09-18T00:59:30.491Z",
+        "kind": "r23-accepted-knock-scoped-reconciliation",
+        "reviewed_at": "2026-09-18T01:13:25.320Z",
         "executor": "Codex inline to-dod-evals",
-        "scope": "Unchanged gate definitions; refresh current architecture binding."
+        "scope": "Existing gates remain valid; refresh the reconciled architecture binding. This owner defines checks, not executed results."
       },
       "open_questions": [],
       "security_coverage": {
@@ -4099,13 +4109,13 @@
     "qa-checklist": {
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "r22-table-tap-qa-checklist-approved-2026-09-18T00:59:30.491Z",
+      "owner_invocation_id": "r23-accepted-knock-qa-checklist-approved-2026-09-18T01:13:25.320Z",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r22-table-tap-qa-checklist-approved-2026-09-18T00:59:30.491Z",
+      "source_version": "r23-accepted-knock-qa-checklist-approved-2026-09-18T01:13:25.320Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -4155,7 +4165,12 @@
         "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "full",
         "public/sounds/table-taps-250ms.wav": "full",
         "forge/exploration/message-sound-table-250ms-v3/source.json": "full",
-        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "full"
+        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "full",
+        "forge/exploration/message-sound-table-250ms-v5/preview.wav": "full",
+        "public/sounds/table-taps-250ms-v5.wav": "full",
+        "forge/exploration/message-sound-table-250ms-v5/source.json": "full",
+        "forge/exploration/message-sound-table-250ms-v5/edit-audio.py": "full",
+        "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "full"
       },
       "source_hashes": {
         "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
@@ -4166,7 +4181,7 @@
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/architecture.md": "08da4984b807ffba45d31950dc0dee64a0e5db13080561a2ffdeb4fbfc72a202",
+        "docs/architecture.md": "30ffb59c86122f9ca9927a1f5060ba61d8c44d7c7a70a010baa7baa508a8b3a1",
         "docs/dod-evals.md": "dba7a17d1e83eb6afd059de73d103fd2a5452257e795875d948081eb1ec85592",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
@@ -4182,10 +4197,10 @@
         "src/server/consultation.mjs": "ed754ba21d10991b7fb0af7ade03aa2fe7078850aaea45bbae6d649b644021f7",
         "test/codex-provider.test.mjs": "279004a4b2afd8e99989949581e90754db44e43d76663fdd072fcf1f8b070362",
         "test/consultation.test.mjs": "443cab205fd5b7093df101b81dc23a3e342fe1e087a1ec6721fe88daa21583a7",
-        "test/http.test.mjs": "f65da0fe5221630437267f794f286c292edace071e21c6e2b1e93ad3aa6c6ec7",
+        "test/http.test.mjs": "308793fdb20e22317df65c867f02b4ca1f558469ec22bb4b5e9f459d424d0ea5",
         "test/fixtures/fake-codex.mjs": "ddb3b4fd9f1e07f30df8006f7e74db7edabb55a29536e1f9274f07b0ce672c66",
         "src/server/prompt-contracts.mjs": "e9ad56fdb433979e2c818706b31316a80e8dae1b3af92282fc0b000394230a9b",
-        "src/client/app.js": "80c8dbf5d6af9d781812e3f702b93cf7e119209cc8bc29f2503cd7330a12fe24",
+        "src/client/app.js": "4f88878672536ad884a092e39f321ecb3a5e88ffe40852899541ebf59f048e9a",
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -4206,7 +4221,12 @@
         "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e",
         "public/sounds/table-taps-250ms.wav": "433bfd84f11cba34941526d970f222b10e154a68af26594e50e34e2aa1e8459c",
         "forge/exploration/message-sound-table-250ms-v3/source.json": "93af5d762e68fc236d1424d93d702256264f71ed60fddab287ed277f5c4b71fc",
-        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "1990cdfdbd13bb8a3a69cdecae365f4c8e81510c0741f0e60cbfb302da70e719"
+        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "1990cdfdbd13bb8a3a69cdecae365f4c8e81510c0741f0e60cbfb302da70e719",
+        "forge/exploration/message-sound-table-250ms-v5/preview.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
+        "public/sounds/table-taps-250ms-v5.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
+        "forge/exploration/message-sound-table-250ms-v5/source.json": "6f700507f98b6ec595c4ef356e5ce2a5a6a3e8b516cfc4b246a75bd87ea7976b",
+        "forge/exploration/message-sound-table-250ms-v5/edit-audio.py": "a9f947960fc1ac70d4172d0dc08275236bd95e8eeeef950960beb8413fb63b2e",
+        "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "867ed009230b2a3b15407fb88182caa720663af4df338e9cb6dfdc2abbb9fa22"
       },
       "dependencies": [
         "prd",
@@ -4220,14 +4240,14 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "c2b9653e378b5c7f000e7d153e14b86b5f3e77c2aea82e6ed6709faaea1a51ea",
+      "content_hash": "b51bc71d9123cada54c807d320e80c34c7a6526a34599d3caf6ce88972b0f436",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r22-table-tap-scoped-reconciliation",
-        "reviewed_at": "2026-09-18T00:59:30.491Z",
+        "kind": "r23-accepted-knock-scoped-reconciliation",
+        "reviewed_at": "2026-09-18T01:13:25.320Z",
         "executor": "Codex inline to-qa-checklist",
-        "scope": "Reconcile accepted dry table-tap character, requested emphasis and 250 ms spacing through the existing shared audio path; all models, language policy and permissions remain unchanged."
+        "scope": "Reconcile the accepted blended v5 sound and tiny echo for the existing Knock preference. Preserve models, permissions, visual baseline and other sound choices."
       },
       "open_questions": [],
       "traceability": {
@@ -5995,13 +6015,13 @@
     "development-plan": {
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "r22-table-tap-development-plan-2026-09-18T00:59:30.491Z",
+      "owner_invocation_id": "r23-accepted-knock-development-plan-2026-09-18T01:13:25.320Z",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r22-table-tap-development-plan-2026-09-18T00:59:30.491Z",
+      "source_version": "r23-accepted-knock-development-plan-2026-09-18T01:13:25.320Z",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -6056,7 +6076,12 @@
         "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "full",
         "public/sounds/table-taps-250ms.wav": "full",
         "forge/exploration/message-sound-table-250ms-v3/source.json": "full",
-        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "full"
+        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "full",
+        "forge/exploration/message-sound-table-250ms-v5/preview.wav": "full",
+        "public/sounds/table-taps-250ms-v5.wav": "full",
+        "forge/exploration/message-sound-table-250ms-v5/source.json": "full",
+        "forge/exploration/message-sound-table-250ms-v5/edit-audio.py": "full",
+        "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "full"
       },
       "source_hashes": {
         "docs/prd.md": "209cf5418f60b083b7d06b6133649d99c0f1abf9fe933361aadf57ca8555f679",
@@ -6067,9 +6092,9 @@
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/architecture.md": "08da4984b807ffba45d31950dc0dee64a0e5db13080561a2ffdeb4fbfc72a202",
+        "docs/architecture.md": "30ffb59c86122f9ca9927a1f5060ba61d8c44d7c7a70a010baa7baa508a8b3a1",
         "docs/dod-evals.md": "dba7a17d1e83eb6afd059de73d103fd2a5452257e795875d948081eb1ec85592",
-        "docs/qa-checklist.md": "c2b9653e378b5c7f000e7d153e14b86b5f3e77c2aea82e6ed6709faaea1a51ea",
+        "docs/qa-checklist.md": "b51bc71d9123cada54c807d320e80c34c7a6526a34599d3caf6ce88972b0f436",
         "docs/model-settings.md": "778151e8528c7bb7b04ca7c4e25a07f101dd532fcb9d63247dbe6999e4fd6ab1",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "package.json": "b419996e8bf38f22580ef3ad31398dd2c699bfe02057c3ffef333423c63d82f7",
@@ -6088,10 +6113,10 @@
         "src/server/consultation.mjs": "ed754ba21d10991b7fb0af7ade03aa2fe7078850aaea45bbae6d649b644021f7",
         "test/codex-provider.test.mjs": "279004a4b2afd8e99989949581e90754db44e43d76663fdd072fcf1f8b070362",
         "test/consultation.test.mjs": "443cab205fd5b7093df101b81dc23a3e342fe1e087a1ec6721fe88daa21583a7",
-        "test/http.test.mjs": "f65da0fe5221630437267f794f286c292edace071e21c6e2b1e93ad3aa6c6ec7",
+        "test/http.test.mjs": "308793fdb20e22317df65c867f02b4ca1f558469ec22bb4b5e9f459d424d0ea5",
         "test/fixtures/fake-codex.mjs": "ddb3b4fd9f1e07f30df8006f7e74db7edabb55a29536e1f9274f07b0ce672c66",
         "src/server/prompt-contracts.mjs": "e9ad56fdb433979e2c818706b31316a80e8dae1b3af92282fc0b000394230a9b",
-        "src/client/app.js": "80c8dbf5d6af9d781812e3f702b93cf7e119209cc8bc29f2503cd7330a12fe24",
+        "src/client/app.js": "4f88878672536ad884a092e39f321ecb3a5e88ffe40852899541ebf59f048e9a",
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -6112,7 +6137,12 @@
         "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e",
         "public/sounds/table-taps-250ms.wav": "433bfd84f11cba34941526d970f222b10e154a68af26594e50e34e2aa1e8459c",
         "forge/exploration/message-sound-table-250ms-v3/source.json": "93af5d762e68fc236d1424d93d702256264f71ed60fddab287ed277f5c4b71fc",
-        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "1990cdfdbd13bb8a3a69cdecae365f4c8e81510c0741f0e60cbfb302da70e719"
+        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "1990cdfdbd13bb8a3a69cdecae365f4c8e81510c0741f0e60cbfb302da70e719",
+        "forge/exploration/message-sound-table-250ms-v5/preview.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
+        "public/sounds/table-taps-250ms-v5.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
+        "forge/exploration/message-sound-table-250ms-v5/source.json": "6f700507f98b6ec595c4ef356e5ce2a5a6a3e8b516cfc4b246a75bd87ea7976b",
+        "forge/exploration/message-sound-table-250ms-v5/edit-audio.py": "a9f947960fc1ac70d4172d0dc08275236bd95e8eeeef950960beb8413fb63b2e",
+        "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "867ed009230b2a3b15407fb88182caa720663af4df338e9cb6dfdc2abbb9fa22"
       },
       "dependencies": [
         "prd",
@@ -6127,14 +6157,14 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "694c24e45ba914fdbc7dd234bc3fa826c0497afe15d523c79eae28d69df750f4",
+      "content_hash": "954fd0b8c3c210a9b683e554d8870bfa20f719d23e6046fd7cc4edf1daea3ad6",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r22-table-tap-scoped-reconciliation",
-        "reviewed_at": "2026-09-18T00:59:30.491Z",
+        "kind": "r23-accepted-knock-scoped-reconciliation",
+        "reviewed_at": "2026-09-18T01:13:25.320Z",
         "executor": "Codex inline to-development-plan",
-        "scope": "Reconcile accepted dry table-tap character, requested emphasis and 250 ms spacing through the existing shared audio path; all models, language policy and permissions remain unchanged."
+        "scope": "Reconcile the accepted blended v5 sound and tiny echo for the existing Knock preference. Preserve models, permissions, visual baseline and other sound choices."
       },
       "supersedes": "r15-rtf-export-development-plan-2026-09-17T18:32:08+00:00",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
@@ -7836,18 +7866,18 @@
   ],
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "694c24e45ba914fdbc7dd234bc3fa826c0497afe15d523c79eae28d69df750f4",
+    "development_plan_hash": "954fd0b8c3c210a9b683e554d8870bfa20f719d23e6046fd7cc4edf1daea3ad6",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-14T20:13:37+03:00",
-    "prompt_id": "impl-r22-table-tap-20260918",
-    "prompt_received_at": "2026-09-18T01:00:46.476Z",
-    "released_at": "2026-09-18T01:00:46.476Z",
+    "prompt_id": "impl-r23-accepted-knock-20260918",
+    "prompt_received_at": "2026-09-18T01:13:25.320Z",
+    "released_at": "2026-09-18T01:13:25.320Z",
     "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
     "prompt_receipt": {
-      "path": "forge/runs/implementation-prompt-20260918-r22-table-tap.json",
-      "content_hash": "5d87c0fb5d55ad4142215e8d9d75b8ae709dda19b3cce0849e98865adf69b4de"
+      "path": "forge/runs/implementation-prompt-20260918-r23-accepted-knock.json",
+      "content_hash": "78f862682904cbb727988ecbfe0c5557ba462f18ef2321b76171abcd591aa5ac"
     },
-    "reason": "Explicit owner refinement of the existing authorized Knock alert; preserve approved design, role/model choices, provider and data boundaries."
+    "reason": "Continue the already authorized notification-sound correction using the exact owner-accepted v5 asset. Scope and visual baseline remain unchanged."
   },
   "input_requests": [],
   "last_resume_event": {
@@ -8957,6 +8987,12 @@
       "event": "r22_existing_sound_refinement",
       "previous_prompt_id": "impl-r20-ukrainian-policy-recovery-20260918",
       "prompt_id": "impl-r22-table-tap-20260918"
+    },
+    {
+      "at": "2026-09-18T01:13:25.320Z",
+      "event": "r23_existing_sound_refinement_accepted",
+      "previous_prompt_id": "impl-r22-table-tap-20260918",
+      "prompt_id": "impl-r23-accepted-knock-20260918"
     }
   ],
   "dispatches": {
@@ -9126,7 +9162,7 @@
       "consumed_source_fragments": {}
     },
     "architecture": {
-      "invocation_id": "r22-table-tap-architecture-approved-2026-09-18T00:59:30.491Z",
+      "invocation_id": "r23-accepted-knock-architecture-approved-2026-09-18T01:13:25.320Z",
       "outputs": [
         "docs/architecture.md"
       ],
@@ -9152,11 +9188,11 @@
         "src/server/consultation.mjs": "ed754ba21d10991b7fb0af7ade03aa2fe7078850aaea45bbae6d649b644021f7",
         "test/codex-provider.test.mjs": "279004a4b2afd8e99989949581e90754db44e43d76663fdd072fcf1f8b070362",
         "test/consultation.test.mjs": "443cab205fd5b7093df101b81dc23a3e342fe1e087a1ec6721fe88daa21583a7",
-        "test/http.test.mjs": "f65da0fe5221630437267f794f286c292edace071e21c6e2b1e93ad3aa6c6ec7",
+        "test/http.test.mjs": "308793fdb20e22317df65c867f02b4ca1f558469ec22bb4b5e9f459d424d0ea5",
         ".env.example": "908e4483bcad524ca4c95e9d20bc57dd4f2fbc6156f17925728798f03e91620f",
         "test/fixtures/fake-codex.mjs": "ddb3b4fd9f1e07f30df8006f7e74db7edabb55a29536e1f9274f07b0ce672c66",
         "src/server/prompt-contracts.mjs": "e9ad56fdb433979e2c818706b31316a80e8dae1b3af92282fc0b000394230a9b",
-        "src/client/app.js": "80c8dbf5d6af9d781812e3f702b93cf7e119209cc8bc29f2503cd7330a12fe24",
+        "src/client/app.js": "4f88878672536ad884a092e39f321ecb3a5e88ffe40852899541ebf59f048e9a",
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -9177,12 +9213,17 @@
         "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e",
         "public/sounds/table-taps-250ms.wav": "433bfd84f11cba34941526d970f222b10e154a68af26594e50e34e2aa1e8459c",
         "forge/exploration/message-sound-table-250ms-v3/source.json": "93af5d762e68fc236d1424d93d702256264f71ed60fddab287ed277f5c4b71fc",
-        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "1990cdfdbd13bb8a3a69cdecae365f4c8e81510c0741f0e60cbfb302da70e719"
+        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "1990cdfdbd13bb8a3a69cdecae365f4c8e81510c0741f0e60cbfb302da70e719",
+        "forge/exploration/message-sound-table-250ms-v5/preview.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
+        "public/sounds/table-taps-250ms-v5.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
+        "forge/exploration/message-sound-table-250ms-v5/source.json": "6f700507f98b6ec595c4ef356e5ce2a5a6a3e8b516cfc4b246a75bd87ea7976b",
+        "forge/exploration/message-sound-table-250ms-v5/edit-audio.py": "a9f947960fc1ac70d4172d0dc08275236bd95e8eeeef950960beb8413fb63b2e",
+        "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "867ed009230b2a3b15407fb88182caa720663af4df338e9cb6dfdc2abbb9fa22"
       },
       "consumed_source_fragments": {}
     },
     "dod-evals": {
-      "invocation_id": "r22-table-tap-dod-evals-approved-2026-09-18T00:59:30.491Z",
+      "invocation_id": "r23-accepted-knock-dod-evals-approved-2026-09-18T01:13:25.320Z",
       "outputs": [
         "docs/dod-evals.md"
       ],
@@ -9195,7 +9236,7 @@
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/architecture.md": "08da4984b807ffba45d31950dc0dee64a0e5db13080561a2ffdeb4fbfc72a202",
+        "docs/architecture.md": "30ffb59c86122f9ca9927a1f5060ba61d8c44d7c7a70a010baa7baa508a8b3a1",
         "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
         "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
         "src/server/claude-provider.mjs": "ea68bbffab0b9b55d626ecbafd3cdb665ebbc65925f547e50fc478316670298c",
@@ -9207,7 +9248,7 @@
       "consumed_source_fragments": {}
     },
     "qa-checklist": {
-      "invocation_id": "r22-table-tap-qa-checklist-approved-2026-09-18T00:59:30.491Z",
+      "invocation_id": "r23-accepted-knock-qa-checklist-approved-2026-09-18T01:13:25.320Z",
       "outputs": [
         "docs/qa-checklist.md"
       ],
@@ -9220,7 +9261,7 @@
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/architecture.md": "08da4984b807ffba45d31950dc0dee64a0e5db13080561a2ffdeb4fbfc72a202",
+        "docs/architecture.md": "30ffb59c86122f9ca9927a1f5060ba61d8c44d7c7a70a010baa7baa508a8b3a1",
         "docs/dod-evals.md": "dba7a17d1e83eb6afd059de73d103fd2a5452257e795875d948081eb1ec85592",
         "forge/design/evidence/heuristic-review.json": "f1bc387aba24fc70dd0d17bf9f117f9b5b5cfe39a5e8e45f0aec76b1456b6150",
         "forge/design/evidence/a-v1-visual-qa.json": "98c26b5caf95efbd556c3533184bfc7e79b96ba221b4eb389195ff754bee1322",
@@ -9236,10 +9277,10 @@
         "src/server/consultation.mjs": "ed754ba21d10991b7fb0af7ade03aa2fe7078850aaea45bbae6d649b644021f7",
         "test/codex-provider.test.mjs": "279004a4b2afd8e99989949581e90754db44e43d76663fdd072fcf1f8b070362",
         "test/consultation.test.mjs": "443cab205fd5b7093df101b81dc23a3e342fe1e087a1ec6721fe88daa21583a7",
-        "test/http.test.mjs": "f65da0fe5221630437267f794f286c292edace071e21c6e2b1e93ad3aa6c6ec7",
+        "test/http.test.mjs": "308793fdb20e22317df65c867f02b4ca1f558469ec22bb4b5e9f459d424d0ea5",
         "test/fixtures/fake-codex.mjs": "ddb3b4fd9f1e07f30df8006f7e74db7edabb55a29536e1f9274f07b0ce672c66",
         "src/server/prompt-contracts.mjs": "e9ad56fdb433979e2c818706b31316a80e8dae1b3af92282fc0b000394230a9b",
-        "src/client/app.js": "80c8dbf5d6af9d781812e3f702b93cf7e119209cc8bc29f2503cd7330a12fe24",
+        "src/client/app.js": "4f88878672536ad884a092e39f321ecb3a5e88ffe40852899541ebf59f048e9a",
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -9260,12 +9301,17 @@
         "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e",
         "public/sounds/table-taps-250ms.wav": "433bfd84f11cba34941526d970f222b10e154a68af26594e50e34e2aa1e8459c",
         "forge/exploration/message-sound-table-250ms-v3/source.json": "93af5d762e68fc236d1424d93d702256264f71ed60fddab287ed277f5c4b71fc",
-        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "1990cdfdbd13bb8a3a69cdecae365f4c8e81510c0741f0e60cbfb302da70e719"
+        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "1990cdfdbd13bb8a3a69cdecae365f4c8e81510c0741f0e60cbfb302da70e719",
+        "forge/exploration/message-sound-table-250ms-v5/preview.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
+        "public/sounds/table-taps-250ms-v5.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
+        "forge/exploration/message-sound-table-250ms-v5/source.json": "6f700507f98b6ec595c4ef356e5ce2a5a6a3e8b516cfc4b246a75bd87ea7976b",
+        "forge/exploration/message-sound-table-250ms-v5/edit-audio.py": "a9f947960fc1ac70d4172d0dc08275236bd95e8eeeef950960beb8413fb63b2e",
+        "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "867ed009230b2a3b15407fb88182caa720663af4df338e9cb6dfdc2abbb9fa22"
       },
       "consumed_source_fragments": {}
     },
     "development-plan": {
-      "invocation_id": "r22-table-tap-development-plan-2026-09-18T00:59:30.491Z",
+      "invocation_id": "r23-accepted-knock-development-plan-2026-09-18T01:13:25.320Z",
       "outputs": [
         "docs/development-plan.md"
       ],
@@ -9278,9 +9324,9 @@
         "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
         "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
         "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/architecture.md": "08da4984b807ffba45d31950dc0dee64a0e5db13080561a2ffdeb4fbfc72a202",
+        "docs/architecture.md": "30ffb59c86122f9ca9927a1f5060ba61d8c44d7c7a70a010baa7baa508a8b3a1",
         "docs/dod-evals.md": "dba7a17d1e83eb6afd059de73d103fd2a5452257e795875d948081eb1ec85592",
-        "docs/qa-checklist.md": "c2b9653e378b5c7f000e7d153e14b86b5f3e77c2aea82e6ed6709faaea1a51ea",
+        "docs/qa-checklist.md": "b51bc71d9123cada54c807d320e80c34c7a6526a34599d3caf6ce88972b0f436",
         "docs/model-settings.md": "778151e8528c7bb7b04ca7c4e25a07f101dd532fcb9d63247dbe6999e4fd6ab1",
         "docs/deployment-boundary.md": "685a93f671f7950531dfcc452fc90fe4ad300d7fcfe824749eba0cba9379e72d",
         "package.json": "b419996e8bf38f22580ef3ad31398dd2c699bfe02057c3ffef333423c63d82f7",
@@ -9299,10 +9345,10 @@
         "src/server/consultation.mjs": "ed754ba21d10991b7fb0af7ade03aa2fe7078850aaea45bbae6d649b644021f7",
         "test/codex-provider.test.mjs": "279004a4b2afd8e99989949581e90754db44e43d76663fdd072fcf1f8b070362",
         "test/consultation.test.mjs": "443cab205fd5b7093df101b81dc23a3e342fe1e087a1ec6721fe88daa21583a7",
-        "test/http.test.mjs": "f65da0fe5221630437267f794f286c292edace071e21c6e2b1e93ad3aa6c6ec7",
+        "test/http.test.mjs": "308793fdb20e22317df65c867f02b4ca1f558469ec22bb4b5e9f459d424d0ea5",
         "test/fixtures/fake-codex.mjs": "ddb3b4fd9f1e07f30df8006f7e74db7edabb55a29536e1f9274f07b0ce672c66",
         "src/server/prompt-contracts.mjs": "e9ad56fdb433979e2c818706b31316a80e8dae1b3af92282fc0b000394230a9b",
-        "src/client/app.js": "80c8dbf5d6af9d781812e3f702b93cf7e119209cc8bc29f2503cd7330a12fe24",
+        "src/client/app.js": "4f88878672536ad884a092e39f321ecb3a5e88ffe40852899541ebf59f048e9a",
         "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
         "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
         "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
@@ -9323,7 +9369,12 @@
         "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e",
         "public/sounds/table-taps-250ms.wav": "433bfd84f11cba34941526d970f222b10e154a68af26594e50e34e2aa1e8459c",
         "forge/exploration/message-sound-table-250ms-v3/source.json": "93af5d762e68fc236d1424d93d702256264f71ed60fddab287ed277f5c4b71fc",
-        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "1990cdfdbd13bb8a3a69cdecae365f4c8e81510c0741f0e60cbfb302da70e719"
+        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "1990cdfdbd13bb8a3a69cdecae365f4c8e81510c0741f0e60cbfb302da70e719",
+        "forge/exploration/message-sound-table-250ms-v5/preview.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
+        "public/sounds/table-taps-250ms-v5.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
+        "forge/exploration/message-sound-table-250ms-v5/source.json": "6f700507f98b6ec595c4ef356e5ce2a5a6a3e8b516cfc4b246a75bd87ea7976b",
+        "forge/exploration/message-sound-table-250ms-v5/edit-audio.py": "a9f947960fc1ac70d4172d0dc08275236bd95e8eeeef950960beb8413fb63b2e",
+        "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "867ed009230b2a3b15407fb88182caa720663af4df338e9cb6dfdc2abbb9fa22"
       },
       "consumed_source_fragments": {}
     }
@@ -67654,7 +67705,7 @@
     "release_readiness": "not_evaluated",
     "source_hashes": {
       "docs/dod-evals.md": "dba7a17d1e83eb6afd059de73d103fd2a5452257e795875d948081eb1ec85592",
-      "docs/qa-checklist.md": "c2b9653e378b5c7f000e7d153e14b86b5f3e77c2aea82e6ed6709faaea1a51ea"
+      "docs/qa-checklist.md": "b51bc71d9123cada54c807d320e80c34c7a6526a34599d3caf6ce88972b0f436"
     },
     "gates": [
       {
@@ -68415,7 +68466,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Settings accepts specialist counts 1/2/3/5/Auto and discussion depth 1/3/5/Auto. It also exposes Knock, Chime, Ripple and Off with an owner-activated local browser WAV preview; browser audio blocking leaves visible feedback intact. Knock must use the same bundled recording for Preview and incoming alerts, with three dry table-ball impacts exactly 250 ms apart, preserved pitch, no clipping and silence between their 40 ms windows. Verify that the emphasized version retains the accepted bright, short-tail character rather than restoring room echo. Check HTTP `audio/wav`, successful browser playback, and separately have the owner listen for the requested quick glass-tap character. Verify Head chooses an Auto team from 1–5, each explicit depth produces that many Critic ↔ specialist exchanges per specialist, and Auto stops only after whole-team agreement or 10 exchanges per specialist. Cover every fixed count/depth combination; Strategy agreement must not bypass Finance disagreement. Resume after either side of a pair without duplicating confirmed messages, including legacy global consensus metadata and missing saved agreement. A Finance provider failure preserves the discussion without a Head conclusion. Specialist agreement alone cannot end Auto: a closing Critic objection continues review within the cap. At fixed depth or the cap, unresolved advice is explicitly provisional; closing messages do not add to depth.",
+        "task": "Exercise the referenced use-case path and verify: Settings accepts specialist counts 1/2/3/5/Auto and discussion depth 1/3/5/Auto. It also exposes Knock, Chime, Ripple and Off with an owner-activated local browser WAV preview; browser audio blocking leaves visible feedback intact. Knock must use the same bundled recording for Preview and incoming alerts, with the exact owner-accepted v5 bytes: three blended sharp/woody table-ball impacts exactly 250 ms apart, preserved pitch, no clipping, quiet reflections at 28 ms and 47 ms, and silence after each 92 ms impact-and-reflection window. Verify the versioned URL avoids an older cached sound. Check HTTP `audio/wav` and browser playback separately from the owner listening verdict, which accepted v5 with a tiny echo. Verify Head chooses an Auto team from 1–5, each explicit depth produces that many Critic ↔ specialist exchanges per specialist, and Auto stops only after whole-team agreement or 10 exchanges per specialist. Cover every fixed count/depth combination; Strategy agreement must not bypass Finance disagreement. Resume after either side of a pair without duplicating confirmed messages, including legacy global consensus metadata and missing saved agreement. A Finance provider failure preserves the discussion without a Head conclusion. Specialist agreement alone cannot end Auto: a closing Critic objection continues review within the cap. At fixed depth or the cap, unresolved advice is explicitly provisional; closing messages do not add to depth.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -72668,6 +72719,11 @@
       "at": "2026-09-18T00:59:30.491Z",
       "event": "r22_table_tap_reconciliation",
       "reason": "Owner accepted the v2 dry table-bounce sound and requested more emphasis. Reconcile existing audio behavior without changing upstream scope or approved design."
+    },
+    {
+      "at": "2026-09-18T01:13:25.320Z",
+      "event": "r23_accepted_knock_reconciliation",
+      "reason": "Owner accepted the blended v5 sound with a tiny echo; reconcile the existing authorized Knock feature without changing product scope or the approved visual baseline."
     }
   ],
   "verification_history": [
@@ -104171,6 +104227,16 @@
       },
       "result": "passed_129_tests_and_pcm_verification",
       "limitation": "No new hosted deployment or app-browser playback check; final refinement provided to owner for listening."
+    },
+    {
+      "at": "2026-09-18T01:17:00.589Z",
+      "event": "r23_accepted_knock_local_verification",
+      "receipt": {
+        "path": "forge/runs/U-03/r23-accepted-knock-20260918/verification.json",
+        "content_hash": "307280e933d18ea3f087976d0136ba59acb22c50e7056a8167a34d0bf10e9746"
+      },
+      "result": "passed_129_tests_exact_audio_delivery_pcm_and_chrome_preview",
+      "limitation": "Local sound correction only; no hosting change or full-release claim."
     }
   ],
   "last_resume": {
