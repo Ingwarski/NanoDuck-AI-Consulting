@@ -1,5 +1,7 @@
 # Working in this repository
 
+Canonical source: `Ingwarski/personal-ai-consulting-web`. Verify the checkout root and remote before repository operations. The retired local GoDaddy-named repository is a separate predecessor, not a branch or worktree of this one. The owner authorized consolidation on 19 September 2026; see `docs/consolidation.md`. Do not change repositories implicitly.
+
 This repository contains NanoDuck Consulting Group, a private browser application for the owner’s consultant and Critic discussions.
 
 - Read `docs/product-idea.md` as current intent and `docs/prd.md` as its specification. `docs/architecture.md` defines the application architecture.

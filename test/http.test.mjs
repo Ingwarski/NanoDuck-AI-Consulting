@@ -86,6 +86,22 @@ test("the local HTTP flow protects data, saves settings and preserves a truthful
     const bulk = await (await fetch(`${origin}/api/conversations`, { method: "POST", headers })).json();
     assert.deepEqual((await (await fetch(`${origin}/api/conversations`, { method: "DELETE", headers, body: JSON.stringify({ conversationIds: [bulk.conversation.id] }) })).json()).deletedConversationIds, [bulk.conversation.id]);
 
+    assert.equal((await fetch(`${origin}/api/instruction-documents`)).status, 401);
+    const docs = await (await fetch(`${origin}/api/instruction-documents`, { headers })).json();
+    assert.equal(docs.documents.length, 4);
+    const contextPath = `${origin}/api/instruction-documents/WORKING_CONTEXT.md`;
+    const contextInput = { revision: 1, markdown: "# Synthetic browser context" };
+    assert.equal((await fetch(contextPath, { method: "PUT", headers: { cookie, "content-type": "application/json" }, body: JSON.stringify(contextInput) })).status, 401);
+    assert.equal((await fetch(contextPath, { method: "PUT", headers, body: JSON.stringify(contextInput) })).status, 200);
+    assert.equal((await fetch(contextPath, { method: "PUT", headers, body: JSON.stringify(contextInput) })).status, 409);
+    const contextHistory = await (await fetch(`${contextPath}/history`, { headers })).json();
+    assert.equal(contextHistory.result.length, 2);
+    assert.equal(contextHistory.result[0].markdown, undefined);
+    assert.equal((await fetch(`${contextPath}/restore-default`, { method: "PUT", headers, body: JSON.stringify({ revision: 2 }) })).status, 422);
+    const defaultRestored = await (await fetch(`${contextPath}/restore-default`, { method: "PUT", headers, body: JSON.stringify({ revision: 2, confirmed: true }) })).json();
+    assert.equal(defaultRestored.document.revision, 3);
+    assert.equal(defaultRestored.document.markdown, docs.documents.at(-1).markdown);
+
     const initialInstructions = await (await fetch(`${origin}/api/runtime-instructions`, { headers: { cookie } })).json();
     assert.equal(initialInstructions.runtimeInstructions.source, "database");
     assert.equal(typeof initialInstructions.runtimeInstructions.updatedAt, "string");

@@ -101,3 +101,12 @@ CREATE TABLE IF NOT EXISTS nanoduck_requests (
   run_id VARCHAR(128) NOT NULL,
   PRIMARY KEY (conversation_id, request_id)
 );
+
+CREATE TABLE IF NOT EXISTS nanoduck_instruction_documents (
+  document_id VARCHAR(32) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
+  revision INT UNSIGNED NOT NULL,
+  ciphertext MEDIUMTEXT NOT NULL,
+  iv VARCHAR(64) NOT NULL,
+  tag VARCHAR(64) NOT NULL,
+  PRIMARY KEY (document_id, revision)
+);

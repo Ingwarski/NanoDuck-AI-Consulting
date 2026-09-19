@@ -43,6 +43,7 @@ export function createAuth({ config, store, createOAuthClient = (...args) => new
     async require(request, { consent = true, csrf = false } = {}) {
       const session = await browserSession(request);
       if (!session || (consent && !session.consentedAt)) return undefined;
+      if (csrf && config.origin && request.headers.origin !== config.origin) return undefined;
       if (csrf && !secureEqual(request.headers["x-csrf-token"] ?? "", session.csrfToken)) return undefined;
       return session;
     },
@@ -66,19 +67,19 @@ export function createAuth({ config, store, createOAuthClient = (...args) => new
       const url = new URL(requestUrl, config.origin ?? "http://localhost");
       const code = url.searchParams.get("code"); const state = url.searchParams.get("state");
       const raw = verifyValue(cookies(request.headers.cookie)[flowCookieName]); const flow = raw ? decode(raw) : undefined;
-      if (!code || !state || !flow || flow.expiresAt < Date.now() || !secureEqual(state, flow.state)) return undefined;
+      if (url.searchParams.getAll("code").length !== 1 || url.searchParams.getAll("state").length !== 1 || !code || !state || !flow || flow.expiresAt < Date.now() || !secureEqual(state, flow.state)) return undefined;
       const client = createOAuthClient(config.google.clientId, config.google.clientSecret, config.google.redirectUri);
       const result = await client.getToken({ code, codeVerifier: flow.verifier });
       if (!result.tokens.id_token) return undefined;
       const ticket = await client.verifyIdToken({ idToken: result.tokens.id_token, audience: config.google.clientId });
       const claims = ticket.getPayload();
-      const verifiedSubject = claims?.sub === config.google.ownerSubject;
+      const verifiedSubject = typeof claims?.sub === "string" && claims.sub.length > 0 && claims.sub === config.google.ownerSubject;
       const verifiedEmail = typeof claims?.email === "string" && claims.email.toLowerCase() === config.google.ownerEmail;
-      if (!claims || (!verifiedSubject && !verifiedEmail) || claims.email_verified !== true || typeof claims.nonce !== "string" || !secureEqual(claims.nonce, flow.nonce) || !["accounts.google.com", "https://accounts.google.com"].includes(claims.iss ?? "")) return undefined;
+      if (!claims || typeof claims.sub !== "string" || !claims.sub || (config.google.ownerSubject ? !verifiedSubject : !verifiedEmail) || claims.email_verified !== true || typeof claims.nonce !== "string" || !secureEqual(claims.nonce, flow.nonce) || !["accounts.google.com", "https://accounts.google.com"].includes(claims.iss ?? "")) return undefined;
       const session = await createSession(claims.sub);
       return { session, clearFlowCookie: clearCookie(flowCookieName, secure) };
     },
     async consent(request) { const session = await this.require(request, { consent: false, csrf: true }); return session ? store.updateSession(session.id, { consentedAt: new Date().toISOString() }) : undefined; },
-    async signOut(request) { const session = await browserSession(request); if (session) await store.revokeSession(session.id); }
+    async signOut(request) { const session = await this.require(request, { consent: false, csrf: true }); if (!session) return false; await store.revokeSession(session.id); return true; }
   });
 }

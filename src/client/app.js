@@ -1,7 +1,7 @@
 import { parseMarkdown } from "/client/markdown.js";
 import { normalizeRefreshState, refreshStateKey, serializeRefreshState } from "/client/refresh-state.js";
 
-const state = { session: null, csrf: null, page: "discussion", tab: "discussion", conversation: null, events: [], run: null, poll: null, recognition: null, voiceTimer: null, voiceMode: "ready", voiceTranscript: "", attachmentFiles: [], attachmentError: "", runtimeInstructionHistory: [], notificationSound: "knock", conversations: [], selectedConversationIds: new Set(), criticSettings: null, criticProviders: null };
+const state = { session: null, csrf: null, page: "discussion", tab: "discussion", conversation: null, events: [], run: null, poll: null, recognition: null, voiceTimer: null, voiceMode: "ready", voiceTranscript: "", attachmentFiles: [], attachmentError: "", runtimeInstructionHistory: [], documents: [], notificationSound: "knock", conversations: [], selectedConversationIds: new Set(), criticSettings: null, criticProviders: null };
 const $ = selector => document.querySelector(selector);
 const roleInitials = { owner: "I", "Head Consultant": "HC", "Strategy Consultant": "SC", "Finance Consultant": "FC", "Operations Consultant": "OC", "Sales Consultant": "SL", "Marketing Consultant": "MC", "Product Consultant": "PC", "Spiritual Consultant": "SP", Psychotherapist: "PT", "Risk Consultant": "RC", Critic: "CR", System: "•" };
 const displayRole = role => role === "owner" ? "You" : role;
@@ -325,7 +325,7 @@ function renderCriticControls() {
   $("#settings-status").textContent = `${criticProviderStatus("codex")} ${criticProviderStatus("claude_code")}`;
 }
 async function loadSettings() {
-  const [{ data: settingsData }, { data: instructionsData }] = await Promise.all([request("/api/settings"), request("/api/runtime-instructions")]); const settings = settingsData.settings; const instructions = instructionsData.runtimeInstructions;
+  const [{ data: settingsData }, { data: instructionsData }, { data: documentData }] = await Promise.all([request("/api/settings"), request("/api/runtime-instructions"), request("/api/instruction-documents")]); const settings = settingsData.settings; const instructions = instructionsData.runtimeInstructions;
   $("#head-model").value = settings.headModel; $("#head-reasoning").value = settings.headReasoning;
   state.criticProviders = settingsData.criticProviders ?? { codex: { status: settingsData.provider, models: settingsData.catalog ?? [] }, claude_code: { status: "unavailable", models: [] } };
   state.criticSettings = {
@@ -341,8 +341,53 @@ async function loadSettings() {
   $("#runtime-instructions").dataset.revision = instructions.revision;
   $("#runtime-instructions-status").textContent = `Current encrypted database revision ${instructions.revision.slice(0, 12)}. Required headings and placeholders are validated before save.`;
   state.runtimeInstructionHistory = instructionsData.history; renderRuntimeInstructionHistory();
+  state.documents = documentData.documents; await loadManagedDocument();
   $("#session-expiry").textContent = `This session expires ${new Intl.DateTimeFormat(undefined, { dateStyle: "medium", timeStyle: "short" }).format(new Date(state.session.expiresAt))}. Activity does not extend the 24-hour boundary.`;
 }
+
+async function loadManagedDocument() {
+  const name = $("#managed-document-name").value;
+  const document = state.documents.find(item => item.name === name);
+  if (!document) return;
+  const editor = $("#managed-document-markdown"); editor.value = document.markdown; editor.dataset.revision = String(document.revision); editor.dataset.name = name;
+  $("#managed-document-status").textContent = `Revision ${document.revision}. Saved privately; changes apply to future consultations.`;
+  const { data } = await request(`/api/instruction-documents/${name}/history`);
+  if ($("#managed-document-name").value !== name) return;
+  replaceOptions($("#managed-document-history"), data.result.map(item => ({ id: String(item.revision), label: `Revision ${item.revision} · ${formatDate(item.createdAt)} · ${item.action}` })), String(document.revision));
+}
+async function saveManagedDocument(restoreDefault = false) {
+  const editor = $("#managed-document-markdown"); const name = editor.dataset.name;
+  if (restoreDefault && !confirm(`Restore the packaged default for ${name}? Your current version remains in history.`)) return;
+  const controls = ["#managed-document-name", "#managed-document-save", "#managed-document-default", "#managed-document-review"].map($);
+  controls.forEach(control => { control.disabled = true; });
+  try {
+    const { data } = await request(`/api/instruction-documents/${name}${restoreDefault ? "/restore-default" : ""}`, { method: "PUT", body: { revision: Number(editor.dataset.revision), ...(restoreDefault ? { confirmed: true } : { markdown: editor.value }) } });
+    state.documents = state.documents.map(item => item.name === name ? data.document : item);
+    await loadManagedDocument(); toast("Document saved for future consultations.");
+  } catch (error) {
+    const message = error.response?.status === 409 ? "This document changed in another session. Your draft is still here; copy it before reloading Settings." : "Document was not saved. Use non-empty Markdown up to 64 KiB.";
+    $("#managed-document-status").textContent = message; toast(message);
+  } finally { controls.forEach(control => { control.disabled = false; }); }
+}
+$("#managed-document-form").addEventListener("submit", event => { event.preventDefault(); void saveManagedDocument(); });
+$("#managed-document-default").addEventListener("click", () => void saveManagedDocument(true));
+$("#managed-document-name").addEventListener("change", () => {
+  const editor = $("#managed-document-markdown"); const saved = state.documents.find(item => item.name === editor.dataset.name);
+  if (saved && saved.markdown !== editor.value && !confirm("Discard the unsaved document draft?")) { $("#managed-document-name").value = saved.name; return; }
+  void loadManagedDocument().catch(() => toast("Document history could not be loaded."));
+});
+$("#managed-document-review").addEventListener("click", async () => {
+  const name = $("#managed-document-name").value; const revision = $("#managed-document-history").value;
+  if (!revision) return;
+  try {
+    const editor = $("#managed-document-markdown"); const saved = state.documents.find(item => item.name === name);
+    if (saved && saved.markdown !== editor.value && !confirm("Replace the unsaved draft with the selected version?")) return;
+    const { data } = await request(`/api/instruction-documents/${name}/history/${revision}`);
+    if ($("#managed-document-name").value !== name) return;
+    editor.value = data.result.markdown;
+    $("#managed-document-status").textContent = `Reviewing revision ${revision}. Save to make this text the new current version.`;
+  } catch { toast("That saved version could not be opened."); }
+});
 
 function renderRuntimeInstructionHistory() {
   const target = clear($("#runtime-instruction-history"));

@@ -1,3 +1,7 @@
+import { readConfiguration, replaceConfiguration } from "./configuration-recovery.mjs";
+import { databaseLockName } from "./database-lock.mjs";
+import { createMemoryDocuments, createMySqlDocuments } from "./instruction-documents.mjs";
+import { sealRunSnapshot, openRunSnapshot } from "./run-snapshot.mjs";
 import { randomId, encryptText, decryptText, encryptBytes, decryptBytes } from "./crypto.mjs";
 import { readFile } from "node:fs/promises";
 import { normalizeRecoverySnapshot } from "./recovery.mjs";
@@ -18,7 +22,7 @@ const defaults = Object.freeze({
 const now = () => new Date().toISOString();
 const publicAttachment = attachment => Object.freeze({ id: attachment.id, contentType: attachment.contentType, byteLength: attachment.byteLength, createdAt: attachment.createdAt });
 const publicMessage = message => Object.freeze({ id: message.id, role: message.role, recipient: message.recipient ?? null, body: message.body, sequence: message.sequence, createdAt: message.createdAt, sources: message.sources ?? [], attachments: message.attachments ?? [] });
-const recoverySnapshot = conversations => normalizeRecoverySnapshot({ schemaVersion: 1, kind: "nanoduck-owner-records", createdAt: now(), conversations });
+const recoverySnapshot = (conversations, configuration) => normalizeRecoverySnapshot({ schemaVersion: 1, kind: "nanoduck-owner-records", createdAt: now(), conversations, ...(configuration ? { configuration } : {}) });
 const storedJson = (value, kind) => {
   const source = Buffer.isBuffer(value) ? value.toString("utf8") : value;
   try {
@@ -47,6 +51,7 @@ export function createMemoryStore() {
   const runs = new Map();
   const requests = new Map();
   const sessions = new Map();
+  const documents = createMemoryDocuments();
   let settings = { ...defaults };
   let runtimeInstructions;
   const runtimeInstructionHistory = new Map();
@@ -62,6 +67,7 @@ export function createMemoryStore() {
   const hasActiveRun = () => [...runs.values()].some(run => run.status === "active");
   return Object.freeze({
     kind: "memory",
+    ...documents,
     async createSession(input) { sessions.set(input.id, { ...input }); return { ...input }; },
     async session(id) { const item = sessions.get(id); return item ? { ...item } : undefined; },
     async updateSession(id, patch) { const item = sessions.get(id); if (!item || item.revokedAt) return undefined; Object.assign(item, patch); return { ...item }; },
@@ -130,7 +136,10 @@ export function createMemoryStore() {
       if (!conversation || conversation.deletedAt) return undefined;
       const requestKey = `${conversationId}:${input.clientRequestId}`;
       const existing = requests.get(requestKey);
-      if (existing) return Object.freeze({ ...existing, replayed: true });
+      if (existing) {
+        if (existing.message.body !== input.body || JSON.stringify(existing.message.attachments.map(a => a.id).sort()) !== JSON.stringify([...(input.attachmentIds ?? [])].sort())) return undefined;
+        return structuredClone({ ...existing, replayed: true });
+      }
       if (hasActiveRun()) return undefined;
       const linked = (input.attachmentIds ?? []).map(attachmentId => attachments.get(attachmentId));
       if (linked.some(attachment => !attachment || attachment.conversationId !== conversationId || attachment.messageId)) return undefined;
@@ -138,7 +147,7 @@ export function createMemoryStore() {
       const message = { id: randomId(), role: "owner", body: input.body, sequence: stream.length + 1, createdAt: now(), sources: [], attachments: linked.map(publicAttachment) };
       linked.forEach(attachment => { attachment.messageId = message.id; });
       stream.push(message); messages.set(conversationId, stream);
-      const run = { id: randomId(), conversationId, status: "active", generation: (runs.get(conversationId)?.generation ?? 0) + 1, snapshot, createdAt: now(), updatedAt: now() };
+      const run = { id: randomId(), conversationId, status: "active", generation: (runs.get(conversationId)?.generation ?? 0) + 1, snapshot: structuredClone(snapshot), createdAt: now(), updatedAt: now() };
       runs.set(conversationId, run); conversation.updatedAt = now();
       const result = { message: publicMessage(message), run: { ...run }, replayed: false }; requests.set(requestKey, result); return result;
     },
@@ -157,7 +166,7 @@ export function createMemoryStore() {
       run.snapshot = Object.freeze({ ...snapshot }); run.updatedAt = now(); return { ...run };
     },
     async finishRun(conversationId, generation, status, completedTitle = undefined) {
-      const run = runs.get(conversationId); if (!run || run.generation !== generation) return false;
+      const run = runs.get(conversationId); if (!run || run.generation !== generation || run.status !== "active") return false;
       run.status = status; run.updatedAt = now();
       const conversation = conversations.get(conversationId);
       if (status === "complete" && conversation && conversation.title === "New consultation" && typeof completedTitle === "string" && completedTitle.trim()) conversation.title = completedTitle.trim();
@@ -177,16 +186,24 @@ export function createMemoryStore() {
       return Object.freeze({ conversation: { ...conversation }, messages: (messages.get(conversationId) ?? []).map(publicMessage) });
     },
     async recoverySnapshot() {
-      return recoverySnapshot([...conversations.values()].map(conversation => ({ conversation: { ...conversation }, messages: conversation.deletedAt ? [] : (messages.get(conversation.id) ?? []).map(publicMessage), attachments: conversation.deletedAt ? [] : [...attachments.values()].filter(attachment => attachment.conversationId === conversation.id && attachment.messageId).map(attachment => ({ ...publicAttachment(attachment), messageId: attachment.messageId, content: attachment.content.toString("base64url") })) })));
+      return recoverySnapshot([...conversations.values()].map(conversation => ({ conversation: { ...conversation }, messages: conversation.deletedAt ? [] : (messages.get(conversation.id) ?? []).map(publicMessage), attachments: conversation.deletedAt ? [] : [...attachments.values()].filter(attachment => attachment.conversationId === conversation.id && attachment.messageId).map(attachment => ({ ...publicAttachment(attachment), messageId: attachment.messageId, content: attachment.content.toString("base64url") })) })), { settings, runtimeInstructions, runtimeHistory: [...runtimeInstructionHistory.values()], documents: documents.exportDocuments() });
     },
-    async restoreRecovery(snapshot) {
+    async restoreRecovery(snapshot, { restoreConfiguration = false } = {}) {
       const recovered = normalizeRecoverySnapshot(snapshot); if (!recovered) return undefined;
+      if (restoreConfiguration && recovered.configuration) {
+        settings = structuredClone(recovered.configuration.settings);
+        runtimeInstructions = structuredClone(recovered.configuration.runtimeInstructions);
+        runtimeInstructionHistory.clear();
+        for (const item of recovered.configuration.runtimeHistory) runtimeInstructionHistory.set(item.id, structuredClone(item));
+        documents.replaceDocuments(recovered.configuration.documents);
+        for (const session of sessions.values()) session.revokedAt = now();
+      }
       let restored = 0; let tombstones = 0; let preservedTombstones = 0;
       for (const record of [...recovered.conversations.filter(item => item.conversation.deletedAt), ...recovered.conversations.filter(item => !item.conversation.deletedAt)]) {
         const id = record.conversation.id; const existing = conversations.get(id);
         if (existing?.deletedAt) { preservedTombstones += 1; continue; }
         if (record.conversation.deletedAt) {
-          conversations.set(id, { ...record.conversation }); messages.set(id, []); for (const attachment of [...attachments.values()].filter(item => item.conversationId === id)) attachments.delete(attachment.id); const run = runs.get(id); if (run) { run.generation += 1; run.status = "deleted"; run.updatedAt = record.conversation.deletedAt; }
+          conversations.set(id, { ...record.conversation, title: "Deleted consultation" }); messages.set(id, []); for (const attachment of [...attachments.values()].filter(item => item.conversationId === id)) attachments.delete(attachment.id); const run = runs.get(id); if (run) { run.generation += 1; run.status = "deleted"; run.snapshot = {}; run.updatedAt = record.conversation.deletedAt; }
           tombstones += 1; continue;
         }
         if (existing) continue;
@@ -196,7 +213,7 @@ export function createMemoryStore() {
     },
     async deleteConversation(conversationId) {
       const conversation = conversations.get(conversationId); if (!conversation || conversation.deletedAt) return false;
-      conversation.deletedAt = now(); conversation.updatedAt = conversation.deletedAt; messages.set(conversationId, []); for (const attachment of [...attachments.values()].filter(item => item.conversationId === conversationId)) attachments.delete(attachment.id); const run = runs.get(conversationId); if (run) { run.generation += 1; run.status = "deleted"; } return true;
+      conversation.title = "Deleted consultation"; conversation.deletedAt = now(); conversation.updatedAt = conversation.deletedAt; messages.set(conversationId, []); for (const attachment of [...attachments.values()].filter(item => item.conversationId === conversationId)) attachments.delete(attachment.id); const run = runs.get(conversationId); if (run) { run.generation += 1; run.status = "deleted"; run.snapshot = {}; } return true;
     },
     async deleteConversations(conversationIds) {
       const deleted = [];
@@ -211,7 +228,7 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
   const ssl = databaseSslCaPath
     ? { ca: await readFile(databaseSslCaPath, "utf8"), rejectUnauthorized: true }
     : { rejectUnauthorized: true };
-  const pool = createPool({ uri: databaseUrl, ssl });
+  const pool = createPool({ uri: databaseUrl, ssl, connectionLimit: 8, waitForConnections: true, queueLimit: 32, connectTimeout: 10_000 });
   const query = (statement, values = []) => pool.execute(statement, values);
   const runtimeDocument = row => Object.freeze({ markdown: decryptText({ iv: row.iv, ciphertext: row.ciphertext, tag: row.tag }, dataKey), revision: row.revision, contentHash: row.content_hash, updatedAt: row.updated_at });
   const runtimeHistorySummary = row => Object.freeze({ id: row.id, contentHash: row.content_hash, action: row.action, restoredFromId: row.restored_from_id, createdAt: row.created_at });
@@ -233,8 +250,24 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
     const [rows] = await connection.execute("SELECT owner_id FROM nanoduck_owner_locks WHERE owner_id='owner' FOR UPDATE");
     if (rows.length !== 1) throw new Error("owner_lock_missing");
   };
+  let leadership;
+  let leadershipLost = () => {};
+  const lockName = databaseLockName(databaseUrl);
   return Object.freeze({
+    onLeadershipLost(callback) { leadershipLost = callback; },
+    async acquireLeadership() {
+      if (leadership) return true;
+      const connection = await pool.getConnection();
+      try {
+        const [rows] = await connection.execute("SELECT GET_LOCK(?, 0) AS acquired", [lockName]);
+        if (Number(rows[0]?.acquired) !== 1) { connection.release(); return false; }
+        leadership = connection;
+        connection.on?.("error", () => { if (leadership !== connection) return; leadership = undefined; connection.destroy(); leadershipLost(); });
+        return true;
+      } catch (error) { connection.destroy(); throw error; }
+    },
     kind: "mysql",
+    ...createMySqlDocuments(pool, dataKey),
     async createSession(input) { await query("INSERT INTO nanoduck_sessions (id,owner_subject,csrf_token,consented_at,issued_at,expires_at) VALUES (?,?,?,?,?,?)", [input.id,input.ownerSubject,input.csrfToken,input.consentedAt ?? null,input.issuedAt,input.expiresAt]); return { ...input, revokedAt: null }; },
     async session(id) { const [rows] = await query("SELECT id,owner_subject,csrf_token,consented_at,issued_at,expires_at,revoked_at FROM nanoduck_sessions WHERE id=? LIMIT 1", [id]); return rows.length ? { id: rows[0].id, ownerSubject: rows[0].owner_subject, csrfToken: rows[0].csrf_token, consentedAt: rows[0].consented_at, issuedAt: rows[0].issued_at, expiresAt: rows[0].expires_at, revokedAt: rows[0].revoked_at } : undefined; },
     async updateSession(id, patch) { const [result] = await query("UPDATE nanoduck_sessions SET consented_at=COALESCE(?, consented_at) WHERE id=? AND revoked_at IS NULL", [patch.consentedAt ?? null,id]); return result.affectedRows ? this.session(id) : undefined; },
@@ -342,7 +375,12 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
         const [conversationRows] = await connection.execute("SELECT id,title FROM nanoduck_conversations WHERE id=? AND deleted_at IS NULL FOR UPDATE", [id]);
         if (!conversationRows.length) { await connection.rollback(); return undefined; }
         const [requestRows] = await connection.execute("SELECT message_id,run_id FROM nanoduck_requests WHERE conversation_id=? AND request_id=?", [id, input.clientRequestId]);
-        if (requestRows.length) { const events = await this.events(id); const run = await this.run(id); await connection.rollback(); return { message: events.find(item => item.id === requestRows[0].message_id), run, replayed: true }; }
+        if (requestRows.length) {
+          const events = await this.events(id); const message = events.find(item => item.id === requestRows[0].message_id);
+          const run = await this.run(id); await connection.rollback();
+          if (!message || message.body !== input.body || JSON.stringify(message.attachments.map(a => a.id).sort()) !== JSON.stringify([...(input.attachmentIds ?? [])].sort()) || run?.id !== requestRows[0].run_id) return undefined;
+          return { message, run, replayed: true };
+        }
         const [activeRows] = await connection.execute("SELECT id FROM nanoduck_runs WHERE status='active' LIMIT 1");
         if (activeRows.length) { await connection.rollback(); return undefined; }
         const attachmentIds = input.attachmentIds ?? [];
@@ -364,14 +402,14 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
           const [attachmentResult] = await connection.execute(`UPDATE nanoduck_attachments SET message_id=? WHERE conversation_id=? AND message_id IS NULL AND id IN (${placeholders})`, [message.id, id, ...attachmentIds]);
           if (attachmentResult.affectedRows !== attachmentIds.length) throw new Error("attachment_link_failed");
         }
-        await connection.execute("INSERT INTO nanoduck_runs (id,conversation_id,status,generation,snapshot_json,created_at,updated_at) VALUES (?,?,?,?,?,?,?)", [run.id, id, run.status, run.generation, JSON.stringify(snapshot), run.createdAt, run.updatedAt]);
+        await connection.execute("INSERT INTO nanoduck_runs (id,conversation_id,status,generation,snapshot_json,created_at,updated_at) VALUES (?,?,?,?,?,?,?)", [run.id, id, run.status, run.generation, JSON.stringify(sealRunSnapshot(snapshot, dataKey)), run.createdAt, run.updatedAt]);
         await connection.execute("INSERT INTO nanoduck_requests (conversation_id,request_id,message_id,run_id) VALUES (?,?,?,?)", [id, input.clientRequestId, message.id, run.id]);
         await connection.execute("UPDATE nanoduck_conversations SET updated_at=? WHERE id=?", [now(), id]);
         await connection.commit(); return { message: publicMessage(message), run, replayed: false };
       } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
     },
-    async run(id) { const [rows] = await query("SELECT id,conversation_id,status,generation,snapshot_json,created_at,updated_at FROM nanoduck_runs WHERE conversation_id=? ORDER BY created_at DESC LIMIT 1", [id]); return rows.length ? { id: rows[0].id, conversationId: rows[0].conversation_id, status: rows[0].status, generation: rows[0].generation, snapshot: storedObject(rows[0].snapshot_json, "run_snapshot"), createdAt: rows[0].created_at, updatedAt: rows[0].updated_at } : undefined; },
-    async activeRuns() { const [rows] = await query("SELECT id,conversation_id,status,generation,snapshot_json,created_at,updated_at FROM nanoduck_runs WHERE status='active' ORDER BY created_at"); return rows.map(row => ({ id: row.id, conversationId: row.conversation_id, status: row.status, generation: row.generation, snapshot: storedObject(row.snapshot_json, "run_snapshot"), createdAt: row.created_at, updatedAt: row.updated_at })); },
+    async run(id) { const [rows] = await query("SELECT id,conversation_id,status,generation,snapshot_json,created_at,updated_at FROM nanoduck_runs WHERE conversation_id=? ORDER BY created_at DESC LIMIT 1", [id]); return rows.length ? { id: rows[0].id, conversationId: rows[0].conversation_id, status: rows[0].status, generation: rows[0].generation, snapshot: openRunSnapshot(rows[0].snapshot_json, dataKey), createdAt: rows[0].created_at, updatedAt: rows[0].updated_at } : undefined; },
+    async activeRuns() { const [rows] = await query("SELECT id,conversation_id,status,generation,snapshot_json,created_at,updated_at FROM nanoduck_runs WHERE status='active' ORDER BY created_at"); return rows.map(row => ({ id: row.id, conversationId: row.conversation_id, status: row.status, generation: row.generation, snapshot: openRunSnapshot(row.snapshot_json, dataKey), createdAt: row.created_at, updatedAt: row.updated_at })); },
     async appendAgentMessage(id, generation, item) {
       const connection = await pool.getConnection();
       try {
@@ -390,7 +428,7 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
       } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
     },
     async updateRunSnapshot(id, generation, snapshot) {
-      const [result] = await query("UPDATE nanoduck_runs SET snapshot_json=?, updated_at=? WHERE conversation_id=? AND generation=? AND status='active'", [JSON.stringify(snapshot), now(), id, generation]);
+      const [result] = await query("UPDATE nanoduck_runs SET snapshot_json=?, updated_at=? WHERE conversation_id=? AND generation=? AND status='active'", [JSON.stringify(sealRunSnapshot(snapshot, dataKey)), now(), id, generation]);
       return result.affectedRows === 1 ? { ...snapshot } : undefined;
     },
     async finishRun(id, generation, status, completedTitle = undefined) {
@@ -413,7 +451,7 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
         const run = rows[0]; if (!run || run.status !== "active") { await connection.rollback(); return undefined; }
         const updatedAt = now(); const [result] = await connection.execute("UPDATE nanoduck_runs SET generation=generation+1,status='stopped',updated_at=? WHERE id=? AND generation=? AND status='active'", [updatedAt,run.id,run.generation]);
         if (result.affectedRows !== 1) { await connection.rollback(); return undefined; }
-        await connection.commit(); return { id: run.id, conversationId: run.conversation_id, status: "stopped", generation: Number(run.generation) + 1, snapshot: storedObject(run.snapshot_json, "run_snapshot"), createdAt: run.created_at, updatedAt };
+        await connection.commit(); return { id: run.id, conversationId: run.conversation_id, status: "stopped", generation: Number(run.generation) + 1, snapshot: openRunSnapshot(run.snapshot_json, dataKey), createdAt: run.created_at, updatedAt };
       } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
     },
     async continueRun(id) {
@@ -426,7 +464,7 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
         if (activeRows.length) { await connection.rollback(); return undefined; }
         const updatedAt = now(); const [result] = await connection.execute("UPDATE nanoduck_runs SET generation=generation+1,status='active',updated_at=? WHERE id=? AND generation=? AND status=?", [updatedAt,run.id,run.generation,run.status]);
         if (result.affectedRows !== 1) { await connection.rollback(); return undefined; }
-        await connection.commit(); return { id: run.id, conversationId: run.conversation_id, status: "active", generation: Number(run.generation) + 1, snapshot: storedObject(run.snapshot_json, "run_snapshot"), createdAt: run.created_at, updatedAt };
+        await connection.commit(); return { id: run.id, conversationId: run.conversation_id, status: "active", generation: Number(run.generation) + 1, snapshot: openRunSnapshot(run.snapshot_json, dataKey), createdAt: run.created_at, updatedAt };
       } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
     },
     async exportConversation(id) { const conversation = await this.getConversation(id); return conversation ? { conversation, messages: await this.events(id) } : undefined; },
@@ -447,26 +485,28 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
           }, new Map());
           records.push({ conversation, messages: messageRows.map(row => decode(row, metadata.get(row.id) ?? [])), attachments: attachmentRows.map(row => ({ ...attachmentMetadata(row), messageId: row.message_id, content: decryptBytes({ iv: row.iv, ciphertext: row.ciphertext, tag: row.tag }, dataKey).toString("base64url") })) });
         }
-        await connection.commit(); return recoverySnapshot(records);
+        const configuration = await readConfiguration(connection, dataKey, defaults);
+        await connection.commit(); return recoverySnapshot(records, configuration);
       } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
     },
-    async restoreRecovery(snapshot) {
+    async restoreRecovery(snapshot, { restoreConfiguration = false } = {}) {
       const recovered = normalizeRecoverySnapshot(snapshot); if (!recovered) return undefined;
       const connection = await pool.getConnection(); let restored = 0; let tombstones = 0; let preservedTombstones = 0;
       try {
         await connection.beginTransaction(); await lockOwner(connection);
+        if (restoreConfiguration && recovered.configuration) await replaceConfiguration(connection, dataKey, recovered.configuration);
         for (const record of [...recovered.conversations.filter(item => item.conversation.deletedAt), ...recovered.conversations.filter(item => !item.conversation.deletedAt)]) {
           const conversation = record.conversation;
           const [existingRows] = await connection.execute("SELECT id,deleted_at FROM nanoduck_conversations WHERE id=? FOR UPDATE", [conversation.id]);
           const existing = existingRows[0];
           if (existing?.deleted_at) { preservedTombstones += 1; continue; }
           if (conversation.deletedAt) {
-            if (existing) await connection.execute("UPDATE nanoduck_conversations SET deleted_at=?, updated_at=? WHERE id=? AND deleted_at IS NULL", [conversation.deletedAt, conversation.deletedAt, conversation.id]);
-            else await connection.execute("INSERT INTO nanoduck_conversations (id,title,created_at,updated_at,deleted_at) VALUES (?,?,?,?,?)", [conversation.id, conversation.title, conversation.createdAt, conversation.deletedAt, conversation.deletedAt]);
+            if (existing) await connection.execute("UPDATE nanoduck_conversations SET deleted_at=?, updated_at=?,title='Deleted consultation' WHERE id=? AND deleted_at IS NULL", [conversation.deletedAt, conversation.deletedAt, conversation.id]);
+            else await connection.execute("INSERT INTO nanoduck_conversations (id,title,created_at,updated_at,deleted_at) VALUES (?,?,?,?,?)", [conversation.id, "Deleted consultation", conversation.createdAt, conversation.deletedAt, conversation.deletedAt]);
             await connection.execute("DELETE FROM nanoduck_attachments WHERE conversation_id=?", [conversation.id]);
             await connection.execute("DELETE FROM nanoduck_messages WHERE conversation_id=?", [conversation.id]);
             await connection.execute("DELETE FROM nanoduck_requests WHERE conversation_id=?", [conversation.id]);
-            await connection.execute("UPDATE nanoduck_runs SET generation=generation+1,status='deleted',updated_at=? WHERE conversation_id=? AND status IN ('active','stopped')", [conversation.deletedAt, conversation.id]);
+            await connection.execute("UPDATE nanoduck_runs SET snapshot_json=JSON_OBJECT(),generation=generation+1,status='deleted',updated_at=? WHERE conversation_id=?", [conversation.deletedAt, conversation.id]);
             tombstones += 1; continue;
           }
           if (existing) continue;
@@ -489,12 +529,12 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
       try {
         await connection.beginTransaction();
         await lockOwner(connection);
-        const [result] = await connection.execute("UPDATE nanoduck_conversations SET deleted_at=?, updated_at=? WHERE id=? AND deleted_at IS NULL", [deletedAt, deletedAt, id]);
+        const [result] = await connection.execute("UPDATE nanoduck_conversations SET deleted_at=?, updated_at=?,title='Deleted consultation' WHERE id=? AND deleted_at IS NULL", [deletedAt, deletedAt, id]);
         if (result.affectedRows !== 1) { await connection.rollback(); return false; }
         await connection.execute("DELETE FROM nanoduck_attachments WHERE conversation_id=?", [id]);
         await connection.execute("DELETE FROM nanoduck_messages WHERE conversation_id=?", [id]);
         await connection.execute("DELETE FROM nanoduck_requests WHERE conversation_id=?", [id]);
-        await connection.execute("UPDATE nanoduck_runs SET generation=generation+1,status='deleted',updated_at=? WHERE conversation_id=? AND status IN ('active','stopped')", [deletedAt,id]);
+        await connection.execute("UPDATE nanoduck_runs SET snapshot_json=JSON_OBJECT(),generation=generation+1,status='deleted',updated_at=? WHERE conversation_id=?", [deletedAt,id]);
         await connection.commit(); return true;
       } catch (error) { await connection.rollback().catch(() => {}); throw error; } finally { connection.release(); }
     },
@@ -503,7 +543,14 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
       for (const conversationId of conversationIds) if (await this.deleteConversation(conversationId)) deleted.push(conversationId);
       return Object.freeze(deleted);
     },
-    async close() { await pool.end(); }
+    async close() {
+      if (leadership) {
+        const connection = leadership; leadership = undefined;
+        try { await connection.execute("SELECT RELEASE_LOCK(?)", [lockName]); connection.release(); }
+        catch { connection.destroy(); }
+      }
+      await pool.end();
+    }
   });
 }
 

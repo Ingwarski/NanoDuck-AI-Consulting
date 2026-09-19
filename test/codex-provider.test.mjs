@@ -1,3 +1,6 @@
+import { mkdtemp, writeFile, readFile, access, rm } from "node:fs/promises";
+import { join } from "node:path";
+import { tmpdir } from "node:os";
 import assert from "node:assert/strict";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
@@ -115,3 +118,21 @@ test("provider RPC failures retain a safe category and failed operation without 
   assert.match(logs, /"request":"turn\/start"/u);
   assert.doesNotMatch(logs, /authentication material/u);
 });
+
+ test("failed initialization kills the child and removes its private credential directory", { timeout: 5_000 }, async () => {
+  const root = await mkdtemp(join(tmpdir(), "nanoduck-provider-test-"));
+  const command = join(root, "reject-init.mjs"); const evidence = join(root, "started.json");
+  try {
+    await writeFile(command, `#!/usr/bin/env node
+import { writeFileSync } from 'node:fs';
+import { createInterface } from 'node:readline';
+writeFileSync(${JSON.stringify(evidence)}, JSON.stringify({ pid: process.pid, cwd: process.cwd() }));
+createInterface({ input: process.stdin }).on('line', line => { const message = JSON.parse(line); process.stdout.write(JSON.stringify({ id: message.id, error: { code: -32601, message: 'initialize unsupported' } }) + '\\n'); });
+`, { mode: 0o700 });
+    const provider = createCodexProvider({ readyForProvider: true, codexCommand: command, codexAuthBytes: Buffer.from('{"test":"fake-grant"}') });
+    assert.equal((await provider.inspect()).status, "unavailable");
+    const observed = JSON.parse(await readFile(evidence,"utf8"));
+    await assert.rejects(access(observed.cwd));
+    assert.throws(() => process.kill(observed.pid,0), { code: "ESRCH" });
+  } finally { await rm(root, { recursive: true, force: true }); }
+ });

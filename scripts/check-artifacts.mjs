@@ -30,7 +30,7 @@ for (const script of ['build', 'start']) if (typeof packageMetadata.scripts?.[sc
 const configSource = await readFile(join(root, 'src/server/config.mjs'), 'utf8');
 if (!/loadConfig\(environment = process\.env\)/.test(configSource) || !/positiveInteger\(environment\.PORT,\s*\d+,\s*"PORT"\)/.test(configSource)) errors.push('src/server/config.mjs: GoDaddy requires PORT to default from process.env.PORT');
 const serverSource = await readFile(join(root, 'src/server/index.mjs'), 'utf8');
-if (!/server\.listen\(config\.port,\s*["']0\.0\.0\.0["']/.test(serverSource)) errors.push('src/server/index.mjs: GoDaddy requires the HTTP server to bind 0.0.0.0');
+if (!serverSource.includes('server.listen(config.port, config.mode === "production" ? "0.0.0.0" : "127.0.0.1"')) errors.push('src/server/index.mjs: GoDaddy requires the HTTP server to bind 0.0.0.0');
 const runtimeDependencies = packageMetadata.dependencies || {};
 for (const path of inventory.filter(path => relative(root, path).startsWith('src/server/') && /\.(?:mjs|js)$/.test(path))) {
   const source = await readFile(path, 'utf8');

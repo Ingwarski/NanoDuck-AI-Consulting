@@ -16,7 +16,7 @@
     "recovery": "node src/server/recovery-cli.mjs"
   },
   "engines": {
-    "node": ">=22"
+    "node": "22.x"
   },
   "dependencies": {
     "@anthropic-ai/claude-code": "2.1.258",

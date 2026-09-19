@@ -180,7 +180,10 @@ test("resume finishes Finance review without repeating any confirmed exchange", 
       for (const [role, recipient] of sequence.slice(0, confirmedCount)) await store.appendAgentMessage(conversation.id, accepted.run.generation, { role, recipient, body: "Confirmed contribution.", sources: [] });
       const calls = [];
       const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input, "A qualified answer. [CONSILIUM: REACHED]"), sources: [] }; } };
-      await createConsultationService({ store, provider }).resume();
+      const resumedService = createConsultationService({ store, provider });
+      await resumedService.resume();
+      assert.equal((await store.run(conversation.id)).status, "stopped");
+      await resumedService.continue(conversation.id);
       await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
       const events = await store.events(conversation.id);
       assert.deepEqual(events.slice(1, 9).map(event => [event.role, event.recipient]), sequence);
@@ -223,7 +226,10 @@ test("saved specialist agreement still requires all closing positions and Critic
   for (const [role, recipient] of pairs) await store.appendAgentMessage(conversation.id, accepted.run.generation, { role, recipient, body: "Confirmed contribution.", sources: [] });
   const kinds = [];
   const provider = { async invoke(input) { kinds.push(input.outputKind); return { ok: true, body: successfulBody(input), sources: [] }; } };
-  await createConsultationService({ store, provider }).resume();
+  const resumedService = createConsultationService({ store, provider });
+      await resumedService.resume();
+      assert.equal((await store.run(conversation.id)).status, "stopped");
+      await resumedService.continue(conversation.id);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
   assert.deepEqual(kinds, ["specialist_final", "specialist_final", "critic_final", "head_final"]);
   assert.equal((await store.events(conversation.id)).length, 13);
@@ -543,6 +549,8 @@ test("a resumed consultation continues after its last confirmed message", async 
   const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input), sources: [] }; } };
   const service = createConsultationService({ store, provider });
   await service.resume();
+  assert.equal((await store.run(conversation.id)).status, "stopped");
+  await service.continue(conversation.id);
   await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
   assert.equal(calls.length, 11);
   assert.match(calls[0].assignment, /to the Finance Consultant/u);
@@ -571,7 +579,7 @@ test("Continue resumes at the next uncommitted turn after Stop", async () => {
   assert.match(calls[0].assignment, /to the Finance Consultant/u);
 });
 
-test("a late stopped run cannot unregister the newer run controller", async () => {
+test("Stop drains the old provider before Continue can start another execution", async () => {
   const store = createMemoryStore();
   const conversation = await store.createConversation();
   const accepted = await store.acceptMessage(conversation.id, { body: "Should we change the offer?", clientRequestId: "controller-replacement-0001" }, defaultSettings);
@@ -585,17 +593,22 @@ test("a late stopped run cannot unregister the newer run controller", async () =
   const service = createConsultationService({ store, provider });
   await service.start(conversation.id, accepted.run);
   await waitFor(() => calls.length === 1);
-  await service.stop(conversation.id);
+  const stopping = service.stop(conversation.id);
+  await waitFor(() => calls[0].signal.aborted);
   assert.equal((await store.run(conversation.id))?.status, "stopped");
+  assert.equal(await service.continue(conversation.id), undefined);
+  deferred[0]({ ok: false, code: "cancelled" });
+  await stopping;
   const resumed = await service.continue(conversation.id);
   assert.ok(resumed);
   await waitFor(() => calls.length === 2);
   deferred[0]({ ok: false, code: "cancelled" });
   await new Promise(resolve => setImmediate(resolve));
   assert.equal(calls[1].signal.aborted, false);
-  await service.stop(conversation.id);
-  assert.equal(calls[1].signal.aborted, true);
+  const stoppingAgain = service.stop(conversation.id);
+  await waitFor(() => calls[1].signal.aborted);
   deferred[1]({ ok: false, code: "cancelled" });
+  await stoppingAgain;
 });
 
 test("a classified provider failure preserves the owner question and identifies the recovery state", async () => {

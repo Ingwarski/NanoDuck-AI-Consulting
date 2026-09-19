@@ -1,3 +1,4 @@
+import { containsSecretLikeContent } from "./content-policy.mjs";
 import { createRuntimePrompts, runtimeInstructionsFor } from "./prompt-contracts.mjs";
 import { deriveConversationTitle } from "./conversation-title.mjs";
 import { containsInternalToolTrace } from "./output-safety.mjs";
@@ -150,6 +151,8 @@ const matches = (event, step) => event?.role === step.role && (event.recipient ?
 
 export function createConsultationService({ store, provider }) {
   const controllers = new Map();
+  const executions = new Map();
+  let closing = false;
   const run = async (conversationId, runState) => {
     const controller = new AbortController(); controllers.set(conversationId, controller);
     const current = () => store.events(conversationId).then(events => {
@@ -170,7 +173,10 @@ export function createConsultationService({ store, provider }) {
       if (!await store.updateRunSnapshot(conversationId, runState.generation, snapshot)) throw new Error("invalid_run_state");
     };
     const invokeProvider = async step => {
-      const input = { provider: step.provider, assignment: step.assignment, model: step.model, effort: step.effort, evidence: await current(), research: step.provider === "claude_code" ? false : step.research, outputKind: step.outputKind, maximumCharacters: step.maximumCharacters, runtimeInstructions: step.runtimeInstructions, signal: controller.signal };
+      const evidence = await current();
+      const documentText = (step.runtimeInstructions?.documents ?? []).map(d => d.markdown).join("\n");
+      const sensitive = hasSensitiveResearchContext(evidence.owner + "\n" + evidence.discussion) || containsSecretLikeContent(documentText) || /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/iu.test(documentText);
+      const input = { provider: step.provider, assignment: step.assignment, model: step.model, effort: step.effort, evidence, research: step.provider !== "claude_code" && !sensitive && step.research, outputKind: step.outputKind, maximumCharacters: step.maximumCharacters, runtimeInstructions: step.runtimeInstructions, signal: controller.signal };
       failedProvider = input.provider ?? "codex";
       let result = await provider.invoke(input);
       if (!result.ok && result.code === "language_policy" && await isCurrent()) result = await provider.invoke({ ...input, assignment: policyCorrection(step.assignment), evidence: await current() });
@@ -212,7 +218,7 @@ export function createConsultationService({ store, provider }) {
     try {
       if (!await isCurrent()) return;
       const first = await current();
-      const settings = roleSettings(snapshot); const instructions = runtimeInstructionsFor(snapshot); const prompts = createRuntimePrompts(instructions); const research = !hasSensitiveResearchContext(first.owner); const language = first.sessionLanguage;
+      const settings = roleSettings(snapshot); const instructions = Object.freeze({ ...runtimeInstructionsFor(snapshot), documents: snapshot.instructionDocuments ?? [] }); const prompts = createRuntimePrompts(instructions); const research = !hasSensitiveResearchContext(first.owner + "\n" + first.discussion); const language = first.sessionLanguage;
       const ownerIndex = first.events.map(event => event.role).lastIndexOf("owner");
       if (ownerIndex < 0) throw new Error("invalid_run_state");
       let confirmed = first.events.slice(ownerIndex + 1);
@@ -378,9 +384,35 @@ export function createConsultationService({ store, provider }) {
     } finally { if (controllers.get(conversationId) === controller) controllers.delete(conversationId); }
   };
   return Object.freeze({
-    async start(conversationId, runState) { void run(conversationId, runState); },
-    async stop(conversationId) { controllers.get(conversationId)?.abort(); return store.stop(conversationId); },
-    async continue(conversationId) { const runState = await store.continueRun(conversationId); if (runState) await this.start(conversationId, runState); return runState; },
-    async resume() { for (const runState of await store.activeRuns()) await this.start(runState.conversationId, runState); }
+    async start(conversationId, runState) {
+      if (closing || executions.has(conversationId)) return;
+      const completion = run(conversationId, runState).catch(() => {}).finally(() => executions.delete(conversationId));
+      executions.set(conversationId, completion);
+    },
+    async stop(conversationId) {
+      const stopped = await store.stop(conversationId);
+      controllers.get(conversationId)?.abort();
+      await executions.get(conversationId);
+      return stopped;
+    },
+    async continue(conversationId) {
+      if (closing || executions.has(conversationId)) return undefined;
+      const runState = await store.continueRun(conversationId);
+      if (runState) await this.start(conversationId, runState);
+      return runState;
+    },
+    async resume() {
+      // A lost process cannot prove whether a provider call completed. Fence it
+      // and require the owner's Continue action instead of spending again.
+      for (const runState of await store.activeRuns()) {
+        await store.stop(runState.conversationId);
+      }
+    },
+    async close() {
+      closing = true;
+      for (const controller of controllers.values()) controller.abort();
+      await Promise.allSettled([...executions.keys()].map(id => store.stop(id)));
+      await Promise.allSettled([...executions.values()]);
+    }
   });
 }

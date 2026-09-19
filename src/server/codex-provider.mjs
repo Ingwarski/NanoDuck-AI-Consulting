@@ -66,6 +66,7 @@ class AppServerConnection {
     this.reader = createInterface({ input: child.stdout, crlfDelay: Infinity });
     this.reader.on("line", line => this.receive(line));
     this.closed = new Promise(resolve => { this.resolveClosed = resolve; });
+    this.exited = new Promise(resolve => child.once("close", resolve));
     const fail = error => {
       this.closeError = error;
       this.resolveClosed(error);
@@ -98,27 +99,43 @@ class AppServerConnection {
   notify(method, params) { this.child.stdin.write(`${JSON.stringify({ jsonrpc: "2.0", method, params })}\n`); }
   on(listener) { this.notifications.add(listener); return () => this.notifications.delete(listener); }
   async close() {
-    this.reader.close(); this.child.kill("SIGTERM");
-    await waitFor(new Promise(resolve => this.child.once("close", resolve)), 1_000, "close_timeout").catch(() => this.child.kill("SIGKILL"));
-    await this.cleanup();
+    this.closing ??= (async () => {
+      this.reader.close();
+      this.child.kill("SIGTERM");
+      await waitFor(this.exited, 1_000, "close_timeout").catch(async () => {
+        this.child.kill("SIGKILL");
+        await this.exited;
+      });
+      await this.cleanup();
+    })();
+    return this.closing;
   }
 }
 
-async function startConnection(config) {
+async function startConnection(config, signal) {
+  if (signal?.aborted) throw new Error("cancelled");
   const directory = await mkdtemp(join(tmpdir(), "nanoduck-codex-"));
-  const codexHome = join(directory, "codex-home"); await mkdir(codexHome, { mode: 0o700 });
-  const authDestination = join(codexHome, "auth.json");
-  if (config.codexAuthPath) await copyFile(config.codexAuthPath, authDestination);
-  else if (config.codexAuthBytes) await writeFile(authDestination, config.codexAuthBytes, { mode: 0o600 });
-  if (config.codexAuthPath || config.codexAuthBytes) await chmod(authDestination, 0o600);
-  const child = spawn(config.codexCommand, ["app-server", "--stdio"], {
-    cwd: directory,
-    env: { PATH: process.env.PATH ?? "/usr/local/bin:/usr/bin:/bin", HOME: directory, TMPDIR: directory, CODEX_HOME: codexHome, NO_COLOR: "1" },
-    stdio: ["pipe", "pipe", "ignore"]
-  });
-  const connection = new AppServerConnection(child, directory, () => rm(directory, { recursive: true, force: true }));
-  await connection.request("initialize", { clientInfo: { name: "nanoduck-consulting-group", title: "NanoDuck Consulting Group", version: "0.1.0" }, capabilities: { experimentalApi: true } });
-  connection.notify("initialized", {}); return connection;
+  let connection;
+  try {
+    const codexHome = join(directory, "codex-home"); await mkdir(codexHome, { mode: 0o700 });
+    const authDestination = join(codexHome, "auth.json");
+    if (config.codexAuthPath) await copyFile(config.codexAuthPath, authDestination);
+    else if (config.codexAuthBytes) await writeFile(authDestination, config.codexAuthBytes, { mode: 0o600 });
+    if (config.codexAuthPath || config.codexAuthBytes) await chmod(authDestination, 0o600);
+    if (signal?.aborted) throw new Error("cancelled");
+    const child = spawn(config.codexCommand, ["app-server", "--stdio"], {
+      cwd: directory,
+      env: { PATH: process.env.PATH ?? "/usr/local/bin:/usr/bin:/bin", HOME: directory, TMPDIR: directory, CODEX_HOME: codexHome, NO_COLOR: "1" },
+      stdio: ["pipe", "pipe", "ignore"]
+    });
+    connection = new AppServerConnection(child, directory, () => rm(directory, { recursive: true, force: true }));
+    await waitFor(connection.request("initialize", { clientInfo: { name: "nanoduck-consulting-group", title: "NanoDuck Consulting Group", version: "0.1.0" }, capabilities: { experimentalApi: true } }), 20_000, "app_server_timeout", signal);
+    connection.notify("initialized", {}); return connection;
+  } catch (error) {
+    if (connection) await connection.close();
+    else await rm(directory, { recursive: true, force: true });
+    throw error;
+  }
 }
 
 const bodyFrom = value => {
@@ -165,11 +182,11 @@ async function supportedCatalog(connection) {
     const result = await connection.request("model/list", { limit: 100, includeHidden: true, ...(cursor ? { cursor } : {}) });
     if (!record(result) || !Array.isArray(result.data)) throw new Error("invalid_catalog");
     models.push(...result.data);
-    if (result.nextCursor === null || result.nextCursor === undefined) break;
+    if (result.nextCursor === null || result.nextCursor === undefined) { cursor = undefined; break; }
     if (typeof result.nextCursor !== "string" || !result.nextCursor || result.nextCursor === cursor) throw new Error("invalid_catalog");
     cursor = result.nextCursor;
   }
-  if (models.length > 2_000) throw new Error("invalid_catalog");
+  if (cursor || models.length > 2_000) throw new Error("invalid_catalog");
   const astra = models.find(item => record(item) && item.model === preservedModel && typeof item.id === "string" && Array.isArray(item.supportedReasoningEfforts));
   if (!record(astra)) return undefined;
   const efforts = astra.supportedReasoningEfforts.flatMap(item => record(item) && typeof item.reasoningEffort === "string" && preservedEfforts.has(item.reasoningEffort) ? [item.reasoningEffort] : []);
@@ -199,7 +216,8 @@ export function createCodexProvider(config) {
     if (!runtimeInstructions) throw new RuntimeInstructionError("Provider invocation is missing its runtime-instructions contract.");
     let connection; let threadId; let unsubscribe = () => {};
     try {
-      connection = await startConnection(config);
+      connection = await startConnection(config, signal);
+      if (signal?.aborted) throw new Error("cancelled");
       const started = await connection.request("thread/start", { model, ephemeral: true, cwd: connection.workspace, sandbox: "read-only", approvalPolicy: "never", environments: [], config: { web_search: research ? "live" : "disabled", features: { shell_tool: false, unified_exec: false, view_image: false, shell_snapshot: false, apps: false, plugins: false, hooks: false, memories: false, browser_use: false, browser_use_external: false, browser_use_full_cdp_access: false, computer_use: false, image_generation: false, workspace_dependencies: false, code_mode: false, code_mode_host: false, multi_agent: false, multi_agent_v2: false, skill_search: false, tool_suggest: false, request_permissions_tool: false } } });
       if (!record(started) || !record(started.thread) || typeof started.thread.id !== "string") return { ok: false, code: "provider_unavailable" };
       threadId = started.thread.id;
@@ -223,7 +241,8 @@ export function createCodexProvider(config) {
         completedTurns.set(completed.id, completed);
         if (completed.id === expectedTurnId) resolveTurn(completed);
       });
-      const turn = await connection.request("turn/start", { threadId, input: [{ type: "text", text: prompt, text_elements: [] }], model, approvalPolicy: "never", sandboxPolicy: { type: "readOnly", networkAccess: research }, environments: [], effort });
+      if (signal?.aborted) throw new Error("cancelled");
+      const turn = await waitFor(connection.request("turn/start", { threadId, input: [{ type: "text", text: prompt, text_elements: [] }], model, approvalPolicy: "never", sandboxPolicy: { type: "readOnly", networkAccess: research }, environments: [], effort }), 20_000, "app_server_timeout", signal);
       const startedTurn = record(turn) && record(turn.turn) ? turn.turn : undefined;
       if (!record(startedTurn) || typeof startedTurn.id !== "string") throw new Error("provider_error");
       expectedTurnId = startedTurn.id;
@@ -249,7 +268,7 @@ export function createCodexProvider(config) {
       return { ok: false, code };
     } finally {
       unsubscribe();
-      if (connection && threadId) await connection.request("thread/unsubscribe", { threadId }).catch(() => {});
+      if (connection && threadId && !signal?.aborted) await connection.request("thread/unsubscribe", { threadId }, 1_000).catch(() => {});
       await connection?.close().catch(() => {});
     }
   };

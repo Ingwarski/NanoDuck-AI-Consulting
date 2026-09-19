@@ -1,3 +1,5 @@
+import { initializeInstructions } from "./instruction-bootstrap.mjs";
+import { documentNames, readDocumentDefault, validDocument } from "./instruction-documents.mjs";
 import { createServer } from "node:http";
 import { readFile, stat } from "node:fs/promises";
 import { extname, join, normalize } from "node:path";
@@ -13,11 +15,14 @@ import { messageError, parseConversationId, parseConversationIds, parseMessage, 
 
 const config = loadConfig();
 const store = config.databaseUrl ? await createMySqlStore(config.databaseUrl, config.dataKey, config.databaseSslCaPath) : createMemoryStore();
-if (config.runtimeInstructionsBootstrap) await store.bootstrapRuntimeInstructions(parseRuntimeInstructions(upgradeRuntimeInstructionMarkdown(config.runtimeInstructionsBootstrap)));
-await store.migrateRuntimeInstructions(markdown => {
-  const upgraded = upgradeRuntimeInstructionMarkdown(markdown);
-  return upgraded === markdown ? undefined : parseRuntimeInstructions(upgraded);
-});
+try {
+  if (store.acquireLeadership && !await store.acquireLeadership()) throw new Error("Another application process owns this database. Stop it before starting this instance.");
+  await initializeInstructions(store);
+  await store.migrateRuntimeInstructions(markdown => {
+    const upgraded = upgradeRuntimeInstructionMarkdown(markdown);
+    return upgraded === markdown ? undefined : parseRuntimeInstructions(upgraded);
+  });
+} catch (error) { await store.close?.(); throw error; }
 const auth = createAuth({ config, store });
 const providers = createProviders(config);
 const consultation = createConsultationService({ store, provider: providers });
@@ -78,7 +83,7 @@ const handler = async (request, response) => {
     if (request.method === "POST" && url.pathname === "/api/consent") {
       const session = await auth.consent(request); return session ? send(response, 200, { consented: true }) : send(response, 403, { error: "consent_denied" });
     }
-    if (request.method === "POST" && url.pathname === "/api/logout") { await auth.signOut(request); return empty(response, 204, { "set-cookie": auth.clearSessionCookie() }); }
+    if (request.method === "POST" && url.pathname === "/api/logout") { if (!await auth.signOut(request)) return send(response, 403, { error: "logout_denied" }); return empty(response, 204, { "set-cookie": auth.clearSessionCookie() }); }
     if (request.method === "GET" && url.pathname === "/api/settings") { if (!await protectedSession(request, response)) return; const [capabilities, runtimeInstructions] = await Promise.all([providers.inspect(), activeRuntimeInstructions()]); return send(response, 200, { settings: await store.settings(), runtimeInstructions, provider: capabilities.codex.status, catalog: capabilities.codex.models, criticProviders: capabilities }); }
     if (request.method === "PUT" && url.pathname === "/api/settings") { if (!await protectedSession(request, response, { csrf: true })) return; const capabilities = await providers.inspect(); const next = parseSettings(await json(request), capabilities); return next ? send(response, 200, { settings: await store.saveSettings(next) }) : send(response, 422, { error: "invalid_settings" }); }
     if (request.method === "GET" && url.pathname === "/api/runtime-instructions") {
@@ -107,12 +112,34 @@ const handler = async (request, response) => {
       const saved = await store.restoreRuntimeInstructions(parseRuntimeInstructions(upgradeRuntimeInstructionMarkdown(previous.markdown)), input?.revision, previous.id);
       return saved ? send(response, 200, { runtimeInstructions: { ...saved, source: "database" } }) : send(response, 409, { error: "stale_runtime_instructions", message: "Runtime instructions changed in another session. Reload Settings before restoring." });
     }
+    if (url.pathname === "/api/instruction-documents" && request.method === "GET") {
+      if (!await protectedSession(request, response)) return;
+      return send(response, 200, { documents: await store.instructionDocuments() });
+    }
+    const managedDocument = url.pathname.match(/^\/api\/instruction-documents\/([A-Z_]+\.md)(?:\/(restore-default|history)(?:\/([1-9][0-9]{0,9}))?)?$/u);
+    if (managedDocument && documentNames.includes(managedDocument[1])) {
+      const [, name, action, version] = managedDocument;
+      if (!await protectedSession(request, response, { csrf: request.method !== "GET" })) return;
+      if (request.method === "GET" && action === "history") {
+        const result = version ? await store.instructionVersion(name, Number(version)) : await store.instructionHistory(name);
+        return result ? send(response, 200, { result }) : send(response, 404, { error: "not_found" });
+      }
+      if (request.method === "PUT" && (!action || action === "restore-default")) {
+        const input = await json(request);
+        const markdown = action === "restore-default" && input?.confirmed === true ? await readDocumentDefault(name) : !action ? input?.markdown : undefined;
+        if (!validDocument(markdown) || !Number.isSafeInteger(input?.revision)) return send(response, 422, { error: "invalid_document" });
+        const document = await store.saveInstructionDocument(name, input.revision, markdown, action ?? "save");
+        return document ? send(response, 200, { document }) : send(response, 409, { error: "stale_document" });
+      }
+      return send(response, 405, { error: "method_not_allowed" });
+    }
     if (request.method === "GET" && url.pathname === "/api/conversations") { if (!await protectedSession(request, response)) return; return send(response, 200, { conversations: await store.listConversations() }); }
     if (request.method === "POST" && url.pathname === "/api/conversations") { if (!await protectedSession(request, response, { csrf: true })) return; return send(response, 201, { conversation: await store.createConversation() }); }
     if (request.method === "DELETE" && url.pathname === "/api/conversations") {
       if (!await protectedSession(request, response, { csrf: true })) return;
       const conversationIds = parseConversationIds(await json(request));
       if (!conversationIds) return send(response, 422, { error: "invalid_conversations" });
+      for (const id of conversationIds) await consultation.stop(id);
       const deletedConversationIds = await store.deleteConversations(conversationIds);
       return send(response, 200, { deletedConversationIds });
     }
@@ -134,8 +161,8 @@ const handler = async (request, response) => {
       if (request.method === "POST" && action === "messages") {
         const raw = await json(request); const input = parseMessage(raw); if (!input) return send(response, 422, { error: messageError(raw) });
         const [settings, runtimeInstructions] = await Promise.all([store.settings(), activeRuntimeInstructions()]);
-        const accepted = await store.acceptMessage(conversationId, input, { ...settings, runtimeInstructions: { markdown: runtimeInstructions.markdown, revision: runtimeInstructions.revision } });
-        if (!accepted) return send(response, 409, { error: "active_or_missing_conversation" }); await consultation.start(conversationId, accepted.run); return send(response, 202, accepted);
+        const accepted = await store.acceptMessage(conversationId, input, { ...settings, runtimeInstructions: { markdown: runtimeInstructions.markdown, revision: runtimeInstructions.revision }, instructionDocuments: await store.instructionDocuments() });
+        if (!accepted) return send(response, 409, { error: "active_or_missing_conversation" }); if (!accepted.replayed) await consultation.start(conversationId, accepted.run); return send(response, 202, accepted);
       }
       if (request.method === "POST" && action === "stop") { const run = await consultation.stop(conversationId); return run ? send(response, 200, { run }) : send(response, 409, { error: "no_active_run" }); }
       if (request.method === "POST" && action === "continue") { const run = await consultation.continue(conversationId); return run ? send(response, 202, { run }) : send(response, 409, { error: "not_stopped" }); }
@@ -147,7 +174,7 @@ const handler = async (request, response) => {
         catch (error) { if (error instanceof RangeError) return send(response, 422, { error: "invalid_time_zone" }); throw error; }
         return bytes(response, 200, document, { "content-type": "application/rtf", "content-disposition": `attachment; filename="nanoduck-${conversationId}.rtf"` });
       }
-      if (request.method === "DELETE" && !action) { return (await store.deleteConversation(conversationId)) ? empty(response, 204) : send(response, 404, { error: "not_found" }); }
+      if (request.method === "DELETE" && !action) { await consultation.stop(conversationId); return (await store.deleteConversation(conversationId)) ? empty(response, 204) : send(response, 404, { error: "not_found" }); }
     }
     if (request.method === "GET" && await staticFile(request, response, url.pathname)) return;
     send(response, 404, { error: "not_found" });
@@ -160,7 +187,32 @@ const handler = async (request, response) => {
   }
 };
 
-const server = createServer(handler);
-void consultation.resume().catch(() => process.stderr.write("Unable to resume a saved consultation.\n"));
-server.listen(config.port, "0.0.0.0", () => process.stdout.write(`NanoDuck Consulting Group listening on ${config.port}.\n`));
-for (const signal of ["SIGINT", "SIGTERM"]) process.once(signal, () => server.close(() => Promise.resolve(store.close?.()).finally(() => process.exit(0))));
+let shutdown;
+const requests = new Set();
+const server = createServer((request, response) => {
+  if (shutdown) return send(response, 503, { error: "shutting_down" });
+  const active = handler(request, response).finally(() => requests.delete(active));
+  requests.add(active);
+});
+server.requestTimeout = 30_000;
+server.headersTimeout = 20_000;
+const close = () => shutdown ??= (async () => {
+  const drained = new Promise(resolve => server.close(resolve));
+  server.closeIdleConnections();
+  const deadline = setTimeout(() => server.closeAllConnections(), 10_000); deadline.unref();
+  try {
+    await consultation.close();
+    await drained;
+    await Promise.allSettled([...requests]);
+  } finally { clearTimeout(deadline); await store.close?.(); }
+})().catch(() => { process.exitCode = 1; });
+store.onLeadershipLost?.(() => { process.exitCode = 1; void close(); });
+for (const signal of ["SIGINT", "SIGTERM"]) process.once(signal, () => void close());
+try {
+  await consultation.resume();
+  await new Promise((resolve, reject) => {
+    server.once("error", reject);
+    server.listen(config.port, config.mode === "production" ? "0.0.0.0" : "127.0.0.1", resolve);
+  });
+  process.stdout.write(`NanoDuck Consulting Group listening on ${config.port}.\n`);
+} catch (error) { await close(); throw error; }

@@ -68,7 +68,7 @@ export const runClaudeCommand = ({ command, args, environment, cwd, signal, time
   let stdout = ""; let stderr = ""; let settled = false; let timedOut = false; let exceeded = false; let timeout; let killTimeout;
   const child = spawn(command, args, { cwd, env: environment, stdio: ["ignore", "pipe", "pipe"] });
   const finish = result => { if (settled) return; settled = true; if (timeout) clearTimeout(timeout); if (killTimeout) clearTimeout(killTimeout); signal?.removeEventListener("abort", abort); resolve(result); };
-  const terminate = () => { child.kill("SIGTERM"); killTimeout = setTimeout(() => child.kill("SIGKILL"), 1_000); };
+  const terminate = () => { if (killTimeout || settled) return; child.kill("SIGTERM"); killTimeout = setTimeout(() => child.kill("SIGKILL"), 1_000); };
   const abort = () => terminate();
   const append = (current, chunk) => {
     if (Buffer.byteLength(current, "utf8") + chunk.byteLength > maxOutputBytes) { exceeded = true; terminate(); return current; }
@@ -79,6 +79,7 @@ export const runClaudeCommand = ({ command, args, environment, cwd, signal, time
   child.once("close", exitCode => finish({ exitCode: exceeded ? null : exitCode, stdout, stderr, timedOut, exceeded, aborted: signal?.aborted === true }));
   timeout = setTimeout(() => { timedOut = true; terminate(); }, timeoutMilliseconds);
   signal?.addEventListener("abort", abort, { once: true });
+  if (signal?.aborted) abort();
 });
 
 const modelLabel = id => id === "claude-opus-5" ? "Opus 5" : id;
@@ -104,6 +105,7 @@ export function createClaudeProvider(config, { run = runClaudeCommand } = {}) {
         args,
         cwd: directory,
         signal,
+        timeoutMilliseconds: args[0] === "auth" ? 20_000 : 540_000,
         environment: {
           PATH: process.env.PATH ?? "/usr/local/bin:/usr/bin:/bin", HOME: directory, TMPDIR: directory, CLAUDE_CONFIG_DIR: join(directory, "config"),
           CLAUDE_CODE_OAUTH_TOKEN: config.claudeOAuthToken, CLAUDE_CODE_DISABLE_FAST_MODE: "1", CLAUDE_CODE_DISABLE_AUTO_MEMORY: "1", CLAUDE_CODE_DISABLE_BACKGROUND_TASKS: "1", CLAUDE_CODE_DISABLE_ATTACHMENTS: "1", CLAUDE_CODE_DISABLE_CRON: "1", CLAUDE_CODE_DISABLE_FILE_CHECKPOINTING: "1", CLAUDE_CODE_DISABLE_GIT_INSTRUCTIONS: "1", CLAUDE_CODE_DISABLE_CLAUDE_MDS: "1", CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC: "1", DISABLE_TELEMETRY: "1", NO_COLOR: "1"

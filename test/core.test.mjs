@@ -212,7 +212,7 @@ test("MySQL agent writes and deletion serialize through the conversation lock", 
       if (statement.startsWith("UPDATE nanoduck_conversations SET updated_at")) return [{ affectedRows: 1 }];
       if (statement.startsWith("UPDATE nanoduck_runs SET updated_at")) return [{ affectedRows: 1 }];
       if (statement.startsWith("UPDATE nanoduck_conversations SET deleted_at") || statement.startsWith("DELETE FROM nanoduck_attachments") || statement.startsWith("DELETE FROM nanoduck_messages") || statement.startsWith("DELETE FROM nanoduck_requests")) return [{ affectedRows: 1 }];
-      if (statement.startsWith("UPDATE nanoduck_runs SET generation")) return [{ affectedRows: 1 }];
+      if (statement.startsWith("UPDATE nanoduck_runs SET snapshot_json")) return [{ affectedRows: 1 }];
       throw new Error(`Unexpected statement: ${statement}`);
     }
   };
@@ -229,7 +229,7 @@ test("MySQL agent writes and deletion serialize through the conversation lock", 
   assert.match(commands[deleteIndex + 1], /^DELETE FROM nanoduck_attachments/u);
   assert.match(commands[deleteIndex + 2], /^DELETE FROM nanoduck_messages/u);
   assert.match(commands[deleteIndex + 3], /^DELETE FROM nanoduck_requests/u);
-  assert.match(commands[deleteIndex + 4], /^UPDATE nanoduck_runs SET generation/u);
+  assert.match(commands[deleteIndex + 4], /^UPDATE nanoduck_runs SET snapshot_json/u);
 });
 
 test("MySQL recovery exports app records and restores deletion tombstones before active history", async () => {
@@ -250,7 +250,8 @@ test("MySQL recovery exports app records and restores deletion tombstones before
       if (statement.startsWith("SELECT id,role,recipient,ciphertext,iv,tag,sequence,created_at,sources_json FROM nanoduck_messages")) return [[{ id: "recovery-message-0001", role: "Head Consultant", recipient: null, ...encrypted, sequence: 1, created_at: "2026-09-14T00:01:00.000Z", sources_json: "[]" }]];
       if (statement.startsWith("SELECT id,message_id,content_type,byte_length,ciphertext,iv,tag,created_at FROM nanoduck_attachments")) return [[]];
       if (statement.startsWith("SELECT id,deleted_at FROM nanoduck_conversations")) return [[]];
-      if (statement.startsWith("INSERT INTO nanoduck_conversations") || statement.startsWith("INSERT INTO nanoduck_messages") || statement.startsWith("INSERT INTO nanoduck_attachments") || statement.startsWith("DELETE FROM nanoduck_attachments") || statement.startsWith("DELETE FROM nanoduck_messages") || statement.startsWith("DELETE FROM nanoduck_requests") || statement.startsWith("UPDATE nanoduck_runs SET generation")) return [{ affectedRows: 1 }];
+      if (["FROM nanoduck_settings", "FROM nanoduck_runtime_instructions", "FROM nanoduck_runtime_instruction_history", "FROM nanoduck_instruction_documents"].some(table => statement.includes(table))) return [[]];
+      if (statement.startsWith("INSERT INTO nanoduck_conversations") || statement.startsWith("INSERT INTO nanoduck_messages") || statement.startsWith("INSERT INTO nanoduck_attachments") || statement.startsWith("DELETE FROM nanoduck_attachments") || statement.startsWith("DELETE FROM nanoduck_messages") || statement.startsWith("DELETE FROM nanoduck_requests") || statement.startsWith("UPDATE nanoduck_runs SET snapshot_json")) return [{ affectedRows: 1 }];
       throw new Error(`Unexpected statement: ${statement}`);
     }
   };
@@ -457,10 +458,7 @@ test("development cookies remain usable on localhost while production uses host-
   assert.deepEqual(loadConfig({ ...productionEnvironment, CODEX_APP_SERVER_AUTH_PATH: "", CODEX_APP_SERVER_AUTH_GZIP_B64: compressedAuth }).codexAuthBytes, Buffer.from('{"test":"owned-auth-state"}'));
   assert.throws(() => loadConfig({ ...productionEnvironment, CODEX_APP_SERVER_AUTH_B64: encodedAuth, CODEX_APP_SERVER_AUTH_GZIP_B64: compressedAuth }), /only one Codex app-server auth secret/u);
   assert.throws(() => loadConfig({ ...productionEnvironment, CODEX_APP_SERVER_AUTH_PATH: "", CODEX_APP_SERVER_AUTH_B64: "not+base64url" }), /base64url/u);
-  const compressedBootstrap = gzipSync(Buffer.from(testRuntimeInstructions.markdown, "utf8")).toString("base64url");
-  assert.equal(loadConfig({ ...productionEnvironment, RUNTIME_INSTRUCTIONS_BOOTSTRAP_GZIP_B64: compressedBootstrap }).runtimeInstructionsBootstrap, testRuntimeInstructions.markdown);
-  assert.throws(() => loadConfig({ ...productionEnvironment, RUNTIME_INSTRUCTIONS_BOOTSTRAP_B64: Buffer.from(testRuntimeInstructions.markdown, "utf8").toString("base64url"), RUNTIME_INSTRUCTIONS_BOOTSTRAP_GZIP_B64: compressedBootstrap }), /only one runtime-instructions bootstrap/u);
-  assert.throws(() => loadConfig({ ...productionEnvironment, RUNTIME_INSTRUCTIONS_BOOTSTRAP_GZIP_B64: Buffer.from("not-gzip", "utf8").toString("base64url") }), /gzip-compressed/u);
+  assert.equal(loadConfig({ ...productionEnvironment, RUNTIME_INSTRUCTIONS_BOOTSTRAP_B64: "obsolete" }).runtimeInstructionsBootstrap, undefined);
   const managedDatabaseConfig = loadConfig({ ...productionEnvironment, DATABASE_URL: "", DATABASE_SSL_CA_PATH: "", DB_HOST: "mysql.internal", DB_PORT: "3306", DB_NAME: "owned", DB_USER: "owner", DB_PASSWORD: "contains:a/slash", OWNER_GOOGLE_SUBJECT: "", SETTINGS_OWNER_GOOGLE_EMAIL: "OWNER@EXAMPLE.COM" });
   assert.equal(managedDatabaseConfig.databaseUrl, "mysql://owner:contains%3Aa%2Fslash@mysql.internal:3306/owned");
   assert.equal(managedDatabaseConfig.google.ownerEmail, "owner@example.com");

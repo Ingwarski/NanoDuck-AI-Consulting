@@ -1,6 +1,8 @@
+import { normalizeConfiguration } from "./configuration-recovery.mjs";
 import { decryptText, encryptText } from "./crypto.mjs";
 import { hasProhibitedLanguage, safeExternalUrl } from "./validation.mjs";
 
+export const maximumRecoveryBytes = 32 * 1024 * 1024;
 const schemaVersion = 1;
 const maximumAttachmentBytes = 8 * 1024 * 1024;
 const identifier = value => typeof value === "string" && /^[A-Za-z0-9_-]{16,128}$/u.test(value);
@@ -31,7 +33,7 @@ const attachment = value => {
 
 const conversation = value => {
   if (!record(value) || !identifier(value.id) || !text(value.title, 255) || !date(value.createdAt) || !date(value.updatedAt) || (value.deletedAt !== null && value.deletedAt !== undefined && !date(value.deletedAt))) return undefined;
-  return Object.freeze({ id: value.id, title: value.title.trim(), createdAt: value.createdAt, updatedAt: value.updatedAt, deletedAt: value.deletedAt ?? null });
+  return Object.freeze({ id: value.id, title: value.deletedAt ? "Deleted consultation" : value.title.trim(), createdAt: value.createdAt, updatedAt: value.updatedAt, deletedAt: value.deletedAt ?? null });
 };
 
 const entry = value => {
@@ -50,13 +52,17 @@ export function normalizeRecoverySnapshot(value) {
   if (!record(value) || value.schemaVersion !== schemaVersion || value.kind !== "nanoduck-owner-records" || !date(value.createdAt) || !Array.isArray(value.conversations)) return undefined;
   const conversations = value.conversations.map(entry);
   if (conversations.some(item => !item) || new Set(conversations.map(item => item.conversation.id)).size !== conversations.length) return undefined;
-  return Object.freeze({ schemaVersion, kind: "nanoduck-owner-records", createdAt: value.createdAt, conversations: Object.freeze(conversations) });
+  const configuration = value.configuration === undefined ? undefined : normalizeConfiguration(value.configuration);
+  if (value.configuration !== undefined && !configuration) return undefined;
+  return Object.freeze({ schemaVersion, kind: "nanoduck-owner-records", createdAt: value.createdAt, conversations: Object.freeze(conversations), ...(configuration ? { configuration } : {}) });
 }
 
 export function sealRecoverySnapshot(snapshot, key) {
   const normalized = normalizeRecoverySnapshot(snapshot);
   if (!normalized || !Buffer.isBuffer(key) || key.byteLength !== 32) throw new Error("invalid_recovery_snapshot");
-  return Object.freeze({ schemaVersion, kind: "nanoduck-owner-backup", payload: encryptText(JSON.stringify(normalized), key) });
+  const envelope = Object.freeze({ schemaVersion, kind: "nanoduck-owner-backup", payload: encryptText(JSON.stringify(normalized), key) });
+  if (Buffer.byteLength(JSON.stringify(envelope)) > maximumRecoveryBytes) throw new Error("recovery_backup_exceeds_32_mib");
+  return envelope;
 }
 
 export function openRecoveryEnvelope(value, key) {

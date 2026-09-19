@@ -69,7 +69,8 @@ test("resume reuses every confirmed closing message, even when its agreement met
     const { store, id, run } = await createRun();
     for (const message of messages.slice(0, savedCount)) await store.appendAgentMessage(id, run.generation, message);
     const calls = [];
-    await createConsultationService({ store, provider: { async invoke(input) { calls.push(input); return response(input); } } }).resume();
+    const resumed = createConsultationService({ store, provider: { async invoke(input) { calls.push(input); return response(input); } } });
+    await resumed.resume(); assert.equal(calls.length, 0); await resumed.continue(id);
     await waitFor(async () => (await store.run(id)).status === "complete");
     const saved = (await store.events(id)).slice(1);
     assert.equal(calls.length, messages.length - savedCount);
@@ -122,7 +123,8 @@ test("an old premature Head answer cannot substitute for the missing closing rev
   const roles = [["Head Consultant", "Strategy Consultant"], ["Head Consultant", "Finance Consultant"], ["Strategy Consultant", "Critic"], ["Finance Consultant", "Critic"], ["Critic", "Strategy Consultant"], ["Strategy Consultant", "Critic"], ["Critic", "Finance Consultant"], ["Finance Consultant", "Critic"], ["Head Consultant", null]];
   for (const [role, recipient] of roles) await store.appendAgentMessage(id, run.generation, { role, recipient, body: "Legacy contribution.", sources: [] });
   let calls = 0;
-  await createConsultationService({ store, provider: { async invoke(input) { calls++; return response(input); } } }).resume();
+  const resumed = createConsultationService({ store, provider: { async invoke(input) { calls++; return response(input); } } });
+  await resumed.resume(); assert.equal(calls, 0); await resumed.continue(id);
   await waitFor(async () => (await store.run(id)).status === "failed");
   assert.equal(calls, 0);
 });
@@ -132,7 +134,8 @@ test("Auto restart with a saved closing review but missing agreement continues w
   const roles = [["Head Consultant", "Strategy Consultant"], ["Head Consultant", "Finance Consultant"], ["Strategy Consultant", "Critic"], ["Finance Consultant", "Critic"], ["Critic", "Strategy Consultant"], ["Strategy Consultant", "Critic"], ["Critic", "Finance Consultant"], ["Finance Consultant", "Critic"], ["Strategy Consultant", "Head Consultant"], ["Finance Consultant", "Head Consultant"], ["Critic", "Head Consultant"]];
   for (const [role, recipient] of roles) await store.appendAgentMessage(id, run.generation, { role, recipient, body: "Confirmed before restart.", sources: [] });
   const calls = [];
-  await createConsultationService({ store, provider: { async invoke(input) { calls.push(input); return response(input); } } }).resume();
+  const resumed = createConsultationService({ store, provider: { async invoke(input) { calls.push(input); return response(input); } } });
+    await resumed.resume(); assert.equal(calls.length, 0); await resumed.continue(id);
   await waitFor(async () => (await store.run(id)).status === "complete");
   assert.equal(calls[0].outputKind, "critic_challenge");
   assert.equal((await store.run(id)).snapshot.autoDepthCompleted, 2);

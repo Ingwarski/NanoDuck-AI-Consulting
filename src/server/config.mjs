@@ -1,3 +1,4 @@
+import { FORBIDDEN_RUNTIME_ENVIRONMENT_NAMES } from "./forbidden-environment.mjs";
 import { createHash } from "node:crypto";
 import { resolve } from "node:path";
 import { gunzipSync } from "node:zlib";
@@ -10,7 +11,7 @@ const required = (value, name) => {
 const optionalUrl = (value, name) => {
   if (value === undefined || value === "") return undefined;
   const url = new URL(value);
-  if (url.protocol !== "https:" || url.username || url.password || url.search || url.hash) {
+  if (url.protocol !== "https:" || url.username || url.password || url.search || url.hash || url.pathname !== "/") {
     throw new Error(`${name} must be a clean HTTPS origin.`);
   }
   return url.origin;
@@ -22,21 +23,6 @@ const positiveInteger = (value, fallback, name) => {
   const parsed = Number(value);
   if (!Number.isSafeInteger(parsed) || parsed < 1) throw new Error(`${name} must be positive.`);
   return parsed;
-};
-
-const utf8Text = (decoded, name) => {
-  if (!decoded.byteLength) throw new Error(`${name} must contain UTF-8 text.`);
-  const text = decoded.toString("utf8");
-  if (!Buffer.from(text, "utf8").equals(decoded)) throw new Error(`${name} must contain UTF-8 text.`);
-  return text;
-};
-
-const optionalBase64urlText = (value, name) => {
-  if (value === undefined || value === "") return undefined;
-  if (!/^[A-Za-z0-9_-]+$/u.test(value)) throw new Error(`${name} must be base64url-encoded UTF-8 text.`);
-  const decoded = Buffer.from(value, "base64url");
-  if (!decoded.byteLength || decoded.toString("base64url") !== value) throw new Error(`${name} must be canonical base64url-encoded UTF-8 text.`);
-  return utf8Text(decoded, name);
 };
 
 const optionalBase64urlBytes = (value, name) => {
@@ -55,11 +41,6 @@ const optionalGzipBase64urlBytes = (value, name) => {
   } catch {
     throw new Error(`${name} must be valid gzip-compressed base64url bytes of at most 64 KiB.`);
   }
-};
-
-const optionalGzipBase64urlText = (value, name) => {
-  const decoded = optionalGzipBase64urlBytes(value, name);
-  return decoded === undefined ? undefined : utf8Text(decoded, name);
 };
 
 const optionalString = value => typeof value === "string" && value.trim() ? value.trim() : undefined;
@@ -138,6 +119,8 @@ const goDaddyDatabaseUrl = environment => {
 };
 
 export function loadConfig(environment = process.env) {
+  const forbidden = FORBIDDEN_RUNTIME_ENVIRONMENT_NAMES.filter(name => environment[name]?.trim());
+  if (forbidden.length) throw new Error(`Unsupported provider environment: ${forbidden.join(", ")}. Use the managed subscription credentials.`);
   const mode = environment.NANODUCK_RUNTIME_MODE ?? environment.NODE_ENV ?? "production";
   if (!["development", "test", "production"].includes(mode)) throw new Error("NANODUCK_RUNTIME_MODE or NODE_ENV is invalid.");
   const origin = optionalUrl(environment.APP_ORIGIN ?? environment.SETTINGS_PUBLIC_ORIGIN, "APP_ORIGIN");
@@ -160,6 +143,7 @@ export function loadConfig(environment = process.env) {
     ? (mode === "production" ? undefined : createHash("sha256").update("nanoduck-development-session-key").digest())
     : secretKeyBytes(sessionKeyValue, "SESSION_SIGNING_KEY", length => length >= 32);
   if (!sessionKey || sessionKey.byteLength < 32) throw new Error("SESSION_SIGNING_KEY must contain at least 32 bytes.");
+  if ([decodedKey, decodedRecoveryKey].some(key => key?.equals(sessionKey))) throw new Error("SESSION_SIGNING_KEY must differ from data and recovery keys.");
   const databaseUrl = goDaddyDatabaseUrl(environment);
   if (mode === "production" && (typeof databaseUrl !== "string" || databaseUrl.length === 0)) {
     throw new Error("DATABASE_URL or the managed DB_* connection is required in production.");
@@ -187,14 +171,10 @@ export function loadConfig(environment = process.env) {
 
   const runtimeDataKey = decodedKey ?? createHash("sha256").update("nanoduck-development-data-key").digest();
   const runtimeRecoveryKey = decodedRecoveryKey ?? createHash("sha256").update("nanoduck-development-recovery-key").digest();
-  const runtimeInstructionsBootstrapPlain = optionalBase64urlText(environment.RUNTIME_INSTRUCTIONS_BOOTSTRAP_B64, "RUNTIME_INSTRUCTIONS_BOOTSTRAP_B64");
-  const runtimeInstructionsBootstrapGzip = optionalGzipBase64urlText(environment.RUNTIME_INSTRUCTIONS_BOOTSTRAP_GZIP_B64, "RUNTIME_INSTRUCTIONS_BOOTSTRAP_GZIP_B64");
-  if (runtimeInstructionsBootstrapPlain && runtimeInstructionsBootstrapGzip) {
-    throw new Error("Use only one runtime-instructions bootstrap secret.");
-  }
-  const runtimeInstructionsBootstrap = runtimeInstructionsBootstrapPlain ?? runtimeInstructionsBootstrapGzip;
   const maxAttachmentBytes = positiveInteger(environment.MAX_ATTACHMENT_BYTES, 8 * 1024 * 1024, "MAX_ATTACHMENT_BYTES");
   if (maxAttachmentBytes > 8 * 1024 * 1024) throw new Error("MAX_ATTACHMENT_BYTES cannot exceed 8 MiB.");
+  const sessionLifetimeSeconds = positiveInteger(environment.SESSION_ABSOLUTE_SECONDS, 86_400, "SESSION_ABSOLUTE_SECONDS");
+  if (sessionLifetimeSeconds > 86_400) throw new Error("SESSION_ABSOLUTE_SECONDS cannot exceed 24 hours.");
   return Object.freeze({
     mode,
     port: positiveInteger(environment.PORT, 3000, "PORT"),
@@ -202,10 +182,9 @@ export function loadConfig(environment = process.env) {
     databaseUrl,
     databaseSslCaPath,
     dataKey: runtimeDataKey,
-    runtimeInstructionsBootstrap,
     recoveryKey: runtimeRecoveryKey,
     sessionKey,
-    sessionLifetimeSeconds: positiveInteger(environment.SESSION_ABSOLUTE_SECONDS, 86_400, "SESSION_ABSOLUTE_SECONDS"),
+    sessionLifetimeSeconds,
     maxAttachmentBytes,
     google: (ownerSubject || ownerEmail) && googleClientId && googleClientSecret && origin
       ? Object.freeze({ ownerSubject, ownerEmail, clientId: googleClientId, clientSecret: googleClientSecret, redirectUri: `${origin}/auth/google/callback` })

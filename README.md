@@ -2,7 +2,7 @@
 
 A simpler, private, mobile-first browser product for genuine consultant and Critic discussion, live research and practical decisions.
 
-**Electric A v8 is approved and production implementation is in progress.** The application includes browser UI, server routes, Google-owner authentication wiring, encrypted MySQL persistence, consultation orchestration and a controlled Codex app-server adapter. The named GoDaddy app has a private Preview deployment with its owned migration; Published remains unchanged. Use `NANODUCK_RUNTIME_MODE=production` on hosts that reserve `NODE_ENV` for Preview.
+**Canonical repository: `Ingwarski/personal-ai-consulting-web`.** Electric A v8 remains the approved design. Repository consolidation and the transferred fixes are documented in [consolidation and recovery](docs/consolidation.md). Repository verification is separate from deployment status; this change does not release a hosted version. Use `NANODUCK_RUNTIME_MODE=production` on hosts that reserve `NODE_ENV` for Preview.
 
 - [Product idea](docs/product-idea.md) — the recreated current brief.
 - [Reconciled architecture](docs/architecture.md) — one Node app, one database, durable consultation work.
@@ -19,7 +19,7 @@ A simpler, private, mobile-first browser product for genuine consultant and Crit
 
 ## Run the application locally
 
-Requires Node.js 22 or newer.
+Requires Node.js 22. CI uses the same major version as the GoDaddy runtime.
 
 ```sh
 npm install
@@ -28,9 +28,11 @@ npm run dev
 
 Open [NanoDuck locally](http://127.0.0.1:3000/). Development mode exposes a local-only owner sign-in. Production mode requires a configured verified Google owner identity, HTTPS origin, a MySQL connection with certificate verification, separate data/recovery/session keys, and protected Codex app-server authentication. GoDaddy supplies the connection as `DB_*` values; other hosts can supply `DATABASE_URL` and an optional private CA file. Use [`.env.example`](.env.example) to see variable names; do not commit values.
 
-### Bootstrap the owner instruction document
+### Packaged defaults and private instruction editing
 
-The consultant instruction document is never kept in this repository. On a fresh database, supply it once as either UTF-8/base64url Markdown in `RUNTIME_INSTRUCTIONS_BOOTSTRAP_B64` or gzip/base64url Markdown in `RUNTIME_INSTRUCTIONS_BOOTSTRAP_GZIP_B64`; set only one. Production `npm start` applies the idempotent migration before serving; it validates and encrypts the document, then writes the first saved version. Remove that bootstrap secret from the deployment environment afterwards. Every later review, edit and restore happens through authenticated Settings and the database.
+A fresh database is seeded from the public Markdown files in `instructions/`. `RUNTIME_PROMPTS.md` defines the structured runtime contract. `AGENTS.md`, `CONSILIUM.md`, `CONSULTING_PLAYBOOK.md` and `WORKING_CONTEXT.md` provide the four editable consulting documents. Existing owner edits remain authoritative. No bootstrap secret is needed; obsolete bootstrap variables are ignored and may be removed during a separately authorized deployment.
+
+Settings stores encrypted, versioned private copies. Saving checks the current revision and rejects stale edits. History allows review and restoration; a default restore creates a new version. It never modifies the repository files. Each accepted consultation keeps an encrypted snapshot of its original effective instructions. Editable guidance cannot grant process tools, change authentication or choose a paid-provider fallback.
 
 Before connecting a target runtime, supply Codex `auth.json` through `CODEX_APP_SERVER_AUTH_PATH` (a mounted private file), `CODEX_APP_SERVER_AUTH_B64` (the same bytes, base64url-encoded) or `CODEX_APP_SERVER_AUTH_GZIP_B64` (gzip/base64url for a length-bounded secret store); set one. The app creates the file only inside an owned, removed-after-use app-server directory. It performs only the managed Codex account, model-catalog and rate-limit inspection; it does not start a model turn, contact MySQL or change GoDaddy.
 
@@ -52,4 +54,4 @@ npm run check
 
 The source repository is public; the intended application remains private to one owner. Do not add private conversation archives, provider grants, secrets or deployment data to Git. Production startup applies the idempotent migration only to `nanoduck_*` tables after the deployment target's database ownership is verified; `npm run migrate` remains available for an explicit operator run.
 
-Recovery is an operator-only, explicit command. `npm run recovery -- backup <new-encrypted-file>` creates a new encrypted recovery envelope with the separate recovery key. `npm run recovery -- restore <encrypted-file> --confirm-restore` requires an explicit destructive confirmation and applies deletion tombstones before records, so a deleted conversation cannot return. Neither command has been run against GoDaddy or any live database.
+Backups contain confirmed conversations, linked images, deletion records, settings and all instruction versions. Active provider processes and credentials are excluded. Recovery is an operator-only, explicit command. `npm run recovery -- backup <new-encrypted-file>` creates a new encrypted recovery envelope with the separate recovery key. `npm run recovery -- restore <encrypted-file> --confirm-restore` requires an explicit destructive confirmation and applies deletion tombstones before records, so a deleted conversation cannot return. The application must be stopped for restore. Normal restore preserves current settings and instructions; add `--replace-configuration` only for an intentional full configuration restore. That option revokes existing browser sessions. Backup and restore share a 32 MiB envelope limit and reject larger files. See [recovery details](docs/consolidation.md#recovery). No recovery command in this consolidation was run against a live database.
