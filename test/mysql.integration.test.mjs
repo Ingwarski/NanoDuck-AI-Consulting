@@ -2,12 +2,69 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { randomBytes } from "node:crypto";
 import { readFile } from "node:fs/promises";
+import { setTimeout as delay } from "node:timers/promises";
 import mysql from "mysql2/promise";
 import { createMySqlStore, defaultSettings } from "../src/server/store.mjs";
+import { databaseLockName } from "../src/server/database-lock.mjs";
 import { initializeInstructions } from "../src/server/instruction-bootstrap.mjs";
 import { sealRecoverySnapshot, openRecoveryEnvelope } from "../src/server/recovery.mjs";
 
 const testUrl = process.env.NANODUCK_MYSQL_TEST_URL;
+test("real MySQL: idle leadership survives the session timeout and remains exclusive until close", { skip: !testUrl, timeout: 20_000 }, async () => {
+  const target = new URL(testUrl);
+  assert.equal(target.hostname, "127.0.0.1", "Only a disposable loopback test service is allowed");
+  assert.ok(target.pathname === "" || target.pathname === "/", "Tests create their own databases; never pass an application DB");
+  const admin = await mysql.createConnection(testUrl);
+  const name = `nanoduck_idle_test_${randomBytes(8).toString("hex")}`;
+  const url = new URL(testUrl); url.pathname = `/${name}`;
+  const stores = new Set();
+  const connections = [];
+  const driver = {
+    createPool(options) {
+      const pool = mysql.createPool({ ...options, ssl: undefined }); // Local disposable service only.
+      const getConnection = pool.getConnection.bind(pool);
+      pool.getConnection = async () => {
+        const connection = await getConnection();
+        try {
+          await connection.query("SET SESSION wait_timeout = 2");
+          connections.push(connection);
+          return connection;
+        } catch (error) { connection.destroy(); throw error; }
+      };
+      return pool;
+    }
+  };
+  try {
+    await admin.query(`CREATE DATABASE ${name}`);
+    const leader = await createMySqlStore(url.toString(), Buffer.alloc(32, 8), undefined, driver); stores.add(leader);
+    const lost = [];
+    leader.onLeadershipLost(code => lost.push(code));
+    assert.equal(await leader.acquireLeadership(), true);
+    const leadershipConnection = connections[0];
+    const [before] = await leadershipConnection.query("SELECT CONNECTION_ID() AS connectionId, @@SESSION.wait_timeout AS idleTimeoutSeconds");
+    assert.equal(Number(before[0].idleTimeoutSeconds), 2);
+
+    // No application query touches the leader connection during this period.
+    // Without its heartbeat MySQL closes this session and releases its lock.
+    await delay(3_200);
+    assert.deepEqual(lost, [], "An otherwise idle owner must retain its database lease");
+    const [ownership] = await admin.execute("SELECT IS_USED_LOCK(?) AS ownerId", [databaseLockName(url.toString())]);
+    assert.equal(Number(ownership[0].ownerId), Number(before[0].connectionId), "The same session must still own the lease; no reacquisition is allowed");
+    const [after] = await leadershipConnection.query("SELECT CONNECTION_ID() AS connectionId, @@SESSION.wait_timeout AS idleTimeoutSeconds");
+    assert.deepEqual(after, before, "The heartbeat must preserve the original session and its two-second timeout");
+
+    const duplicate = await createMySqlStore(url.toString(), Buffer.alloc(32, 8), undefined, driver); stores.add(duplicate);
+    assert.equal(await duplicate.acquireLeadership(), false, "A second instance must remain fenced after the idle period");
+    await leader.close(); stores.delete(leader);
+    assert.equal(await duplicate.acquireLeadership(), true, "Normal shutdown must release the lease for the next instance");
+    assert.deepEqual(lost, [], "Normal shutdown must not report leadership failure");
+  } finally {
+    await Promise.allSettled([...stores].map(store => store.close()));
+    await admin.query(`DROP DATABASE IF EXISTS ${name}`);
+    await admin.end();
+  }
+});
+
 test("real MySQL: isolation, encrypted snapshots, revision conflicts, deletion and full recovery", { skip: !testUrl, timeout: 60_000 }, async () => {
   const target = new URL(testUrl);
   assert.equal(target.hostname, "127.0.0.1", "Only a disposable loopback test service is allowed");

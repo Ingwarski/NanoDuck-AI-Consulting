@@ -7,12 +7,13 @@ test("database leadership loss reports only an allowlisted code and notifies onc
   for (const [code, expected] of [
     ["PROTOCOL_CONNECTION_LOST", "PROTOCOL_CONNECTION_LOST"],
     ["ER_CLIENT_INTERACTION_TIMEOUT", "ER_CLIENT_INTERACTION_TIMEOUT"],
+    [4031, "ER_CLIENT_INTERACTION_TIMEOUT"],
     ["mysql://private-user:private-password@private-host/database", "UNKNOWN_DATABASE_ERROR"],
     [undefined, "UNKNOWN_DATABASE_ERROR"]
   ]) {
     const connection = new EventEmitter();
     let destroyed = 0; let ended = 0;
-    connection.execute = async () => [[{ acquired: 1 }]];
+    connection.execute = async () => [[{ acquired: 1, idleTimeoutSeconds: 60 }]];
     connection.destroy = () => { destroyed += 1; };
     const store = await createMySqlStore("mysql://example.invalid/synthetic", Buffer.alloc(32, 1), undefined, {
       createPool: () => ({ getConnection: async () => connection, end: async () => { ended += 1; } })

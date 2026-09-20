@@ -16,6 +16,16 @@ import { messageError, parseConversationId, parseConversationIds, parseMessage, 
 
 const config = loadConfig();
 const store = config.databaseUrl ? await createMySqlStore(config.databaseUrl, config.dataKey, config.databaseSslCaPath) : createMemoryStore();
+let leadershipWasLost = false;
+let stopAfterLeadershipLoss;
+store.onLeadershipLost?.((code, errno) => {
+  leadershipWasLost = true;
+  process.stderr.write(`NanoDuck database leadership lost (${code}${errno === undefined ? "" : `, errno=${errno}`}); shutting down.\n`);
+  process.exitCode = 1; stopAfterLeadershipLoss?.();
+});
+store.onLeadershipAcquired?.(({ idleTimeoutSeconds, heartbeatIntervalMs }) => {
+  process.stdout.write(`NanoDuck database leadership acquired (session idle timeout=${idleTimeoutSeconds}s, heartbeat=${heartbeatIntervalMs}ms).\n`);
+});
 try {
   if (store.acquireLeadership && !await store.acquireLeadership()) throw new Error("Another application process owns this database. Stop it before starting this instance.");
   await initializeInstructions(store);
@@ -207,13 +217,12 @@ const close = () => shutdown ??= (async () => {
     await Promise.allSettled([...requests]);
   } finally { clearTimeout(deadline); await store.close?.(); }
 })().catch(() => { process.exitCode = 1; });
-store.onLeadershipLost?.(code => {
-  process.stderr.write(`NanoDuck database leadership lost (${code}); shutting down.\n`);
-  process.exitCode = 1; void close();
-});
+stopAfterLeadershipLoss = () => { void close(); };
 for (const signal of ["SIGINT", "SIGTERM"]) process.once(signal, () => void close());
 try {
+  if (leadershipWasLost) throw new Error("Database leadership was lost before HTTP startup.");
   await consultation.resume();
+  if (store.acquireLeadership && !await store.acquireLeadership()) throw new Error("Database leadership was lost before HTTP startup.");
   await new Promise((resolve, reject) => {
     server.once("error", reject);
     server.listen(config.port, config.mode === "production" ? "0.0.0.0" : "127.0.0.1", resolve);

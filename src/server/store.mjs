@@ -20,8 +20,9 @@ const defaults = Object.freeze({
 });
 
 const now = () => new Date().toISOString();
-const databaseConnectionErrorCodes = new Set(["PROTOCOL_CONNECTION_LOST", "PROTOCOL_SEQUENCE_TIMEOUT", "ECONNRESET", "ECONNREFUSED", "EPIPE", "ETIMEDOUT", "ER_CLIENT_INTERACTION_TIMEOUT", "ER_SERVER_SHUTDOWN", "ER_CONNECTION_KILLED"]);
-const safeDatabaseErrorCode = error => databaseConnectionErrorCodes.has(error?.code) ? error.code : "UNKNOWN_DATABASE_ERROR";
+const databaseConnectionErrorCodes = new Set(["PROTOCOL_CONNECTION_LOST", "PROTOCOL_SEQUENCE_TIMEOUT", "PROTOCOL_PACKETS_OUT_OF_ORDER", "ECONNRESET", "ECONNREFUSED", "EPIPE", "ETIMEDOUT", "ER_CLIENT_INTERACTION_TIMEOUT", "ER_SERVER_SHUTDOWN", "ER_CONNECTION_KILLED", "ER_UNKNOWN_ERROR", "LEADERSHIP_HEARTBEAT_TIMEOUT", "LEADERSHIP_OWNERSHIP_LOST"]);
+const safeDatabaseErrorCode = error => error?.code === 4031 ? "ER_CLIENT_INTERACTION_TIMEOUT" : databaseConnectionErrorCodes.has(error?.code) ? error.code : "UNKNOWN_DATABASE_ERROR";
+const safeDatabaseErrorNumber = error => error?.code === 4031 ? 4031 : Number.isInteger(error?.errno) && error.errno >= 0 && error.errno <= 65_535 ? error.errno : undefined;
 const publicAttachment = attachment => Object.freeze({ id: attachment.id, contentType: attachment.contentType, byteLength: attachment.byteLength, createdAt: attachment.createdAt });
 const publicMessage = message => Object.freeze({ id: message.id, role: message.role, recipient: message.recipient ?? null, body: message.body, sequence: message.sequence, createdAt: message.createdAt, sources: message.sources ?? [], attachments: message.attachments ?? [] });
 const recoverySnapshot = (conversations, configuration) => normalizeRecoverySnapshot({ schemaVersion: 1, kind: "nanoduck-owner-records", createdAt: now(), conversations, ...(configuration ? { configuration } : {}) });
@@ -254,19 +255,61 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
   };
   let leadership;
   let leadershipLost = () => {};
+  let leadershipAcquired = () => {};
+  let heartbeatTimer;
+  let heartbeatDeadline;
+  let heartbeatPending = false;
+  let leadershipFailed = false;
+  let closed = false;
+  const timers = driver?.leadershipTimers ?? { setTimeout, clearTimeout };
+  const clearHeartbeat = () => {
+    timers.clearTimeout(heartbeatTimer); timers.clearTimeout(heartbeatDeadline);
+    heartbeatTimer = undefined; heartbeatDeadline = undefined;
+  };
+  const loseLeadership = (connection, error) => {
+    if (leadership !== connection) return;
+    leadership = undefined; leadershipFailed = true; clearHeartbeat();
+    connection.destroy();
+    leadershipLost(safeDatabaseErrorCode(error), safeDatabaseErrorNumber(error));
+  };
   const lockName = databaseLockName(databaseUrl);
+  const scheduleHeartbeat = (connection, intervalMs) => {
+    if (leadership !== connection) return;
+    heartbeatTimer = timers.setTimeout(() => {
+      heartbeatTimer = undefined;
+      if (leadership !== connection) return;
+      heartbeatPending = true;
+      const timeout = Math.min(10_000, intervalMs);
+      heartbeatDeadline = timers.setTimeout(() => loseLeadership(connection, { code: "LEADERSHIP_HEARTBEAT_TIMEOUT" }), timeout);
+      heartbeatDeadline.unref?.();
+      void Promise.resolve().then(() => connection.execute({ sql: "SELECT IS_USED_LOCK(?) = CONNECTION_ID() AS owned", timeout }, [lockName])).then(([rows]) => {
+        if (leadership !== connection) return;
+        if (Number(rows[0]?.owned) !== 1) return loseLeadership(connection, { code: "LEADERSHIP_OWNERSHIP_LOST" });
+        timers.clearTimeout(heartbeatDeadline); heartbeatDeadline = undefined;
+        scheduleHeartbeat(connection, intervalMs);
+      }).catch(error => loseLeadership(connection, error)).finally(() => { heartbeatPending = false; });
+    }, intervalMs);
+    heartbeatTimer.unref?.();
+  };
   return Object.freeze({
     onLeadershipLost(callback) { leadershipLost = callback; },
+    onLeadershipAcquired(callback) { leadershipAcquired = callback; },
     async acquireLeadership() {
       if (leadership) return true;
+      if (closed || leadershipFailed) return false;
       const connection = await pool.getConnection();
       try {
-        const [rows] = await connection.execute("SELECT GET_LOCK(?, 0) AS acquired", [lockName]);
+        const [rows] = await connection.execute({ sql: "SELECT GET_LOCK(?, 0) AS acquired, @@SESSION.wait_timeout AS idleTimeoutSeconds", timeout: 10_000 }, [lockName]);
         if (Number(rows[0]?.acquired) !== 1) { connection.release(); return false; }
+        const idleTimeoutSeconds = Number(rows[0]?.idleTimeoutSeconds);
+        if (!Number.isSafeInteger(idleTimeoutSeconds) || idleTimeoutSeconds < 1) throw new Error("Database session idle timeout is invalid.");
+        const intervalMs = Math.max(100, Math.min(15_000, Math.floor(idleTimeoutSeconds * 1000 / 3)));
         leadership = connection;
-        connection.on?.("error", error => { if (leadership !== connection) return; leadership = undefined; connection.destroy(); leadershipLost(safeDatabaseErrorCode(error)); });
+        connection.on?.("error", error => loseLeadership(connection, error));
+        scheduleHeartbeat(connection, intervalMs);
+        leadershipAcquired({ idleTimeoutSeconds, heartbeatIntervalMs: intervalMs });
         return true;
-      } catch (error) { connection.destroy(); throw error; }
+      } catch (error) { if (leadership === connection) { leadership = undefined; clearHeartbeat(); } connection.destroy(); throw error; }
     },
     kind: "mysql",
     ...createMySqlDocuments(pool, dataKey),
@@ -546,10 +589,14 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
       return Object.freeze(deleted);
     },
     async close() {
+      closed = true; clearHeartbeat();
       if (leadership) {
         const connection = leadership; leadership = undefined;
-        try { await connection.execute("SELECT RELEASE_LOCK(?)", [lockName]); connection.release(); }
-        catch { connection.destroy(); }
+        if (heartbeatPending) connection.destroy();
+        else {
+          try { await connection.execute({ sql: "SELECT RELEASE_LOCK(?)", timeout: 10_000 }, [lockName]); connection.release(); }
+          catch { connection.destroy(); }
+        }
       }
       await pool.end();
     }
