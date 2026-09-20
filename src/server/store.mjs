@@ -20,6 +20,8 @@ const defaults = Object.freeze({
 });
 
 const now = () => new Date().toISOString();
+const databaseConnectionErrorCodes = new Set(["PROTOCOL_CONNECTION_LOST", "PROTOCOL_SEQUENCE_TIMEOUT", "ECONNRESET", "ECONNREFUSED", "EPIPE", "ETIMEDOUT", "ER_CLIENT_INTERACTION_TIMEOUT", "ER_SERVER_SHUTDOWN", "ER_CONNECTION_KILLED"]);
+const safeDatabaseErrorCode = error => databaseConnectionErrorCodes.has(error?.code) ? error.code : "UNKNOWN_DATABASE_ERROR";
 const publicAttachment = attachment => Object.freeze({ id: attachment.id, contentType: attachment.contentType, byteLength: attachment.byteLength, createdAt: attachment.createdAt });
 const publicMessage = message => Object.freeze({ id: message.id, role: message.role, recipient: message.recipient ?? null, body: message.body, sequence: message.sequence, createdAt: message.createdAt, sources: message.sources ?? [], attachments: message.attachments ?? [] });
 const recoverySnapshot = (conversations, configuration) => normalizeRecoverySnapshot({ schemaVersion: 1, kind: "nanoduck-owner-records", createdAt: now(), conversations, ...(configuration ? { configuration } : {}) });
@@ -262,7 +264,7 @@ export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath =
         const [rows] = await connection.execute("SELECT GET_LOCK(?, 0) AS acquired", [lockName]);
         if (Number(rows[0]?.acquired) !== 1) { connection.release(); return false; }
         leadership = connection;
-        connection.on?.("error", () => { if (leadership !== connection) return; leadership = undefined; connection.destroy(); leadershipLost(); });
+        connection.on?.("error", error => { if (leadership !== connection) return; leadership = undefined; connection.destroy(); leadershipLost(safeDatabaseErrorCode(error)); });
         return true;
       } catch (error) { connection.destroy(); throw error; }
     },

@@ -207,7 +207,10 @@ const close = () => shutdown ??= (async () => {
     await Promise.allSettled([...requests]);
   } finally { clearTimeout(deadline); await store.close?.(); }
 })().catch(() => { process.exitCode = 1; });
-store.onLeadershipLost?.(() => { process.exitCode = 1; void close(); });
+store.onLeadershipLost?.(code => {
+  process.stderr.write(`NanoDuck database leadership lost (${code}); shutting down.\n`);
+  process.exitCode = 1; void close();
+});
 for (const signal of ["SIGINT", "SIGTERM"]) process.once(signal, () => void close());
 try {
   await consultation.resume();
@@ -215,5 +218,6 @@ try {
     server.once("error", reject);
     server.listen(config.port, config.mode === "production" ? "0.0.0.0" : "127.0.0.1", resolve);
   });
-  process.stdout.write(`NanoDuck Consulting Group listening on ${config.port}.\n`);
+  const address = server.address();
+  process.stdout.write(`NanoDuck Consulting Group listening on ${address.address}:${address.port} (mode=${config.mode}).\n`);
 } catch (error) { await close(); throw error; }
