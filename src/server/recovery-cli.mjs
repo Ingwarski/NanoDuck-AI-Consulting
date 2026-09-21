@@ -1,8 +1,9 @@
-import { open, readFile, stat } from "node:fs/promises";
+import { open } from "node:fs/promises";
 import { resolve } from "node:path";
 import { loadConfig } from "./config.mjs";
 import { createMySqlStore } from "./store.mjs";
 import { openRecoveryEnvelope, sealRecoverySnapshot, maximumRecoveryBytes } from "./recovery.mjs";
+import { readRegularFile } from "./read-regular-file.mjs";
 
 const [command, requestedPath, confirmation, configurationConfirmation, ...extra] = process.argv.slice(2);
 const usage = () => { throw new Error("Usage: npm run recovery -- backup <new-encrypted-file> | restore <encrypted-file> --confirm-restore [--replace-configuration]"); };
@@ -23,8 +24,11 @@ try {
     try { await file.writeFile(output, "utf8"); await file.sync(); } finally { await file.close(); }
     process.stdout.write(`${JSON.stringify({ result: "backup_created", createdAt: snapshot.createdAt, conversations: snapshot.conversations.length })}\n`);
   } else {
-    const info = await stat(target); if (info.size > maximumRecoveryBytes) throw new Error("Recovery input exceeds 32 MiB.");
-    const envelope = JSON.parse(await readFile(target, "utf8"));
+    const input = await readRegularFile(target, maximumRecoveryBytes).catch(error => {
+      if (error instanceof RangeError && error.message === "file_too_large") throw new Error("Recovery input exceeds 32 MiB.");
+      throw error;
+    });
+    const envelope = JSON.parse(input.toString("utf8"));
     const snapshot = openRecoveryEnvelope(envelope, config.recoveryKey); if (!snapshot) throw new Error("Recovery input is invalid or cannot be authenticated.");
     const result = await store.restoreRecovery(snapshot, { restoreConfiguration: configurationConfirmation === "--replace-configuration" }); if (!result) throw new Error("Recovery input is invalid.");
     process.stdout.write(`${JSON.stringify({ result: "restore_completed", configurationRestored: configurationConfirmation === "--replace-configuration" && Boolean(snapshot.configuration), ...result })}\n`);

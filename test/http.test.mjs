@@ -40,6 +40,11 @@ test("the local HTTP flow protects data, saves settings and preserves a truthful
       try { return (await fetch(`${origin}/healthz`)).ok; } catch { return false; }
     });
     assert.equal((await fetch(`${origin}/api/conversations`)).status, 401);
+    for (const path of ["/client/", "/sounds/", "/missing-file.txt", "/client/missing.js"]) {
+      const missing = await fetch(`${origin}${path}`);
+      assert.equal(missing.status, 404);
+      assert.deepEqual(await missing.json(), { error: "not_found" });
+    }
 
     const signIn = await fetch(`${origin}/api/auth/development`, { method: "POST" });
     assert.equal(signIn.status, 200);
@@ -164,7 +169,12 @@ test("owner image attachments validate bytes, link only on message acceptance an
     stdio: "ignore"
   });
   const origin = `http://127.0.0.1:${port}`;
-  const jpeg = Buffer.from([0xff, 0xd8, 0xff, 0xe0, 0x00, 0x10, 0xff, 0xd9]);
+  const html = Buffer.from('<script>globalThis.downloadExecuted=true</script><svg onload="alert(1)">');
+  const jpeg = Buffer.concat([Buffer.from([0xff, 0xd8, 0xff, 0xe0]), html, Buffer.from([0xff, 0xd9])]);
+  const png = Buffer.concat([Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]), html, Buffer.from([0x49, 0x45, 0x4e, 0x44, 0xae, 0x42, 0x60, 0x82])]);
+  const webp = Buffer.concat([Buffer.from("RIFF0000WEBPVP8 "), html]);
+  webp.writeUInt32LE(webp.length - 8, 4);
+  const images = [{ body: jpeg, type: "image/jpeg", extension: "jpg" }, { body: png, type: "image/png", extension: "png" }, { body: webp, type: "image/webp", extension: "webp" }];
   try {
     await waitFor(async () => {
       try { return (await fetch(`${origin}/healthz`)).ok; } catch { return false; }
@@ -176,28 +186,44 @@ test("owner image attachments validate bytes, link only on message acceptance an
     await fetch(`${origin}/api/consent`, { method: "POST", headers: { ...protectedHeaders, "content-type": "application/json" } });
     const created = await (await fetch(`${origin}/api/conversations`, { method: "POST", headers: protectedHeaders })).json();
     const conversationId = created.conversation.id;
-    const pending = await fetch(`${origin}/api/conversations/${conversationId}/attachments`, { method: "POST", headers: { ...protectedHeaders, "content-type": "application/pdf" }, body: jpeg });
-    assert.equal(pending.status, 201);
-    const attachment = (await pending.json()).attachment;
-    assert.equal(attachment.contentType, "image/jpeg");
-    assert.equal(attachment.byteLength, jpeg.byteLength);
-    assert.equal((await fetch(`${origin}/api/conversations/${conversationId}/attachments/${attachment.id}`, { headers: { cookie } })).status, 404);
-    assert.equal((await fetch(`${origin}/api/conversations/${conversationId}/attachments/${attachment.id}`)).status, 401);
+    const attachments = [];
+    for (const image of images) {
+      const pending = await fetch(`${origin}/api/conversations/${conversationId}/attachments`, { method: "POST", headers: { ...protectedHeaders, "content-type": "text/html" }, body: image.body });
+      assert.equal(pending.status, 201);
+      const attachment = (await pending.json()).attachment; attachments.push(attachment);
+      assert.equal(attachment.contentType, image.type);
+      assert.equal(attachment.byteLength, image.body.byteLength);
+      assert.equal((await fetch(`${origin}/api/conversations/${conversationId}/attachments/${attachment.id}`, { headers: { cookie } })).status, 404);
+      assert.equal((await fetch(`${origin}/api/conversations/${conversationId}/attachments/${attachment.id}`)).status, 401);
+    }
 
     const accepted = await fetch(`${origin}/api/conversations/${conversationId}/messages`, {
       method: "POST",
       headers: { ...protectedHeaders, "content-type": "application/json" },
-      body: JSON.stringify({ body: "Please assess the visual direction.", attachmentIds: [attachment.id], clientRequestId: "image-message-request-0001" })
+      body: JSON.stringify({ body: `Please assess the visual direction. ${html.toString()}`, attachmentIds: attachments.map(attachment => attachment.id), clientRequestId: "image-message-request-0001" })
     });
     assert.equal(accepted.status, 202);
     const detail = await (await fetch(`${origin}/api/conversations/${conversationId}`, { headers: { cookie } })).json();
-    assert.deepEqual(detail.events[0].attachments, [attachment]);
-    const download = await fetch(`${origin}/api/conversations/${conversationId}/attachments/${attachment.id}`, { headers: { cookie } });
-    assert.equal(download.status, 200);
-    assert.equal(download.headers.get("content-type"), "image/jpeg");
-    assert.match(download.headers.get("content-disposition"), /^attachment; filename="nanoduck-image\.jpg"$/u);
-    assert.equal(download.headers.get("x-content-type-options"), "nosniff");
-    assert.deepEqual(Buffer.from(await download.arrayBuffer()), jpeg);
+    assert.deepEqual(detail.events[0].attachments, attachments);
+    for (const [index, image] of images.entries()) {
+      const download = await fetch(`${origin}/api/conversations/${conversationId}/attachments/${attachments[index].id}`, { headers: { cookie } });
+      assert.equal(download.status, 200);
+      assert.equal(download.headers.get("content-type"), image.type);
+      assert.equal(download.headers.get("content-disposition"), `attachment; filename="nanoduck-image.${image.extension}"`);
+      assert.equal(download.headers.get("x-content-type-options"), "nosniff");
+      assert.equal(download.headers.get("cache-control"), "no-store");
+      assert.match(download.headers.get("content-security-policy"), /script-src 'self'/u);
+      assert.deepEqual(Buffer.from(await download.arrayBuffer()), image.body);
+    }
+    const exported = await fetch(`${origin}/api/conversations/${conversationId}/export`, { headers: { cookie } });
+    assert.equal(exported.status, 200);
+    assert.equal(exported.headers.get("content-type"), "application/rtf");
+    assert.equal(exported.headers.get("x-content-type-options"), "nosniff");
+    assert.match(exported.headers.get("content-disposition"), /^attachment;/u);
+    assert.match(await exported.text(), /<script>globalThis\.downloadExecuted=true<\/script>/u);
+    const invalidTimeZone = await fetch(`${origin}/api/conversations/${conversationId}/export?timeZone=${encodeURIComponent(html.toString())}`, { headers: { cookie } });
+    assert.equal(invalidTimeZone.status, 422);
+    assert.deepEqual(await invalidTimeZone.json(), { error: "invalid_time_zone" });
 
     const pendingToDelete = await fetch(`${origin}/api/conversations/${conversationId}/attachments`, { method: "POST", headers: { ...protectedHeaders, "content-type": "image/jpeg" }, body: jpeg });
     assert.equal(pendingToDelete.status, 201);
@@ -292,7 +318,7 @@ test("the authenticated discussion preserves a Critic exchange with both special
     assert.ok(rtf.includes("Time zone: Europe/Kyiv"));
     const exportedRoles = [...rtf.matchAll(/\\sb240\\keepn \{\\b ([^}]+)\}/gu)].map(match => match[1]);
     assert.deepEqual(exportedRoles, detail.events.map(event => event.role === "owner" ? "You" : event.role));
-    assert.ok(rtf.includes("https://example.com/buyer-evidence"));
+    assert.match(rtf, /\{\\b Buyer evidence\}\\line https:\/\/example\.com\/buyer-evidence\\par\n/u);
     assert.ok(rtf.includes("{\\b Consolidated advice}"));
     assert.ok(rtf.includes("measure interview acceptance"));
     assert.equal(rtf.includes("## Consolidated advice"), false);

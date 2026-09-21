@@ -1,7 +1,7 @@
 import { initializeInstructions } from "./instruction-bootstrap.mjs";
 import { documentNames, readDocumentDefault, validDocument } from "./instruction-documents.mjs";
 import { createServer } from "node:http";
-import { readFile, stat } from "node:fs/promises";
+import { readRegularFile } from "./read-regular-file.mjs";
 import { extname, join, normalize } from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadConfig } from "./config.mjs";
@@ -44,7 +44,11 @@ const mime = { ".html": "text/html; charset=utf-8", ".css": "text/css; charset=u
 const securityHeaders = { "cache-control": "no-store", "content-security-policy": "default-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; connect-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; media-src 'self' blob:;", "permissions-policy": "camera=(), geolocation=(), microphone=(self)", "referrer-policy": "no-referrer", "x-content-type-options": "nosniff", "x-frame-options": "DENY" };
 const send = (response, status, value, headers = {}) => { const body = JSON.stringify(value); response.writeHead(status, { ...securityHeaders, "content-type": "application/json; charset=utf-8", "content-length": Buffer.byteLength(body), ...headers }); response.end(body); };
 const empty = (response, status, headers = {}) => { response.writeHead(status, { ...securityHeaders, ...headers }); response.end(); };
-const bytes = (response, status, value, headers = {}) => { response.writeHead(status, { ...securityHeaders, "content-length": value.byteLength, ...headers }); response.end(value); };
+const bytes = (response, status, value, headers = {}) => {
+  if (!["application/octet-stream", "application/rtf", "image/jpeg", "image/png", "image/webp"].includes(headers["content-type"] ?? "application/octet-stream")) throw new Error("invalid_download_type");
+  response.writeHead(status, { "content-type": "application/octet-stream", "content-disposition": "attachment", ...headers, ...securityHeaders, "content-length": value.byteLength });
+  response.end(value);
+};
 const json = async request => {
   const chunks = []; let size = 0;
   for await (const chunk of request) { size += chunk.length; if (size > 256 * 1024) throw new Error("body_too_large"); chunks.push(chunk); }
@@ -70,8 +74,7 @@ async function staticFile(request, response, pathname) {
   if (safe.includes("..")) return false;
   const path = pathname.startsWith("/client/") ? join(clientDirectory, safe.slice("client/".length)) : join(publicDirectory, safe);
   try {
-    const info = await stat(path); if (!info.isFile()) return false;
-    const body = await readFile(path); response.writeHead(200, { ...securityHeaders, "content-type": mime[extname(path)] ?? "application/octet-stream", "content-length": body.byteLength }); response.end(body); return true;
+    const body = await readRegularFile(path); response.writeHead(200, { ...securityHeaders, "content-type": mime[extname(path)] ?? "application/octet-stream", "content-length": body.byteLength }); response.end(body); return true;
   } catch { return false; }
 }
 
