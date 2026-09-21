@@ -42,8 +42,11 @@ test("database TLS accepts one bounded CA source and rejects malformed configura
   }
 });
 
-test("the MySQL store requires verified TLS options and preserves them", async () => {
-  const ssl = Object.freeze({ ca: rootCertificates[0], rejectUnauthorized: true });
+test("database TLS options remain mutable for mysql2 without weakening verification", async () => {
+  const ssl = await createDatabaseSslOptions({ databaseSslCaBytes: Buffer.from(rootCertificates[0]) });
+  assert.equal(Object.isFrozen(ssl), false);
+  ssl.rejectUnauthorized = true;
+
   let received;
   let poolCreated = false;
   await assert.rejects(
@@ -59,9 +62,11 @@ test("the MySQL store requires verified TLS options and preserves them", async (
   const store = await createMySqlStore("mysql://owner:password@db.example/nanoduck", Buffer.alloc(32, 7), ssl, {
     createPool(options) {
       received = options.ssl;
+      received.rejectUnauthorized = true;
       return { async end() {} };
     }
   });
-  assert.equal(received, ssl);
+  assert.notEqual(received, ssl);
+  assert.deepEqual(received, ssl);
   await store.close();
 });

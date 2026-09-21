@@ -5,7 +5,7 @@ import { createSecureContext } from "node:tls";
 export async function createDatabaseSslOptions(config) {
   const ca = config.databaseSslCaBytes
     ?? (config.databaseSslCaPath ? await readFile(config.databaseSslCaPath) : undefined);
-  if (!ca) return Object.freeze({ rejectUnauthorized: true });
+  if (!ca) return { rejectUnauthorized: true };
   const pem = Buffer.isBuffer(ca) ? ca.toString("utf8") : String(ca);
   try {
     new X509Certificate(pem);
@@ -13,5 +13,5 @@ export async function createDatabaseSslOptions(config) {
   } catch {
     throw new Error("The configured database CA is not a valid PEM certificate.");
   }
-  return Object.freeze({ ca: pem, rejectUnauthorized: true });
+  return { ca: pem, rejectUnauthorized: true };
 }

@@ -3758,13 +3758,13 @@
     "architecture": {
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "northflank-database-ca-architecture-2026-09-22T003409.642-0300",
+      "owner_invocation_id": "northflank-mysql2-tls-architecture-2026-09-22T004424.494-0300",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "northflank-database-ca-architecture-2026-09-22T003409.642-0300",
+      "source_version": "northflank-mysql2-tls-architecture-2026-09-22T004424.494-0300",
       "source_usage": {
         "docs/prd.md": [
           "### NFR-13.2 — Protected transport and service identity",
@@ -3796,13 +3796,17 @@
         ".env.example": "full",
         "docs/northflank-deployment.md": [
           "## Database"
-        ]
+        ],
+        "src/server/store.mjs": "full",
+        "test/database-tls.test.mjs": "full"
       },
       "source_hashes": {
         "docs/canonical-terms.md": "798277faf0f438ecb7121239bb238058c42e88ceb88459a0538e7c7d0d1bf663",
         "src/server/config.mjs": "d7551288f12a1ba9e0aafd8ea158486e0bca1b7af11b123d127c992010bc7ae7",
-        "src/server/database-tls.mjs": "1be53f82600309d15988bfba1e55c2cb8fdb49f201ad98b5539c96fca32fe804",
-        ".env.example": "411c11692a9fe21a67f70ca6078ad527af7b69cac1b2fdbd137666b44c4f552b"
+        "src/server/database-tls.mjs": "60510e511385ef7fd732d5b9ba9d2aa31aceea2e3a9a516c736e44c51a8f3f73",
+        ".env.example": "411c11692a9fe21a67f70ca6078ad527af7b69cac1b2fdbd137666b44c4f552b",
+        "src/server/store.mjs": "28f02e07206f47ae628ccba882b59539d51007423d15048a83fc1cf536d0c1bd",
+        "test/database-tls.test.mjs": "81e494bc6563783bca0706382ea5efc67b873a2258cdcb5201a80be2963d24e2"
       },
       "dependencies": [
         "prd",
@@ -3818,10 +3822,10 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "northflank-database-ca-reconciliation",
-        "reviewed_at": "2026-09-22T00:34:09.642+03:00",
+        "kind": "northflank-mysql2-tls-no-change-revalidation",
+        "reviewed_at": "2026-09-22T00:44:24.494+03:00",
         "executor": "Codex to-architecture owner",
-        "scope": "Reconcile the verified Northflank MySQL CA transport contract, including mutually exclusive file and canonical Base64URL sources, bounded decoding, malformed-input rejection and mandatory certificate verification."
+        "scope": "Revalidate the database TLS contract after accommodating mysql2 mutation of a mutable option copy while retaining mandatory certificate verification. No architecture document change is required."
       },
       "open_questions": [],
       "security_coverage": {
@@ -3894,7 +3898,7 @@
           "heading": "## Security enforcement map"
         }
       },
-      "supersedes": "r23-accepted-knock-architecture-approved-2026-09-18T01:13:25.320Z",
+      "supersedes": "northflank-database-ca-architecture-2026-09-22T003409.642-0300",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
       "consumed_source_fragments": {
         "docs/prd.md": [
@@ -9155,15 +9159,17 @@
       "consumed_source_fragments": {}
     },
     "architecture": {
-      "invocation_id": "northflank-database-ca-architecture-2026-09-22T003409.642-0300",
+      "invocation_id": "northflank-mysql2-tls-architecture-2026-09-22T004424.494-0300",
       "outputs": [
         "docs/architecture.md"
       ],
       "source_hashes": {
         "docs/canonical-terms.md": "798277faf0f438ecb7121239bb238058c42e88ceb88459a0538e7c7d0d1bf663",
         "src/server/config.mjs": "d7551288f12a1ba9e0aafd8ea158486e0bca1b7af11b123d127c992010bc7ae7",
-        "src/server/database-tls.mjs": "1be53f82600309d15988bfba1e55c2cb8fdb49f201ad98b5539c96fca32fe804",
-        ".env.example": "411c11692a9fe21a67f70ca6078ad527af7b69cac1b2fdbd137666b44c4f552b"
+        "src/server/database-tls.mjs": "60510e511385ef7fd732d5b9ba9d2aa31aceea2e3a9a516c736e44c51a8f3f73",
+        ".env.example": "411c11692a9fe21a67f70ca6078ad527af7b69cac1b2fdbd137666b44c4f552b",
+        "src/server/store.mjs": "28f02e07206f47ae628ccba882b59539d51007423d15048a83fc1cf536d0c1bd",
+        "test/database-tls.test.mjs": "81e494bc6563783bca0706382ea5efc67b873a2258cdcb5201a80be2963d24e2"
       },
       "consumed_source_fragments": {
         "docs/prd.md": [
@@ -67915,6 +67921,210 @@
       },
       "supersedes": "r15-rtf-export-architecture-2026-09-17T18:32:08+00:00",
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
+    },
+    {
+      "path": "docs/architecture.md",
+      "owner_skill": "to-architecture",
+      "owner_invocation_id": "northflank-database-ca-architecture-2026-09-22T003409.642-0300",
+      "declared_output_set": [
+        "docs/architecture.md"
+      ],
+      "status": "validated",
+      "mission_control_status": "Done",
+      "source_version": "northflank-database-ca-architecture-2026-09-22T003409.642-0300",
+      "source_usage": {
+        "docs/prd.md": [
+          "### NFR-13.2 — Protected transport and service identity",
+          "### NFR-15.1 — Secure delivery and maintenance"
+        ],
+        "docs/project-context.md": [
+          "## Platforms and constraints",
+          "## Scope and ownership"
+        ],
+        "docs/canonical-terms.md": "full",
+        "docs/guardrails.md": [
+          "## Source references and authority",
+          "## Verification rules"
+        ],
+        "docs/user-journey.md": [
+          "## Failure, recovery and safe exits"
+        ],
+        "docs/screen-map.md": [
+          "## Transitions and closure"
+        ],
+        "docs/wireframes.md": [
+          "## State variants and recovery contract"
+        ],
+        "docs/design-brief.md": [
+          "## Approved Visual Baseline"
+        ],
+        "src/server/config.mjs": "full",
+        "src/server/database-tls.mjs": "full",
+        ".env.example": "full",
+        "docs/northflank-deployment.md": [
+          "## Database"
+        ]
+      },
+      "source_hashes": {
+        "docs/canonical-terms.md": "798277faf0f438ecb7121239bb238058c42e88ceb88459a0538e7c7d0d1bf663",
+        "src/server/config.mjs": "d7551288f12a1ba9e0aafd8ea158486e0bca1b7af11b123d127c992010bc7ae7",
+        "src/server/database-tls.mjs": "1be53f82600309d15988bfba1e55c2cb8fdb49f201ad98b5539c96fca32fe804",
+        ".env.example": "411c11692a9fe21a67f70ca6078ad527af7b69cac1b2fdbd137666b44c4f552b"
+      },
+      "dependencies": [
+        "prd",
+        "project-context",
+        "canonical-terms",
+        "guardrails",
+        "user-journey",
+        "screen-map",
+        "wireframes",
+        "design-brief"
+      ],
+      "content_hash": "42266199e09a2ebd805929ceb7caf8f907122f32888ee9c757146ac22beb744b",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "northflank-database-ca-reconciliation",
+        "reviewed_at": "2026-09-22T00:34:09.642+03:00",
+        "executor": "Codex to-architecture owner",
+        "scope": "Reconcile the verified Northflank MySQL CA transport contract, including mutually exclusive file and canonical Base64URL sources, bounded decoding, malformed-input rejection and mandatory certificate verification."
+      },
+      "open_questions": [],
+      "security_coverage": {
+        "NFR-10.1": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-10.2": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-10.3": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-11.1": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-11.2": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-11.3": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-12.1": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-12.2": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-12.3": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-13.1": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-13.2": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-14.1": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-14.2": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-14.3": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-15.1": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-16.1": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-16.2": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        }
+      },
+      "supersedes": "r23-accepted-knock-architecture-approved-2026-09-18T01:13:25.320Z",
+      "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
+      "consumed_source_fragments": {
+        "docs/prd.md": [
+          {
+            "heading": "### NFR-13.2 — Protected transport and service identity",
+            "content_hash": "e761c8b7643729f0322b4459b9c82b869ee803c2bded34efe61e45a530d54680"
+          },
+          {
+            "heading": "### NFR-15.1 — Secure delivery and maintenance",
+            "content_hash": "272de644258fab8958a4ff7014cccabf4797ffedf92d4c51571ecdc7031dcadb"
+          }
+        ],
+        "docs/project-context.md": [
+          {
+            "heading": "## Platforms and constraints",
+            "content_hash": "00f17b6f5e040b9d79cb0590817c2a8e7071c479532465d99f88b1af80c073a7"
+          },
+          {
+            "heading": "## Scope and ownership",
+            "content_hash": "384cec9e3ddd402ae2c3e1acd34b27f6a6a00a181b12223b013d2057ed1cc387"
+          }
+        ],
+        "docs/guardrails.md": [
+          {
+            "heading": "## Source references and authority",
+            "content_hash": "c7ab2a7cd2f8c2fb32b190340573bf25489e6539b05379a72baf9245c13a78ab"
+          },
+          {
+            "heading": "## Verification rules",
+            "content_hash": "63393ed662fbc99b308305aeeb0871d590d6c9dcaf2e0831845df7bf25414fd9"
+          }
+        ],
+        "docs/user-journey.md": [
+          {
+            "heading": "## Failure, recovery and safe exits",
+            "content_hash": "bf014a5e9251423713933eefc86d3e6b0d1dff24fc821a7f52e4e17eb84c585d"
+          }
+        ],
+        "docs/screen-map.md": [
+          {
+            "heading": "## Transitions and closure",
+            "content_hash": "deddee71c643cc1ec5a1edaae403c274fb5c0c87ceec813afb8baa6c2fef76f3"
+          }
+        ],
+        "docs/wireframes.md": [
+          {
+            "heading": "## State variants and recovery contract",
+            "content_hash": "6300582b0e7b8811b01f98e87a16fa1f8d08669464493ccf4e734b5630133370"
+          }
+        ],
+        "docs/design-brief.md": [
+          {
+            "heading": "## Approved Visual Baseline",
+            "content_hash": "f6aa670aad73a20da29f47eef1853bfcb56e7e18a4961c915a0634c22ac27bc7"
+          }
+        ],
+        "docs/northflank-deployment.md": [
+          {
+            "heading": "## Database",
+            "content_hash": "097863041cd70b16a40c8ecb5302871fbae48e1e992d1fa8a794cfdc383a137d"
+          }
+        ]
+      }
     }
   ],
   "verification": {
@@ -72946,6 +73156,11 @@
       "at": "2026-09-22T00:34:09.642+03:00",
       "event": "northflank_database_ca_architecture_reconciliation",
       "reason": "Record the architecture owner return for verified Northflank MySQL CA loading without changing product scope, behavior, or the approved visual baseline."
+    },
+    {
+      "at": "2026-09-22T00:44:24.494+03:00",
+      "event": "northflank_mysql2_tls_no_change_revalidation",
+      "reason": "Record the no-change architecture owner return after the live runtime showed mysql2 requires mutable TLS option objects; certificate verification and the documented contract remain unchanged."
     }
   ],
   "verification_history": [
