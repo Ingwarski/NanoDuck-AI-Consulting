@@ -101,7 +101,7 @@ const secretKeyBytes = (value, name, acceptsLength) => {
   return selected;
 };
 
-const goDaddyDatabaseUrl = environment => {
+const managedDatabaseUrl = environment => {
   const existing = optionalString(environment.DATABASE_URL);
   if (existing) return existing;
   const host = optionalString(environment.DB_HOST);
@@ -144,7 +144,7 @@ export function loadConfig(environment = process.env) {
     : secretKeyBytes(sessionKeyValue, "SESSION_SIGNING_KEY", length => length >= 32);
   if (!sessionKey || sessionKey.byteLength < 32) throw new Error("SESSION_SIGNING_KEY must contain at least 32 bytes.");
   if ([decodedKey, decodedRecoveryKey].some(key => key?.equals(sessionKey))) throw new Error("SESSION_SIGNING_KEY must differ from data and recovery keys.");
-  const databaseUrl = goDaddyDatabaseUrl(environment);
+  const databaseUrl = managedDatabaseUrl(environment);
   if (mode === "production" && (typeof databaseUrl !== "string" || databaseUrl.length === 0)) {
     throw new Error("DATABASE_URL or the managed DB_* connection is required in production.");
   }

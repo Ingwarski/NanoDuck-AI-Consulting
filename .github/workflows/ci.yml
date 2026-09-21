@@ -32,3 +32,17 @@ jobs:
       - run: npm run check
         env:
           NANODUCK_MYSQL_TEST_URL: mysql://root:synthetic-test-password@127.0.0.1:3306
+  container:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out application
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - run: docker build --tag nanoduck-northflank:check .
+      - name: Verify container runtime
+        run: >-
+          docker run --rm --entrypoint sh nanoduck-northflank:check -c
+          'test "$(id -u)" != 0 && test -w /tmp && test -r /app/instructions/RUNTIME_PROMPTS.md
+          && codex --version && claude --version'

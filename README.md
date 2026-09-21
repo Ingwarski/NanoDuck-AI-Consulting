@@ -2,7 +2,7 @@
 
 A simpler, private, mobile-first browser product for genuine consultant and Critic discussion, live research and practical decisions.
 
-**Canonical repository: `Ingwarski/personal-ai-consulting-web`.** Electric A v8 remains the approved design. Repository consolidation and the transferred fixes are documented in [consolidation and recovery](docs/consolidation.md). Repository verification is separate from deployment status; this change does not release a hosted version. Use `NANODUCK_RUNTIME_MODE=production` on hosts that reserve `NODE_ENV` for Preview.
+**Canonical repository: `Ingwarski/NanoDuck-AI-Consulting-Group-Neo`.** Electric A v8 remains the approved design. Earlier consolidation and hosting records are preserved as historical evidence. The active deployment target is a new Northflank Sandbox project dedicated to this repository.
 
 - [Product idea](docs/product-idea.md) — the recreated current brief.
 - [Reconciled architecture](docs/architecture.md) — one Node app, one database, durable consultation work.
@@ -13,20 +13,21 @@ A simpler, private, mobile-first browser product for genuine consultant and Crit
 - [SDD manifest](forge/sdd-manifest.json) — source hashes, traceability and design-stage progress.
 - [Verification](docs/verification.md) — actual checks and unresolved limits.
 - [Source provenance](docs/source-provenance.json) — approved design provenance and job-to-design mapping.
-- [GoDaddy boundary](docs/deployment-boundary.md) — only the existing consulting app and its own verified data.
+- [Northflank deployment](docs/northflank-deployment.md) — container, database, secret and lifecycle contract.
+- [Historical GoDaddy boundary](docs/deployment-boundary.md) — evidence from the predecessor deployment only.
 
 <a id="compare-the-three-designs"></a>
 
 ## Run the application locally
 
-Requires Node.js 22. CI uses the same major version as the GoDaddy runtime.
+Requires Node.js 22. The production container and CI use the same major version.
 
 ```sh
 npm install
 npm run dev
 ```
 
-Open [NanoDuck locally](http://127.0.0.1:3000/). Development mode exposes a local-only owner sign-in. Production mode requires a configured verified Google owner identity, HTTPS origin, a MySQL connection with certificate verification, separate data/recovery/session keys, and protected Codex app-server authentication. GoDaddy supplies the connection as `DB_*` values; other hosts can supply `DATABASE_URL` and an optional private CA file. Use [`.env.example`](.env.example) to see variable names; do not commit values.
+Open [NanoDuck locally](http://127.0.0.1:3000/). Development mode exposes a local-only owner sign-in. Production mode requires a configured verified Google owner identity, HTTPS origin, a MySQL connection with certificate verification, separate data/recovery/session keys, and protected Codex app-server authentication. Northflank supplies the database through `DATABASE_URL`; mount a private CA file only when the database certificate does not chain to the container trust store. Use [`.env.example`](.env.example) to see variable names; do not commit values.
 
 ### Packaged defaults and private instruction editing
 
@@ -34,7 +35,7 @@ A fresh database is seeded from the public Markdown files in `instructions/`. `R
 
 Settings stores encrypted, versioned private copies. Saving checks the current revision and rejects stale edits. History allows review and restoration; a default restore creates a new version. It never modifies the repository files. Each accepted consultation keeps an encrypted snapshot of its original effective instructions. Editable guidance cannot grant process tools, change authentication or choose a paid-provider fallback.
 
-Before connecting a target runtime, supply Codex `auth.json` through `CODEX_APP_SERVER_AUTH_PATH` (a mounted private file), `CODEX_APP_SERVER_AUTH_B64` (the same bytes, base64url-encoded) or `CODEX_APP_SERVER_AUTH_GZIP_B64` (gzip/base64url for a length-bounded secret store); set one. The app creates the file only inside an owned, removed-after-use app-server directory. It performs only the managed Codex account, model-catalog and rate-limit inspection; it does not start a model turn, contact MySQL or change GoDaddy.
+Before connecting a target runtime, supply Codex `auth.json` through `CODEX_APP_SERVER_AUTH_PATH` (a mounted private file), `CODEX_APP_SERVER_AUTH_B64` (the same bytes, base64url-encoded) or `CODEX_APP_SERVER_AUTH_GZIP_B64` (gzip/base64url for a length-bounded secret store); set one. The app creates the file only inside an owned, removed-after-use app-server directory. Northflank uses the compressed environment-secret form to avoid mounted-file ownership conflicts.
 
 The owner selected Electric and requested colours from [HappyPro Academy](https://happypro.academy/): its blue and large-heading gradient, with warmer yellow Head Consultant, raspberry Critic, violet Product and turquoise Operations. The black Ember/Cobalt composition and behavior stay the same.
 
@@ -54,14 +55,12 @@ npm run check
 
 The source repository is public; the intended application remains private to one owner. Do not add private conversation archives, provider grants, secrets or deployment data to Git. Production startup applies the idempotent migration only to `nanoduck_*` tables after the deployment target's database ownership is verified; `npm run migrate` remains available for an explicit operator run.
 
-### GoDaddy Preview and Published
+### Northflank Sandbox
 
-GoDaddy provisions one shared database for Preview and Published. NanoDuck permits only one application process to own that database: its migration, recovery and consultation restart handling must not run concurrently in both environments. Starting both as live applications makes the second fail before opening its HTTP port, which GoDaddy can report as a port or gateway error.
+The production image is built from the repository `Dockerfile`. NanoDuck permits only one application process to own its database: its migration, recovery and consultation restart handling must not run concurrently in two containers. Use one replica and a stop-old, start-new release sequence. Northflank's ordinary single-instance replacement overlaps the containers, so automatic deployment remains disabled unless the account exposes the `recreate` strategy. For an update, scale to zero and wait for every old container to stop, select the new successful build, then scale back to one.
 
 The live process checks ownership on its reserved MySQL connection at a bounded interval below the session idle timeout. Ordinary requests use other pooled connections and cannot keep this lock connection alive. A failed or timed-out ownership check still shuts the process down; it never silently reacquires the lock while old work could remain active. Startup logs report the bound address, runtime mode and content-free lease timing, and connection-loss logs expose only normalized error codes.
 
-Set `NANODUCK_DEPLOYMENT_ROLE=preview` **only in GoDaddy Preview**. This starts a staging status page on the assigned `PORT`, without importing the database, migrations, authentication or providers. Its `/healthz` reports `status: preview` and `store: disabled`; its application APIs remain unavailable. This is deployment staging, not a functional consultation environment. Keep Preview's `APP_ORIGIN` on the Preview hostname. The role rejects a Published origin to catch accidental environment synchronization.
-
-Leave this variable unset in Published (the application default), keep `NANODUCK_RUNTIME_MODE=production`, and retain its existing origin, database and keys. When publishing, do not synchronize the Preview role or Preview origin into Published. Update Preview first to release its database ownership, then publish the tested revision. A fully functional concurrent Preview requires a separate database; giving both environments different locks on the same database is unsafe.
+Keep `NANODUCK_DEPLOYMENT_ROLE` unset, set `NANODUCK_RUNTIME_MODE=production`, and expose container port `3000`. Configure `/healthz` for startup, readiness and liveness checks. See the [Northflank runbook](docs/northflank-deployment.md) for the exact variables, TLS and release procedure.
 
 Backups contain confirmed conversations, linked images, deletion records, settings and all instruction versions. Active provider processes and credentials are excluded. Recovery is an operator-only, explicit command. `npm run recovery -- backup <new-encrypted-file>` creates a new encrypted recovery envelope with the separate recovery key. `npm run recovery -- restore <encrypted-file> --confirm-restore` requires an explicit destructive confirmation and applies deletion tombstones before records, so a deleted conversation cannot return. The application must be stopped for restore. Normal restore preserves current settings and instructions; add `--replace-configuration` only for an intentional full configuration restore. That option revokes existing browser sessions. Backup and restore share a 32 MiB envelope limit and reject larger files. See [recovery details](docs/consolidation.md#recovery). No recovery command in this consolidation was run against a live database.
