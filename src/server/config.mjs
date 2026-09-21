@@ -125,6 +125,10 @@ export function loadConfig(environment = process.env) {
   if (!["development", "test", "production"].includes(mode)) throw new Error("NANODUCK_RUNTIME_MODE or NODE_ENV is invalid.");
   const origin = optionalUrl(environment.APP_ORIGIN ?? environment.SETTINGS_PUBLIC_ORIGIN, "APP_ORIGIN");
   if (mode === "production" && origin === undefined) throw new Error("APP_ORIGIN is required in production.");
+  const edgeProxyKey = optionalString(environment.EDGE_PROXY_KEY);
+  if (edgeProxyKey !== undefined && Buffer.byteLength(edgeProxyKey, "utf8") < 32) {
+    throw new Error("EDGE_PROXY_KEY must contain at least 32 bytes.");
+  }
   const dataKey = environment.DATA_ENCRYPTION_KEY;
   const decodedKey = secretKeyBytes(dataKey, "DATA_ENCRYPTION_KEY", length => length === 32);
   if (mode === "production" && (!decodedKey || decodedKey.byteLength !== 32)) {
@@ -179,6 +183,7 @@ export function loadConfig(environment = process.env) {
     mode,
     port: positiveInteger(environment.PORT, 3000, "PORT"),
     origin,
+    edgeProxyKey,
     databaseUrl,
     databaseSslCaPath,
     dataKey: runtimeDataKey,

@@ -1,0 +1,15 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "nanoduck-neo",
+  "main": "cloudflare/northflank-proxy.mjs",
+  "compatibility_date": "2026-09-21",
+  "workers_dev": true,
+  "preview_urls": false,
+  "vars": {
+    "PUBLIC_ORIGIN": "https://nanoduck-neo.kyivteam-6d0.workers.dev",
+    "UPSTREAM_ORIGIN": "https://web--nanoduck-web--m7j2w2s2fx77.code.run"
+  },
+  "secrets": {
+    "required": ["EDGE_PROXY_KEY"]
+  }
+}

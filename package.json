@@ -10,6 +10,8 @@
     "start": "node src/server/start.mjs",
     "dev": "NODE_ENV=development DEV_OWNER_EMAIL=owner@local.test node src/server/index.mjs",
     "preflight": "node src/server/preflight.mjs",
+    "edge:check": "wrangler deploy --dry-run",
+    "edge:deploy": "wrangler deploy",
     "check": "node scripts/check-artifacts.mjs && node --test test/*.test.mjs",
     "test": "node --test test/*.test.mjs",
     "migrate": "node src/server/migrate.mjs",
@@ -17,6 +19,9 @@
   },
   "engines": {
     "node": "22.x"
+  },
+  "devDependencies": {
+    "wrangler": "4.125.0"
   },
   "dependencies": {
     "@anthropic-ai/claude-code": "2.1.258",

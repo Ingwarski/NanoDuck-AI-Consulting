@@ -27,6 +27,29 @@ const waitFor = async (predicate, milliseconds = 3_000) => {
   throw new Error("timed_out");
 };
 
+test("the edge proxy key protects every route except the health check", async () => {
+  const port = await reservePort();
+  const edgeProxyKey = "synthetic-edge-proxy-key-that-is-long-enough";
+  const child = spawn(globalThis.process.execPath, ["src/server/index.mjs"], {
+    cwd: process.cwd(),
+    env: { ...globalThis.process.env, NODE_ENV: "development", DEV_OWNER_EMAIL: "owner@local.test", EDGE_PROXY_KEY: edgeProxyKey, PORT: String(port) },
+    stdio: "ignore"
+  });
+  const origin = `http://127.0.0.1:${port}`;
+  try {
+    await waitFor(async () => {
+      try { return (await fetch(`${origin}/healthz`)).ok; } catch { return false; }
+    });
+    assert.equal((await fetch(`${origin}/`)).status, 404);
+    assert.equal((await fetch(`${origin}/`, { headers: { "x-nanoduck-origin-key": "wrong" } })).status, 404);
+    assert.equal((await fetch(`${origin}/`, { headers: { "x-nanoduck-origin-key": edgeProxyKey } })).status, 200);
+    assert.equal((await fetch(`${origin}/api/auth/development`, { method: "POST", headers: { "x-nanoduck-origin-key": edgeProxyKey } })).status, 200);
+  } finally {
+    child.kill("SIGTERM");
+    await once(child, "exit").catch(() => {});
+  }
+});
+
 test("the local HTTP flow protects data, saves settings and preserves a truthful unavailable-provider message", async () => {
   const port = await reservePort();
   const child = spawn(globalThis.process.execPath, ["src/server/index.mjs"], {

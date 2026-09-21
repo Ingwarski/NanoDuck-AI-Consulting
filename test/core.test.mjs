@@ -31,6 +31,7 @@ test("Claude Code accepts only a managed token and bounded owner-configured cand
   assert.deepEqual(config.claudeModelCandidates, ["claude-sonnet", "claude-opus"]);
   assert.match(config.claudeCommand, /node_modules[/\\]\.bin[/\\]claude$/u);
   assert.throws(() => loadConfig({ NODE_ENV: "development", CLAUDE_CODE_MODEL_CANDIDATES: "not valid" }), /invalid model id/u);
+  assert.throws(() => loadConfig({ NODE_ENV: "development", EDGE_PROXY_KEY: "too-short" }), /EDGE_PROXY_KEY must contain at least 32 bytes/u);
 });
 
 const key = Buffer.alloc(32, 7);

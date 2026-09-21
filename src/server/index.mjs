@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 import { loadConfig } from "./config.mjs";
 import { createMemoryStore, createMySqlStore } from "./store.mjs";
 import { createAuth } from "./auth.mjs";
+import { secureEqual } from "./crypto.mjs";
 import { createProviders } from "./providers.mjs";
 import { createConsultationService } from "./consultation.mjs";
 import { parseRuntimeInstructions, RuntimeInstructionError, upgradeRuntimeInstructionMarkdown } from "./prompt-contracts.mjs";
@@ -82,6 +83,10 @@ const handler = async (request, response) => {
   try {
     const url = new URL(request.url ?? "/", config.origin ?? "http://localhost");
     if (request.method === "GET" && url.pathname === "/healthz") return send(response, 200, { status: "alive", store: store.kind });
+    const suppliedProxyKey = request.headers["x-nanoduck-origin-key"];
+    if (config.edgeProxyKey && (typeof suppliedProxyKey !== "string" || !secureEqual(suppliedProxyKey, config.edgeProxyKey))) {
+      return send(response, 404, { error: "not_found" });
+    }
     if (request.method === "POST" && url.pathname === "/auth/google/start") {
       const flow = await auth.beginGoogle(); return flow ? empty(response, 204, { location: flow.location, "set-cookie": flow.cookie }) : send(response, 503, { error: "google_auth_unavailable" });
     }
