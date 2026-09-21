@@ -27,7 +27,7 @@ npm install
 npm run dev
 ```
 
-Open [NanoDuck locally](http://127.0.0.1:3000/). Development mode exposes a local-only owner sign-in. Production mode requires a configured verified Google owner identity, HTTPS origin, a MySQL connection with certificate verification, separate data/recovery/session keys, and protected Codex app-server authentication. Northflank supplies the database through `DATABASE_URL`; mount a private CA file only when the database certificate does not chain to the container trust store. Use [`.env.example`](.env.example) to see variable names; do not commit values.
+Open [NanoDuck locally](http://127.0.0.1:3000/). Development mode exposes a local-only owner sign-in. Production mode requires a configured verified Google owner identity, HTTPS origin, a MySQL connection with certificate verification, separate data/recovery/session keys, and protected Codex app-server authentication. Northflank supplies the database through linked `DB_*` variables; a complete `DATABASE_URL` remains supported. Inject a base64url CA PEM or mount a CA file only when the database certificate does not chain to the container trust store. Use [`.env.example`](.env.example) to see variable names; do not commit values.
 
 ### Packaged defaults and private instruction editing
 

@@ -1,6 +1,6 @@
 # Northflank Sandbox deployment
 
-This repository targets one Northflank Sandbox project containing one application service and one TLS-enabled MySQL addon. It is a private single-owner application, and the database and application secrets belong only to this deployment.
+This repository targets one Northflank Sandbox project containing one application service and one private MySQL addon used through a verified TLS connection. It is a private single-owner application, and the database and application secrets belong only to this deployment.
 
 ## Container contract
 
@@ -32,7 +32,7 @@ The Worker free plan has a finite daily request allowance. NanoDuck polls every 
 
 ## Database
 
-Create one MySQL addon with TLS enabled before its first deployment. Link its private connection details to the application and expose one complete `DATABASE_URL`. If the addon certificate does not chain to the Debian system trust store, mount the addon CA certificate as a runtime secret file and set `DATABASE_SSL_CA_PATH` to its absolute mount path. Never disable certificate verification or expose MySQL publicly for the application.
+Create one private MySQL addon before the first deployment. Link its `HOST`, `PORT`, `DATABASE`, `USERNAME` and `PASSWORD` credentials as `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER` and `DB_PASSWORD`; a standard complete `DATABASE_URL` remains supported when the provider supplies one. If the addon certificate does not chain to the Debian system trust store, obtain its CA certificate from the trusted project network and pin it with exactly one source: store the PEM as canonical base64url in `DATABASE_SSL_CA_B64` (preferred on Northflank), or mount it as a readable runtime secret file and set `DATABASE_SSL_CA_PATH`. Never disable certificate verification or expose MySQL publicly for the application.
 
 NanoDuck holds a MySQL advisory lock for its full lifetime. Configure exactly one application replica and disable autoscaling. The default Northflank single-instance release starts the replacement before terminating the old container; that overlap is incompatible with the lock and startup migration. Keep automatic deployment disabled.
 
@@ -53,7 +53,7 @@ Use `.env.example` as the name inventory. Required production values are:
 - `APP_ORIGIN`, exactly matching the public Worker HTTPS origin
 - `EDGE_PROXY_KEY`, exactly matching the Worker's secret of the same name
 - `PORT=3000`
-- private TLS `DATABASE_URL` and, only when needed, `DATABASE_SSL_CA_PATH`
+- private MySQL `DATABASE_URL` or the complete `DB_HOST`/`DB_PORT`/`DB_NAME`/`DB_USER`/`DB_PASSWORD` set, plus exactly one of `DATABASE_SSL_CA_B64` or `DATABASE_SSL_CA_PATH` when its CA is not in the system trust store
 - separate `DATA_ENCRYPTION_KEY`, `RECOVERY_ENCRYPTION_KEY` and `SESSION_SIGNING_KEY`
 - `OWNER_GOOGLE_SUBJECT` or `OWNER_GOOGLE_EMAIL`, plus `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET`
 - exactly one Codex credential source; `CODEX_APP_SERVER_AUTH_GZIP_B64` is preferred on Northflank

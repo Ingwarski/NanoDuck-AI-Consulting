@@ -1,6 +1,7 @@
 import { open } from "node:fs/promises";
 import { resolve } from "node:path";
 import { loadConfig } from "./config.mjs";
+import { createDatabaseSslOptions } from "./database-tls.mjs";
 import { createMySqlStore } from "./store.mjs";
 import { openRecoveryEnvelope, sealRecoverySnapshot, maximumRecoveryBytes } from "./recovery.mjs";
 import { readRegularFile } from "./read-regular-file.mjs";
@@ -13,7 +14,7 @@ if (extra.length || (configurationConfirmation !== undefined && configurationCon
 
 const config = loadConfig();
 if (!config.databaseUrl) throw new Error("A verified MySQL target is required for recovery operations.");
-const store = await createMySqlStore(config.databaseUrl, config.dataKey, config.databaseSslCaPath);
+const store = await createMySqlStore(config.databaseUrl, config.dataKey, await createDatabaseSslOptions(config));
 const target = resolve(requestedPath);
 try {
   if (command === "restore" && !await store.acquireLeadership()) throw new Error("Stop the application before restoring this database.");

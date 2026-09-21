@@ -3,7 +3,6 @@ import { databaseLockName } from "./database-lock.mjs";
 import { createMemoryDocuments, createMySqlDocuments } from "./instruction-documents.mjs";
 import { sealRunSnapshot, openRunSnapshot } from "./run-snapshot.mjs";
 import { randomId, encryptText, decryptText, encryptBytes, decryptBytes } from "./crypto.mjs";
-import { readFile } from "node:fs/promises";
 import { normalizeRecoverySnapshot } from "./recovery.mjs";
 
 const defaults = Object.freeze({
@@ -226,12 +225,12 @@ export function createMemoryStore() {
   });
 }
 
-export async function createMySqlStore(databaseUrl, dataKey, databaseSslCaPath = undefined, driver = undefined) {
+export async function createMySqlStore(databaseUrl, dataKey, databaseSsl = Object.freeze({ rejectUnauthorized: true }), driver = undefined) {
+  if (!databaseSsl || typeof databaseSsl !== "object" || databaseSsl.rejectUnauthorized !== true) {
+    throw new Error("MySQL TLS must verify the server certificate.");
+  }
   const { createPool } = driver ?? await import("mysql2/promise");
-  const ssl = databaseSslCaPath
-    ? { ca: await readFile(databaseSslCaPath, "utf8"), rejectUnauthorized: true }
-    : { rejectUnauthorized: true };
-  const pool = createPool({ uri: databaseUrl, ssl, connectionLimit: 8, waitForConnections: true, queueLimit: 32, connectTimeout: 10_000 });
+  const pool = createPool({ uri: databaseUrl, ssl: databaseSsl, connectionLimit: 8, waitForConnections: true, queueLimit: 32, connectTimeout: 10_000 });
   const query = (statement, values = []) => pool.execute(statement, values);
   const runtimeDocument = row => Object.freeze({ markdown: decryptText({ iv: row.iv, ciphertext: row.ciphertext, tag: row.tag }, dataKey), revision: row.revision, contentHash: row.content_hash, updatedAt: row.updated_at });
   const runtimeHistorySummary = row => Object.freeze({ id: row.id, contentHash: row.content_hash, action: row.action, restoredFromId: row.restored_from_id, createdAt: row.created_at });

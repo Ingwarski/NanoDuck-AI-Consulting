@@ -5,6 +5,7 @@ import { readRegularFile } from "./read-regular-file.mjs";
 import { extname, join, normalize } from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadConfig } from "./config.mjs";
+import { createDatabaseSslOptions } from "./database-tls.mjs";
 import { createMemoryStore, createMySqlStore } from "./store.mjs";
 import { createAuth } from "./auth.mjs";
 import { secureEqual } from "./crypto.mjs";
@@ -16,7 +17,8 @@ import { exportConversationRtf } from "./conversation-export.mjs";
 import { messageError, parseConversationId, parseConversationIds, parseMessage, parseSettings } from "./validation.mjs";
 
 const config = loadConfig();
-const store = config.databaseUrl ? await createMySqlStore(config.databaseUrl, config.dataKey, config.databaseSslCaPath) : createMemoryStore();
+const databaseSsl = config.databaseUrl ? await createDatabaseSslOptions(config) : undefined;
+const store = config.databaseUrl ? await createMySqlStore(config.databaseUrl, config.dataKey, databaseSsl) : createMemoryStore();
 let leadershipWasLost = false;
 let stopAfterLeadershipLoss;
 store.onLeadershipLost?.((code, errno) => {

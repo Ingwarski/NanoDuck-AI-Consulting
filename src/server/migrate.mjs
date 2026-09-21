@@ -1,4 +1,5 @@
 import { databaseLockName } from "./database-lock.mjs";
+import { createDatabaseSslOptions } from "./database-tls.mjs";
 import { readPromptDefault } from "./instruction-bootstrap.mjs";
 import { sealRunSnapshot, openRunSnapshot } from "./run-snapshot.mjs";
 import { readFile } from "node:fs/promises";
@@ -8,9 +9,7 @@ import { migrateRuntimeInstructionStorage } from "./runtime-instructions-migrati
 
 const config = loadConfig();
 if (!config.databaseUrl) throw new Error("DATABASE_URL is required to run migrations.");
-const ssl = config.databaseSslCaPath
-  ? { ca: await readFile(config.databaseSslCaPath, "utf8"), rejectUnauthorized: true }
-  : { rejectUnauthorized: true };
+const ssl = await createDatabaseSslOptions(config);
 const connection = await createConnection({ uri: config.databaseUrl, ssl, connectTimeout: 10_000 });
 try {
   const [lease] = await connection.execute("SELECT GET_LOCK(?, 0) AS acquired", [databaseLockName(config.databaseUrl)]);

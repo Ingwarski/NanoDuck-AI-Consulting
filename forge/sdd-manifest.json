@@ -3758,120 +3758,51 @@
     "architecture": {
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "r23-accepted-knock-architecture-approved-2026-09-18T01:13:25.320Z",
+      "owner_invocation_id": "northflank-database-ca-architecture-2026-09-22T003409.642-0300",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "r23-accepted-knock-architecture-approved-2026-09-18T01:13:25.320Z",
+      "source_version": "northflank-database-ca-architecture-2026-09-22T003409.642-0300",
       "source_usage": {
-        "docs/prd.md": "full",
-        "docs/project-context.md": "full",
+        "docs/prd.md": [
+          "### NFR-13.2 — Protected transport and service identity",
+          "### NFR-15.1 — Secure delivery and maintenance"
+        ],
+        "docs/project-context.md": [
+          "## Platforms and constraints",
+          "## Scope and ownership"
+        ],
         "docs/canonical-terms.md": "full",
-        "docs/guardrails.md": "full",
-        "docs/user-journey.md": "full",
-        "docs/screen-map.md": "full",
-        "docs/wireframes.md": "full",
-        "docs/design-brief.md": "full",
-        "docs/model-settings.md": "full",
-        "docs/deployment-boundary.md": "full",
-        "forge/runs/U-06/browser-speech-uk-20260914/README.md": "full",
-        "package.json": "full",
+        "docs/guardrails.md": [
+          "## Source references and authority",
+          "## Verification rules"
+        ],
+        "docs/user-journey.md": [
+          "## Failure, recovery and safe exits"
+        ],
+        "docs/screen-map.md": [
+          "## Transitions and closure"
+        ],
+        "docs/wireframes.md": [
+          "## State variants and recovery contract"
+        ],
+        "docs/design-brief.md": [
+          "## Approved Visual Baseline"
+        ],
         "src/server/config.mjs": "full",
-        "src/server/index.mjs": "full",
-        "src/server/store.mjs": "full",
-        "scripts/check-artifacts.mjs": "full",
-        "test/core.test.mjs": "full",
-        "src/server/codex-provider.mjs": "full",
-        "src/server/consultation.mjs": "full",
-        "test/codex-provider.test.mjs": "full",
-        "test/consultation.test.mjs": "full",
-        "test/http.test.mjs": "full",
+        "src/server/database-tls.mjs": "full",
         ".env.example": "full",
-        "test/fixtures/fake-codex.mjs": "full",
-        "src/server/prompt-contracts.mjs": "full",
-        "src/client/app.js": "full",
-        "test/consolidation.test.mjs": "full",
-        "test/prompt-contracts.test.mjs": "full",
-        "test/fixtures/runtime-instructions.mjs": "full",
-        "public/index.html": "full",
-        "public/styles.css": "full",
-        "src/server/conversation-export.mjs": "full",
-        "src/client/markdown.js": "full",
-        "test/conversation-export.test.mjs": "full",
-        "src/server/validation.mjs": "full",
-        "src/server/conversation-title.mjs": "full",
-        "test/conversation-title.test.mjs": "full",
-        "src/client/refresh-state.js": "full",
-        "test/refresh-state.test.mjs": "full",
-        "src/server/claude-provider.mjs": "full",
-        "src/server/output-safety.mjs": "full",
-        "test/claude-provider.test.mjs": "full",
-        "public/sounds/nokia-three-knocks-quick.wav": "full",
-        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "full",
-        "public/sounds/table-taps-250ms.wav": "full",
-        "forge/exploration/message-sound-table-250ms-v3/source.json": "full",
-        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "full",
-        "forge/exploration/message-sound-table-250ms-v5/preview.wav": "full",
-        "public/sounds/table-taps-250ms-v5.wav": "full",
-        "forge/exploration/message-sound-table-250ms-v5/source.json": "full",
-        "forge/exploration/message-sound-table-250ms-v5/edit-audio.py": "full",
-        "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "full"
+        "docs/northflank-deployment.md": [
+          "## Database"
+        ]
       },
       "source_hashes": {
-        "docs/prd.md": "889580d3fa81c0f541cce7bff58dc10d528460ce74080d2881fc4161acbe1726",
-        "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
         "docs/canonical-terms.md": "798277faf0f438ecb7121239bb238058c42e88ceb88459a0538e7c7d0d1bf663",
-        "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
-        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
-        "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
-        "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
-        "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/model-settings.md": "471304f397c128dced4860a137db829cb26e532b375ee9376e3a078a12e0b50d",
-        "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
-        "forge/runs/U-06/browser-speech-uk-20260914/README.md": "972494cb2d1dda8ae431f34bd2896eb6d5cb4642c838ae0b171d17ac931913d6",
-        "package.json": "b419996e8bf38f22580ef3ad31398dd2c699bfe02057c3ffef333423c63d82f7",
-        "src/server/config.mjs": "fbfbb92d01dc442b20c459217f498e5fefef522d5f940bd403e0d2683b63704f",
-        "src/server/index.mjs": "f88413ed8a4d4c6bdc6864700f9e1112d4466ec711a7ea1873f77db1123c3d55",
-        "src/server/store.mjs": "4ff546243ea43306cd5b424e080d25be64e86dece102260acca51eaadca845cb",
-        "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
-        "test/core.test.mjs": "0b2e424fd4c19eb9b1d897932418bbb377bbf1ef0d5802ef159d2a506c0f8fcf",
-        "src/server/codex-provider.mjs": "a84f5a433d4c74752afb133e39471c0d8cf3f853047ac6f95ef918073b05a151",
-        "src/server/consultation.mjs": "ed754ba21d10991b7fb0af7ade03aa2fe7078850aaea45bbae6d649b644021f7",
-        "test/codex-provider.test.mjs": "279004a4b2afd8e99989949581e90754db44e43d76663fdd072fcf1f8b070362",
-        "test/consultation.test.mjs": "443cab205fd5b7093df101b81dc23a3e342fe1e087a1ec6721fe88daa21583a7",
-        "test/http.test.mjs": "308793fdb20e22317df65c867f02b4ca1f558469ec22bb4b5e9f459d424d0ea5",
-        ".env.example": "908e4483bcad524ca4c95e9d20bc57dd4f2fbc6156f17925728798f03e91620f",
-        "test/fixtures/fake-codex.mjs": "ddb3b4fd9f1e07f30df8006f7e74db7edabb55a29536e1f9274f07b0ce672c66",
-        "src/server/prompt-contracts.mjs": "e9ad56fdb433979e2c818706b31316a80e8dae1b3af92282fc0b000394230a9b",
-        "src/client/app.js": "4f88878672536ad884a092e39f321ecb3a5e88ffe40852899541ebf59f048e9a",
-        "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
-        "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
-        "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
-        "public/index.html": "a323d9e2b831baef308d6b2a843a25662353f2e41ddca59c9d354a1fe60be67b",
-        "public/styles.css": "62846db13c24f14930073ecd597b3aea0d34aedf9006ce2abab55e4c1046d749",
-        "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
-        "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
-        "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
-        "src/server/validation.mjs": "54663bca65fbba070c19a1176968835b95dd0b90ffb44f3140147f9db06e9653",
-        "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
-        "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
-        "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
-        "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
-        "src/server/claude-provider.mjs": "ea68bbffab0b9b55d626ecbafd3cdb665ebbc65925f547e50fc478316670298c",
-        "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
-        "test/claude-provider.test.mjs": "b2152039c3954bcf58005ea179ed0cf7bd574271663bc468d0aa4869555c9174",
-        "public/sounds/nokia-three-knocks-quick.wav": "c593d959457a011f63f85cedcc2c42efe503b0b13fa1d0a44f3aab1746c9268a",
-        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e",
-        "public/sounds/table-taps-250ms.wav": "433bfd84f11cba34941526d970f222b10e154a68af26594e50e34e2aa1e8459c",
-        "forge/exploration/message-sound-table-250ms-v3/source.json": "93af5d762e68fc236d1424d93d702256264f71ed60fddab287ed277f5c4b71fc",
-        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "1990cdfdbd13bb8a3a69cdecae365f4c8e81510c0741f0e60cbfb302da70e719",
-        "forge/exploration/message-sound-table-250ms-v5/preview.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
-        "public/sounds/table-taps-250ms-v5.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
-        "forge/exploration/message-sound-table-250ms-v5/source.json": "6f700507f98b6ec595c4ef356e5ce2a5a6a3e8b516cfc4b246a75bd87ea7976b",
-        "forge/exploration/message-sound-table-250ms-v5/edit-audio.py": "a9f947960fc1ac70d4172d0dc08275236bd95e8eeeef950960beb8413fb63b2e",
-        "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "867ed009230b2a3b15407fb88182caa720663af4df338e9cb6dfdc2abbb9fa22"
+        "src/server/config.mjs": "d7551288f12a1ba9e0aafd8ea158486e0bca1b7af11b123d127c992010bc7ae7",
+        "src/server/database-tls.mjs": "1be53f82600309d15988bfba1e55c2cb8fdb49f201ad98b5539c96fca32fe804",
+        ".env.example": "411c11692a9fe21a67f70ca6078ad527af7b69cac1b2fdbd137666b44c4f552b"
       },
       "dependencies": [
         "prd",
@@ -3883,14 +3814,14 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "840e4a41f3d38a51cf1b1383e7e6bfcbf1a23599e3f68b5be578add9d7c0507a",
+      "content_hash": "42266199e09a2ebd805929ceb7caf8f907122f32888ee9c757146ac22beb744b",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "r23-accepted-knock-scoped-reconciliation",
-        "reviewed_at": "2026-09-18T01:13:25.320Z",
-        "executor": "Codex inline to-architecture",
-        "scope": "Reconcile the accepted blended v5 sound and tiny echo for the existing Knock preference. Preserve models, permissions, visual baseline and other sound choices."
+        "kind": "northflank-database-ca-reconciliation",
+        "reviewed_at": "2026-09-22T00:34:09.642+03:00",
+        "executor": "Codex to-architecture owner",
+        "scope": "Reconcile the verified Northflank MySQL CA transport contract, including mutually exclusive file and canonical Base64URL sources, bounded decoding, malformed-input rejection and mandatory certificate verification."
       },
       "open_questions": [],
       "security_coverage": {
@@ -3963,8 +3894,70 @@
           "heading": "## Security enforcement map"
         }
       },
-      "supersedes": "r15-rtf-export-architecture-2026-09-17T18:32:08+00:00",
-      "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
+      "supersedes": "r23-accepted-knock-architecture-approved-2026-09-18T01:13:25.320Z",
+      "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
+      "consumed_source_fragments": {
+        "docs/prd.md": [
+          {
+            "heading": "### NFR-13.2 — Protected transport and service identity",
+            "content_hash": "e761c8b7643729f0322b4459b9c82b869ee803c2bded34efe61e45a530d54680"
+          },
+          {
+            "heading": "### NFR-15.1 — Secure delivery and maintenance",
+            "content_hash": "272de644258fab8958a4ff7014cccabf4797ffedf92d4c51571ecdc7031dcadb"
+          }
+        ],
+        "docs/project-context.md": [
+          {
+            "heading": "## Platforms and constraints",
+            "content_hash": "00f17b6f5e040b9d79cb0590817c2a8e7071c479532465d99f88b1af80c073a7"
+          },
+          {
+            "heading": "## Scope and ownership",
+            "content_hash": "384cec9e3ddd402ae2c3e1acd34b27f6a6a00a181b12223b013d2057ed1cc387"
+          }
+        ],
+        "docs/guardrails.md": [
+          {
+            "heading": "## Source references and authority",
+            "content_hash": "c7ab2a7cd2f8c2fb32b190340573bf25489e6539b05379a72baf9245c13a78ab"
+          },
+          {
+            "heading": "## Verification rules",
+            "content_hash": "63393ed662fbc99b308305aeeb0871d590d6c9dcaf2e0831845df7bf25414fd9"
+          }
+        ],
+        "docs/user-journey.md": [
+          {
+            "heading": "## Failure, recovery and safe exits",
+            "content_hash": "bf014a5e9251423713933eefc86d3e6b0d1dff24fc821a7f52e4e17eb84c585d"
+          }
+        ],
+        "docs/screen-map.md": [
+          {
+            "heading": "## Transitions and closure",
+            "content_hash": "deddee71c643cc1ec5a1edaae403c274fb5c0c87ceec813afb8baa6c2fef76f3"
+          }
+        ],
+        "docs/wireframes.md": [
+          {
+            "heading": "## State variants and recovery contract",
+            "content_hash": "6300582b0e7b8811b01f98e87a16fa1f8d08669464493ccf4e734b5630133370"
+          }
+        ],
+        "docs/design-brief.md": [
+          {
+            "heading": "## Approved Visual Baseline",
+            "content_hash": "f6aa670aad73a20da29f47eef1853bfcb56e7e18a4961c915a0634c22ac27bc7"
+          }
+        ],
+        "docs/northflank-deployment.md": [
+          {
+            "heading": "## Database",
+            "content_hash": "097863041cd70b16a40c8ecb5302871fbae48e1e992d1fa8a794cfdc383a137d"
+          }
+        ]
+      }
     },
     "dod-evals": {
       "path": "docs/dod-evals.md",
@@ -9162,65 +9155,78 @@
       "consumed_source_fragments": {}
     },
     "architecture": {
-      "invocation_id": "r23-accepted-knock-architecture-approved-2026-09-18T01:13:25.320Z",
+      "invocation_id": "northflank-database-ca-architecture-2026-09-22T003409.642-0300",
       "outputs": [
         "docs/architecture.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "889580d3fa81c0f541cce7bff58dc10d528460ce74080d2881fc4161acbe1726",
-        "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
         "docs/canonical-terms.md": "798277faf0f438ecb7121239bb238058c42e88ceb88459a0538e7c7d0d1bf663",
-        "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
-        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
-        "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
-        "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
-        "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
-        "docs/model-settings.md": "471304f397c128dced4860a137db829cb26e532b375ee9376e3a078a12e0b50d",
-        "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
-        "forge/runs/U-06/browser-speech-uk-20260914/README.md": "972494cb2d1dda8ae431f34bd2896eb6d5cb4642c838ae0b171d17ac931913d6",
-        "package.json": "b419996e8bf38f22580ef3ad31398dd2c699bfe02057c3ffef333423c63d82f7",
-        "src/server/config.mjs": "fbfbb92d01dc442b20c459217f498e5fefef522d5f940bd403e0d2683b63704f",
-        "src/server/index.mjs": "f88413ed8a4d4c6bdc6864700f9e1112d4466ec711a7ea1873f77db1123c3d55",
-        "src/server/store.mjs": "4ff546243ea43306cd5b424e080d25be64e86dece102260acca51eaadca845cb",
-        "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
-        "test/core.test.mjs": "0b2e424fd4c19eb9b1d897932418bbb377bbf1ef0d5802ef159d2a506c0f8fcf",
-        "src/server/codex-provider.mjs": "a84f5a433d4c74752afb133e39471c0d8cf3f853047ac6f95ef918073b05a151",
-        "src/server/consultation.mjs": "ed754ba21d10991b7fb0af7ade03aa2fe7078850aaea45bbae6d649b644021f7",
-        "test/codex-provider.test.mjs": "279004a4b2afd8e99989949581e90754db44e43d76663fdd072fcf1f8b070362",
-        "test/consultation.test.mjs": "443cab205fd5b7093df101b81dc23a3e342fe1e087a1ec6721fe88daa21583a7",
-        "test/http.test.mjs": "308793fdb20e22317df65c867f02b4ca1f558469ec22bb4b5e9f459d424d0ea5",
-        ".env.example": "908e4483bcad524ca4c95e9d20bc57dd4f2fbc6156f17925728798f03e91620f",
-        "test/fixtures/fake-codex.mjs": "ddb3b4fd9f1e07f30df8006f7e74db7edabb55a29536e1f9274f07b0ce672c66",
-        "src/server/prompt-contracts.mjs": "e9ad56fdb433979e2c818706b31316a80e8dae1b3af92282fc0b000394230a9b",
-        "src/client/app.js": "4f88878672536ad884a092e39f321ecb3a5e88ffe40852899541ebf59f048e9a",
-        "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
-        "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
-        "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
-        "public/index.html": "a323d9e2b831baef308d6b2a843a25662353f2e41ddca59c9d354a1fe60be67b",
-        "public/styles.css": "62846db13c24f14930073ecd597b3aea0d34aedf9006ce2abab55e4c1046d749",
-        "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
-        "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
-        "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
-        "src/server/validation.mjs": "54663bca65fbba070c19a1176968835b95dd0b90ffb44f3140147f9db06e9653",
-        "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
-        "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
-        "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
-        "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
-        "src/server/claude-provider.mjs": "ea68bbffab0b9b55d626ecbafd3cdb665ebbc65925f547e50fc478316670298c",
-        "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
-        "test/claude-provider.test.mjs": "b2152039c3954bcf58005ea179ed0cf7bd574271663bc468d0aa4869555c9174",
-        "public/sounds/nokia-three-knocks-quick.wav": "c593d959457a011f63f85cedcc2c42efe503b0b13fa1d0a44f3aab1746c9268a",
-        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e",
-        "public/sounds/table-taps-250ms.wav": "433bfd84f11cba34941526d970f222b10e154a68af26594e50e34e2aa1e8459c",
-        "forge/exploration/message-sound-table-250ms-v3/source.json": "93af5d762e68fc236d1424d93d702256264f71ed60fddab287ed277f5c4b71fc",
-        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "1990cdfdbd13bb8a3a69cdecae365f4c8e81510c0741f0e60cbfb302da70e719",
-        "forge/exploration/message-sound-table-250ms-v5/preview.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
-        "public/sounds/table-taps-250ms-v5.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
-        "forge/exploration/message-sound-table-250ms-v5/source.json": "6f700507f98b6ec595c4ef356e5ce2a5a6a3e8b516cfc4b246a75bd87ea7976b",
-        "forge/exploration/message-sound-table-250ms-v5/edit-audio.py": "a9f947960fc1ac70d4172d0dc08275236bd95e8eeeef950960beb8413fb63b2e",
-        "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "867ed009230b2a3b15407fb88182caa720663af4df338e9cb6dfdc2abbb9fa22"
+        "src/server/config.mjs": "d7551288f12a1ba9e0aafd8ea158486e0bca1b7af11b123d127c992010bc7ae7",
+        "src/server/database-tls.mjs": "1be53f82600309d15988bfba1e55c2cb8fdb49f201ad98b5539c96fca32fe804",
+        ".env.example": "411c11692a9fe21a67f70ca6078ad527af7b69cac1b2fdbd137666b44c4f552b"
       },
-      "consumed_source_fragments": {}
+      "consumed_source_fragments": {
+        "docs/prd.md": [
+          {
+            "heading": "### NFR-13.2 — Protected transport and service identity",
+            "content_hash": "e761c8b7643729f0322b4459b9c82b869ee803c2bded34efe61e45a530d54680"
+          },
+          {
+            "heading": "### NFR-15.1 — Secure delivery and maintenance",
+            "content_hash": "272de644258fab8958a4ff7014cccabf4797ffedf92d4c51571ecdc7031dcadb"
+          }
+        ],
+        "docs/project-context.md": [
+          {
+            "heading": "## Platforms and constraints",
+            "content_hash": "00f17b6f5e040b9d79cb0590817c2a8e7071c479532465d99f88b1af80c073a7"
+          },
+          {
+            "heading": "## Scope and ownership",
+            "content_hash": "384cec9e3ddd402ae2c3e1acd34b27f6a6a00a181b12223b013d2057ed1cc387"
+          }
+        ],
+        "docs/guardrails.md": [
+          {
+            "heading": "## Source references and authority",
+            "content_hash": "c7ab2a7cd2f8c2fb32b190340573bf25489e6539b05379a72baf9245c13a78ab"
+          },
+          {
+            "heading": "## Verification rules",
+            "content_hash": "63393ed662fbc99b308305aeeb0871d590d6c9dcaf2e0831845df7bf25414fd9"
+          }
+        ],
+        "docs/user-journey.md": [
+          {
+            "heading": "## Failure, recovery and safe exits",
+            "content_hash": "bf014a5e9251423713933eefc86d3e6b0d1dff24fc821a7f52e4e17eb84c585d"
+          }
+        ],
+        "docs/screen-map.md": [
+          {
+            "heading": "## Transitions and closure",
+            "content_hash": "deddee71c643cc1ec5a1edaae403c274fb5c0c87ceec813afb8baa6c2fef76f3"
+          }
+        ],
+        "docs/wireframes.md": [
+          {
+            "heading": "## State variants and recovery contract",
+            "content_hash": "6300582b0e7b8811b01f98e87a16fa1f8d08669464493ccf4e734b5630133370"
+          }
+        ],
+        "docs/design-brief.md": [
+          {
+            "heading": "## Approved Visual Baseline",
+            "content_hash": "f6aa670aad73a20da29f47eef1853bfcb56e7e18a4961c915a0634c22ac27bc7"
+          }
+        ],
+        "docs/northflank-deployment.md": [
+          {
+            "heading": "## Database",
+            "content_hash": "097863041cd70b16a40c8ecb5302871fbae48e1e992d1fa8a794cfdc383a137d"
+          }
+        ]
+      }
     },
     "dod-evals": {
       "invocation_id": "r23-accepted-knock-dod-evals-approved-2026-09-18T01:13:25.320Z",
@@ -67698,6 +67704,217 @@
           "heading": "## Clause coverage"
         }
       }
+    },
+    {
+      "path": "docs/architecture.md",
+      "owner_skill": "to-architecture",
+      "owner_invocation_id": "r23-accepted-knock-architecture-approved-2026-09-18T01:13:25.320Z",
+      "declared_output_set": [
+        "docs/architecture.md"
+      ],
+      "status": "validated",
+      "mission_control_status": "Done",
+      "source_version": "r23-accepted-knock-architecture-approved-2026-09-18T01:13:25.320Z",
+      "source_usage": {
+        "docs/prd.md": "full",
+        "docs/project-context.md": "full",
+        "docs/canonical-terms.md": "full",
+        "docs/guardrails.md": "full",
+        "docs/user-journey.md": "full",
+        "docs/screen-map.md": "full",
+        "docs/wireframes.md": "full",
+        "docs/design-brief.md": "full",
+        "docs/model-settings.md": "full",
+        "docs/deployment-boundary.md": "full",
+        "forge/runs/U-06/browser-speech-uk-20260914/README.md": "full",
+        "package.json": "full",
+        "src/server/config.mjs": "full",
+        "src/server/index.mjs": "full",
+        "src/server/store.mjs": "full",
+        "scripts/check-artifacts.mjs": "full",
+        "test/core.test.mjs": "full",
+        "src/server/codex-provider.mjs": "full",
+        "src/server/consultation.mjs": "full",
+        "test/codex-provider.test.mjs": "full",
+        "test/consultation.test.mjs": "full",
+        "test/http.test.mjs": "full",
+        ".env.example": "full",
+        "test/fixtures/fake-codex.mjs": "full",
+        "src/server/prompt-contracts.mjs": "full",
+        "src/client/app.js": "full",
+        "test/consolidation.test.mjs": "full",
+        "test/prompt-contracts.test.mjs": "full",
+        "test/fixtures/runtime-instructions.mjs": "full",
+        "public/index.html": "full",
+        "public/styles.css": "full",
+        "src/server/conversation-export.mjs": "full",
+        "src/client/markdown.js": "full",
+        "test/conversation-export.test.mjs": "full",
+        "src/server/validation.mjs": "full",
+        "src/server/conversation-title.mjs": "full",
+        "test/conversation-title.test.mjs": "full",
+        "src/client/refresh-state.js": "full",
+        "test/refresh-state.test.mjs": "full",
+        "src/server/claude-provider.mjs": "full",
+        "src/server/output-safety.mjs": "full",
+        "test/claude-provider.test.mjs": "full",
+        "public/sounds/nokia-three-knocks-quick.wav": "full",
+        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "full",
+        "public/sounds/table-taps-250ms.wav": "full",
+        "forge/exploration/message-sound-table-250ms-v3/source.json": "full",
+        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "full",
+        "forge/exploration/message-sound-table-250ms-v5/preview.wav": "full",
+        "public/sounds/table-taps-250ms-v5.wav": "full",
+        "forge/exploration/message-sound-table-250ms-v5/source.json": "full",
+        "forge/exploration/message-sound-table-250ms-v5/edit-audio.py": "full",
+        "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "full"
+      },
+      "source_hashes": {
+        "docs/prd.md": "889580d3fa81c0f541cce7bff58dc10d528460ce74080d2881fc4161acbe1726",
+        "docs/project-context.md": "3fb5f62564debb081d64e3eab512ea6d026ac83db179fd7367b2161030ac7517",
+        "docs/canonical-terms.md": "798277faf0f438ecb7121239bb238058c42e88ceb88459a0538e7c7d0d1bf663",
+        "docs/guardrails.md": "9353ac9779aeb8bcbc583fb4cd8fb5b3f30ca39ea881b53842b2fcd172a172eb",
+        "docs/user-journey.md": "5b65d7e380cad36b15872a39640318389c11d744bde036bde6d2760f214aff2a",
+        "docs/screen-map.md": "cb1597ed54b3140b8eecf385cae8d58179fa1e3bcc54bdd5fe8d1e1dc68d6ba2",
+        "docs/wireframes.md": "e6ff54b0d3827dc74dbfdd6c0794ed5b79922ed0de506be978301d9e20cd4c53",
+        "docs/design-brief.md": "5c97f5c630551918324681335aa2b8506b5bdfd8068779ff61cb56898ad90fb5",
+        "docs/model-settings.md": "471304f397c128dced4860a137db829cb26e532b375ee9376e3a078a12e0b50d",
+        "docs/deployment-boundary.md": "73f70514d184f3e166f85b52c65161334ba6dfde6032d61eeb935cec428e819e",
+        "forge/runs/U-06/browser-speech-uk-20260914/README.md": "972494cb2d1dda8ae431f34bd2896eb6d5cb4642c838ae0b171d17ac931913d6",
+        "package.json": "b419996e8bf38f22580ef3ad31398dd2c699bfe02057c3ffef333423c63d82f7",
+        "src/server/config.mjs": "fbfbb92d01dc442b20c459217f498e5fefef522d5f940bd403e0d2683b63704f",
+        "src/server/index.mjs": "f88413ed8a4d4c6bdc6864700f9e1112d4466ec711a7ea1873f77db1123c3d55",
+        "src/server/store.mjs": "4ff546243ea43306cd5b424e080d25be64e86dece102260acca51eaadca845cb",
+        "scripts/check-artifacts.mjs": "690bf99c5072e38d72416e0b023e8c719cc99ac42fdc5b5a591d1f70e038672e",
+        "test/core.test.mjs": "0b2e424fd4c19eb9b1d897932418bbb377bbf1ef0d5802ef159d2a506c0f8fcf",
+        "src/server/codex-provider.mjs": "a84f5a433d4c74752afb133e39471c0d8cf3f853047ac6f95ef918073b05a151",
+        "src/server/consultation.mjs": "ed754ba21d10991b7fb0af7ade03aa2fe7078850aaea45bbae6d649b644021f7",
+        "test/codex-provider.test.mjs": "279004a4b2afd8e99989949581e90754db44e43d76663fdd072fcf1f8b070362",
+        "test/consultation.test.mjs": "443cab205fd5b7093df101b81dc23a3e342fe1e087a1ec6721fe88daa21583a7",
+        "test/http.test.mjs": "308793fdb20e22317df65c867f02b4ca1f558469ec22bb4b5e9f459d424d0ea5",
+        ".env.example": "908e4483bcad524ca4c95e9d20bc57dd4f2fbc6156f17925728798f03e91620f",
+        "test/fixtures/fake-codex.mjs": "ddb3b4fd9f1e07f30df8006f7e74db7edabb55a29536e1f9274f07b0ce672c66",
+        "src/server/prompt-contracts.mjs": "e9ad56fdb433979e2c818706b31316a80e8dae1b3af92282fc0b000394230a9b",
+        "src/client/app.js": "4f88878672536ad884a092e39f321ecb3a5e88ffe40852899541ebf59f048e9a",
+        "test/consolidation.test.mjs": "331a9015b6a2f556619eac2e41819d38491b7a1c46527cff1ce66f3173f73e25",
+        "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
+        "test/fixtures/runtime-instructions.mjs": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f",
+        "public/index.html": "a323d9e2b831baef308d6b2a843a25662353f2e41ddca59c9d354a1fe60be67b",
+        "public/styles.css": "62846db13c24f14930073ecd597b3aea0d34aedf9006ce2abab55e4c1046d749",
+        "src/server/conversation-export.mjs": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7",
+        "src/client/markdown.js": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b",
+        "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
+        "src/server/validation.mjs": "54663bca65fbba070c19a1176968835b95dd0b90ffb44f3140147f9db06e9653",
+        "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
+        "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
+        "src/client/refresh-state.js": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45",
+        "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
+        "src/server/claude-provider.mjs": "ea68bbffab0b9b55d626ecbafd3cdb665ebbc65925f547e50fc478316670298c",
+        "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
+        "test/claude-provider.test.mjs": "b2152039c3954bcf58005ea179ed0cf7bd574271663bc468d0aa4869555c9174",
+        "public/sounds/nokia-three-knocks-quick.wav": "c593d959457a011f63f85cedcc2c42efe503b0b13fa1d0a44f3aab1746c9268a",
+        "forge/runs/U-03/r19-quick-knock-20260918/audio-source.json": "0f40d3875708b27d5f5535d1ffa5cde92c12af813d4c0bd655bab9a3baaa811e",
+        "public/sounds/table-taps-250ms.wav": "433bfd84f11cba34941526d970f222b10e154a68af26594e50e34e2aa1e8459c",
+        "forge/exploration/message-sound-table-250ms-v3/source.json": "93af5d762e68fc236d1424d93d702256264f71ed60fddab287ed277f5c4b71fc",
+        "forge/exploration/message-sound-table-250ms-v3/edit-audio.py": "1990cdfdbd13bb8a3a69cdecae365f4c8e81510c0741f0e60cbfb302da70e719",
+        "forge/exploration/message-sound-table-250ms-v5/preview.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
+        "public/sounds/table-taps-250ms-v5.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
+        "forge/exploration/message-sound-table-250ms-v5/source.json": "6f700507f98b6ec595c4ef356e5ce2a5a6a3e8b516cfc4b246a75bd87ea7976b",
+        "forge/exploration/message-sound-table-250ms-v5/edit-audio.py": "a9f947960fc1ac70d4172d0dc08275236bd95e8eeeef950960beb8413fb63b2e",
+        "forge/runs/U-03/r23-accepted-knock-20260918/owner-acceptance.json": "867ed009230b2a3b15407fb88182caa720663af4df338e9cb6dfdc2abbb9fa22"
+      },
+      "dependencies": [
+        "prd",
+        "project-context",
+        "canonical-terms",
+        "guardrails",
+        "user-journey",
+        "screen-map",
+        "wireframes",
+        "design-brief"
+      ],
+      "content_hash": "840e4a41f3d38a51cf1b1383e7e6bfcbf1a23599e3f68b5be578add9d7c0507a",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "r23-accepted-knock-scoped-reconciliation",
+        "reviewed_at": "2026-09-18T01:13:25.320Z",
+        "executor": "Codex inline to-architecture",
+        "scope": "Reconcile the accepted blended v5 sound and tiny echo for the existing Knock preference. Preserve models, permissions, visual baseline and other sound choices."
+      },
+      "open_questions": [],
+      "security_coverage": {
+        "NFR-10.1": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-10.2": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-10.3": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-11.1": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-11.2": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-11.3": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-12.1": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-12.2": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-12.3": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-13.1": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-13.2": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-14.1": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-14.2": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-14.3": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-15.1": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-16.1": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-16.2": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        }
+      },
+      "supersedes": "r15-rtf-export-architecture-2026-09-17T18:32:08+00:00",
+      "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     }
   ],
   "verification": {
@@ -72724,6 +72941,11 @@
       "at": "2026-09-18T01:13:25.320Z",
       "event": "r23_accepted_knock_reconciliation",
       "reason": "Owner accepted the blended v5 sound with a tiny echo; reconcile the existing authorized Knock feature without changing product scope or the approved visual baseline."
+    },
+    {
+      "at": "2026-09-22T00:34:09.642+03:00",
+      "event": "northflank_database_ca_architecture_reconciliation",
+      "reason": "Record the architecture owner return for verified Northflank MySQL CA loading without changing product scope, behavior, or the approved visual baseline."
     }
   ],
   "verification_history": [

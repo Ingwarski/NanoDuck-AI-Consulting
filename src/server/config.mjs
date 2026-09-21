@@ -153,6 +153,13 @@ export function loadConfig(environment = process.env) {
     throw new Error("DATABASE_URL or the managed DB_* connection is required in production.");
   }
   const databaseSslCaPath = optionalString(environment.DATABASE_SSL_CA_PATH);
+  const databaseSslCaBytes = optionalBase64urlBytes(environment.DATABASE_SSL_CA_B64, "DATABASE_SSL_CA_B64");
+  if (databaseSslCaBytes && databaseSslCaBytes.byteLength > 64 * 1024) {
+    throw new Error("DATABASE_SSL_CA_B64 cannot exceed 64 KiB after decoding.");
+  }
+  if (databaseSslCaPath && databaseSslCaBytes) {
+    throw new Error("Use only one database CA source.");
+  }
   const ownerSubject = optionalString(environment.OWNER_GOOGLE_SUBJECT);
   const ownerEmail = optionalString(environment.OWNER_GOOGLE_EMAIL ?? environment.SETTINGS_OWNER_GOOGLE_EMAIL)?.toLowerCase();
   const googleClientId = environment.GOOGLE_CLIENT_ID;
@@ -186,6 +193,7 @@ export function loadConfig(environment = process.env) {
     edgeProxyKey,
     databaseUrl,
     databaseSslCaPath,
+    databaseSslCaBytes,
     dataKey: runtimeDataKey,
     recoveryKey: runtimeRecoveryKey,
     sessionKey,
