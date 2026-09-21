@@ -22,5 +22,5 @@ USER node
 
 EXPOSE 3000
 
-ENTRYPOINT ["tini", "--"]
+ENTRYPOINT ["tini", "-s", "--"]
 CMD ["node", "src/server/start.mjs"]
