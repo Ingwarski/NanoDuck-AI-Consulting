@@ -6,7 +6,8 @@
   "evaluated_revision": {
     "base_commit": "ac8d2272744fb92cbaa2b5a1d5c60c104aa47071",
     "working_tree_state": "dirty",
-    "binding": "The source snapshot below identifies the tested uncommitted implementation; the base commit alone does not contain this correction."
+    "binding": "The source snapshot below identifies the tested uncommitted implementation; the base commit alone does not contain this correction.",
+    "committed_as": "69d30725562aaa83bf43e191e39274ebbe6dff3c"
   },
   "source_snapshot": {
     "algorithm": "sha256 of sorted UTF-8 path + NUL + lowercase file SHA-256 + LF records",
@@ -578,5 +579,25 @@
     "The current correction was not yet reverified on Linux/Windows or installed Edge at this recording; earlier dated CI evidence remains a separate record.",
     "Frozen Electric A v8 remains unchanged; this scoped override is not a new whole-product approval.",
     "The final 10-second held-poll timeout guard in scripts/browser-active-discussion.mjs was syntax-checked but not reexecuted after the recorded integrated runs."
-  ]
+  ],
+  "test_harness_followup": {
+    "reason": "CI exposed a race between clicking New and sending the next synthetic fixture. The preceding intentional-failure context could be reused. Wait for the loaded empty record before continuing.",
+    "first_ci": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35761754779",
+    "first_ci_results": {
+      "linux_macos_windows_node_22_24": "all six passed",
+      "browser_jobs": "failed in the existing lost-acceptance fixture after the new Stop/audio checks passed"
+    },
+    "changed_file": {
+      "path": "scripts/browser-active-discussion.mjs",
+      "sha256": "b5c0d3826b7ae19277204d3b4ca7925b237f4e12134e07574cc7f1c7e68f34ff"
+    },
+    "runtime_bytes_changed": false,
+    "local_rerun": {
+      "command": "npm run test:browsers -- --channel=chrome",
+      "result": "passed",
+      "log_sha256": "4cfb0c3b2fe32b5440ad35c26936b26a1088ada97419df0b2ae03d106606d9af"
+    },
+    "artifact_check": "passed: 23 Markdown files, 77 JavaScript syntax checks, three retained candidates",
+    "fresh_ci": "pending at recording"
+  }
 }

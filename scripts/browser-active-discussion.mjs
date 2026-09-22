@@ -20,6 +20,15 @@ export async function recordNotificationPlayback(page) {
   });
 }
 
+async function openNewConversation(page) {
+  const loaded = page.waitForResponse(response => response.request().method() === 'GET' && /\/api\/conversations\/[^/]+$/u.test(new URL(response.url()).pathname));
+  await page.locator('#new-conversation').click();
+  await (await loaded).finished();
+  // A click only dispatches New. Wait for its returned record to replace the
+  // preceding stopped/failed record before the next fixture can press Send.
+  await page.waitForFunction(() => document.querySelector('#thread .empty') && document.querySelector('#run-status').textContent === 'Describe the decision you want to make.');
+}
+
 export async function verifyActiveDiscussion(page, name, root) {
   // Save through the real authenticated API; reload must hydrate without Settings.
   const session = await (await page.request.get('/api/session')).json();
@@ -33,7 +42,7 @@ export async function verifyActiveDiscussion(page, name, root) {
   await page.locator('#app').waitFor({ state: 'visible' });
   await page.waitForFunction(() => document.querySelector('#sound-notice').dataset.status === 'idle');
   assert.equal(await page.locator('#settings-page').isVisible(), false);
-  await page.locator('#new-conversation').click();
+  await openNewConversation(page);
   await page.locator('#message').fill(`Synthetic ${name} active controls. Wait until cancelled`);
   const sendBox = await page.locator('#send').boundingBox();
   const acceptance = page.waitForResponse(response => response.url().endsWith('/messages') && response.request().method() === 'POST');
@@ -136,14 +145,14 @@ export async function verifyActiveDiscussion(page, name, root) {
   await page.locator('#message').fill('');
   await page.locator('.attachment-draft button').click();
   await page.setViewportSize({ width: 1280, height: 900 });
-  await page.locator('#new-conversation').click();
+  await openNewConversation(page);
   await page.locator('#message').fill('Synthetic failure recovery. Fail the turn RPC');
   await page.locator('#send').click();
   await page.waitForFunction(() => document.querySelector('#run-status').textContent.includes('Retry to continue'));
   assert.equal(await page.locator('#composer').isVisible(), true, 'Failure restores composer');
   assert.equal(await page.locator('#stop').isVisible(), false);
   assert.equal(await page.locator('#continue').textContent(), 'Retry');
-  await page.locator('#new-conversation').click();
+  await openNewConversation(page);
 }
 
 export async function verifySavedSoundOff(page) {
