@@ -16,6 +16,7 @@ const providerFailureMessage = (code, provider) => ({
   auth_required: `The selected ${providerName(provider)} route needs its subscription sign-in renewed. Your question remains saved.`,
   quota_blocked: `The selected ${providerName(provider)} route has reached its current usage limit. Your question remains saved.`,
   incompatible: `The selected ${providerName(provider)} model and reasoning configuration is unavailable on this route. Your question remains saved.`,
+  context_too_large: `This discussion exceeds the ${providerName(provider)} request size limit. Your question and discussion remain saved. Start a new consultation with a shorter summary to continue.`,
   subscription_unavailable: `The selected ${providerName(provider)} subscription is unavailable. Your question remains saved.`,
   method_unavailable: `The selected ${providerName(provider)} runtime cannot complete a required consultation step. Your question remains saved.`,
   provider_unavailable: `The selected ${providerName(provider)} route could not complete this request. Your question remains saved.`

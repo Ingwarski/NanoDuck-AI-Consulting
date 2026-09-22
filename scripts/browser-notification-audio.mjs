@@ -1,126 +1,182 @@
 import assert from "node:assert/strict";
 
-const assertNativeCompletion = (record, label) => {
-  const details = `${label}: ${JSON.stringify(record)}`;
-  assert.equal(record.nativeEnded, true, `${details}; native ended event required`);
-  assert.equal(record.endedBeforeStop, true, `${details}; buffer must finish before cleanup stops it`);
-  assert.equal(record.fullBuffer, true, `${details}; playback must not truncate or accelerate the buffer`);
-  // currentTime advances by render quanta, not by exact buffer durations or
-  // hardware output latency. A natural ended event establishes completion;
-  // the advancing native clock independently rules out a stalled output.
-  assert.equal(record.elapsed > 0, true, `${details}; native rendering clock must advance`);
+// Observe real media playback. The denial toggle is used only by the explicit
+// blocked-recovery scenario; ordinary play(), events and timing remain native.
+export const recordNotificationPlayback = async page => {
+  await page.addInitScript(() => {
+    const NativeAudio = window.Audio;
+    const createObjectURL = URL.createObjectURL.bind(URL);
+    const metadata = new Map();
+    window.notificationEvidence = { media: [], attempts: [], played: [], block: false, metadata: [] };
+    URL.createObjectURL = blob => {
+      const url = createObjectURL(blob); const info = { silent: undefined };
+      metadata.set(url, info);
+      const loaded = blob.arrayBuffer().then(bytes => {
+        const view = new DataView(bytes);
+        const isWave = bytes.byteLength >= 44 && view.getUint32(0, false) === 0x52494646 && view.getUint32(8, false) === 0x57415645;
+        info.silent = isWave && new Uint8Array(bytes, 44).every(value => value === 0);
+        info.validWave = isWave && view.getUint32(40, true) === bytes.byteLength - 44;
+      });
+      window.notificationEvidence.metadata.push(loaded);
+      return url;
+    };
+    window.Audio = function (...args) {
+      const media = new NativeAudio(...args); const index = window.notificationEvidence.media.length;
+      window.notificationEvidence.media.push(media);
+      const play = media.play.bind(media); const pause = media.pause.bind(media); let active;
+      media.addEventListener("playing", event => {
+        if (active) Object.assign(active, { nativePlaying: event.isTrusted, playingAt: performance.now(), muted: media.muted, volume: media.volume });
+      });
+      media.addEventListener("timeupdate", () => { if (active) active.furthestTime = Math.max(active.furthestTime, media.currentTime); });
+      // Installed before the application's completion listener so its source
+      // restoration and cleanup cannot erase native completion evidence.
+      media.addEventListener("ended", event => {
+        const record = active;
+        if (!record) return;
+        Object.assign(record, { nativeEnded: event.isTrusted, endedAt: performance.now(), endedBeforePause: !record.pauseRequested,
+          duration: media.duration, endTime: media.currentTime, endedSrc: media.currentSrc || media.src });
+        void Promise.all(window.notificationEvidence.metadata).then(() => {
+          if (record.info.silent !== true && record.nativePlaying && !record.muted && record.volume > 0) window.notificationEvidence.played.push(record.src);
+        });
+      });
+      media.pause = () => { if (active && !active.nativeEnded) active.pauseRequested = true; return pause(); };
+      media.play = () => {
+        const src = media.getAttribute("src");
+        active = { element: index, src, info: metadata.get(src) ?? { silent: false }, startedAt: performance.now(), startTime: media.currentTime,
+          furthestTime: media.currentTime, playbackRate: media.playbackRate, loop: media.loop, gestureActive: navigator.userActivation?.isActive,
+          muted: media.muted, volume: media.volume };
+        const record = active; window.notificationEvidence.attempts.push(record);
+        if (window.notificationEvidence.block) {
+          record.denial = "NotAllowedError";
+          return Promise.reject(new DOMException("Synthetic audio denial", "NotAllowedError"));
+        }
+        try {
+          return Promise.resolve(play()).then(value => { record.playResolved = true; return value; }, error => { record.denial = error.name; throw error; });
+        } catch (error) { record.denial = error.name; throw error; }
+      };
+      return media;
+    };
+    window.Audio.prototype = NativeAudio.prototype;
+    Object.setPrototypeOf(window.Audio, NativeAudio);
+  });
 };
 
-// Native AudioContext decoding, output scheduling and ended/statechange events.
-// No mocked playback; this does not prove physical iPhone speaker audibility.
+const assertNativeCompletion = (record, label) => {
+  const details = `${label}: ${JSON.stringify(record)}`;
+  assert.equal(record.playResolved, true, `${details}; native play promise must resolve`);
+  assert.equal(record.nativePlaying, true, `${details}; trusted playing event required`);
+  assert.equal(record.nativeEnded, true, `${details}; trusted ended event required`);
+  assert.equal(record.endedBeforePause, true, `${details}; playback finishes before cleanup`);
+  assert.equal(record.loop, false); assert.equal(record.playbackRate, 1);
+  assert.equal(record.muted, false); assert.equal(record.volume > 0, true);
+  assert.equal(record.duration > 0, true); assert.equal(record.endTime >= record.duration - .03, true, `${details}; full source completed`);
+  assert.equal(record.endedAt > record.startedAt, true, `${details}; playback time advanced`);
+};
+
+// Native HTMLMediaElement completion proves browser playback, not physical
+// speaker audibility. All pages, assets and state belong to the isolated fixture.
 export const verifyNotificationAudio = async (appPage, name) => {
   const page = await appPage.context().newPage();
   const origin = new URL(appPage.url()).origin;
   const fixtureUrl = `${origin}/notification-audio-verification`;
+  const knockUrl = `${origin}/sounds/table-taps-250ms-v5.wav`;
   let release; const held = new Promise(resolve => { release = resolve; });
+  let heldAssetRequests = 0;
+  const snapshot = () => page.evaluate(async () => {
+    await Promise.all(window.notificationEvidence.metadata);
+    return { attempts: window.notificationEvidence.attempts, elements: window.notificationEvidence.media.length,
+      media: window.notificationEvidence.media.map(media => ({ src: media.getAttribute("src"), paused: media.paused })),
+      result: window.audioResult, preview: window.previewResult, status: window.audioController.status, preference: window.audioController.preference };
+  });
   try {
-    await page.route(`${origin}/sounds/table-taps-250ms-v5.wav`, async route => { const response = await route.fetch(); await held; await route.fulfill({ response }); });
+    await recordNotificationPlayback(page);
+    await page.route(knockUrl, async route => { const response = await route.fetch(); heldAssetRequests++; await held; await route.fulfill({ response }); });
     await page.route(fixtureUrl, route => route.fulfill({ contentType: "text/html", body: '<!doctype html><html lang="en"><title>Notification audio verification</title><button id="enable">Enable sounds</button><button id="preview">Preview another sound</button></html>' }));
     await page.goto(fixtureUrl);
     await page.evaluate(async () => {
-      const NativeContext = window.AudioContext ?? window.webkitAudioContext;
-      window.audioEvidence = { contexts: [], sources: [], statuses: [], contextStates: [], resumes: [], gesture: undefined, result: undefined, preview: undefined };
-      window.AudioContext = function (...args) {
-        const context = new NativeContext(...args); const createSource = context.createBufferSource.bind(context);
-        const resume = context.resume.bind(context);
-        context.addEventListener("statechange", () => window.audioEvidence.contextStates.push({ state: context.state, time: context.currentTime }));
-        context.resume = () => {
-          const record = { requested: context.state, result: "pending" }; window.audioEvidence.resumes.push(record);
-          return resume().then(value => { record.result = "resolved"; return value; }, error => { record.result = error.name; throw error; });
-        };
-        window.audioEvidence.contexts.push(context);
-        context.createBufferSource = () => {
-          const source = createSource(); const start = source.start.bind(source); const stop = source.stop.bind(source); let record; let stopRequested = false;
-          // Register before the app's onended callback: resolving its promise can
-          // run microtasks before listeners added later in the event dispatch.
-          source.addEventListener("ended", event => {
-            if (record) Object.assign(record, { endedAt: context.currentTime, endedWallTime: performance.now(), nativeEnded: event.isTrusted, endedBeforeStop: !stopRequested });
-          }, { once: true });
-          source.stop = (...parameters) => { stopRequested = true; return stop(...parameters); };
-          source.start = (...parameters) => {
-            record = {
-              source, startedAt: context.currentTime, startedWallTime: performance.now(), endedAt: undefined,
-              sampleRate: context.sampleRate, baseLatency: context.baseLatency, outputLatency: context.outputLatency,
-              fullBuffer: (parameters[1] ?? 0) === 0 && parameters[2] === undefined && source.playbackRate.value === 1 && source.detune.value === 0 && !source.loop,
-              audible: [...Array(source.buffer.numberOfChannels)].some((_, channel) => source.buffer.getChannelData(channel).some(value => value !== 0))
-            };
-            window.audioEvidence.sources.push(record);
-            return start(...parameters);
-          };
-          return source;
-        };
-        return context;
-      };
-      window.audioRecord = record => ({
-        audible: record.audible, duration: record.source.buffer.duration,
-        startedAt: record.startedAt, endedAt: record.endedAt, elapsed: record.endedAt - record.startedAt,
-        wallElapsed: (record.endedWallTime - record.startedWallTime) / 1000,
-        nativeEnded: record.nativeEnded, endedBeforeStop: record.endedBeforeStop, fullBuffer: record.fullBuffer,
-        sampleRate: record.sampleRate, baseLatency: record.baseLatency, outputLatency: record.outputLatency
-      });
       const { createNotificationAudio } = await import("/client/notification-audio.js");
-      window.audioController = createNotificationAudio({ onStatusChange: status => window.audioEvidence.statuses.push(status) });
-      window.audioController.setPreference("knock");
+      window.audioController = createNotificationAudio(); window.audioController.setPreference("knock");
       document.querySelector("#enable").addEventListener("click", event => {
-        window.audioEvidence.gesture = { trusted: event.isTrusted, active: navigator.userActivation?.isActive, visibility: document.visibilityState, focus: document.hasFocus() };
-        window.audioEvidence.result = undefined;
-        void window.audioController.prime().then(result => { window.audioEvidence.result = result; });
+        window.audioGesture = { trusted: event.isTrusted, active: navigator.userActivation?.isActive };
+        window.audioResult = undefined; void window.audioController.prime().then(result => { window.audioResult = result; });
       });
       document.querySelector("#preview").addEventListener("click", () => {
-        void window.audioController.preview("ripple").then(result => { window.audioEvidence.preview = result; });
+        window.previewResult = undefined; void window.audioController.preview("ripple").then(result => { window.previewResult = result; });
       });
     });
+    assert.equal(await page.evaluate(() => window.audioController.play()), "needs-gesture");
     await page.locator("#enable").click();
-    await page.waitForFunction(() => window.audioEvidence.result !== undefined);
-    const priming = await page.evaluate(() => ({
-      result: window.audioEvidence.result,
-      gesture: window.audioEvidence.gesture,
-      resumes: window.audioEvidence.resumes,
-      contextStates: window.audioEvidence.contextStates,
-      contexts: window.audioEvidence.contexts.map(context => ({ state: context.state, currentTime: context.currentTime, sampleRate: context.sampleRate, baseLatency: context.baseLatency, outputLatency: context.outputLatency })),
-      sources: window.audioEvidence.sources.map(window.audioRecord)
-    }));
-    assert.equal(priming.result, "played", `${name} cold asset cannot delay gesture priming: ${JSON.stringify(priming)}`);
-    const primer = await page.evaluate(() => {
-      const record = window.audioEvidence.sources[0];
-      return { ...window.audioRecord(record), status: window.audioController.status };
+    await page.waitForFunction(() => window.audioResult !== undefined);
+    const priming = await snapshot();
+    assert.equal(priming.result, "played", `${name} cold asset cannot delay the finite gesture primer`);
+    assert.equal(priming.status, "ready"); assert.equal(priming.elements, 1);
+    const primer = priming.attempts[0];
+    assert.equal(primer.info.silent, true); assert.equal(primer.info.validWave, true);
+    assertNativeCompletion(primer, `${name} finite silent media primer`);
+    const gesture = await page.evaluate(() => window.audioGesture);
+    assert.equal(gesture.trusted, true); if (gesture.active !== undefined) assert.equal(gesture.active, true);
+    // evaluate itself grants activation in Chromium. Wait inside the page and
+    // make no intervening evaluate/locator calls before the native play request.
+    const coldStarted = page.waitForEvent('console', { predicate: message => message.text() === 'fixture-cold-play-started' });
+    const coldPlayback = page.evaluate(async () => {
+      await new Promise(resolve => setTimeout(resolve, 5_500));
+      const pending = window.audioController.play();
+      console.log('fixture-cold-play-started');
+      return pending;
     });
-    assert.equal(primer.audible, false); assertNativeCompletion(primer, `${name} silent primer`); assert.equal(primer.status, "ready");
-    release(); await page.unroute(`${origin}/sounds/table-taps-250ms-v5.wav`);
-    await page.locator("#preview").click();
-    await page.waitForFunction(() => window.audioEvidence.preview !== undefined);
-    assert.equal(await page.evaluate(() => window.audioEvidence.preview), "played");
-    assert.equal(await page.evaluate(() => window.audioController.preference), "knock");
-    await page.waitForTimeout(5_500);
-    for (const sound of ["knock", "chime", "ripple"]) {
-      const result = await page.evaluate(async selected => {
-        window.audioController.setPreference(selected);
-        const result = await window.audioController.play(); const record = window.audioEvidence.sources.at(-1);
-        return { result, ...window.audioRecord(record), contexts: window.audioEvidence.contexts.length };
-      }, sound);
-      assert.equal(result.result, "played", `${name} delayed decoded ${sound}`);
-      assert.equal(result.audible, true); assert.equal(result.duration > 0, true);
-      assertNativeCompletion(result, `${name} ${sound} completed its native buffer`);
-      assert.equal(result.contexts, 1, `${name} all choices share one resumed output context`);
+    await coldStarted;
+    assert.equal(heldAssetRequests > 0, true, `${name} Knock bytes are held until after the delayed play request`);
+    release();
+    const coldResult = await coldPlayback;
+    const cold = await snapshot();
+    assert.equal(coldResult, "played", `${name} delayed cold Knock: ${JSON.stringify(cold)}`);
+    assertNativeCompletion(cold.attempts.at(-1), `${name} delayed cold Knock`);
+    assert.notEqual(cold.attempts.at(-1).gestureActive, true, 'Native play was requested after transient activation expired');
+    assert.equal(cold.attempts.at(-1).src, "/sounds/table-taps-250ms-v5.wav");
+    assert.equal(cold.attempts.at(-1).element, primer.element);
+    await page.unroute(knockUrl);
+
+    await page.locator("#preview").click(); await page.waitForFunction(() => window.previewResult !== undefined);
+    const preview = await snapshot();
+    assert.equal(preview.preview, "played"); assert.equal(preview.preference, "knock");
+    assertNativeCompletion(preview.attempts.at(-1), `${name} unsaved Ripple preview`);
+    assert.equal(preview.attempts.at(-1).info.silent, false); assert.equal(preview.elements, 1);
+    assert.equal(preview.media[0].src, "/sounds/table-taps-250ms-v5.wav", 'Preview restores saved source on the same element');
+    const results = await page.evaluate(async () => {
+      await new Promise(resolve => setTimeout(resolve, 5_500));
+      const results = [];
+      for (const sound of ["knock", "knock", "chime", "ripple"]) {
+        window.audioController.setPreference(sound);
+        const result = await window.audioController.play();
+        results.push({ sound, result, record: window.notificationEvidence.attempts.at(-1) });
+      }
+      await Promise.all(window.notificationEvidence.metadata);
+      return results;
+    });
+    const played = await snapshot();
+    for (const { sound, result, record } of results) {
+      assert.equal(result, "played", `${name} delayed ${sound}: ${JSON.stringify(record)}`);
+      assertNativeCompletion(record, `${name} delayed ${sound}`);
+      assert.notEqual(record.gestureActive, true, `${name} delayed ${sound} has no fresh activation`);
+      assert.equal(record.info.silent, false); assert.equal(record.element, primer.element); assert.equal(played.elements, 1);
+      if (sound === "knock") assert.equal(record.src, "/sounds/table-taps-250ms-v5.wav");
     }
-    await page.evaluate(() => window.audioEvidence.contexts[0].suspend());
-    await page.waitForFunction(() => window.audioController.status === "idle");
-    assert.equal(await page.evaluate(() => window.audioController.play()), "needs-gesture", `${name} suspended output is not reported ready`);
-    await page.locator("#enable").click();
-    await page.waitForFunction(() => window.audioEvidence.result !== undefined);
-    assert.equal(await page.evaluate(() => window.audioEvidence.result), "played");
     const off = await page.evaluate(async () => {
-      const before = window.audioEvidence.sources.length;
-      window.audioController.setPreference("off"); const result = await window.audioController.play();
-      return { result, before, after: window.audioEvidence.sources.length };
+      const pending = window.audioController.play();
+      window.audioController.setPreference("off"); const before = window.notificationEvidence.attempts.length;
+      return { cancelled: await pending, result: await window.audioController.play(), before, after: window.notificationEvidence.attempts.length };
     });
-    assert.equal(off.result, "off"); assert.equal(off.before, off.after);
-    await page.waitForFunction(() => window.audioEvidence.contexts.every(context => context.state === "closed"));
-    assert.equal(await page.evaluate(() => { window.audioController.dispose(); return window.audioController.status; }), "disposed");
+    assert.equal(off.cancelled, "cancelled"); assert.equal(off.result, "off"); assert.equal(off.before, off.after);
+    const stopped = await snapshot(); assert.equal(stopped.media.every(media => media.paused && !media.src), true);
+    await page.evaluate(() => window.audioController.setPreference("ripple"));
+    await page.locator("#enable").click(); await page.waitForFunction(() => window.audioResult !== undefined);
+    assert.equal((await snapshot()).result, "played");
+    const disposed = await page.evaluate(async () => {
+      const pending = window.audioController.play(); window.audioController.dispose();
+      return { result: await pending, status: window.audioController.status };
+    });
+    assert.equal(disposed.result, "cancelled"); assert.equal(disposed.status, "disposed");
+    const released = await snapshot(); assert.equal(released.media.every(media => media.paused && !media.src), true);
+    assert.equal(await page.evaluate(() => window.audioController.play()), "cancelled");
   } finally { release(); await page.close(); }
 };

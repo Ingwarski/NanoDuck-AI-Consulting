@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "scope": "Safari sound playback through one persistent HTMLAudioElement",
+  "recorded_at": "2026-09-22T21:42:45.080Z",
+  "source": {
+    "base_commit": "0a57b56b6e55b4cde2a3cfcca4659b5c2499df7e",
+    "files": [
+      {
+        "path": "src/client/notification-audio.js",
+        "sha256": "74ff9dc7b165078dac275207f25fff4274168912228f686730d8f27bb922653c"
+      },
+      {
+        "path": "test/notification-audio.test.mjs",
+        "sha256": "c05d85dba03ba292890c363c3f2221834e38ca2c85d1eb80145bb180147234d9"
+      },
+      {
+        "path": "scripts/browser-notification-audio.mjs",
+        "sha256": "14db67444e225ea92f9a8343454bcad1332d853ff3ce3ce9624383180fc4f68c"
+      },
+      {
+        "path": "scripts/browser-active-discussion.mjs",
+        "sha256": "d983c8766da22df5c9b0622292cb92415c7a3494781c8cd5759207477b944d81"
+      },
+      {
+        "path": "scripts/browser-check.mjs",
+        "sha256": "d9df7efc1a94f18a1c6509b5d45fc7668aa7dac7524c8ef864744aaa9a6f5934"
+      },
+      {
+        "path": "scripts/browser-logoff.mjs",
+        "sha256": "11c739a75082c6dbdeb6b83fab67bad4156728bf4c8af0ee3d24af8ddf0c268b"
+      },
+      {
+        "path": "public/sounds/table-taps-250ms-v5.wav",
+        "sha256": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4"
+      }
+    ]
+  },
+  "checks": {
+    "node24": {
+      "version": "24.16.0",
+      "command": "npm run check",
+      "result": "passed",
+      "total": 212,
+      "passed": 210,
+      "failed": 0,
+      "skipped": 2,
+      "skip_reason": "Windows-only cases on macOS"
+    },
+    "sdd": {
+      "result": "passed",
+      "formal_qa": "83 not_run",
+      "release_gates": "6 not_evaluated"
+    },
+    "focused_audio": {
+      "result": "passed",
+      "total": 14
+    },
+    "browsers": {
+      "result": "passed",
+      "engines": [
+        "Chromium",
+        "Firefox",
+        "WebKit",
+        "installed Chrome"
+      ],
+      "commands": [
+        "node scripts/browser-check.mjs",
+        "node scripts/browser-check.mjs --channel=chrome"
+      ],
+      "scope": "Isolated synthetic application records and real native media playback",
+      "cases": [
+        "Finite all-zero WAV gesture primer",
+        "Cold Knock held until playback after a 5.5 second in-page delay",
+        "Expired transient activation captured inside actual play call; no intervening injected script",
+        "One persistent media element and repeated same-source Knock",
+        "Unsaved Preview restores saved choice",
+        "Knock, Chime and Ripple complete via trusted playing and ended events before cleanup",
+        "Incoming-message notification and duplicate suppression",
+        "Synthetic autoplay denial with explicit recovery",
+        "Off hydration, pending playback cancellation and Logoff clearing media source"
+      ],
+      "verification_correction": "Direct Playwright evaluate can supply fresh activation. Final delayed tests use in-page timers and capture activation inside native play."
+    },
+    "native_safari": {
+      "result": "observed",
+      "scope": "Actual authenticated local Safari tab on macOS",
+      "before": {
+        "preview_silent_reported_by_owner": true,
+        "tab_unmuted": true,
+        "output_unmuted": true,
+        "web_audio_context_running": true,
+        "decoded_sound_nonzero": true
+      },
+      "after": {
+        "preview_completed": true,
+        "web_audio_context_count": 0,
+        "media_element_count": 1,
+        "source": "/sounds/table-taps-250ms-v5.wav",
+        "muted": false,
+        "volume": 0.85,
+        "status": "ready"
+      },
+      "activation": {
+        "refreshed_only_after_failed_consultation_was_idle": true,
+        "unsent_text_characters": 0,
+        "unsent_images": 0,
+        "saved_discussion_retained": true,
+        "sign_in_retained": true,
+        "saved_settings_changed": false,
+        "temporary_test_removed": true,
+        "inspector_closed": true
+      },
+      "physical_audibility": "Owner confirmation requested; no response recorded. Native playback completion does not establish physical speaker output.",
+      "mobile": "Physical iPhone/iPad audibility and background playback not verified"
+    },
+    "live_server": {
+      "at": "2026-09-22T21:41:13.061Z",
+      "restartedWithZeroActiveRuns": true,
+      "activeRunsAfter": 0,
+      "recordsAndSettingsUnchanged": true,
+      "workspaceConfigurationUnchanged": true,
+      "httpsHealth": true,
+      "caVerified": true,
+      "currentSoundAsset": true,
+      "interfaces": [
+        "loopback",
+        "private LAN from same computer"
+      ],
+      "note": "The earlier failed consultation was already inactive. No Stop, conversation replay, saved-setting change or private message submission was performed."
+    }
+  },
+  "ci": {
+    "status": "pending"
+  }
+}

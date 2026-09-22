@@ -78,6 +78,25 @@ test("a selected Claude Code Critic never moves Head or specialist work off Code
   assert.equal(calls.filter(call => call.outputKind.startsWith("critic_")).every(call => call.research === false), true);
 });
 
+test("a Claude context size failure preserves the question and confirmed discussion without blaming the model", async () => {
+  const store = createMemoryStore(); const conversation = await store.createConversation(); const calls = [];
+  const owner = "Should we test preorders?";
+  const accepted = await store.acceptMessage(conversation.id, { body: owner, clientRequestId: "claude-context-size-0001" }, {
+    ...defaultSettings, specialistCount: "1", discussionDepth: "1", criticProvider: "claude_code", criticClaudeModel: "claude-opus-5-5", criticClaudeReasoning: "high"
+  });
+  const provider = { async invoke(input) { calls.push(input); return input.provider === "claude_code" ? { ok: false, code: "context_too_large" } : { ok: true, body: successfulBody(input), sources: [] }; } };
+  await createConsultationService({ store, provider }).start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "failed");
+  const events = await store.events(conversation.id);
+  assert.equal(events[0].body, owner);
+  assert.equal(events.length, 4, "Owner, confirmed Head task and specialist position remain saved");
+  assert.equal(events.at(-1).role, "System");
+  assert.match(events.at(-1).body, /discussion exceeds the Claude Code request size limit/u);
+  assert.doesNotMatch(events.at(-1).body, /model and reasoning configuration/u);
+  assert.equal(calls.filter(input => input.provider === "claude_code").length, 1);
+  assert.equal((await store.run(conversation.id)).snapshot.criticClaudeModel, "claude-opus-5-5");
+});
+
 test("a failed specialist reply resumes after the last confirmed challenge without replaying or skipping the review", async () => {
   const store = createMemoryStore();
   const conversation = await store.createConversation();

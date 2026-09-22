@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "scope": "Complete Claude context via bounded UTF-8 stdin and truthful size failure",
+  "recorded_at": "2026-09-22T21:42:45.082Z",
+  "source": {
+    "base_commit": "0a57b56b6e55b4cde2a3cfcca4659b5c2499df7e",
+    "files": [
+      {
+        "path": "src/server/claude-provider.mjs",
+        "sha256": "8bc946443624fd43626167d1acbed1209d65884cc6d658e59ceedba1f603ad36"
+      },
+      {
+        "path": "src/server/consultation.mjs",
+        "sha256": "0efea2e369d78297edb4b05d92f2ee319edc14f25f22a820644d721c1c81212e"
+      },
+      {
+        "path": "test/claude-process.test.mjs",
+        "sha256": "8d9c2e818b43cfc8f8039d326ccbf2921dfe961e85e6fd2f5b90e904b7e75a96"
+      },
+      {
+        "path": "test/claude-provider.test.mjs",
+        "sha256": "451076cf9ff118095fd84b4c3d4388fef93c674d0a2bc09d7a2b7fbb1ed4f145"
+      },
+      {
+        "path": "test/consultation.test.mjs",
+        "sha256": "126d8bef3a5a0c2476e4c911b99bbb74f3724201769d973c8f4a23883933b4a0"
+      }
+    ]
+  },
+  "checks": {
+    "node24": {
+      "version": "24.16.0",
+      "command": "npm run check",
+      "result": "passed",
+      "total": 212,
+      "passed": 210,
+      "failed": 0,
+      "skipped": 2,
+      "skip_reason": "Windows-only cases on macOS"
+    },
+    "sdd": {
+      "result": "passed",
+      "formal_qa": "83 not_run",
+      "release_gates": "6 not_evaluated"
+    },
+    "diagnosis": {
+      "result": "confirmed",
+      "cause": "The former 128 KiB guard rejected a valid rendered long discussion as incompatible before CLI invocation.",
+      "saved_model": "claude-opus-5-5",
+      "saved_effort": "high",
+      "private_content_logged": false
+    },
+    "regressions": {
+      "result": "passed",
+      "focused_tests": 82,
+      "cases": [
+        "Complete multilingual input above 128 KiB is preserved byte-for-byte on stdin",
+        "Dynamic prompt is absent from argv",
+        "Real process receives full UTF-8 bytes and EOF",
+        "Early pipe closure cannot report success",
+        "Cancellation terminates a blocked input writer",
+        "Initial and retry prompts enforce the 1 MiB bound",
+        "Oversized input has context_too_large notice and saved discussion remains intact",
+        "Exact model and effort, subscription-only auth and tool restrictions remain intact"
+      ]
+    },
+    "live_adapter": {
+      "result": "passed",
+      "started_at": "2026-09-22T21:39:33.291Z",
+      "completed_at": "2026-09-22T21:39:38.084Z",
+      "claude_version": "2.1.280",
+      "requested_model": "claude-opus-5-5",
+      "returned_model": "claude-opus-5-5",
+      "effort": "high",
+      "stdin_bytes": 145669,
+      "prompt_in_argv": false,
+      "model_invocations": 1,
+      "synthetic_response_matched": true,
+      "authentication": "native first-party subscription; no API key",
+      "research": false,
+      "private_conversation_sent": false,
+      "application_store_accessed": false,
+      "temporary_command_workspaces_removed": true
+    },
+    "live_server": {
+      "at": "2026-09-22T21:41:13.061Z",
+      "restartedWithZeroActiveRuns": true,
+      "activeRunsAfter": 0,
+      "recordsAndSettingsUnchanged": true,
+      "workspaceConfigurationUnchanged": true,
+      "httpsHealth": true,
+      "caVerified": true,
+      "currentSoundAsset": true,
+      "interfaces": [
+        "loopback",
+        "private LAN from same computer"
+      ],
+      "note": "The earlier failed consultation was already inactive. No Stop, conversation replay, saved-setting change or private message submission was performed."
+    }
+  },
+  "ci": {
+    "status": "pending"
+  }
+}

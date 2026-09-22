@@ -3,33 +3,7 @@ import { mkdir } from 'node:fs/promises';
 import { join } from 'node:path';
 import { png } from '../test/fixtures/images.mjs';
 
-export async function recordNotificationPlayback(page) {
-  await page.addInitScript(() => {
-    const NativeContext = window.AudioContext ?? window.webkitAudioContext;
-    window.notificationEvidence = { played: [], contexts: [], block: false };
-    window.AudioContext = function (...args) {
-      const context = new NativeContext(...args); const buffers = new WeakMap();
-      const decode = context.decodeAudioData.bind(context); const createSource = context.createBufferSource.bind(context);
-      window.notificationEvidence.contexts.push(context);
-      context.decodeAudioData = bytes => {
-        const source = bytes.byteLength === 62_444 ? '/sounds/table-taps-250ms-v5.wav' : 'generated-sound';
-        return decode(bytes).then(buffer => { buffers.set(buffer, source); return buffer; });
-      };
-      context.createBufferSource = () => {
-        const source = createSource(); const start = source.start.bind(source); let audible = false;
-        source.addEventListener('ended', () => { if (audible) window.notificationEvidence.played.push(buffers.get(source.buffer)); }, { once: true });
-        source.start = (...parameters) => {
-          audible = [...Array(source.buffer.numberOfChannels)].some((_, channel) => source.buffer.getChannelData(channel).some(value => value !== 0));
-          // Only the explicit blocked-recovery case injects a browser denial.
-          if (audible && window.notificationEvidence.block) throw new DOMException('Synthetic audio denial', 'NotAllowedError');
-          return start(...parameters);
-        };
-        return source;
-      };
-      return context;
-    };
-  });
-}
+export { recordNotificationPlayback } from './browser-notification-audio.mjs';
 
 async function openNewConversation(page) {
   const loaded = page.waitForResponse(response => response.request().method() === 'GET' && /\/api\/conversations\/[^/]+$/u.test(new URL(response.url()).pathname));
@@ -109,13 +83,16 @@ export async function verifyActiveDiscussion(page, name, root) {
   // Let transient user activation expire before the next confirmed consultant.
   await page.waitForTimeout(5_500);
   replies.push({ ...event('consultant-event', 'Head Consultant'), body: 'Synthetic Head Consultant reply.\n\n'.repeat(35) });
-  await page.waitForFunction(() => window.notificationEvidence.played.some(url => url.endsWith('/sounds/table-taps-250ms-v5.wav')));
+  // Playwright evaluate/waitForFunction can grant fresh activation. Receive the
+  // polling reply and finish native playback without another injected script.
+  await page.waitForTimeout(3_500);
   assert.equal(await audibleCount(), 1, 'Async polling plays the saved sound without opening Settings');
+  assert.notEqual(await page.evaluate(() => window.notificationEvidence.attempts.find(record => record.src.endsWith('/sounds/table-taps-250ms-v5.wav'))?.gestureActive), true, 'Polling playback has no fresh user activation');
   const before = polls;
   await page.waitForTimeout(2_200);
   assert.equal(polls > before, true);
   assert.equal(await audibleCount(), 1, 'Duplicate polling does not replay sound');
-  assert.equal(await page.evaluate(() => window.notificationEvidence.contexts.length), 1);
+  assert.equal(await page.evaluate(() => window.notificationEvidence.media.length), 1);
 
   await page.evaluate(() => { window.notificationEvidence.block = true; });
   replies.push(event('blocked-event', 'Critic'));
@@ -174,5 +151,5 @@ export async function verifySavedSoundOff(page) {
   await page.locator('#app').waitFor({ state: 'visible' });
   await page.waitForFunction(() => document.querySelector('#sound-notice').dataset.status === 'off');
   assert.equal(await page.locator('#sound-notice').isVisible(), false);
-  assert.equal(await page.evaluate(() => window.notificationEvidence.contexts.length), 0);
+  assert.equal(await page.evaluate(() => window.notificationEvidence.media.length), 0);
 }

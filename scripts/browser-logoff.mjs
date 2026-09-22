@@ -10,6 +10,7 @@ export async function verifyPrivateLogoff(page, context, origin, password, name)
   await page.locator('#managed-document-markdown').waitFor({ state: 'visible' });
   await page.waitForFunction(() => document.querySelector('#managed-document-markdown').value.length > 0);
   await page.locator('#managed-document-markdown').fill(guidance);
+  await page.locator('#notification-sound').selectOption('chime');
   await page.locator('.desktop-nav [data-nav="discussion"]').click();
   await page.locator('#message').fill(draft);
 
@@ -32,6 +33,10 @@ export async function verifyPrivateLogoff(page, context, origin, password, name)
     await page.locator('.desktop-nav [data-nav="settings"]').click();
     await received;
     const cancelled = page.waitForEvent('requestfailed', { predicate: request => request.url().endsWith('/api/instruction-documents') });
+    const previewIndex = await page.evaluate(() => window.notificationEvidence.attempts.length);
+    await page.locator('#preview-notification-sound').click();
+    await page.waitForFunction(index => window.notificationEvidence.attempts[index]?.nativePlaying === true, previewIndex);
+    assert.equal(await page.evaluate(index => window.notificationEvidence.attempts[index].nativeEnded === true, previewIndex), false, 'Logoff begins during real media playback');
     await context.setOffline(true);
     await page.locator('[data-session-action]').click();
     await page.waitForFunction(() => document.querySelector('#logout-status')?.textContent.includes('unconfirmed'));
@@ -42,6 +47,8 @@ export async function verifyPrivateLogoff(page, context, origin, password, name)
     assert.equal(await page.locator('#runtime-instructions').inputValue(), '');
     assert.equal(await page.locator('[data-session-action]').textContent(), 'Retry Logoff');
     assert.equal(await page.evaluate(() => sessionStorage.getItem('nanoduck-logout-pending-v1')), '1');
+    assert.equal(await page.evaluate(() => window.notificationEvidence.media.every(media => media.paused && !media.getAttribute('src'))), true, 'Logoff pauses and releases every media source');
+    assert.equal(await page.evaluate(index => window.notificationEvidence.attempts[index].pauseRequested === true && !window.notificationEvidence.attempts[index].nativeEnded, previewIndex), true, 'Logoff cancels the active preview before natural completion');
     release(); await finished; await cancelled;
     await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => resolve())));
     assert.equal(await page.locator('#thread').textContent(), '');

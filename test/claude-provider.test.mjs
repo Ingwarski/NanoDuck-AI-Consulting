@@ -4,6 +4,7 @@ import { join } from "node:path";
 import { tmpdir } from "node:os";
 import { access } from "node:fs/promises";
 import { createClaudeProvider } from "../src/server/claude-provider.mjs";
+import { createRuntimePrompts } from "../src/server/prompt-contracts.mjs";
 import { testRuntimeInstructions } from "./fixtures/runtime-instructions.mjs";
 
 const criticInput = Object.freeze({
@@ -19,6 +20,63 @@ const criticInput = Object.freeze({
   maximumCharacters: 1_000,
   runtimeInstructions: testRuntimeInstructions,
   signal: new AbortController().signal
+});
+
+test("Claude transports accepted multilingual context above 128 KiB intact through stdin, never argv", async () => {
+  const calls = [];
+  const provider = createClaudeProvider({ claudeCommand: "claude", claudeOAuthToken: "managed-token" }, {
+    run: async input => {
+      calls.push(input);
+      return input.args.includes("auth")
+        ? { exitCode: 0, stdout: JSON.stringify({ loggedIn: true, authMethod: "oauth_token", apiProvider: "firstParty" }), stderr: "" }
+        : { exitCode: 0, stdout: JSON.stringify({ subtype: "success", modelUsage: { "claude-opus-5-5": {} }, result: "The full context was received." }), stderr: "" };
+    }
+  });
+  const input = {
+    ...criticInput, model: "claude-opus-5-5", effort: "high",
+    evidence: { owner: "П".repeat(32_000), discussion: "У".repeat(80_000) },
+    runtimeInstructions: { ...testRuntimeInstructions, documents: ["AGENTS.md", "CONSILIUM.md", "CONSULTING_PLAYBOOK.md", "WORKING_CONTEXT.md"].map(name => ({ name, revision: 1, markdown: "D".repeat(64 * 1024) })) }
+  };
+  const prompts = createRuntimePrompts(input.runtimeInstructions);
+  const expected = `${input.assignment}\n\nOwner question:\n${input.evidence.owner}\n\nPrior confirmed discussion:\n${input.evidence.discussion}\n\n${prompts.outputContract(input)} ${prompts.providerPolicy(false)}`;
+  assert.ok(Buffer.byteLength(expected) > 128 * 1024);
+  assert.equal((await provider.invoke(input)).ok, true);
+  assert.equal(calls.length, 2);
+  assert.equal(calls[0].stdinText, undefined);
+  const completion = calls[1];
+  assert.equal(completion.stdinText, expected, "No truncation, replacement or dropped guidance");
+  assert.equal(completion.args.includes(expected), false);
+  assert.ok(completion.args.every(arg => !arg.includes(input.evidence.owner) && !arg.includes(input.evidence.discussion)));
+  assert.equal(completion.args[completion.args.indexOf("--input-format") + 1], "text");
+  assert.equal(completion.args[completion.args.indexOf("--model") + 1], input.model);
+  assert.equal(completion.args[completion.args.indexOf("--effort") + 1], input.effort);
+});
+
+test("Claude reports its bounded context limit separately from model incompatibility before launching", async () => {
+  let calls = 0;
+  const provider = createClaudeProvider({ claudeCommand: "claude", claudeOAuthToken: "managed-token" }, { run: async () => { calls += 1; throw new Error("must not launch"); } });
+  for (const input of [
+    { ...criticInput, assignment: "A".repeat(1024 * 1024 + 1) },
+    { ...criticInput, evidence: { ...criticInput.evidence, discussion: "У".repeat(600_000) } }
+  ]) assert.deepEqual(await provider.invoke(input), { ok: false, code: "context_too_large" });
+  assert.equal(calls, 0);
+});
+
+test("the text-only retry cannot exceed the same context byte bound", async () => {
+  let completions = 0;
+  const provider = createClaudeProvider({ claudeCommand: "claude", claudeOAuthToken: "managed-token" }, {
+    run: async input => {
+      if (input.args.includes("auth")) return { exitCode: 0, stdout: JSON.stringify({ loggedIn: true, authMethod: "oauth_token", apiProvider: "firstParty" }), stderr: "" };
+      completions += 1;
+      assert.ok(Buffer.byteLength(input.stdinText) <= 1024 * 1024);
+      return { exitCode: 0, stdout: JSON.stringify({ subtype: "success", modelUsage: { "claude-opus-5": {} }, result: '<invoke name="Bash">pwd</invoke>' }), stderr: "" };
+    }
+  });
+  const prompts = createRuntimePrompts(criticInput.runtimeInstructions);
+  const empty = `${criticInput.assignment}\n\nOwner question:\n${criticInput.evidence.owner}\n\nPrior confirmed discussion:\n\n\n${prompts.outputContract(criticInput)} ${prompts.providerPolicy(false)}`;
+  const discussion = "A".repeat(1024 * 1024 - Buffer.byteLength(empty) - 10);
+  assert.deepEqual(await provider.invoke({ ...criticInput, evidence: { ...criticInput.evidence, discussion } }), { ok: false, code: "context_too_large" });
+  assert.equal(completions, 1);
 });
 
 test("Claude Code exposes only authenticated configured models and returns safe completion text", async () => {
@@ -48,7 +106,8 @@ test("Claude Code exposes only authenticated configured models and returns safe 
   assert.equal(calls.at(-1).args.includes("1"), true);
   assert.equal(calls.at(-1).args.includes("--system-prompt"), true);
   assert.equal(calls.at(-1).environment.CLAUDE_CODE_OAUTH_TOKEN, "managed-token");
-  const prompt = calls.at(-1).args.at(-1);
+  const prompt = calls.at(-1).stdinText;
+  assert.equal(calls.at(-1).args.includes(prompt), false);
   assert.match(prompt, /Owner question:\nShould we fund the expansion\?/u);
   assert.match(prompt, /Prior confirmed discussion:\nFinance Consultant → Critic: The cash buffer is only two months\./u);
   assert.match(prompt, /Write a critic challenge under 1000 characters\./u);

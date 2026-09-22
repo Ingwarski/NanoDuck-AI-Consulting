@@ -3,6 +3,7 @@ import { mkdtemp, readFile, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
+import { createHash } from "node:crypto";
 import { runClaudeCommand } from "../src/server/claude-provider.mjs";
 
 const fixture = async t => {
@@ -11,6 +12,32 @@ const fixture = async t => {
   return directory;
 };
 const run = (cwd, script, options = {}) => runClaudeCommand({ command: process.execPath, args: ["-e", script], environment: process.env, cwd, timeoutMilliseconds: 10_000, ...options });
+
+test("Claude process receives a large multilingual prompt through a closed UTF-8 pipe", async t => {
+  const cwd = await fixture(t);
+  const stdinText = "Перевірте умови.\n".repeat(20_000);
+  const result = await run(cwd, `const {createHash}=require('node:crypto');let size=0;const hash=createHash('sha256');process.stdin.on('data',chunk=>{size+=chunk.length;hash.update(chunk)});process.stdin.on('end',()=>process.stdout.write(JSON.stringify({size,sha256:hash.digest('hex'),args:process.argv.slice(1)})));`, { stdinText });
+  assert.equal(result.exitCode, 0);
+  assert.equal(result.inputFailed, false);
+  assert.deepEqual(JSON.parse(result.stdout), { size: Buffer.byteLength(stdinText), sha256: createHash("sha256").update(stdinText).digest("hex"), args: [] });
+});
+
+test("a child closing its input cannot report success after a partial prompt write", async t => {
+  const cwd = await fixture(t);
+  const result = await run(cwd, "require('node:fs').closeSync(0);process.stdout.write('ignored input');setInterval(()=>{},1000);", { stdinText: "A".repeat(1024 * 1024) });
+  assert.equal(result.inputFailed, true);
+  assert.equal(result.exitCode, null);
+});
+
+test("cancellation terminates a process that never reads its pending prompt", async t => {
+  const cwd = await fixture(t); const controller = new AbortController();
+  const pending = run(cwd, "setInterval(()=>{},1000);", { stdinText: "A".repeat(1024 * 1024), signal: controller.signal });
+  const timer = setTimeout(() => controller.abort(), 100);
+  t.after(() => clearTimeout(timer));
+  const result = await pending;
+  assert.equal(result.aborted, true);
+  assert.equal(result.timedOut, false);
+});
 
 // Real pipes can split a UTF-8 code point; mocks returning strings cannot cover this.
 test("Claude process decoding preserves split Ukrainian UTF-8 output", async t => {

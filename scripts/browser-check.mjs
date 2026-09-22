@@ -70,7 +70,12 @@ try {
     // Each engine has independent in-memory authentication-attempt limits.
     // The encrypted fixture data remains in place across these restarts.
     await startFixture();
-    const browser = await engine.launch({ headless: true, ...options });
+    // Keep disposable profiles under the engines' real autoplay restrictions.
+    // Chromium's documented gesture lock and Firefox's Block Audio preference
+    // must remain in force while asynchronous notification playback is tested.
+    const autoplay = engine === chromium ? { args: ['--autoplay-policy=user-gesture-required'] }
+      : engine === firefox ? { firefoxUserPrefs: { 'media.autoplay.default': 1 } } : {};
+    const browser = await engine.launch({ headless: true, ...autoplay, ...options });
     try {
       // TLS is verified against the exact test CA above. Disposable browser profiles
       // do not install that CA into the operating system's trust store.

@@ -25,132 +25,79 @@ const wavBytes = pattern => {
 
 const playbackDeadline = 8_000;
 
-/** One session-scoped output context. Call prime/preview directly in a gesture handler. */
+/** One session-scoped media element. Call prime/preview directly in a gesture handler. */
 export const createNotificationAudio = ({ onStatusChange = () => {} } = {}) => {
-  const AudioContextClass = globalThis.AudioContext ?? globalThis.webkitAudioContext;
-  const encoded = new Map(); const decoded = new Map(); const requests = new Set(); const urls = new Map();
+  const urls = new Map();
   let preference = "off"; let status = "off"; let disposed = false; let prepared = false; let priming;
-  let context; let gain; let media; let cancelPlayback; let recreate = false;
-  let session; let previousSessionType;
+  let media; let cancelPlayback; let generation = 0;
   const updateStatus = next => {
     const effective = disposed ? "disposed" : preference === "off" ? "off" : next;
     if (effective === status) return;
     status = effective; onStatusChange(status);
   };
-  const stop = () => { priming = undefined; cancelPlayback?.(); };
-  const releaseSession = () => {
-    try { if (session?.type === "playback") session.type = previousSessionType; } catch { /* Optional browser API. */ }
-    session = undefined; previousSessionType = undefined;
+  const stop = () => { generation += 1; priming = undefined; cancelPlayback?.(); };
+  const releaseMedia = () => {
+    prepared = false;
+    if (media) { media.pause(); media.removeAttribute("src"); media.load(); }
+    for (const url of urls.values()) URL.revokeObjectURL(url);
+    urls.clear();
   };
-  const closeContext = () => {
-    stop(); prepared = false; decoded.clear();
-    const previous = context; context = undefined;
-    if (previous) { previous.onstatechange = null; gain?.disconnect(); void previous.close().catch(() => {}); }
-    gain = undefined; releaseSession();
+  const sourceFor = name => {
+    if (name === "knock") return "/sounds/table-taps-250ms-v5.wav";
+    if (!urls.has(name)) urls.set(name, URL.createObjectURL(new Blob([wavBytes(patterns[name] ?? [])], { type: "audio/wav" })));
+    return urls.get(name);
   };
-  const bytesFor = name => {
-    if (!encoded.has(name)) {
-      const promise = name === "knock" ? (async () => {
-        const controller = new AbortController(); requests.add(controller);
-        const timer = setTimeout(() => controller.abort(), playbackDeadline);
-        try {
-          const response = await fetch("/sounds/table-taps-250ms-v5.wav", { signal: controller.signal, credentials: "same-origin" });
-          if (!response.ok) throw new Error("sound_unavailable");
-          return await response.arrayBuffer();
-        } finally { clearTimeout(timer); requests.delete(controller); }
-      })() : Promise.resolve(wavBytes(patterns[name] ?? []));
-      encoded.set(name, promise);
-      void promise.catch(() => { if (encoded.get(name) === promise) encoded.delete(name); });
-    }
-    return encoded.get(name);
+  const selectSource = name => {
+    const url = sourceFor(name);
+    if (media.getAttribute("src") !== url) { media.src = url; media.load(); }
+    else media.currentTime = 0;
   };
-  const ensureContext = () => {
-    if (recreate || context?.state === "closed") { const active = cancelPlayback; cancelPlayback = undefined; closeContext(); cancelPlayback = active; recreate = false; }
-    if (!context) {
-      // WebKit maps Web Audio to ambient/ringer audio by default. On browsers
-      // exposing Audio Session, use the same playback category as media previews.
-      try {
-        const available = globalThis.navigator?.audioSession;
-        if (available && typeof available.type === "string") { previousSessionType = available.type; available.type = "playback"; session = available; }
-      } catch { session = undefined; previousSessionType = undefined; }
-      try { context = new AudioContextClass(); gain = context.createGain(); gain.gain.value = .85; gain.connect(context.destination); }
-      catch (error) {
-        const failed = context; context = undefined; gain = undefined;
-        if (failed) void failed.close().catch(() => {});
-        releaseSession(); throw error;
-      }
-      const current = context;
-      context.onstatechange = () => {
-        if (disposed || context !== current || current.state === "running") return;
-        if (prepared) { stop(); prepared = false; updateStatus("idle"); }
-      };
-    }
-    return context;
-  };
-  const bufferFor = (name, current) => {
-    if (!decoded.has(name)) {
-      const promise = bytesFor(name).then(bytes => current.decodeAudioData(bytes.slice(0)));
-      decoded.set(name, promise);
-      void promise.catch(() => { if (decoded.get(name) === promise) decoded.delete(name); });
-    }
-    return decoded.get(name);
+  const ensureMedia = () => {
+    if (!media) { media = new Audio(); media.preload = "auto"; media.volume = .85; media.setAttribute("playsinline", ""); }
+    return media;
   };
   const start = (name, { silent = false, gesture = false } = {}) => {
     stop();
-    let settled = false; let settle; let timer; let source; let activeMedia;
+    let settled = false; let settle; let timer; let activeMedia;
     const completion = new Promise(resolve => { settle = resolve; });
     const cleanup = () => {
       clearTimeout(timer);
-      if (source) { source.onended = null; try { source.stop(); } catch {} source.disconnect(); }
       if (activeMedia) { activeMedia.removeEventListener("ended", mediaEnded); activeMedia.removeEventListener("error", mediaFailed); activeMedia.pause(); }
       if (cancelPlayback === cancelled) cancelPlayback = undefined;
     };
     const finish = result => {
       if (settled) return;
       settled = true; cleanup();
+      // Abort an outstanding native play/load, so it cannot start after Off,
+      // disposal, a deadline, or a superseding notification/preview.
+      if (result !== "played" && activeMedia) activeMedia.load();
       if (result !== "cancelled" && !disposed) {
         prepared = result === "played";
         updateStatus(result === "played" ? "ready" : result === "needs-gesture" ? "idle" : result);
       }
+      if (result === "played" && !disposed) {
+        if (preference === "off") releaseMedia();
+        else {
+          try { selectSource(preference); }
+          catch { prepared = false; updateStatus("unavailable"); }
+        }
+      }
       settle(result);
-      if (result === "played" && preference === "off" && context) closeContext();
     };
     const cancelled = () => finish("cancelled");
-    const mediaEnded = () => finish("played");
+    const mediaEnded = () => { if (activeMedia.ended) finish("played"); };
     const mediaFailed = () => finish("unavailable");
     const failed = error => finish(error?.name === "NotAllowedError" ? "blocked" : "unavailable");
     cancelPlayback = cancelled;
-    timer = setTimeout(() => { recreate = true; finish("unavailable"); }, playbackDeadline);
+    timer = setTimeout(() => finish("unavailable"), playbackDeadline);
     try {
-      if (typeof AudioContextClass === "function") {
-        if (!gesture && (!context || !prepared || context.state !== "running")) { finish("needs-gesture"); return completion; }
-        const current = gesture ? ensureContext() : context;
-        // Resume inside this exact gesture stack, before fetching or decoding.
-        const resumed = gesture ? current.resume() : Promise.resolve();
-        const begin = buffer => {
-          if (settled || disposed || context !== current) return;
-          source = current.createBufferSource(); source.buffer = buffer; source.connect(gain);
-          source.onended = () => {
-            if (current.state !== "running") return finish("needs-gesture");
-            finish("played");
-          };
-          source.start();
-        };
-        if (silent) begin(current.createBuffer(1, Math.ceil(current.sampleRate * .05), current.sampleRate));
-        else void bufferFor(name, current).then(begin).catch(failed);
-        void Promise.resolve(resumed).catch(failed);
-      } else {
-        // Compatibility fallback for browsers without Web Audio. Modern iOS uses
-        // the decoded-buffer path above and never swaps a media source for alerts.
-        if (!media) { media = new Audio(); media.preload = "auto"; media.volume = .85; media.setAttribute("playsinline", ""); }
-        activeMedia = media;
-        const selected = silent ? "silence" : name;
-        let url = selected === "knock" ? "/sounds/table-taps-250ms-v5.wav" : urls.get(selected);
-        if (!url) { url = URL.createObjectURL(new Blob([wavBytes(patterns[selected] ?? [])], { type: "audio/wav" })); urls.set(selected, url); }
-        if (media.getAttribute("src") !== url) media.src = url; else media.currentTime = 0;
-        media.addEventListener("ended", mediaEnded); media.addEventListener("error", mediaFailed);
-        void Promise.resolve(media.play()).catch(failed);
-      }
+      if (!gesture && !prepared) { finish("needs-gesture"); return completion; }
+      activeMedia = ensureMedia();
+      selectSource(silent ? "silence" : name);
+      activeMedia.addEventListener("ended", mediaEnded); activeMedia.addEventListener("error", mediaFailed);
+      // Keep play in this exact gesture stack. WebKit grants media playback per
+      // element, so future sounds retain this element even when its source changes.
+      void Promise.resolve(activeMedia.play()).catch(failed);
     } catch (error) { failed(error); }
     return completion;
   };
@@ -160,16 +107,19 @@ export const createNotificationAudio = ({ onStatusChange = () => {} } = {}) => {
     setPreference(name) {
       if (disposed) return;
       const next = choices.has(name) ? name : "off";
-      if (preference === next) return;
+      if (preference === next && next !== "off") return;
       stop(); preference = next;
-      if (next === "off") closeContext();
-      else if (typeof AudioContextClass === "function") void bytesFor(next).catch(() => {});
+      if (next === "off") releaseMedia();
+      else if (media && prepared) {
+        try { selectSource(next); }
+        catch { prepared = false; updateStatus("unavailable"); return; }
+      }
       updateStatus(prepared ? "ready" : "idle");
     },
     prime() {
       if (disposed) return Promise.resolve("cancelled");
       if (preference === "off") return Promise.resolve("off");
-      if (prepared && (!context || context.state === "running")) return Promise.resolve("ready");
+      if (prepared) return Promise.resolve("ready");
       if (priming) return priming;
       const pending = start(preference, { silent: true, gesture: true }); priming = pending;
       void pending.then(() => { if (priming === pending) priming = undefined; });
@@ -178,7 +128,10 @@ export const createNotificationAudio = ({ onStatusChange = () => {} } = {}) => {
     play() {
       if (disposed) return Promise.resolve("cancelled");
       if (preference === "off") return Promise.resolve("off");
-      if (priming) return priming.then(result => result === "played" ? this.play() : result);
+      if (priming) {
+        const current = generation;
+        return priming.then(result => generation !== current || disposed ? "cancelled" : result === "played" ? this.play() : result);
+      }
       return start(preference);
     },
     preview(name = preference) {
@@ -188,10 +141,7 @@ export const createNotificationAudio = ({ onStatusChange = () => {} } = {}) => {
     },
     dispose() {
       if (disposed) return;
-      disposed = true; closeContext();
-      if (media) { media.removeAttribute("src"); media.load(); media = undefined; }
-      for (const controller of requests) controller.abort(); requests.clear();
-      for (const url of urls.values()) URL.revokeObjectURL(url); urls.clear(); encoded.clear();
+      disposed = true; stop(); releaseMedia(); media = undefined;
       updateStatus("disposed");
     }
   };
