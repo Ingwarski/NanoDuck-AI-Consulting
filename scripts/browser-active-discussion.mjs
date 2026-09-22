@@ -67,7 +67,7 @@ export async function verifyActiveDiscussion(page, name, root) {
   assert.notEqual(await page.evaluate(() => document.activeElement.id), 'stop', 'Collapsing Send must not move focus to Stop');
   assert.equal(await page.evaluate(() => document.querySelector('#composer').contains(document.activeElement)), false, 'Focus leaves the hidden composer');
   const stopBox = await page.locator('#stop').boundingBox();
-  assert.equal(stopBox.width, stopBox.height);
+  assert.ok(Math.abs(stopBox.width - stopBox.height) < 0.01, 'Stop is square within browser subpixel rounding');
   assert.equal(stopBox.width >= 44, true);
   assert.equal(Math.abs(stopBox.y - sendBox.y) >= 100, true, 'Stop is away from the former Send target');
   for (const tab of ['Outcome', 'Sources', 'Discussion']) {
@@ -79,7 +79,7 @@ export async function verifyActiveDiscussion(page, name, root) {
   await page.screenshot({ path: join(root, 'output', 'playwright', `${name}-active-desktop.png`), fullPage: true });
   await page.setViewportSize({ width: 390, height: 844 });
   const mobileStop = await page.locator('#stop').boundingBox();
-  assert.equal(mobileStop.width, mobileStop.height);
+  assert.ok(Math.abs(mobileStop.width - mobileStop.height) < 0.01, 'Mobile Stop is square within browser subpixel rounding');
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
   await page.screenshot({ path: join(root, 'output', 'playwright', `${name}-active-mobile.png`), fullPage: true });
 
