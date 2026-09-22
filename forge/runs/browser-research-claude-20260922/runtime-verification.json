@@ -423,8 +423,7 @@
     },
     "live_research": {
       "result": "passed",
-      "observed_at": "2026-09-22T18:04:00Z",
-      "timestamp_precision": "minute, reported by executing sub-agent",
+      "timestamp_precision": "Report timestamp supplied by executing sub-agent, not a captured execution timestamp",
       "provider_package": "0.153.1",
       "model": "gpt-6-astra",
       "effort": "xhigh",
@@ -438,7 +437,8 @@
       "private_consultation_transmitted": false,
       "application_state_written": false,
       "temporary_auth_copy_removed": true,
-      "scope": "Separate public-only adapter probe with production restrictions; coordinator calendar regression uses a synthetic provider."
+      "scope": "Separate public-only app-server protocol probe reproducing production restrictions; not an invocation through createCodexProvider. Coordinator calendar and provider adapter regressions use synthetic fixtures.",
+      "reported_at": "2026-09-22T18:04:00Z"
     },
     "claude": {
       "cli_version": "2.1.280",
@@ -483,12 +483,94 @@
     }
   },
   "ci": {
-    "status": "pending"
+    "status": "passed",
+    "revision": "5f1a51e4df84f81ce7ff8a0c8d7ab4508f1f11d0",
+    "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35768691897",
+    "previous_attempts": [
+      {
+        "revision": "530128ec1d2a3308202c4ba010818386513d3f4a",
+        "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35767257624",
+        "status": "failed",
+        "passed_jobs": 7,
+        "failure": "Linux Firefox native AudioContext priming returned unavailable after its eight-second deadline. Native Chromium and Windows Edge passed; all six OS/Node runtime jobs passed."
+      },
+      {
+        "revision": "ad2cd01920293e61e93f545514c53433b96b5035",
+        "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35767693891",
+        "status": "failed",
+        "failure": "Firefox native audio passed with a PulseAudio output. Its later Stop geometry check compared 52 CSS pixels with 51.99998474121094 using strict equality."
+      },
+      {
+        "revision": "b3e29a64cd4d2f938ff66124ca9f29ecb3b1493a",
+        "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35768029324",
+        "status": "failed",
+        "passed_jobs": 7,
+        "failure": "Chromium and Firefox complete flows passed. Linux WebKit reported played, then failed the fixture assumption that its render-clock delta must equal or exceed the exact buffer duration; the earlier assertion did not record the actual delta."
+      }
+    ],
+    "follow_up": {
+      "application_runtime_unchanged": true,
+      "changes": "Provision a PulseAudio null sink on the ephemeral Linux runner; accept less than 0.01 CSS pixel rounding for square Stop geometry; verify full-buffer playback through a trusted natural ended event captured before any stop request plus an advancing native rendering clock. Capture native timing and latency diagnostics. Playback remains real and the eight-second runtime deadline is unchanged.",
+      "files": [
+        {
+          "path": ".github/workflows/ci.yml",
+          "sha256": "130430570de804d16172f36af664e03b3162d181fc1fdb1f438fd4b1ec42bb74"
+        },
+        {
+          "path": "scripts/browser-active-discussion.mjs",
+          "sha256": "9e4a17d3b52e931b3c28e4626e0d1afec1e40ad5cb44668f5147e300d0a40c0e"
+        },
+        {
+          "path": "scripts/browser-notification-audio.mjs",
+          "sha256": "6aa41bc31e704e866ff06974d83296e44178dbc81a6d63198d34b4ce0b82ec2a"
+        }
+      ],
+      "local_focused_native_checks": [
+        "Firefox passed after diagnostic instrumentation",
+        "WebKit passed after natural-ended completion assertions"
+      ]
+    },
+    "jobs": [
+      {
+        "name": "edge",
+        "result": "success"
+      },
+      {
+        "name": "macos-24 / runtime",
+        "result": "success"
+      },
+      {
+        "name": "windows-22 / runtime",
+        "result": "success"
+      },
+      {
+        "name": "browsers",
+        "result": "success"
+      },
+      {
+        "name": "linux-24 / runtime",
+        "result": "success"
+      },
+      {
+        "name": "windows-24 / runtime",
+        "result": "success"
+      },
+      {
+        "name": "macos-22 / runtime",
+        "result": "success"
+      },
+      {
+        "name": "linux-22 / runtime",
+        "result": "success"
+      }
+    ]
   },
   "limits": [
     "No physical iPhone sound confirmation",
     "Precise Safari symptom awaits owner clarification",
     "Claude auth and real model call not performed",
     "Earlier consultation is retained and not automatically rerun"
-  ]
+  ],
+  "committed_as": "530128ec1d2a3308202c4ba010818386513d3f4a",
+  "finalized_at": "2026-09-22T18:44:47.853Z"
 }
