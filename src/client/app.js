@@ -2,22 +2,36 @@ import { parseMarkdown } from "/client/markdown.js";
 import { normalizeRefreshState, refreshStateKey, serializeRefreshState } from "/client/refresh-state.js";
 
 const state = { session: null, csrf: null, page: "discussion", tab: "discussion", conversation: null, events: [], run: null, poll: null, recognition: null, voiceTimer: null, voiceMode: "ready", voiceTranscript: "", attachmentFiles: [], attachmentError: "", pendingSubmissions: new Map(), sending: false, runtimeInstructionHistory: [], documents: [], notificationSound: "knock", conversations: [], selectedConversationIds: new Set(), criticSettings: null, criticProviders: null };
+const logoutPendingKey = "nanoduck-logout-pending-v1";
+const activeRequests = new Set();
+let privacyLocked = false; let clientGeneration = 0;
 const $ = selector => document.querySelector(selector);
 const roleInitials = { owner: "I", "Head Consultant": "HC", "Strategy Consultant": "SC", "Finance Consultant": "FC", "Operations Consultant": "OC", "Sales Consultant": "SL", "Marketing Consultant": "MC", "Product Consultant": "PC", "Spiritual Consultant": "SP", Psychotherapist: "PT", "Risk Consultant": "RC", Critic: "CR", System: "•" };
 const displayRole = role => role === "owner" ? "You" : role;
 
 const request = async (path, options = {}) => {
+  if (privacyLocked && !["/api/session", "/api/logout"].includes(path)) throw new Error("client_locked");
+  const generation = clientGeneration; const controller = new AbortController();
+  activeRequests.add(controller);
   const headers = new Headers(options.headers);
   if (state.csrf && !["GET", "HEAD"].includes(options.method ?? "GET")) headers.set("x-csrf-token", state.csrf);
   if (options.body && typeof options.body !== "string" && !(options.body instanceof FormData) && !(options.body instanceof Blob)) { headers.set("content-type", "application/json"); options.body = JSON.stringify(options.body); }
-  const response = await fetch(path, { ...options, headers, credentials: "same-origin" });
-  if (response.status === 204) return { response, data: undefined };
-  const data = await response.json().catch(() => undefined);
-  if (!response.ok) throw Object.assign(new Error(data?.error ?? "request_failed"), { response, data });
-  return { response, data };
+  const deadline = path === "/api/logout" || (privacyLocked && path === "/api/session") ? setTimeout(() => controller.abort(), 10_000) : undefined;
+  try {
+    const response = await fetch(path, { ...options, headers, signal: controller.signal, credentials: "same-origin" });
+    const data = response.status === 204 ? undefined : await response.json().catch(() => undefined);
+    if (generation !== clientGeneration || controller.signal.aborted) throw new Error("client_locked");
+    if (response.status === 401 && path !== "/api/auth/local" && !privacyLocked) {
+      clearPrivateClientContent(); clearRefreshState();
+      state.session = { authenticated: false }; state.csrf = null;
+      showSignIn(); updateSessionActions();
+    }
+    if (!response.ok) throw Object.assign(new Error(data?.error ?? "request_failed"), { response, data });
+    return { response, data };
+  } finally { clearTimeout(deadline); activeRequests.delete(controller); }
 };
 
-const toast = message => { const item = $("#toast"); item.textContent = message; item.hidden = false; clearTimeout(toast.timer); toast.timer = setTimeout(() => { item.hidden = true; }, 4_000); };
+const toast = message => { if (privacyLocked) return; const item = $("#toast"); item.textContent = message; item.hidden = false; clearTimeout(toast.timer); toast.timer = setTimeout(() => { item.hidden = true; }, 4_000); };
 const formatTime = value => new Intl.DateTimeFormat(undefined, { hour: "numeric", minute: "2-digit" }).format(new Date(value));
 const formatDate = value => new Intl.DateTimeFormat(undefined, { dateStyle: "medium" }).format(new Date(value));
 const clear = element => { element.replaceChildren(); return element; };
@@ -65,6 +79,7 @@ const soundUrl = name => {
   const url = URL.createObjectURL(new Blob([wav], { type: "audio/wav" })); notificationSoundUrls.set(name, url); return url;
 };
 const playNotificationSound = async () => {
+  if (privacyLocked) return false;
   const url = soundUrl(state.notificationSound); if (!url || typeof Audio !== "function") return false;
   const player = new Audio(url); player.preload = "auto"; player.volume = .85; notificationPlayers.add(player);
   const clearPlayer = () => notificationPlayers.delete(player); player.addEventListener("ended", clearPlayer, { once: true }); player.addEventListener("error", clearPlayer, { once: true });
@@ -79,7 +94,7 @@ const announceIncomingMessages = (before, after) => {
 };
 
 const saveRefreshState = () => {
-  if (!state.session?.authenticated || !state.session.consented) return;
+  if (privacyLocked || !state.session?.authenticated || !state.session.consented) return;
   try {
     sessionStorage.setItem(refreshStateKey, serializeRefreshState({
       page: state.page,
@@ -103,7 +118,7 @@ const restoreScroll = scrollY => requestAnimationFrame(() => requestAnimationFra
 
 function nav(page) {
   closeMenu();
-  if (!state.session?.authenticated || !state.session.consented) return;
+  if (privacyLocked || !state.session?.authenticated || !state.session.consented) return;
   state.page = page;
   $("#discussion-page").hidden = page !== "discussion";
   $("#conversations-page").hidden = page !== "conversations";
@@ -118,11 +133,54 @@ function closeMenu() { $("#mobile-nav").hidden = true; $("#menu").setAttribute("
 
 function updateSessionActions(busy = false) {
   document.querySelectorAll("[data-session-action]").forEach(button => {
-    button.textContent = state.session?.authenticated ? "Logoff" : "Login";
-    button.disabled = !state.session || busy;
+    button.textContent = privacyLocked ? "Retry Logoff" : state.session?.authenticated ? "Logoff" : "Login";
+    button.disabled = (!privacyLocked && !state.session) || busy;
   });
   $("#sign-out").disabled = busy;
-  $("#local-sign-in").disabled = busy;
+  $("#local-sign-in").disabled = privacyLocked || busy;
+  if ($("#retry-logoff")) $("#retry-logoff").disabled = busy;
+}
+
+function clearPrivateClientContent() {
+  clientGeneration++;
+  for (const controller of activeRequests) controller.abort();
+  activeRequests.clear(); stopPolling(); releaseVoice();
+  state.conversation = null; state.events = []; state.run = null;
+  state.attachmentFiles = []; state.attachmentError = ""; state.pendingSubmissions.clear();
+  state.runtimeInstructionHistory = []; state.documents = []; state.conversations = [];
+  state.selectedConversationIds.clear(); state.criticSettings = null; state.criticProviders = null;
+  state.voiceTranscript = ""; state.voiceMode = "ready"; state.notificationSound = "knock";
+  for (const player of notificationPlayers) { player.pause(); player.removeAttribute("src"); player.load(); }
+  notificationPlayers.clear();
+  for (const url of notificationSoundUrls.values()) URL.revokeObjectURL(url);
+  notificationSoundUrls.clear();
+  for (const dialog of document.querySelectorAll("dialog[open]")) dialog.close();
+  for (const field of document.querySelectorAll("textarea, input")) { field.value = ""; if (field.type === "checkbox") field.checked = false; }
+  for (const select of document.querySelectorAll("select")) select.selectedIndex = Math.max(0, [...select.options].findIndex(option => option.defaultSelected));
+  for (const element of document.querySelectorAll("[data-revision], [data-name], [data-history-id], [data-current]")) for (const key of ["revision", "name", "historyId", "current"]) delete element.dataset[key];
+  for (const selector of ["#thread", "#outcome", "#sources", "#conversation-list", "#conversation-toolbar", "#attachment-list", "#runtime-instruction-history", "#managed-document-history", "#settings-status", "#runtime-instructions-status", "#managed-document-status", "#session-expiry", "#runtime-instructions-version-meta", "#message-announcement", "#voice-timer", "#toast"]) $(selector)?.replaceChildren();
+  clearTimeout(toast.timer); $("#toast").hidden = true; $("#app").hidden = true; $("#consent").hidden = true; $("#sign-in").hidden = true;
+}
+
+function lockForLogoff() {
+  privacyLocked = true;
+  try { sessionStorage.setItem(logoutPendingKey, "1"); } catch { /* The current page still locks if browser storage is disabled. */ }
+  clearRefreshState(); clearPrivateClientContent(); closeMenu();
+  $("#new-conversation").disabled = true;
+  if (!$("#logout-pending")) {
+    const panel = node("section", { id: "logout-pending", class: "consent-card" });
+    panel.append(node("h1", {}, "Private content cleared."), node("p", { id: "logout-status", role: "status" }));
+    const retry = node("button", { id: "retry-logoff", type: "button", class: "primary" }, "Retry Logoff");
+    retry.addEventListener("click", () => void signOut()); panel.append(retry); $("#main").append(panel);
+  }
+  $("#logout-status").textContent = "Server sign-out is unconfirmed. Reconnect and choose Retry Logoff. This page stays locked until sign-out is confirmed.";
+  updateSessionActions();
+}
+
+function completeLogoff() {
+  try { sessionStorage.removeItem(logoutPendingKey); } catch {}
+  state.session = null; state.csrf = null;
+  location.reload();
 }
 
 async function signIn() {
@@ -135,15 +193,27 @@ async function signIn() {
 }
 
 async function signOut() {
-  closeMenu(); updateSessionActions(true);
+  lockForLogoff(); updateSessionActions(true);
+  $("#logout-status").textContent = "Private content is cleared. Confirming server sign-out…";
   try {
-    await request("/api/logout", { method: "POST" });
-    stopPolling(); releaseVoice();
-    state.session = null; clearRefreshState();
-    // Reload clears private in-memory content and retrieves the signed-out session.
-    location.reload();
+    if (!state.csrf) {
+      const { data } = await request("/api/session");
+      if (data?.authenticated === false) return completeLogoff();
+      if (data?.authenticated !== true || typeof data.csrfToken !== "string" || !data.csrfToken) throw new Error("session_status_unconfirmed");
+      state.csrf = data.csrfToken;
+    }
+    const { response } = await request("/api/logout", { method: "POST" });
+    if (response.status !== 204) throw new Error("logoff_unconfirmed");
+    completeLogoff();
   } catch {
-    toast("Logoff failed. You are still signed in. Please try again.");
+    // A lost response may already have revoked the session; only a fresh server
+    // answer can confirm that. Never unlock merely because connectivity returns.
+    try {
+      const { data } = await request("/api/session");
+      if (data?.authenticated === false) return completeLogoff();
+      if (data?.csrfToken) state.csrf = data.csrfToken;
+    } catch {}
+    $("#logout-status").textContent = "Server sign-out is unconfirmed. Reconnect and choose Retry Logoff. This page stays locked until sign-out is confirmed.";
     updateSessionActions();
   }
 }
@@ -158,7 +228,7 @@ function showConsent() { $("#sign-in").hidden = true; $("#app").hidden = true; $
 async function loadSession() {
   const { data } = await request("/api/session"); state.session = data;
   updateSessionActions();
-  if (!data.authenticated) return showSignIn(); state.csrf = data.csrfToken;
+  if (!data.authenticated) { clearPrivateClientContent(); clearRefreshState(); state.csrf = null; return showSignIn(); } state.csrf = data.csrfToken;
   if (!data.consented) return showConsent(); showAuthenticated();
 }
 
@@ -204,7 +274,7 @@ async function loadConversation(conversationId, { preserveAttachmentDraft = fals
   if (!preserveAttachmentDraft) clearAttachmentDraft();
 }
 
-async function newConversation() { try { const { data } = await request("/api/conversations", { method: "POST" }); await loadConversation(data.conversation.id, { preserveAttachmentDraft: true }); $("#message").focus(); } catch { toast("Could not create a conversation."); } }
+async function newConversation() { if (privacyLocked) return; try { const { data } = await request("/api/conversations", { method: "POST" }); await loadConversation(data.conversation.id, { preserveAttachmentDraft: true }); $("#message").focus(); } catch { toast("Could not create a conversation."); } }
 function prepareConversationsPage() {
   const page = $("#conversations-page"); const intro = page.querySelector(".page-intro");
   if (!intro.dataset.prepared) { clear(intro).append(node("p", { class: "eyebrow" }, "Conversations")); intro.dataset.prepared = "true"; }
@@ -446,7 +516,7 @@ async function removePendingAttachments(conversationId, attachmentIds) { await P
 const matchesSubmissionDraft = submission => $("#message").value.trim() === submission.input.body && state.attachmentFiles.length === submission.files.length && state.attachmentFiles.every((file, index) => file === submission.files[index]);
 async function acceptMessage(event) {
   event.preventDefault();
-  if (state.sending) return;
+  if (privacyLocked || state.sending) return;
   const body = $("#message").value.trim();
   if (!body && !state.pendingSubmissions.has(state.conversation?.id)) return;
   const files = [...state.attachmentFiles];
@@ -476,6 +546,7 @@ async function acceptMessage(event) {
       if (data.replayed) await loadConversation(conversationId, { preserveAttachmentDraft: true }).catch(() => toast("Your message is saved. Reopen this conversation to load its latest replies."));
     } else toast("Your earlier message is saved in its conversation.");
   } catch (error) {
+    if (privacyLocked || !state.session?.authenticated) return;
     const rejected = error.response?.status >= 400 && error.response.status < 500;
     if (submission && (submission.uncertain || !rejected)) {
       submission.uncertain = true;
@@ -488,7 +559,7 @@ async function acceptMessage(event) {
   } finally { state.sending = false; $("#send").disabled = false; }
 }
 
-async function stop() { if (!state.conversation) return; const { data } = await request(`/api/conversations/${state.conversation.id}/stop`, { method: "POST" }); state.run = data.run; renderEvents(); }
+async function stop() { if (!state.conversation) return; try { const { data } = await request(`/api/conversations/${state.conversation.id}/stop`, { method: "POST" }); state.run = data.run; renderEvents(); } catch { toast("Stop could not be confirmed. Please try again."); } }
 async function continueRun() {
   if (!state.conversation || $("#continue").disabled) return;
   $("#continue").disabled = true;
@@ -511,7 +582,7 @@ function releaseVoice() {
   clearVoiceTimer();
   const recognition = state.recognition;
   state.recognition = null;
-  if (recognition) { recognition.onend = null; recognition.onerror = null; try { recognition.abort(); } catch {} }
+  if (recognition) { recognition.onresult = null; recognition.onend = null; recognition.onerror = null; try { recognition.abort(); } catch {} }
 }
 function setVoiceReady() {
   state.voiceMode = "ready"; state.voiceTranscript = "";
@@ -526,6 +597,7 @@ function voiceFailure(heading, copy) {
   $("#voice-action").textContent = "Retry"; $("#voice-action").hidden = false; $("#voice-timer").textContent = "";
 }
 function openVoice() {
+  if (privacyLocked) return;
   releaseVoice(); setVoiceReady();
   if (!recognitionConstructor()) {
     state.voiceMode = "unavailable"; $("#voice-heading").textContent = "Voice input unavailable";
@@ -535,6 +607,7 @@ function openVoice() {
   $("#voice-dialog").showModal();
 }
 function startVoiceRecognition() {
+  if (privacyLocked) return;
   const Recognition = recognitionConstructor();
   if (!Recognition) return voiceFailure("Voice input unavailable", "Voice recognition is unavailable in this browser. Your typed draft is unchanged.");
   const recognition = new Recognition();
@@ -588,9 +661,9 @@ document.addEventListener("click", event => { const button = event.target.closes
 $("#new-conversation").addEventListener("click", () => { clearAttachmentDraft(); void newConversation(); }); $("#composer").addEventListener("submit", event => void acceptMessage(event)); $("#message").addEventListener("keydown", event => { if (event.key !== "Enter" || event.shiftKey || event.isComposing) return; event.preventDefault(); $("#composer").requestSubmit(); }); $("#stop").addEventListener("click", () => void stop()); $("#continue").addEventListener("click", () => void continueRun());
 $("#local-login-form").addEventListener("submit", event => { event.preventDefault(); void signIn(); });
 document.querySelectorAll("[data-session-action]").forEach(button => button.addEventListener("click", () => {
-  if (state.session?.authenticated) void signOut(); else { showSignIn(); $("#local-password").focus(); }
+  if (privacyLocked || state.session?.authenticated) void signOut(); else { showSignIn(); $("#local-password").focus(); }
 }));
-$("#consent-check").addEventListener("change", event => { $("#consent-button").disabled = !event.target.checked; }); $("#consent-button").addEventListener("click", async () => { await request("/api/consent", { method: "POST" }); await loadSession(); });
+$("#consent-check").addEventListener("change", event => { $("#consent-button").disabled = !event.target.checked; }); $("#consent-button").addEventListener("click", async () => { try { await request("/api/consent", { method: "POST" }); await loadSession(); } catch { toast("Consent could not be saved. Please try again."); } });
 $("#settings-form").addEventListener("submit", async event => {
   event.preventDefault(); saveVisibleCriticSettings();
   const activeCritic = state.criticSettings.criticProvider === "claude_code"
@@ -627,9 +700,10 @@ $("#runtime-instructions-form").addEventListener("submit", async event => {
 $("#sign-out").addEventListener("click", signOut);
 $("#runtime-instructions-version-restore").addEventListener("click", () => void restoreRuntimeInstructionVersion()); $("#runtime-instructions-version-cancel").addEventListener("click", () => $("#runtime-instructions-version-dialog").close()); $("#runtime-instructions-version-close").addEventListener("click", () => $("#runtime-instructions-version-dialog").close());
 $("#attach").addEventListener("click", () => $("#attachment").click()); $("#attachment").addEventListener("change", event => chooseAttachments(event.target.files));
-$("#voice").addEventListener("click", openVoice); $("#voice-action").addEventListener("click", event => { event.preventDefault(); voiceAction(); }); $("#voice-cancel").addEventListener("click", () => { releaseVoice(); $("#voice-dialog").close(); }); $("#voice-close").addEventListener("click", () => { releaseVoice(); $("#voice-dialog").close(); }); $("#voice-dialog").addEventListener("close", releaseVoice); window.addEventListener("pagehide", () => { saveRefreshState(); stopPolling(); releaseVoice(); }); document.addEventListener("visibilitychange", () => { if (document.hidden && state.voiceMode === "listening") { releaseVoice(); voiceFailure("Voice interrupted", "Voice input stopped when the app moved to the background. Your typed draft is unchanged."); } });
+$("#voice").addEventListener("click", openVoice); $("#voice-action").addEventListener("click", event => { event.preventDefault(); voiceAction(); }); $("#voice-cancel").addEventListener("click", () => { releaseVoice(); $("#voice-dialog").close(); }); $("#voice-close").addEventListener("click", () => { releaseVoice(); $("#voice-dialog").close(); }); $("#voice-dialog").addEventListener("close", releaseVoice); window.addEventListener("pagehide", () => { saveRefreshState(); clearPrivateClientContent(); }); window.addEventListener("pageshow", event => { if (event.persisted) location.reload(); }); document.addEventListener("visibilitychange", () => { if (document.hidden && state.voiceMode === "listening") { releaseVoice(); voiceFailure("Voice interrupted", "Voice input stopped when the app moved to the background. Your typed draft is unchanged."); } });
 
 async function initialize() {
+  try { if (sessionStorage.getItem(logoutPendingKey) === "1") { lockForLogoff(); return; } } catch {}
   const saved = takeRefreshState();
   await loadSession();
   if (!saved || !state.session?.authenticated || !state.session.consented) return;

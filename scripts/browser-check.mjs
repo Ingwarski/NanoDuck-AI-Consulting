@@ -10,6 +10,7 @@ import { fileURLToPath } from 'node:url';
 import { chromium, firefox, webkit } from 'playwright';
 import { setupWorkspace } from '../src/server/local-setup.mjs';
 import { verifyLostAcceptanceRetry } from './browser-send-retry.mjs';
+import { verifyPrivateLogoff } from './browser-logoff.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const temporary = await mkdtemp(join(tmpdir(), 'nanoduck-browser-'));
@@ -32,22 +33,27 @@ try {
   await mkdir(environment.CODEX_HOME, { mode: 0o700 });
   await writeFile(join(environment.CODEX_HOME, 'auth.json'), '{}', { mode: 0o600 });
   const { caCertificate } = await setupWorkspace({ environment, password });
-  child = spawn(process.execPath, ['src/server/start.mjs'], { cwd: root, env: environment, stdio: ['ignore', 'pipe', 'pipe'] });
-  let diagnostics = '';
-  child.stdout.on('data', value => { diagnostics += value; });
-  child.stderr.on('data', value => { diagnostics += value; });
-  const healthy = () => new Promise(resolve => {
-    const request = httpsRequest(`${origin}/healthz`, { ca: caCertificate, timeout: 1000 }, response => { response.resume(); resolve(response.statusCode === 200); });
-    request.on('error', () => resolve(false)); request.on('timeout', () => request.destroy()); request.end();
-  });
-  const deadline = Date.now() + 30_000;
-  while (!await healthy()) {
-    if (Date.now() > deadline || child.exitCode !== null) throw new Error(`Local browser fixture did not start: ${diagnostics}`);
-    await new Promise(resolve => setTimeout(resolve, 100));
-  }
+  const startFixture = async () => {
+    child = spawn(process.execPath, ['src/server/start.mjs'], { cwd: root, env: environment, stdio: ['ignore', 'pipe', 'pipe'] });
+    let diagnostics = '';
+    child.stdout.on('data', value => { diagnostics += value; });
+    child.stderr.on('data', value => { diagnostics += value; });
+    const healthy = () => new Promise(resolve => {
+      const request = httpsRequest(`${origin}/healthz`, { ca: caCertificate, timeout: 1000 }, response => { response.resume(); resolve(response.statusCode === 200); });
+      request.on('error', () => resolve(false)); request.on('timeout', () => request.destroy()); request.end();
+    });
+    const deadline = Date.now() + 30_000;
+    while (!await healthy()) {
+      if (Date.now() > deadline || child.exitCode !== null) throw new Error(`Local browser fixture did not start: ${diagnostics}`);
+      await new Promise(resolve => setTimeout(resolve, 100));
+    }
+  };
   const channel = process.argv.find(value => value.startsWith('--channel='))?.slice(10);
   const choices = channel ? [[channel, chromium, { channel }]] : [['chromium', chromium, {}], ['firefox', firefox, {}], ['webkit', webkit, {}]];
   for (const [name, engine, options] of choices) {
+    // Each engine has independent in-memory authentication-attempt limits.
+    // The encrypted fixture data remains in place across these restarts.
+    await startFixture();
     const browser = await engine.launch({ headless: true, ...options });
     try {
       // TLS is verified against the exact test CA above. Disposable browser profiles
@@ -91,12 +97,14 @@ try {
       await page.locator('#voice-close').click();
       await mkdir(join(root, 'output', 'playwright'), { recursive: true });
       await page.screenshot({ path: join(root, 'output', 'playwright', `${name}-mobile.png`), fullPage: true });
-      await page.locator('[data-session-action]').click();
-      await page.locator('#sign-in').waitFor({ state: 'visible' });
+      await verifyPrivateLogoff(page, context, origin, password, name);
       assert.deepEqual(errors, [], `${name} uncaught browser errors`);
-      console.log(`${name}: password, consent, consultation, lost-response retry with an edited draft and image, outcome, refresh, settings, saved history, mobile layout, voice fallback and logout passed.`);
+      console.log(`${name}: password, consent, consultation, lost-response retry with an edited draft and image, outcome, refresh, settings, saved history, mobile layout, voice fallback, offline/connected logout, late-response privacy and locked reload/history passed.`);
       await context.close();
-    } finally { await browser.close(); }
+    } finally {
+      await browser.close();
+      if (child.exitCode === null) { const stopped = once(child, 'exit'); child.kill('SIGTERM'); await stopped; }
+    }
   }
 } finally {
   if (child && child.exitCode === null) { const stopped = once(child, 'exit'); child.kill('SIGTERM'); await stopped; }
