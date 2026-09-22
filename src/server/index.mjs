@@ -41,7 +41,7 @@ const bytes = (response, status, value, headers = {}) => {
 };
 const json = async request => {
   const chunks = []; let size = 0;
-  for await (const chunk of request) { size += chunk.length; if (size > 256 * 1024) throw new Error("body_too_large"); chunks.push(chunk); }
+  for await (const chunk of request) { size += chunk.length; if (size > 16 * 1024 * 1024) throw new Error("body_too_large"); chunks.push(chunk); }
   try { return JSON.parse(Buffer.concat(chunks).toString("utf8")); } catch { return undefined; }
 };
 const protectedSession = async (request, response, options = {}) => {

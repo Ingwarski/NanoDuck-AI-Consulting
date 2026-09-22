@@ -56,8 +56,8 @@ test("Claude reports its bounded context limit separately from model incompatibi
   let calls = 0;
   const provider = createClaudeProvider({ claudeCommand: "claude", claudeOAuthToken: "managed-token" }, { run: async () => { calls += 1; throw new Error("must not launch"); } });
   for (const input of [
-    { ...criticInput, assignment: "A".repeat(1024 * 1024 + 1) },
-    { ...criticInput, evidence: { ...criticInput.evidence, discussion: "У".repeat(600_000) } }
+    { ...criticInput, assignment: "A".repeat(8 * 1024 * 1024 + 1) },
+    { ...criticInput, evidence: { ...criticInput.evidence, discussion: "У".repeat(4_500_000) } }
   ]) assert.deepEqual(await provider.invoke(input), { ok: false, code: "context_too_large" });
   assert.equal(calls, 0);
 });
@@ -68,13 +68,13 @@ test("the text-only retry cannot exceed the same context byte bound", async () =
     run: async input => {
       if (input.args.includes("auth")) return { exitCode: 0, stdout: JSON.stringify({ loggedIn: true, authMethod: "oauth_token", apiProvider: "firstParty" }), stderr: "" };
       completions += 1;
-      assert.ok(Buffer.byteLength(input.stdinText) <= 1024 * 1024);
+      assert.ok(Buffer.byteLength(input.stdinText) <= 8 * 1024 * 1024);
       return { exitCode: 0, stdout: JSON.stringify({ subtype: "success", modelUsage: { "claude-opus-5": {} }, result: '<invoke name="Bash">pwd</invoke>' }), stderr: "" };
     }
   });
   const prompts = createRuntimePrompts(criticInput.runtimeInstructions);
   const empty = `${criticInput.assignment}\n\nOwner question:\n${criticInput.evidence.owner}\n\nPrior confirmed discussion:\n\n\n${prompts.outputContract(criticInput)} ${prompts.providerPolicy(false)}`;
-  const discussion = "A".repeat(1024 * 1024 - Buffer.byteLength(empty) - 10);
+  const discussion = "A".repeat(8 * 1024 * 1024 - Buffer.byteLength(empty) - 10);
   assert.deepEqual(await provider.invoke({ ...criticInput, evidence: { ...criticInput.evidence, discussion } }), { ok: false, code: "context_too_large" });
   assert.equal(completions, 1);
 });
@@ -110,7 +110,7 @@ test("Claude Code exposes only authenticated configured models and returns safe 
   assert.equal(calls.at(-1).args.includes(prompt), false);
   assert.match(prompt, /Owner question:\nShould we fund the expansion\?/u);
   assert.match(prompt, /Prior confirmed discussion:\nFinance Consultant → Critic: The cash buffer is only two months\./u);
-  assert.match(prompt, /Write a critic challenge under 1000 characters\./u);
+  assert.match(prompt, /Write a complete critic challenge/u);
   assert.match(prompt, /Do not claim research that was not performed\./u);
 });
 

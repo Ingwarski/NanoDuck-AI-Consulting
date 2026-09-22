@@ -6,7 +6,7 @@ Consume [PRD](prd.md), [project context](project-context.md) and [canonical term
 
 ## AI autonomy and allowed changes
 
-Complete the explicitly requested existing-application refactor, SDD reconciliation and verification for macOS/Linux/Windows and same-network browser access in this repository. Preserve the approved Electric visual composition and unchanged consultation rules. The owner authorized removing unnecessary current-source and repository history from this repository only. Retain the current necessary visual source and genuine approval evidence. Use fictional examples in public evidence and resolve routine implementation choices without repeated permission questions.
+Complete the explicitly requested existing-application refactor, SDD reconciliation and verification for macOS/Linux/Windows and same-network browser access in this repository. Preserve the approved Electric visual composition. Apply the owner’s current Head-led consultation correction: Head selects and directs the team, actual task text is delivered without generic substitution, Critic can order targeted rework, review depth is a ceiling, and safe public research is isolated from private consultation content. The owner authorized removing unnecessary current-source and repository history from this repository only. Retain the current necessary visual source and genuine approval evidence. Use fictional examples in public evidence and resolve routine implementation choices without repeated permission questions.
 
 ## Forbidden changes and stops
 

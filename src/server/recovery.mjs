@@ -18,7 +18,7 @@ const source = value => {
 };
 
 const message = value => {
-  if (!record(value) || !identifier(value.id) || !text(value.role, 64) || !text(value.body, 32_000) || !Number.isInteger(value.sequence) || value.sequence < 1 || !date(value.createdAt) || (value.recipient !== null && value.recipient !== undefined && !text(value.recipient, 64)) || !Array.isArray(value.sources)) return undefined;
+  if (!record(value) || !identifier(value.id) || !text(value.role, 64) || !text(value.body, 16 * 1024 * 1024) || !Number.isInteger(value.sequence) || value.sequence < 1 || !date(value.createdAt) || (value.recipient !== null && value.recipient !== undefined && !text(value.recipient, 64)) || !Array.isArray(value.sources)) return undefined;
   const sources = value.sources.map(source);
   if (sources.some(item => !item)) return undefined;
   return Object.freeze({ id: value.id, role: value.role.trim(), recipient: value.recipient ? value.recipient.trim() : null, body: value.body.trim(), sequence: value.sequence, createdAt: value.createdAt, sources: Object.freeze(sources) });

@@ -147,7 +147,7 @@ const bodyFrom = value => {
   return [...value.items].reverse().find(item => record(item) && item.type === "agentMessage" && typeof item.text === "string" && item.text.trim())?.text;
 };
 
-const cleanText = (value, maximum) => typeof value === "string" ? value.replace(/\s+/gu, " ").trim().slice(0, maximum) : undefined;
+const cleanText = value => typeof value === "string" ? value.replace(/\s+/gu, " ").trim() : undefined;
 const publishedAt = value => typeof value === "string" && /^\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z)?$/u.test(value) && !Number.isNaN(Date.parse(value)) ? value : undefined;
 const sentenceNear = (text, index) => cleanText(text.slice(Math.max(0, text.lastIndexOf(".", index - 1) + 1), Math.min(text.length, (() => { const end = text.indexOf(".", index); return end === -1 ? text.length : end + 1; })())), 1_000);
 
@@ -176,7 +176,7 @@ function sourcesFrom(text) {
   }
   const deduplicated = new Map();
   for (const source of sources) if (!deduplicated.has(source.url)) deduplicated.set(source.url, source);
-  return Object.freeze({ body: hasProhibitedLanguage(body) || hasUnsafeExternalUrl(body) ? undefined : body, sources: Object.freeze([...deduplicated.values()].slice(0, 8)) });
+  return Object.freeze({ body: hasProhibitedLanguage(body) || hasUnsafeExternalUrl(body) ? undefined : body, sources: Object.freeze([...deduplicated.values()]) });
 }
 
 async function supportedCatalog(connection) {

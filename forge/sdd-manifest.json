@@ -65,13 +65,13 @@
       },
       "path": "docs/product-idea.md",
       "owner_skill": "to-product-idea",
-      "owner_invocation_id": "claude-signin-20260922-product-idea",
+      "owner_invocation_id": "consultation-orchestration-20260923-product-idea",
       "declared_output_set": [
         "docs/product-idea.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "claude-signin-20260922-product-idea",
+      "source_version": "consultation-orchestration-20260923-product-idea",
       "source_usage": {
         "docs/model-settings.md": "full",
         "forge/design/evidence/electric-v8-approval-20260914.json": "full",
@@ -91,14 +91,14 @@
         "forge/runs/claude-signin-20260922/scope.json": "e668531a6ffbdb53d1a51b844109828e71d73e37712ce308e90a8e82751e3559"
       },
       "dependencies": [],
-      "content_hash": "774052624d8545f610b3f0d39a073a95b2279508b80784411e22079e1918bf79",
+      "content_hash": "0852aaec864e62e6772bf3f92fd103d5d7f59d911e72fc8fbdef294293610335",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "native-subscription-signin-owner-reconciliation",
-        "reviewed_at": "2026-09-22T20:15:23.368408+00:00",
+        "kind": "head-led-consultation-owner-reconciliation",
+        "reviewed_at": "2026-09-22T23:27:43.130400+00:00",
         "executor": "Codex inline to-product-idea",
-        "scope": "Recognize native Claude subscription sign-in without weakening tools, private credentials or billing boundaries; Check connection preserves unsaved settings. Preserve exact models, frozen baseline and formal unrun statuses; no authentication or model-execution result is inferred."
+        "scope": "Confirm Head-led consultation, complete owner context and outputs, useful Critic rework, isolated public research and removal of arbitrary prose caps. Preserve local privacy, exact provider choices and the approved Electric A v8 baseline."
       },
       "open_questions": []
     },
@@ -2304,147 +2304,147 @@
       },
       "path": "docs/prd.md",
       "owner_skill": "to-sdd-prd",
-      "owner_invocation_id": "claude-signin-20260922-host-trust-prd",
+      "owner_invocation_id": "consultation-orchestration-20260923-prd",
       "declared_output_set": [
         "docs/prd.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "claude-signin-20260922-host-trust-prd",
+      "source_version": "consultation-orchestration-20260923-prd",
       "source_usage": {
         "docs/product-idea.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "774052624d8545f610b3f0d39a073a95b2279508b80784411e22079e1918bf79"
+        "docs/product-idea.md": "0852aaec864e62e6772bf3f92fd103d5d7f59d911e72fc8fbdef294293610335"
       },
       "dependencies": [
         "product-idea"
       ],
-      "content_hash": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
+      "content_hash": "86c874cb336ef14f4c2f84b432ef459d9618cddb519a5dc8b39462e486528c9e",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "trusted-host-scope-correction",
-        "reviewed_at": "2026-09-22T20:23:28.950041+00:00",
+        "kind": "head-led-consultation-prd-reconciliation",
+        "reviewed_at": "2026-09-22T23:29:02.294064+00:00",
         "executor": "Codex inline to-sdd-prd",
-        "scope": "Remove the new blanket administrator-policy inspection inference. Preserve existing trusted-host policy, native/token authentication, subscription/provider status checks, exact model identity, model tool/MCP denial and formal unrun verification."
+        "scope": "Reconcile functional requirements for Head-selected roles and recipient-specific tasks, depth ceilings, complete context and sources, safe public research and truthful capacity failures; preserve existing local security and provider constraints."
       },
       "open_questions": []
     },
     "project-context": {
       "path": "docs/project-context.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "claude-signin-20260922-host-trust-project-context",
+      "owner_invocation_id": "consultation-orchestration-20260923-project-context",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "claude-signin-20260922-host-trust-project-context",
+      "source_version": "consultation-orchestration-20260923-project-context",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "774052624d8545f610b3f0d39a073a95b2279508b80784411e22079e1918bf79",
-        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5"
+        "docs/product-idea.md": "0852aaec864e62e6772bf3f92fd103d5d7f59d911e72fc8fbdef294293610335",
+        "docs/prd.md": "86c874cb336ef14f4c2f84b432ef459d9618cddb519a5dc8b39462e486528c9e"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
+      "content_hash": "3fb9301fb9faeb2da399c9868bf03a40adacbe9112292174e1bbb86f67434e73",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "trusted-host-scope-correction",
-        "reviewed_at": "2026-09-22T20:23:29.242772+00:00",
+        "kind": "head-led-consultation-context-reconciliation",
+        "reviewed_at": "2026-09-22T23:29:47.345553+00:00",
         "executor": "Codex inline to-project-context",
-        "scope": "Remove the new blanket administrator-policy inspection inference. Preserve existing trusted-host policy, native/token authentication, subscription/provider status checks, exact model identity, model tool/MCP denial and formal unrun verification."
+        "scope": "Update project context for the confirmed Head-led consultation behavior while retaining local-only deployment, privacy, exact model choices and frozen visual scope."
       },
       "open_questions": []
     },
     "canonical-terms": {
       "path": "docs/canonical-terms.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "claude-signin-20260922-host-trust-project-context",
+      "owner_invocation_id": "consultation-orchestration-20260923-project-context",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "claude-signin-20260922-host-trust-project-context",
+      "source_version": "consultation-orchestration-20260923-project-context",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "774052624d8545f610b3f0d39a073a95b2279508b80784411e22079e1918bf79",
-        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5"
+        "docs/product-idea.md": "0852aaec864e62e6772bf3f92fd103d5d7f59d911e72fc8fbdef294293610335",
+        "docs/prd.md": "86c874cb336ef14f4c2f84b432ef459d9618cddb519a5dc8b39462e486528c9e"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
+      "content_hash": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "trusted-host-scope-correction",
-        "reviewed_at": "2026-09-22T20:23:29.243538+00:00",
+        "kind": "head-led-consultation-context-reconciliation",
+        "reviewed_at": "2026-09-22T23:29:47.345553+00:00",
         "executor": "Codex inline to-project-context",
-        "scope": "Remove the new blanket administrator-policy inspection inference. Preserve existing trusted-host policy, native/token authentication, subscription/provider status checks, exact model identity, model tool/MCP denial and formal unrun verification."
+        "scope": "Define Head orchestration, addressed tasks, Critic rework, depth ceiling, isolated public research and complete requested outputs consistently across downstream sources."
       },
       "open_questions": []
     },
     "guardrails": {
       "path": "docs/guardrails.md",
       "owner_skill": "to-guardrails",
-      "owner_invocation_id": "claude-signin-20260922-host-trust-guardrails",
+      "owner_invocation_id": "consultation-orchestration-20260923-guardrails",
       "declared_output_set": [
         "docs/guardrails.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "claude-signin-20260922-host-trust-guardrails",
+      "source_version": "consultation-orchestration-20260923-guardrails",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
         "docs/canonical-terms.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
-        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
-        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16"
+        "docs/prd.md": "86c874cb336ef14f4c2f84b432ef459d9618cddb519a5dc8b39462e486528c9e",
+        "docs/project-context.md": "3fb9301fb9faeb2da399c9868bf03a40adacbe9112292174e1bbb86f67434e73",
+        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7"
       },
       "dependencies": [
         "prd",
         "project-context",
         "canonical-terms"
       ],
-      "content_hash": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
+      "content_hash": "e43bb84ab3e6ee24547321ea5df96aa142a8664245722e6ce4d6add474763ad6",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "trusted-host-scope-correction",
-        "reviewed_at": "2026-09-22T20:23:29.540851+00:00",
+        "kind": "head-led-consultation-guardrail-reconciliation",
+        "reviewed_at": "2026-09-22T23:30:06.572877+00:00",
         "executor": "Codex inline to-guardrails",
-        "scope": "Remove the new blanket administrator-policy inspection inference. Preserve existing trusted-host policy, native/token authentication, subscription/provider status checks, exact model identity, model tool/MCP denial and formal unrun verification."
+        "scope": "Scope implementation to this independent checkout and preserve private data, source safety, provider identity, editable prompt revisions and the approved design baseline."
       },
       "open_questions": []
     },
     "user-journey": {
       "path": "docs/user-journey.md",
       "owner_skill": "to-user-journey",
-      "owner_invocation_id": "claude-signin-20260922-host-trust-user-journey",
+      "owner_invocation_id": "consultation-orchestration-20260923-user-journey",
       "declared_output_set": [
         "docs/user-journey.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "claude-signin-20260922-host-trust-user-journey",
+      "source_version": "consultation-orchestration-20260923-user-journey",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2452,10 +2452,10 @@
         "docs/guardrails.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
-        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
-        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
-        "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214"
+        "docs/prd.md": "86c874cb336ef14f4c2f84b432ef459d9618cddb519a5dc8b39462e486528c9e",
+        "docs/project-context.md": "3fb9301fb9faeb2da399c9868bf03a40adacbe9112292174e1bbb86f67434e73",
+        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
+        "docs/guardrails.md": "e43bb84ab3e6ee24547321ea5df96aa142a8664245722e6ce4d6add474763ad6"
       },
       "dependencies": [
         "prd",
@@ -2463,14 +2463,14 @@
         "canonical-terms",
         "guardrails"
       ],
-      "content_hash": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
+      "content_hash": "3b957f18a5da34701c4ebfd52dd6d91e923c804209e3aa7e640dbea30a17169a",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "trusted-host-scope-correction",
-        "reviewed_at": "2026-09-22T20:23:29.834097+00:00",
+        "kind": "head-led-consultation-reconciliation",
+        "reviewed_at": "2026-09-22T23:30:42.355965+00:00",
         "executor": "Codex inline to-user-journey",
-        "scope": "Remove the new blanket administrator-policy inspection inference. Preserve existing trusted-host policy, native/token authentication, subscription/provider status checks, exact model identity, model tool/MCP denial and formal unrun verification."
+        "scope": "Align the consultation journey with full owner request, Head-directed team work, useful Critic review and complete final advice; retain existing authentication and interface states."
       },
       "open_questions": []
     },
@@ -3482,13 +3482,13 @@
       },
       "path": "docs/screen-map.md",
       "owner_skill": "to-screen-map",
-      "owner_invocation_id": "claude-signin-20260922-host-trust-screen-map",
+      "owner_invocation_id": "consultation-orchestration-20260923-screen-map",
       "declared_output_set": [
         "docs/screen-map.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "claude-signin-20260922-host-trust-screen-map",
+      "source_version": "consultation-orchestration-20260923-screen-map",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3497,11 +3497,11 @@
         "docs/user-journey.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
-        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
-        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
-        "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517"
+        "docs/prd.md": "86c874cb336ef14f4c2f84b432ef459d9618cddb519a5dc8b39462e486528c9e",
+        "docs/project-context.md": "3fb9301fb9faeb2da399c9868bf03a40adacbe9112292174e1bbb86f67434e73",
+        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
+        "docs/guardrails.md": "e43bb84ab3e6ee24547321ea5df96aa142a8664245722e6ce4d6add474763ad6",
+        "docs/user-journey.md": "3b957f18a5da34701c4ebfd52dd6d91e923c804209e3aa7e640dbea30a17169a"
       },
       "dependencies": [
         "prd",
@@ -3510,27 +3510,27 @@
         "guardrails",
         "user-journey"
       ],
-      "content_hash": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
+      "content_hash": "7167de5cedeba896bd8664fac13c6b260b04d40a5eaea145201e3ae45dbbacb3",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "trusted-host-scope-correction",
-        "reviewed_at": "2026-09-22T20:23:30.146486+00:00",
+        "kind": "head-led-consultation-reconciliation",
+        "reviewed_at": "2026-09-22T23:31:07.422388+00:00",
         "executor": "Codex inline to-screen-map",
-        "scope": "Remove the new blanket administrator-policy inspection inference. Preserve existing trusted-host policy, native/token authentication, subscription/provider status checks, exact model identity, model tool/MCP denial and formal unrun verification."
+        "scope": "Reconcile the existing discussion and Settings surfaces with Head-led orchestration and depth-ceiling copy without adding screens or altering the approved navigation."
       },
       "open_questions": []
     },
     "wireframes": {
       "path": "docs/wireframes.md",
       "owner_skill": "to-wireframes",
-      "owner_invocation_id": "claude-signin-20260922-host-trust-wireframes",
+      "owner_invocation_id": "consultation-orchestration-20260923-wireframes",
       "declared_output_set": [
         "docs/wireframes.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "claude-signin-20260922-host-trust-wireframes",
+      "source_version": "consultation-orchestration-20260923-wireframes",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3540,12 +3540,12 @@
         "docs/screen-map.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
-        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
-        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
-        "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
-        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0"
+        "docs/prd.md": "86c874cb336ef14f4c2f84b432ef459d9618cddb519a5dc8b39462e486528c9e",
+        "docs/project-context.md": "3fb9301fb9faeb2da399c9868bf03a40adacbe9112292174e1bbb86f67434e73",
+        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
+        "docs/guardrails.md": "e43bb84ab3e6ee24547321ea5df96aa142a8664245722e6ce4d6add474763ad6",
+        "docs/user-journey.md": "3b957f18a5da34701c4ebfd52dd6d91e923c804209e3aa7e640dbea30a17169a",
+        "docs/screen-map.md": "7167de5cedeba896bd8664fac13c6b260b04d40a5eaea145201e3ae45dbbacb3"
       },
       "dependencies": [
         "prd",
@@ -3555,27 +3555,27 @@
         "user-journey",
         "screen-map"
       ],
-      "content_hash": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
+      "content_hash": "0d1dc1b29819097af12047d7ab3925f24fc5c563dc5a3df43f92f700fea0d5e0",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "trusted-host-scope-correction",
-        "reviewed_at": "2026-09-22T20:23:30.493584+00:00",
+        "kind": "head-led-consultation-reconciliation",
+        "reviewed_at": "2026-09-22T23:31:19.302039+00:00",
         "executor": "Codex inline to-wireframes",
-        "scope": "Remove the new blanket administrator-policy inspection inference. Preserve existing trusted-host policy, native/token authentication, subscription/provider status checks, exact model identity, model tool/MCP denial and formal unrun verification."
+        "scope": "Check the approved Electric A v8 layout and current controls against the new review-ceiling semantics; preserve frozen visual evidence and avoid redesign."
       },
       "open_questions": []
     },
     "design-brief": {
       "path": "docs/design-brief.md",
       "owner_skill": "to-design-brief",
-      "owner_invocation_id": "claude-signin-20260922-host-trust-design-brief",
+      "owner_invocation_id": "consultation-orchestration-20260923-design-brief",
       "declared_output_set": [
         "docs/design-brief.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "claude-signin-20260922-host-trust-design-brief",
+      "source_version": "consultation-orchestration-20260923-design-brief",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3587,13 +3587,13 @@
         "forge/runs/composer-sound-20260922/scoped-override.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
-        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
-        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
-        "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
-        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
-        "docs/wireframes.md": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
+        "docs/prd.md": "86c874cb336ef14f4c2f84b432ef459d9618cddb519a5dc8b39462e486528c9e",
+        "docs/project-context.md": "3fb9301fb9faeb2da399c9868bf03a40adacbe9112292174e1bbb86f67434e73",
+        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
+        "docs/guardrails.md": "e43bb84ab3e6ee24547321ea5df96aa142a8664245722e6ce4d6add474763ad6",
+        "docs/user-journey.md": "3b957f18a5da34701c4ebfd52dd6d91e923c804209e3aa7e640dbea30a17169a",
+        "docs/screen-map.md": "7167de5cedeba896bd8664fac13c6b260b04d40a5eaea145201e3ae45dbbacb3",
+        "docs/wireframes.md": "0d1dc1b29819097af12047d7ab3925f24fc5c563dc5a3df43f92f700fea0d5e0",
         "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b"
       },
       "dependencies": [
@@ -3609,10 +3609,10 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "trusted-host-scope-correction",
-        "reviewed_at": "2026-09-22T20:23:30.840945+00:00",
+        "kind": "head-led-consultation-reconciliation",
+        "reviewed_at": "2026-09-22T23:31:31.090016+00:00",
         "executor": "Codex inline to-design-brief",
-        "scope": "Remove the new blanket administrator-policy inspection inference. Preserve existing trusted-host policy, native/token authentication, subscription/provider status checks, exact model identity, model tool/MCP denial and formal unrun verification."
+        "scope": "Revalidate the unchanged approved Electric A v8 design against this behavior-only consultation change; no design artifact or visual baseline is replaced."
       },
       "open_questions": []
     },
@@ -3689,13 +3689,13 @@
       },
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "claude-context-transport-20260923-architecture",
+      "owner_invocation_id": "consultation-orchestration-20260923-architecture",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "claude-context-transport-20260923-architecture",
+      "source_version": "consultation-orchestration-20260923-architecture",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3711,13 +3711,13 @@
         "forge/runs/claude-context-transport-20260923/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
-        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
-        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
-        "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
-        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
-        "docs/wireframes.md": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
+        "docs/prd.md": "86c874cb336ef14f4c2f84b432ef459d9618cddb519a5dc8b39462e486528c9e",
+        "docs/project-context.md": "3fb9301fb9faeb2da399c9868bf03a40adacbe9112292174e1bbb86f67434e73",
+        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
+        "docs/guardrails.md": "e43bb84ab3e6ee24547321ea5df96aa142a8664245722e6ce4d6add474763ad6",
+        "docs/user-journey.md": "3b957f18a5da34701c4ebfd52dd6d91e923c804209e3aa7e640dbea30a17169a",
+        "docs/screen-map.md": "7167de5cedeba896bd8664fac13c6b260b04d40a5eaea145201e3ae45dbbacb3",
+        "docs/wireframes.md": "0d1dc1b29819097af12047d7ab3925f24fc5c563dc5a3df43f92f700fea0d5e0",
         "docs/design-brief.md": "fb1581811b291051e2315404c0c8bc00da2043e2949e4ada783fb2289a0ae421",
         "docs/model-settings.md": "c58fed0a9606f231ac8086c669b859cb58e372efdcd538ed2fee33cb091c8ecc",
         "forge/runs/claude-signin-20260922/source-review.json": "ad878d853b9c6f30da817167e1db6dffaad9c2c2863354ad3331294d7b269def",
@@ -3734,14 +3734,14 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "ab49c25dd24e300327ee1faea738912e418f482bb46043fed38e7793a53f0e0a",
+      "content_hash": "d58e69fe7ba0542505d8752092e00499f1e151b30417a87590f456c053543eef",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "claude-context-transport-owner-reconciliation",
-        "reviewed_at": "2026-09-22T21:42:36.508005+00:00",
+        "kind": "head-led-consultation-reconciliation",
+        "reviewed_at": "2026-09-22T23:32:17.918550+00:00",
         "executor": "Codex inline to-architecture",
-        "scope": "Repair complete bounded Claude stdin transport and truthful overflow recovery; preserve exact tuples, subscription/tool boundaries, frozen design and all formal not_run statuses. Clarify idle activation after a failed run without interrupting active work."
+        "scope": "Specify Head-led coordinator, verbatim task persistence, complete context, legacy run continuation, isolated public-query boundary, source ledger and truthful finite transport ceilings."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -3819,13 +3819,13 @@
       },
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "claude-context-transport-20260923-dod-evals",
+      "owner_invocation_id": "consultation-orchestration-20260923-dod-evals",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "claude-context-transport-20260923-dod-evals",
+      "source_version": "consultation-orchestration-20260923-dod-evals",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3838,15 +3838,15 @@
         "docs/architecture.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
-        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
-        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
-        "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
-        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
-        "docs/wireframes.md": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
+        "docs/prd.md": "86c874cb336ef14f4c2f84b432ef459d9618cddb519a5dc8b39462e486528c9e",
+        "docs/project-context.md": "3fb9301fb9faeb2da399c9868bf03a40adacbe9112292174e1bbb86f67434e73",
+        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
+        "docs/guardrails.md": "e43bb84ab3e6ee24547321ea5df96aa142a8664245722e6ce4d6add474763ad6",
+        "docs/user-journey.md": "3b957f18a5da34701c4ebfd52dd6d91e923c804209e3aa7e640dbea30a17169a",
+        "docs/screen-map.md": "7167de5cedeba896bd8664fac13c6b260b04d40a5eaea145201e3ae45dbbacb3",
+        "docs/wireframes.md": "0d1dc1b29819097af12047d7ab3925f24fc5c563dc5a3df43f92f700fea0d5e0",
         "docs/design-brief.md": "fb1581811b291051e2315404c0c8bc00da2043e2949e4ada783fb2289a0ae421",
-        "docs/architecture.md": "ab49c25dd24e300327ee1faea738912e418f482bb46043fed38e7793a53f0e0a"
+        "docs/architecture.md": "d58e69fe7ba0542505d8752092e00499f1e151b30417a87590f456c053543eef"
       },
       "dependencies": [
         "prd",
@@ -3859,14 +3859,14 @@
         "design-brief",
         "architecture"
       ],
-      "content_hash": "fd73d395eaddbd975420f6a73371bad428269508aa100c31b0a60136f294f59a",
+      "content_hash": "3a0a82a59de09ab1397efa33b33f3bd4461f7457afa91459ad9782a1ac68b4b6",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "claude-context-transport-owner-reconciliation",
-        "reviewed_at": "2026-09-22T21:42:37.313183+00:00",
+        "kind": "head-led-consultation-reconciliation",
+        "reviewed_at": "2026-09-22T23:32:36.546726+00:00",
         "executor": "Codex inline to-dod-evals",
-        "scope": "Repair complete bounded Claude stdin transport and truthful overflow recovery; preserve exact tuples, subscription/tool boundaries, frozen design and all formal not_run statuses. Clarify idle activation after a failed run without interrupting active work."
+        "scope": "Tie completion evidence to actual role routing, complete context/output, targeted Critic rework, useful review depth, public search isolation and safe continuation."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -5633,13 +5633,13 @@
       },
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "claude-context-transport-20260923-qa-checklist",
+      "owner_invocation_id": "consultation-orchestration-20260923-qa-checklist",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "claude-context-transport-20260923-qa-checklist",
+      "source_version": "consultation-orchestration-20260923-qa-checklist",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -5653,16 +5653,16 @@
         "docs/dod-evals.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
-        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
-        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
-        "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
-        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
-        "docs/wireframes.md": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
+        "docs/prd.md": "86c874cb336ef14f4c2f84b432ef459d9618cddb519a5dc8b39462e486528c9e",
+        "docs/project-context.md": "3fb9301fb9faeb2da399c9868bf03a40adacbe9112292174e1bbb86f67434e73",
+        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
+        "docs/guardrails.md": "e43bb84ab3e6ee24547321ea5df96aa142a8664245722e6ce4d6add474763ad6",
+        "docs/user-journey.md": "3b957f18a5da34701c4ebfd52dd6d91e923c804209e3aa7e640dbea30a17169a",
+        "docs/screen-map.md": "7167de5cedeba896bd8664fac13c6b260b04d40a5eaea145201e3ae45dbbacb3",
+        "docs/wireframes.md": "0d1dc1b29819097af12047d7ab3925f24fc5c563dc5a3df43f92f700fea0d5e0",
         "docs/design-brief.md": "fb1581811b291051e2315404c0c8bc00da2043e2949e4ada783fb2289a0ae421",
-        "docs/architecture.md": "ab49c25dd24e300327ee1faea738912e418f482bb46043fed38e7793a53f0e0a",
-        "docs/dod-evals.md": "fd73d395eaddbd975420f6a73371bad428269508aa100c31b0a60136f294f59a"
+        "docs/architecture.md": "d58e69fe7ba0542505d8752092e00499f1e151b30417a87590f456c053543eef",
+        "docs/dod-evals.md": "3a0a82a59de09ab1397efa33b33f3bd4461f7457afa91459ad9782a1ac68b4b6"
       },
       "dependencies": [
         "prd",
@@ -5676,14 +5676,14 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "d5f5f5f18af3e838ccbca4f78e404107b44d9c6d89d3765f893eb70fc84423f4",
+      "content_hash": "fa1e45ef6d9888203b636210d400300c72709fc87c51479a426952f7ffdb0582",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "claude-context-transport-owner-reconciliation",
-        "reviewed_at": "2026-09-22T21:42:38.182557+00:00",
+        "kind": "head-led-consultation-reconciliation",
+        "reviewed_at": "2026-09-22T23:33:26.125337+00:00",
         "executor": "Codex inline to-qa-checklist",
-        "scope": "Repair complete bounded Claude stdin transport and truthful overflow recovery; preserve exact tuples, subscription/tool boundaries, frozen design and all formal not_run statuses. Clarify idle activation after a failed run without interrupting active work."
+        "scope": "Reconcile focused checks for Head tasks, full-context final output, research/source handling, depth ceilings, Stop/Continue and unchanged browser interface; formal QA remains unrun until evidenced."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -6775,13 +6775,13 @@
       },
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "claude-context-transport-20260923-development-plan",
+      "owner_invocation_id": "consultation-orchestration-20260923-development-plan",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "claude-context-transport-20260923-development-plan",
+      "source_version": "consultation-orchestration-20260923-development-plan",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -6799,17 +6799,17 @@
         "forge/runs/claude-context-transport-20260923/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
-        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
-        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
-        "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
-        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
-        "docs/wireframes.md": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
+        "docs/prd.md": "86c874cb336ef14f4c2f84b432ef459d9618cddb519a5dc8b39462e486528c9e",
+        "docs/project-context.md": "3fb9301fb9faeb2da399c9868bf03a40adacbe9112292174e1bbb86f67434e73",
+        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
+        "docs/guardrails.md": "e43bb84ab3e6ee24547321ea5df96aa142a8664245722e6ce4d6add474763ad6",
+        "docs/user-journey.md": "3b957f18a5da34701c4ebfd52dd6d91e923c804209e3aa7e640dbea30a17169a",
+        "docs/screen-map.md": "7167de5cedeba896bd8664fac13c6b260b04d40a5eaea145201e3ae45dbbacb3",
+        "docs/wireframes.md": "0d1dc1b29819097af12047d7ab3925f24fc5c563dc5a3df43f92f700fea0d5e0",
         "docs/design-brief.md": "fb1581811b291051e2315404c0c8bc00da2043e2949e4ada783fb2289a0ae421",
-        "docs/architecture.md": "ab49c25dd24e300327ee1faea738912e418f482bb46043fed38e7793a53f0e0a",
-        "docs/dod-evals.md": "fd73d395eaddbd975420f6a73371bad428269508aa100c31b0a60136f294f59a",
-        "docs/qa-checklist.md": "d5f5f5f18af3e838ccbca4f78e404107b44d9c6d89d3765f893eb70fc84423f4",
+        "docs/architecture.md": "d58e69fe7ba0542505d8752092e00499f1e151b30417a87590f456c053543eef",
+        "docs/dod-evals.md": "3a0a82a59de09ab1397efa33b33f3bd4461f7457afa91459ad9782a1ac68b4b6",
+        "docs/qa-checklist.md": "fa1e45ef6d9888203b636210d400300c72709fc87c51479a426952f7ffdb0582",
         "docs/model-settings.md": "c58fed0a9606f231ac8086c669b859cb58e372efdcd538ed2fee33cb091c8ecc",
         "package.json": "094e408c16c3a8369b9f21a343bb562dc0cd20160e26b6c01f144bd83712a568",
         "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318"
@@ -6827,14 +6827,14 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "b2b13c7ab303707079990ad35cd7446cb947fcd7e65622753017782f84293b86",
+      "content_hash": "dd8202f67d7efb80bca3a239eec17dee653018442309cfc53ec45f0e1b678afd",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "claude-context-transport-owner-reconciliation",
-        "reviewed_at": "2026-09-22T21:42:39.476624+00:00",
+        "kind": "head-led-consultation-reconciliation",
+        "reviewed_at": "2026-09-22T23:42:38.152895+00:00",
         "executor": "Codex inline to-development-plan",
-        "scope": "Repair complete bounded Claude stdin transport and truthful overflow recovery; preserve exact tuples, subscription/tool boundaries, frozen design and all formal not_run statuses. Clarify idle activation after a failed run without interrupting active work."
+        "scope": "Authorize this checkout only, map implementation and verification to current SDD authority, and link a portable non-private handoff for the two untouched sister repositories."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -7346,8 +7346,8 @@
     "definition_status": "prepared",
     "release_readiness": "not_evaluated",
     "source_hashes": {
-      "docs/dod-evals.md": "fd73d395eaddbd975420f6a73371bad428269508aa100c31b0a60136f294f59a",
-      "docs/qa-checklist.md": "d5f5f5f18af3e838ccbca4f78e404107b44d9c6d89d3765f893eb70fc84423f4"
+      "docs/dod-evals.md": "3a0a82a59de09ab1397efa33b33f3bd4461f7457afa91459ad9782a1ac68b4b6",
+      "docs/qa-checklist.md": "fa1e45ef6d9888203b636210d400300c72709fc87c51479a426952f7ffdb0582"
     },
     "gates": [
       {
@@ -7644,7 +7644,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Every accepted question, including a simple definition, uses 1/2/3/5 relevant permitted specialists or a 1–5 count selected by Head in Auto; Head and Critic are excluded from the count and Auto selection is not rendered as advice. Leadership and esoteric roles never appear; Spiritual Consultant follows its doctrine and Psychotherapist follows its stated scope.",
+        "task": "Exercise the referenced use-case path and verify: Head chooses the actual relevant permitted specialist roles in every fixed 1/2/3/5 setting and a 1–5 roster in Auto; the application only validates and routes that roster. Head and Critic are excluded from the count. Leadership and esoteric roles never appear; Spiritual Consultant follows its doctrine and Psychotherapist its stated scope.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -7671,7 +7671,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Every participating consultant and Critic is a separate actual invocation/context with a distinct assignment, the owner question, prior confirmed discussion and a role/output contract rendered from the exact validated runtime-instructions Markdown/revision captured with the run. For every accepted question, observe the full topology: Head → each selected specialist with concise tasks only; each specialist → Critic with an independent position; then only Critic → specialist → Critic exchanges for every selected specialist at the configured depth; each specialist → Head with a final position; Critic → Head with a joint closing review; Head → owner once with Consolidated advice. Delay/fail each closing contribution and verify Head cannot run. Resume each partial closing stage without duplicating messages; missing agreement metadata remains unknown. Check the final heading in Discussion, Outcome, history and export; Outcome remains empty for a new question until its actual final message. No specialist-to-specialist routing, direct Head-answer route or pre-conclusion Head advice appears. Verify that current encrypted instructions and the immutable accepted run snapshot require Consultation Routing. Supply malformed owner-facing or generic Head output at the provider seam and verify one corrective retry, followed only if needed by a bounded case-specific task containing the stated decision. Every accepted task must repeat both an owner-case anchor and another decision detail; verify that each specialist receives its own exact committed task and ignores the other handoffs. Supply overlong provider prose and verify each contribution ends on a completed sentence inside its role-specific bound; verify that the role prompts prohibit generic exposition and unsupported invented figures, market claims, customer behavior or sources, then inspect an actual provider run for those visible failures. Verify a multilingual reconstructed Claude prompt above 128 KiB, including the owner question, confirmed discussion and all four guidance documents, reaches stdin byte-for-byte with the exact selected model/effort and never appears in argv. Check EOF, partial-write failure, cancellation of a blocked writer and the same byte bound for a corrective retry.",
+        "task": "Each role is a separate actual invocation with the same complete ordered owner text/corrections, full confirmed discussion, source ledger and its own assignment from the exact accepted runtime-instructions revision. Head first records every requested output, chooses an exact distinct specialist roster, and gives each a considered recipient-specific task. Supply unusual, long and non-imperative Head tasks; verify each successful task is committed and delivered byte-for-byte once without semantic rejection, wrapper, retry, trimming or generic fallback. Each specialist gives Critic an independent position, receives at least one direct challenge/reply, and sends Head a final position. Head explicitly closes or continues after each team-wide review within the selected depth ceiling; Critic jointly assesses final positions before Head gives one Consolidated advice. Fail or delay each closing step and verify no premature Head conclusion. Stop/Continue and process restart preserve the saved prefix, roster and decisions without duplicate messages. Verify the full final heading in Discussion, Outcome, history and export, and that Outcome is empty until the current question’s final message. The text-only image limitation must be explicit. Verify Claude receives the full reconstructed UTF-8 prompt through stdin with exact model/effort; oversized context fails truthfully before inference, never silently trims or changes provider.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -7698,7 +7698,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: A material Critic objection receives a relevant consultant response or revision; warranted agreement is permitted immediately.",
+        "task": "Exercise the referenced use-case path and verify: A material Critic objection receives a relevant response or justified agreement. Supply circular, irrelevant, fabricated and unsupported consultant drafts. Critic issues one targeted stop-and-rework naming the claim, reason and needed correction; the consultant materially revises, states a specific evidence-based objection or admits unavailable evidence. Head sees and arbitrates the result; no repeated filler loop is required.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -7752,7 +7752,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Head finishes with a self-contained recommendation or bounded uncertainty, up to three actions, the main risk and a revisit condition.",
+        "task": "Exercise the referenced use-case path and verify: Head’s final Consolidated advice gives a self-contained recommendation or bounded uncertainty, every distinct owner-requested output, direct supporting source links and explicit missing items, sufficient actions, the main risk and a revisit condition. A long response is saved and exported whole, without a three-action or 2,000-character trim.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -7914,7 +7914,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Continue resumes a stopped or bounded consultation with its accepted context; a failed consultation visibly offers Retry. Fail the specialist reply after its third Critic challenge, including the bounded replacement attempt. Retry must preserve the full saved prefix, resume that specialist reply, exclude System notices from provider context/step counts, then commit the specialist final position, Critic closing review and Head synthesis in order. Verify the same snapshot and generation fencing in the in-memory test store and encrypted SQLite store, denial while another run is active, stale conditional-update refusal, disabled repeat activation and useful feedback on a refused retry.",
+        "task": "Exercise the referenced use-case path and verify: Continue resumes stopped work and Retry resumes failed work at the next missing step. Fail a specialist reply after a Critic stop-and-rework and separately fail a closing contribution. Retry preserves the complete saved prefix, exact roster, tasks, Head review decisions and accepted settings; it excludes System notices from provider context/step counts and commits the missing reply before closing and synthesis. Verify in memory and encrypted SQLite, denial while another run is active, stale-generation refusal and useful feedback on refused retry.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -7968,7 +7968,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Current claims and material uncertainty can trigger live public research without a special owner keyword. Include calendar-valid dotted, slash, ISO and range dates, and a leap-day case; dates alone must leave research available. Pair these with real phone/email, invalid-date and plus-prefixed numeric controls that remain protected. Record a real completed public search/open action separately from fixture outcomes.",
+        "task": "Exercise the referenced use-case path and verify: Current claims can trigger live public research without a keyword. Include a private contact in the full owner request and a public article URL with a long numeric ID; Head can still form a minimal safe public query. Inspect the actual web-enabled provider prompt: it contains only that validated query, no private discussion, contact, attachment, private guidance or credential. A query containing a real phone/email, secret or unsafe URL is withheld and reported as unavailable without fabricating research. Confirm direct URLs/claims from more than eight valid sources survive and reach the final context. Record a real completed public search/open action separately from fixtures.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -8024,7 +8024,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Claude Critic can request and receive targeted team evidence through the existing Codex research capability without silently changing the selected provider.",
+        "task": "Exercise the referenced use-case path and verify: Claude Critic can identify a targeted evidence gap in the shared discussion. Head or a Codex consultant can obtain a follow-up through the isolated public-research route without giving Claude direct browsing/tool authority or silently changing its selected provider. Preserve the request, sources and any unavailable-evidence qualification.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -8108,7 +8108,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Settings accepts specialist counts 1/2/3/5/Auto and discussion depth 1/3/5/Auto. It also exposes Knock, Chime, Ripple and Off with an owner-activated local browser WAV preview; load the saved choice on authenticated entry before opening Settings, including Off. Preview an unsaved choice and verify incoming alerts still use the saved choice. Stage the actual saved asset on one persistent HTMLAudioElement and test cold loading, trusted-gesture playback of a finite 50 ms all-zero WAV, natural ended before readiness, subsequent saved-source staging on the same element, asynchronous completion/error/eight-second timeout and blocked paths. Reuse the element for delayed alerts and unsaved Preview, restore its saved source afterward, and never change the saved preference. Verify cancellation/generation fencing, Off/source/Blob cleanup and logout disposal; no AudioContext or AudioSession override remains. Delay a confirmed agent message beyond the sending gesture and verify the reused audio player starts it; initial history, owner/System notices and repeated polling produce no sound, and one polling batch yields one alert. Simulate a browser playback rejection, verify visible Enable sound recovery, activate it deliberately and retry; visual/semantic feedback remains. In disposable fixture sessions, reload and repeat in Chromium, Firefox and WebKit under restrictive autoplay settings. Record native Safari playback and actual device audibility separately; a play promise, moving clock, ended event or success toast cannot prove sound was heard. The owner’s running consultation must not be interrupted, reloaded or restarted for this repair; record any recovery in that tab as separate evidence. Knock must use the same bundled recording for Preview and incoming alerts, with the exact owner-accepted v5 bytes: three blended sharp/woody table-ball impacts exactly 250 ms apart, preserved pitch, no clipping, quiet reflections at 28 ms and 47 ms, and silence after each 92 ms impact-and-reflection window. Verify the versioned URL avoids an older cached sound. Check HTTP `audio/wav` and browser playback separately from the owner listening verdict, which accepted v5 with a tiny echo. Verify Head chooses an Auto team from 1–5, each explicit depth produces that many Critic ↔ specialist exchanges per specialist, and Auto stops only after whole-team agreement or 10 exchanges per specialist. Cover every fixed count/depth combination; Strategy agreement must not bypass Finance disagreement. Resume after either side of a pair without duplicating confirmed messages, including missing saved agreement. A Finance provider failure preserves the discussion without a Head conclusion. Specialist agreement alone cannot end Auto: a closing Critic objection continues review within the cap. At fixed depth or the cap, unresolved advice is explicitly provisional; closing messages do not add to depth.",
+        "task": "Exercise the referenced use-case path and verify: Settings accepts specialist counts 1/2/3/5/Auto and discussion depth 1/3/5/Auto. It also exposes Knock, Chime, Ripple and Off with an owner-activated local browser WAV preview; load the saved choice on authenticated entry before opening Settings, including Off. Preview an unsaved choice and verify incoming alerts still use the saved choice. Stage the actual saved asset on one persistent HTMLAudioElement and test cold loading, trusted-gesture playback of a finite 50 ms all-zero WAV, natural ended before readiness, subsequent saved-source staging on the same element, asynchronous completion/error/eight-second timeout and blocked paths. Reuse the element for delayed alerts and unsaved Preview, restore its saved source afterward, and never change the saved preference. Verify cancellation/generation fencing, Off/source/Blob cleanup and logout disposal; no AudioContext or AudioSession override remains. Delay a confirmed agent message beyond the sending gesture and verify the reused audio player starts it; initial history, owner/System notices and repeated polling produce no sound, and one polling batch yields one alert. Simulate a browser playback rejection, verify visible Enable sound recovery, activate it deliberately and retry; visual/semantic feedback remains. In disposable fixture sessions, reload and repeat in Chromium, Firefox and WebKit under restrictive autoplay settings. Record native Safari playback and actual device audibility separately; a play promise, moving clock, ended event or success toast cannot prove sound was heard. The owner’s running consultation must not be interrupted, reloaded or restarted for this repair; record any recovery in that tab as separate evidence. Knock must use the same bundled recording for Preview and incoming alerts, with the exact owner-accepted v5 bytes: three blended sharp/woody table-ball impacts exactly 250 ms apart, preserved pitch, no clipping, quiet reflections at 28 ms and 47 ms, and silence after each 92 ms impact-and-reflection window. Verify the versioned URL avoids an older cached sound. Check HTTP `audio/wav` and browser playback separately from the owner listening verdict, which accepted v5 with a tiny echo. Verify the Settings copy describes depth as a ceiling, not a quota. For 1/3/5/Auto and fixed/Auto teams, every selected specialist receives a first Critic challenge/reply. Head can close after a useful first round or continue for a targeted issue within the selected ceiling; Auto never exceeds 10. No specialist’s agreement bypasses another’s material objection, and no filler rounds are forced. Resume after either side of a pair without duplicate confirmed messages or premature Head synthesis. At the ceiling, unresolved advice is explicitly provisional; closing messages do not add to depth.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -10144,22 +10144,22 @@
   },
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "b2b13c7ab303707079990ad35cd7446cb947fcd7e65622753017782f84293b86",
+    "development_plan_hash": "dd8202f67d7efb80bca3a239eec17dee653018442309cfc53ec45f0e1b678afd",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-14T20:13:37+03:00",
-    "prompt_id": "claude-context-transport-20260923",
-    "prompt_received_at": "2026-09-22T21:42:36.304228+00:00",
-    "released_at": "2026-09-22T21:42:39.875745+00:00",
+    "prompt_id": "consultation-orchestration-20260923",
+    "prompt_received_at": "2026-09-22T23:35:42.480352+00:00",
+    "released_at": "2026-09-22T23:35:42.480352+00:00",
     "product_scope_hash": "defc5e24f0dd91be42b984888b157137f4f1ed361459e70f42b832e18c957bd4",
     "prompt_receipt": {
-      "path": "forge/runs/claude-context-transport-20260923/implementation-prompt.json",
-      "content_hash": "3f646ad60fbff292d9452b359acdc1253138a0906f004ea4f6db3d1babf79dae"
+      "path": "forge/runs/consultation-orchestration-20260923/implementation-prompt.json",
+      "content_hash": "6f741a690281e8c606c004cb32774c3e8e1421375580b29e32889ad974e127f1"
     },
-    "reason": "The explicit current error-fix request authorizes bounded Claude transport repair and separately verified idle activation; do not interrupt active consultation work."
+    "reason": "The owner explicitly requested implementation of the agreed consultation fixes in this checkout and a portable prompt for two sister repositories; no sister-repository changes are authorized."
   },
   "dispatches": {
     "product-idea": {
-      "invocation_id": "claude-signin-20260922-product-idea",
+      "invocation_id": "consultation-orchestration-20260923-product-idea",
       "outputs": [
         "docs/product-idea.md"
       ],
@@ -10174,115 +10174,115 @@
       }
     },
     "prd": {
-      "invocation_id": "claude-signin-20260922-host-trust-prd",
+      "invocation_id": "consultation-orchestration-20260923-prd",
       "outputs": [
         "docs/prd.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "774052624d8545f610b3f0d39a073a95b2279508b80784411e22079e1918bf79"
+        "docs/product-idea.md": "0852aaec864e62e6772bf3f92fd103d5d7f59d911e72fc8fbdef294293610335"
       }
     },
     "project-context": {
-      "invocation_id": "claude-signin-20260922-host-trust-project-context",
+      "invocation_id": "consultation-orchestration-20260923-project-context",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "774052624d8545f610b3f0d39a073a95b2279508b80784411e22079e1918bf79",
-        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5"
+        "docs/product-idea.md": "0852aaec864e62e6772bf3f92fd103d5d7f59d911e72fc8fbdef294293610335",
+        "docs/prd.md": "86c874cb336ef14f4c2f84b432ef459d9618cddb519a5dc8b39462e486528c9e"
       }
     },
     "canonical-terms": {
-      "invocation_id": "claude-signin-20260922-host-trust-project-context",
+      "invocation_id": "consultation-orchestration-20260923-project-context",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "774052624d8545f610b3f0d39a073a95b2279508b80784411e22079e1918bf79",
-        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5"
+        "docs/product-idea.md": "0852aaec864e62e6772bf3f92fd103d5d7f59d911e72fc8fbdef294293610335",
+        "docs/prd.md": "86c874cb336ef14f4c2f84b432ef459d9618cddb519a5dc8b39462e486528c9e"
       }
     },
     "guardrails": {
-      "invocation_id": "claude-signin-20260922-host-trust-guardrails",
+      "invocation_id": "consultation-orchestration-20260923-guardrails",
       "outputs": [
         "docs/guardrails.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
-        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
-        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16"
+        "docs/prd.md": "86c874cb336ef14f4c2f84b432ef459d9618cddb519a5dc8b39462e486528c9e",
+        "docs/project-context.md": "3fb9301fb9faeb2da399c9868bf03a40adacbe9112292174e1bbb86f67434e73",
+        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7"
       }
     },
     "user-journey": {
-      "invocation_id": "claude-signin-20260922-host-trust-user-journey",
+      "invocation_id": "consultation-orchestration-20260923-user-journey",
       "outputs": [
         "docs/user-journey.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
-        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
-        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
-        "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214"
+        "docs/prd.md": "86c874cb336ef14f4c2f84b432ef459d9618cddb519a5dc8b39462e486528c9e",
+        "docs/project-context.md": "3fb9301fb9faeb2da399c9868bf03a40adacbe9112292174e1bbb86f67434e73",
+        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
+        "docs/guardrails.md": "e43bb84ab3e6ee24547321ea5df96aa142a8664245722e6ce4d6add474763ad6"
       }
     },
     "screen-map": {
-      "invocation_id": "claude-signin-20260922-host-trust-screen-map",
+      "invocation_id": "consultation-orchestration-20260923-screen-map",
       "outputs": [
         "docs/screen-map.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
-        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
-        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
-        "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517"
+        "docs/prd.md": "86c874cb336ef14f4c2f84b432ef459d9618cddb519a5dc8b39462e486528c9e",
+        "docs/project-context.md": "3fb9301fb9faeb2da399c9868bf03a40adacbe9112292174e1bbb86f67434e73",
+        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
+        "docs/guardrails.md": "e43bb84ab3e6ee24547321ea5df96aa142a8664245722e6ce4d6add474763ad6",
+        "docs/user-journey.md": "3b957f18a5da34701c4ebfd52dd6d91e923c804209e3aa7e640dbea30a17169a"
       }
     },
     "wireframes": {
-      "invocation_id": "claude-signin-20260922-host-trust-wireframes",
+      "invocation_id": "consultation-orchestration-20260923-wireframes",
       "outputs": [
         "docs/wireframes.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
-        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
-        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
-        "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
-        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0"
+        "docs/prd.md": "86c874cb336ef14f4c2f84b432ef459d9618cddb519a5dc8b39462e486528c9e",
+        "docs/project-context.md": "3fb9301fb9faeb2da399c9868bf03a40adacbe9112292174e1bbb86f67434e73",
+        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
+        "docs/guardrails.md": "e43bb84ab3e6ee24547321ea5df96aa142a8664245722e6ce4d6add474763ad6",
+        "docs/user-journey.md": "3b957f18a5da34701c4ebfd52dd6d91e923c804209e3aa7e640dbea30a17169a",
+        "docs/screen-map.md": "7167de5cedeba896bd8664fac13c6b260b04d40a5eaea145201e3ae45dbbacb3"
       }
     },
     "design-brief": {
-      "invocation_id": "claude-signin-20260922-host-trust-design-brief",
+      "invocation_id": "consultation-orchestration-20260923-design-brief",
       "outputs": [
         "docs/design-brief.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
-        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
-        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
-        "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
-        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
-        "docs/wireframes.md": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
+        "docs/prd.md": "86c874cb336ef14f4c2f84b432ef459d9618cddb519a5dc8b39462e486528c9e",
+        "docs/project-context.md": "3fb9301fb9faeb2da399c9868bf03a40adacbe9112292174e1bbb86f67434e73",
+        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
+        "docs/guardrails.md": "e43bb84ab3e6ee24547321ea5df96aa142a8664245722e6ce4d6add474763ad6",
+        "docs/user-journey.md": "3b957f18a5da34701c4ebfd52dd6d91e923c804209e3aa7e640dbea30a17169a",
+        "docs/screen-map.md": "7167de5cedeba896bd8664fac13c6b260b04d40a5eaea145201e3ae45dbbacb3",
+        "docs/wireframes.md": "0d1dc1b29819097af12047d7ab3925f24fc5c563dc5a3df43f92f700fea0d5e0",
         "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b"
       }
     },
     "architecture": {
-      "invocation_id": "claude-context-transport-20260923-architecture",
+      "invocation_id": "consultation-orchestration-20260923-architecture",
       "outputs": [
         "docs/architecture.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
-        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
-        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
-        "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
-        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
-        "docs/wireframes.md": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
+        "docs/prd.md": "86c874cb336ef14f4c2f84b432ef459d9618cddb519a5dc8b39462e486528c9e",
+        "docs/project-context.md": "3fb9301fb9faeb2da399c9868bf03a40adacbe9112292174e1bbb86f67434e73",
+        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
+        "docs/guardrails.md": "e43bb84ab3e6ee24547321ea5df96aa142a8664245722e6ce4d6add474763ad6",
+        "docs/user-journey.md": "3b957f18a5da34701c4ebfd52dd6d91e923c804209e3aa7e640dbea30a17169a",
+        "docs/screen-map.md": "7167de5cedeba896bd8664fac13c6b260b04d40a5eaea145201e3ae45dbbacb3",
+        "docs/wireframes.md": "0d1dc1b29819097af12047d7ab3925f24fc5c563dc5a3df43f92f700fea0d5e0",
         "docs/design-brief.md": "fb1581811b291051e2315404c0c8bc00da2043e2949e4ada783fb2289a0ae421",
         "docs/model-settings.md": "c58fed0a9606f231ac8086c669b859cb58e372efdcd538ed2fee33cb091c8ecc",
         "forge/runs/claude-signin-20260922/source-review.json": "ad878d853b9c6f30da817167e1db6dffaad9c2c2863354ad3331294d7b269def",
@@ -10291,57 +10291,57 @@
       }
     },
     "dod-evals": {
-      "invocation_id": "claude-context-transport-20260923-dod-evals",
+      "invocation_id": "consultation-orchestration-20260923-dod-evals",
       "outputs": [
         "docs/dod-evals.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
-        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
-        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
-        "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
-        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
-        "docs/wireframes.md": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
+        "docs/prd.md": "86c874cb336ef14f4c2f84b432ef459d9618cddb519a5dc8b39462e486528c9e",
+        "docs/project-context.md": "3fb9301fb9faeb2da399c9868bf03a40adacbe9112292174e1bbb86f67434e73",
+        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
+        "docs/guardrails.md": "e43bb84ab3e6ee24547321ea5df96aa142a8664245722e6ce4d6add474763ad6",
+        "docs/user-journey.md": "3b957f18a5da34701c4ebfd52dd6d91e923c804209e3aa7e640dbea30a17169a",
+        "docs/screen-map.md": "7167de5cedeba896bd8664fac13c6b260b04d40a5eaea145201e3ae45dbbacb3",
+        "docs/wireframes.md": "0d1dc1b29819097af12047d7ab3925f24fc5c563dc5a3df43f92f700fea0d5e0",
         "docs/design-brief.md": "fb1581811b291051e2315404c0c8bc00da2043e2949e4ada783fb2289a0ae421",
-        "docs/architecture.md": "ab49c25dd24e300327ee1faea738912e418f482bb46043fed38e7793a53f0e0a"
+        "docs/architecture.md": "d58e69fe7ba0542505d8752092e00499f1e151b30417a87590f456c053543eef"
       }
     },
     "qa-checklist": {
-      "invocation_id": "claude-context-transport-20260923-qa-checklist",
+      "invocation_id": "consultation-orchestration-20260923-qa-checklist",
       "outputs": [
         "docs/qa-checklist.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
-        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
-        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
-        "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
-        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
-        "docs/wireframes.md": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
+        "docs/prd.md": "86c874cb336ef14f4c2f84b432ef459d9618cddb519a5dc8b39462e486528c9e",
+        "docs/project-context.md": "3fb9301fb9faeb2da399c9868bf03a40adacbe9112292174e1bbb86f67434e73",
+        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
+        "docs/guardrails.md": "e43bb84ab3e6ee24547321ea5df96aa142a8664245722e6ce4d6add474763ad6",
+        "docs/user-journey.md": "3b957f18a5da34701c4ebfd52dd6d91e923c804209e3aa7e640dbea30a17169a",
+        "docs/screen-map.md": "7167de5cedeba896bd8664fac13c6b260b04d40a5eaea145201e3ae45dbbacb3",
+        "docs/wireframes.md": "0d1dc1b29819097af12047d7ab3925f24fc5c563dc5a3df43f92f700fea0d5e0",
         "docs/design-brief.md": "fb1581811b291051e2315404c0c8bc00da2043e2949e4ada783fb2289a0ae421",
-        "docs/architecture.md": "ab49c25dd24e300327ee1faea738912e418f482bb46043fed38e7793a53f0e0a",
-        "docs/dod-evals.md": "fd73d395eaddbd975420f6a73371bad428269508aa100c31b0a60136f294f59a"
+        "docs/architecture.md": "d58e69fe7ba0542505d8752092e00499f1e151b30417a87590f456c053543eef",
+        "docs/dod-evals.md": "3a0a82a59de09ab1397efa33b33f3bd4461f7457afa91459ad9782a1ac68b4b6"
       }
     },
     "development-plan": {
-      "invocation_id": "claude-context-transport-20260923-development-plan",
+      "invocation_id": "consultation-orchestration-20260923-development-plan",
       "outputs": [
         "docs/development-plan.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
-        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
-        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
-        "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
-        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
-        "docs/wireframes.md": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
+        "docs/prd.md": "86c874cb336ef14f4c2f84b432ef459d9618cddb519a5dc8b39462e486528c9e",
+        "docs/project-context.md": "3fb9301fb9faeb2da399c9868bf03a40adacbe9112292174e1bbb86f67434e73",
+        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
+        "docs/guardrails.md": "e43bb84ab3e6ee24547321ea5df96aa142a8664245722e6ce4d6add474763ad6",
+        "docs/user-journey.md": "3b957f18a5da34701c4ebfd52dd6d91e923c804209e3aa7e640dbea30a17169a",
+        "docs/screen-map.md": "7167de5cedeba896bd8664fac13c6b260b04d40a5eaea145201e3ae45dbbacb3",
+        "docs/wireframes.md": "0d1dc1b29819097af12047d7ab3925f24fc5c563dc5a3df43f92f700fea0d5e0",
         "docs/design-brief.md": "fb1581811b291051e2315404c0c8bc00da2043e2949e4ada783fb2289a0ae421",
-        "docs/architecture.md": "ab49c25dd24e300327ee1faea738912e418f482bb46043fed38e7793a53f0e0a",
-        "docs/dod-evals.md": "fd73d395eaddbd975420f6a73371bad428269508aa100c31b0a60136f294f59a",
-        "docs/qa-checklist.md": "d5f5f5f18af3e838ccbca4f78e404107b44d9c6d89d3765f893eb70fc84423f4",
+        "docs/architecture.md": "d58e69fe7ba0542505d8752092e00499f1e151b30417a87590f456c053543eef",
+        "docs/dod-evals.md": "3a0a82a59de09ab1397efa33b33f3bd4461f7457afa91459ad9782a1ac68b4b6",
+        "docs/qa-checklist.md": "fa1e45ef6d9888203b636210d400300c72709fc87c51479a426952f7ffdb0582",
         "docs/model-settings.md": "c58fed0a9606f231ac8086c669b859cb58e372efdcd538ed2fee33cb091c8ecc",
         "package.json": "094e408c16c3a8369b9f21a343bb562dc0cd20160e26b6c01f144bd83712a568",
         "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318"

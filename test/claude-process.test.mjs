@@ -50,10 +50,10 @@ test("Claude process decoding preserves split Ukrainian UTF-8 output", async t =
 
 test("Claude process output remains byte-bounded", async t => {
   const cwd = await fixture(t);
-  const result = await run(cwd, "process.stdout.write(Buffer.alloc(200000,65)); setInterval(()=>{},1000);");
+  const result = await run(cwd, "process.stdout.write(Buffer.alloc(9*1024*1024,65)); setInterval(()=>{},1000);");
   assert.equal(result.exceeded, true);
   assert.equal(result.exitCode, null);
-  assert.ok(Buffer.byteLength(result.stdout) <= 96 * 1024);
+  assert.ok(Buffer.byteLength(result.stdout) <= 8 * 1024 * 1024);
 });
 
 test("Claude process deadline terminates a hanging process", { timeout: 30_000 }, async t => {

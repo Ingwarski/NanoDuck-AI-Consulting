@@ -20,7 +20,7 @@ export const hasUnsafeExternalUrl = value => typeof value === "string" && [...va
 
 export function parseMessage(value) {
   const body = parseJson(value);
-  if (!body || !text(body.body, 32_000) || !identifier(body.clientRequestId) || hasProhibitedLanguage(body.body) || hasUnsafeExternalUrl(body.body) || containsSecretLikeContent(body.body)) return undefined;
+  if (!body || typeof body.body !== "string" || !body.body.trim() || !identifier(body.clientRequestId) || hasProhibitedLanguage(body.body) || hasUnsafeExternalUrl(body.body) || containsSecretLikeContent(body.body)) return undefined;
   const attachmentIds = body.attachmentIds === undefined ? [] : body.attachmentIds;
   if (!Array.isArray(attachmentIds) || attachmentIds.length > maxAttachmentsPerMessage || attachmentIds.some(item => !identifier(item)) || new Set(attachmentIds).size !== attachmentIds.length) return undefined;
   return Object.freeze({ body: body.body.trim(), clientRequestId: body.clientRequestId, attachmentIds: Object.freeze([...attachmentIds]) });

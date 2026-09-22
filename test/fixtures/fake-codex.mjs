@@ -7,11 +7,15 @@ const expectedFeatures = ["shell_tool", "unified_exec", "view_image", "shell_sna
 const replyFor = prompt => {
   let answer = "A bounded answer.";
   if (prompt.includes("Return a Ukrainian relative-pronoun example")) return 'Уточніть, які умови потрібно виконати.\n<nanoduck-source>{"title":"Курси, які доступні","url":"https://example.com/courses","claim":"Вимоги, які підтверджує програма."}</nanoduck-source>';
-  if (prompt.includes("Return exactly [TEAM: N]")) answer = "[TEAM: 3]";
-  else if (prompt.includes("Give only a concise, concrete task")) answer = "Assess the buyer evidence and name the one test that would change the decision.";
+  if (prompt.includes("List each distinct requested deliverable")) answer = "1. Assess current market evidence. 2. Recommend a positioning test with a source.";
+  else if (prompt.includes("Return only [TEAM: Role, Role]")) answer = "[TEAM: Strategy Consultant, Finance Consultant]";
+  else if (prompt.includes("Decide whether the owner's requested outputs require current public facts")) answer = "buyer positioning evidence";
+  else if (prompt.includes("Research this public topic using live web search")) answer = "Public buyer research supports testing before scaling.";
+  else if (prompt.includes("The application will deliver your exact text to")) answer = "Assess the buyer evidence and name the one test that would change the decision.";
   else if (prompt.includes("Answer the Head's task")) answer = "The position is viable only if a defined buyer has an urgent problem; test that through targeted interviews before committing.";
-  else if (prompt.includes("challenge one material gap")) answer = "That recommendation assumes those buyers will take calls; test their willingness before treating the interviews as evidence.";
-  else if (prompt.includes("respond directly to the Critic")) answer = "I accept the gap: recruit calls from a defined prospect list and record acceptance rate before drawing the conclusion.";
+  else if (prompt.includes("directly on exchange")) answer = "That recommendation assumes those buyers will take calls; test their willingness before treating the interviews as evidence.";
+  else if (prompt.includes("Respond directly to the Critic")) answer = "I accept the gap: recruit calls from a defined prospect list and record acceptance rate before drawing the conclusion.";
+  else if (prompt.includes("Return exactly [REVIEW: CONTINUE] or [REVIEW: CLOSE]")) answer = "[REVIEW: CLOSE]";
   else if (prompt.includes("your final position after reading")) answer = "My final position is to test buyer willingness before scaling, using confirmed interview acceptance as the condition.";
   else if (prompt.includes("reviewing every selected specialist's final position")) answer = "The final positions support the same bounded buyer test, with no remaining conflict. [CONSILIUM: REACHED]";
   else if (prompt.includes("only owner-facing synthesis")) answer = "Start with a narrow buyer list, measure interview acceptance, then decide whether the position has evidence.";
@@ -19,7 +23,7 @@ const replyFor = prompt => {
   if (prompt.includes("Return prohibited body URL")) return "Read [blocked](https://example.su/buyer-evidence).";
   if (prompt.includes("Return prohibited prose")) return "Как это работает?";
   if (prompt.includes("Use live public web research") && !prompt.includes("Use only English or Ukrainian sources")) return "The source language policy is missing.";
-  return prompt.includes("Use live public web research") ? `${answer}\n<nanoduck-source>{\"title\":\"Buyer evidence\",\"url\":\"https://example.com/buyer-evidence\",\"claim\":\"Buyer willingness must be measured before positioning.\",\"publishedAt\":\"2026-09-01\"}</nanoduck-source>` : answer;
+  return prompt.includes("Use live public web research") || prompt.includes("Answer the Head's task") ? `${answer}\n<nanoduck-source>{\"title\":\"Buyer evidence\",\"url\":\"https://example.com/buyer-evidence\",\"claim\":\"Buyer willingness must be measured before positioning.\",\"publishedAt\":\"2026-09-01\"}</nanoduck-source>` : answer;
 };
 createInterface({ input: process.stdin, crlfDelay: Infinity }).on("line", line => {
   const request = JSON.parse(line);
