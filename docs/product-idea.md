@@ -1,0 +1,143 @@
+# NanoDuck Consulting Group
+
+Current product brief · 22 September 2026 · Local browser application · Revision 16
+
+## Product identity
+
+The owner named this browser application **NanoDuck Consulting Group** and requested an SVG logo. Use that exact name in the app. Electric remains the selected design direction, with the previously requested HappyPro blue and raspberry Critic. The latest correction asks for a slightly warmer Head Consultant yellow.
+
+## Purpose
+
+A private web app run on the owner’s macOS, Linux or Windows computer, where the owner works through a business or personal decision with a Head Consultant, relevant specialist consultants and a separate Critic. Start the app locally, open a supported browser on that computer or a device on the same local network, describe the situation, follow a substantive discussion and leave with a practical next step.
+
+The product succeeds when the owner makes a better decision with less effort. Routine integration work and procedural announcements should not interrupt the consultation.
+
+## Authority and scope
+
+The browser is the sole supported user interface. The owner’s explicit request on 22 September 2026 changes the existing application to a fully local web project with clean open source code and support for Safari, Chrome, Edge and other current mainstream browsers. This request authorizes the scoped refactor and reconciliation of the SDD documents.
+
+The application and its durable private records run on a macOS, Linux or Windows computer. The owner explicitly requires access both from that computer’s browser and from other devices on the same local network over Wi-Fi. Private access requires local credentials and protected network transport; it does not use an online identity service. The existing subscription-based AI providers and live public-web research still require an internet connection. “Local” describes where the application and its records run; it does not promise offline AI generation or research.
+
+This brief defines current product intent. The approved Electric A v8 visual design is retained; architecture owns the local implementation mechanisms and the PRD owns observable behavior and security obligations. The request does not ask for a new visual design.
+
+The source code is public and open source. Conversations, attachments, saved preferences, runtime instructions, keys and provider credentials remain private local data. Publishing the code never publishes those records or creates a multiuser service.
+
+## User, problem and desired outcome
+
+The primary user is the single owner, working in a browser on their computer or another device on the same local network, sometimes returning after an interruption. They need informed advice and constructive challenge without becoming the system operator each time they use it.
+
+The owner wants a dependable application, natural substantive discussion, concise status messages, persistent preferences and a clear interface. Research should follow decision needs without requiring a special request phrase.
+
+## Jobs
+
+| Job | Situation and desired progress | Observable success | Basis |
+|---|---|---|---|
+| JOB-001 — Reach a decision | When a business or personal question needs judgment, get relevant expertise and challenge so I can choose a practical action. | A clear recommendation or a clearly bounded unresolved question, with evidence, risks and up to three next actions. | Retained product intent; confirmed. |
+| JOB-002 — Follow and steer | When consultants work on my question, see their actual contributions, add context and stop or resume the work. | I can identify the disagreement, see a response or revision, receive a clear visual indication while the next message is being prepared, and interrupt without losing accepted messages. | Existing control requirements and 18 September correction; confirmed. |
+| JOB-003 — Keep my preferences | When I reopen the local application, use the existing models and settings without reconnecting integrations. | Opening the app leads to a usable conversation; active runs keep their exact settings; I can select an optional incoming-message sound or turn it off. | Local application request of 22 September and retained preference requirements; confirmed. |
+| JOB-004 — Return to the record | When I revisit a decision, recover the complete conversation and sources, and control its retention. | A finished consultation receives a concise name from its decision question; I can open, export or delete its complete record, and a reconnect does not duplicate replies. The owner's 17 September export correction requires a readable rich-text document with bold speaker names, timestamps and paragraphs; use RTF so it opens formatted without a Markdown renderer. | Retained history/control requirements and 18 September correction; confirmed. |
+| JOB-006 — Capture a thought | When typing is inconvenient and my browser supports speech recognition, dictate a thought, review its transcript and choose what to send. Current alternative: type the whole request. | Start/stop/cancel browser recognition; edit the transcript before sending; retain the existing typed draft when permission or recognition fails. Unsupported browsers keep a complete typing workflow. | Retained voice intent with the current broad-browser requirement; progressive enhancement is an explicit assumption. |
+| JOB-005 — Understand limits | When a provider limit affects work, know what is available and what action is needed. | Real quota/reset information where available; no invented per-session charge or connection warning for an unused provider. | Retained usage truth and simplified daily workflow; confirmed. |
+
+These jobs map to the open/consult/steer/revisit/preferences workflow below. The PRD owns formal use-case mapping; the development plan owns implementation mapping after design approval.
+
+## Everyday workflow
+
+1. **Open the local app.** Start the application on a supported computer, open its local or local-network address and choose Login with the local application password. A returning owner opens the latest conversation or starts a new one. Ordinary use does not require an online account or browser extension. Keep first-run local setup separate from the daily consultation workflow.
+2. **Describe the situation.** Write naturally, dictate using the microphone when browser recognition is available, or optionally attach an image generated by the owner. V1 accepts only raster images; it does not accept PDF. Voice creates an editable transcript before sending; recording never starts automatically. Head asks one material question only if its answer can change the recommendation. Preserve the optional focused interview: usually 1–3 questions, maximum five, one at a time, with a suggested answer or explicit assumption available.
+3. **Work through the question.** Every accepted question uses separate specialist agent contexts and a separate Critic. Head first gives each selected specialist a concise, case-specific task; only after every selected specialist completes the configured Critic ↔ specialist exchanges and submits a final position to Head, and Critic reviews those positions together, does Head give the owner **Consolidated advice**. The owner sees complete, addressed contributions as they are confirmed, a quiet thought-bubble indicator while the next message is being prepared, and can add context or stop. A selected optional sound accompanies a newly arrived consultant message; the visual state remains available if sound is muted or unavailable.
+4. **Check evidence.** The team researches current claims when needed, without requiring the owner to ask for a special research mode. Sources are linked beside relevant claims and available together for inspection.
+5. **Act and revisit.** Head gives **Consolidated advice** based only on the reviewed final positions, without introducing its own fresh recommendation or evidence, up to three practical actions, the main risk and a condition for revisiting the decision. Only once that work is complete does the server create a concise, word-safe history title from the owner's decision question; there is no in-progress title above the discussion. Continue with the same context, start a new consultation or return later through history.
+
+## What real discussion means
+
+- Each participating consultant and Critic is a separately invoked AI agent/context. Every role receives its own assignment, the owner question, the prior confirmed discussion and its role/output contract. A single completion labelled with several roles is not a consilium.
+- The owner chooses the number of relevant specialists for every consultation: 1, 2, 3, 5 or Auto. The count excludes Head Consultant and Critic. In Auto, Head selects the smallest useful team from one through five; each receives distinct work and the entire pool is never launched by default.
+- Head's only visible pre-conclusion messages are concise, case-specific tasks addressed to each selected specialist. Each task repeats a concrete case anchor and a second decision detail from the owner's question, and that exact task is bound to its recipient's separate reconstructed model invocation. Auto team selection is internal. Each specialist gives an independent initial position to Critic; specialists do not route messages or tasks to each other. Critic then addresses each selected specialist, who replies directly to Critic; nobody can be omitted. Before Head synthesizes, every selected specialist addresses a final position to Head and Critic addresses a closing assessment of all those positions to Head. Agreement is allowed immediately when warranted. Do not manufacture conflict, praise or ceremonial framing. There is no direct Head-answer route.
+- Each ordinary reply should develop one useful point. A proposed writing target is 60–140 words, with longer calculations or explanations when necessary. This guides generation; it is not permission to truncate or rewrite an actual submitted message.
+- Display the full submitted business messages in canonical order, with role, addressed recipient when relevant and time. Hidden model reasoning, credentials and internal provider tool invocations/transcripts are not conversation content and must never be stored or rendered.
+- Keep version/approval bookkeeping internal. Use the word **consensus** only when all participating specialists, Critic and Head actually agree on the same current recommendation. If agreement is not reached, deliver an explicitly provisional conclusion with unresolved disagreement and the next evidence needed.
+- The owner chooses discussion depth as 1, 3, 5 or Auto complete Critic ↔ specialist exchanges per specialist. Depth 1 means Critic addresses every selected specialist once and receives each reply before Head synthesizes. Auto reviews the whole team before considering agreement and permits at most 10 exchanges per specialist. A complete pass with specialist agreement triggers final positions and Critic closing review; a remaining Critic objection continues Auto within that cap. At the cap or fixed depth, unresolved disagreement produces explicitly provisional Consolidated advice. Closing contributions are separate from the configured exchange count. Explicit depth is not permission for ceremonial filler. Preserve Stop and bounded use of subscriptions.
+- Role names remain in English. Product messages and source metadata support English and Ukrainian only; reject Russian and Belarusian language or terminology. Valid Ukrainian words shared with another language must not by themselves trigger rejection. The first substantive request sets the session language; an explicit supported-language request wins. Do not switch language because of a citation or image attachment. If a provider draft violates this boundary or contains an internal tool invocation/transcript, keep it out of the record and make one controlled replacement attempt with the same role and task before a run can be marked failed; the policy must not collapse an otherwise viable discussion on its first rejected draft.
+
+## Research is part of consulting
+
+Live public-web research is available to the consultation team by default. Use it for time-sensitive facts, cited resources, specialist uncertainty or evidence that can change a recommendation. Do not make every answer browse needlessly.
+
+Record source title, direct URL, the claim it supports, retrieval time and publication date when available. Use only English or Ukrainian sources. Reject Russian and Belarusian sources, terminology and URLs, including `.ru`, `.by`, `.su` and their Cyrillic equivalents. Distinguish retrieved fact, owner-supplied information, assumptions and professional judgment. Sources can disagree or fail; show that honestly. Never invent a citation or describe cached knowledge as a fresh check.
+
+Preserve the existing Codex live-search capability. A selected Claude Critic receives relevant Codex evidence already committed to the team discussion, but its adapter is text-only: it has no direct browsing, shell, file or other tool authority. Research does not silently change the selected LLM or enable paid fallback.
+
+Use public, minimized queries. Do not send private business details or attachment contents to search services without specific authorization. Retrieved pages provide evidence, not instructions or permission to act.
+
+## Local access and preferences
+
+The visible Login action starts a private session using a locally configured password; Logoff ends that session without deleting saved records. Keep these actions directly accessible in desktop and narrow-screen navigation. The running computer stores the owner’s records. Browsers on that computer and the same local network can reach the application, but only a valid session can access private work. Architecture must protect network traffic and sessions, bound password attempts, and prevent other websites or unauthenticated network users from reading or controlling the application. No public registration or online identity is required. Closing the page must not delete saved records. Provider access remains separate from local application access.
+
+Use the literal navigation label **Settings**. Provide working model selection and reasoning-strength selection independently for Head/specialists and Critic, preserve the optional Critic provider choice, and include number of specialists (1, 2, 3, 5 or Auto), discussion depth (1, 3, 5 or Auto), a selected incoming-message sound (`Knock`, `Chime`, `Ripple` or `Off`) with a direct preview, a visible editable Markdown runtime-instructions document, its saved-version history and usage facts. Sound is non-essential: it has a visual equivalent, never needs a browser notification permission, and must respect browser audio restrictions. The current private runtime-instructions document is retained in encrypted local storage and governs the runtime role/output contract. Preserve the four existing consulting guidance editors: AGENTS.md, CONSILIUM.md, CONSULTING_PLAYBOOK.md and WORKING_CONTEXT.md. Only these fixed names are accepted; each document is nonempty Markdown of at most 64 KiB. Keep encrypted append-only saved versions, stale-revision protection, review and explicit restore into a new revision. Accepted runs snapshot all four documents and their revisions; edits affect future runs only. Guidance cannot grant tools, change permissions or weaken code-enforced rules. First-run setup supplies the initial document; reusable public defaults may ship with the source, while the owner’s private instructions and saved revisions never belong in the repository. Validate required headings and placeholders before save, protect the current document from a stale browser save, allow the owner to review and restore a saved version, and snapshot exact Markdown and revision when a consultation is accepted. Changes and restores cannot rewrite an active run. Populate model choices from the current supported catalog; do not hide controls behind read-only summaries. Provider credentials stay in private local storage and never become runtime-instruction text.
+
+Local application access cannot create a ChatGPT/Claude subscription grant. If the selected provider truly requires reauthorization, show one contextual action beside the paused conversation and return to the same work afterward. A quota limit shows known reset information; a transient outage gets retry behavior. Do not ask the owner to reconnect for an unrelated failure or warn about an inactive Claude route. Provider setup and diagnostics stay outside the everyday Settings workflow.
+
+## Models and settings to preserve
+
+| Role/setting | Last recorded selection | Evidence status |
+|---|---|---|
+| Head and specialists | Codex, `gpt-6-astra`, `xhigh` | Preserved owner selection; current provider execution remains to be verified. |
+| Critic | Codex, `gpt-6-astra`, `xhigh` | Preserved owner selection; current provider execution remains to be verified. |
+| Optional Critic route | Claude Code: Opus 5 (`claude-opus-5`) with Low, Medium, High, Extra or Max | The 18 September owner-supplied Claude picker confirms supported UI vocabulary; an existing inactive saved preference remains unknown until selected. |
+
+The recorded content-free read supports the active Codex settings above; it is not a fresh entitlement check. The inactive Claude branch has no known saved preference; Settings starts a newly selected Claude branch at the screenshot-confirmed Opus 5 / High values, while a previously saved supported choice remains intact. Independently verify each exact active provider/model/effort combination before claiming provider readiness; Astra/xhigh catalog evidence alone is not an execution proof.
+
+Preserve subscription use, no silent model/effort substitution, no API-key/PAYG fallback, no automatic usage credits and no Claude Fast Mode. Current provider package pins are Codex `0.153.1` and Claude Code `2.1.258`; this implementation stores independent specialist-count and discussion-depth choices, defaults to 2 specialists and 1 exchange per specialist, and retains a 540,000 ms provider budget. Model settings and orchestration limits are separate concerns.
+
+## V1 boundary
+
+**Included:** a private responsive web app running on macOS, Linux or Windows, with password-protected browser access on that computer and the same local network, including Wi-Fi devices; durable local records; one active consultation; team consultation for every accepted question; a bounded specialist pool; text, browser-supported voice input and owner-generated raster-image attachments; live research; complete conversation history; export and whole-conversation deletion; Stop, Continue and New consultation; concise server-created history titles only after a consultation completes; visual pending-message feedback; optional model/effort/provider, specialist-count, discussion-depth and notification-sound preferences; truthful quota/usage information; recovery across browser interruptions and server restart.
+
+The permitted specialist pool covers strategy, finance, operations, entrepreneurship, B2B/B2C sales, marketing, product, data and risk, plus Spiritual Consultant and Psychotherapist. Leadership Consultant and esoteric roles are excluded. Spiritual Consultant works from evangelical Protestant doctrine: Jesus Christ as Lord and Saviour, His finished work, salvation by faith alone and salvation that cannot be lost. Psychotherapist may draw on major classical psychotherapy schools and Internal Family Systems. These are AI roles, not claims of human employment or professional licensure. Psychotherapist does not diagnose, replace clinical care or handle an emergency without directing the owner to immediate local help. Existing high-stakes and explicit external-action boundaries remain.
+
+**Excluded:** Public registration, multiuser SaaS, payments, public internet application access, paid research services by default, automatic external actions, required browser notifications, native mobile apps, PDF/SVG/video/archive attachments, arbitrary file uploads and unrelated visual redesign. The selected local browser message sound is not a browser push notification.
+
+**Voice input:** microphone input is available where the browser provides speech recognition, with typing always available. Supporting a browser does not require that browser to implement speech recognition. Use `uk-UA` for Ukrainian; no recording is uploaded to, stored by or transcribed by NanoDuck. The owner explicitly starts recognition, sees its active state, can Stop or Cancel, then reviews editable text before a separate Send. The voice dialog says that the browser's recognition service may process speech. Permission denial, unavailable browser support, disabled service, network failure and interruption preserve the typed draft and offer retry or typing. Do not listen or recognize in the background. Video and arbitrary file types are not added.
+
+## Privacy, ownership and recovery
+
+The application and its records stay on the computer running it. Browser access over the local network uses protected transport and local password authentication. The local application processes the content and sends only authorized content to the selected model provider or research service; those external connections require protected transport. Do not describe provider-processed content as end-to-end encrypted. Retain conversations and their attachments encrypted locally without a time limit, until the owner explicitly deletes them. Provider credentials need protected local storage, with keys separated from stored data and a tested local backup and restore path.
+
+Image attachments are a single-owner convenience, not a public file-exchange feature. The owner stated that they will upload only images they generated; the application cannot technically attest that provenance. It accepts only bounded raster images and never treats them as executable content. PDF is deliberately out of scope. If another user, externally sourced images or any new file type becomes allowed, return to the PRD security review before implementation.
+
+Ordinary AI-processing consent is concise and explicit once per new authenticated session; reuse it throughout that session, including refresh, inactivity and browser reopening, unless its scope changes. Keep existing minimization and specific permission for sensitive transfers. Voice has a separate, just-in-time browser permission and disclosure because its recognition service can receive speech; NanoDuck receives only text the owner chooses to insert and send. Do not repeatedly ask for unchanged ordinary permission inside the same authenticated session. Keep secrets and prohibited sensitive records out of agent messages, logs and the public repository.
+
+An accepted message survives refresh/restart. A browser refresh stays in the same tab and restores the owner to the active app surface, selected discussion tab, saved conversation when it was open, and prior reading position. That short-lived tab state contains no draft or conversation content and is cleared when the local session ends. Unsent drafts remain clearly distinct from accepted work. Reconnecting resumes the saved conversation and does not insert a second copy of an already confirmed reply. Stop prevents late work from becoming a new visible result. A failed research/provider step preserves the record and reports the actual limitation. Retry continues from the missing reply with the accepted settings and instructions; it does not require a new question or repeat confirmed discussion.
+
+## Success and release evidence
+
+| Outcome | Acceptance evidence |
+|---|---|
+| Open and consult | A returning owner signs in locally or over the same Wi-Fi network using a supported browser and reaches a working consultation without repeated connection setup; the application runs on macOS, Linux and Windows. |
+| Genuine useful exchange | Actual separate agent invocations. A test scenario with a material weakness produces a meaningful Critic challenge and response/revision; a sound scenario permits reasoned agreement. Head accurately reflects resolved and unresolved issues. |
+| Current evidence | A time-sensitive question produces verified direct sources through the live research path without an explicit research keyword. |
+| Quiet interface | No routine protocol paragraphs in the conversation; states are compact, and actionable exceptions explain the next step. |
+| Same intelligence settings | Saved and effective provider/model/effort values match the owner’s selections; no silent downgrade. |
+| Reliable continuity | Browser reconnect, local application restart, local backup/restore and Stop tests preserve accepted work and avoid duplicate confirmed responses. |
+| Browser voice | Where recognition is available, a real Ukrainian utterance returns editable text; Stop, Cancel, denial, unavailable-service, network and background states preserve the pre-existing draft and do not send it. Every supported browser retains the complete typing path. |
+| Browser usability | Essential local flows work in current Safari, Chrome, Edge and Firefox, from 320 CSS px upward, with keyboard/touch access, readable reflow and no page-level horizontal scroll. The same core flows work on a local-network device; narrow-screen touch interaction remains supported. Actual browser checks establish compatibility. |
+
+Retain the existing 5-second acknowledgment, 30-second first useful contribution, 60-second stalled-work visibility and ten-minute continuation targets as targets to measure. Do not manufacture filler to meet them or claim that this prototype proves performance.
+
+## Design inputs and open evidence
+
+Design materials are supplied and the owner approved Electric A v8. Preserve the black theme, Ember message formatting and Discussion/Outcome/Sources tabs, Cobalt chat/composer geometry, a microphone icon without adjacent Voice text, a persistently visible Send button and expressive consultant colours. Keep the floating desktop navigation bar and the narrow-screen hamburger menu. “Floating” means the bar remains available while scrolling, without arbitrary dragging. Keep New in Conversations and above the chat, and keep inspection controls outside the normal application view. Adapt local-access wording and browser capability states within the existing composition; this refactor does not authorize unrelated aesthetic changes. The exact visual authority remains in the design brief. The approval record is `forge/design/evidence/electric-v8-approval-20260914.json`; design approval is not runtime verification.
+
+Source coverage: the existing product brief supplies the unchanged consultant, research, privacy and recovery intent; the owner’s explicit 22 September 2026 request supplies the local application, browser compatibility, clean open source and SDD consistency changes; the same-day clarification requires macOS, Linux and Windows plus browser access from devices on the same local Wi-Fi network. The [model preservation record](model-settings.md) supplies the exact saved model and effort values. Working language is English from the latest substantive request; product content supports English and Ukrainian.
+
+Confirmed: macOS/Linux/Windows local application, same-computer and same-network browser access, preserved consultant workflow and settings, public open source code, private local records, current mainstream browser targets and the approved Electric visual style. Source-inferred: existing online subscription providers and research remain because their removal was not requested. Local password authentication and protected local-network traffic preserve the confirmed privacy boundary. Assumed for broad browser compatibility: speech is a progressive enhancement with typing available in every browser; actual speech support and network-browser behavior require verification.
+
+Required evidence remains explicit: current provider entitlement and exact model execution, browser compatibility, speech capability where present, local data protection, restart continuity, backup/restore and representative-owner use must be observed. Historical observations do not constitute current local verification. No new design-materials request is needed.
+
+## Product scope
+
+Internal SDD scope declaration, not application UI.
+```json
+{"profile":"existing_change","capabilities":{"ui":true,"api":true,"persistence":true,"payments":false,"sensitive_data":true}}
+```

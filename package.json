@@ -1,0 +1,31 @@
+{
+  "name": "nanoduck-ai-consulting",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "src/server/start.mjs",
+  "description": "Private local consulting web application for macOS, Linux and Windows.",
+  "scripts": {
+    "setup": "node src/server/setup.mjs",
+    "start": "node src/server/start.mjs",
+    "dev": "node src/server/start.mjs",
+    "preflight": "node src/server/preflight.mjs",
+    "check": "node scripts/check-artifacts.mjs && node scripts/test.mjs",
+    "test": "node scripts/test.mjs",
+    "test:browsers": "node scripts/browser-check.mjs",
+    "design": "node scripts/serve-prototype.mjs",
+    "recovery": "node src/server/recovery-cli.mjs"
+  },
+  "engines": {
+    "node": "^22.13.0 || ^24.0.0"
+  },
+  "devDependencies": {
+    "playwright": "1.63.0"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-code": "2.1.258",
+    "@openai/codex": "0.153.1",
+    "selfsigned": "5.5.0"
+  },
+  "license": "MIT"
+}

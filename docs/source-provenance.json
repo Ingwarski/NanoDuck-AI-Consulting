@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "stage": "local-application-refactor",
+  "recorded_at": "2026-09-22T11:40:01.682063+00:00",
+  "current_intent": {
+    "path": "docs/product-idea.md",
+    "content_hash": "22ecd93faeb89e7cab50fdda3302401bd67e7f91a7728b986ade21846fbbf583"
+  },
+  "current_manifest": "forge/sdd-manifest.json",
+  "visual": {
+    "baseline_id": "nanoduck-electric-a-v8-20260914",
+    "source_root": "forge/design/candidates/a/v8",
+    "tree_hash": "1de020dcfe48f3feb80db0e58ba911b821825b48730d32c72d9518ad512eb0d9",
+    "approval_receipt": {
+      "path": "forge/design/evidence/electric-v8-approval-20260914.json",
+      "content_hash": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2"
+    },
+    "scope": "Preserved Electric A v8 geometry. Current canonical documents supply the explicit local-password and optional-speech behavior override. No new design approval or code promotion is claimed."
+  },
+  "sound": {
+    "path": "public/sounds/table-taps-250ms-v5.wav",
+    "content_hash": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
+    "title": "Dropping ping pong ball on table",
+    "creator": "giddster",
+    "license": "CC0",
+    "source_page": "https://freesound.org/people/giddster/sounds/414460/",
+    "source_sha256": "380fec20b4e6a289af202a5e64a9769c92ea0dcf06e471b4e610a0a82c652aa7",
+    "editing": "Equal-RMS blend of sharp and woody impacts; three taps 250 ms apart, original pitch, quiet filtered reflections at 28 and 47 ms. This is an edited recording.",
+    "owner_acceptance": {
+      "quote": "this is it.",
+      "recorded_at": "2026-09-18T01:13:25.320Z",
+      "scope": "Existing Knock preview and incoming message sound."
+    }
+  },
+  "evidence_limits": [
+    "Frozen visual receipts describe fictional UI fixtures only.",
+    "Current runtime results are recorded separately in docs/verification.md.",
+    "No private local path, password, provider credential or conversation is part of this source record."
+  ]
+}

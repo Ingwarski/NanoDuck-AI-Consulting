@@ -1,0 +1,417 @@
+{
+  "schema_version": 1,
+  "kind": "scoped-local-runtime-verification",
+  "recorded_at": "2026-09-22T11:52:04.860360+00:00",
+  "executor": "Codex root test execution; SDD coordinator inspected final logs and test definitions",
+  "source_snapshot": {
+    "algorithm": "sha256 of sorted UTF-8 path + NUL + lowercase file SHA-256 + LF records",
+    "roots": [
+      "src",
+      "public",
+      "instructions",
+      "scripts",
+      "test"
+    ],
+    "additional_files": [
+      "package.json",
+      "package-lock.json"
+    ],
+    "file_count": 77,
+    "sha256": "fff0428e1e132744cb9ccce4a4a1271c095701542073a72c7b330d1eda732e30",
+    "files": [
+      {
+        "path": "instructions/AGENTS.md",
+        "sha256": "34ca8b01845a9c6a292cc93aa3ba2ce2656814c52d4391a10878e823106d6d62"
+      },
+      {
+        "path": "instructions/CONSILIUM.md",
+        "sha256": "2a889fff9fc209348c4057dbebb89a6550f5f3dcd2a3d697eda607d4f9cc0c62"
+      },
+      {
+        "path": "instructions/CONSULTING_PLAYBOOK.md",
+        "sha256": "ceab28f86e6f5fd30e00cd0d191c3ae182323805adbd63bbb89bcb8032818e8e"
+      },
+      {
+        "path": "instructions/RUNTIME_PROMPTS.md",
+        "sha256": "f96867332375d9f182048c100a78662478a4335831faffed4a5234191c55fc08"
+      },
+      {
+        "path": "instructions/WORKING_CONTEXT.md",
+        "sha256": "4b4d17ce461ea197e38dc974222017529b68cded78b4a5d3d5b8c6d53ecf0796"
+      },
+      {
+        "path": "package-lock.json",
+        "sha256": "3002d2c39d0ef4b6a86d31086faba6bdda3a5cb6c10bab3a2edd38f234691634"
+      },
+      {
+        "path": "package.json",
+        "sha256": "cfe4c67287221083288ec8d25198ff285b2f3c0c16a9adb0a769dad9b2590246"
+      },
+      {
+        "path": "public/conversation-list.css",
+        "sha256": "4788751f862df6300f176ed2ffaf2896d94e3303561a458c109ae3951e5ac3cb"
+      },
+      {
+        "path": "public/index.html",
+        "sha256": "3bc36d926abbc86878967f3c0f3574fd30e14a65ff557b06e43465c628a18649"
+      },
+      {
+        "path": "public/nanoduck-original.svg",
+        "sha256": "e8b786961dc9a3b4d5450d3d20c3fd25cb6b2a9e7dc3034d23202d1a6dd2f528"
+      },
+      {
+        "path": "public/nanoduck.svg",
+        "sha256": "723d3b4201c5fc6ffa3d30a1e5ed5151f616d436919d15f3642827a16ed7021d"
+      },
+      {
+        "path": "public/sounds/nokia-three-knocks-quick.wav",
+        "sha256": "c593d959457a011f63f85cedcc2c42efe503b0b13fa1d0a44f3aab1746c9268a"
+      },
+      {
+        "path": "public/sounds/table-taps-250ms-v5.wav",
+        "sha256": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4"
+      },
+      {
+        "path": "public/sounds/table-taps-250ms.wav",
+        "sha256": "433bfd84f11cba34941526d970f222b10e154a68af26594e50e34e2aa1e8459c"
+      },
+      {
+        "path": "public/styles.css",
+        "sha256": "5a22283a7bc8a4f4ffb9a919a839f6e63a72af4405cb265155acafdf96f7bd0b"
+      },
+      {
+        "path": "scripts/browser-check.mjs",
+        "sha256": "dfdc05596bee370cec18ae0325ed48995a45ddd29e7e9a7c9b25588f62a43caf"
+      },
+      {
+        "path": "scripts/check-artifacts.mjs",
+        "sha256": "722b9495f0bc5f53572084a6f6e4682503f795c397ef60165ae22147b591f378"
+      },
+      {
+        "path": "scripts/serve-prototype.mjs",
+        "sha256": "b86daf670024c2baa75cad7ab9b0e1f53991e4c4742386948d07cc7f803ff68f"
+      },
+      {
+        "path": "scripts/test.mjs",
+        "sha256": "e8d1ecf30e14c106672ed1e0480f2137e54bd4afe46865f88f6739017c1e3b74"
+      },
+      {
+        "path": "src/client/app.js",
+        "sha256": "47fbe003b9398939a51331c5093201b71798204d525edee6b5881478036df4f5"
+      },
+      {
+        "path": "src/client/markdown.js",
+        "sha256": "13c29871d21aa5fc19f81ef1e14671646f31b2405747d1838a06d694fc8ebc3b"
+      },
+      {
+        "path": "src/client/refresh-state.js",
+        "sha256": "c958f078172d6ac322721679b885760a859b49fd860d0debbd4487599644bf45"
+      },
+      {
+        "path": "src/server/attachments.mjs",
+        "sha256": "c5a6ebb65ccefe9ec157d9b4bd46e9fe86792b912580ff2c4cac6ec9b7058015"
+      },
+      {
+        "path": "src/server/auth.mjs",
+        "sha256": "1ff7afa261556efb4644f88cd4a386dbe4bb02ce235b8def20a5bede7622f563"
+      },
+      {
+        "path": "src/server/child-process.mjs",
+        "sha256": "70b6e1136b18205a7e38b71086014773e06513f49b9147e8a26f68ff56b92fd9"
+      },
+      {
+        "path": "src/server/claude-provider.mjs",
+        "sha256": "923903c6774bfaafab7dd718d032439761ddef3d8096594ab8ef3b202c565062"
+      },
+      {
+        "path": "src/server/codex-provider.mjs",
+        "sha256": "ae0c1699a5652eff8765f961c2b4d53c79bfc49977bf31ab49b790cf4578eff7"
+      },
+      {
+        "path": "src/server/config.mjs",
+        "sha256": "64e55aaa44d1e19419ada1540e4a1732cb9c46bba90e782fd85b2ffb501b8c8b"
+      },
+      {
+        "path": "src/server/configuration-recovery.mjs",
+        "sha256": "a8eb806c8e9e6c3064f1a050fe4856b8f36e073f7488ef6a9e3637446ab600f6"
+      },
+      {
+        "path": "src/server/consultation.mjs",
+        "sha256": "1e0344036aae3da0256da7676047d97f5d3be32e41af44ea410df598aaf3d583"
+      },
+      {
+        "path": "src/server/content-policy.mjs",
+        "sha256": "9ceedf022c493a1558c634f8c3a1d7911d81d819fff030068e1e87563857ca6c"
+      },
+      {
+        "path": "src/server/conversation-export.mjs",
+        "sha256": "93cac483388ff5f4ea4bc9bf830f6d6eff981047786cd59b6641a6d486b828b7"
+      },
+      {
+        "path": "src/server/conversation-title.mjs",
+        "sha256": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5"
+      },
+      {
+        "path": "src/server/crypto.mjs",
+        "sha256": "e52eaf0dfb7dc2d7cf8a02a6c5cd4016b998137790927d7f386dda2b02618a3b"
+      },
+      {
+        "path": "src/server/forbidden-environment.mjs",
+        "sha256": "24be12b0b9e80fd1440d0211af334482417bf68fc5d97fce16b98e021f84da34"
+      },
+      {
+        "path": "src/server/index.mjs",
+        "sha256": "1892b9b4172a58e9d08b3dc4dc360a4bb0ce787de4c8afa5f4fe9c3ceda4d79e"
+      },
+      {
+        "path": "src/server/instruction-bootstrap.mjs",
+        "sha256": "8e06a32c6ec49fe43670fbf0d7fa01f6d96d32fe5a6f61c94514b3866240dcdb"
+      },
+      {
+        "path": "src/server/instruction-documents.mjs",
+        "sha256": "4359f657866946e11190f7fa7d90a5812180c6bf826a6dc96415620c1868790e"
+      },
+      {
+        "path": "src/server/local-request.mjs",
+        "sha256": "b4d2a6db78ef0add836aa1c10cbdf594d5d6a13a4aef7fb0f797abec0db92d56"
+      },
+      {
+        "path": "src/server/local-setup.mjs",
+        "sha256": "9c55d4fad8deab40d2734497acf45996ab23248516d63a5440872abc7b8f956a"
+      },
+      {
+        "path": "src/server/local-state.mjs",
+        "sha256": "d7bd756877c4ea496bb5fed320fa3f8f6133557b6a59afcbb8a8f4a5d0cda87f"
+      },
+      {
+        "path": "src/server/local-store.mjs",
+        "sha256": "3d87bd372d7e2fd96e25b65181e729ff48298c28d676b5bb47a5cf495af7df29"
+      },
+      {
+        "path": "src/server/output-safety.mjs",
+        "sha256": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84"
+      },
+      {
+        "path": "src/server/password.mjs",
+        "sha256": "0d258702a65d1c859ebbd81f7f42dcf3fe81256aa29a23178b1439fc92dbc419"
+      },
+      {
+        "path": "src/server/preflight.mjs",
+        "sha256": "6d5c678af68e997cf1cb90db13e4ceff86e66272d30107f5c843ce4c79eca236"
+      },
+      {
+        "path": "src/server/private-files.mjs",
+        "sha256": "2550644b7f115b646c8c9689354328ba5d0519462d1120083729e125d6012f65"
+      },
+      {
+        "path": "src/server/prompt-contracts.mjs",
+        "sha256": "6ae5ab7c303bb1cf48d8eff524592e80287b03ce456c74a93c72a30ccd4a3652"
+      },
+      {
+        "path": "src/server/providers.mjs",
+        "sha256": "54d5e596de4ad65aa1f4c0b6693f672a8d8a384c2c6e42ea7d395f982285a47b"
+      },
+      {
+        "path": "src/server/read-regular-file.mjs",
+        "sha256": "8149de11cc060bf2f3b1d7799b54d1904e92255bba2cb470770125e230c056fd"
+      },
+      {
+        "path": "src/server/recovery-cli.mjs",
+        "sha256": "0df268689521002c5bacb8193b7814c5ab325bbe6d5cdab0f1057734c0c00fae"
+      },
+      {
+        "path": "src/server/recovery.mjs",
+        "sha256": "65eeb80032b1ff3647e5cbeee9a9cf2f6b9ada83d80563489fa999ae03482e24"
+      },
+      {
+        "path": "src/server/setup.mjs",
+        "sha256": "655b06b47545a85b81fde59d2b32c9cfd8a0335d9b958f02e591cf750d835776"
+      },
+      {
+        "path": "src/server/start.mjs",
+        "sha256": "18c323b0b8b3e8d3eb5b003b99414d822cecfcb0aa7f5a5168284372dd864dda"
+      },
+      {
+        "path": "src/server/store.mjs",
+        "sha256": "4452027e151aa2d929a4af8d11c4b5ed5b2fd5b39a29881875e02f2273911a7d"
+      },
+      {
+        "path": "src/server/validation.mjs",
+        "sha256": "7fe49a83971d346797f0b47fe8c130463a873023ae41f1a9dd7b392f20b88e56"
+      },
+      {
+        "path": "test/claude-process.test.mjs",
+        "sha256": "9a30014d41fa563593bfa1696cabaeee2bf0d295485228f92bf67989bcb97e9f"
+      },
+      {
+        "path": "test/claude-provider.test.mjs",
+        "sha256": "b2152039c3954bcf58005ea179ed0cf7bd574271663bc468d0aa4869555c9174"
+      },
+      {
+        "path": "test/codex-provider.test.mjs",
+        "sha256": "b81fbcb0befd549732d435ed2eab5f83091d45b73d38ae954811bc8f1424db5c"
+      },
+      {
+        "path": "test/consolidation.test.mjs",
+        "sha256": "c29cb6ecca6f28811b16370ae1e00d698a47e6e07cc02c36cc96a90cd7a77102"
+      },
+      {
+        "path": "test/consultation.test.mjs",
+        "sha256": "d1135f50bd62135d0612f2d91df9097abc1e6571664413368ddfa393a1abcd30"
+      },
+      {
+        "path": "test/conversation-export.test.mjs",
+        "sha256": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259"
+      },
+      {
+        "path": "test/conversation-title.test.mjs",
+        "sha256": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a"
+      },
+      {
+        "path": "test/core.test.mjs",
+        "sha256": "e08c23fe23cd1a699855c75e197f95483a877037852c7c195215a33dc8cf6fa1"
+      },
+      {
+        "path": "test/fixtures/auth-file-codex.mjs",
+        "sha256": "71cfd531d94320710a8f45b54845ebbc28e358671dca61f7a752393cdb88aa86"
+      },
+      {
+        "path": "test/fixtures/fake-codex.mjs",
+        "sha256": "ddb3b4fd9f1e07f30df8006f7e74db7edabb55a29536e1f9274f07b0ce672c66"
+      },
+      {
+        "path": "test/fixtures/local-runtime.mjs",
+        "sha256": "e6cab98921b06862a82de200cd336c60cc189bd745be864ae230b48a28715dd6"
+      },
+      {
+        "path": "test/fixtures/runtime-instructions.mjs",
+        "sha256": "72823ddd702ce752d2ee27dc08a1b66860da0893d3f669d7cc9831959858825f"
+      },
+      {
+        "path": "test/http.test.mjs",
+        "sha256": "aa910166405d3a95e370fd208ca6aef55834263ebf9fbb010341e046f9411d08"
+      },
+      {
+        "path": "test/local-config-auth.test.mjs",
+        "sha256": "4ccde553db434ce2faf5c3a94bb7277a7f57f6421caddeebc5b033b26bc3d1ae"
+      },
+      {
+        "path": "test/local-store.test.mjs",
+        "sha256": "15455197e93eab004857635deb73ad65f23f4e0b489e0f12e6c7d5c8fa90a0db"
+      },
+      {
+        "path": "test/markdown.test.mjs",
+        "sha256": "2468a23576b35167a02e28a781d843551da60e98927356e057c9f4b2ed34bd7b"
+      },
+      {
+        "path": "test/preflight.test.mjs",
+        "sha256": "25798a92f2b277109754135ec87c93836c4bbd4a0698a2dd0d767a1b94197f69"
+      },
+      {
+        "path": "test/project-consolidation.test.mjs",
+        "sha256": "c23ddff80261ff92c4773a0e09345e5a9c634ae9b1126017586358d3513ecad4"
+      },
+      {
+        "path": "test/prompt-contracts.test.mjs",
+        "sha256": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e"
+      },
+      {
+        "path": "test/read-regular-file.test.mjs",
+        "sha256": "811e9695092efa09ad9b50fd58301f7aed82c6765f052b083ad7612d94ee6d41"
+      },
+      {
+        "path": "test/recovery-cli.test.mjs",
+        "sha256": "bd82d733d6644310037aacee5d14bfd3399d1a73a4040674c06019dadf54154d"
+      },
+      {
+        "path": "test/refresh-state.test.mjs",
+        "sha256": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9"
+      }
+    ]
+  },
+  "results": [
+    {
+      "check": "Node test suite",
+      "platform": "macOS",
+      "node": "22.23.2",
+      "passed": 148,
+      "failed": 0,
+      "skipped": 0,
+      "log_sha256": "ec382b4aa59bf7c2e9b58f34dbbf4aa79583c026878cb72ea7d12320c83c37a2"
+    },
+    {
+      "check": "Node test suite",
+      "platform": "macOS",
+      "node": "24.16.0",
+      "passed": 148,
+      "failed": 0,
+      "skipped": 0,
+      "log_sha256": "36e53fbeab0dfd4d44da5a4a0709b9f9f317f96f6b006cf06274262e38fff7c3"
+    },
+    {
+      "check": "Artifact, link and syntax checker",
+      "command": "node scripts/check-artifacts.mjs",
+      "result": "passed",
+      "markdown_files": 23,
+      "javascript_files": 65,
+      "active_candidates": 3
+    },
+    {
+      "check": "Integrated browser workflow",
+      "command": "npm run test:browsers",
+      "result": "passed",
+      "engines": [
+        "Chromium 153",
+        "Firefox 155",
+        "WebKit 26.6"
+      ],
+      "log_sha256": "25ee0c9487c8c89998675e1e29ad445caf52b352c8bf9597c0fefd21cab60e46"
+    },
+    {
+      "check": "Installed Chrome workflow",
+      "command": "node scripts/browser-check.mjs --channel=chrome",
+      "result": "passed",
+      "log_sha256": "e0b549ae89706776b9ece641b9ab6a261cf349d1ee2bf3f0d12662b639186f19"
+    },
+    {
+      "check": "Current source secret scan",
+      "tool": "Gitleaks 8.30.1",
+      "findings": 0,
+      "ignore_exceptions": 0,
+      "report_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    }
+  ],
+  "browser_scope": [
+    "Local password and session processing consent",
+    "Synthetic complete consultant/Critic discussion and Outcome",
+    "Reload, saved history and Settings save",
+    "No warning for an unused Claude provider; explicit unavailable usage information",
+    "390px viewport without horizontal page overflow",
+    "Voice dialog and typed-input fallback; no microphone recognition test",
+    "Logoff and no uncaught page errors"
+  ],
+  "additional_test_scope": [
+    "HTTPS login through the computer\u2019s actual private LAN interface; client and server remain on the same physical computer",
+    "Full-state encryption, durable restart, duplicate requests, tamper denial and process ownership",
+    "Offline encrypted backup/restore without TLS files, deletion preservation and active-process refusal"
+  ],
+  "tls_scope": "Node HTTPS requests verified the exact generated local CA. Disposable automated browser profiles ignored certificate errors; no OS or browser trust store was changed.",
+  "provider_scope": "Synthetic provider subprocess fixtures; no real provider account or consultation claim.",
+  "ci_status": "Cross-platform Node and Linux browser CI pending publication and execution.",
+  "formal_sdd": {
+    "prepared_checks": 83,
+    "checks_promoted_to_passed_by_this_receipt": 0,
+    "release_gates": 6,
+    "release_readiness": "not_evaluated"
+  },
+  "not_run": [
+    "Native Safari application and installed Edge",
+    "Separate physical Wi-Fi/LAN client",
+    "Physical mobile devices and microphone recognition",
+    "Per-device certificate trust installation",
+    "Real selected-provider entitlement and consultation",
+    "Representative-owner tasks and assistive-technology validation",
+    "Linux and Windows execution at the time of this local receipt"
+  ],
+  "final_change_note": "After browser execution, only src/server/index.mjs startup-address logging was refined to omit addresses unreachable through the selected bind interface. Both 148-test Node suites reran successfully against this final source snapshot. Browser/authentication/storage behavior and browser test definitions were unchanged; browser observations retain their earlier execution scope."
+}

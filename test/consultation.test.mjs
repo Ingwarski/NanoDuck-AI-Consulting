@@ -1,0 +1,626 @@
+import assert from "node:assert/strict";
+import test from "node:test";
+import { createConsultationService } from "../src/server/consultation.mjs";
+import { createMemoryStore, defaultSettings as baseSettings } from "../src/server/store.mjs";
+import { testRuntimeInstructions as initialRuntimeInstructions } from "./fixtures/runtime-instructions.mjs";
+
+const defaultSettings = Object.freeze({ ...baseSettings, runtimeInstructions: { markdown: initialRuntimeInstructions.markdown, revision: initialRuntimeInstructions.revision } });
+
+const waitFor = async (predicate, milliseconds = 1_000) => {
+  const deadline = Date.now() + milliseconds;
+  while (Date.now() < deadline) {
+    const value = await predicate();
+    if (value) return value;
+    await new Promise(resolve => setTimeout(resolve, 10));
+  }
+  throw new Error("timed_out");
+};
+
+const validHeadTask = assignment => {
+  const anchor = /exact case anchor: “([^”]+)”/u.exec(assignment)?.[1] ?? "decision";
+  const detail = /exact decision detail: “([^”]+)”/u.exec(assignment)?.[1];
+  return `<nanoduck-task>Analyze ${anchor}${detail ? ` and ${detail}` : ""} from the assigned perspective and identify the decisive evidence.</nanoduck-task>`;
+};
+const successfulBody = (input, body = "A qualified answer.") => input.outputKind === "head_task" ? validHeadTask(input.assignment) : input.outputKind === "critic_final" && !body.includes("[CONSILIUM:") ? `${body} [CONSILIUM: REACHED]` : body;
+const closingSequence = team => [...team.map(role => [role, "Head Consultant"]), ["Critic", "Head Consultant"]];
+
+test("every specialist receives the selected depth before Head can conclude", async t => {
+  for (const count of [1, 2, 3, 5]) for (const depth of [1, 3, 5]) {
+    await t.test(`${count} specialists, depth ${depth}`, async () => {
+      const store = createMemoryStore();
+      const conversation = await store.createConversation();
+      const accepted = await store.acceptMessage(conversation.id, { body: "Should we test preorders?", clientRequestId: `coverage-${count}-${depth}-0001` }, { ...defaultSettings, specialistCount: String(count), discussionDepth: String(depth) });
+      const provider = { async invoke(input) { return { ok: true, body: successfulBody(input), sources: [] }; } };
+      await createConsultationService({ store, provider }).start(conversation.id, accepted.run);
+      await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+      const events = await store.events(conversation.id);
+      const team = events.slice(1, count + 1).map(event => event.recipient);
+      const expected = Array.from({ length: depth }, () => team.flatMap(role => [["Critic", role], [role, "Critic"]])).flat();
+      assert.deepEqual(events.slice(1 + count * 2, -(count + 2)).map(event => [event.role, event.recipient]), expected);
+      assert.deepEqual(events.slice(-(count + 2), -1).map(event => [event.role, event.recipient]), closingSequence(team));
+      assert.deepEqual([events.at(-1).role, events.at(-1).recipient], ["Head Consultant", null]);
+    });
+  }
+});
+
+test("a policy-rejected draft is replaced before the consultation can fail", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we test preorders?", clientRequestId: "policy-replacement-0001" }, defaultSettings);
+  const calls = [];
+  const provider = { async invoke(input) {
+    calls.push(input);
+    if (input.outputKind === "critic_challenge" && !input.assignment.includes("A prior draft was withheld")) return { ok: false, code: "language_policy" };
+    return { ok: true, body: successfulBody(input), sources: [] };
+  } };
+  await createConsultationService({ store, provider }).start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  assert.equal(calls.filter(call => call.outputKind === "critic_challenge").length, 4);
+  assert.match(calls.find(call => call.outputKind === "critic_challenge" && call.assignment.includes("A prior draft was withheld")).assignment, /Do not use Russian or Belarusian/u);
+  assert.equal((await store.events(conversation.id)).some(event => event.role === "System"), false);
+});
+
+test("a selected Claude Code Critic never moves Head or specialist work off Codex", async () => {
+  const store = createMemoryStore(); const conversation = await store.createConversation(); const calls = [];
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we test preorders?", clientRequestId: "claude-critic-routing-0001" }, {
+    ...defaultSettings,
+    criticProvider: "claude_code",
+    criticClaudeModel: "claude-opus-5",
+    criticClaudeReasoning: "high",
+    criticModel: "claude-opus-5",
+    criticReasoning: "high"
+  });
+  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input), sources: [] }; } };
+  await createConsultationService({ store, provider }).start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  assert.equal(calls.filter(call => call.outputKind.startsWith("critic_")).every(call => call.provider === "claude_code"), true);
+  assert.equal(calls.filter(call => !call.outputKind.startsWith("critic_")).every(call => call.provider === "codex"), true);
+  assert.equal(calls.filter(call => call.outputKind.startsWith("critic_")).every(call => call.research === false), true);
+});
+
+test("a failed specialist reply resumes after the last confirmed challenge without replaying or skipping the review", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Які курси допоможуть підготуватися до навчання?", clientRequestId: "retry-ukrainian-reply-0001" }, { ...defaultSettings, specialistCount: "1", discussionDepth: "3" });
+  let reject = true; const calls = [];
+  const provider = { async invoke(input) {
+    calls.push(input);
+    if (reject && input.outputKind === "specialist_reply" && calls.filter(call => call.outputKind === "critic_challenge").length === 3) return { ok: false, code: "language_policy" };
+    return { ok: true, body: successfulBody(input, "Перевірте, які умови підтверджено."), sources: [] };
+  } };
+  const service = createConsultationService({ store, provider });
+  await service.start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "failed");
+  const preserved = await store.events(conversation.id);
+  assert.equal(preserved.at(-1).role, "System");
+  assert.equal(preserved.at(-2).role, "Critic");
+  assert.equal(preserved.some(event => event.role === "Head Consultant" && !event.recipient), false);
+  assert.equal(calls.filter(call => call.outputKind === "specialist_reply").length, 4);
+  const callCount = calls.length; reject = false;
+  assert.ok(await service.continue(conversation.id));
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  const resumed = calls.slice(callCount);
+  assert.equal(resumed[0].outputKind, "specialist_reply");
+  assert.equal(resumed[0].evidence.discussion.includes("System:"), false);
+  assert.equal(resumed.some(call => call.outputKind === "critic_challenge"), false);
+  const events = await store.events(conversation.id);
+  assert.deepEqual(events.slice(0, preserved.length), preserved);
+  assert.deepEqual(events.slice(preserved.length).map(event => [event.role, event.recipient ?? null]), [["Strategy Consultant", "Critic"], ["Strategy Consultant", "Head Consultant"], ["Critic", "Head Consultant"], ["Head Consultant", null]]);
+  assert.equal(await service.continue(conversation.id), undefined);
+});
+
+test("an internal provider tool trace cannot be committed to a consultation", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we fund the expansion?", clientRequestId: "internal-tool-trace-0001" }, {
+    ...defaultSettings,
+    criticProvider: "claude_code",
+    criticClaudeModel: "claude-opus-5",
+    criticClaudeReasoning: "high"
+  });
+  const provider = { async invoke(input) {
+    if (input.outputKind === "critic_challenge") return { ok: true, body: '<invoke name="Bash"><parameter name="command">pwd</parameter></invoke>', sources: [] };
+    return { ok: true, body: successfulBody(input), sources: [] };
+  } };
+  await createConsultationService({ store, provider }).start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "failed");
+  const events = await store.events(conversation.id);
+  assert.equal(events.some(event => /<\s*invoke\b|\bBash\b/u.test(event.body)), false);
+  assert.equal(events.at(-1).role, "System");
+  assert.equal(events.at(-1).recipient, null);
+  assert.equal(events.at(-1).body, "The consultation paused before a confirmed response. Your saved discussion remains available.");
+});
+
+test("the discussion is unnamed until the completed consultation creates its saved title", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should I sell, hold or buy BTC right now?", clientRequestId: "completed-title-0001" }, defaultSettings);
+  assert.equal((await store.getConversation(conversation.id)).title, "New consultation");
+  const provider = { async invoke(input) { return { ok: true, body: successfulBody(input), sources: [] }; } };
+  await createConsultationService({ store, provider }).start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  assert.equal((await store.getConversation(conversation.id)).title, "Sell, hold or buy BTC right now?");
+});
+
+test("Auto cannot conclude on one specialist's agreement while Finance still disagrees", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we test preorders?", clientRequestId: "auto-team-coverage-0001" }, { ...defaultSettings, discussionDepth: "auto" });
+  const replies = [];
+  const provider = { async invoke(input) {
+    if (input.outputKind === "specialist_reply") {
+      const finance = input.assignment.startsWith("You are the Finance Consultant");
+      replies.push(finance ? "Finance" : "Strategy");
+      return { ok: true, body: `A qualified answer. [CONSILIUM: ${finance && replies.length === 2 ? "CONTINUE" : "REACHED"}]`, sources: [] };
+    }
+    return { ok: true, body: successfulBody(input), sources: [] };
+  } };
+  await createConsultationService({ store, provider }).start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  assert.deepEqual(replies, ["Strategy", "Finance", "Strategy", "Finance"]);
+  assert.equal((await store.run(conversation.id)).snapshot.autoDepthCompleted, 2);
+});
+
+test("resume finishes Finance review without repeating any confirmed exchange", async t => {
+  const sequence = [
+    ["Head Consultant", "Strategy Consultant"], ["Head Consultant", "Finance Consultant"],
+    ["Strategy Consultant", "Critic"], ["Finance Consultant", "Critic"],
+    ["Critic", "Strategy Consultant"], ["Strategy Consultant", "Critic"],
+    ["Critic", "Finance Consultant"], ["Finance Consultant", "Critic"]
+  ];
+  for (const confirmedCount of [5, 6, 7, 8]) for (const automatic of [false, true]) {
+    await t.test(`${confirmedCount} confirmed, Auto ${automatic}`, async () => {
+      const store = createMemoryStore();
+      const conversation = await store.createConversation();
+      const accepted = await store.acceptMessage(conversation.id, { body: "Should we test preorders?", clientRequestId: `resume-coverage-${confirmedCount}-${automatic}` }, {
+        ...defaultSettings, discussionDepth: automatic ? "auto" : "1",
+        // Legacy global agreement must not waive Finance's review.
+        ...(automatic ? { autoDepthCompleted: 1, consiliumReached: true } : {})
+      });
+      for (const [role, recipient] of sequence.slice(0, confirmedCount)) await store.appendAgentMessage(conversation.id, accepted.run.generation, { role, recipient, body: "Confirmed contribution.", sources: [] });
+      const calls = [];
+      const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input, "A qualified answer. [CONSILIUM: REACHED]"), sources: [] }; } };
+      const resumedService = createConsultationService({ store, provider });
+      await resumedService.resume();
+      assert.equal((await store.run(conversation.id)).status, "stopped");
+      await resumedService.continue(conversation.id);
+      await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+      const events = await store.events(conversation.id);
+      assert.deepEqual(events.slice(1, 9).map(event => [event.role, event.recipient]), sequence);
+      assert.equal(events.slice(1, confirmedCount + 1).every(event => event.body === "Confirmed contribution."), true);
+      assert.equal(calls.at(-1).outputKind, "head_final");
+      if (!automatic) assert.equal(calls.length, 12 - confirmedCount);
+    });
+  }
+});
+
+test("a failed Finance review cannot produce a Head conclusion", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we test preorders?", clientRequestId: "finance-review-failure-0001" }, defaultSettings);
+  const calls = [];
+  const provider = { async invoke(input) {
+    calls.push(input);
+    if (input.outputKind === "specialist_reply" && input.assignment.startsWith("You are the Finance Consultant")) return { ok: false, code: "provider_unavailable" };
+    return { ok: true, body: successfulBody(input), sources: [] };
+  } };
+  await createConsultationService({ store, provider }).start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "failed");
+  const events = await store.events(conversation.id);
+  assert.equal(calls.some(call => call.outputKind === "head_final"), false);
+  assert.deepEqual([events.at(-2).role, events.at(-2).recipient], ["Critic", "Finance Consultant"]);
+  assert.equal(events.at(-1).role, "System");
+  assert.equal(events[0].body, "Should we test preorders?");
+});
+
+test("saved specialist agreement still requires all closing positions and Critic review", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we test preorders?", clientRequestId: "saved-team-agreement-0001" }, { ...defaultSettings, discussionDepth: "auto", criticReview: { agreements: [true, true] } });
+  const pairs = [
+    ["Head Consultant", "Strategy Consultant"], ["Head Consultant", "Finance Consultant"],
+    ["Strategy Consultant", "Critic"], ["Finance Consultant", "Critic"],
+    ["Critic", "Strategy Consultant"], ["Strategy Consultant", "Critic"],
+    ["Critic", "Finance Consultant"], ["Finance Consultant", "Critic"]
+  ];
+  for (const [role, recipient] of pairs) await store.appendAgentMessage(conversation.id, accepted.run.generation, { role, recipient, body: "Confirmed contribution.", sources: [] });
+  const kinds = [];
+  const provider = { async invoke(input) { kinds.push(input.outputKind); return { ok: true, body: successfulBody(input), sources: [] }; } };
+  const resumedService = createConsultationService({ store, provider });
+      await resumedService.resume();
+      assert.equal((await store.run(conversation.id)).status, "stopped");
+      await resumedService.continue(conversation.id);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  assert.deepEqual(kinds, ["specialist_final", "specialist_final", "critic_final", "head_final"]);
+  assert.equal((await store.events(conversation.id)).length, 13);
+});
+
+test("sensitive current-topic questions do not enable public web research", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "What is the current market price? Contact me at owner@example.com.", clientRequestId: "sensitive-research-0001" }, defaultSettings);
+  const calls = [];
+  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input), sources: [] }; } };
+  const service = createConsultationService({ store, provider });
+  await service.start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  assert.equal(calls.length, 12);
+  assert.equal(calls.every(call => call.research === false), true);
+});
+
+test("ordinary consultations can use restricted live research without a keyword", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "ordinary-research-0001" }, defaultSettings);
+  const calls = [];
+  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input), sources: [] }; } };
+  const service = createConsultationService({ store, provider });
+  await service.start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  assert.equal(calls.length, 12);
+  assert.equal(calls.slice(0, 2).every(call => call.research === false), true);
+  assert.equal(calls.slice(2, -1).every(call => call.research === true), true);
+});
+
+test("a simple Ukrainian explanation still convenes the configured specialists and Critic", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Що таке валова маржа?", clientRequestId: "direct-answer-0001" }, defaultSettings);
+  const calls = [];
+  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input), sources: [] }; } };
+  const service = createConsultationService({ store, provider });
+  await service.start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  assert.equal(calls.length, 12);
+  assert.deepEqual((await store.events(conversation.id)).map(event => [event.role, event.recipient]), [
+    ["owner", null],
+    ["Head Consultant", "Finance Consultant"], ["Head Consultant", "Strategy Consultant"],
+    ["Finance Consultant", "Critic"], ["Strategy Consultant", "Critic"],
+    ["Critic", "Finance Consultant"], ["Finance Consultant", "Critic"],
+    ["Critic", "Strategy Consultant"], ["Strategy Consultant", "Critic"],
+    ...closingSequence(["Finance Consultant", "Strategy Consultant"]), ["Head Consultant", null]
+  ]);
+  assert.equal(calls.slice(0, 2).every(call => call.outputKind === "head_task" && /must not give the owner advice/u.test(call.assignment)), true);
+});
+
+test("a fixed specialist count selects the requested team without changing the model tuple", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const snapshot = { ...defaultSettings, specialistCount: "3", discussionDepth: "1" };
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "specialist-count-0001" }, snapshot);
+  const calls = [];
+  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input), sources: [] }; } };
+  const service = createConsultationService({ store, provider });
+  await service.start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  assert.equal(calls.length, 17);
+  assert.match(calls[0].assignment, /handoff to the Strategy Consultant/u);
+  assert.equal(calls[0].outputKind, "head_task");
+  assert.match(calls[5].assignment, /^You are the Operations Consultant/u);
+  const events = await store.events(conversation.id);
+  assert.equal(calls[3].assignment.includes(`Your assigned Head brief is exactly:\n${events[1].body}`), true);
+  assert.equal(calls[4].assignment.includes(`Your assigned Head brief is exactly:\n${events[2].body}`), true);
+  assert.equal(calls[5].assignment.includes(`Your assigned Head brief is exactly:\n${events[3].body}`), true);
+  assert.deepEqual((await store.events(conversation.id)).map(event => [event.role, event.recipient]), [
+    ["owner", null],
+    ["Head Consultant", "Strategy Consultant"], ["Head Consultant", "Finance Consultant"], ["Head Consultant", "Operations Consultant"],
+    ["Strategy Consultant", "Critic"], ["Finance Consultant", "Critic"], ["Operations Consultant", "Critic"],
+    ["Critic", "Strategy Consultant"], ["Strategy Consultant", "Critic"],
+    ["Critic", "Finance Consultant"], ["Finance Consultant", "Critic"],
+    ["Critic", "Operations Consultant"], ["Operations Consultant", "Critic"],
+    ...closingSequence(["Strategy Consultant", "Finance Consultant", "Operations Consultant"]), ["Head Consultant", null]
+  ]);
+  assert.equal(calls.every(call => call.model === "gpt-6-astra" && call.effort === "xhigh"), true);
+});
+
+test("five specialists remain distinct from Head Consultant and Critic", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "five-specialists-000001" }, { ...defaultSettings, specialistCount: "5", discussionDepth: "1" });
+  const calls = [];
+  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input), sources: [] }; } };
+  const service = createConsultationService({ store, provider });
+  await service.start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  assert.equal(calls.length, 27);
+  const events = await store.events(conversation.id);
+  assert.deepEqual(events.slice(1, 6).map(event => [event.role, event.recipient]), [
+    ["Head Consultant", "Strategy Consultant"], ["Head Consultant", "Finance Consultant"], ["Head Consultant", "Operations Consultant"], ["Head Consultant", "Product Consultant"], ["Head Consultant", "Risk Consultant"]
+  ]);
+  assert.deepEqual(events.slice(6, 11).map(event => [event.role, event.recipient]), [
+    ["Strategy Consultant", "Critic"], ["Finance Consultant", "Critic"], ["Operations Consultant", "Critic"], ["Product Consultant", "Critic"], ["Risk Consultant", "Critic"]
+  ]);
+});
+
+test("invalid Head tasks are retried and fall back to a case-bound specialist brief", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "head-task-guard-0001" }, { ...defaultSettings, specialistCount: "2", discussionDepth: "1" });
+  const calls = [];
+  const provider = {
+    async invoke(input) {
+      calls.push(input);
+      if (input.outputKind === "head_task") return { ok: true, body: "I recommend that the owner scales the offer immediately.", sources: [] };
+      return { ok: true, body: successfulBody(input), sources: [] };
+    }
+  };
+  const service = createConsultationService({ store, provider });
+  await service.start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  const events = await store.events(conversation.id);
+  const headTasks = events.filter(event => event.role === "Head Consultant" && event.recipient);
+  assert.equal(headTasks.length, 2);
+  assert.equal(calls.filter(call => call.outputKind === "head_task").length, 4);
+  assert.equal(calls.filter(call => call.outputKind === "head_task").every(call => call.assignment.includes("<nanoduck-task>")), true);
+  assert.equal(headTasks.every(event => event.body.includes("Should we revise the offer for next quarter")), true);
+  assert.match(headTasks[0].body, /Strategy Consultant/u);
+  assert.match(headTasks[1].body, /Finance Consultant/u);
+  assert.equal(headTasks.every(event => event.body.startsWith("Analyze this decision as the")), true);
+  assert.equal(events.at(-1).role, "Head Consultant");
+  assert.equal(events.at(-1).recipient, null);
+});
+
+test("a generic BTC-only Head task retains the decision detail and recipient-specific focus", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const body = "I have $100 and its equivalent in BTC. The market is bearish and unpredictable. Should I buy more BTC, sell, or hold?";
+  const accepted = await store.acceptMessage(conversation.id, { body, clientRequestId: "btc-handoff-000001" }, { ...defaultSettings, specialistCount: "2", discussionDepth: "1" });
+  const calls = [];
+  const provider = {
+    async invoke(input) {
+      calls.push(input);
+      return { ok: true, body: input.outputKind === "head_task" ? "<nanoduck-task>Analyze BTC from the assigned perspective and identify the decisive evidence.</nanoduck-task>" : successfulBody(input), sources: [] };
+    }
+  };
+  const service = createConsultationService({ store, provider });
+  await service.start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  const events = await store.events(conversation.id);
+  const tasks = events.filter(event => event.role === "Head Consultant" && event.recipient);
+  assert.equal(calls.filter(call => call.outputKind === "head_task").length, 4);
+  assert.equal(tasks.every(task => task.body.includes("BTC")), true);
+  assert.equal(tasks.every(task => /market|bearish|unpredictable|buy|sell|hold/u.test(task.body)), true);
+  assert.match(tasks[0].body, /actual options/u);
+  assert.match(tasks[1].body, /exposure, affordability or loss-limit/u);
+  assert.equal(calls[4].assignment.includes(`Your assigned Head brief is exactly:\n${tasks[0].body}`), true);
+  assert.equal(calls[5].assignment.includes(`Your assigned Head brief is exactly:\n${tasks[1].body}`), true);
+});
+
+test("role contributions are trimmed at complete sentences within their stated bounds", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "concise-role-bounds-0001" }, { ...defaultSettings, specialistCount: "1", discussionDepth: "1" });
+  const longMessage = "This is a decision-relevant sentence. ".repeat(200);
+  const provider = {
+    async invoke(input) {
+      if (input.outputKind === "head_task") return { ok: true, body: "<nanoduck-task>Assess the decision-critical evidence and material risk.</nanoduck-task>", sources: [] };
+      return { ok: true, body: longMessage, sources: [] };
+    }
+  };
+  const service = createConsultationService({ store, provider });
+  await service.start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  const events = await store.events(conversation.id);
+  const bounded = events.filter(event => event.role !== "owner" && event.role !== "System");
+  assert.deepEqual(bounded.map(event => [event.role, event.recipient]), [
+    ["Head Consultant", "Strategy Consultant"],
+    ["Strategy Consultant", "Critic"],
+    ["Critic", "Strategy Consultant"],
+    ["Strategy Consultant", "Critic"],
+    ...closingSequence(["Strategy Consultant"]), ["Head Consultant", null]
+  ]);
+  assert.equal(bounded[1].body.length <= 1_400, true);
+  assert.equal(bounded[2].body.length <= 1_000, true);
+  assert.equal(bounded[3].body.length <= 1_200, true);
+  assert.equal(bounded.at(-1).body.length <= 2_000, true);
+  assert.equal(bounded.slice(1).every(event => /[.!?]$/u.test(event.body)), true);
+});
+
+test("discussion depth performs the requested number of Critic-specialist exchanges", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "three-exchanges-000001" }, { ...defaultSettings, specialistCount: "1", discussionDepth: "3" });
+  const calls = [];
+  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input), sources: [] }; } };
+  const service = createConsultationService({ store, provider });
+  await service.start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  assert.equal(calls.length, 11);
+  assert.deepEqual((await store.events(conversation.id)).slice(3, -3).map(event => [event.role, event.recipient]), [
+    ["Critic", "Strategy Consultant"], ["Strategy Consultant", "Critic"],
+    ["Critic", "Strategy Consultant"], ["Strategy Consultant", "Critic"],
+    ["Critic", "Strategy Consultant"], ["Strategy Consultant", "Critic"]
+  ]);
+});
+
+test("Auto lets Head choose the specialist count and stops at an agreed consilium", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "automatic-consilium-0001" }, { ...defaultSettings, specialistCount: "auto", discussionDepth: "auto" });
+  const calls = [];
+  const provider = {
+    async invoke(input) {
+      calls.push(input);
+      if (input.assignment.includes("Return exactly [TEAM: N]")) return { ok: true, body: "[TEAM: 4]", sources: [] };
+      if (input.assignment.includes("[CONSILIUM:")) return { ok: true, body: "The constraint is resolved by testing the offer before scaling it. [CONSILIUM: REACHED]", sources: [] };
+      return { ok: true, body: successfulBody(input), sources: [] };
+    }
+  };
+  const service = createConsultationService({ store, provider });
+  await service.start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  assert.equal(calls.length, 23);
+  assert.match(calls[0].assignment, /Return exactly \[TEAM: N\]/u);
+  const run = await store.run(conversation.id);
+  assert.equal(run.snapshot.resolvedSpecialistCount, 4);
+  assert.equal(run.snapshot.autoDepthCompleted, 1);
+  assert.equal(run.snapshot.consiliumReached, true);
+  assert.equal((await store.events(conversation.id)).some(event => /\[(?:TEAM|CONSILIUM):/u.test(event.body)), false);
+});
+
+test("Auto discussion depth never performs more than ten exchanges per specialist", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "automatic-depth-cap-0001" }, { ...defaultSettings, specialistCount: "2", discussionDepth: "auto" });
+  const calls = [];
+  const provider = {
+    async invoke(input) {
+      calls.push(input);
+      return { ok: true, body: input.assignment.includes("[CONSILIUM:") ? "One more material question remains. [CONSILIUM: CONTINUE]" : successfulBody(input), sources: [] };
+    }
+  };
+  const service = createConsultationService({ store, provider });
+  await service.start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  assert.equal(calls.length, 48);
+  for (const role of ["Strategy Consultant", "Finance Consultant"]) {
+    assert.equal((await store.events(conversation.id)).filter(event => event.role === "Critic" && event.recipient === role).length, 10);
+  }
+  assert.equal((await store.run(conversation.id)).snapshot.autoDepthCompleted, 10);
+  assert.equal((await store.run(conversation.id)).snapshot.consiliumReached, false);
+});
+
+test("a Ukrainian finance question assigns the Finance Consultant and directs the Critic reply", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Які грошові та маржинальні цілі зроблять цю пропозицію життєздатною?", clientRequestId: "finance-routing-0001" }, defaultSettings);
+  const calls = [];
+  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input), sources: [] }; } };
+  const service = createConsultationService({ store, provider });
+  await service.start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  assert.match(calls[0].assignment, /to the Finance Consultant/u);
+  assert.match(calls[1].assignment, /to the Strategy Consultant/u);
+  assert.match(calls[2].assignment, /^You are the Finance Consultant/u);
+  assert.match(calls[3].assignment, /^You are the Strategy Consultant/u);
+  assert.match(calls[4].assignment, /Finance Consultant directly/u);
+  assert.equal(calls.every(call => call.assignment.includes("Write this message in Ukrainian.")), true);
+  assert.deepEqual((await store.events(conversation.id)).map(event => [event.role, event.recipient]), [
+    ["owner", null],
+    ["Head Consultant", "Finance Consultant"], ["Head Consultant", "Strategy Consultant"],
+    ["Finance Consultant", "Critic"], ["Strategy Consultant", "Critic"],
+    ["Critic", "Finance Consultant"], ["Finance Consultant", "Critic"],
+    ["Critic", "Strategy Consultant"], ["Strategy Consultant", "Critic"],
+    ...closingSequence(["Finance Consultant", "Strategy Consultant"]), ["Head Consultant", null]
+  ]);
+});
+
+test("spiritual and psychotherapy questions use their bounded specialist roles", async () => {
+  const cases = [
+    ["How should I think about salvation through faith in Christ?", "Spiritual Consultant", /bounded faith scope/u],
+    ["Could IFS help me understand this recurring anxiety?", "Psychotherapist", /non-diagnostic support scope/u]
+  ];
+  for (const [body, role, guidance] of cases) {
+    const store = createMemoryStore();
+    const conversation = await store.createConversation();
+    const accepted = await store.acceptMessage(conversation.id, { body, clientRequestId: `role-routing-${role.replaceAll(" ", "-").toLowerCase()}-0001` }, { ...defaultSettings, specialistCount: "1", discussionDepth: "1" });
+    const calls = [];
+    const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input), sources: [] }; } };
+    const service = createConsultationService({ store, provider });
+    await service.start(conversation.id, accepted.run);
+    await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+    assert.match(calls[0].assignment, new RegExp(role, "u"));
+    assert.match(calls[1].assignment, guidance);
+    assert.equal(calls.some(call => call.assignment.includes("Leadership Consultant")), false);
+  }
+});
+
+test("the first accepted owner message keeps the consultation language for later work", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const calls = [];
+  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input), sources: [] }; } };
+  const service = createConsultationService({ store, provider });
+  const first = await store.acceptMessage(conversation.id, { body: "Що таке валова маржа?", clientRequestId: "language-first-0001" }, defaultSettings);
+  await service.start(conversation.id, first.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  const second = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "language-next-0001" }, defaultSettings);
+  await service.start(conversation.id, second.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  assert.equal(calls.slice(1).every(call => call.assignment.includes("Write this message in Ukrainian.")), true);
+});
+
+test("a resumed consultation continues after its last confirmed message", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "resume-routing-0001" }, defaultSettings);
+  await store.appendAgentMessage(conversation.id, accepted.run.generation, { role: "Head Consultant", recipient: "Strategy Consultant", body: "Test the commercial premise.", sources: [] });
+  const calls = [];
+  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input), sources: [] }; } };
+  const service = createConsultationService({ store, provider });
+  await service.resume();
+  assert.equal((await store.run(conversation.id)).status, "stopped");
+  await service.continue(conversation.id);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  assert.equal(calls.length, 11);
+  assert.match(calls[0].assignment, /to the Finance Consultant/u);
+  assert.deepEqual((await store.events(conversation.id)).map(event => [event.role, event.recipient]), [
+    ["owner", null],
+    ["Head Consultant", "Strategy Consultant"], ["Head Consultant", "Finance Consultant"],
+    ["Strategy Consultant", "Critic"], ["Finance Consultant", "Critic"],
+    ["Critic", "Strategy Consultant"], ["Strategy Consultant", "Critic"],
+    ["Critic", "Finance Consultant"], ["Finance Consultant", "Critic"],
+    ...closingSequence(["Strategy Consultant", "Finance Consultant"]), ["Head Consultant", null]
+  ]);
+});
+
+test("Continue resumes at the next uncommitted turn after Stop", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we revise the offer for next quarter?", clientRequestId: "continue-routing-0001" }, defaultSettings);
+  await store.appendAgentMessage(conversation.id, accepted.run.generation, { role: "Head Consultant", recipient: "Strategy Consultant", body: "Test the commercial premise.", sources: [] });
+  await store.stop(conversation.id);
+  const calls = [];
+  const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input), sources: [] }; } };
+  const service = createConsultationService({ store, provider });
+  assert.ok(await service.continue(conversation.id));
+  await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+  assert.equal(calls.length, 11);
+  assert.match(calls[0].assignment, /to the Finance Consultant/u);
+});
+
+test("Stop drains the old provider before Continue can start another execution", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we change the offer?", clientRequestId: "controller-replacement-0001" }, defaultSettings);
+  const calls = []; const deferred = [];
+  const provider = {
+    invoke(input) {
+      calls.push(input);
+      return new Promise(resolve => deferred.push(resolve));
+    }
+  };
+  const service = createConsultationService({ store, provider });
+  await service.start(conversation.id, accepted.run);
+  await waitFor(() => calls.length === 1);
+  const stopping = service.stop(conversation.id);
+  await waitFor(() => calls[0].signal.aborted);
+  assert.equal((await store.run(conversation.id))?.status, "stopped");
+  assert.equal(await service.continue(conversation.id), undefined);
+  deferred[0]({ ok: false, code: "cancelled" });
+  await stopping;
+  const resumed = await service.continue(conversation.id);
+  assert.ok(resumed);
+  await waitFor(() => calls.length === 2);
+  deferred[0]({ ok: false, code: "cancelled" });
+  await new Promise(resolve => setImmediate(resolve));
+  assert.equal(calls[1].signal.aborted, false);
+  const stoppingAgain = service.stop(conversation.id);
+  await waitFor(() => calls[1].signal.aborted);
+  deferred[1]({ ok: false, code: "cancelled" });
+  await stoppingAgain;
+});
+
+test("a classified provider failure preserves the owner question and identifies the recovery state", async () => {
+  const store = createMemoryStore();
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, { body: "Should we keep the original plan?", clientRequestId: "classified-provider-failure-0001" }, defaultSettings);
+  const provider = { async invoke() { return { ok: false, code: "method_unavailable" }; } };
+  const service = createConsultationService({ store, provider });
+  await service.start(conversation.id, accepted.run);
+  await waitFor(async () => (await store.run(conversation.id))?.status === "failed");
+  assert.deepEqual((await store.events(conversation.id)).map(event => [event.role, event.body]), [
+    ["owner", "Should we keep the original plan?"],
+    ["System", "The selected Codex runtime cannot complete a required consultation step. Your question remains saved."]
+  ]);
+});
