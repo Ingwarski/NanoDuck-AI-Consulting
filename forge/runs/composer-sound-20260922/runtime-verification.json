@@ -598,6 +598,71 @@
       "log_sha256": "4cfb0c3b2fe32b5440ad35c26936b26a1088ada97419df0b2ae03d106606d9af"
     },
     "artifact_check": "passed: 23 Markdown files, 77 JavaScript syntax checks, three retained candidates",
-    "fresh_ci": "pending at recording"
+    "fresh_ci": "passed; see final_ci_verification"
+  },
+  "final_ci_verification": {
+    "commit": "be15b9f062fb141c1732c493f1f20854e5a747e8",
+    "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35763059239",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "name": "edge",
+        "result": "success",
+        "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35763059239/job/106865650514"
+      },
+      {
+        "name": "windows-24 / runtime",
+        "result": "success",
+        "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35763059239/job/106865650745"
+      },
+      {
+        "name": "browsers",
+        "result": "success",
+        "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35763059239/job/106865650920"
+      },
+      {
+        "name": "windows-22 / runtime",
+        "result": "success",
+        "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35763059239/job/106865650978"
+      },
+      {
+        "name": "macos-24 / runtime",
+        "result": "success",
+        "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35763059239/job/106865650983"
+      },
+      {
+        "name": "linux-22 / runtime",
+        "result": "success",
+        "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35763059239/job/106865651036"
+      },
+      {
+        "name": "linux-24 / runtime",
+        "result": "success",
+        "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35763059239/job/106865651214"
+      },
+      {
+        "name": "macos-22 / runtime",
+        "result": "success",
+        "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35763059239/job/106865651230"
+      }
+    ],
+    "source_snapshot_sha256": "fd39e24ec1091269bdbd66dd5c0c39e43305ab50d0a913e2cd1cdb33382e519a",
+    "changed_test_hashes_since_initial_snapshot": [
+      {
+        "path": "scripts/browser-active-discussion.mjs",
+        "sha256": "b5c0d3826b7ae19277204d3b4ca7925b237f4e12134e07574cc7f1c7e68f34ff"
+      },
+      {
+        "path": "scripts/browser-check.mjs",
+        "sha256": "55fe1506b4c2213c1c186df154cbb65a0b5e3be0cd92aa57ec88ce5aaf22c2fe"
+      },
+      {
+        "path": "scripts/browser-logoff.mjs",
+        "sha256": "1160232c830237d5793169030e8863bb21037f644ad48ad17caec51242470fb8"
+      }
+    ],
+    "application_runtime_bytes_unchanged": true,
+    "browser_harness_reliability": "New-record loading is awaited before the next scenario; helper phases have progress logs and deadlines; a failed intercepted Logoff fixture request rejects its waiter.",
+    "earlier_edge_stall": "One intermediate Edge run was canceled after a stall without a diagnostic. The final bounded suite passed; that earlier stall is not claimed as a confirmed application defect."
   }
 }
