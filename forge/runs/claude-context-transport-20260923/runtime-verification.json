@@ -99,6 +99,48 @@
     }
   },
   "ci": {
-    "status": "pending"
+    "status": "verification_followup_in_progress",
+    "prior_attempts": [
+      {
+        "revision": "d73ef4309f9bca46ea40b38af75043f8e276ba1e",
+        "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35788384310",
+        "status": "failure",
+        "jobs": [
+          {
+            "name": "edge",
+            "result": "success"
+          },
+          {
+            "name": "macos-22 / runtime",
+            "result": "success"
+          },
+          {
+            "name": "browsers",
+            "result": "failure"
+          },
+          {
+            "name": "macos-24 / runtime",
+            "result": "success"
+          },
+          {
+            "name": "windows-22 / runtime",
+            "result": "success"
+          },
+          {
+            "name": "linux-24 / runtime",
+            "result": "success"
+          },
+          {
+            "name": "windows-24 / runtime",
+            "result": "success"
+          },
+          {
+            "name": "linux-22 / runtime",
+            "result": "success"
+          }
+        ],
+        "note": "All six runtime jobs and Windows Edge passed. Linux Chromium and Firefox passed; the WebKit audio phase timed out before cleanup exposed a narrower cause."
+      }
+    ]
   }
 }

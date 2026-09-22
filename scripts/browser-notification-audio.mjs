@@ -1,5 +1,14 @@
 import assert from "node:assert/strict";
 
+const bounded = async (operation, label, milliseconds = 12_000) => {
+  let timer;
+  try {
+    return await Promise.race([operation, new Promise((_, reject) => {
+      timer = setTimeout(() => reject(new Error(`${label} exceeded ${milliseconds}ms`)), milliseconds);
+    })]);
+  } finally { clearTimeout(timer); }
+};
+
 // Observe real media playback. The denial toggle is used only by the explicit
 // blocked-recovery scenario; ordinary play(), events and timing remain native.
 export const recordNotificationPlayback = async page => {
@@ -76,13 +85,19 @@ const assertNativeCompletion = (record, label) => {
 // Native HTMLMediaElement completion proves browser playback, not physical
 // speaker audibility. All pages, assets and state belong to the isolated fixture.
 export const verifyNotificationAudio = async (appPage, name) => {
-  const page = await appPage.context().newPage();
+  const page = await bounded(appPage.context().newPage(), `${name} audio fixture creation`);
+  page.setDefaultTimeout(10_000); page.setDefaultNavigationTimeout(10_000);
   const origin = new URL(appPage.url()).origin;
   const fixtureUrl = `${origin}/notification-audio-verification`;
   const knockUrl = `${origin}/sounds/table-taps-250ms-v5.wav`;
   let release; const held = new Promise(resolve => { release = resolve; });
+  let arrived; const assetArrived = new Promise(resolve => { arrived = resolve; });
   let heldAssetRequests = 0;
-  const snapshot = () => page.evaluate(async () => {
+  let stage = "setup"; let failed = false; let closing = false;
+  const routeErrors = [];
+  const enter = label => { stage = label; console.log(`${name} native audio: ${label}.`); };
+  const evaluate = (callback, argument, timeout = 12_000) => bounded(page.evaluate(callback, argument), `${name} audio ${stage}`, timeout);
+  const snapshot = () => evaluate(async () => {
     await Promise.all(window.notificationEvidence.metadata);
     return { attempts: window.notificationEvidence.attempts, elements: window.notificationEvidence.media.length,
       media: window.notificationEvidence.media.map(media => ({ src: media.getAttribute("src"), paused: media.paused })),
@@ -90,10 +105,19 @@ export const verifyNotificationAudio = async (appPage, name) => {
   });
   try {
     await recordNotificationPlayback(page);
-    await page.route(knockUrl, async route => { const response = await route.fetch(); heldAssetRequests++; await held; await route.fulfill({ response }); });
+    await page.route(knockUrl, async route => {
+      try {
+        const response = await route.fetch({ timeout: 10_000 });
+        heldAssetRequests++; arrived();
+        await held; await route.fulfill({ response });
+      } catch (error) {
+        if (!closing) routeErrors.push(error.message);
+      }
+    });
     await page.route(fixtureUrl, route => route.fulfill({ contentType: "text/html", body: '<!doctype html><html lang="en"><title>Notification audio verification</title><button id="enable">Enable sounds</button><button id="preview">Preview another sound</button></html>' }));
     await page.goto(fixtureUrl);
-    await page.evaluate(async () => {
+    await page.bringToFront();
+    await evaluate(async () => {
       const { createNotificationAudio } = await import("/client/notification-audio.js");
       window.audioController = createNotificationAudio(); window.audioController.setPreference("knock");
       document.querySelector("#enable").addEventListener("click", event => {
@@ -104,7 +128,8 @@ export const verifyNotificationAudio = async (appPage, name) => {
         window.previewResult = undefined; void window.audioController.preview("ripple").then(result => { window.previewResult = result; });
       });
     });
-    assert.equal(await page.evaluate(() => window.audioController.play()), "needs-gesture");
+    enter("finite primer");
+    assert.equal(await evaluate(() => window.audioController.play()), "needs-gesture");
     await page.locator("#enable").click();
     await page.waitForFunction(() => window.audioResult !== undefined);
     const priming = await snapshot();
@@ -113,18 +138,22 @@ export const verifyNotificationAudio = async (appPage, name) => {
     const primer = priming.attempts[0];
     assert.equal(primer.info.silent, true); assert.equal(primer.info.validWave, true);
     assertNativeCompletion(primer, `${name} finite silent media primer`);
-    const gesture = await page.evaluate(() => window.audioGesture);
+    const gesture = await evaluate(() => window.audioGesture);
     assert.equal(gesture.trusted, true); if (gesture.active !== undefined) assert.equal(gesture.active, true);
     // evaluate itself grants activation in Chromium. Wait inside the page and
     // make no intervening evaluate/locator calls before the native play request.
+    enter("delayed cold Knock");
     const coldStarted = page.waitForEvent('console', { predicate: message => message.text() === 'fixture-cold-play-started' });
-    const coldPlayback = page.evaluate(async () => {
+    const coldPlayback = evaluate(async () => {
       await new Promise(resolve => setTimeout(resolve, 5_500));
       const pending = window.audioController.play();
       console.log('fixture-cold-play-started');
       return pending;
-    });
-    await coldStarted;
+    }, undefined, 18_000);
+    // Observe both independent events: WebKit may request metadata only after
+    // play(), so its console event does not imply route.fetch has finished.
+    void coldPlayback.catch(() => {});
+    await bounded(Promise.all([coldStarted, assetArrived]), `${name} cold playback and asset arrival`);
     assert.equal(heldAssetRequests > 0, true, `${name} Knock bytes are held until after the delayed play request`);
     release();
     const coldResult = await coldPlayback;
@@ -136,13 +165,15 @@ export const verifyNotificationAudio = async (appPage, name) => {
     assert.equal(cold.attempts.at(-1).element, primer.element);
     await page.unroute(knockUrl);
 
+    enter("unsaved preview");
     await page.locator("#preview").click(); await page.waitForFunction(() => window.previewResult !== undefined);
     const preview = await snapshot();
     assert.equal(preview.preview, "played"); assert.equal(preview.preference, "knock");
     assertNativeCompletion(preview.attempts.at(-1), `${name} unsaved Ripple preview`);
     assert.equal(preview.attempts.at(-1).info.silent, false); assert.equal(preview.elements, 1);
     assert.equal(preview.media[0].src, "/sounds/table-taps-250ms-v5.wav", 'Preview restores saved source on the same element');
-    const results = await page.evaluate(async () => {
+    enter("delayed saved choices");
+    const results = await evaluate(async () => {
       await new Promise(resolve => setTimeout(resolve, 5_500));
       const results = [];
       for (const sound of ["knock", "knock", "chime", "ripple"]) {
@@ -152,7 +183,7 @@ export const verifyNotificationAudio = async (appPage, name) => {
       }
       await Promise.all(window.notificationEvidence.metadata);
       return results;
-    });
+    }, undefined, 18_000);
     const played = await snapshot();
     for (const { sound, result, record } of results) {
       assert.equal(result, "played", `${name} delayed ${sound}: ${JSON.stringify(record)}`);
@@ -161,22 +192,50 @@ export const verifyNotificationAudio = async (appPage, name) => {
       assert.equal(record.info.silent, false); assert.equal(record.element, primer.element); assert.equal(played.elements, 1);
       if (sound === "knock") assert.equal(record.src, "/sounds/table-taps-250ms-v5.wav");
     }
-    const off = await page.evaluate(async () => {
+    enter("Off and disposal cancellation");
+    const off = await evaluate(async () => {
       const pending = window.audioController.play();
       window.audioController.setPreference("off"); const before = window.notificationEvidence.attempts.length;
       return { cancelled: await pending, result: await window.audioController.play(), before, after: window.notificationEvidence.attempts.length };
     });
     assert.equal(off.cancelled, "cancelled"); assert.equal(off.result, "off"); assert.equal(off.before, off.after);
     const stopped = await snapshot(); assert.equal(stopped.media.every(media => media.paused && !media.src), true);
-    await page.evaluate(() => window.audioController.setPreference("ripple"));
+    await evaluate(() => window.audioController.setPreference("ripple"));
     await page.locator("#enable").click(); await page.waitForFunction(() => window.audioResult !== undefined);
     assert.equal((await snapshot()).result, "played");
-    const disposed = await page.evaluate(async () => {
+    const disposed = await evaluate(async () => {
       const pending = window.audioController.play(); window.audioController.dispose();
       return { result: await pending, status: window.audioController.status };
     });
     assert.equal(disposed.result, "cancelled"); assert.equal(disposed.status, "disposed");
     const released = await snapshot(); assert.equal(released.media.every(media => media.paused && !media.src), true);
-    assert.equal(await page.evaluate(() => window.audioController.play()), "cancelled");
-  } finally { release(); await page.close(); }
+    assert.equal(await evaluate(() => window.audioController.play()), "cancelled");
+    assert.deepEqual(routeErrors, [], `${name} intercepted sound requests`);
+  } catch (error) {
+    failed = true;
+    // Report before closing: a platform media/network teardown must not mask
+    // the original assertion or leave only the outer phase timeout in CI.
+    console.error(`${name} native audio failed at ${stage}:`, error);
+    const state = await bounded(page.evaluate(() => ({
+      visibility: document.visibilityState, focus: document.hasFocus(),
+      status: window.audioController?.status, result: window.audioResult,
+      attempts: window.notificationEvidence?.attempts,
+      media: window.notificationEvidence?.media.map(media => ({
+        src: media.getAttribute('src'), paused: media.paused, readyState: media.readyState,
+        networkState: media.networkState, currentTime: media.currentTime, error: media.error?.code
+      }))
+    })), `${name} audio failure snapshot`, 1_000).catch(() => ({ unavailable: true }));
+    console.error(`${name} native audio evidence:`, { stage, heldAssetRequests, routeErrors, ...state });
+    throw error;
+  } finally {
+    closing = true; release();
+    try {
+      await bounded(page.unrouteAll({ behavior: 'ignoreErrors' }), `${name} audio route cleanup`, 3_000);
+      await bounded(page.close(), `${name} audio page cleanup`, 3_000);
+      await bounded(appPage.bringToFront(), `${name} application focus restoration`, 3_000);
+    } catch (error) {
+      if (!failed) throw error;
+      console.error(`${name} native audio cleanup:`, error.message);
+    }
+  }
 };

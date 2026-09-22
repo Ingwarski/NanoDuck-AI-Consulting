@@ -65,7 +65,9 @@ try {
     }
   };
   const channel = process.argv.find(value => value.startsWith('--channel='))?.slice(10);
-  const choices = channel ? [[channel, chromium, { channel }]] : [['chromium', chromium, {}], ['firefox', firefox, {}], ['webkit', webkit, {}]];
+  const selectedEngine = process.argv.find(value => value.startsWith('--engine='))?.slice(9);
+  if (selectedEngine && (channel || !['chromium', 'firefox', 'webkit'].includes(selectedEngine))) throw new Error('Choose one supported --engine or --channel.');
+  const choices = channel ? [[channel, chromium, { channel }]] : [['chromium', chromium, {}], ['firefox', firefox, {}], ['webkit', webkit, {}]].filter(([name]) => !selectedEngine || name === selectedEngine);
   for (const [name, engine, options] of choices) {
     // Each engine has independent in-memory authentication-attempt limits.
     // The encrypted fixture data remains in place across these restarts.

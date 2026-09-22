@@ -15,7 +15,7 @@
       },
       {
         "path": "scripts/browser-notification-audio.mjs",
-        "sha256": "14db67444e225ea92f9a8343454bcad1332d853ff3ce3ce9624383180fc4f68c"
+        "sha256": "4362725984670b92c6f7ab55c18c35801b7565170edbf65c3b27373b89014850"
       },
       {
         "path": "scripts/browser-active-discussion.mjs",
@@ -23,7 +23,7 @@
       },
       {
         "path": "scripts/browser-check.mjs",
-        "sha256": "d9df7efc1a94f18a1c6509b5d45fc7668aa7dac7524c8ef864744aaa9a6f5934"
+        "sha256": "9b8b886385279939f5519bf018a51db87493713f9c72c29734e3407d2a1f254b"
       },
       {
         "path": "scripts/browser-logoff.mjs",
@@ -130,6 +130,64 @@
     }
   },
   "ci": {
-    "status": "pending"
+    "status": "verification_followup_in_progress",
+    "prior_attempts": [
+      {
+        "revision": "d73ef4309f9bca46ea40b38af75043f8e276ba1e",
+        "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35788384310",
+        "status": "failure",
+        "jobs": [
+          {
+            "name": "edge",
+            "result": "success"
+          },
+          {
+            "name": "macos-22 / runtime",
+            "result": "success"
+          },
+          {
+            "name": "browsers",
+            "result": "failure"
+          },
+          {
+            "name": "macos-24 / runtime",
+            "result": "success"
+          },
+          {
+            "name": "windows-22 / runtime",
+            "result": "success"
+          },
+          {
+            "name": "linux-24 / runtime",
+            "result": "success"
+          },
+          {
+            "name": "windows-24 / runtime",
+            "result": "success"
+          },
+          {
+            "name": "linux-22 / runtime",
+            "result": "success"
+          }
+        ],
+        "note": "All six runtime jobs and Windows Edge passed. Linux Chromium and Firefox passed; the WebKit audio phase timed out before cleanup exposed a narrower cause."
+      }
+    ]
+  },
+  "verification_followup": {
+    "reason": "The initial Linux WebKit native audio phase timed out without exposing its internal step.",
+    "changes": [
+      "Wait independently for delayed play and intercepted asset arrival; do not infer route.fetch completion from a console event",
+      "Make the isolated audio fixture foreground and restore application focus afterward",
+      "Bound individual operations and cleanup, and record failures before cleanup can mask them",
+      "Retain native playback, delayed activation and cancellation assertions"
+    ],
+    "application_runtime_changed": false,
+    "original_full_local_browser_suite_revision": "d73ef4309f9bca46ea40b38af75043f8e276ba1e",
+    "targeted_local_webkit": {
+      "result": "passed",
+      "command": "node scripts/browser-check.mjs --engine=webkit",
+      "scope": "Full isolated WebKit application suite including all native audio stages, active discussion, retry and Logoff"
+    }
   }
 }
