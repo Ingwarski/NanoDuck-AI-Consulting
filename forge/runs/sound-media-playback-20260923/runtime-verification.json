@@ -15,7 +15,7 @@
       },
       {
         "path": "scripts/browser-notification-audio.mjs",
-        "sha256": "4362725984670b92c6f7ab55c18c35801b7565170edbf65c3b27373b89014850"
+        "sha256": "f65d58432c3416be4fd9fc1c496a59d8e42283d16cedacb2af415e393e04fff8"
       },
       {
         "path": "scripts/browser-active-discussion.mjs",
@@ -27,7 +27,7 @@
       },
       {
         "path": "scripts/browser-logoff.mjs",
-        "sha256": "11c739a75082c6dbdeb6b83fab67bad4156728bf4c8af0ee3d24af8ddf0c268b"
+        "sha256": "c061c7c26c931f40c98dc2afe8179122badb91cb64b3ebd5d4f8b6b4acac46a0"
       },
       {
         "path": "public/sounds/table-taps-250ms-v5.wav",
@@ -171,6 +171,12 @@
           }
         ],
         "note": "All six runtime jobs and Windows Edge passed. Linux Chromium and Firefox passed; the WebKit audio phase timed out before cleanup exposed a narrower cause."
+      },
+      {
+        "revision": "acc5be6bb7ccccc6c335f42b049436beca41d767",
+        "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35789402078/attempts/1",
+        "status": "failure",
+        "note": "Six jobs passed. Firefox completed native playback but Logoff verification failed; an unobserved cancellation waiter masked the earlier step. Windows Node 24 had two unavailable results after approximately 15 seconds during provider setup; transport bytes passed and identical source had passed the preceding run. Windows is being retried unchanged; browser verification is being synchronized with Settings loading."
       }
     ]
   },
@@ -188,6 +194,17 @@
       "result": "passed",
       "command": "node scripts/browser-check.mjs --engine=webkit",
       "scope": "Full isolated WebKit application suite including all native audio stages, active discussion, retry and Logoff"
+    },
+    "logoff_fixture": {
+      "changes": [
+        "Wait for actual Settings load before editing the unsaved choice",
+        "Select the intended preview at the held-response boundary",
+        "Use 0.25x playback only in the synthetic cancellation fixture; natural completion tests remain at 1x",
+        "Observe the cancellation waiter rejection immediately and report the original failing stage"
+      ],
+      "result": "passed",
+      "command": "node scripts/browser-check.mjs --engine=firefox",
+      "scope": "Full isolated Firefox application suite"
     }
   }
 }

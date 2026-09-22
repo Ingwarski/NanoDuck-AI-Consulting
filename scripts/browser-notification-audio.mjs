@@ -50,6 +50,9 @@ export const recordNotificationPlayback = async page => {
       });
       media.pause = () => { if (active && !active.nativeEnded) active.pauseRequested = true; return pause(); };
       media.play = () => {
+        // The Logoff fixture alone slows its synthetic preview to leave time
+        // for cross-process UI cancellation. Native completion checks use 1x.
+        if (window.notificationEvidence.cancellationPlaybackRate !== undefined) media.playbackRate = window.notificationEvidence.cancellationPlaybackRate;
         const src = media.getAttribute("src");
         active = { element: index, src, info: metadata.get(src) ?? { silent: false }, startedAt: performance.now(), startTime: media.currentTime,
           furthestTime: media.currentTime, playbackRate: media.playbackRate, loop: media.loop, gestureActive: navigator.userActivation?.isActive,

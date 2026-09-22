@@ -6,7 +6,13 @@ export async function verifyPrivateLogoff(page, context, origin, password, name)
   const cookie = (await context.cookies()).find(item => item.name === '__Host-nanoduck-session');
   assert.ok(cookie);
   await page.setViewportSize({ width: 1280, height: 900 });
+  const settingsLoaded = page.waitForResponse(response => response.request().method() === 'GET'
+    && /^\/api\/instruction-documents\/[^/]+\/history$/u.test(new URL(response.url()).pathname));
+  void settingsLoaded.catch(() => {});
   await page.locator('.desktop-nav [data-nav="settings"]').click();
+  // Populated editors may belong to the previous visit. This request is issued
+  // only after loadSettings has applied the new saved choices to the controls.
+  await (await settingsLoaded).finished();
   await page.locator('#managed-document-markdown').waitFor({ state: 'visible' });
   await page.waitForFunction(() => document.querySelector('#managed-document-markdown').value.length > 0);
   await page.locator('#managed-document-markdown').fill(guidance);
@@ -29,14 +35,24 @@ export async function verifyPrivateLogoff(page, context, origin, password, name)
     } catch (error) { captureFailed(error); /* A response captured before cancellation has already resolved received. */ }
     finally { completed(); }
   });
+  let stage = 'hold the private response';
   try {
     await page.locator('.desktop-nav [data-nav="settings"]').click();
     await received;
-    const cancelled = page.waitForEvent('requestfailed', { predicate: request => request.url().endsWith('/api/instruction-documents') });
-    const previewIndex = await page.evaluate(() => window.notificationEvidence.attempts.length);
+    stage = 'start the cancellation preview';
+    await page.locator('#notification-sound').selectOption('chime');
+    const previewIndex = await page.evaluate(() => {
+      window.notificationEvidence.cancellationPlaybackRate = .25;
+      return window.notificationEvidence.attempts.length;
+    });
     await page.locator('#preview-notification-sound').click();
-    await page.waitForFunction(index => window.notificationEvidence.attempts[index]?.nativePlaying === true, previewIndex);
+    await page.waitForFunction(index => window.notificationEvidence.attempts[index]?.nativePlaying === true, previewIndex, { timeout: 10_000 });
     assert.equal(await page.evaluate(index => window.notificationEvidence.attempts[index].nativeEnded === true, previewIndex), false, 'Logoff begins during real media playback');
+    stage = 'cancel playback and private requests on offline Logoff';
+    const cancelled = page.waitForEvent('requestfailed', { predicate: request => request.url().endsWith('/api/instruction-documents'), timeout: 15_000 });
+    // Preserve a preceding assertion as the reported failure. The original
+    // waiter is still awaited below, so cancellation remains a required check.
+    void cancelled.catch(() => {});
     await context.setOffline(true);
     await page.locator('[data-session-action]').click();
     await page.waitForFunction(() => document.querySelector('#logout-status')?.textContent.includes('unconfirmed'));
@@ -50,6 +66,7 @@ export async function verifyPrivateLogoff(page, context, origin, password, name)
     assert.equal(await page.evaluate(() => window.notificationEvidence.media.every(media => media.paused && !media.getAttribute('src'))), true, 'Logoff pauses and releases every media source');
     assert.equal(await page.evaluate(index => window.notificationEvidence.attempts[index].pauseRequested === true && !window.notificationEvidence.attempts[index].nativeEnded, previewIndex), true, 'Logoff cancels the active preview before natural completion');
     release(); await finished; await cancelled;
+    stage = 'reject the late private response';
     await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => resolve())));
     assert.equal(await page.locator('#thread').textContent(), '');
     assert.equal(await page.locator('#message').inputValue(), '');
@@ -57,6 +74,7 @@ export async function verifyPrivateLogoff(page, context, origin, password, name)
     assert.equal(await page.locator('#runtime-instructions').inputValue(), '');
     assert.equal(await page.locator('#app').isVisible(), false);
     await context.setOffline(false);
+    stage = 'recover and confirm session revocation';
     await page.reload();
     await page.locator('#logout-pending').waitFor({ state: 'visible' });
     assert.equal(await page.locator('#app').isVisible(), false);
@@ -84,6 +102,7 @@ export async function verifyPrivateLogoff(page, context, origin, password, name)
     assert.doesNotMatch(await page.locator('body').textContent(), /PRIVATE_UNSENT_|PRIVATE_GUIDANCE_/u);
 
     // Keep the ordinary connected sign-out path covered as well.
+    stage = 'connected Logoff';
     await page.getByLabel('Workspace password', { exact: true }).fill(password);
     await page.locator('#local-sign-in').click();
     await page.locator('#consent-check').check();
@@ -91,6 +110,9 @@ export async function verifyPrivateLogoff(page, context, origin, password, name)
     await page.locator('#app').waitFor({ state: 'visible' });
     await page.locator('[data-session-action]').click();
     await page.locator('#sign-in').waitFor({ state: 'visible' });
+  } catch (error) {
+    console.error(`${name} private logoff failed while trying to ${stage}:`, error);
+    throw error;
   } finally {
     release(); await context.setOffline(false); await page.unroute(pattern);
   }

@@ -96,6 +96,20 @@
         "private LAN from same computer"
       ],
       "note": "The earlier failed consultation was already inactive. No Stop, conversation replay, saved-setting change or private message submission was performed."
+    },
+    "saved_discussion_recovery": {
+      "result": "observed",
+      "observed_at": "2026-09-22T21:57:31.473Z",
+      "scope": "Read-only metadata of the already resumed local discussion",
+      "status": "active",
+      "model": "claude-opus-5-5",
+      "effort": "high",
+      "new_confirmed_critic_responses_since_update": 14,
+      "new_system_failures_since_update": 0,
+      "agent_submitted_retry": false,
+      "agent_submitted_new_message": false,
+      "private_content_logged": false,
+      "limit": "Confirms progress through the previously failing Critic route; the consultation was still active, so no completed outcome is claimed."
     }
   },
   "ci": {
@@ -140,6 +154,12 @@
           }
         ],
         "note": "All six runtime jobs and Windows Edge passed. Linux Chromium and Firefox passed; the WebKit audio phase timed out before cleanup exposed a narrower cause."
+      },
+      {
+        "revision": "acc5be6bb7ccccc6c335f42b049436beca41d767",
+        "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35789402078/attempts/1",
+        "status": "failure",
+        "note": "Six jobs passed. Firefox completed native playback but Logoff verification failed; an unobserved cancellation waiter masked the earlier step. Windows Node 24 had two unavailable results after approximately 15 seconds during provider setup; transport bytes passed and identical source had passed the preceding run. Windows is being retried unchanged; browser verification is being synchronized with Settings loading."
       }
     ]
   }
