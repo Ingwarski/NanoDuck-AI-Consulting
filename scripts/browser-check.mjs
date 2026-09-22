@@ -14,6 +14,18 @@ import { verifyPrivateLogoff } from './browser-logoff.mjs';
 import { verifyNotificationAudio } from './browser-notification-audio.mjs';
 import { recordNotificationPlayback, verifyActiveDiscussion, verifySavedSoundOff } from './browser-active-discussion.mjs';
 
+async function phase(name, action) {
+  console.log(`${name}: started.`);
+  let timer;
+  try {
+    await Promise.race([
+      action(),
+      new Promise((_, reject) => { timer = setTimeout(() => reject(new Error(`${name} exceeded 60 seconds`)), 60_000); })
+    ]);
+    console.log(`${name}: passed.`);
+  } finally { clearTimeout(timer); }
+}
+
 const root = fileURLToPath(new URL('../', import.meta.url));
 const temporary = await mkdtemp(join(tmpdir(), 'nanoduck-browser-'));
 const password = 'Synthetic browser password only';
@@ -71,9 +83,9 @@ try {
       await page.locator('#consent-check').check();
       await page.locator('#consent-button').click();
       await page.locator('#app').waitFor({ state: 'visible' });
-      await verifyNotificationAudio(page, name);
-      await verifyActiveDiscussion(page, name, root);
-      await verifyLostAcceptanceRetry(page, name);
+      await phase(`${name} native audio`, () => verifyNotificationAudio(page, name));
+      await phase(`${name} active discussion`, () => verifyActiveDiscussion(page, name, root));
+      await phase(`${name} acceptance retry`, () => verifyLostAcceptanceRetry(page, name));
       await page.waitForFunction(() => document.querySelector('#run-status').textContent.toLowerCase().includes('complete'), undefined, { timeout: 30_000 });
       assert.match(await page.locator('#thread').innerText(), /Critic/);
       assert.equal(await page.locator('#composer').isVisible(), true, 'Completion restores composer');
@@ -104,11 +116,12 @@ try {
       await page.locator('#voice-close').click();
       await mkdir(join(root, 'output', 'playwright'), { recursive: true });
       await page.screenshot({ path: join(root, 'output', 'playwright', `${name}-mobile.png`), fullPage: true });
-      await verifyPrivateLogoff(page, context, origin, password, name);
+      await phase(`${name} private logoff`, () => verifyPrivateLogoff(page, context, origin, password, name));
       assert.deepEqual(errors, [], `${name} uncaught browser errors`);
       console.log(`${name}: password, consent, compact active composer, isolated square Stop, draft/image restoration, saved sound hydration, delayed native audio, duplicate suppression, blocked recovery, Off on reload, consultation, lost-response retry with an edited draft and image, outcome, refresh, settings, saved history, mobile layout, voice fallback, offline/connected logout, late-response privacy and locked reload/history passed.`);
       await context.close();
-    } finally {
+    } catch (error) { console.error(`${name}: browser verification failed before cleanup.`, error); throw error; } finally {
+      console.log(`${name}: closing fixture.`);
       await browser.close();
       if (child.exitCode === null && child.signalCode === null) { const stopped = once(child, 'exit'); child.kill('SIGTERM'); await stopped; }
     }

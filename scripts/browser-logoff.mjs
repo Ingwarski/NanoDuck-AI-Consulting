@@ -13,9 +13,11 @@ export async function verifyPrivateLogoff(page, context, origin, password, name)
   await page.locator('.desktop-nav [data-nav="discussion"]').click();
   await page.locator('#message').fill(draft);
 
-  let release; let captured; let completed;
+  let release; let captured; let captureFailed; let completed;
   const held = new Promise(resolve => { release = resolve; });
-  const received = new Promise(resolve => { captured = resolve; });
+  const received = new Promise((resolve, reject) => { captured = resolve; captureFailed = reject; });
+  // A failed intercepted request must fail the test, not leave its waiter pending.
+  void received.catch(() => {});
   const finished = new Promise(resolve => { completed = resolve; });
   const pattern = '**/api/instruction-documents';
   await page.route(pattern, async route => {
@@ -23,7 +25,7 @@ export async function verifyPrivateLogoff(page, context, origin, password, name)
       const response = await route.fetch();
       captured(); await held;
       await route.fulfill({ response });
-    } catch { /* Client cancellation may dispose this response before release. */ }
+    } catch (error) { captureFailed(error); /* A response captured before cancellation has already resolved received. */ }
     finally { completed(); }
   });
   try {
