@@ -6,12 +6,15 @@ const owns = metadata => typeof process.getuid !== "function" || metadata.uid ==
 const windowsAclProgram = `
 [Console]::Error.WriteLine('NANODUCK_PRIVATE_STAGE:script')
 $ErrorActionPreference = 'Stop'
-$stage = 'compile'
+$stage = 'module'
 $handle = $null
 $identity = $null
 try {
+[Console]::Error.WriteLine('NANODUCK_PRIVATE_STAGE:module')
+Import-Module ($PSHOME + '\\Modules\\Microsoft.PowerShell.Utility\\Microsoft.PowerShell.Utility.psd1') -ErrorAction Stop
+$stage = 'compile'
 [Console]::Error.WriteLine('NANODUCK_PRIVATE_STAGE:compile')
-Add-Type -TypeDefinition @'
+Microsoft.PowerShell.Utility\\Add-Type -TypeDefinition @'
 using System;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
@@ -129,14 +132,14 @@ function applyWindowsPrivacy(path, kind) {
   try {
     if (!lstatSync(executable).isFile()) throw new Error("powershell_unavailable");
     execFileSync(executable, ["-NoLogo", "-NoProfile", "-NonInteractive", "-EncodedCommand", Buffer.from(windowsAclProgram, "utf16le").toString("base64")], {
-      env: { ...process.env, SystemRoot: systemDirectory, WINDIR: systemDirectory, NANODUCK_PRIVATE_PATH: path, NANODUCK_PRIVATE_KIND: kind },
+      env: { ...process.env, SystemRoot: systemDirectory, WINDIR: systemDirectory, PSModulePath: join(systemDirectory, "System32", "WindowsPowerShell", "v1.0", "Modules"), NANODUCK_PRIVATE_PATH: path, NANODUCK_PRIVATE_KIND: kind },
       windowsHide: true, timeout: 15_000, stdio: ["ignore", "pipe", "pipe"]
     });
   } catch (error) {
     if (error.status === 3) throw Object.assign(new Error("ENOENT: private path does not exist"), { code: "ENOENT" });
-    const reason = String(error.stderr ?? "").match(/NANODUCK_PRIVATE_ERROR:(compile|open|read|owner|apply|verify):(\d+)/u);
+    const reason = String(error.stderr ?? "").match(/NANODUCK_PRIVATE_ERROR:(module|compile|open|read|owner|apply|verify):(\d+)/u);
     const execution = typeof error.code === "string" && /^[A-Z_]+$/u.test(error.code) ? error.code : Number.isInteger(error.status) ? `exit_${error.status}` : "launch";
-    const stage = [...String(error.stderr ?? "").matchAll(/NANODUCK_PRIVATE_STAGE:(script|compile|open)/gu)].at(-1)?.[1] ?? "bootstrap";
+    const stage = [...String(error.stderr ?? "").matchAll(/NANODUCK_PRIVATE_STAGE:(script|module|compile|open)/gu)].at(-1)?.[1] ?? "bootstrap";
     throw new Error(`private_permissions_unavailable (${reason ? `${reason[1]}:${reason[2]}` : `helper_${execution}:${stage}`})`);
   }
 }

@@ -127,7 +127,7 @@ if ($moved) { throw 'Verified pathname was replaceable while applying its ACL' }
 test("Windows helper isolates profile data while retaining required OS services", { skip: process.platform !== "win32", timeout: 100_000 }, t => {
   const directory = fixture(t);
   const common = processEnvironment(directory);
-  const standard = Object.fromEntries(["ComSpec", "PATHEXT", "OS", "ProgramFiles", "ProgramFiles(x86)", "ProgramW6432", "ProgramData", "ALLUSERSPROFILE"].filter(name => process.env[name]).map(name => [name, process.env[name]]));
+  const standard = Object.fromEntries(["ComSpec", "PATHEXT", "OS", "ProgramFiles", "ProgramFiles(x86)", "ProgramW6432", "ProgramData", "ALLUSERSPROFILE", "PSModulePath", "PROCESSOR_ARCHITECTURE", "PROCESSOR_IDENTIFIER", "NUMBER_OF_PROCESSORS", "SystemDrive"].filter(name => process.env[name]).map(name => [name, process.env[name]]));
   const profile = { APPDATA: join(directory, "roaming"), LOCALAPPDATA: join(directory, "local") };
   for (const path of Object.values(profile)) fs.mkdirSync(path);
   const script = fileURLToPath(new URL("./fixtures/private-permissions-child.mjs", import.meta.url));
