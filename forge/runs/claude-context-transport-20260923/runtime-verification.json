@@ -113,7 +113,7 @@
     }
   },
   "ci": {
-    "status": "verification_followup_in_progress",
+    "status": "passed",
     "prior_attempts": [
       {
         "revision": "d73ef4309f9bca46ea40b38af75043f8e276ba1e",
@@ -159,8 +159,70 @@
         "revision": "acc5be6bb7ccccc6c335f42b049436beca41d767",
         "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35789402078/attempts/1",
         "status": "failure",
-        "note": "Six jobs passed. Firefox completed native playback but Logoff verification failed; an unobserved cancellation waiter masked the earlier step. Windows Node 24 had two unavailable results after approximately 15 seconds during provider setup; transport bytes passed and identical source had passed the preceding run. Windows is being retried unchanged; browser verification is being synchronized with Settings loading."
+        "note": "Six jobs passed. Firefox completed native playback but Logoff verification failed; an unobserved cancellation waiter masked the earlier step. Windows Node 24 had two unavailable results after approximately 15 seconds during provider setup; transport bytes passed and identical source had passed the preceding run. The Windows job later passed unchanged; browser verification was synchronized with Settings loading and active playback."
+      },
+      {
+        "revision": "d760c658b2feede2f34dc1f330cbb93d602912c0",
+        "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35790335367/attempts/1",
+        "status": "failure",
+        "note": "All six runtime jobs and Linux Chromium, Firefox and WebKit passed. Windows Edge passed native audio and active discussion, then encountered ECONNRESET on the lost-response fixture observation GET. The Edge job was retried without changes."
       }
-    ]
+    ],
+    "windows_retry": {
+      "result": "passed",
+      "revision": "acc5be6bb7ccccc6c335f42b049436beca41d767",
+      "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35789402078/attempts/2",
+      "job": "windows-24 / runtime",
+      "application_changes": false,
+      "note": "The failed Windows runtime job passed unchanged. The approximately 15-second setup failures are consistent with the Windows ACL helper deadline; the underlying helper stage was not exposed."
+    },
+    "revision": "d760c658b2feede2f34dc1f330cbb93d602912c0",
+    "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35790335367",
+    "attempt": 2,
+    "verified_at": "2026-09-22T22:16:43.716Z",
+    "jobs": [
+      {
+        "name": "edge",
+        "result": "success"
+      },
+      {
+        "name": "browsers",
+        "result": "success"
+      },
+      {
+        "name": "macos-22 / runtime",
+        "result": "success"
+      },
+      {
+        "name": "linux-24 / runtime",
+        "result": "success"
+      },
+      {
+        "name": "windows-22 / runtime",
+        "result": "success"
+      },
+      {
+        "name": "macos-24 / runtime",
+        "result": "success"
+      },
+      {
+        "name": "linux-22 / runtime",
+        "result": "success"
+      },
+      {
+        "name": "windows-24 / runtime",
+        "result": "success"
+      }
+    ],
+    "edge_retry": {
+      "result": "passed",
+      "revision": "d760c658b2feede2f34dc1f330cbb93d602912c0",
+      "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35790335367/attempts/2",
+      "job": "edge",
+      "application_changes": false,
+      "verification_changes": false,
+      "note": "The complete Windows Edge suite passed unchanged on retry. The earlier observation GET failure is retained above; no POST retry behavior was changed."
+    },
+    "source_binding": "All listed source hashes match this verified revision. The following receipt update changes documentation only."
   }
 }
