@@ -1,5 +1,16 @@
 import assert from "node:assert/strict";
 
+const assertNativeCompletion = (record, label) => {
+  const details = `${label}: ${JSON.stringify(record)}`;
+  assert.equal(record.nativeEnded, true, `${details}; native ended event required`);
+  assert.equal(record.endedBeforeStop, true, `${details}; buffer must finish before cleanup stops it`);
+  assert.equal(record.fullBuffer, true, `${details}; playback must not truncate or accelerate the buffer`);
+  // currentTime advances by render quanta, not by exact buffer durations or
+  // hardware output latency. A natural ended event establishes completion;
+  // the advancing native clock independently rules out a stalled output.
+  assert.equal(record.elapsed > 0, true, `${details}; native rendering clock must advance`);
+};
+
 // Native AudioContext decoding, output scheduling and ended/statechange events.
 // No mocked playback; this does not prove physical iPhone speaker audibility.
 export const verifyNotificationAudio = async (appPage, name) => {
@@ -24,12 +35,20 @@ export const verifyNotificationAudio = async (appPage, name) => {
         };
         window.audioEvidence.contexts.push(context);
         context.createBufferSource = () => {
-          const source = createSource(); const start = source.start.bind(source); let record;
+          const source = createSource(); const start = source.start.bind(source); const stop = source.stop.bind(source); let record; let stopRequested = false;
           // Register before the app's onended callback: resolving its promise can
           // run microtasks before listeners added later in the event dispatch.
-          source.addEventListener("ended", () => { if (record) record.endedAt = context.currentTime; }, { once: true });
+          source.addEventListener("ended", event => {
+            if (record) Object.assign(record, { endedAt: context.currentTime, endedWallTime: performance.now(), nativeEnded: event.isTrusted, endedBeforeStop: !stopRequested });
+          }, { once: true });
+          source.stop = (...parameters) => { stopRequested = true; return stop(...parameters); };
           source.start = (...parameters) => {
-            record = { source, startedAt: context.currentTime, endedAt: undefined, audible: [...Array(source.buffer.numberOfChannels)].some((_, channel) => source.buffer.getChannelData(channel).some(value => value !== 0)) };
+            record = {
+              source, startedAt: context.currentTime, startedWallTime: performance.now(), endedAt: undefined,
+              sampleRate: context.sampleRate, baseLatency: context.baseLatency, outputLatency: context.outputLatency,
+              fullBuffer: (parameters[1] ?? 0) === 0 && parameters[2] === undefined && source.playbackRate.value === 1 && source.detune.value === 0 && !source.loop,
+              audible: [...Array(source.buffer.numberOfChannels)].some((_, channel) => source.buffer.getChannelData(channel).some(value => value !== 0))
+            };
             window.audioEvidence.sources.push(record);
             return start(...parameters);
           };
@@ -37,6 +56,13 @@ export const verifyNotificationAudio = async (appPage, name) => {
         };
         return context;
       };
+      window.audioRecord = record => ({
+        audible: record.audible, duration: record.source.buffer.duration,
+        startedAt: record.startedAt, endedAt: record.endedAt, elapsed: record.endedAt - record.startedAt,
+        wallElapsed: (record.endedWallTime - record.startedWallTime) / 1000,
+        nativeEnded: record.nativeEnded, endedBeforeStop: record.endedBeforeStop, fullBuffer: record.fullBuffer,
+        sampleRate: record.sampleRate, baseLatency: record.baseLatency, outputLatency: record.outputLatency
+      });
       const { createNotificationAudio } = await import("/client/notification-audio.js");
       window.audioController = createNotificationAudio({ onStatusChange: status => window.audioEvidence.statuses.push(status) });
       window.audioController.setPreference("knock");
@@ -57,14 +83,14 @@ export const verifyNotificationAudio = async (appPage, name) => {
       resumes: window.audioEvidence.resumes,
       contextStates: window.audioEvidence.contextStates,
       contexts: window.audioEvidence.contexts.map(context => ({ state: context.state, currentTime: context.currentTime, sampleRate: context.sampleRate, baseLatency: context.baseLatency, outputLatency: context.outputLatency })),
-      sources: window.audioEvidence.sources.map(record => ({ startedAt: record.startedAt, endedAt: record.endedAt, duration: record.source.buffer.duration, audible: record.audible }))
+      sources: window.audioEvidence.sources.map(window.audioRecord)
     }));
     assert.equal(priming.result, "played", `${name} cold asset cannot delay gesture priming: ${JSON.stringify(priming)}`);
     const primer = await page.evaluate(() => {
       const record = window.audioEvidence.sources[0];
-      return { audible: record.audible, elapsed: record.endedAt - record.startedAt, duration: record.source.buffer.duration, status: window.audioController.status };
+      return { ...window.audioRecord(record), status: window.audioController.status };
     });
-    assert.equal(primer.audible, false); assert.equal(primer.elapsed >= primer.duration, true); assert.equal(primer.status, "ready");
+    assert.equal(primer.audible, false); assertNativeCompletion(primer, `${name} silent primer`); assert.equal(primer.status, "ready");
     release(); await page.unroute(`${origin}/sounds/table-taps-250ms-v5.wav`);
     await page.locator("#preview").click();
     await page.waitForFunction(() => window.audioEvidence.preview !== undefined);
@@ -75,11 +101,11 @@ export const verifyNotificationAudio = async (appPage, name) => {
       const result = await page.evaluate(async selected => {
         window.audioController.setPreference(selected);
         const result = await window.audioController.play(); const record = window.audioEvidence.sources.at(-1);
-        return { result, audible: record.audible, duration: record.source.buffer.duration, elapsed: record.endedAt - record.startedAt, contexts: window.audioEvidence.contexts.length };
+        return { result, ...window.audioRecord(record), contexts: window.audioEvidence.contexts.length };
       }, sound);
       assert.equal(result.result, "played", `${name} delayed decoded ${sound}`);
       assert.equal(result.audible, true); assert.equal(result.duration > 0, true);
-      assert.equal(result.elapsed >= result.duration, true, `${name} ${sound} actually completed its native output schedule`);
+      assertNativeCompletion(result, `${name} ${sound} completed its native buffer`);
       assert.equal(result.contexts, 1, `${name} all choices share one resumed output context`);
     }
     await page.evaluate(() => window.audioEvidence.contexts[0].suspend());
