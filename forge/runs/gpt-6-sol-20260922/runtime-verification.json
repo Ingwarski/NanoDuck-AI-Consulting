@@ -140,10 +140,48 @@
     }
   },
   "ci": {
-    "status": "pending"
+    "status": "passed",
+    "revision": "ad63943894e2e97df6ef82a4e9a28b4e25b675ea",
+    "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35771823926",
+    "jobs": [
+      {
+        "name": "browsers",
+        "result": "success"
+      },
+      {
+        "name": "windows-22 / runtime",
+        "result": "success"
+      },
+      {
+        "name": "edge",
+        "result": "success"
+      },
+      {
+        "name": "windows-24 / runtime",
+        "result": "success"
+      },
+      {
+        "name": "macos-24 / runtime",
+        "result": "success"
+      },
+      {
+        "name": "macos-22 / runtime",
+        "result": "success"
+      },
+      {
+        "name": "linux-22 / runtime",
+        "result": "success"
+      },
+      {
+        "name": "linux-24 / runtime",
+        "result": "success"
+      }
+    ]
   },
   "limits": [
     "Browser provider capabilities are synthetic; real Sol execution is separately verified only at medium effort.",
     "No real Claude invocation, physical mobile-device check or saved live model change."
-  ]
+  ],
+  "committed_as": "ad63943894e2e97df6ef82a4e9a28b4e25b675ea",
+  "finalized_at": "2026-09-22T19:14:37.686Z"
 }
