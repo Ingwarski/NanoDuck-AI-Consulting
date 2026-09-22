@@ -53,6 +53,16 @@ export async function verifyPrivateLogoff(page, context, origin, password, name)
     assert.equal(await page.locator('#app').isVisible(), false);
     assert.equal(await page.locator('#thread').textContent(), '');
     assert.equal((await (await page.request.get(`${origin}/api/session`)).json()).authenticated, true, 'Offline Logoff must not claim server revocation');
+    await page.route('**/api/session', route => route.fulfill({ status: 200, contentType: 'application/json', body: '{' }));
+    await page.locator('#retry-logoff').click();
+    await page.waitForFunction(() => !document.querySelector('#retry-logoff').disabled && document.querySelector('#logout-status').textContent.includes('unconfirmed'));
+    assert.equal(await page.evaluate(() => sessionStorage.getItem('nanoduck-logout-pending-v1')), '1', 'Incomplete session status must not unlock the page');
+    await page.unroute('**/api/session');
+    await page.route('**/api/logout', route => route.fulfill({ status: 200, contentType: 'application/json', body: '{}' }));
+    await page.locator('#retry-logoff').click();
+    await page.waitForFunction(() => !document.querySelector('#retry-logoff').disabled && document.querySelector('#logout-status').textContent.includes('unconfirmed'));
+    assert.equal(await page.evaluate(() => sessionStorage.getItem('nanoduck-logout-pending-v1')), '1', 'Unexpected logout status must not claim revocation');
+    await page.unroute('**/api/logout');
     await page.locator('#retry-logoff').click();
     await page.locator('#sign-in').waitFor({ state: 'visible' });
     const revoked = await page.request.get(`${origin}/api/conversations`, { headers: { cookie: `${cookie.name}=${cookie.value}` } });
