@@ -6,6 +6,7 @@ import { openRecoveryEnvelope, sealRecoverySnapshot } from "../src/server/recove
 import { createMemoryStore, defaultSettings } from "../src/server/store.mjs";
 import { hasProhibitedLanguage, parseConversationIds, parseMessage, parseSettings, safeExternalUrl } from "../src/server/validation.mjs";
 import { testRuntimeInstructions } from "./fixtures/runtime-instructions.mjs";
+import { jpeg, png, webp } from "./fixtures/images.mjs";
 
 test("new consultations default to the current saved Codex settings", () => {
   assert.deepEqual(defaultSettings, {
@@ -29,15 +30,12 @@ test("encrypted message values authenticate before decryption", () => {
   assert.equal(decryptText(encrypted, key), "Private decision context");
   const alteredCiphertext = `${encrypted.ciphertext[0] === "A" ? "B" : "A"}${encrypted.ciphertext.slice(1)}`;
   assert.throws(() => decryptText({ ...encrypted, ciphertext: alteredCiphertext }, key));
-  const image = Buffer.from([0xff, 0xd8, 0xff, 0xe0, 0x00, 0x10, 0xff, 0xd9]);
+  const image = jpeg;
   const encryptedImage = encryptBytes(image, key);
   assert.deepEqual(decryptBytes(encryptedImage, key), image);
 });
 
-test("image signatures accept only bounded raster formats without decoding them", () => {
-  const jpeg = Buffer.from([0xff, 0xd8, 0xff, 0xe0, 0x00, 0x10, 0xff, 0xd9]);
-  const png = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 0x49, 0x45, 0x4e, 0x44, 0xae, 0x42, 0x60, 0x82]);
-  const webp = Buffer.concat([Buffer.from("RIFF"), Buffer.from([12, 0, 0, 0]), Buffer.from("WEBPVP8 "), Buffer.from([0, 0, 0, 0])]);
+test("image containers accept encoder-produced raster formats without decoding them", () => {
   assert.equal(inspectImageAttachment(jpeg), "image/jpeg");
   assert.equal(inspectImageAttachment(png), "image/png");
   assert.equal(inspectImageAttachment(webp), "image/webp");
@@ -50,7 +48,7 @@ test("image signatures accept only bounded raster formats without decoding them"
 test("encrypted recovery restores confirmed records but never resurrects a deletion", async () => {
   const source = createMemoryStore();
   const conversation = await source.createConversation();
-  const image = Buffer.from([0xff, 0xd8, 0xff, 0xe0, 0x00, 0x10, 0xff, 0xd9]);
+  const image = jpeg;
   const attachment = await source.createAttachment(conversation.id, { content: image, contentType: "image/jpeg", byteLength: image.byteLength });
   const accepted = await source.acceptMessage(conversation.id, { body: "Should we test this offer first?", attachmentIds: [attachment.id], clientRequestId: "recovery-source-request-0001" }, defaultSettings);
   await source.appendAgentMessage(conversation.id, accepted.run.generation, { role: "Head Consultant", body: "Test the buyer before scaling.", sources: [{ url: "https://example.com/evidence", title: "Buyer evidence", claim: "Test the buyer.", retrievedAt: "2026-09-14T00:00:00.000Z" }] });

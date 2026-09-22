@@ -1,7 +1,7 @@
 import { parseMarkdown } from "/client/markdown.js";
 import { normalizeRefreshState, refreshStateKey, serializeRefreshState } from "/client/refresh-state.js";
 
-const state = { session: null, csrf: null, page: "discussion", tab: "discussion", conversation: null, events: [], run: null, poll: null, recognition: null, voiceTimer: null, voiceMode: "ready", voiceTranscript: "", attachmentFiles: [], attachmentError: "", runtimeInstructionHistory: [], documents: [], notificationSound: "knock", conversations: [], selectedConversationIds: new Set(), criticSettings: null, criticProviders: null };
+const state = { session: null, csrf: null, page: "discussion", tab: "discussion", conversation: null, events: [], run: null, poll: null, recognition: null, voiceTimer: null, voiceMode: "ready", voiceTranscript: "", attachmentFiles: [], attachmentError: "", pendingSubmissions: new Map(), sending: false, runtimeInstructionHistory: [], documents: [], notificationSound: "knock", conversations: [], selectedConversationIds: new Set(), criticSettings: null, criticProviders: null };
 const $ = selector => document.querySelector(selector);
 const roleInitials = { owner: "I", "Head Consultant": "HC", "Strategy Consultant": "SC", "Finance Consultant": "FC", "Operations Consultant": "OC", "Sales Consultant": "SL", "Marketing Consultant": "MC", "Product Consultant": "PC", "Spiritual Consultant": "SP", Psychotherapist: "PT", "Risk Consultant": "RC", Critic: "CR", System: "•" };
 const displayRole = role => role === "owner" ? "You" : role;
@@ -213,6 +213,7 @@ function prepareConversationsPage() {
   page.insertBefore(toolbar, $("#conversation-list"));
 }
 function clearDeletedConversation(ids) {
+  for (const id of ids) state.pendingSubmissions.delete(id);
   if (!state.conversation || !ids.includes(state.conversation.id)) return;
   stopPolling(); state.conversation = null; state.events = []; state.run = null; renderEvents();
 }
@@ -428,10 +429,10 @@ function chooseAttachments(files) {
   if (accepted.length !== files.length || state.attachmentFiles.length + accepted.length > attachmentCountLimit) state.attachmentError = `Choose up to ${attachmentCountLimit} JPEG, PNG or WebP images, each no larger than 8 MiB.`;
   state.attachmentFiles = [...state.attachmentFiles, ...accepted].slice(0, attachmentCountLimit); $("#attachment").value = ""; renderAttachmentDraft();
 }
-async function uploadAttachments(conversationId) {
+async function uploadAttachments(conversationId, files) {
   const attachmentIds = [];
   try {
-    for (const file of state.attachmentFiles) {
+    for (const file of files) {
       const { data } = await request(`/api/conversations/${conversationId}/attachments`, { method: "POST", headers: { "content-type": file.type || "application/octet-stream" }, body: file });
       attachmentIds.push(data.attachment.id);
     }
@@ -442,18 +443,49 @@ async function uploadAttachments(conversationId) {
   }
 }
 async function removePendingAttachments(conversationId, attachmentIds) { await Promise.all(attachmentIds.map(attachmentId => request(`/api/conversations/${conversationId}/attachments/${attachmentId}`, { method: "DELETE" }).catch(() => undefined))); }
+const matchesSubmissionDraft = submission => $("#message").value.trim() === submission.input.body && state.attachmentFiles.length === submission.files.length && state.attachmentFiles.every((file, index) => file === submission.files[index]);
 async function acceptMessage(event) {
-  event.preventDefault(); const body = $("#message").value.trim(); if (!body) return; if (!state.conversation) await newConversation(); if (!state.conversation) return;
-  let attachmentIds = [];
+  event.preventDefault();
+  if (state.sending) return;
+  const body = $("#message").value.trim();
+  if (!body && !state.pendingSubmissions.has(state.conversation?.id)) return;
+  const files = [...state.attachmentFiles];
+  state.sending = true; $("#send").disabled = true;
+  let submission; let conversationId;
   try {
-    attachmentIds = await uploadAttachments(state.conversation.id);
-    const { data } = await request(`/api/conversations/${state.conversation.id}/messages`, { method: "POST", body: { body, attachmentIds, clientRequestId: id() } });
-    $("#message").value = ""; clearAttachmentDraft(); state.events.push(data.message); state.run = data.run; renderEvents(); startPolling();
+    if (!state.conversation) await newConversation();
+    if (!state.conversation) return;
+    conversationId = state.conversation.id;
+    submission = state.pendingSubmissions.get(conversationId);
+    if (!submission) {
+      const attachmentIds = await uploadAttachments(conversationId, files);
+      submission = { input: { body, attachmentIds, clientRequestId: id() }, files, uncertain: false };
+      state.pendingSubmissions.set(conversationId, submission);
+    }
+    // An ambiguous response is retried with exactly the original accepted tuple.
+    // This state lives only in the page; later draft edits are never sent under its key.
+    const { data } = await request(`/api/conversations/${conversationId}/messages`, { method: "POST", body: submission.input });
+    if (!data?.message?.id || !data?.run?.id) throw new Error("acceptance_response_incomplete");
+    state.pendingSubmissions.delete(conversationId);
+    if (state.conversation?.id === conversationId) {
+      const unchanged = matchesSubmissionDraft(submission);
+      if (unchanged) { $("#message").value = ""; clearAttachmentDraft(); }
+      else { state.attachmentError = ""; renderAttachmentDraft(); toast("Your earlier message is saved. Your edited draft has not been sent."); }
+      if (!state.events.some(message => message.id === data.message.id)) state.events.push(data.message);
+      state.run = data.run; renderEvents(); startPolling();
+      if (data.replayed) await loadConversation(conversationId, { preserveAttachmentDraft: true }).catch(() => toast("Your message is saved. Reopen this conversation to load its latest replies."));
+    } else toast("Your earlier message is saved in its conversation.");
   } catch (error) {
-    if (attachmentIds.length) await removePendingAttachments(state.conversation.id, attachmentIds);
-    state.attachmentError = error.data?.error === "attachment_too_large" ? "This image is larger than the 8 MiB limit. Your draft is unchanged." : error.data?.error === "invalid_image_attachment" ? "This file is not a complete JPEG, PNG or WebP image. Your draft is unchanged." : "Image upload was not accepted. Your draft is unchanged.";
-    renderAttachmentDraft(); toast(error.data?.error === "active_or_missing_conversation" ? "Wait for the current consultation or stop it first." : error.data?.error === "language_not_supported" ? "Messages must be in English or Ukrainian." : state.attachmentError);
-  }
+    const rejected = error.response?.status >= 400 && error.response.status < 500;
+    if (submission && (submission.uncertain || !rejected)) {
+      submission.uncertain = true;
+      state.attachmentError = "Delivery is unconfirmed. Press Send to check the earlier message safely; any edited draft stays unsent.";
+    } else {
+      if (submission) { state.pendingSubmissions.delete(conversationId); await removePendingAttachments(conversationId, submission.input.attachmentIds); }
+      state.attachmentError = error.data?.error === "attachment_too_large" ? "This image is larger than the 8 MiB limit. Your draft is unchanged." : error.data?.error === "invalid_image_attachment" ? "This file is not a complete JPEG, PNG or WebP image. Your draft is unchanged." : error.data?.error === "active_or_missing_conversation" ? "Wait for the current consultation or stop it first. Your draft is unchanged." : error.data?.error === "language_not_supported" ? "Messages must be in English or Ukrainian. Your draft is unchanged." : error.data?.error === "authentication_required" ? "Sign in again before sending. Your draft is unchanged." : "The message could not be sent. Your draft is unchanged.";
+    }
+    renderAttachmentDraft(); toast(state.attachmentError);
+  } finally { state.sending = false; $("#send").disabled = false; }
 }
 
 async function stop() { if (!state.conversation) return; const { data } = await request(`/api/conversations/${state.conversation.id}/stop`, { method: "POST" }); state.run = data.run; renderEvents(); }

@@ -9,6 +9,7 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium, firefox, webkit } from 'playwright';
 import { setupWorkspace } from '../src/server/local-setup.mjs';
+import { verifyLostAcceptanceRetry } from './browser-send-retry.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const temporary = await mkdtemp(join(tmpdir(), 'nanoduck-browser-'));
@@ -19,7 +20,8 @@ const port = portProbe.address().port;
 await new Promise(resolve => portProbe.close(resolve));
 const origin = `https://127.0.0.1:${port}`;
 const environment = {
-  PATH: process.env.PATH, SystemRoot: process.env.SystemRoot,
+  PATH: process.env.PATH, SystemRoot: process.env.SystemRoot, WINDIR: process.env.WINDIR,
+  HOME: temporary, USERPROFILE: temporary, TEMP: temporary, TMP: temporary,
   NODE_ENV: 'test', NANODUCK_DATA_DIR: join(temporary, 'data'),
   NANODUCK_HOST: '127.0.0.1', NANODUCK_ALLOWED_HOSTS: '127.0.0.1,localhost', PORT: String(port),
   CODEX_HOME: join(temporary, 'codex'),
@@ -60,8 +62,7 @@ try {
       await page.locator('#consent-check').check();
       await page.locator('#consent-button').click();
       await page.locator('#app').waitFor({ state: 'visible' });
-      await page.locator('#message').fill(`Synthetic ${name} browser decision`);
-      await page.locator('#send').click();
+      await verifyLostAcceptanceRetry(page, name);
       await page.waitForFunction(() => document.querySelector('#run-status').textContent.toLowerCase().includes('complete'), undefined, { timeout: 30_000 });
       assert.match(await page.locator('#thread').innerText(), /Critic/);
       await page.getByRole('tab', { name: 'Outcome', exact: true }).click();
@@ -93,7 +94,7 @@ try {
       await page.locator('[data-session-action]').click();
       await page.locator('#sign-in').waitFor({ state: 'visible' });
       assert.deepEqual(errors, [], `${name} uncaught browser errors`);
-      console.log(`${name}: password, consent, consultation, outcome, refresh, settings, saved history, mobile layout, voice fallback and logout passed.`);
+      console.log(`${name}: password, consent, consultation, lost-response retry with an edited draft and image, outcome, refresh, settings, saved history, mobile layout, voice fallback and logout passed.`);
       await context.close();
     } finally { await browser.close(); }
   }

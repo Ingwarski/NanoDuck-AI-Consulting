@@ -10,6 +10,7 @@ import test from "node:test";
 import { fileURLToPath } from "node:url";
 import { startLocalRuntime, testPassword } from "./fixtures/local-runtime.mjs";
 import { setupWorkspace } from "../src/server/local-setup.mjs";
+import { jpeg, png, webp, withImageMetadata } from "./fixtures/images.mjs";
 
 test("HTTPS rejects DNS rebinding and anonymous cross-origin login while password sessions revoke cleanly", async t => {
   const { origin, fetch, environment } = await startLocalRuntime(t);
@@ -175,11 +176,7 @@ test("the local HTTP flow protects data, saves settings and preserves a truthful
 test("owner image attachments validate bytes, link only on message acceptance and download safely", async t => {
   const { child, directory, origin, fetch } = await startLocalRuntime(t, { provider: false });
   const html = Buffer.from('<script>globalThis.downloadExecuted=true</script><svg onload="alert(1)">');
-  const jpeg = Buffer.concat([Buffer.from([0xff, 0xd8, 0xff, 0xe0]), html, Buffer.from([0xff, 0xd9])]);
-  const png = Buffer.concat([Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]), html, Buffer.from([0x49, 0x45, 0x4e, 0x44, 0xae, 0x42, 0x60, 0x82])]);
-  const webp = Buffer.concat([Buffer.from("RIFF0000WEBPVP8 "), html]);
-  webp.writeUInt32LE(webp.length - 8, 4);
-  const images = [{ body: jpeg, type: "image/jpeg", extension: "jpg" }, { body: png, type: "image/png", extension: "png" }, { body: webp, type: "image/webp", extension: "webp" }];
+  const images = [{ body: withImageMetadata(jpeg, html), type: "image/jpeg", extension: "jpg" }, { body: withImageMetadata(png, html), type: "image/png", extension: "png" }, { body: withImageMetadata(webp, html), type: "image/webp", extension: "webp" }];
   try {
     await waitFor(async () => {
       try { return (await fetch(`${origin}/healthz`)).ok; } catch { return false; }

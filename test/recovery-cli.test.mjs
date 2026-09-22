@@ -12,11 +12,11 @@ import { createLocalStore } from "../src/server/local-store.mjs";
 import { openRecoveryEnvelope } from "../src/server/recovery.mjs";
 import { defaultSettings } from "../src/server/store.mjs";
 import { processEnvironment, testPassword } from "./fixtures/local-runtime.mjs";
+import { jpeg as image } from "./fixtures/images.mjs";
 
 const execute = promisify(execFile);
 const repository = fileURLToPath(new URL("../", import.meta.url));
 const cli = fileURLToPath(new URL("../src/server/recovery-cli.mjs", import.meta.url));
-const image = Buffer.from([0xff, 0xd8, 0xff, 0xe0, 0x00, 0x10, 0xff, 0xd9]);
 
 async function fixture(t) {
   const directory = await mkdtemp(join(await realpath(tmpdir()), "nanoduck-recovery-cli-"));
@@ -26,8 +26,8 @@ async function fixture(t) {
     await rm(directory, { recursive: true, force: true });
   });
   const environment = {
-    ...processEnvironment(), NODE_ENV: "test", NANODUCK_DATA_DIR: join(directory, "data"),
-    NANODUCK_ALLOWED_HOSTS: "127.0.0.1,localhost", HOME: directory, USERPROFILE: directory,
+    ...processEnvironment(directory), NODE_ENV: "test", NANODUCK_DATA_DIR: join(directory, "data"),
+    NANODUCK_ALLOWED_HOSTS: "127.0.0.1,localhost",
     CODEX_HOME: join(directory, "no-provider-credentials")
   };
   const { dataDirectory } = await setupWorkspace({ environment, password: testPassword });

@@ -41,8 +41,9 @@ public static class NanoDuckPrivateHandle {
   [DllImport("kernel32.dll")]
   static extern IntPtr LocalFree(IntPtr memory);
   public static SafeFileHandle Open(string path, bool directory) {
-    // READ_CONTROL | WRITE_DAC | WRITE_OWNER | FILE_READ_ATTRIBUTES; deny rename/delete while held.
-    var handle = CreateFileW(path, 0xe0080, 3, IntPtr.Zero, 3, 0x02200000, IntPtr.Zero);
+    // GENERIC_READ | READ_CONTROL | WRITE_DAC | WRITE_OWNER | FILE_READ_ATTRIBUTES.
+    // Data-read access makes omission of FILE_SHARE_DELETE fence rename/delete.
+    var handle = CreateFileW(path, 0x800e0080, 3, IntPtr.Zero, 3, 0x02200000, IntPtr.Zero);
     if (handle.IsInvalid) { int error = Marshal.GetLastWin32Error(); handle.Dispose(); throw new Win32Exception(error); }
     try {
       FileInformation info;
@@ -125,13 +126,14 @@ function applyWindowsPrivacy(path, kind) {
   try {
     if (!lstatSync(executable).isFile()) throw new Error("powershell_unavailable");
     execFileSync(executable, ["-NoLogo", "-NoProfile", "-NonInteractive", "-EncodedCommand", Buffer.from(windowsAclProgram, "utf16le").toString("base64")], {
-      env: { ...process.env, NANODUCK_PRIVATE_PATH: path, NANODUCK_PRIVATE_KIND: kind },
+      env: { ...process.env, SystemRoot: systemDirectory, WINDIR: systemDirectory, NANODUCK_PRIVATE_PATH: path, NANODUCK_PRIVATE_KIND: kind },
       windowsHide: true, timeout: 15_000, stdio: ["ignore", "pipe", "pipe"]
     });
   } catch (error) {
     if (error.status === 3) throw Object.assign(new Error("ENOENT: private path does not exist"), { code: "ENOENT" });
     const reason = String(error.stderr ?? "").match(/NANODUCK_PRIVATE_ERROR:(compile|open|read|owner|apply|verify):(\d+)/u);
-    throw new Error(`private_permissions_unavailable${reason ? ` (${reason[1]}:${reason[2]})` : " (helper_execution)"}`);
+    const execution = typeof error.code === "string" && /^[A-Z_]+$/u.test(error.code) ? error.code : Number.isInteger(error.status) ? `exit_${error.status}` : "launch";
+    throw new Error(`private_permissions_unavailable (${reason ? `${reason[1]}:${reason[2]}` : `helper_${execution}`})`);
   }
 }
 

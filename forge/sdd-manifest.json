@@ -2310,12 +2310,12 @@
       "dependencies": [
         "product-idea"
       ],
-      "content_hash": "e62d275f1ffb44bd1764e3de67a7e14caf8ef34e531b3295c938db85915e536b",
+      "content_hash": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "local-application-owner-reconciliation",
-        "reviewed_at": "2026-09-22T11:45:31.796833+00:00",
+        "reviewed_at": "2026-09-22T12:09:34.154105+00:00",
         "executor": "Codex inline to-sdd-prd",
         "scope": "Owner-reviewed document semantics, current upstream obligations and source bindings. No runtime verification claim."
       },
@@ -2338,7 +2338,7 @@
       },
       "source_hashes": {
         "docs/product-idea.md": "22ecd93faeb89e7cab50fdda3302401bd67e7f91a7728b986ade21846fbbf583",
-        "docs/prd.md": "e62d275f1ffb44bd1764e3de67a7e14caf8ef34e531b3295c938db85915e536b"
+        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4"
       },
       "dependencies": [
         "product-idea",
@@ -2349,7 +2349,7 @@
         "result": "passed",
         "working_language": "en",
         "kind": "local-application-owner-reconciliation",
-        "reviewed_at": "2026-09-22T11:45:32.095928+00:00",
+        "reviewed_at": "2026-09-22T12:09:34.443765+00:00",
         "executor": "Codex inline to-project-context",
         "scope": "Owner-reviewed document semantics, current upstream obligations and source bindings. No runtime verification claim."
       },
@@ -2372,7 +2372,7 @@
       },
       "source_hashes": {
         "docs/product-idea.md": "22ecd93faeb89e7cab50fdda3302401bd67e7f91a7728b986ade21846fbbf583",
-        "docs/prd.md": "e62d275f1ffb44bd1764e3de67a7e14caf8ef34e531b3295c938db85915e536b"
+        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4"
       },
       "dependencies": [
         "product-idea",
@@ -2383,7 +2383,7 @@
         "result": "passed",
         "working_language": "en",
         "kind": "local-application-owner-reconciliation",
-        "reviewed_at": "2026-09-22T11:45:32.096489+00:00",
+        "reviewed_at": "2026-09-22T12:09:34.444303+00:00",
         "executor": "Codex inline to-project-context",
         "scope": "Owner-reviewed document semantics, current upstream obligations and source bindings. No runtime verification claim."
       },
@@ -2405,7 +2405,7 @@
         "docs/canonical-terms.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "e62d275f1ffb44bd1764e3de67a7e14caf8ef34e531b3295c938db85915e536b",
+        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
         "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
         "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893"
       },
@@ -2419,7 +2419,7 @@
         "result": "passed",
         "working_language": "en",
         "kind": "local-application-owner-reconciliation",
-        "reviewed_at": "2026-09-22T11:45:32.404036+00:00",
+        "reviewed_at": "2026-09-22T12:09:34.730043+00:00",
         "executor": "Codex inline to-guardrails",
         "scope": "Owner-reviewed document semantics, current upstream obligations and source bindings. No runtime verification claim."
       },
@@ -2442,7 +2442,7 @@
         "docs/guardrails.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "e62d275f1ffb44bd1764e3de67a7e14caf8ef34e531b3295c938db85915e536b",
+        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
         "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
         "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214"
@@ -2458,7 +2458,7 @@
         "result": "passed",
         "working_language": "en",
         "kind": "local-application-owner-reconciliation",
-        "reviewed_at": "2026-09-22T11:45:32.774987+00:00",
+        "reviewed_at": "2026-09-22T12:09:35.025688+00:00",
         "executor": "Codex inline to-user-journey",
         "scope": "Owner-reviewed document semantics, current upstream obligations and source bindings. No runtime verification claim."
       },
@@ -3487,7 +3487,7 @@
         "docs/user-journey.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "e62d275f1ffb44bd1764e3de67a7e14caf8ef34e531b3295c938db85915e536b",
+        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
         "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
         "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
@@ -3505,7 +3505,7 @@
         "result": "passed",
         "working_language": "en",
         "kind": "local-application-owner-reconciliation",
-        "reviewed_at": "2026-09-22T11:45:33.098325+00:00",
+        "reviewed_at": "2026-09-22T12:09:35.318439+00:00",
         "executor": "Codex inline to-screen-map",
         "scope": "Owner-reviewed document semantics, current upstream obligations and source bindings. No runtime verification claim."
       },
@@ -3530,7 +3530,7 @@
         "docs/screen-map.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "e62d275f1ffb44bd1764e3de67a7e14caf8ef34e531b3295c938db85915e536b",
+        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
         "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
         "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
@@ -3550,7 +3550,7 @@
         "result": "passed",
         "working_language": "en",
         "kind": "local-application-owner-reconciliation",
-        "reviewed_at": "2026-09-22T11:45:33.455312+00:00",
+        "reviewed_at": "2026-09-22T12:09:35.653619+00:00",
         "executor": "Codex inline to-wireframes",
         "scope": "Owner-reviewed document semantics, current upstream obligations and source bindings. No runtime verification claim."
       },
@@ -3576,7 +3576,7 @@
         "docs/wireframes.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "e62d275f1ffb44bd1764e3de67a7e14caf8ef34e531b3295c938db85915e536b",
+        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
         "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
         "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
@@ -3598,7 +3598,7 @@
         "result": "passed",
         "working_language": "en",
         "kind": "local-application-owner-reconciliation",
-        "reviewed_at": "2026-09-22T11:45:33.805300+00:00",
+        "reviewed_at": "2026-09-22T12:09:36.119983+00:00",
         "executor": "Codex inline to-design-brief",
         "scope": "Owner-reviewed document semantics, current upstream obligations and source bindings. No runtime verification claim."
       },
@@ -3696,7 +3696,7 @@
         "docs/model-settings.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "e62d275f1ffb44bd1764e3de67a7e14caf8ef34e531b3295c938db85915e536b",
+        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
         "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
         "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
@@ -3716,12 +3716,12 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "e27b5dd1a9690f732af06b945e5f0ff627e406b95c357b3849181d6e8b6a2ddd",
+      "content_hash": "ba253b57241178473a1fef1128d52ef5fb579b6eda4d7611cfe8119be5b1dc93",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "local-application-owner-reconciliation",
-        "reviewed_at": "2026-09-22T11:45:34.167655+00:00",
+        "reviewed_at": "2026-09-22T12:09:36.515465+00:00",
         "executor": "Codex inline to-architecture",
         "scope": "Owner-reviewed document semantics, current upstream obligations and source bindings. No runtime verification claim."
       },
@@ -3820,7 +3820,7 @@
         "docs/architecture.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "e62d275f1ffb44bd1764e3de67a7e14caf8ef34e531b3295c938db85915e536b",
+        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
         "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
         "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
@@ -3828,7 +3828,7 @@
         "docs/screen-map.md": "7368812b25f872898d25fa861c925cf11056704a1fa25c5624355548ed0b8bbe",
         "docs/wireframes.md": "36b56e03002bb8d0d875db7c9583bedc3da1419f6c100d1509f3c247245471ab",
         "docs/design-brief.md": "7d362fdc5a097a746eb9e2ca6d43b54bd364a0e3ed7bd718e0495d6e761dbd21",
-        "docs/architecture.md": "e27b5dd1a9690f732af06b945e5f0ff627e406b95c357b3849181d6e8b6a2ddd"
+        "docs/architecture.md": "ba253b57241178473a1fef1128d52ef5fb579b6eda4d7611cfe8119be5b1dc93"
       },
       "dependencies": [
         "prd",
@@ -3841,12 +3841,12 @@
         "design-brief",
         "architecture"
       ],
-      "content_hash": "f16a6605103c90db5e2c8f9005409c2b80c14b63a8cd6ff8ed0691007fb61fc9",
+      "content_hash": "ff9e199612131aef0e422b746355ba84a1047a84d3f513df0cf790faf852ace8",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "local-application-owner-reconciliation",
-        "reviewed_at": "2026-09-22T11:45:34.542492+00:00",
+        "reviewed_at": "2026-09-22T12:09:36.871579+00:00",
         "executor": "Codex inline to-dod-evals",
         "scope": "Owner-reviewed document semantics, current upstream obligations and source bindings. No runtime verification claim."
       },
@@ -5635,7 +5635,7 @@
         "docs/dod-evals.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "e62d275f1ffb44bd1764e3de67a7e14caf8ef34e531b3295c938db85915e536b",
+        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
         "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
         "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
@@ -5643,8 +5643,8 @@
         "docs/screen-map.md": "7368812b25f872898d25fa861c925cf11056704a1fa25c5624355548ed0b8bbe",
         "docs/wireframes.md": "36b56e03002bb8d0d875db7c9583bedc3da1419f6c100d1509f3c247245471ab",
         "docs/design-brief.md": "7d362fdc5a097a746eb9e2ca6d43b54bd364a0e3ed7bd718e0495d6e761dbd21",
-        "docs/architecture.md": "e27b5dd1a9690f732af06b945e5f0ff627e406b95c357b3849181d6e8b6a2ddd",
-        "docs/dod-evals.md": "f16a6605103c90db5e2c8f9005409c2b80c14b63a8cd6ff8ed0691007fb61fc9"
+        "docs/architecture.md": "ba253b57241178473a1fef1128d52ef5fb579b6eda4d7611cfe8119be5b1dc93",
+        "docs/dod-evals.md": "ff9e199612131aef0e422b746355ba84a1047a84d3f513df0cf790faf852ace8"
       },
       "dependencies": [
         "prd",
@@ -5658,12 +5658,12 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "07aeb5eb39f4570b03870a656ac2bca0ac867539b23d2019b26cb3c15d1ff41c",
+      "content_hash": "681016bc7bbe24df9465674173b8f470b033d203a4427984dca72a9e2f7562a2",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "local-application-owner-reconciliation",
-        "reviewed_at": "2026-09-22T11:45:34.920608+00:00",
+        "reviewed_at": "2026-09-22T12:09:37.233746+00:00",
         "executor": "Codex inline to-qa-checklist",
         "scope": "Owner-reviewed document semantics, current upstream obligations and source bindings. No runtime verification claim."
       },
@@ -6776,10 +6776,11 @@
         "docs/architecture.md": "full",
         "docs/dod-evals.md": "full",
         "docs/qa-checklist.md": "full",
-        "docs/model-settings.md": "full"
+        "docs/model-settings.md": "full",
+        "package.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "e62d275f1ffb44bd1764e3de67a7e14caf8ef34e531b3295c938db85915e536b",
+        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
         "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
         "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
@@ -6787,10 +6788,11 @@
         "docs/screen-map.md": "7368812b25f872898d25fa861c925cf11056704a1fa25c5624355548ed0b8bbe",
         "docs/wireframes.md": "36b56e03002bb8d0d875db7c9583bedc3da1419f6c100d1509f3c247245471ab",
         "docs/design-brief.md": "7d362fdc5a097a746eb9e2ca6d43b54bd364a0e3ed7bd718e0495d6e761dbd21",
-        "docs/architecture.md": "e27b5dd1a9690f732af06b945e5f0ff627e406b95c357b3849181d6e8b6a2ddd",
-        "docs/dod-evals.md": "f16a6605103c90db5e2c8f9005409c2b80c14b63a8cd6ff8ed0691007fb61fc9",
-        "docs/qa-checklist.md": "07aeb5eb39f4570b03870a656ac2bca0ac867539b23d2019b26cb3c15d1ff41c",
-        "docs/model-settings.md": "2a8cba482d77cc3774f49014f424051d088461c35b1f8f2ff84c26d2361f46f9"
+        "docs/architecture.md": "ba253b57241178473a1fef1128d52ef5fb579b6eda4d7611cfe8119be5b1dc93",
+        "docs/dod-evals.md": "ff9e199612131aef0e422b746355ba84a1047a84d3f513df0cf790faf852ace8",
+        "docs/qa-checklist.md": "681016bc7bbe24df9465674173b8f470b033d203a4427984dca72a9e2f7562a2",
+        "docs/model-settings.md": "2a8cba482d77cc3774f49014f424051d088461c35b1f8f2ff84c26d2361f46f9",
+        "package.json": "cfe4c67287221083288ec8d25198ff285b2f3c0c16a9adb0a769dad9b2590246"
       },
       "dependencies": [
         "prd",
@@ -6805,12 +6807,12 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "539d250e405f9f8b95fe24e811c0fc0342a3fd22ebe3b362bceb5286c5f971c9",
+      "content_hash": "8fbaee9d2ae8e9f27241b5b66e1fb02b8cf467e07f0bcb0efcee3ba6bff8f250",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "local-application-owner-reconciliation",
-        "reviewed_at": "2026-09-22T11:45:35.584531+00:00",
+        "reviewed_at": "2026-09-22T12:09:37.897127+00:00",
         "executor": "Codex inline to-development-plan",
         "scope": "Owner-reviewed document semantics, current upstream obligations and source bindings. No runtime verification claim."
       },
@@ -7317,8 +7319,8 @@
     "definition_status": "prepared",
     "release_readiness": "not_evaluated",
     "source_hashes": {
-      "docs/dod-evals.md": "f16a6605103c90db5e2c8f9005409c2b80c14b63a8cd6ff8ed0691007fb61fc9",
-      "docs/qa-checklist.md": "07aeb5eb39f4570b03870a656ac2bca0ac867539b23d2019b26cb3c15d1ff41c"
+      "docs/dod-evals.md": "ff9e199612131aef0e422b746355ba84a1047a84d3f513df0cf790faf852ace8",
+      "docs/qa-checklist.md": "681016bc7bbe24df9465674173b8f470b033d203a4427984dca72a9e2f7562a2"
     },
     "gates": [
       {
@@ -8939,7 +8941,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Upload valid JPEG/PNG/WebP, client-MIME mismatch, malformed/truncated signature, over-8-MiB, PDF, SVG, video, audio and archive fixtures. Only valid bounded images persist as encrypted opaque blobs; their owner-only retrieval uses fixed validated type, attachment disposition and `nosniff`. Every rejection retains the typed draft and exposes no server path. Verify browser voice creates no NanoDuck upload.",
+        "task": "Exercise the referenced use-case path and verify: Upload supported JPEG/PNG/WebP fixtures, including progressive JPEG and WebP animation, and exercise client-MIME mismatch, wrong signature, declared-length overrun, truncation, missing required image-data/terminal elements, invalid/zero dimensions, PNG CRC/type-depth/indexed-palette errors, malformed JPEG segments/scans, malformed WebP nested chunks, over-8-MiB files and more than four message attachments. Reject unsupported formats, including PDF, SVG, video, audio and archives, and unsupported JPEG deferred-height DNL. Only structurally accepted bounded originals persist as encrypted opaque blobs; owner-only retrieval uses the identified fixed type, attachment disposition and nosniff. Verify no pixel decompression, metadata interpretation, rendering or malware scan occurs and do not infer complete decoder validity from structural acceptance. Every rejection retains the typed draft and exposes no server path. Browser voice creates no NanoDuck upload.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -10115,7 +10117,7 @@
   },
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "539d250e405f9f8b95fe24e811c0fc0342a3fd22ebe3b362bceb5286c5f971c9",
+    "development_plan_hash": "8fbaee9d2ae8e9f27241b5b66e1fb02b8cf467e07f0bcb0efcee3ba6bff8f250",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-14T20:13:37+03:00",
     "prompt_id": "local-refactor-20260922",
@@ -10124,7 +10126,7 @@
     "product_scope_hash": "defc5e24f0dd91be42b984888b157137f4f1ed361459e70f42b832e18c957bd4",
     "prompt_receipt": {
       "path": "forge/runs/local-refactor-20260922/implementation-prompt.json",
-      "content_hash": "7c8e3448a6e61880c3866f395faf1021e749d50c4b9abd2f098ed784bb204613"
+      "content_hash": "da65dd72c6707e76bbb50103b3999e91b3ae68745460c4e17a7c85f1e0ead88d"
     },
     "reason": "Current explicit local refactor request authorizes this owner-reconciled existing change; all runtime and release evidence remains separately required."
   },
@@ -10156,7 +10158,7 @@
       ],
       "source_hashes": {
         "docs/product-idea.md": "22ecd93faeb89e7cab50fdda3302401bd67e7f91a7728b986ade21846fbbf583",
-        "docs/prd.md": "e62d275f1ffb44bd1764e3de67a7e14caf8ef34e531b3295c938db85915e536b"
+        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4"
       }
     },
     "canonical-terms": {
@@ -10167,7 +10169,7 @@
       ],
       "source_hashes": {
         "docs/product-idea.md": "22ecd93faeb89e7cab50fdda3302401bd67e7f91a7728b986ade21846fbbf583",
-        "docs/prd.md": "e62d275f1ffb44bd1764e3de67a7e14caf8ef34e531b3295c938db85915e536b"
+        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4"
       }
     },
     "guardrails": {
@@ -10176,7 +10178,7 @@
         "docs/guardrails.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "e62d275f1ffb44bd1764e3de67a7e14caf8ef34e531b3295c938db85915e536b",
+        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
         "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
         "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893"
       }
@@ -10187,7 +10189,7 @@
         "docs/user-journey.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "e62d275f1ffb44bd1764e3de67a7e14caf8ef34e531b3295c938db85915e536b",
+        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
         "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
         "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214"
@@ -10199,7 +10201,7 @@
         "docs/screen-map.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "e62d275f1ffb44bd1764e3de67a7e14caf8ef34e531b3295c938db85915e536b",
+        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
         "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
         "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
@@ -10212,7 +10214,7 @@
         "docs/wireframes.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "e62d275f1ffb44bd1764e3de67a7e14caf8ef34e531b3295c938db85915e536b",
+        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
         "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
         "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
@@ -10226,7 +10228,7 @@
         "docs/design-brief.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "e62d275f1ffb44bd1764e3de67a7e14caf8ef34e531b3295c938db85915e536b",
+        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
         "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
         "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
@@ -10241,7 +10243,7 @@
         "docs/architecture.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "e62d275f1ffb44bd1764e3de67a7e14caf8ef34e531b3295c938db85915e536b",
+        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
         "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
         "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
@@ -10258,7 +10260,7 @@
         "docs/dod-evals.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "e62d275f1ffb44bd1764e3de67a7e14caf8ef34e531b3295c938db85915e536b",
+        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
         "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
         "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
@@ -10266,7 +10268,7 @@
         "docs/screen-map.md": "7368812b25f872898d25fa861c925cf11056704a1fa25c5624355548ed0b8bbe",
         "docs/wireframes.md": "36b56e03002bb8d0d875db7c9583bedc3da1419f6c100d1509f3c247245471ab",
         "docs/design-brief.md": "7d362fdc5a097a746eb9e2ca6d43b54bd364a0e3ed7bd718e0495d6e761dbd21",
-        "docs/architecture.md": "e27b5dd1a9690f732af06b945e5f0ff627e406b95c357b3849181d6e8b6a2ddd"
+        "docs/architecture.md": "ba253b57241178473a1fef1128d52ef5fb579b6eda4d7611cfe8119be5b1dc93"
       }
     },
     "qa-checklist": {
@@ -10275,7 +10277,7 @@
         "docs/qa-checklist.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "e62d275f1ffb44bd1764e3de67a7e14caf8ef34e531b3295c938db85915e536b",
+        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
         "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
         "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
@@ -10283,8 +10285,8 @@
         "docs/screen-map.md": "7368812b25f872898d25fa861c925cf11056704a1fa25c5624355548ed0b8bbe",
         "docs/wireframes.md": "36b56e03002bb8d0d875db7c9583bedc3da1419f6c100d1509f3c247245471ab",
         "docs/design-brief.md": "7d362fdc5a097a746eb9e2ca6d43b54bd364a0e3ed7bd718e0495d6e761dbd21",
-        "docs/architecture.md": "e27b5dd1a9690f732af06b945e5f0ff627e406b95c357b3849181d6e8b6a2ddd",
-        "docs/dod-evals.md": "f16a6605103c90db5e2c8f9005409c2b80c14b63a8cd6ff8ed0691007fb61fc9"
+        "docs/architecture.md": "ba253b57241178473a1fef1128d52ef5fb579b6eda4d7611cfe8119be5b1dc93",
+        "docs/dod-evals.md": "ff9e199612131aef0e422b746355ba84a1047a84d3f513df0cf790faf852ace8"
       }
     },
     "development-plan": {
@@ -10293,7 +10295,7 @@
         "docs/development-plan.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "e62d275f1ffb44bd1764e3de67a7e14caf8ef34e531b3295c938db85915e536b",
+        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
         "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
         "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
@@ -10301,10 +10303,11 @@
         "docs/screen-map.md": "7368812b25f872898d25fa861c925cf11056704a1fa25c5624355548ed0b8bbe",
         "docs/wireframes.md": "36b56e03002bb8d0d875db7c9583bedc3da1419f6c100d1509f3c247245471ab",
         "docs/design-brief.md": "7d362fdc5a097a746eb9e2ca6d43b54bd364a0e3ed7bd718e0495d6e761dbd21",
-        "docs/architecture.md": "e27b5dd1a9690f732af06b945e5f0ff627e406b95c357b3849181d6e8b6a2ddd",
-        "docs/dod-evals.md": "f16a6605103c90db5e2c8f9005409c2b80c14b63a8cd6ff8ed0691007fb61fc9",
-        "docs/qa-checklist.md": "07aeb5eb39f4570b03870a656ac2bca0ac867539b23d2019b26cb3c15d1ff41c",
-        "docs/model-settings.md": "2a8cba482d77cc3774f49014f424051d088461c35b1f8f2ff84c26d2361f46f9"
+        "docs/architecture.md": "ba253b57241178473a1fef1128d52ef5fb579b6eda4d7611cfe8119be5b1dc93",
+        "docs/dod-evals.md": "ff9e199612131aef0e422b746355ba84a1047a84d3f513df0cf790faf852ace8",
+        "docs/qa-checklist.md": "681016bc7bbe24df9465674173b8f470b033d203a4427984dca72a9e2f7562a2",
+        "docs/model-settings.md": "2a8cba482d77cc3774f49014f424051d088461c35b1f8f2ff84c26d2361f46f9",
+        "package.json": "cfe4c67287221083288ec8d25198ff285b2f3c0c16a9adb0a769dad9b2590246"
       }
     }
   },

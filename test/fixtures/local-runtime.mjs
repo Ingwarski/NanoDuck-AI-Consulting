@@ -10,7 +10,13 @@ import { fileURLToPath } from "node:url";
 import { setupWorkspace } from "../../src/server/local-setup.mjs";
 
 export const testPassword = randomBytes(24).toString("base64url");
-export const processEnvironment = () => Object.fromEntries(["PATH", "SystemRoot", "WINDIR"].filter(name => process.env[name]).map(name => [name, process.env[name]]));
+export const processEnvironment = directory => {
+  if (!directory) throw new Error("synthetic_process_directory_required");
+  return {
+    ...Object.fromEntries(["PATH", "SystemRoot", "WINDIR"].filter(name => process.env[name]).map(name => [name, process.env[name]])),
+    HOME: directory, USERPROFILE: directory, TEMP: directory, TMP: directory, TMPDIR: directory
+  };
+};
 export const trustedFetch = ca => (url, options = {}) => new Promise((resolve, reject) => {
   const call = request(url, { method: options.method ?? "GET", ...(options.tlsServername ? { servername: options.tlsServername } : {}), headers: { ...options.headers, ...(options.body !== undefined ? { "content-length": Buffer.byteLength(options.body) } : {}) }, ca }, response => {
     const chunks = []; response.on("data", chunk => chunks.push(chunk)); response.once("end", () => {
@@ -24,7 +30,7 @@ export const trustedFetch = ca => (url, options = {}) => new Promise((resolve, r
 export async function startLocalRuntime(t, { provider = false, address = "127.0.0.1" } = {}) {
   const directory = await mkdtemp(join(tmpdir(), "nanoduck-http-"));
   const reserve = createServer(); reserve.listen(0, "127.0.0.1"); await once(reserve, "listening"); const { port } = reserve.address(); await new Promise(resolve => reserve.close(resolve));
-  const environment = { ...processEnvironment(), NODE_ENV: "test", NANODUCK_HOST: address === "127.0.0.1" ? address : "0.0.0.0", NANODUCK_DATA_DIR: join(directory, "data"), NANODUCK_ALLOWED_HOSTS: `127.0.0.1,localhost,${address}`, PORT: String(port) };
+  const environment = { ...processEnvironment(directory), NODE_ENV: "test", NANODUCK_HOST: address === "127.0.0.1" ? address : "0.0.0.0", NANODUCK_DATA_DIR: join(directory, "data"), NANODUCK_ALLOWED_HOSTS: `127.0.0.1,localhost,${address}`, PORT: String(port) };
   const { caCertificate } = await setupWorkspace({ environment, password: testPassword });
   if (provider) {
     await writeFile(join(directory, "auth.json"), "{}", { mode: 0o600 });
@@ -34,7 +40,8 @@ export async function startLocalRuntime(t, { provider = false, address = "127.0.
   let error = ""; child.stderr.on("data", chunk => { error += chunk; });
   t.after(async () => { if (child.exitCode === null && child.signalCode === null) { const exited = once(child, "exit"); child.kill("SIGTERM"); await exited; } await rm(directory, { recursive: true, force: true }); });
   const origin = `https://${address}:${port}`; const fetch = trustedFetch(caCertificate);
-  for (let attempt = 0; attempt < 200; attempt += 1) {
+  const deadline = Date.now() + 30_000;
+  while (Date.now() < deadline) {
     if (child.exitCode !== null) throw new Error(error);
     try { if ((await fetch(`${origin}/healthz`)).ok) return { child, directory, origin, fetch, environment, caCertificate }; } catch {}
     await new Promise(resolve => setTimeout(resolve, 25));

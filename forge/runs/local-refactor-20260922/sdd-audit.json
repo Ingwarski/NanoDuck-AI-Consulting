@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
   "kind": "current-document-reconciliation",
-  "recorded_at": "2026-09-22T11:52:05.593861+00:00",
+  "recorded_at": "2026-09-22T12:09:38.948138+00:00",
   "executor": "Codex SDD orchestrator with inline installed domain owners",
   "source_hashes": {
     "docs/product-idea.md": "22ecd93faeb89e7cab50fdda3302401bd67e7f91a7728b986ade21846fbbf583",
-    "docs/prd.md": "e62d275f1ffb44bd1764e3de67a7e14caf8ef34e531b3295c938db85915e536b",
+    "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
     "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
     "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
     "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
@@ -13,10 +13,10 @@
     "docs/screen-map.md": "7368812b25f872898d25fa861c925cf11056704a1fa25c5624355548ed0b8bbe",
     "docs/wireframes.md": "36b56e03002bb8d0d875db7c9583bedc3da1419f6c100d1509f3c247245471ab",
     "docs/design-brief.md": "7d362fdc5a097a746eb9e2ca6d43b54bd364a0e3ed7bd718e0495d6e761dbd21",
-    "docs/architecture.md": "e27b5dd1a9690f732af06b945e5f0ff627e406b95c357b3849181d6e8b6a2ddd",
-    "docs/dod-evals.md": "f16a6605103c90db5e2c8f9005409c2b80c14b63a8cd6ff8ed0691007fb61fc9",
-    "docs/qa-checklist.md": "07aeb5eb39f4570b03870a656ac2bca0ac867539b23d2019b26cb3c15d1ff41c",
-    "docs/development-plan.md": "539d250e405f9f8b95fe24e811c0fc0342a3fd22ebe3b362bceb5286c5f971c9"
+    "docs/architecture.md": "ba253b57241178473a1fef1128d52ef5fb579b6eda4d7611cfe8119be5b1dc93",
+    "docs/dod-evals.md": "ff9e199612131aef0e422b746355ba84a1047a84d3f513df0cf790faf852ace8",
+    "docs/qa-checklist.md": "681016bc7bbe24df9465674173b8f470b033d203a4427984dca72a9e2f7562a2",
+    "docs/development-plan.md": "8fbaee9d2ae8e9f27241b5b66e1fb02b8cf467e07f0bcb0efcee3ba6bff8f250"
   },
   "owner_invocations": {
     "product-idea": "local-20260922-product-idea",
