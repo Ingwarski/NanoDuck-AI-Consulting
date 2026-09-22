@@ -13,9 +13,15 @@ export const verifyNotificationAudio = async (appPage, name) => {
     await page.goto(fixtureUrl);
     await page.evaluate(async () => {
       const NativeContext = window.AudioContext ?? window.webkitAudioContext;
-      window.audioEvidence = { contexts: [], sources: [], statuses: [], result: undefined, preview: undefined };
+      window.audioEvidence = { contexts: [], sources: [], statuses: [], contextStates: [], resumes: [], gesture: undefined, result: undefined, preview: undefined };
       window.AudioContext = function (...args) {
         const context = new NativeContext(...args); const createSource = context.createBufferSource.bind(context);
+        const resume = context.resume.bind(context);
+        context.addEventListener("statechange", () => window.audioEvidence.contextStates.push({ state: context.state, time: context.currentTime }));
+        context.resume = () => {
+          const record = { requested: context.state, result: "pending" }; window.audioEvidence.resumes.push(record);
+          return resume().then(value => { record.result = "resolved"; return value; }, error => { record.result = error.name; throw error; });
+        };
         window.audioEvidence.contexts.push(context);
         context.createBufferSource = () => {
           const source = createSource(); const start = source.start.bind(source); let record;
@@ -34,7 +40,8 @@ export const verifyNotificationAudio = async (appPage, name) => {
       const { createNotificationAudio } = await import("/client/notification-audio.js");
       window.audioController = createNotificationAudio({ onStatusChange: status => window.audioEvidence.statuses.push(status) });
       window.audioController.setPreference("knock");
-      document.querySelector("#enable").addEventListener("click", () => {
+      document.querySelector("#enable").addEventListener("click", event => {
+        window.audioEvidence.gesture = { trusted: event.isTrusted, active: navigator.userActivation?.isActive, visibility: document.visibilityState, focus: document.hasFocus() };
         window.audioEvidence.result = undefined;
         void window.audioController.prime().then(result => { window.audioEvidence.result = result; });
       });
@@ -44,7 +51,15 @@ export const verifyNotificationAudio = async (appPage, name) => {
     });
     await page.locator("#enable").click();
     await page.waitForFunction(() => window.audioEvidence.result !== undefined);
-    assert.equal(await page.evaluate(() => window.audioEvidence.result), "played", `${name} cold asset cannot delay gesture priming`);
+    const priming = await page.evaluate(() => ({
+      result: window.audioEvidence.result,
+      gesture: window.audioEvidence.gesture,
+      resumes: window.audioEvidence.resumes,
+      contextStates: window.audioEvidence.contextStates,
+      contexts: window.audioEvidence.contexts.map(context => ({ state: context.state, currentTime: context.currentTime, sampleRate: context.sampleRate, baseLatency: context.baseLatency, outputLatency: context.outputLatency })),
+      sources: window.audioEvidence.sources.map(record => ({ startedAt: record.startedAt, endedAt: record.endedAt, duration: record.source.buffer.duration, audible: record.audible }))
+    }));
+    assert.equal(priming.result, "played", `${name} cold asset cannot delay gesture priming: ${JSON.stringify(priming)}`);
     const primer = await page.evaluate(() => {
       const record = window.audioEvidence.sources[0];
       return { audible: record.audible, elapsed: record.endedAt - record.startedAt, duration: record.source.buffer.duration, status: window.audioController.status };
