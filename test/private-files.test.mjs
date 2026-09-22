@@ -4,8 +4,10 @@ import childProcess from "node:child_process";
 import { syncBuiltinESMExports } from "node:module";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 import test from "node:test";
 import { ensurePrivateDirectory, ensurePrivateFile } from "../src/server/private-files.mjs";
+import { processEnvironment } from "./fixtures/local-runtime.mjs";
 
 const fixture = t => {
   const directory = fs.mkdtempSync(join(fs.realpathSync(tmpdir()), "nanoduck-permissions-"));
@@ -41,10 +43,13 @@ test("private paths reject directory links and file links without altering targe
     const link = join(directory, "file-link");
     try { fs.symlinkSync(filename, link); }
     catch (error) { if (process.platform === "win32" && error.code === "EPERM") return context.skip("File symlinks require Windows developer mode or privilege."); throw error; }
-    const mode = fs.statSync(filename).mode;
-    assert.throws(() => ensurePrivateFile(link));
-    assert.equal(fs.statSync(filename).mode, mode);
-    assert.equal(fs.readFileSync(filename, "utf8"), "unchanged");
+    const descriptor = fs.openSync(filename, "r");
+    try {
+      const mode = fs.fstatSync(descriptor).mode;
+      assert.throws(() => ensurePrivateFile(link));
+      assert.equal(fs.fstatSync(descriptor).mode, mode);
+      assert.equal(fs.readFileSync(descriptor, "utf8"), "unchanged");
+    } finally { fs.closeSync(descriptor); }
   });
 });
 
@@ -60,9 +65,9 @@ test("POSIX permission changes stay bound to the opened file after pathname repl
       return metadata;
     });
     ensurePrivateFile(filename);
+    assert.equal(fs.readFileSync(filename, "utf8"), "replacement");
     assert.equal(fs.statSync(held).mode & 0o777, 0o600);
     assert.equal(fs.statSync(filename).mode & 0o777, 0o644);
-    assert.equal(fs.readFileSync(filename, "utf8"), "replacement");
     assert.throws(() => originalFstat(descriptor), { code: "EBADF" });
   });
 });
@@ -117,4 +122,24 @@ if ($moved) { throw 'Verified pathname was replaceable while applying its ACL' }
   assert.equal(ensurePrivateFile(filename), filename);
   assert.equal(fs.readFileSync(filename, "utf8"), "unchanged");
   assert.equal(fs.existsSync(`${filename}.moved`), false);
+});
+
+test("Windows helper isolates profile data while retaining required OS services", { skip: process.platform !== "win32", timeout: 100_000 }, t => {
+  const directory = fixture(t);
+  const common = processEnvironment(directory);
+  const standard = Object.fromEntries(["ComSpec", "PATHEXT", "OS", "ProgramFiles", "ProgramFiles(x86)", "ProgramW6432", "ProgramData", "ALLUSERSPROFILE"].filter(name => process.env[name]).map(name => [name, process.env[name]]));
+  const profile = { APPDATA: join(directory, "roaming"), LOCALAPPDATA: join(directory, "local") };
+  for (const path of Object.values(profile)) fs.mkdirSync(path);
+  const script = fileURLToPath(new URL("./fixtures/private-permissions-child.mjs", import.meta.url));
+  const outcomes = [];
+  for (const [name, additions] of [["minimal", {}], ["standard-os", standard], ["synthetic-appdata", profile], ["standard-with-appdata", { ...standard, ...profile }]]) {
+    const result = childProcess.spawnSync(process.execPath, [script], {
+      env: { ...common, ...additions, NANODUCK_TEST_PRIVATE_DIRECTORY: join(directory, name) },
+      encoding: "utf8", windowsHide: true, timeout: 20_000
+    });
+    const reason = result.status === 0 ? "ok" : result.stderr.match(/private_permissions_unavailable \([a-zA-Z_0-9:-]+\)/u)?.[0] ?? "process_failed";
+    t.diagnostic(`${name}: ${reason}`);
+    outcomes.push({ name, status: result.status });
+  }
+  assert.equal(outcomes.at(-1).status, 0, "The helper must run with isolated profile data and standard Windows services.");
 });

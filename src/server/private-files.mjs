@@ -4,11 +4,13 @@ import { isAbsolute, join, parse, resolve } from "node:path";
 
 const owns = metadata => typeof process.getuid !== "function" || metadata.uid === process.getuid();
 const windowsAclProgram = `
+[Console]::Error.WriteLine('NANODUCK_PRIVATE_STAGE:script')
 $ErrorActionPreference = 'Stop'
 $stage = 'compile'
 $handle = $null
 $identity = $null
 try {
+[Console]::Error.WriteLine('NANODUCK_PRIVATE_STAGE:compile')
 Add-Type -TypeDefinition @'
 using System;
 using System.ComponentModel;
@@ -83,6 +85,7 @@ public static class NanoDuckPrivateHandle {
 '@
 $directory = $env:NANODUCK_PRIVATE_KIND -eq 'directory'
 $stage = 'open'
+[Console]::Error.WriteLine('NANODUCK_PRIVATE_STAGE:open')
 $handle = [NanoDuckPrivateHandle]::Open($env:NANODUCK_PRIVATE_PATH, $directory)
 $identity = [System.Security.Principal.WindowsIdentity]::GetCurrent()
 $sid = $identity.User
@@ -133,7 +136,8 @@ function applyWindowsPrivacy(path, kind) {
     if (error.status === 3) throw Object.assign(new Error("ENOENT: private path does not exist"), { code: "ENOENT" });
     const reason = String(error.stderr ?? "").match(/NANODUCK_PRIVATE_ERROR:(compile|open|read|owner|apply|verify):(\d+)/u);
     const execution = typeof error.code === "string" && /^[A-Z_]+$/u.test(error.code) ? error.code : Number.isInteger(error.status) ? `exit_${error.status}` : "launch";
-    throw new Error(`private_permissions_unavailable (${reason ? `${reason[1]}:${reason[2]}` : `helper_${execution}`})`);
+    const stage = [...String(error.stderr ?? "").matchAll(/NANODUCK_PRIVATE_STAGE:(script|compile|open)/gu)].at(-1)?.[1] ?? "bootstrap";
+    throw new Error(`private_permissions_unavailable (${reason ? `${reason[1]}:${reason[2]}` : `helper_${execution}:${stage}`})`);
   }
 }
 
