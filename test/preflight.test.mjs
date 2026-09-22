@@ -24,7 +24,7 @@ test("preflight inspects a synthetic local subscription catalog without a model 
       NANODUCK_TEST_CODEX_COMMAND: fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url))
     });
     assert.equal(result.code, 0, result.stderr); const report = JSON.parse(result.stdout);
-    assert.equal(report.codex.status, "ready"); assert.deepEqual(report.codex.models, [{ id: "gpt-6-astra", efforts: ["xhigh", "ultra"] }]); assert.match(report.scope, /no model turn/u);
+    assert.equal(report.codex.status, "ready"); assert.deepEqual(report.codex.models, [{ id: "gpt-6-astra", efforts: ["xhigh", "ultra"] }, { id: "gpt-6-sol", efforts: ["low", "medium", "high", "xhigh", "max", "ultra"] }]); assert.match(report.scope, /no model turn/u);
     const absent = await run(["src/server/preflight.mjs"], { ...processEnvironment(directory), NODE_ENV: "test", NANODUCK_DATA_DIR: `${directory}/data` });
     assert.equal(absent.code, 2); assert.equal(JSON.parse(absent.stdout).codex.status, "unavailable");
   } finally { await rm(directory, { recursive: true, force: true }); }

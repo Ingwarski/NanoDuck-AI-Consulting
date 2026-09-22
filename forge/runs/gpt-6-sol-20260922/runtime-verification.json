@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "scope": "Additional exact GPT-6 Sol option and independent settings persistence",
+  "recorded_at": "2026-09-22T19:08:00.265Z",
+  "source": {
+    "base_commit": "bc44b97ca452eecdfe9b277c99e4d11efc00e64b",
+    "files": [
+      {
+        "path": "package-lock.json",
+        "sha256": "37cb4ca1504c28562ef782e54814e804f0fe3a8ab3d50948451dbdec03580229"
+      },
+      {
+        "path": "package.json",
+        "sha256": "9c3d1e2c1dadf561adfc4a6ef40a420213451cfd559c1db72a126f6f5149e1c4"
+      },
+      {
+        "path": "public/index.html",
+        "sha256": "0def7f6a4eb242db80b9ca14f2fb2f56811267fdeae3ecc6ce6267a4d65f48fc"
+      },
+      {
+        "path": "scripts/browser-active-discussion.mjs",
+        "sha256": "b1575aaeda860bab85d19dcbac1a5ef140fab57215af2ef468e0fc3fb33bee67"
+      },
+      {
+        "path": "scripts/browser-check.mjs",
+        "sha256": "d80f11f143337a51de78c9bed0cb8b087d398c192f0322f391afdcbf4d5e519c"
+      },
+      {
+        "path": "scripts/browser-model-settings.mjs",
+        "sha256": "618f2a5b2fcdd6fe013eeff6d0dae729d2b88413a8439a6b1f57b270afcd9964"
+      },
+      {
+        "path": "src/client/app.js",
+        "sha256": "c7ad124fcb5a13b846b73b0ad83510e10ffe84e8b73f76ab45f593b680be3d20"
+      },
+      {
+        "path": "src/server/codex-provider.mjs",
+        "sha256": "1019134d8366660ad0276011ec89a0b1cd10caa5834e0e6ce338f7bd2a3040b2"
+      },
+      {
+        "path": "src/server/validation.mjs",
+        "sha256": "bd132b202ea8da124de677ffb1bbe59c772ac02107d49bf43e6d640075022aea"
+      },
+      {
+        "path": "test/codex-provider.test.mjs",
+        "sha256": "27d095ca9f5bf902fed53e86a39fe882d94289096ac506da263695f3e1cd89c0"
+      },
+      {
+        "path": "test/core.test.mjs",
+        "sha256": "fbe9fd079ad330eddd4bcb6131446d9322a78ae4caa1ce95ef62d2030696d5c4"
+      },
+      {
+        "path": "test/fixtures/fake-codex.mjs",
+        "sha256": "51692817ff399521001870ef4c97ade65a38ae64b7a3f19203ebdab05d5f8617"
+      },
+      {
+        "path": "test/preflight.test.mjs",
+        "sha256": "2b48d6bed65d73d21a9e077ef126e2fb72e4eb7cd9083ccadc3b8d81a491b223"
+      }
+    ]
+  },
+  "checks": {
+    "node24": {
+      "version": "24.16.0",
+      "command": "npm run check",
+      "result": "passed",
+      "total": 200,
+      "passed": 198,
+      "failed": 0,
+      "skipped": 2
+    },
+    "browsers": {
+      "result": "passed",
+      "engines": [
+        "Chromium",
+        "Firefox",
+        "WebKit",
+        "installed Chrome"
+      ],
+      "scope": "Isolated synthetic application records and provider catalogs; real browser interactions and authenticated settings persistence.",
+      "commands": [
+        "npm run test:browsers",
+        "npm run test:browsers -- --channel=chrome"
+      ],
+      "cases": [
+        "independent Head/shared-specialist and Critic choices",
+        "exact model-specific efforts",
+        "consecutive saves without reload",
+        "Codex and synthetic Claude preferences preserved across provider switching",
+        "save/reload persistence",
+        "accepted-run model snapshot unchanged by later settings",
+        "missing exact model remains disabled",
+        "missing saved effort remains selected and disabled"
+      ],
+      "verification_adjustments": [
+        "Assert native HTMLOptionElement.disabled because the labeled select causes Playwright isDisabled to resolve to the enabled control.",
+        "Wait for the real New-gesture audio primer to become ready before targeting Send in the existing active-discussion fixture. Earlier full runs observed a missing first Send response in Firefox or WebKit; the precise pointer-loss mechanism was not established. No runtime audio change or arbitrary delay was introduced."
+      ]
+    },
+    "live_adapter": {
+      "result": "passed",
+      "command": "createCodexProvider(loadConfig()).invoke",
+      "codex_version": "0.155.1",
+      "started_at": "2026-09-22T18:54:51.435Z",
+      "completed_at": "2026-09-22T18:54:57.783Z",
+      "requested_model": "gpt-6-sol",
+      "returned_model": "gpt-6-sol",
+      "effort": "medium",
+      "synthetic_response_matched": true,
+      "model_invocations": 1,
+      "research": false,
+      "web_actions": 0,
+      "private_conversation_accessed": false,
+      "application_store_accessed": false,
+      "temporary_auth_workspaces_removed": true
+    },
+    "live_server": {
+      "result": "passed",
+      "at": "2026-09-22T18:59:41.402Z",
+      "restartedWithZeroActiveRuns": true,
+      "recordsAndSettingsUnchanged": true,
+      "httpsHealth": true,
+      "caVerified": true,
+      "currentAssets": true,
+      "interfaces": [
+        "loopback",
+        "private LAN from same computer"
+      ],
+      "finalAssetsVerifiedAt": "2026-09-22T19:06:34.267Z"
+    },
+    "native_safari": {
+      "result": "not_run",
+      "reason": "Mac locked during attempted native application access; no interaction completed."
+    },
+    "sdd": {
+      "result": "passed",
+      "owner_checks": "pipeline-checks.json and wording-checks.json",
+      "formal_qa": "83 not_run",
+      "release_gates": "6 not_evaluated"
+    }
+  },
+  "ci": {
+    "status": "pending"
+  },
+  "limits": [
+    "Browser provider capabilities are synthetic; real Sol execution is separately verified only at medium effort.",
+    "No real Claude invocation, physical mobile-device check or saved live model change."
+  ]
+}

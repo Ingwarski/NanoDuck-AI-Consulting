@@ -54,6 +54,9 @@ export async function verifyActiveDiscussion(page, name, root) {
   await page.waitForFunction(() => document.querySelector('#sound-notice').dataset.status === 'idle');
   assert.equal(await page.locator('#settings-page').isVisible(), false);
   await openNewConversation(page);
+  // New is the trusted gesture that primes sound after this reload. Wait for
+  // its real completion and the notice's layout change before targeting Send.
+  await page.waitForFunction(() => document.querySelector('#sound-notice').dataset.status === 'ready');
   await page.locator('#message').fill(`Synthetic ${name} active controls. Wait until cancelled`);
   const sendBox = await page.locator('#send').boundingBox();
   const acceptance = page.waitForResponse(response => response.url().endsWith('/messages') && response.request().method() === 'POST');

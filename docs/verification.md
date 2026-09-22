@@ -1,5 +1,15 @@
 # Verification
 
+## Additional GPT-6 Sol choice · 22 September 2026
+
+The [scoped runtime receipt](../forge/runs/gpt-6-sol-20260922/runtime-verification.json) binds the source snapshot for exact `gpt-6-sol` in Head/shared-specialist and Codex Critic Settings. Codex `0.155.1` exposes that model with `low`, `medium`, `high`, `xhigh`, `max` and `ultra`; the older package did not report it. Existing Astra/xhigh defaults and saved preferences remain intact. Unit checks cover exact model/effort validation, rejection when the model is missing, independent provider preferences and exact adapter parameters. Node 24.16.0 passed 198 of 200 tests with zero failures and two Windows-only skips. SDD owner checks, implementation gate and audit passed; the 83 formal QA checks remain `not_run` and six release gates remain `not_evaluated`.
+
+A bounded real invocation through `createCodexProvider(loadConfig()).invoke` requested `gpt-6-sol` / `medium` using the existing subscription. The protocol returned exact `gpt-6-sol`, and the synthetic public response matched the expected answer. This was one model invocation with research disabled and zero web actions; no private conversation or application store was accessed. Temporary authorization workspaces were removed.
+
+Full browser checks passed in Chromium, installed Chrome, Firefox and WebKit. They cover independent Head/Critic selection, six model-specific efforts, repeated saves without reload, switching Critic between Codex and a synthetic Claude catalog while preserving both choices, accepted-run snapshot preservation, and disabled missing-catalog models and saved efforts. Missing saved efforts remain visibly selected until the owner chooses a supported alternative; loading Settings never substitutes one. The provider-switch and repeated-save checks also protect two corrected settings bugs. The receipt records browser results, fixture synchronization changes and CI status. Claude switching uses synthetic capability evidence and does not establish real Claude availability or execution.
+
+The local server was restarted with no active consultation. An in-memory comparison confirmed unchanged conversations, messages, attachments, runs, settings and instruction content. HTTPS health and current application assets passed with the existing CA verified on loopback and the private LAN interface from the same computer. Native desktop Safari could not be rechecked because the Mac was locked; automated WebKit evidence is recorded separately. No physical mobile-device check or saved model change is claimed.
+
 ## Browser audio, live research and Opus 5.5 correction · 22 September 2026
 
 The [scoped runtime receipt](../forge/runs/browser-research-claude-20260922/runtime-verification.json) binds the tested source snapshot. Node 24.16.0 (`npm run check`) and Node 22.23.2 (`node scripts/test.mjs`) each passed 195 of 197 tests, with zero failures and two Windows-only skips. The artifact checker and SDD audit passed. The 83 formal QA definitions remain not_run and six release gates remain not_evaluated.

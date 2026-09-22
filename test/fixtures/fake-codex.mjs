@@ -2,6 +2,7 @@
 import { createInterface } from "node:readline";
 
 const send = value => process.stdout.write(`${JSON.stringify({ jsonrpc: "2.0", ...value })}\n`);
+let threadModel;
 const expectedFeatures = ["shell_tool", "unified_exec", "view_image", "shell_snapshot", "apps", "plugins", "hooks", "memories", "browser_use", "browser_use_external", "browser_use_full_cdp_access", "computer_use", "image_generation", "workspace_dependencies", "code_mode", "code_mode_host", "multi_agent", "multi_agent_v2", "skill_search", "tool_suggest", "request_permissions_tool"];
 const replyFor = prompt => {
   let answer = "A bounded answer.";
@@ -25,15 +26,23 @@ createInterface({ input: process.stdin, crlfDelay: Infinity }).on("line", line =
   if (request.method === "initialized" || request.id === undefined) return;
   if (request.method === "initialize") return send({ id: request.id, result: {} });
   if (request.method === "thread/start") {
+    threadModel = request.params.model;
     const config = request.params?.config;
     const safe = request.params?.ephemeral === true && request.params?.cwd === process.env.HOME && request.params?.environments?.length === 0 && expectedFeatures.every(key => config?.features?.[key] === false);
     return safe ? send({ id: request.id, result: { model: request.params.model, thread: { id: "isolated-thread", model: request.params.model } } }) : send({ id: request.id, error: { message: "unsafe_thread" } });
   }
   if (request.method === "account/read") return send({ id: request.id, result: { account: { type: "chatgpt" } } });
-  if (request.method === "model/list") return send({ id: request.id, result: { data: [{ id: "astra", model: "gpt-6-astra", supportedReasoningEfforts: [{ reasoningEffort: "xhigh" }, { reasoningEffort: "ultra" }] }], nextCursor: null } });
+  if (request.method === "model/list") {
+    const entry = (model, efforts) => ({ id: model, model, supportedReasoningEfforts: efforts.map(reasoningEffort => ({ reasoningEffort })) });
+    const data = [entry("gpt-5.6-sol", ["low", "medium", "high", "xhigh", "max", "ultra"])];
+    if (!process.argv.includes("--sol-only")) data.push(entry("gpt-6-astra", ["xhigh", "ultra"]));
+    if (!process.argv.includes("--without-sol")) data.push(entry("gpt-6-sol", process.argv.includes("--limited-sol") ? ["medium", "unknown", "medium"] : ["low", "medium", "high", "xhigh", "max", "ultra"]));
+    return send({ id: request.id, result: { data, nextCursor: null } });
+  }
   if (request.method === "account/rateLimits/read") return send({ id: request.id, result: { rateLimits: { rateLimitReachedType: null } } });
   if (request.method === "turn/start") {
     const prompt = request.params?.input?.[0]?.text ?? "";
+    if (prompt.includes("Report selected model and effort")) return send({ id: request.id, result: { turn: { id: "turn-1", status: "completed", items: [{ type: "agentMessage", text: JSON.stringify({ threadModel, turnModel: request.params.model, effort: request.params.effort }) }] } } });
     if (prompt.includes("Report completed research diagnostics")) {
       const search = { type: "webSearch", id: "search-1", query: "synthetic-query-do-not-log" };
       send({ method: "item/completed", params: { threadId: "another-thread", turnId: "turn-1", item: { ...search, id: "wrong-thread" } } });

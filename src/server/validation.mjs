@@ -31,7 +31,8 @@ export function messageError(value) {
   return body && (hasProhibitedLanguage(body.body) || hasUnsafeExternalUrl(body.body)) ? "language_not_supported" : "invalid_message";
 }
 
-const knownCodexEfforts = new Set(["xhigh", "ultra"]);
+const knownCodexEfforts = new Set(["low", "medium", "high", "xhigh", "max", "ultra"]);
+const preservedAstraEfforts = new Set(["xhigh", "ultra"]);
 const knownClaudeEfforts = new Set(["low", "medium", "high", "extra", "max"]);
 const catalogFor = (catalog, provider) => Array.isArray(catalog)
   ? (provider === "codex" ? catalog : [])
@@ -49,7 +50,7 @@ export function parseSettings(value, catalog = undefined) {
   const claudeModels = catalogFor(catalog, "claude_code");
   const codexAllowed = (model, effort) => codexModels.length
     ? modelSupports(codexModels, model, effort)
-    : model === "gpt-6-astra" && knownCodexEfforts.has(effort);
+    : model === "gpt-6-astra" && preservedAstraEfforts.has(effort);
   const criticProvider = body.criticProvider ?? "codex";
   const criticCodexModel = body.criticCodexModel ?? body.criticModel;
   const criticCodexReasoning = body.criticCodexReasoning ?? body.criticReasoning;

@@ -336,9 +336,30 @@ const criticProviderStatus = provider => {
 };
 const replaceOptions = (select, options, selected) => {
   clear(select);
-  for (const option of options) select.append(node("option", { value: option.id }, option.label ?? option.id));
+  for (const option of options) select.append(node("option", { value: option.id, disabled: Boolean(option.disabled) }, option.label ?? option.id));
   if (options.some(option => option.id === selected)) select.value = selected;
 };
+const codexModelOptions = (selectedModel, selectedEffort) => {
+  const available = state.criticProviders?.codex?.models ?? [];
+  const choices = new Map([["gpt-6-astra", "gpt-6-astra"], ["gpt-6-sol", "GPT-6 Sol"]]);
+  if (selectedModel && !choices.has(selectedModel)) choices.set(selectedModel, selectedModel);
+  return [...choices].map(([id, label]) => {
+    const model = available.find(candidate => candidate.id === id && candidate.efforts?.length);
+    return model ? { ...model, label } : { id, label: `${label} — unavailable`, disabled: true, efforts: id === selectedModel && selectedEffort ? [selectedEffort] : [] };
+  });
+};
+const modelEffortOptions = (model, selectedEffort, preserveEffort, label = id => id) => {
+  const options = model.efforts.map(id => ({ id, label: label(id) }));
+  if (preserveEffort && selectedEffort && !model.efforts.includes(selectedEffort)) options.push({ id: selectedEffort, label: `${label(selectedEffort)} — unavailable`, disabled: true });
+  return options;
+};
+function renderHeadControls(selectedModel = $("#head-model").value, selectedEffort = $("#head-reasoning").value, preserveEffort = false) {
+  const models = codexModelOptions(selectedModel, selectedEffort);
+  replaceOptions($("#head-model"), models, selectedModel);
+  const current = models.find(model => model.id === $("#head-model").value) ?? models[0];
+  replaceOptions($("#head-reasoning"), modelEffortOptions(current, selectedEffort, preserveEffort), selectedEffort);
+  $("#head-reasoning").disabled = Boolean(current.disabled);
+}
 function ensureCriticProviderControl() {
   if ($("#critic-provider")) return;
   const fieldset = $("#critic-model").closest("fieldset"); const first = fieldset.querySelector("label");
@@ -354,32 +375,33 @@ function ensureCriticProviderControl() {
 }
 function saveVisibleCriticSettings() {
   if (!state.criticSettings) return;
-  if ($("#critic-provider").value === "claude_code") {
+  // A provider change has already changed the select; these controls still
+  // belong to the previously rendered provider until renderCriticControls.
+  if (state.criticSettings.criticProvider === "claude_code") {
     state.criticSettings.criticClaudeModel = $("#critic-model").value; state.criticSettings.criticClaudeReasoning = $("#critic-reasoning").value;
   } else {
     state.criticSettings.criticCodexModel = $("#critic-model").value; state.criticSettings.criticCodexReasoning = $("#critic-reasoning").value;
   }
 }
-function renderCriticControls() {
+function renderCriticControls(preserveEffort = true) {
   const provider = state.criticSettings.criticProvider; const capability = state.criticProviders?.[provider] ?? { status: "unavailable", models: [] };
   $("#critic-provider").value = provider;
-  const models = capability.models?.length ? capability.models : provider === "codex"
-    ? [{ id: "gpt-6-astra", label: "gpt-6-astra", efforts: ["xhigh", "ultra"] }]
-    : ["claude-opus-5", "claude-opus-5-5"].map(id => ({ id, label: id === "claude-opus-5" ? "Opus 5" : "Opus 5.5", efforts: ["low", "medium", "high", "extra", "max"] }));
   const selectedModel = provider === "claude_code" ? state.criticSettings.criticClaudeModel : state.criticSettings.criticCodexModel;
   const selectedEffort = provider === "claude_code" ? state.criticSettings.criticClaudeReasoning ?? "high" : state.criticSettings.criticCodexReasoning;
+  const models = provider === "codex" ? codexModelOptions(selectedModel, selectedEffort) : capability.models?.length ? capability.models
+    : ["claude-opus-5", "claude-opus-5-5"].map(id => ({ id, label: id === "claude-opus-5" ? "Opus 5" : "Opus 5.5", efforts: ["low", "medium", "high", "extra", "max"] }));
   replaceOptions($("#critic-model"), models, selectedModel);
   const current = models.find(model => model.id === $("#critic-model").value) ?? models[0];
   const effortLabel = id => provider === "claude_code" ? ({ low: "Low", medium: "Medium", high: "High", extra: "Extra", max: "Max" }[id] ?? id) : id;
-  replaceOptions($("#critic-reasoning"), current.efforts.map(id => ({ id, label: effortLabel(id) })), selectedEffort);
+  replaceOptions($("#critic-reasoning"), modelEffortOptions(current, selectedEffort, preserveEffort, effortLabel), selectedEffort);
   const unavailable = provider === "claude_code" && capability.status !== "ready";
-  $("#critic-model").disabled = unavailable; $("#critic-reasoning").disabled = unavailable;
+  $("#critic-model").disabled = unavailable; $("#critic-reasoning").disabled = unavailable || Boolean(current.disabled);
   $("#settings-status").textContent = [criticProviderStatus("codex"), ...(provider === "claude_code" ? [criticProviderStatus("claude_code")] : []), "Usage totals and reset time are unavailable."].join(" ");
 }
 async function loadSettings() {
   const [{ data: settingsData }, { data: instructionsData }, { data: documentData }] = await Promise.all([request("/api/settings"), request("/api/runtime-instructions"), request("/api/instruction-documents")]); const settings = settingsData.settings; const instructions = instructionsData.runtimeInstructions;
-  $("#head-model").value = settings.headModel; $("#head-reasoning").value = settings.headReasoning;
   state.criticProviders = settingsData.criticProviders ?? { codex: { status: settingsData.provider, models: settingsData.catalog ?? [] }, claude_code: { status: "unavailable", models: [] } };
+  renderHeadControls(settings.headModel, settings.headReasoning, true);
   state.criticSettings = {
     criticProvider: settings.criticProvider ?? "codex",
     criticCodexModel: settings.criticCodexModel ?? settings.criticModel,
@@ -702,12 +724,14 @@ $("#settings-form").addEventListener("submit", async event => {
   const activeCritic = state.criticSettings.criticProvider === "claude_code"
     ? { model: state.criticSettings.criticClaudeModel, reasoning: state.criticSettings.criticClaudeReasoning }
     : { model: state.criticSettings.criticCodexModel, reasoning: state.criticSettings.criticCodexReasoning };
-  const settings = { headModel: $("#head-model").value, headReasoning: $("#head-reasoning").value, ...state.criticSettings, criticModel: activeCritic.model, criticReasoning: activeCritic.reasoning, specialistCount: $("#specialist-count").value, discussionDepth: $("#discussion-depth").value, notificationSound: $("#notification-sound").value };
+  const settings = { ...state.criticSettings, headModel: $("#head-model").value, headReasoning: $("#head-reasoning").value, criticModel: activeCritic.model, criticReasoning: activeCritic.reasoning, specialistCount: $("#specialist-count").value, discussionDepth: $("#discussion-depth").value, notificationSound: $("#notification-sound").value };
   try {
     const { data } = await request("/api/settings", { method: "PUT", body: settings });
     state.criticSettings = { ...state.criticSettings, ...data.settings }; setNotificationPreference(data.settings.notificationSound); toast("Settings saved for future consultations.");
   } catch { toast("Settings were not saved. Check the selected provider and try again."); }
 });
+$("#head-model").addEventListener("change", () => renderHeadControls());
+$("#critic-model").addEventListener("change", () => { saveVisibleCriticSettings(); renderCriticControls(false); });
 // Resume the shared audio output in a trusted gesture, before any network awaits.
 for (const type of ["click", "keydown"]) document.addEventListener(type, event => {
   if (!event.isTrusted || event.target.closest?.("#preview-notification-sound, #enable-notification-sound")) return;

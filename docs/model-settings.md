@@ -8,6 +8,17 @@ provider availability or a completed model call.
 | Head and specialists | Codex | `gpt-6-astra` | `xhigh` |
 | Critic | Codex | `gpt-6-astra` | `xhigh` |
 
+GPT-6 Sol (`gpt-6-sol`) is an additional explicit Codex choice for both
+Head/shared specialists and Critic. The authenticated Codex `0.155.1` catalog
+reports `low`, `medium`, `high`, `xhigh`, `max` and `ultra`, with `medium` as the
+provider default. These supported choices do not change NanoDuck’s preserved
+Astra / `xhigh` selections or any saved preference. The earlier `0.153.1` catalog
+did not expose this exact model; `gpt-5.6-sol` is distinct and is never a substitute.
+See the [bounded catalog observation](../forge/runs/gpt-6-sol-20260922/catalog-observation.json).
+Show the requested model as unavailable if the current authenticated catalog
+omits it, and never invent an effort list or infer a completed model call from
+catalog presence.
+
 The optional Claude Code Critic branch has no inferred saved preference. When
 first selected, it offers Opus 5 (`claude-opus-5`) with High as its initial effort;
 available effort labels are Low, Medium, High, Extra and Max. At the isolated CLI
@@ -17,7 +28,7 @@ Existing Opus 5 / High and saved Codex selections remain unchanged; adding a mod
 never selects it automatically. Anthropic defaults Opus 5.5 to Medium, distinct
 from NanoDuck’s retained High initial preference. Successful Claude output must
 report exactly the selected model in `modelUsage`; missing, mixed or substituted
-model identities are rejected. Current packages are pinned to Codex `0.153.1`
+model identities are rejected. Current packages are pinned to Codex `0.155.1`
 and Claude Code `2.1.280`, the minimum documented version for Opus 5.5.
 
 Sources checked on 22 September 2026: [Anthropic release](https://www.anthropic.com/claude-opus-5-5)

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "event": "authenticated_model_catalog_observation",
+  "recorded_at": "2026-09-22T18:53:57.350592+00:00",
+  "executor": "Codex delegated read-only catalog operator",
+  "provenance": "Sanitized tool observations relayed by the delegated operator in the current task; no raw authentication or account identifiers retained.",
+  "method": "Isolated Codex app-server model/list with includeHidden:true under the existing ChatGPT subscription; temporary runtime/authentication copies removed.",
+  "observations": [
+    {
+      "observed_at": "2026-09-22T18:48:20.307Z",
+      "package_version": "0.153.1",
+      "pagination": "complete single page",
+      "model_count": 7,
+      "exact_gpt_6_sol_present": false,
+      "note": "gpt-5.6-sol is a different model and is not a substitute."
+    },
+    {
+      "observed_at": "2026-09-22T18:50:26.644Z",
+      "package_version": "0.155.1",
+      "exact_gpt_6_sol_present": true,
+      "model": {
+        "id": "gpt-6-sol",
+        "model": "gpt-6-sol",
+        "displayName": "GPT-6-Sol",
+        "hidden": false,
+        "defaultReasoningEffort": "medium",
+        "supportedReasoningEfforts": [
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max",
+          "ultra"
+        ]
+      }
+    }
+  ],
+  "model_invocations": 0,
+  "account_type": "chatgpt",
+  "limitations": [
+    "Authenticated catalog capability only; execution, per-model entitlement and quota were not tested.",
+    "No saved app preference, provider grant or private conversation was changed."
+  ]
+}

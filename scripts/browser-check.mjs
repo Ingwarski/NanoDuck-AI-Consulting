@@ -12,6 +12,7 @@ import { setupWorkspace } from '../src/server/local-setup.mjs';
 import { verifyLostAcceptanceRetry } from './browser-send-retry.mjs';
 import { verifyPrivateLogoff } from './browser-logoff.mjs';
 import { verifyNotificationAudio } from './browser-notification-audio.mjs';
+import { verifyModelSettings } from './browser-model-settings.mjs';
 import { recordNotificationPlayback, verifyActiveDiscussion, verifySavedSoundOff } from './browser-active-discussion.mjs';
 
 async function phase(name, action) {
@@ -83,6 +84,7 @@ try {
       await page.locator('#consent-check').check();
       await page.locator('#consent-button').click();
       await page.locator('#app').waitFor({ state: 'visible' });
+      await phase(`${name} independent model settings`, () => verifyModelSettings(page, name));
       await phase(`${name} native audio`, () => verifyNotificationAudio(page, name));
       await phase(`${name} active discussion`, () => verifyActiveDiscussion(page, name, root));
       await phase(`${name} acceptance retry`, () => verifyLostAcceptanceRetry(page, name));
@@ -118,9 +120,19 @@ try {
       await page.screenshot({ path: join(root, 'output', 'playwright', `${name}-mobile.png`), fullPage: true });
       await phase(`${name} private logoff`, () => verifyPrivateLogoff(page, context, origin, password, name));
       assert.deepEqual(errors, [], `${name} uncaught browser errors`);
-      console.log(`${name}: password, consent, compact active composer, isolated square Stop, draft/image restoration, saved sound hydration, delayed native audio, duplicate suppression, blocked recovery, Off on reload, consultation, lost-response retry with an edited draft and image, outcome, refresh, settings, saved history, mobile layout, voice fallback, offline/connected logout, late-response privacy and locked reload/history passed.`);
+      console.log(`${name}: password, consent, independent Sol/Astra models and efforts, saved choices, accepted model snapshots, unavailable Sol, compact active composer, isolated square Stop, draft/image restoration, saved sound hydration, delayed native audio, duplicate suppression, blocked recovery, Off on reload, consultation, lost-response retry with an edited draft and image, outcome, refresh, settings, saved history, mobile layout, voice fallback, offline/connected logout, late-response privacy and locked reload/history passed.`);
       await context.close();
-    } catch (error) { console.error(`${name}: browser verification failed before cleanup.`, error); throw error; } finally {
+    } catch (error) {
+      console.error(`${name}: browser verification failed before cleanup.`, error);
+      const fixturePage = browser.contexts()[0]?.pages()[0];
+      if (fixturePage) console.error(`${name}: fixture state`, await fixturePage.evaluate(() => ({
+        visibility: document.visibilityState, focus: document.hasFocus(), activeElement: document.activeElement?.id,
+        runStatus: document.querySelector('#run-status')?.textContent, messageLength: document.querySelector('#message')?.value.length,
+        sendDisabled: document.querySelector('#send')?.disabled, composerHidden: document.querySelector('#composer')?.hidden,
+        toast: document.querySelector('#toast')?.textContent
+      })).catch(() => ({ unavailable: true })));
+      throw error;
+    } finally {
       console.log(`${name}: closing fixture.`);
       await browser.close();
       if (child.exitCode === null && child.signalCode === null) { const stopped = once(child, 'exit'); child.kill('SIGTERM'); await stopped; }

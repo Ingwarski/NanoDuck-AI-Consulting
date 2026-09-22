@@ -10,9 +10,30 @@ import { testRuntimeInstructions as initialRuntimeInstructions } from "./fixture
 test("Codex turns use an owned workspace and deny local tool channels", async () => {
   const command = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));
   const provider = createCodexProvider({ readyForProvider: true, codexCommand: process.execPath, codexCommandArgs: [command], codexAuthPath: undefined });
-  assert.deepEqual(await provider.inspect(), { status: "ready", models: [{ id: "gpt-6-astra", efforts: ["xhigh", "ultra"] }] });
+  assert.deepEqual(await provider.inspect(), { status: "ready", models: [{ id: "gpt-6-astra", efforts: ["xhigh", "ultra"] }, { id: "gpt-6-sol", efforts: ["low", "medium", "high", "xhigh", "max", "ultra"] }] });
   const result = await provider.invoke({ assignment: "Give a practical answer.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions, signal: new AbortController().signal });
   assert.deepEqual(result, { ok: true, body: "A bounded answer.", sources: [] });
+});
+
+test("Codex lists only exact supported models and their reported efforts", async () => {
+  const command = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));
+  for (const [flags, models] of [
+    [["--without-sol"], [{ id: "gpt-6-astra", efforts: ["xhigh", "ultra"] }]],
+    [["--sol-only", "--limited-sol"], [{ id: "gpt-6-sol", efforts: ["medium"] }]]
+  ]) {
+    const provider = createCodexProvider({ readyForProvider: true, codexCommand: process.execPath, codexCommandArgs: [command, ...flags] });
+    assert.deepEqual(await provider.inspect(), { status: "ready", models });
+  }
+  const absent = createCodexProvider({ readyForProvider: true, codexCommand: process.execPath, codexCommandArgs: [command, "--sol-only", "--without-sol"] });
+  assert.deepEqual(await absent.inspect(), { status: "incompatible", models: [] });
+});
+
+test("Codex forwards the exact Sol model and selected effort without substituting Astra", async () => {
+  const command = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));
+  const provider = createCodexProvider({ readyForProvider: true, codexCommand: process.execPath, codexCommandArgs: [command] });
+  const result = await provider.invoke({ assignment: "Report selected model and effort.", model: "gpt-6-sol", effort: "medium", evidence: { owner: "Synthetic question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions });
+  assert.equal(result.ok, true);
+  assert.deepEqual(JSON.parse(result.body), { threadModel: "gpt-6-sol", turnModel: "gpt-6-sol", effort: "medium" });
 });
 
 test("Codex local auth input exists only in the private app-server home", async () => {
