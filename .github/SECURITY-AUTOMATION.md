@@ -2,8 +2,8 @@
 
 This configuration belongs to `Ingwarski/NanoDuck-AI-Consulting`.
 
-- GitHub CodeQL uses its Extended security suite for JavaScript/TypeScript,
-  Python and GitHub Actions. GitHub manages push, pull-request and weekly runs.
+- GitHub CodeQL uses its Extended security suite for JavaScript/TypeScript
+  and GitHub Actions. GitHub manages push, pull-request and weekly runs.
 - Dependabot alerts and security updates are enabled. Routine npm version PRs
   are disabled to preserve reviewed provider pins; security PRs remain enabled.
   GitHub Actions updates are checked weekly. Nothing is merged automatically.

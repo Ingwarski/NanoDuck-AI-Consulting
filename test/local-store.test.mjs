@@ -5,6 +5,7 @@ import { spawn } from "node:child_process";
 import { mkdtemp, readFile, realpath, rm, stat, symlink, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { DatabaseSync } from "node:sqlite";
 import test from "node:test";
 import { createLocalStore } from "../src/server/local-store.mjs";
@@ -163,15 +164,32 @@ test("private permissions and rejected symlink paths protect local state", async
 
 test("SQLite lifetime ownership excludes a second process and survives SIGKILL", async t => {
   const config = await fixture(t);
-  const moduleUrl = new URL("../src/server/local-store.mjs", import.meta.url).href;
-  const script = `import {createLocalStore} from ${JSON.stringify(moduleUrl)}; const store=await createLocalStore({dataDirectory:process.argv[1],dataKey:Buffer.from(process.argv[2],"hex")}); const conversation=await store.createConversation(); console.log(JSON.stringify(conversation)); setInterval(()=>{},1000);`;
-  const child = config.trackChild(spawn(process.execPath, ["--input-type=module", "-e", script, config.dataDirectory, config.dataKey.toString("hex")], { stdio: ["ignore", "pipe", "pipe"] }));
-  let output = ""; let errors = ""; child.stdout.on("data", chunk => { output += chunk; }); child.stderr.on("data", chunk => { errors += chunk; });
-  const deadline = Date.now() + 30_000;
-  while (!output.includes("\n") && Date.now() < deadline) await new Promise(resolve => setTimeout(resolve, 20));
-  assert.ok(output.includes("\n"), errors);
-  const conversation = JSON.parse(output.trim());
+  const childFile = fileURLToPath(new URL("./fixtures/local-store-owner.mjs", import.meta.url));
+  const child = config.trackChild(spawn(process.execPath, ["--expose-gc", childFile, config.dataDirectory, config.dataKey.toString("hex")], { stdio: ["ignore", "ignore", "pipe", "ipc"] }));
+  let errors = ""; child.stderr.on("data", chunk => { errors += chunk; });
+  const receive = type => new Promise((resolve, reject) => {
+    const finish = (error, value) => {
+      clearTimeout(timeout); child.off("message", onMessage); child.off("exit", onExit); child.off("error", onError);
+      if (error) reject(error); else resolve(value);
+    };
+    const onMessage = value => {
+      if (value?.type === "error") finish(new Error(value.error));
+      else if (value?.type === type) finish(null, value);
+    };
+    const onExit = (code, signal) => finish(new Error(`ownership_child_exited: ${code ?? signal}: ${errors}`));
+    const onError = error => finish(error);
+    const timeout = setTimeout(() => finish(new Error(`ownership_child_timeout: ${type}: ${errors}`)), 30_000);
+    child.on("message", onMessage); child.once("exit", onExit); child.once("error", onError);
+  });
+  const { conversation } = await receive("ready");
+  const assertLiveOwner = async () => {
+    assert.equal(child.exitCode, null); assert.equal(child.signalCode, null); assert.equal(child.connected, true);
+    const response = receive("inspected"); child.send({ type: "inspect" });
+    assert.deepEqual((await response).conversationIds, [conversation.id]);
+  };
+  await assertLiveOwner();
   await assert.rejects(config.open(), /local_store_in_use/u);
+  await assertLiveOwner();
   const exited = once(child, "exit"); child.kill("SIGKILL"); await exited;
   const store = await config.open();
   assert.equal((await store.getConversation(conversation.id)).id, conversation.id);
