@@ -4,7 +4,7 @@
   "recorded_at": "2026-09-22T11:40:01.682063+00:00",
   "current_intent": {
     "path": "docs/product-idea.md",
-    "content_hash": "22ecd93faeb89e7cab50fdda3302401bd67e7f91a7728b986ade21846fbbf583"
+    "content_hash": "d06e4cd0cb2f9bbd6c3916c5737b763a96b01c7e4b140f757a1b78e7afd2974f"
   },
   "current_manifest": "forge/sdd-manifest.json",
   "visual": {
@@ -15,7 +15,14 @@
       "path": "forge/design/evidence/electric-v8-approval-20260914.json",
       "content_hash": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2"
     },
-    "scope": "Preserved Electric A v8 geometry. Current canonical documents supply the explicit local-password and optional-speech behavior override. No new design approval or code promotion is claimed."
+    "scope": "Preserved Electric A v8 foundation and frozen source. Current canonical documents record local-access corrections and the explicit active-composer, deliberate square Stop and sound-feedback scoped override; no new whole-design approval or prototype promotion is claimed.",
+    "scoped_overrides": [
+      {
+        "path": "forge/runs/composer-sound-20260922/scoped-override.json",
+        "content_hash": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b",
+        "scope": "S-02 active composer and Stop; S-02/S-04 incoming-sound availability and recovery."
+      }
+    ]
   },
   "sound": {
     "path": "public/sounds/table-taps-250ms-v5.wav",

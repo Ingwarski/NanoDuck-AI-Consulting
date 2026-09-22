@@ -1,10 +1,11 @@
+import { createNotificationAudio } from "/client/notification-audio.js";
 import { parseMarkdown } from "/client/markdown.js";
 import { normalizeRefreshState, refreshStateKey, serializeRefreshState } from "/client/refresh-state.js";
 
-const state = { session: null, csrf: null, page: "discussion", tab: "discussion", conversation: null, events: [], run: null, poll: null, recognition: null, voiceTimer: null, voiceMode: "ready", voiceTranscript: "", attachmentFiles: [], attachmentError: "", pendingSubmissions: new Map(), sending: false, runtimeInstructionHistory: [], documents: [], notificationSound: "knock", conversations: [], selectedConversationIds: new Set(), criticSettings: null, criticProviders: null };
+const state = { session: null, csrf: null, page: "discussion", tab: "discussion", conversation: null, events: [], run: null, poll: null, recognition: null, voiceTimer: null, voiceMode: "ready", voiceTranscript: "", attachmentFiles: [], attachmentError: "", pendingSubmissions: new Map(), sending: false, stopping: false, runtimeInstructionHistory: [], documents: [], notificationSound: "off", conversations: [], selectedConversationIds: new Set(), criticSettings: null, criticProviders: null };
 const logoutPendingKey = "nanoduck-logout-pending-v1";
 const activeRequests = new Set();
-let privacyLocked = false; let clientGeneration = 0;
+let privacyLocked = false; let clientGeneration = 0; let initializing = true;
 const $ = selector => document.querySelector(selector);
 const roleInitials = { owner: "I", "Head Consultant": "HC", "Strategy Consultant": "SC", "Finance Consultant": "FC", "Operations Consultant": "OC", "Sales Consultant": "SL", "Marketing Consultant": "MC", "Product Consultant": "PC", "Spiritual Consultant": "SP", Psychotherapist: "PT", "Risk Consultant": "RC", Critic: "CR", System: "•" };
 const displayRole = role => role === "owner" ? "You" : role;
@@ -52,44 +53,34 @@ const attachmentLimit = 8 * 1024 * 1024;
 const attachmentCountLimit = 4;
 const attachmentTypes = new Set(["image/jpeg", "image/png", "image/webp"]);
 const formatBytes = value => value < 1024 * 1024 ? `${Math.ceil(value / 1024)} KB` : `${(value / (1024 * 1024)).toFixed(1)} MiB`;
-const notificationPatterns = Object.freeze({
-  chime: Object.freeze([[659, 0, .32], [880, .13, .44]]),
-  ripple: Object.freeze([[523, 0, .16], [659, .10, .18], [784, .21, .24]])
-});
-const notificationSoundUrls = new Map();
-const notificationPlayers = new Set();
-const soundUrl = name => {
-  if (name === "knock") return "/sounds/table-taps-250ms-v5.wav";
-  if (notificationSoundUrls.has(name)) return notificationSoundUrls.get(name);
-  const pattern = notificationPatterns[name]; if (!pattern || typeof Blob !== "function" || !URL.createObjectURL) return undefined;
-  const rate = 44_100; const seconds = Math.max(...pattern.map(([, offset, duration]) => offset + duration)) + .08; const samples = Math.ceil(seconds * rate);
-  const wav = new ArrayBuffer(44 + samples * 2); const view = new DataView(wav);
-  const tag = (offset, text) => [...text].forEach((character, index) => view.setUint8(offset + index, character.charCodeAt(0)));
-  tag(0, "RIFF"); view.setUint32(4, 36 + samples * 2, true); tag(8, "WAVE"); tag(12, "fmt "); view.setUint32(16, 16, true); view.setUint16(20, 1, true); view.setUint16(22, 1, true); view.setUint32(24, rate, true); view.setUint32(28, rate * 2, true); view.setUint16(32, 2, true); view.setUint16(34, 16, true); tag(36, "data"); view.setUint32(40, samples * 2, true);
-  for (let index = 0; index < samples; index += 1) {
-    const time = index / rate; let value = 0;
-    for (const [frequency, offset, duration] of pattern) {
-      const progress = (time - offset) / duration; if (progress < 0 || progress > 1) continue;
-      const envelope = Math.min(1, progress / .025) * Math.pow(1 - progress, 1.35) * .58;
-      const phase = 2 * Math.PI * frequency * (time - offset); const wave = Math.sin(phase);
-      value += wave * envelope;
-    }
-    view.setInt16(44 + index * 2, Math.round(Math.max(-1, Math.min(1, value)) * 0x7fff), true);
-  }
-  const url = URL.createObjectURL(new Blob([wav], { type: "audio/wav" })); notificationSoundUrls.set(name, url); return url;
-};
-const playNotificationSound = async () => {
-  if (privacyLocked) return false;
-  const url = soundUrl(state.notificationSound); if (!url || typeof Audio !== "function") return false;
-  const player = new Audio(url); player.preload = "auto"; player.volume = .85; notificationPlayers.add(player);
-  const clearPlayer = () => notificationPlayers.delete(player); player.addEventListener("ended", clearPlayer, { once: true }); player.addEventListener("error", clearPlayer, { once: true });
-  try { await player.play(); return true; } catch { clearPlayer(); return false; }
+let soundPreferenceLoaded = false;
+let notificationAudio = createNotificationAudio({ onStatusChange: renderSoundStatus });
+function renderSoundStatus() {
+  const status = notificationAudio.status;
+  const notice = $("#sound-notice");
+  notice.hidden = privacyLocked || !state.session?.authenticated || !state.session.consented || (soundPreferenceLoaded && ["off", "ready"].includes(status));
+  notice.dataset.status = soundPreferenceLoaded ? status : "loading";
+  $("#sound-status").textContent = !soundPreferenceLoaded ? "Message sound settings are unavailable." : status === "blocked" ? "Your browser blocked message sounds." : status === "unavailable" ? "Message sound could not play. Check your device sound and try again." : "Enable message sounds for this browser tab.";
+  $("#enable-notification-sound").textContent = soundPreferenceLoaded ? "Enable sound" : "Retry sound settings";
+}
+function setNotificationPreference(name) {
+  soundPreferenceLoaded = true;
+  state.notificationSound = name ?? "knock";
+  notificationAudio.setPreference(state.notificationSound);
+  renderSoundStatus();
+}
+async function loadNotificationPreference() {
+  try { const { data } = await request("/api/settings"); setNotificationPreference(data.settings.notificationSound); }
+  catch { renderSoundStatus(); }
+}
+const primeNotificationAudio = () => {
+  if (!privacyLocked && state.session?.authenticated && state.session.consented && soundPreferenceLoaded) void notificationAudio.prime();
 };
 const announceIncomingMessages = (before, after) => {
   const previous = new Set(before.map(event => event.id));
-  const incoming = after.filter(event => event.role !== "owner" && !previous.has(event.id));
+  const incoming = after.filter(event => !["owner", "System"].includes(event.role) && !previous.has(event.id));
   if (!incoming.length) return;
-  void playNotificationSound();
+  if (!privacyLocked && soundPreferenceLoaded) void notificationAudio.play();
   $("#message-announcement").textContent = incoming.length === 1 ? `${displayRole(incoming[0].role)} sent a message.` : `${incoming.length} new consultation messages are available.`;
 };
 
@@ -149,11 +140,10 @@ function clearPrivateClientContent() {
   state.attachmentFiles = []; state.attachmentError = ""; state.pendingSubmissions.clear();
   state.runtimeInstructionHistory = []; state.documents = []; state.conversations = [];
   state.selectedConversationIds.clear(); state.criticSettings = null; state.criticProviders = null;
-  state.voiceTranscript = ""; state.voiceMode = "ready"; state.notificationSound = "knock";
-  for (const player of notificationPlayers) { player.pause(); player.removeAttribute("src"); player.load(); }
-  notificationPlayers.clear();
-  for (const url of notificationSoundUrls.values()) URL.revokeObjectURL(url);
-  notificationSoundUrls.clear();
+  state.voiceTranscript = ""; state.voiceMode = "ready"; state.notificationSound = "off";
+  soundPreferenceLoaded = false; notificationAudio.dispose();
+  notificationAudio = createNotificationAudio({ onStatusChange: renderSoundStatus });
+  $("#sound-notice").hidden = true;
   for (const dialog of document.querySelectorAll("dialog[open]")) dialog.close();
   for (const field of document.querySelectorAll("textarea, input")) { field.value = ""; if (field.type === "checkbox") field.checked = false; }
   for (const select of document.querySelectorAll("select")) select.selectedIndex = Math.max(0, [...select.options].findIndex(option => option.defaultSelected));
@@ -218,7 +208,7 @@ async function signOut() {
   }
 }
 
-function showAuthenticated() { $("#sign-in").hidden = true; $("#consent").hidden = true; $("#app").hidden = false; nav("discussion"); }
+function showAuthenticated() { $("#sign-in").hidden = true; $("#consent").hidden = true; $("#app").hidden = initializing; nav("discussion"); }
 function showSignIn() {
   stopPolling(); $("#app").hidden = true; $("#consent").hidden = true; $("#sign-in").hidden = false;
 
@@ -229,7 +219,9 @@ async function loadSession() {
   const { data } = await request("/api/session"); state.session = data;
   updateSessionActions();
   if (!data.authenticated) { clearPrivateClientContent(); clearRefreshState(); state.csrf = null; return showSignIn(); } state.csrf = data.csrfToken;
-  if (!data.consented) return showConsent(); showAuthenticated();
+  if (!data.consented) return showConsent();
+  await loadNotificationPreference();
+  if (!privacyLocked && state.session?.authenticated && state.session.consented) showAuthenticated();
 }
 
 function renderEvents() {
@@ -254,7 +246,7 @@ function renderEvents() {
     if (event.sources?.length) { const links = node("div", { class: "source-links" }); for (const source of event.sources) { const link = node("a", { href: source.url, target: "_blank", rel: "noopener noreferrer" }, source.title); links.append(link); } content.append(links); }
     message.append(content); thread.append(message);
   }
-  const active = state.run?.status === "active"; $("#stop").hidden = !active; $("#continue").hidden = !["stopped", "failed"].includes(state.run?.status);
+  const active = state.run?.status === "active"; renderRunControls(); $("#continue").hidden = !["stopped", "failed"].includes(state.run?.status);
   $("#continue").textContent = state.run?.status === "failed" ? "Retry" : "Continue";
   if (active) {
     const indicator = node("div", { class: "thinking-indicator", role: "img", ariaLabel: "The consultation is thinking. The next message will appear here." });
@@ -262,7 +254,7 @@ function renderEvents() {
     indicator.append(cloud, node("span", {}, "The team is thinking…")); thread.append(indicator);
   }
   const labels = { active: "The team is preparing the next message.", stopped: "Consultation stopped. Confirmed discussion is preserved.", complete: "Discussion complete.", failed: "Paused before the next reply. Retry to continue here." };
-  $("#run-status").textContent = labels[state.run?.status] ?? "Describe the decision you want to make.";
+  $("#run-status").textContent = (state.stopping ? "Stopping the consultation…" : labels[state.run?.status]) ?? "Describe the decision you want to make.";
   renderOutcome(); renderSources();
 }
 
@@ -274,7 +266,7 @@ async function loadConversation(conversationId, { preserveAttachmentDraft = fals
   if (!preserveAttachmentDraft) clearAttachmentDraft();
 }
 
-async function newConversation() { if (privacyLocked) return; try { const { data } = await request("/api/conversations", { method: "POST" }); await loadConversation(data.conversation.id, { preserveAttachmentDraft: true }); $("#message").focus(); } catch { toast("Could not create a conversation."); } }
+async function newConversation() { if (privacyLocked || initializing) return; try { const { data } = await request("/api/conversations", { method: "POST" }); await loadConversation(data.conversation.id, { preserveAttachmentDraft: true }); $("#message").focus(); } catch { toast("Could not create a conversation."); } }
 function prepareConversationsPage() {
   const page = $("#conversations-page"); const intro = page.querySelector(".page-intro");
   if (!intro.dataset.prepared) { clear(intro).append(node("p", { class: "eyebrow" }, "Conversations")); intro.dataset.prepared = "true"; }
@@ -396,7 +388,7 @@ async function loadSettings() {
     criticClaudeReasoning: ["default", "xhigh"].includes(settings.criticClaudeReasoning) ? undefined : settings.criticClaudeReasoning
   };
   ensureCriticProviderControl(); replaceOptions($("#critic-provider"), [{ id: "codex", label: "GPT (Codex)" }, { id: "claude_code", label: "Claude Code" }], state.criticSettings.criticProvider); renderCriticControls();
-  $("#specialist-count").value = settings.specialistCount; $("#discussion-depth").value = settings.discussionDepth; $("#notification-sound").value = settings.notificationSound ?? "knock"; state.notificationSound = $("#notification-sound").value;
+  $("#specialist-count").value = settings.specialistCount; $("#discussion-depth").value = settings.discussionDepth; $("#notification-sound").value = settings.notificationSound ?? "knock"; setNotificationPreference($("#notification-sound").value);
   $("#runtime-instructions").value = instructions.markdown;
   $("#runtime-instructions").dataset.revision = instructions.revision;
   $("#runtime-instructions-status").textContent = `Current encrypted local revision ${instructions.revision.slice(0, 12)}. Required headings and placeholders are validated before save.`;
@@ -516,7 +508,8 @@ async function removePendingAttachments(conversationId, attachmentIds) { await P
 const matchesSubmissionDraft = submission => $("#message").value.trim() === submission.input.body && state.attachmentFiles.length === submission.files.length && state.attachmentFiles.every((file, index) => file === submission.files[index]);
 async function acceptMessage(event) {
   event.preventDefault();
-  if (privacyLocked || state.sending) return;
+  if (privacyLocked || state.sending || state.run?.status === "active") return;
+  primeNotificationAudio();
   const body = $("#message").value.trim();
   if (!body && !state.pendingSubmissions.has(state.conversation?.id)) return;
   const files = [...state.attachmentFiles];
@@ -559,18 +552,58 @@ async function acceptMessage(event) {
   } finally { state.sending = false; $("#send").disabled = false; }
 }
 
-async function stop() { if (!state.conversation) return; try { const { data } = await request(`/api/conversations/${state.conversation.id}/stop`, { method: "POST" }); state.run = data.run; renderEvents(); } catch { toast("Stop could not be confirmed. Please try again."); } }
+function renderRunControls() {
+  const active = state.run?.status === "active";
+  const composer = $("#composer");
+  const moveFocus = active && !composer.hidden && (composer.contains(document.activeElement) || document.activeElement === document.body);
+  composer.hidden = active || state.tab !== "discussion";
+  $(".topic").dataset.active = String(active);
+  $("#stop").hidden = !active; $("#stop").disabled = state.stopping;
+  if (moveFocus) $("#run-status").focus({ preventScroll: true });
+}
+async function stop() {
+  if (!state.conversation || state.run?.status !== "active" || state.stopping) return;
+  const conversationId = state.conversation.id;
+  state.stopping = true; stopPolling(); renderEvents();
+  try {
+    const { data } = await request(`/api/conversations/${conversationId}/stop`, { method: "POST" });
+    if (state.conversation?.id !== conversationId) return;
+    state.run = data.run; renderEvents();
+    if (state.tab === "discussion") $("#message").focus({ preventScroll: true });
+  } catch { toast("Stop could not be confirmed. Please try again."); }
+  finally { state.stopping = false; renderRunControls(); if (state.conversation?.id === conversationId) { renderEvents(); startPolling(); } }
+}
 async function continueRun() {
   if (!state.conversation || $("#continue").disabled) return;
+  primeNotificationAudio();
+  const conversationId = state.conversation.id;
   $("#continue").disabled = true;
-  try { const { data } = await request(`/api/conversations/${state.conversation.id}/continue`, { method: "POST" }); state.run = data.run; renderEvents(); startPolling(); }
+  try {
+    const { data } = await request(`/api/conversations/${conversationId}/continue`, { method: "POST" });
+    if (state.conversation?.id !== conversationId) return;
+    state.run = data.run; renderEvents(); startPolling();
+  }
   catch (error) { toast(error.response?.status === 409 ? "Another consultation is running or this one is no longer paused. Reopen it and try again." : "Could not resume. Your saved discussion is unchanged. Try again."); }
   finally { $("#continue").disabled = false; }
 }
-function startPolling() { stopPolling(); if (state.run?.status !== "active") return; state.poll = setInterval(async () => { try { const { data } = await request(`/api/conversations/${state.conversation.id}`); const previous = state.events; state.conversation = data.conversation; state.events = data.events; state.run = data.run; announceIncomingMessages(previous, state.events); renderEvents(); if (state.run?.status !== "active") stopPolling(); } catch { stopPolling(); } }, 2_000); }
-function stopPolling() { if (state.poll) clearInterval(state.poll); state.poll = null; }
+let pollGeneration = 0;
+function startPolling() {
+  stopPolling(); if (state.run?.status !== "active") return;
+  const generation = pollGeneration; const conversationId = state.conversation.id; let pending = false;
+  state.poll = setInterval(async () => {
+    if (pending) return; pending = true;
+    try {
+      const { data } = await request(`/api/conversations/${conversationId}`);
+      if (generation !== pollGeneration || state.conversation?.id !== conversationId) return;
+      const previous = state.events; state.conversation = data.conversation; state.events = data.events; state.run = data.run;
+      announceIncomingMessages(previous, state.events); renderEvents(); if (state.run?.status !== "active") stopPolling();
+    } catch { if (generation === pollGeneration) stopPolling(); }
+    finally { pending = false; }
+  }, 2_000);
+}
+function stopPolling() { pollGeneration++; if (state.poll) clearInterval(state.poll); state.poll = null; }
 
-function setTab(tab) { state.tab = tab; document.querySelectorAll("[data-tab]").forEach(button => button.setAttribute("aria-selected", String(button.dataset.tab === tab))); $("#thread").hidden = tab !== "discussion"; $("#composer").hidden = tab !== "discussion"; $("#outcome").hidden = tab !== "outcome"; $("#sources").hidden = tab !== "sources"; }
+function setTab(tab) { state.tab = tab; document.querySelectorAll("[data-tab]").forEach(button => button.setAttribute("aria-selected", String(button.dataset.tab === tab))); $("#thread").hidden = tab !== "discussion"; renderRunControls(); $("#outcome").hidden = tab !== "outcome"; $("#sources").hidden = tab !== "sources"; }
 
 const recognitionConstructor = () => window.SpeechRecognition ?? window.webkitSpeechRecognition;
 const browserLanguage = () => {
@@ -657,7 +690,7 @@ function voiceAction() {
 }
 
 $("#menu").addEventListener("click", () => { const menu = $("#mobile-nav"); menu.hidden = !menu.hidden; $("#menu").setAttribute("aria-expanded", String(!menu.hidden)); });
-document.addEventListener("click", event => { const button = event.target.closest("[data-nav]"); if (button) void nav(button.dataset.nav).catch(() => toast("That page could not be loaded. Please try again.")); const tab = event.target.closest("[data-tab]"); if (tab) setTab(tab.dataset.tab); });
+document.addEventListener("click", event => { if (initializing) return; const button = event.target.closest("[data-nav]"); if (button) void nav(button.dataset.nav).catch(() => toast("That page could not be loaded. Please try again.")); const tab = event.target.closest("[data-tab]"); if (tab) setTab(tab.dataset.tab); });
 $("#new-conversation").addEventListener("click", () => { clearAttachmentDraft(); void newConversation(); }); $("#composer").addEventListener("submit", event => void acceptMessage(event)); $("#message").addEventListener("keydown", event => { if (event.key !== "Enter" || event.shiftKey || event.isComposing) return; event.preventDefault(); $("#composer").requestSubmit(); }); $("#stop").addEventListener("click", () => void stop()); $("#continue").addEventListener("click", () => void continueRun());
 $("#local-login-form").addEventListener("submit", event => { event.preventDefault(); void signIn(); });
 document.querySelectorAll("[data-session-action]").forEach(button => button.addEventListener("click", () => {
@@ -672,14 +705,27 @@ $("#settings-form").addEventListener("submit", async event => {
   const settings = { headModel: $("#head-model").value, headReasoning: $("#head-reasoning").value, ...state.criticSettings, criticModel: activeCritic.model, criticReasoning: activeCritic.reasoning, specialistCount: $("#specialist-count").value, discussionDepth: $("#discussion-depth").value, notificationSound: $("#notification-sound").value };
   try {
     const { data } = await request("/api/settings", { method: "PUT", body: settings });
-    state.criticSettings = { ...state.criticSettings, ...data.settings }; state.notificationSound = data.settings.notificationSound; toast("Settings saved for future consultations.");
+    state.criticSettings = { ...state.criticSettings, ...data.settings }; setNotificationPreference(data.settings.notificationSound); toast("Settings saved for future consultations.");
   } catch { toast("Settings were not saved. Check the selected provider and try again."); }
 });
+// Prime the same media element in a trusted gesture, before any network awaits.
+for (const type of ["click", "keydown"]) document.addEventListener(type, event => {
+  if (!event.isTrusted || event.target.closest?.("#preview-notification-sound, #enable-notification-sound")) return;
+  primeNotificationAudio();
+}, { capture: true });
+$("#enable-notification-sound").addEventListener("click", async () => {
+  if (!soundPreferenceLoaded) { await loadNotificationPreference(); return; }
+  const result = await notificationAudio.preview();
+  if (result === "played") toast("Message sound enabled for this tab.");
+  else if (result !== "cancelled") toast("Sound could not play. Check your browser and device sound, then try again.");
+});
 $("#preview-notification-sound").addEventListener("click", async () => {
-  state.notificationSound = $("#notification-sound").value;
-  if (state.notificationSound === "off") return toast("Message sound is off.");
-  if (!await playNotificationSound()) return toast("Your browser blocked the sound preview. Check the tab and device sound, then try again.");
-  toast(`Playing the ${state.notificationSound} preview.`);
+  const selected = $("#notification-sound").value;
+  const result = await notificationAudio.preview(selected);
+  if (result === "off") return toast("Message sound is off.");
+  if (result === "cancelled") return;
+  if (result !== "played") return toast("Sound could not play. Check your browser and device sound, then try again.");
+  toast(`Playing the ${selected} preview.`);
 });
 $("#runtime-instructions-form").addEventListener("submit", async event => {
   event.preventDefault();
@@ -718,4 +764,7 @@ async function initialize() {
   restoreScroll(saved.scrollY);
 }
 
-void initialize().catch(() => toast("The app could not initialize."));
+void initialize().catch(() => toast("The app could not initialize.")).finally(() => {
+  initializing = false;
+  if (!privacyLocked && state.session?.authenticated && state.session.consented) $("#app").hidden = false;
+});

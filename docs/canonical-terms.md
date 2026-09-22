@@ -34,7 +34,7 @@ Working language: English. Product content and source metadata: English and Ukra
 | New | Start a separate consultation from above the chat or Conversations; not a global menu destination. | Duplicate New navigation item |
 | Review states | Development-only prototype inspection, outside the normal preview and absent from the app. | A production menu or settings control |
 | App session | Owner access lasting 24 hours from sign-in under NFR-10.2, with explicit termination exceptions. | Confusing it with a consultation run or provider grant |
-| Stop / Continue | Interrupt current work / resume preserved context. | Deleting history or restarting silently |
+| Stop / Continue | Deliberately interrupt current work / resume preserved accepted context. To add context, Stop first and then explicitly Send from the restored composer. | An active-run input queue; deleting history or restarting silently |
 | Reconnect provider | Contextual recovery for an actual selected-provider grant failure. | A required integration setup panel |
 | Floating navigation | Conventional persistent desktop navigation bar; mobile uses a hamburger button and menu. | Arbitrarily draggable toolbars |
 | Local application | Runs on a macOS, Linux or Windows computer; private browsers on that computer or its local Wi-Fi network use local password access. | Offline AI promises; public internet service |

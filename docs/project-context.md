@@ -8,7 +8,7 @@ Working language is English, from the owner's latest substantive request. Produc
 
 ## Product and user
 
-NanoDuck Consulting Group is a private decision-support and coaching product for one existing owner. The owner is both user and decision maker. They want substantive consultant/Critic exchanges, practical outcomes and inspectable evidence, with little operational effort. During active work the UI reports that the team is thinking; a completed record, not the active discussion, receives its compact decision-derived title. Their rejection of the old UI and request for bold alternatives are direct feedback, not representative-user research.
+NanoDuck Consulting Group is a private decision-support and coaching product for one existing owner. The owner is both user and decision maker. They want substantive consultant/Critic exchanges, practical outcomes and inspectable evidence, with little operational effort. The current owner correction removes the unavailable composer during active work and retains a deliberate Stop action; additional context is explicitly sent after stopping (FR-03.3–03.4). Saved sound preferences apply without opening Settings, with visible recovery if browser playback is blocked. During active work the UI reports that the team is thinking; a completed record, not the active discussion, receives its compact decision-derived title. Their rejection of the old UI and request for bold alternatives are direct feedback, not representative-user research.
 
 The seven PRD use cases cover entry, consultation, interruption, history, Settings, dictation and research. No additional persona, audience segment or commercial service is assumed.
 

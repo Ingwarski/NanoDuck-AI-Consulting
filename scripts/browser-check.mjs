@@ -11,6 +11,8 @@ import { chromium, firefox, webkit } from 'playwright';
 import { setupWorkspace } from '../src/server/local-setup.mjs';
 import { verifyLostAcceptanceRetry } from './browser-send-retry.mjs';
 import { verifyPrivateLogoff } from './browser-logoff.mjs';
+import { verifyNotificationAudio } from './browser-notification-audio.mjs';
+import { recordNotificationPlayback, verifyActiveDiscussion, verifySavedSoundOff } from './browser-active-discussion.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const temporary = await mkdtemp(join(tmpdir(), 'nanoduck-browser-'));
@@ -58,9 +60,10 @@ try {
     try {
       // TLS is verified against the exact test CA above. Disposable browser profiles
       // do not install that CA into the operating system's trust store.
-      const context = await browser.newContext({ ignoreHTTPSErrors: true, viewport: { width: 1280, height: 900 } });
+      const context = await browser.newContext({ baseURL: origin, ignoreHTTPSErrors: true, viewport: { width: 1280, height: 900 } });
       const page = await context.newPage(); const errors = [];
       page.on('pageerror', error => errors.push(error.message));
+      await recordNotificationPlayback(page);
       await page.goto(origin);
       await page.locator('#sign-in').waitFor({ state: 'visible' });
       await page.getByLabel('Workspace password', { exact: true }).fill(password);
@@ -68,9 +71,12 @@ try {
       await page.locator('#consent-check').check();
       await page.locator('#consent-button').click();
       await page.locator('#app').waitFor({ state: 'visible' });
+      await verifyNotificationAudio(page, name);
+      await verifyActiveDiscussion(page, name, root);
       await verifyLostAcceptanceRetry(page, name);
       await page.waitForFunction(() => document.querySelector('#run-status').textContent.toLowerCase().includes('complete'), undefined, { timeout: 30_000 });
       assert.match(await page.locator('#thread').innerText(), /Critic/);
+      assert.equal(await page.locator('#composer').isVisible(), true, 'Completion restores composer');
       await page.getByRole('tab', { name: 'Outcome', exact: true }).click();
       assert.match(await page.locator('#outcome').innerText(), /buyer/i);
       await page.reload();
@@ -84,6 +90,7 @@ try {
       await page.locator('#notification-sound').selectOption('off');
       await page.getByRole('button', { name: 'Save settings', exact: true }).click();
       await page.waitForFunction(() => document.querySelector('#toast').textContent.includes('Settings saved')).catch(async error => { throw new Error(`${error.message}: ${await page.locator('#toast').innerText()}`); });
+      await verifySavedSoundOff(page);
       await page.locator('.desktop-nav [data-nav="conversations"]').click();
       await page.getByRole('button', { name: /^Open Synthetic/ }).last().waitFor({ state: 'visible' });
       await page.setViewportSize({ width: 390, height: 844 });
@@ -99,7 +106,7 @@ try {
       await page.screenshot({ path: join(root, 'output', 'playwright', `${name}-mobile.png`), fullPage: true });
       await verifyPrivateLogoff(page, context, origin, password, name);
       assert.deepEqual(errors, [], `${name} uncaught browser errors`);
-      console.log(`${name}: password, consent, consultation, lost-response retry with an edited draft and image, outcome, refresh, settings, saved history, mobile layout, voice fallback, offline/connected logout, late-response privacy and locked reload/history passed.`);
+      console.log(`${name}: password, consent, compact active composer, isolated square Stop, draft/image restoration, saved sound hydration, delayed native audio, duplicate suppression, blocked recovery, Off on reload, consultation, lost-response retry with an edited draft and image, outcome, refresh, settings, saved history, mobile layout, voice fallback, offline/connected logout, late-response privacy and locked reload/history passed.`);
       await context.close();
     } finally {
       await browser.close();

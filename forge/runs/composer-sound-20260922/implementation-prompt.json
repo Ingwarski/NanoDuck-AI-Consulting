@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "event": "implementation_prompt",
+  "role": "user",
+  "intent": "start_production_implementation",
+  "prompt_id": "composer-sound-20260922",
+  "received_at": "2026-09-22T17:24:12.123619+00:00",
+  "timestamp_basis": "Current explicit correction recorded during the active turn, after the retained completed-plan pause. User instructions authorize this affected existing change without a redundant implementation prompt.",
+  "message": "1. since after giving the task in chat the window stops accepting input. So, it makes sense to minimise it, leaving only stop button (like a stop sign on the street visually - square). But this stop button needs to be located in a place on the screen where it would be hard to accidentally push it. 2. There's no sound of new messages, although its preview in settings works.",
+  "scope": "Minimize the unavailable active composer, preserve one deliberate square Stop away from accidental taps, and repair saved incoming-message sound with truthful browser recovery. Keep the frozen Electric A v8 foundation and all other product boundaries.",
+  "development_plan_hash": "2f325a8ebda2203c7f2e5e9cb1d53ffe6e9f68a534e8936c1fcfd0888bc8e33b",
+  "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
+  "product_scope_hash": "defc5e24f0dd91be42b984888b157137f4f1ed361459e70f42b832e18c957bd4",
+  "scoped_override": {
+    "path": "forge/runs/composer-sound-20260922/scoped-override.json",
+    "content_hash": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b"
+  }
+}

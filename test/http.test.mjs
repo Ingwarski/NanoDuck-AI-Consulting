@@ -71,7 +71,8 @@ test("the local HTTP flow protects data, saves settings and preserves a truthful
     assert.equal((await fetch(`${origin}/api/voice/transcribe`, { method: "POST", headers, body: "not audio" })).status, 404);
     const client = await (await fetch(`${origin}/client/app.js`)).text();
     assert.match(client, /SpeechRecognition/u);
-    assert.match(client, /audio\/wav/u);
+    const audioClient = await (await fetch(`${origin}/client/notification-audio.js`)).text();
+    assert.match(audioClient, /audio\/wav/u);
     assert.doesNotMatch(client, /View conversation/u);
     assert.match(client, /Delete selected/u);
     assert.match(client, /critic-provider/u);

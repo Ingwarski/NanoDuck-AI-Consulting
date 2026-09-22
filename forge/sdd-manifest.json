@@ -65,30 +65,32 @@
       },
       "path": "docs/product-idea.md",
       "owner_skill": "to-product-idea",
-      "owner_invocation_id": "local-20260922-product-idea",
+      "owner_invocation_id": "composer-sound-20260922-product-idea",
       "declared_output_set": [
         "docs/product-idea.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "local-20260922-product-idea",
+      "source_version": "composer-sound-20260922-product-idea",
       "source_usage": {
         "docs/model-settings.md": "full",
-        "forge/design/evidence/electric-v8-approval-20260914.json": "full"
+        "forge/design/evidence/electric-v8-approval-20260914.json": "full",
+        "forge/runs/composer-sound-20260922/scoped-override.json": "full"
       },
       "source_hashes": {
         "docs/model-settings.md": "2a8cba482d77cc3774f49014f424051d088461c35b1f8f2ff84c26d2361f46f9",
-        "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2"
+        "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2",
+        "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b"
       },
       "dependencies": [],
-      "content_hash": "22ecd93faeb89e7cab50fdda3302401bd67e7f91a7728b986ade21846fbbf583",
+      "content_hash": "d06e4cd0cb2f9bbd6c3916c5737b763a96b01c7e4b140f757a1b78e7afd2974f",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "local-application-owner-reconciliation",
-        "reviewed_at": "2026-09-22T11:42:43.855359+00:00",
+        "kind": "scoped-composer-sound-owner-reconciliation",
+        "reviewed_at": "2026-09-22T17:24:12.361853+00:00",
         "executor": "Codex inline to-product-idea",
-        "scope": "Owner-reviewed document semantics, current upstream obligations and source bindings. No runtime verification claim."
+        "scope": "Reviewed affected owner semantics and current source bindings; retained unaffected security obligations and frozen baseline. No product verification claim."
       },
       "open_questions": []
     },
@@ -2294,120 +2296,120 @@
       },
       "path": "docs/prd.md",
       "owner_skill": "to-sdd-prd",
-      "owner_invocation_id": "local-20260922-prd",
+      "owner_invocation_id": "composer-sound-20260922-prd",
       "declared_output_set": [
         "docs/prd.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "local-20260922-prd",
+      "source_version": "composer-sound-20260922-prd",
       "source_usage": {
         "docs/product-idea.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "22ecd93faeb89e7cab50fdda3302401bd67e7f91a7728b986ade21846fbbf583"
+        "docs/product-idea.md": "d06e4cd0cb2f9bbd6c3916c5737b763a96b01c7e4b140f757a1b78e7afd2974f"
       },
       "dependencies": [
         "product-idea"
       ],
-      "content_hash": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
+      "content_hash": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "local-application-owner-reconciliation",
-        "reviewed_at": "2026-09-22T12:09:34.154105+00:00",
+        "kind": "scoped-composer-sound-owner-reconciliation",
+        "reviewed_at": "2026-09-22T17:24:25.407727+00:00",
         "executor": "Codex inline to-sdd-prd",
-        "scope": "Owner-reviewed document semantics, current upstream obligations and source bindings. No runtime verification claim."
+        "scope": "Reviewed affected owner semantics and current source bindings; retained unaffected security obligations and frozen baseline. No product verification claim."
       },
       "open_questions": []
     },
     "project-context": {
       "path": "docs/project-context.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "local-20260922-project-context-bundle",
+      "owner_invocation_id": "composer-sound-20260922-project-context-bundle",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "local-20260922-project-context-bundle",
+      "source_version": "composer-sound-20260922-project-context-bundle",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "22ecd93faeb89e7cab50fdda3302401bd67e7f91a7728b986ade21846fbbf583",
-        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4"
+        "docs/product-idea.md": "d06e4cd0cb2f9bbd6c3916c5737b763a96b01c7e4b140f757a1b78e7afd2974f",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
+      "content_hash": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "local-application-owner-reconciliation",
-        "reviewed_at": "2026-09-22T12:09:34.443765+00:00",
+        "kind": "scoped-composer-sound-owner-reconciliation",
+        "reviewed_at": "2026-09-22T17:24:34.228825+00:00",
         "executor": "Codex inline to-project-context",
-        "scope": "Owner-reviewed document semantics, current upstream obligations and source bindings. No runtime verification claim."
+        "scope": "Reviewed affected owner semantics and current source bindings; retained unaffected security obligations and frozen baseline. No product verification claim."
       },
       "open_questions": []
     },
     "canonical-terms": {
       "path": "docs/canonical-terms.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "local-20260922-project-context-bundle",
+      "owner_invocation_id": "composer-sound-20260922-project-context-bundle",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "local-20260922-project-context-bundle",
+      "source_version": "composer-sound-20260922-project-context-bundle",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "22ecd93faeb89e7cab50fdda3302401bd67e7f91a7728b986ade21846fbbf583",
-        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4"
+        "docs/product-idea.md": "d06e4cd0cb2f9bbd6c3916c5737b763a96b01c7e4b140f757a1b78e7afd2974f",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
+      "content_hash": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "local-application-owner-reconciliation",
-        "reviewed_at": "2026-09-22T12:09:34.444303+00:00",
+        "kind": "scoped-composer-sound-owner-reconciliation",
+        "reviewed_at": "2026-09-22T17:24:34.237673+00:00",
         "executor": "Codex inline to-project-context",
-        "scope": "Owner-reviewed document semantics, current upstream obligations and source bindings. No runtime verification claim."
+        "scope": "Reviewed affected owner semantics and current source bindings; retained unaffected security obligations and frozen baseline. No product verification claim."
       },
       "open_questions": []
     },
     "guardrails": {
       "path": "docs/guardrails.md",
       "owner_skill": "to-guardrails",
-      "owner_invocation_id": "local-20260922-guardrails",
+      "owner_invocation_id": "composer-sound-20260922-guardrails",
       "declared_output_set": [
         "docs/guardrails.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "local-20260922-guardrails",
+      "source_version": "composer-sound-20260922-guardrails",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
         "docs/canonical-terms.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
-        "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
-        "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893"
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89"
       },
       "dependencies": [
         "prd",
@@ -2418,23 +2420,23 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "local-application-owner-reconciliation",
-        "reviewed_at": "2026-09-22T12:09:34.730043+00:00",
+        "kind": "scoped-composer-sound-owner-reconciliation",
+        "reviewed_at": "2026-09-22T17:24:34.649593+00:00",
         "executor": "Codex inline to-guardrails",
-        "scope": "Owner-reviewed document semantics, current upstream obligations and source bindings. No runtime verification claim."
+        "scope": "Reviewed affected owner semantics and current source bindings; retained unaffected security obligations and frozen baseline. No product verification claim."
       },
       "open_questions": []
     },
     "user-journey": {
       "path": "docs/user-journey.md",
       "owner_skill": "to-user-journey",
-      "owner_invocation_id": "local-20260922-user-journey",
+      "owner_invocation_id": "composer-sound-20260922-user-journey",
       "declared_output_set": [
         "docs/user-journey.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "local-20260922-user-journey",
+      "source_version": "composer-sound-20260922-user-journey",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2442,9 +2444,9 @@
         "docs/guardrails.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
-        "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
-        "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214"
       },
       "dependencies": [
@@ -2453,14 +2455,14 @@
         "canonical-terms",
         "guardrails"
       ],
-      "content_hash": "20e5ed9d8580b5c274fe90b30d4897536f1701a401af9bfa49917254b8aa6dec",
+      "content_hash": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "local-application-owner-reconciliation",
-        "reviewed_at": "2026-09-22T12:09:35.025688+00:00",
+        "kind": "scoped-composer-sound-owner-reconciliation",
+        "reviewed_at": "2026-09-22T17:24:35.131118+00:00",
         "executor": "Codex inline to-user-journey",
-        "scope": "Owner-reviewed document semantics, current upstream obligations and source bindings. No runtime verification claim."
+        "scope": "Reviewed affected owner semantics and current source bindings; retained unaffected security obligations and frozen baseline. No product verification claim."
       },
       "open_questions": []
     },
@@ -3472,13 +3474,13 @@
       },
       "path": "docs/screen-map.md",
       "owner_skill": "to-screen-map",
-      "owner_invocation_id": "local-20260922-screen-map",
+      "owner_invocation_id": "composer-sound-20260922-screen-map",
       "declared_output_set": [
         "docs/screen-map.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "local-20260922-screen-map",
+      "source_version": "composer-sound-20260922-screen-map",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3487,11 +3489,11 @@
         "docs/user-journey.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
-        "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
-        "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "20e5ed9d8580b5c274fe90b30d4897536f1701a401af9bfa49917254b8aa6dec"
+        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c"
       },
       "dependencies": [
         "prd",
@@ -3500,27 +3502,27 @@
         "guardrails",
         "user-journey"
       ],
-      "content_hash": "7368812b25f872898d25fa861c925cf11056704a1fa25c5624355548ed0b8bbe",
+      "content_hash": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "local-application-owner-reconciliation",
-        "reviewed_at": "2026-09-22T12:09:35.318439+00:00",
+        "kind": "scoped-composer-sound-owner-reconciliation",
+        "reviewed_at": "2026-09-22T17:24:35.548166+00:00",
         "executor": "Codex inline to-screen-map",
-        "scope": "Owner-reviewed document semantics, current upstream obligations and source bindings. No runtime verification claim."
+        "scope": "Reviewed affected owner semantics and current source bindings; retained unaffected security obligations and frozen baseline. No product verification claim."
       },
       "open_questions": []
     },
     "wireframes": {
       "path": "docs/wireframes.md",
       "owner_skill": "to-wireframes",
-      "owner_invocation_id": "local-20260922-wireframes",
+      "owner_invocation_id": "composer-sound-20260922-wireframes",
       "declared_output_set": [
         "docs/wireframes.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "local-20260922-wireframes",
+      "source_version": "composer-sound-20260922-wireframes",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3530,12 +3532,12 @@
         "docs/screen-map.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
-        "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
-        "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "20e5ed9d8580b5c274fe90b30d4897536f1701a401af9bfa49917254b8aa6dec",
-        "docs/screen-map.md": "7368812b25f872898d25fa861c925cf11056704a1fa25c5624355548ed0b8bbe"
+        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
+        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0"
       },
       "dependencies": [
         "prd",
@@ -3545,27 +3547,27 @@
         "user-journey",
         "screen-map"
       ],
-      "content_hash": "36b56e03002bb8d0d875db7c9583bedc3da1419f6c100d1509f3c247245471ab",
+      "content_hash": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "local-application-owner-reconciliation",
-        "reviewed_at": "2026-09-22T12:09:35.653619+00:00",
+        "kind": "scoped-composer-sound-owner-reconciliation",
+        "reviewed_at": "2026-09-22T17:24:36.023319+00:00",
         "executor": "Codex inline to-wireframes",
-        "scope": "Owner-reviewed document semantics, current upstream obligations and source bindings. No runtime verification claim."
+        "scope": "Reviewed affected owner semantics and current source bindings; retained unaffected security obligations and frozen baseline. No product verification claim."
       },
       "open_questions": []
     },
     "design-brief": {
       "path": "docs/design-brief.md",
       "owner_skill": "to-design-brief",
-      "owner_invocation_id": "local-20260922-design-brief",
+      "owner_invocation_id": "composer-sound-20260922-design-brief",
       "declared_output_set": [
         "docs/design-brief.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "local-20260922-design-brief",
+      "source_version": "composer-sound-20260922-design-brief",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3573,16 +3575,18 @@
         "docs/guardrails.md": "full",
         "docs/user-journey.md": "full",
         "docs/screen-map.md": "full",
-        "docs/wireframes.md": "full"
+        "docs/wireframes.md": "full",
+        "forge/runs/composer-sound-20260922/scoped-override.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
-        "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
-        "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "20e5ed9d8580b5c274fe90b30d4897536f1701a401af9bfa49917254b8aa6dec",
-        "docs/screen-map.md": "7368812b25f872898d25fa861c925cf11056704a1fa25c5624355548ed0b8bbe",
-        "docs/wireframes.md": "36b56e03002bb8d0d875db7c9583bedc3da1419f6c100d1509f3c247245471ab"
+        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
+        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
+        "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
+        "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b"
       },
       "dependencies": [
         "prd",
@@ -3593,14 +3597,14 @@
         "screen-map",
         "wireframes"
       ],
-      "content_hash": "7d362fdc5a097a746eb9e2ca6d43b54bd364a0e3ed7bd718e0495d6e761dbd21",
+      "content_hash": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "local-application-owner-reconciliation",
-        "reviewed_at": "2026-09-22T12:09:36.119983+00:00",
+        "kind": "scoped-composer-sound-owner-reconciliation",
+        "reviewed_at": "2026-09-22T17:24:36.488090+00:00",
         "executor": "Codex inline to-design-brief",
-        "scope": "Owner-reviewed document semantics, current upstream obligations and source bindings. No runtime verification claim."
+        "scope": "Reviewed affected owner semantics and current source bindings; retained unaffected security obligations and frozen baseline. No product verification claim."
       },
       "open_questions": []
     },
@@ -3677,13 +3681,13 @@
       },
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "local-20260922-architecture",
+      "owner_invocation_id": "composer-sound-20260922-architecture",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "local-20260922-architecture",
+      "source_version": "composer-sound-20260922-architecture",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3696,14 +3700,14 @@
         "docs/model-settings.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
-        "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
-        "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "20e5ed9d8580b5c274fe90b30d4897536f1701a401af9bfa49917254b8aa6dec",
-        "docs/screen-map.md": "7368812b25f872898d25fa861c925cf11056704a1fa25c5624355548ed0b8bbe",
-        "docs/wireframes.md": "36b56e03002bb8d0d875db7c9583bedc3da1419f6c100d1509f3c247245471ab",
-        "docs/design-brief.md": "7d362fdc5a097a746eb9e2ca6d43b54bd364a0e3ed7bd718e0495d6e761dbd21",
+        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
+        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
+        "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
+        "docs/design-brief.md": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
         "docs/model-settings.md": "2a8cba482d77cc3774f49014f424051d088461c35b1f8f2ff84c26d2361f46f9"
       },
       "dependencies": [
@@ -3716,14 +3720,14 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "ba253b57241178473a1fef1128d52ef5fb579b6eda4d7611cfe8119be5b1dc93",
+      "content_hash": "e71738bf727f9ab5f65d9238378c46b4efd4d1d5b65b859e263e5468c4dee960",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "local-application-owner-reconciliation",
-        "reviewed_at": "2026-09-22T12:09:36.515465+00:00",
+        "kind": "scoped-composer-sound-owner-reconciliation",
+        "reviewed_at": "2026-09-22T17:24:36.928999+00:00",
         "executor": "Codex inline to-architecture",
-        "scope": "Owner-reviewed document semantics, current upstream obligations and source bindings. No runtime verification claim."
+        "scope": "Reviewed affected owner semantics and current source bindings; retained unaffected security obligations and frozen baseline. No product verification claim."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -3801,13 +3805,13 @@
       },
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "local-20260922-dod-evals",
+      "owner_invocation_id": "composer-sound-20260922-dod-evals",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "local-20260922-dod-evals",
+      "source_version": "composer-sound-20260922-dod-evals",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3820,15 +3824,15 @@
         "docs/architecture.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
-        "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
-        "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "20e5ed9d8580b5c274fe90b30d4897536f1701a401af9bfa49917254b8aa6dec",
-        "docs/screen-map.md": "7368812b25f872898d25fa861c925cf11056704a1fa25c5624355548ed0b8bbe",
-        "docs/wireframes.md": "36b56e03002bb8d0d875db7c9583bedc3da1419f6c100d1509f3c247245471ab",
-        "docs/design-brief.md": "7d362fdc5a097a746eb9e2ca6d43b54bd364a0e3ed7bd718e0495d6e761dbd21",
-        "docs/architecture.md": "ba253b57241178473a1fef1128d52ef5fb579b6eda4d7611cfe8119be5b1dc93"
+        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
+        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
+        "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
+        "docs/design-brief.md": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
+        "docs/architecture.md": "e71738bf727f9ab5f65d9238378c46b4efd4d1d5b65b859e263e5468c4dee960"
       },
       "dependencies": [
         "prd",
@@ -3841,14 +3845,14 @@
         "design-brief",
         "architecture"
       ],
-      "content_hash": "ff9e199612131aef0e422b746355ba84a1047a84d3f513df0cf790faf852ace8",
+      "content_hash": "fe2c92684f77e26acb642e841b4a95de199836729f56cab022092ea41e0c104c",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "local-application-owner-reconciliation",
-        "reviewed_at": "2026-09-22T12:09:36.871579+00:00",
+        "kind": "scoped-composer-sound-owner-reconciliation",
+        "reviewed_at": "2026-09-22T17:24:37.338113+00:00",
         "executor": "Codex inline to-dod-evals",
-        "scope": "Owner-reviewed document semantics, current upstream obligations and source bindings. No runtime verification claim."
+        "scope": "Reviewed affected owner semantics and current source bindings; retained unaffected security obligations and frozen baseline. No product verification claim."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -5615,13 +5619,13 @@
       },
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "local-20260922-qa-checklist",
+      "owner_invocation_id": "composer-sound-20260922-qa-checklist",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "local-20260922-qa-checklist",
+      "source_version": "composer-sound-20260922-qa-checklist",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -5635,16 +5639,16 @@
         "docs/dod-evals.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
-        "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
-        "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "20e5ed9d8580b5c274fe90b30d4897536f1701a401af9bfa49917254b8aa6dec",
-        "docs/screen-map.md": "7368812b25f872898d25fa861c925cf11056704a1fa25c5624355548ed0b8bbe",
-        "docs/wireframes.md": "36b56e03002bb8d0d875db7c9583bedc3da1419f6c100d1509f3c247245471ab",
-        "docs/design-brief.md": "7d362fdc5a097a746eb9e2ca6d43b54bd364a0e3ed7bd718e0495d6e761dbd21",
-        "docs/architecture.md": "ba253b57241178473a1fef1128d52ef5fb579b6eda4d7611cfe8119be5b1dc93",
-        "docs/dod-evals.md": "ff9e199612131aef0e422b746355ba84a1047a84d3f513df0cf790faf852ace8"
+        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
+        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
+        "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
+        "docs/design-brief.md": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
+        "docs/architecture.md": "e71738bf727f9ab5f65d9238378c46b4efd4d1d5b65b859e263e5468c4dee960",
+        "docs/dod-evals.md": "fe2c92684f77e26acb642e841b4a95de199836729f56cab022092ea41e0c104c"
       },
       "dependencies": [
         "prd",
@@ -5658,14 +5662,14 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "681016bc7bbe24df9465674173b8f470b033d203a4427984dca72a9e2f7562a2",
+      "content_hash": "38e22ed59c5ef82be03386c579d2d458f48eec963a93bd6c637f7cd86eb54731",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "local-application-owner-reconciliation",
-        "reviewed_at": "2026-09-22T12:09:37.233746+00:00",
+        "kind": "scoped-composer-sound-owner-reconciliation",
+        "reviewed_at": "2026-09-22T17:24:37.747519+00:00",
         "executor": "Codex inline to-qa-checklist",
-        "scope": "Owner-reviewed document semantics, current upstream obligations and source bindings. No runtime verification claim."
+        "scope": "Reviewed affected owner semantics and current source bindings; retained unaffected security obligations and frozen baseline. No product verification claim."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -6757,13 +6761,13 @@
       },
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "local-20260922-development-plan",
+      "owner_invocation_id": "composer-sound-20260922-development-plan",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "local-20260922-development-plan",
+      "source_version": "composer-sound-20260922-development-plan",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -6780,17 +6784,17 @@
         "package.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
-        "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
-        "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "20e5ed9d8580b5c274fe90b30d4897536f1701a401af9bfa49917254b8aa6dec",
-        "docs/screen-map.md": "7368812b25f872898d25fa861c925cf11056704a1fa25c5624355548ed0b8bbe",
-        "docs/wireframes.md": "36b56e03002bb8d0d875db7c9583bedc3da1419f6c100d1509f3c247245471ab",
-        "docs/design-brief.md": "7d362fdc5a097a746eb9e2ca6d43b54bd364a0e3ed7bd718e0495d6e761dbd21",
-        "docs/architecture.md": "ba253b57241178473a1fef1128d52ef5fb579b6eda4d7611cfe8119be5b1dc93",
-        "docs/dod-evals.md": "ff9e199612131aef0e422b746355ba84a1047a84d3f513df0cf790faf852ace8",
-        "docs/qa-checklist.md": "681016bc7bbe24df9465674173b8f470b033d203a4427984dca72a9e2f7562a2",
+        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
+        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
+        "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
+        "docs/design-brief.md": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
+        "docs/architecture.md": "e71738bf727f9ab5f65d9238378c46b4efd4d1d5b65b859e263e5468c4dee960",
+        "docs/dod-evals.md": "fe2c92684f77e26acb642e841b4a95de199836729f56cab022092ea41e0c104c",
+        "docs/qa-checklist.md": "38e22ed59c5ef82be03386c579d2d458f48eec963a93bd6c637f7cd86eb54731",
         "docs/model-settings.md": "2a8cba482d77cc3774f49014f424051d088461c35b1f8f2ff84c26d2361f46f9",
         "package.json": "cfe4c67287221083288ec8d25198ff285b2f3c0c16a9adb0a769dad9b2590246"
       },
@@ -6807,14 +6811,14 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "8fbaee9d2ae8e9f27241b5b66e1fb02b8cf467e07f0bcb0efcee3ba6bff8f250",
+      "content_hash": "2f325a8ebda2203c7f2e5e9cb1d53ffe6e9f68a534e8936c1fcfd0888bc8e33b",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "local-application-owner-reconciliation",
-        "reviewed_at": "2026-09-22T12:09:37.897127+00:00",
+        "kind": "scoped-composer-sound-owner-reconciliation",
+        "reviewed_at": "2026-09-22T17:24:51.703761+00:00",
         "executor": "Codex inline to-development-plan",
-        "scope": "Owner-reviewed document semantics, current upstream obligations and source bindings. No runtime verification claim."
+        "scope": "Reviewed affected owner semantics and current source bindings; retained unaffected security obligations and frozen baseline. No product verification claim."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -7312,15 +7316,22 @@
     "approval_receipt": {
       "path": "forge/design/evidence/electric-v8-approval-20260914.json",
       "content_hash": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2"
-    }
+    },
+    "operator_overrides": [
+      {
+        "path": "forge/runs/composer-sound-20260922/scoped-override.json",
+        "content_hash": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b",
+        "scope": "S-02 active composer and Stop; S-02/S-04 incoming-sound availability and recovery."
+      }
+    ]
   },
   "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
   "verification": {
     "definition_status": "prepared",
     "release_readiness": "not_evaluated",
     "source_hashes": {
-      "docs/dod-evals.md": "ff9e199612131aef0e422b746355ba84a1047a84d3f513df0cf790faf852ace8",
-      "docs/qa-checklist.md": "681016bc7bbe24df9465674173b8f470b033d203a4427984dca72a9e2f7562a2"
+      "docs/dod-evals.md": "fe2c92684f77e26acb642e841b4a95de199836729f56cab022092ea41e0c104c",
+      "docs/qa-checklist.md": "38e22ed59c5ef82be03386c579d2d458f48eec963a93bd6c637f7cd86eb54731"
     },
     "gates": [
       {
@@ -7833,7 +7844,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Owner context added during work is accepted into the same consultation without rewriting prior messages.",
+        "task": "Exercise the referenced use-case path and verify: While a run is active, the composer is hidden and no second context submission is silently queued. Stop, explicitly Send new context, and verify it enters the same record without rewriting confirmed messages; Continue instead resumes the preserved accepted context.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -7860,7 +7871,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Stop remains reachable during active work and prevents late work from becoming a newly visible result.",
+        "task": "Exercise the referenced use-case path and verify: At 320/390/430/768/1280/1440 CSS px, verify the unavailable composer is hidden during active work and a labelled square Stop stays reachable in the upper-right Discussion header while scrolling and on Outcome/Sources, separated from New and the former Send/reading positions. Keyboard focus is visible; Send does not auto-focus Stop. A pending/refused Stop shows truthful feedback without making input available prematurely; confirmed Stop prevents late visible results. Stop, failure and completion restore the composer and any unsent page-memory draft. Check touch/keyboard and forced-colors behavior; device observation is separate from automated layout assertions.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -8081,7 +8092,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Settings accepts specialist counts 1/2/3/5/Auto and discussion depth 1/3/5/Auto. It also exposes Knock, Chime, Ripple and Off with an owner-activated local browser WAV preview; browser audio blocking leaves visible feedback intact. Knock must use the same bundled recording for Preview and incoming alerts, with the exact owner-accepted v5 bytes: three blended sharp/woody table-ball impacts exactly 250 ms apart, preserved pitch, no clipping, quiet reflections at 28 ms and 47 ms, and silence after each 92 ms impact-and-reflection window. Verify the versioned URL avoids an older cached sound. Check HTTP `audio/wav` and browser playback separately from the owner listening verdict, which accepted v5 with a tiny echo. Verify Head chooses an Auto team from 1\u20135, each explicit depth produces that many Critic \u2194 specialist exchanges per specialist, and Auto stops only after whole-team agreement or 10 exchanges per specialist. Cover every fixed count/depth combination; Strategy agreement must not bypass Finance disagreement. Resume after either side of a pair without duplicating confirmed messages, including missing saved agreement. A Finance provider failure preserves the discussion without a Head conclusion. Specialist agreement alone cannot end Auto: a closing Critic objection continues review within the cap. At fixed depth or the cap, unresolved advice is explicitly provisional; closing messages do not add to depth.",
+        "task": "Exercise the referenced use-case path and verify: Settings accepts specialist counts 1/2/3/5/Auto and discussion depth 1/3/5/Auto. It also exposes Knock, Chime, Ripple and Off with an owner-activated local browser WAV preview; load the saved choice on authenticated entry before opening Settings, including Off. Preview an unsaved choice and verify incoming alerts still use the saved choice. Delay a confirmed agent message beyond the sending gesture and verify the reused audio player starts it; initial history, owner/System notices and repeated polling produce no sound, and one polling batch yields one alert. Simulate a browser playback rejection, verify visible Enable sound recovery, activate it deliberately and retry; visual/semantic feedback remains. Reload and repeat in Chromium, Firefox and WebKit, with actual iPhone/iPad audibility recorded separately if observed. Knock must use the same bundled recording for Preview and incoming alerts, with the exact owner-accepted v5 bytes: three blended sharp/woody table-ball impacts exactly 250 ms apart, preserved pitch, no clipping, quiet reflections at 28 ms and 47 ms, and silence after each 92 ms impact-and-reflection window. Verify the versioned URL avoids an older cached sound. Check HTTP `audio/wav` and browser playback separately from the owner listening verdict, which accepted v5 with a tiny echo. Verify Head chooses an Auto team from 1\u20135, each explicit depth produces that many Critic \u2194 specialist exchanges per specialist, and Auto stops only after whole-team agreement or 10 exchanges per specialist. Cover every fixed count/depth combination; Strategy agreement must not bypass Finance disagreement. Resume after either side of a pair without duplicating confirmed messages, including missing saved agreement. A Finance provider failure preserves the discussion without a Head conclusion. Specialist agreement alone cannot end Auto: a closing Critic objection continues review within the cap. At fixed depth or the cap, unresolved advice is explicitly provisional; closing messages do not add to depth.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -10117,195 +10128,197 @@
   },
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "8fbaee9d2ae8e9f27241b5b66e1fb02b8cf467e07f0bcb0efcee3ba6bff8f250",
+    "development_plan_hash": "2f325a8ebda2203c7f2e5e9cb1d53ffe6e9f68a534e8936c1fcfd0888bc8e33b",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-14T20:13:37+03:00",
-    "prompt_id": "local-refactor-20260922",
-    "prompt_received_at": "2026-09-22T11:40:01.682063+00:00",
-    "released_at": "2026-09-22T11:40:01.682063+00:00",
+    "prompt_id": "composer-sound-20260922",
+    "prompt_received_at": "2026-09-22T17:24:12.123619+00:00",
+    "released_at": "2026-09-22T17:24:52.371346+00:00",
     "product_scope_hash": "defc5e24f0dd91be42b984888b157137f4f1ed361459e70f42b832e18c957bd4",
     "prompt_receipt": {
-      "path": "forge/runs/local-refactor-20260922/implementation-prompt.json",
-      "content_hash": "da65dd72c6707e76bbb50103b3999e91b3ae68745460c4e17a7c85f1e0ead88d"
+      "path": "forge/runs/composer-sound-20260922/implementation-prompt.json",
+      "content_hash": "89bf4d6574343225c4ca75c627fae16a89a9c04a59dc1455086cd8b5a0eabc10"
     },
-    "reason": "Current explicit local refactor request authorizes this owner-reconciled existing change; all runtime and release evidence remains separately required."
+    "reason": "Explicit current user correction authorizes this owner-reconciled bounded existing change; full product release evidence remains separate."
   },
   "dispatches": {
     "product-idea": {
-      "invocation_id": "local-20260922-product-idea",
+      "invocation_id": "composer-sound-20260922-product-idea",
       "outputs": [
         "docs/product-idea.md"
       ],
       "source_hashes": {
         "docs/model-settings.md": "2a8cba482d77cc3774f49014f424051d088461c35b1f8f2ff84c26d2361f46f9",
-        "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2"
+        "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2",
+        "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b"
       }
     },
     "prd": {
-      "invocation_id": "local-20260922-prd",
+      "invocation_id": "composer-sound-20260922-prd",
       "outputs": [
         "docs/prd.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "22ecd93faeb89e7cab50fdda3302401bd67e7f91a7728b986ade21846fbbf583"
+        "docs/product-idea.md": "d06e4cd0cb2f9bbd6c3916c5737b763a96b01c7e4b140f757a1b78e7afd2974f"
       }
     },
     "project-context": {
-      "invocation_id": "local-20260922-project-context-bundle",
+      "invocation_id": "composer-sound-20260922-project-context-bundle",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "22ecd93faeb89e7cab50fdda3302401bd67e7f91a7728b986ade21846fbbf583",
-        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4"
+        "docs/product-idea.md": "d06e4cd0cb2f9bbd6c3916c5737b763a96b01c7e4b140f757a1b78e7afd2974f",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef"
       }
     },
     "canonical-terms": {
-      "invocation_id": "local-20260922-project-context-bundle",
+      "invocation_id": "composer-sound-20260922-project-context-bundle",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "22ecd93faeb89e7cab50fdda3302401bd67e7f91a7728b986ade21846fbbf583",
-        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4"
+        "docs/product-idea.md": "d06e4cd0cb2f9bbd6c3916c5737b763a96b01c7e4b140f757a1b78e7afd2974f",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef"
       }
     },
     "guardrails": {
-      "invocation_id": "local-20260922-guardrails",
+      "invocation_id": "composer-sound-20260922-guardrails",
       "outputs": [
         "docs/guardrails.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
-        "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
-        "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893"
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89"
       }
     },
     "user-journey": {
-      "invocation_id": "local-20260922-user-journey",
+      "invocation_id": "composer-sound-20260922-user-journey",
       "outputs": [
         "docs/user-journey.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
-        "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
-        "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214"
       }
     },
     "screen-map": {
-      "invocation_id": "local-20260922-screen-map",
+      "invocation_id": "composer-sound-20260922-screen-map",
       "outputs": [
         "docs/screen-map.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
-        "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
-        "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "20e5ed9d8580b5c274fe90b30d4897536f1701a401af9bfa49917254b8aa6dec"
+        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c"
       }
     },
     "wireframes": {
-      "invocation_id": "local-20260922-wireframes",
+      "invocation_id": "composer-sound-20260922-wireframes",
       "outputs": [
         "docs/wireframes.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
-        "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
-        "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "20e5ed9d8580b5c274fe90b30d4897536f1701a401af9bfa49917254b8aa6dec",
-        "docs/screen-map.md": "7368812b25f872898d25fa861c925cf11056704a1fa25c5624355548ed0b8bbe"
+        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
+        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0"
       }
     },
     "design-brief": {
-      "invocation_id": "local-20260922-design-brief",
+      "invocation_id": "composer-sound-20260922-design-brief",
       "outputs": [
         "docs/design-brief.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
-        "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
-        "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "20e5ed9d8580b5c274fe90b30d4897536f1701a401af9bfa49917254b8aa6dec",
-        "docs/screen-map.md": "7368812b25f872898d25fa861c925cf11056704a1fa25c5624355548ed0b8bbe",
-        "docs/wireframes.md": "36b56e03002bb8d0d875db7c9583bedc3da1419f6c100d1509f3c247245471ab"
+        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
+        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
+        "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
+        "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b"
       }
     },
     "architecture": {
-      "invocation_id": "local-20260922-architecture",
+      "invocation_id": "composer-sound-20260922-architecture",
       "outputs": [
         "docs/architecture.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
-        "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
-        "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "20e5ed9d8580b5c274fe90b30d4897536f1701a401af9bfa49917254b8aa6dec",
-        "docs/screen-map.md": "7368812b25f872898d25fa861c925cf11056704a1fa25c5624355548ed0b8bbe",
-        "docs/wireframes.md": "36b56e03002bb8d0d875db7c9583bedc3da1419f6c100d1509f3c247245471ab",
-        "docs/design-brief.md": "7d362fdc5a097a746eb9e2ca6d43b54bd364a0e3ed7bd718e0495d6e761dbd21",
+        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
+        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
+        "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
+        "docs/design-brief.md": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
         "docs/model-settings.md": "2a8cba482d77cc3774f49014f424051d088461c35b1f8f2ff84c26d2361f46f9"
       }
     },
     "dod-evals": {
-      "invocation_id": "local-20260922-dod-evals",
+      "invocation_id": "composer-sound-20260922-dod-evals",
       "outputs": [
         "docs/dod-evals.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
-        "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
-        "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "20e5ed9d8580b5c274fe90b30d4897536f1701a401af9bfa49917254b8aa6dec",
-        "docs/screen-map.md": "7368812b25f872898d25fa861c925cf11056704a1fa25c5624355548ed0b8bbe",
-        "docs/wireframes.md": "36b56e03002bb8d0d875db7c9583bedc3da1419f6c100d1509f3c247245471ab",
-        "docs/design-brief.md": "7d362fdc5a097a746eb9e2ca6d43b54bd364a0e3ed7bd718e0495d6e761dbd21",
-        "docs/architecture.md": "ba253b57241178473a1fef1128d52ef5fb579b6eda4d7611cfe8119be5b1dc93"
+        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
+        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
+        "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
+        "docs/design-brief.md": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
+        "docs/architecture.md": "e71738bf727f9ab5f65d9238378c46b4efd4d1d5b65b859e263e5468c4dee960"
       }
     },
     "qa-checklist": {
-      "invocation_id": "local-20260922-qa-checklist",
+      "invocation_id": "composer-sound-20260922-qa-checklist",
       "outputs": [
         "docs/qa-checklist.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
-        "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
-        "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "20e5ed9d8580b5c274fe90b30d4897536f1701a401af9bfa49917254b8aa6dec",
-        "docs/screen-map.md": "7368812b25f872898d25fa861c925cf11056704a1fa25c5624355548ed0b8bbe",
-        "docs/wireframes.md": "36b56e03002bb8d0d875db7c9583bedc3da1419f6c100d1509f3c247245471ab",
-        "docs/design-brief.md": "7d362fdc5a097a746eb9e2ca6d43b54bd364a0e3ed7bd718e0495d6e761dbd21",
-        "docs/architecture.md": "ba253b57241178473a1fef1128d52ef5fb579b6eda4d7611cfe8119be5b1dc93",
-        "docs/dod-evals.md": "ff9e199612131aef0e422b746355ba84a1047a84d3f513df0cf790faf852ace8"
+        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
+        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
+        "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
+        "docs/design-brief.md": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
+        "docs/architecture.md": "e71738bf727f9ab5f65d9238378c46b4efd4d1d5b65b859e263e5468c4dee960",
+        "docs/dod-evals.md": "fe2c92684f77e26acb642e841b4a95de199836729f56cab022092ea41e0c104c"
       }
     },
     "development-plan": {
-      "invocation_id": "local-20260922-development-plan",
+      "invocation_id": "composer-sound-20260922-development-plan",
       "outputs": [
         "docs/development-plan.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "b23a64dcf6640817c2cdf2bee5017260775cd06672f3ed81e1bea2503bdb2ad4",
-        "docs/project-context.md": "ea7372a8c89652e289d9bf58c57faec082f32b6733f9a1fec9eddd4fcd56995d",
-        "docs/canonical-terms.md": "29124d44641601a7c97fb58afb53f4f6bccc7d266b386575196fde99a5622893",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "20e5ed9d8580b5c274fe90b30d4897536f1701a401af9bfa49917254b8aa6dec",
-        "docs/screen-map.md": "7368812b25f872898d25fa861c925cf11056704a1fa25c5624355548ed0b8bbe",
-        "docs/wireframes.md": "36b56e03002bb8d0d875db7c9583bedc3da1419f6c100d1509f3c247245471ab",
-        "docs/design-brief.md": "7d362fdc5a097a746eb9e2ca6d43b54bd364a0e3ed7bd718e0495d6e761dbd21",
-        "docs/architecture.md": "ba253b57241178473a1fef1128d52ef5fb579b6eda4d7611cfe8119be5b1dc93",
-        "docs/dod-evals.md": "ff9e199612131aef0e422b746355ba84a1047a84d3f513df0cf790faf852ace8",
-        "docs/qa-checklist.md": "681016bc7bbe24df9465674173b8f470b033d203a4427984dca72a9e2f7562a2",
+        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
+        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
+        "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
+        "docs/design-brief.md": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
+        "docs/architecture.md": "e71738bf727f9ab5f65d9238378c46b4efd4d1d5b65b859e263e5468c4dee960",
+        "docs/dod-evals.md": "fe2c92684f77e26acb642e841b4a95de199836729f56cab022092ea41e0c104c",
+        "docs/qa-checklist.md": "38e22ed59c5ef82be03386c579d2d458f48eec963a93bd6c637f7cd86eb54731",
         "docs/model-settings.md": "2a8cba482d77cc3774f49014f424051d088461c35b1f8f2ff84c26d2361f46f9",
         "package.json": "cfe4c67287221083288ec8d25198ff285b2f3c0c16a9adb0a769dad9b2590246"
       }
@@ -10319,6 +10332,13 @@
       "recorded_at": "2026-09-22T11:19:00.948553+00:00",
       "basis": "Explicit owner request to refactor the existing application for local operation, clean public sources and consistent SDD documents.",
       "evidence_limit": "Document reconciliation is not browser or provider execution evidence."
+    },
+    {
+      "event": "composer_sound_reconciliation_started",
+      "recorded_at": "2026-09-22T17:24:12.123619+00:00",
+      "basis": "Explicit owner correction to active input controls and incoming message sound.",
+      "superseded_bindings": "forge/runs/composer-sound-20260922/prior-owner-bindings.json",
+      "evidence_limit": "Document owner reconciliation; product verification is separate."
     }
   ],
   "input_requests": [],
@@ -10330,6 +10350,6 @@
     "status": "handed_off",
     "intake_id": "local-20260922-intake",
     "source_mode": "existing-file",
-    "product_idea_hash": "22ecd93faeb89e7cab50fdda3302401bd67e7f91a7728b986ade21846fbbf583"
+    "product_idea_hash": "d06e4cd0cb2f9bbd6c3916c5737b763a96b01c7e4b140f757a1b78e7afd2974f"
   }
 }

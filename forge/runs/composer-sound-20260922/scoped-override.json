@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "event": "accepted_scoped_baseline_override",
+  "actor": "user",
+  "approved_at": "2026-09-22T17:24:12.123619+00:00",
+  "timestamp_basis": "Recorded from the explicit current user correction; transport message timestamp is unavailable.",
+  "baseline_id": "nanoduck-electric-a-v8-20260914",
+  "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
+  "tree_hash": "1de020dcfe48f3feb80db0e58ba911b821825b48730d32c72d9518ad512eb0d9",
+  "prompt_id": "composer-sound-20260922",
+  "message": "1. since after giving the task in chat the window stops accepting input. So, it makes sense to minimise it, leaving only stop button (like a stop sign on the street visually - square). But this stop button needs to be located in a place on the screen where it would be hard to accidentally push it. 2. There's no sound of new messages, although its preview in settings works.",
+  "scope": "Minimize the unavailable active composer, preserve one deliberate square Stop away from accidental taps, and repair saved incoming-message sound with truthful browser recovery. Keep the frozen Electric A v8 foundation and all other product boundaries.",
+  "interpretation": "Upper-right Discussion-header Stop placement is the reversible design-owner interpretation of the requested deliberate placement, not a separate quoted user choice. Stop before explicit context Send preserves the existing single-active server contract; there is no input queue.",
+  "evidence_limit": "This owner correction authorizes scoped implementation and visual variance; it is not a whole-product approval or executed verification."
+}

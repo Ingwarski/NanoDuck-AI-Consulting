@@ -1,6 +1,6 @@
 # Development plan
 
-22 September 2026 · Status: **local refactor authorized; implementation evidence pending**. The user explicitly requested this existing application change and confirmed macOS, Linux, Windows and local Wi-Fi/LAN access. This plan governs the current repository and private local data only.
+22 September 2026 · Status: **local refactor and scoped composer/sound correction authorized; implementation evidence remains scoped**. The user explicitly requested this existing application change and confirmed macOS, Linux, Windows and local Wi-Fi/LAN access. This plan governs the current repository and private local data only.
 
 ## Source References
 
@@ -13,6 +13,12 @@ Product behavior: [PRD](prd.md), including all 60 distinct FR/NFR clauses, UC-00
 Refactor one Node HTTPS application with one encrypted SQLite state store and the existing isolated provider adapters. Keep one canonical durable event stream, exclusive process ownership and generation fencing and authenticated replay. Do not add a queue service, Redis, messenger, separate AI server, public registration or paid fallback. Requirements and architecture drive implementation; QA supplies evidence. Write meaningful tests at trust, transaction, provider and browser seams, not tests mirroring trivial CSS.
 
 Sequence high-risk capability evidence first, then a small secure app foundation, approved presentation and settings, durable discussion, research, voice/attachments and record lifecycle. The final unit integrates verification and scoped release preparation. Unit owners below mean the later authorized implementation operator acting at the named layer; the product owner resolves material scope decisions and supplies representative-user observations. They do not imply separate staff, parallel agents or new services.
+
+## Active correction: composer control and sound
+
+The explicit owner request is bound in `forge/runs/composer-sound-20260922/implementation-prompt.json`; the design owner records its accepted scope in the existing Approved Visual Baseline. Reconcile U-03/U-04 only: keep frozen Electric A v8 intact; hide the unavailable active composer, retain a deliberate square Stop in the upper-right Discussion header, preserve unsent page-memory input, and restore the panel after Stop/failure/completion. Additional context requires Stop followed by explicit Send; no queued input or second active run is added. Load saved sound without a Settings visit, reuse gesture-initialized playback for asynchronous committed agent messages, keep Preview separate from unsaved preference changes, and expose blocked-playback recovery.
+
+Use existing QA-R11, QA-R13, QA-R14, QA-R21, QA-R22, QA-S02, QA-S04, QA-H01/QA-H03/QA-H05/QA-H08/QA-H09 and QA-U04 with the scoped override. Verify real browser layout, keyboard/touch reachability, draft recovery, delayed playback and rejected-playback recovery with synthetic records; automated sound starts cannot establish physical iPhone audibility. No user data, active provider run, model choice, server lifecycle or frozen candidate is changed by this correction. Record executed evidence separately; formal full-check statuses stay unrun until their complete criteria are met.
 
 ## Codebase Map
 
