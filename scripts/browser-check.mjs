@@ -13,6 +13,7 @@ import { verifyLostAcceptanceRetry } from './browser-send-retry.mjs';
 import { verifyPrivateLogoff } from './browser-logoff.mjs';
 import { verifyNotificationAudio } from './browser-notification-audio.mjs';
 import { verifyModelSettings } from './browser-model-settings.mjs';
+import { verifyProviderConnection } from './browser-provider-connection.mjs';
 import { recordNotificationPlayback, verifyActiveDiscussion, verifySavedSoundOff } from './browser-active-discussion.mjs';
 
 async function phase(name, action) {
@@ -85,6 +86,7 @@ try {
       await page.locator('#consent-button').click();
       await page.locator('#app').waitFor({ state: 'visible' });
       await phase(`${name} independent model settings`, () => verifyModelSettings(page, name));
+      await phase(`${name} provider connection recovery`, () => verifyProviderConnection(page, name));
       await phase(`${name} native audio`, () => verifyNotificationAudio(page, name));
       await phase(`${name} active discussion`, () => verifyActiveDiscussion(page, name, root));
       await phase(`${name} acceptance retry`, () => verifyLostAcceptanceRetry(page, name));

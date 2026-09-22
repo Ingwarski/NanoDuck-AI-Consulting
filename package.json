@@ -10,6 +10,7 @@
     "start": "node src/server/start.mjs",
     "dev": "node src/server/start.mjs",
     "preflight": "node src/server/preflight.mjs",
+    "claude:login": "node scripts/claude-login.mjs",
     "check": "node scripts/check-artifacts.mjs && node scripts/test.mjs",
     "test": "node scripts/test.mjs",
     "test:browsers": "node scripts/browser-check.mjs",

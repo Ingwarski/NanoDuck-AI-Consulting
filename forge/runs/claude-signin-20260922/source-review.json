@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-09-22T20:15:22.931040+00:00",
+  "executor": "Codex SDD owner",
+  "method": "Official documentation read and installed Claude Code 2.1.280 command help; no credentials read or authentication performed.",
+  "sources": [
+    {
+      "url": "https://code.claude.com/docs/en/authentication",
+      "reviewed_scope": "Official subscription sign-in, native credential storage and CLAUDE_CONFIG_DIR identity."
+    },
+    {
+      "url": "https://code.claude.com/docs/en/cli-reference",
+      "reviewed_scope": "auth login/status, restricted/safe modes, managed-policy caveats and tools/MCP denial."
+    },
+    {
+      "url": "https://code.claude.com/docs/en/settings",
+      "reviewed_scope": "Native settings/config location and managed policy precedence."
+    }
+  ],
+  "installed_help": {
+    "package": "@anthropic-ai/claude-code",
+    "version": "2.1.280",
+    "commands": [
+      "claude auth login --help",
+      "claude --help"
+    ],
+    "observed": [
+      "auth login --claudeai is the subscription login option",
+      "auth login --console selects API billing and is outside this application scope",
+      "restricted, safe-mode, no-session-persistence, setting-sources and tools flags are exposed"
+    ]
+  },
+  "limitations": [
+    "Documentation and CLI capability review is not successful sign-in or model execution.",
+    "Safe mode alone does not remove every managed-policy behavior; implementation must retain an explicit fail-closed boundary."
+  ]
+}

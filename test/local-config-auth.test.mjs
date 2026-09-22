@@ -57,6 +57,9 @@ test("config preserves subscription-only settings and pinned executables without
   const { directory, environment } = await isolated(t);
   const config = loadConfig({ ...environment, CODEX_HOME: directory, CLAUDE_CODE_OAUTH_TOKEN: " synthetic-token ", CLAUDE_CODE_MODEL_CANDIDATES: "claude-opus,claude-sonnet,claude-opus" });
   assert.equal(config.claudeOAuthToken, "synthetic-token"); assert.deepEqual(config.claudeModelCandidates, ["claude-opus", "claude-sonnet"]);
+  assert.equal(config.claudeHome, directory); assert.equal(config.claudeConfigDirectory, undefined);
+  const customClaude = loadConfig({ ...environment, CLAUDE_CONFIG_DIR: join(directory, "custom-claude") });
+  assert.equal(customClaude.claudeConfigDirectory, join(directory, "custom-claude"));
   assert.equal(config.codexAuthPath, join(directory, "auth.json")); assert.equal(config.readyForProvider, false);
   assert.match(config.codexCommand, /@openai[/\\]codex[^/\\]*[/\\]vendor[/\\].+[/\\]bin[/\\]codex(?:\.exe)?$/u); assert.deepEqual(config.codexCommandArgs, []);
   assert.match(config.claudeCommand, /@anthropic-ai[/\\]claude-code[/\\]/u);

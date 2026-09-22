@@ -140,6 +140,7 @@ function clearPrivateClientContent() {
   state.attachmentFiles = []; state.attachmentError = ""; state.pendingSubmissions.clear();
   state.runtimeInstructionHistory = []; state.documents = []; state.conversations = [];
   state.selectedConversationIds.clear(); state.criticSettings = null; state.criticProviders = null;
+  resetCriticConnectionCheck();
   state.voiceTranscript = ""; state.voiceMode = "ready"; state.notificationSound = "off";
   soundPreferenceLoaded = false; notificationAudio.dispose();
   notificationAudio = createNotificationAudio({ onStatusChange: renderSoundStatus });
@@ -330,10 +331,57 @@ const criticProviderName = provider => provider === "claude_code" ? "Claude Code
 const criticProviderStatus = provider => {
   const status = state.criticProviders?.[provider]?.status;
   if (status === "ready") return `${criticProviderName(provider)} is ready for this runtime.`;
-  if (status === "auth_required") return `${criticProviderName(provider)} needs its subscription sign-in renewed.`;
+  if (status === "auth_required") return `${criticProviderName(provider)} needs subscription sign-in.`;
   if (status === "quota_blocked") return `${criticProviderName(provider)} has reached its current limit.`;
-  return `${criticProviderName(provider)} is unavailable. Sign in to the local provider to enable consultations.`;
+  if (status === "incompatible") return `${criticProviderName(provider)} does not support the selected configuration.`;
+  if (status === "provider_unavailable") return `${criticProviderName(provider)} could not be reached. Try checking the connection again.`;
+  return `${criticProviderName(provider)} is unavailable on the computer running NanoDuck.`;
 };
+let criticConnectionGeneration = 0;
+const showCriticConnectionStatus = message => {
+  const status = $("#critic-connection-status");
+  if (status) { status.textContent = message; status.hidden = !message; }
+};
+const claudeConnectionMessage = () => {
+  const status = state.criticProviders?.claude_code?.status;
+  if (status === "ready") return "Claude Code is connected. You can select it for the Critic.";
+  if (status === "auth_required") return "Claude Code needs subscription sign-in. On the computer running NanoDuck, run npm run claude:login, then check the connection again.";
+  if (status === "quota_blocked") return "Claude Code has reached its current usage limit. Check the connection again after the limit resets.";
+  if (status === "incompatible") return "Claude Code does not support the current configuration. Check its version and model settings, then check the connection again.";
+  if (status === "provider_unavailable") return "Claude Code could not be reached. Try Check connection again.";
+  return "Claude Code is unavailable on the computer running NanoDuck. Check the connection again.";
+};
+function resetCriticConnectionCheck() {
+  criticConnectionGeneration++;
+  const button = $("#check-critic-connection");
+  if (button) { button.disabled = false; button.textContent = "Check connection"; }
+  showCriticConnectionStatus("");
+}
+const settingsCapabilities = data => data.criticProviders ?? { codex: { status: data.provider, models: data.catalog ?? [] }, claude_code: { status: "unavailable", models: [] } };
+async function checkCriticConnection() {
+  const button = $("#check-critic-connection");
+  if (button.disabled || !state.criticSettings || privacyLocked) return;
+  const generation = ++criticConnectionGeneration;
+  button.disabled = true; button.textContent = "Checking…"; showCriticConnectionStatus("Checking the Claude Code connection…");
+  try {
+    const { data } = await request("/api/settings");
+    if (generation !== criticConnectionGeneration || privacyLocked || !state.criticSettings) return;
+    // Read the controls after the request: edits made while checking are drafts
+    // too. Refresh only capabilities, never the server's saved settings.
+    const headModel = $("#head-model").value; const headReasoning = $("#head-reasoning").value;
+    saveVisibleCriticSettings(); state.criticProviders = settingsCapabilities(data);
+    renderHeadControls(headModel, headReasoning, true); renderCriticControls();
+    showCriticConnectionStatus(claudeConnectionMessage());
+  } catch {
+    if (generation !== criticConnectionGeneration || privacyLocked || !state.criticSettings) return;
+    saveVisibleCriticSettings();
+    state.criticProviders = { ...state.criticProviders, claude_code: { status: "provider_unavailable", models: [] } };
+    renderCriticControls();
+    showCriticConnectionStatus("The connection check could not finish. Your choices are unchanged. Try Check connection again.");
+  } finally {
+    if (generation === criticConnectionGeneration) { button.disabled = false; button.textContent = "Check connection"; }
+  }
+}
 const replaceOptions = (select, options, selected) => {
   clear(select);
   for (const option of options) select.append(node("option", { value: option.id, disabled: Boolean(option.disabled) }, option.label ?? option.id));
@@ -365,11 +413,17 @@ function ensureCriticProviderControl() {
   const fieldset = $("#critic-model").closest("fieldset"); const first = fieldset.querySelector("label");
   const label = node("label", {}, "Provider"); const select = node("select", { id: "critic-provider" });
   label.append(select); fieldset.insertBefore(label, first);
+  const connection = node("div", { class: "sound-preview" });
+  const check = node("button", { id: "check-critic-connection", type: "button", class: "secondary" }, "Check connection");
+  check.setAttribute("aria-describedby", "critic-connection-status");
+  const status = node("p", { id: "critic-connection-status", class: "hint", role: "status", hidden: true });
+  check.addEventListener("click", () => void checkCriticConnection()); connection.append(check, status); fieldset.append(connection);
   select.addEventListener("change", () => {
     const next = select.value;
     if (next === "claude_code" && state.criticProviders?.claude_code?.status !== "ready") {
-      select.value = state.criticSettings.criticProvider; toast("Claude Code needs its managed sign-in before it can be selected."); return;
+      select.value = state.criticSettings.criticProvider; showCriticConnectionStatus(claudeConnectionMessage()); return;
     }
+    showCriticConnectionStatus("");
     saveVisibleCriticSettings(); state.criticSettings.criticProvider = next; renderCriticControls();
   });
 }
@@ -388,8 +442,9 @@ function renderCriticControls(preserveEffort = true) {
   $("#critic-provider").value = provider;
   const selectedModel = provider === "claude_code" ? state.criticSettings.criticClaudeModel : state.criticSettings.criticCodexModel;
   const selectedEffort = provider === "claude_code" ? state.criticSettings.criticClaudeReasoning ?? "high" : state.criticSettings.criticCodexReasoning;
-  const models = provider === "codex" ? codexModelOptions(selectedModel, selectedEffort) : capability.models?.length ? capability.models
+  const models = provider === "codex" ? codexModelOptions(selectedModel, selectedEffort) : capability.models?.length ? [...capability.models]
     : ["claude-opus-5", "claude-opus-5-5"].map(id => ({ id, label: id === "claude-opus-5" ? "Opus 5" : "Opus 5.5", efforts: ["low", "medium", "high", "extra", "max"] }));
+  if (selectedModel && !models.some(model => model.id === selectedModel)) models.push({ id: selectedModel, label: `${selectedModel} — unavailable`, disabled: true, efforts: selectedEffort ? [selectedEffort] : [] });
   replaceOptions($("#critic-model"), models, selectedModel);
   const current = models.find(model => model.id === $("#critic-model").value) ?? models[0];
   const effortLabel = id => provider === "claude_code" ? ({ low: "Low", medium: "Medium", high: "High", extra: "Extra", max: "Max" }[id] ?? id) : id;
@@ -397,10 +452,12 @@ function renderCriticControls(preserveEffort = true) {
   const unavailable = provider === "claude_code" && capability.status !== "ready";
   $("#critic-model").disabled = unavailable; $("#critic-reasoning").disabled = unavailable || Boolean(current.disabled);
   $("#settings-status").textContent = [criticProviderStatus("codex"), ...(provider === "claude_code" ? [criticProviderStatus("claude_code")] : []), "Usage totals and reset time are unavailable."].join(" ");
+  if (unavailable) showCriticConnectionStatus(claudeConnectionMessage());
 }
 async function loadSettings() {
+  resetCriticConnectionCheck();
   const [{ data: settingsData }, { data: instructionsData }, { data: documentData }] = await Promise.all([request("/api/settings"), request("/api/runtime-instructions"), request("/api/instruction-documents")]); const settings = settingsData.settings; const instructions = instructionsData.runtimeInstructions;
-  state.criticProviders = settingsData.criticProviders ?? { codex: { status: settingsData.provider, models: settingsData.catalog ?? [] }, claude_code: { status: "unavailable", models: [] } };
+  state.criticProviders = settingsCapabilities(settingsData);
   renderHeadControls(settings.headModel, settings.headReasoning, true);
   state.criticSettings = {
     criticProvider: settings.criticProvider ?? "codex",

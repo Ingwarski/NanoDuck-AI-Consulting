@@ -1,5 +1,8 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { join } from "node:path";
+import { tmpdir } from "node:os";
+import { access } from "node:fs/promises";
 import { createClaudeProvider } from "../src/server/claude-provider.mjs";
 import { testRuntimeInstructions } from "./fixtures/runtime-instructions.mjs";
 
@@ -23,7 +26,7 @@ test("Claude Code exposes only authenticated configured models and returns safe 
   const provider = createClaudeProvider({ claudeCommand: "claude", claudeOAuthToken: "managed-token", claudeModelCandidates: ["claude-sonnet"] }, {
     run: async input => {
       calls.push(input);
-      if (input.args[0] === "auth") return { exitCode: 0, stdout: JSON.stringify({ loggedIn: true, authMethod: "oauth_token", apiProvider: "firstParty" }), stderr: "" };
+      if (input.args.includes("auth")) return { exitCode: 0, stdout: JSON.stringify({ loggedIn: true, authMethod: "oauth_token", apiProvider: "firstParty" }), stderr: "" };
       return { exitCode: 0, stdout: JSON.stringify({ subtype: "success", modelUsage: { "claude-opus-5": {} }, result: "A bounded Critic reply.\n\n[Primary source](https://example.com/evidence)" }), stderr: "" };
     }
   });
@@ -40,7 +43,7 @@ test("Claude Code exposes only authenticated configured models and returns safe 
   assert.equal(calls.at(-1).args.includes("--disallowedTools"), true);
   assert.equal(calls.at(-1).args[calls.at(-1).args.indexOf("--tools") + 1], "");
   assert.equal(calls.at(-1).args.includes("--disable-slash-commands"), true);
-  assert.equal(calls.at(-1).args.includes("Bash,Read,Edit,Write,Glob,Grep,WebFetch,WebSearch,Task,TaskOutput,Skill,TodoWrite,NotebookEdit,AskUserQuestion,EnterPlanMode,ExitPlanMode"), true);
+  assert.equal(calls.at(-1).args.includes("Bash,Read,Edit,Write,Glob,Grep,WebFetch,WebSearch,Task,TaskOutput,Skill,TodoWrite,NotebookEdit,AskUserQuestion,EnterPlanMode,ExitPlanMode,mcp__*"), true);
   assert.equal(calls.at(-1).args.includes("--max-turns"), true);
   assert.equal(calls.at(-1).args.includes("1"), true);
   assert.equal(calls.at(-1).args.includes("--system-prompt"), true);
@@ -56,7 +59,7 @@ test("Claude Code withholds an internal tool trace and retries once for text-onl
   let completions = 0;
   const provider = createClaudeProvider({ claudeCommand: "claude", claudeOAuthToken: "managed-token", claudeModelCandidates: [] }, {
     run: async input => {
-      if (input.args[0] === "auth") return { exitCode: 0, stdout: JSON.stringify({ loggedIn: true, authMethod: "oauth_token", apiProvider: "firstParty" }), stderr: "" };
+      if (input.args.includes("auth")) return { exitCode: 0, stdout: JSON.stringify({ loggedIn: true, authMethod: "oauth_token", apiProvider: "firstParty" }), stderr: "" };
       completions += 1;
       return completions === 1
         ? { exitCode: 0, stdout: JSON.stringify({ subtype: "success", modelUsage: { "claude-opus-5": {} }, result: '<invoke name="Bash">\\n<parameter name="command">ls -la /tmp</parameter>\\n</invoke>\\n\\ntotal 0' }), stderr: "" }
@@ -70,22 +73,22 @@ test("Claude Code withholds an internal tool trace and retries once for text-onl
 
 test("Claude Code never returns an internal tool trace after its bounded retry", async () => {
   const provider = createClaudeProvider({ claudeCommand: "claude", claudeOAuthToken: "managed-token", claudeModelCandidates: [] }, {
-    run: async input => input.args[0] === "auth"
+    run: async input => input.args.includes("auth")
       ? { exitCode: 0, stdout: JSON.stringify({ loggedIn: true, authMethod: "oauth_token", apiProvider: "firstParty" }), stderr: "" }
       : { exitCode: 0, stdout: JSON.stringify({ subtype: "success", modelUsage: { "claude-opus-5": {} }, result: '<invoke name="Bash"><parameter name="command">pwd</parameter></invoke>' }), stderr: "" }
   });
   assert.deepEqual(await provider.invoke({ ...criticInput, effort: "high", assignment: "Challenge the premise." }), { ok: false, code: "provider_unavailable" });
 });
 
-test("Claude Code cannot be selected until its managed sign-in is configured", async () => {
+test("Claude Code cannot be selected without a configured credential location", async () => {
   const provider = createClaudeProvider({ claudeCommand: "claude", claudeModelCandidates: [] });
-  assert.deepEqual(await provider.inspect(), { status: "unavailable", models: [] });
+  assert.deepEqual(await provider.inspect(), { status: "auth_required", models: [] });
   assert.deepEqual(await provider.invoke({ model: "claude-opus-5", effort: "high", assignment: "Challenge the premise." }), { ok: false, code: "auth_required" });
 });
 
 test("valid Ukrainian Critic prose survives Claude output validation", async () => {
   const provider = createClaudeProvider({ claudeCommand: "claude", claudeOAuthToken: "managed-token", claudeModelCandidates: [] }, {
-    run: async input => input.args[0] === "auth"
+    run: async input => input.args.includes("auth")
       ? { exitCode: 0, stdout: JSON.stringify({ loggedIn: true, authMethod: "oauth_token", apiProvider: "firstParty" }), stderr: "" }
       : { exitCode: 0, stdout: JSON.stringify({ subtype: "success", modelUsage: { "claude-opus-5": {} }, result: "Назвіть умови, які змінять рекомендацію." }), stderr: "" }
   });
@@ -97,6 +100,7 @@ test("Opus 5.5 uses its exact model ID at every supported effort without enablin
   const provider = createClaudeProvider({ claudeCommand: "claude", claudeOAuthToken: "managed-token" }, {
     run: async input => {
       calls.push(input);
+      if (input.args.includes("auth")) return { exitCode: 0, stdout: JSON.stringify({ loggedIn: true, authMethod: "oauth_token", apiProvider: "firstParty" }), stderr: "" };
       return { exitCode: 0, stdout: JSON.stringify({ subtype: "success", modelUsage: { "claude-opus-5-5": {} }, result: "Check the stated assumption." }), stderr: "" };
     }
   });
@@ -117,12 +121,93 @@ test("Claude refuses unreported, substituted, or mixed model identities", async 
   for (const modelUsage of [undefined, {}, { "claude-opus-5-5": {} }, { "claude-opus-5": {}, "claude-opus-5-5": {} }]) {
     let calls = 0;
     const provider = createClaudeProvider({ claudeCommand: "claude", claudeOAuthToken: "managed-token" }, {
-      run: async () => {
+      run: async input => {
+        if (input.args.includes("auth")) return { exitCode: 0, stdout: JSON.stringify({ loggedIn: true, authMethod: "oauth_token", apiProvider: "firstParty" }), stderr: "" };
         calls += 1;
         return { exitCode: 0, stdout: JSON.stringify({ subtype: "success", modelUsage, result: "Do not accept this substituted reply." }), stderr: "" };
       }
     });
     assert.deepEqual(await provider.invoke(criticInput), { ok: false, code: "incompatible" });
     assert.equal(calls, 1);
+  }
+});
+
+test("native Claude subscription sign-in keeps the CLI credential identity and suppresses customizations", async () => {
+  const calls = [];
+  const home = join(tmpdir(), "synthetic-claude-home");
+  const configDirectory = join(home, "alternate-config");
+  const provider = createClaudeProvider({ claudeCommand: "claude", claudeHome: home, claudeConfigDirectory: configDirectory }, {
+    run: async input => {
+      calls.push(input);
+      return input.args.includes("auth")
+        ? { exitCode: 0, stdout: JSON.stringify({ loggedIn: true, authMethod: "claude.ai", apiProvider: "firstParty", subscriptionType: "pro" }), stderr: "" }
+        : { exitCode: 0, stdout: JSON.stringify({ subtype: "success", modelUsage: { "claude-opus-5": {} }, result: "A native subscription reply." }), stderr: "" };
+    }
+  });
+  assert.equal((await provider.inspect()).status, "ready");
+  assert.equal((await provider.invoke(criticInput)).ok, true);
+  assert.equal(calls.filter(call => call.args.includes("auth")).length, 2, "Every invocation rechecks authorization");
+  for (const call of calls) {
+    assert.equal(call.environment.HOME, home); assert.equal(call.environment.USERPROFILE, home);
+    assert.equal(call.environment.CLAUDE_CONFIG_DIR, configDirectory);
+    assert.equal(call.environment.CLAUDE_CODE_OAUTH_TOKEN, undefined);
+    assert.equal(call.environment.CLAUDE_CODE_PROVIDER_MANAGED_BY_HOST, undefined);
+    assert.equal(call.environment.ANTHROPIC_API_KEY, undefined);
+    assert.equal(call.environment.ANTHROPIC_AUTH_TOKEN, undefined);
+    assert.equal(call.args.includes("--safe-mode"), true); assert.equal(call.args.includes("--restricted"), true);
+    assert.equal(JSON.parse(call.args[call.args.indexOf("--settings") + 1]).disableAllHooks, true);
+    assert.notEqual(call.cwd, home);
+    await assert.rejects(access(call.cwd), /ENOENT/u);
+  }
+  const completion = calls.at(-1);
+  assert.equal(completion.args[completion.args.indexOf("--mcp-config") + 1], '{"mcpServers":{}}');
+  assert.equal(completion.args[completion.args.indexOf("--disallowedTools") + 1].includes("mcp__*"), true);
+  assert.equal(calls[0].timeoutMilliseconds, 20_000); assert.equal(completion.timeoutMilliseconds, 540_000);
+});
+
+test("explicit Claude OAuth token overrides native sign-in without sharing its home", async () => {
+  let call;
+  const home = join(tmpdir(), "synthetic-claude-home");
+  const provider = createClaudeProvider({ claudeCommand: "claude", claudeHome: home, claudeOAuthToken: "synthetic-managed-token", claudeConfigDirectory: join(home, "config") }, {
+    run: async input => { call = input; return { exitCode: 0, stdout: JSON.stringify({ loggedIn: true, authMethod: "oauth_token", apiProvider: "firstParty" }), stderr: "" }; }
+  });
+  assert.equal((await provider.inspect()).status, "ready");
+  assert.notEqual(call.environment.HOME, home); assert.equal(call.environment.HOME, call.cwd);
+  assert.equal(call.environment.CLAUDE_CONFIG_DIR, join(call.cwd, "config"));
+  assert.equal(call.environment.CLAUDE_CODE_PROVIDER_MANAGED_BY_HOST, "1");
+  assert.equal(call.environment.CLAUDE_CODE_OAUTH_TOKEN, "synthetic-managed-token");
+});
+
+test("Claude sign-in can recover without recreating the provider", async () => {
+  let signedIn = false;
+  const provider = createClaudeProvider({ claudeCommand: "claude", claudeHome: tmpdir() }, {
+    run: async () => ({ exitCode: signedIn ? 0 : 1, stdout: JSON.stringify(signedIn
+      ? { loggedIn: true, authMethod: "claude.ai", apiProvider: "firstParty", subscriptionType: "max" }
+      : { loggedIn: false, authMethod: "none", apiProvider: "firstParty" }), stderr: "" })
+  });
+  assert.deepEqual(await provider.inspect(), { status: "auth_required", models: [] });
+  signedIn = true;
+  assert.equal((await provider.inspect()).status, "ready");
+});
+
+test("Claude refuses paid credential sources and distinguishes connection failures before any model call", async () => {
+  const native = { loggedIn: true, authMethod: "claude.ai", apiProvider: "firstParty", subscriptionType: "pro" };
+  for (const [result, expected] of [
+    [{ exitCode: 0, stdout: JSON.stringify({ ...native, apiKeySource: "/login managed key" }), stderr: "" }, "incompatible"],
+    [{ exitCode: 0, stdout: JSON.stringify({ ...native, subscriptionType: null }), stderr: "" }, "incompatible"],
+    [{ exitCode: 0, stdout: JSON.stringify({ ...native, apiProvider: "bedrock" }), stderr: "" }, "incompatible"],
+    [{ exitCode: 0, stdout: JSON.stringify({ ...native, authMethod: "api_key" }), stderr: "" }, "incompatible"],
+    [{ exitCode: 1, stdout: JSON.stringify(native), stderr: "" }, "provider_unavailable"],
+    [{ exitCode: null, stdout: "", stderr: "", timedOut: true }, "provider_unavailable"],
+    [{ exitCode: 1, stdout: "", stderr: "HTTP 429 usage limit" }, "quota_blocked"],
+    [{ exitCode: 1, stdout: "", stderr: "Connection refused" }, "provider_unavailable"]
+  ]) {
+    const calls = [];
+    const provider = createClaudeProvider({ claudeCommand: "claude", claudeHome: tmpdir() }, {
+      run: async input => { calls.push(input); return result; }
+    });
+    assert.deepEqual(await provider.inspect(), { status: expected, models: [] });
+    assert.deepEqual(await provider.invoke(criticInput), { ok: false, code: expected });
+    assert.equal(calls.every(call => call.args.includes("auth")), true, "Denied authorization must never reach a model turn");
   }
 });

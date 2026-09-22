@@ -65,38 +65,40 @@
       },
       "path": "docs/product-idea.md",
       "owner_skill": "to-product-idea",
-      "owner_invocation_id": "gpt-6-sol-20260922-wording-product-idea",
+      "owner_invocation_id": "claude-signin-20260922-product-idea",
       "declared_output_set": [
         "docs/product-idea.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "gpt-6-sol-20260922-wording-product-idea",
+      "source_version": "claude-signin-20260922-product-idea",
       "source_usage": {
         "docs/model-settings.md": "full",
         "forge/design/evidence/electric-v8-approval-20260914.json": "full",
         "forge/runs/composer-sound-20260922/scoped-override.json": "full",
         "forge/runs/browser-research-claude-20260922/scope.json": "full",
         "forge/runs/gpt-6-sol-20260922/scope.json": "full",
-        "forge/runs/gpt-6-sol-20260922/catalog-observation.json": "full"
+        "forge/runs/gpt-6-sol-20260922/catalog-observation.json": "full",
+        "forge/runs/claude-signin-20260922/scope.json": "full"
       },
       "source_hashes": {
-        "docs/model-settings.md": "55aa6791b57fc20fe74d1f2bbc25eb647f1f516547efc96bb1ad30a587052388",
+        "docs/model-settings.md": "c58fed0a9606f231ac8086c669b859cb58e372efdcd538ed2fee33cb091c8ecc",
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2",
         "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b",
         "forge/runs/browser-research-claude-20260922/scope.json": "be36b8b0a9fb8470cbcf50a612765c82b4c53698d01c81108d172f8fd884342f",
         "forge/runs/gpt-6-sol-20260922/scope.json": "3ac0b3c942ad3ca32fca5da4bb59296417819d81d45f9d0d903ba395f8d1b538",
-        "forge/runs/gpt-6-sol-20260922/catalog-observation.json": "264f3452fd4e21cbe78454ef98b807f6a5b55b90bbe9463e4c5423ddc3bd5092"
+        "forge/runs/gpt-6-sol-20260922/catalog-observation.json": "264f3452fd4e21cbe78454ef98b807f6a5b55b90bbe9463e4c5423ddc3bd5092",
+        "forge/runs/claude-signin-20260922/scope.json": "e668531a6ffbdb53d1a51b844109828e71d73e37712ce308e90a8e82751e3559"
       },
       "dependencies": [],
-      "content_hash": "f51739fb00251206d6656e536e9dd3e144ea095f5f6d47c9f8b3dca2350ed2ae",
+      "content_hash": "774052624d8545f610b3f0d39a073a95b2279508b80784411e22079e1918bf79",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "model-vocabulary-and-evidence-limit-clarification",
-        "reviewed_at": "2026-09-22T18:58:36.009457+00:00",
+        "kind": "native-subscription-signin-owner-reconciliation",
+        "reviewed_at": "2026-09-22T20:15:23.368408+00:00",
         "executor": "Codex inline to-product-idea",
-        "scope": "Codex retains raw effort values including xhigh; Extra is a Claude-only label. Catalog evidence alone does not establish execution. Preserve all choices, security obligations, frozen design and formal unrun statuses; reuse unchanged document bytes."
+        "scope": "Recognize native Claude subscription sign-in without weakening tools, private credentials or billing boundaries; Check connection preserves unsaved settings. Preserve exact models, frozen baseline and formal unrun statuses; no authentication or model-execution result is inferred."
       },
       "open_questions": []
     },
@@ -2302,120 +2304,120 @@
       },
       "path": "docs/prd.md",
       "owner_skill": "to-sdd-prd",
-      "owner_invocation_id": "gpt-6-sol-20260922-wording-prd",
+      "owner_invocation_id": "claude-signin-20260922-host-trust-prd",
       "declared_output_set": [
         "docs/prd.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "gpt-6-sol-20260922-wording-prd",
+      "source_version": "claude-signin-20260922-host-trust-prd",
       "source_usage": {
         "docs/product-idea.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "f51739fb00251206d6656e536e9dd3e144ea095f5f6d47c9f8b3dca2350ed2ae"
+        "docs/product-idea.md": "774052624d8545f610b3f0d39a073a95b2279508b80784411e22079e1918bf79"
       },
       "dependencies": [
         "product-idea"
       ],
-      "content_hash": "c39ac9ccdd367d738a1fb80a659af03010d166aeae4b70f65541be17b43f2fea",
+      "content_hash": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "model-vocabulary-and-evidence-limit-clarification",
-        "reviewed_at": "2026-09-22T18:58:36.117052+00:00",
+        "kind": "trusted-host-scope-correction",
+        "reviewed_at": "2026-09-22T20:23:28.950041+00:00",
         "executor": "Codex inline to-sdd-prd",
-        "scope": "Codex retains raw effort values including xhigh; Extra is a Claude-only label. Catalog evidence alone does not establish execution. Preserve all choices, security obligations, frozen design and formal unrun statuses; reuse unchanged document bytes."
+        "scope": "Remove the new blanket administrator-policy inspection inference. Preserve existing trusted-host policy, native/token authentication, subscription/provider status checks, exact model identity, model tool/MCP denial and formal unrun verification."
       },
       "open_questions": []
     },
     "project-context": {
       "path": "docs/project-context.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "gpt-6-sol-20260922-wording-project-context",
+      "owner_invocation_id": "claude-signin-20260922-host-trust-project-context",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "gpt-6-sol-20260922-wording-project-context",
+      "source_version": "claude-signin-20260922-host-trust-project-context",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "f51739fb00251206d6656e536e9dd3e144ea095f5f6d47c9f8b3dca2350ed2ae",
-        "docs/prd.md": "c39ac9ccdd367d738a1fb80a659af03010d166aeae4b70f65541be17b43f2fea"
+        "docs/product-idea.md": "774052624d8545f610b3f0d39a073a95b2279508b80784411e22079e1918bf79",
+        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "44f5bd08eb8ab44bcb94e66668d77ee095b8ae6ce0e10a65be765aa2b59a03b5",
+      "content_hash": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "model-vocabulary-and-evidence-limit-clarification",
-        "reviewed_at": "2026-09-22T18:58:36.392756+00:00",
+        "kind": "trusted-host-scope-correction",
+        "reviewed_at": "2026-09-22T20:23:29.242772+00:00",
         "executor": "Codex inline to-project-context",
-        "scope": "Codex retains raw effort values including xhigh; Extra is a Claude-only label. Catalog evidence alone does not establish execution. Preserve all choices, security obligations, frozen design and formal unrun statuses; reuse unchanged document bytes."
+        "scope": "Remove the new blanket administrator-policy inspection inference. Preserve existing trusted-host policy, native/token authentication, subscription/provider status checks, exact model identity, model tool/MCP denial and formal unrun verification."
       },
       "open_questions": []
     },
     "canonical-terms": {
       "path": "docs/canonical-terms.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "gpt-6-sol-20260922-wording-project-context",
+      "owner_invocation_id": "claude-signin-20260922-host-trust-project-context",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "gpt-6-sol-20260922-wording-project-context",
+      "source_version": "claude-signin-20260922-host-trust-project-context",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "f51739fb00251206d6656e536e9dd3e144ea095f5f6d47c9f8b3dca2350ed2ae",
-        "docs/prd.md": "c39ac9ccdd367d738a1fb80a659af03010d166aeae4b70f65541be17b43f2fea"
+        "docs/product-idea.md": "774052624d8545f610b3f0d39a073a95b2279508b80784411e22079e1918bf79",
+        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+      "content_hash": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "model-vocabulary-and-evidence-limit-clarification",
-        "reviewed_at": "2026-09-22T18:58:36.392816+00:00",
+        "kind": "trusted-host-scope-correction",
+        "reviewed_at": "2026-09-22T20:23:29.243538+00:00",
         "executor": "Codex inline to-project-context",
-        "scope": "Codex retains raw effort values including xhigh; Extra is a Claude-only label. Catalog evidence alone does not establish execution. Preserve all choices, security obligations, frozen design and formal unrun statuses; reuse unchanged document bytes."
+        "scope": "Remove the new blanket administrator-policy inspection inference. Preserve existing trusted-host policy, native/token authentication, subscription/provider status checks, exact model identity, model tool/MCP denial and formal unrun verification."
       },
       "open_questions": []
     },
     "guardrails": {
       "path": "docs/guardrails.md",
       "owner_skill": "to-guardrails",
-      "owner_invocation_id": "gpt-6-sol-20260922-wording-guardrails",
+      "owner_invocation_id": "claude-signin-20260922-host-trust-guardrails",
       "declared_output_set": [
         "docs/guardrails.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "gpt-6-sol-20260922-wording-guardrails",
+      "source_version": "claude-signin-20260922-host-trust-guardrails",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
         "docs/canonical-terms.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "c39ac9ccdd367d738a1fb80a659af03010d166aeae4b70f65541be17b43f2fea",
-        "docs/project-context.md": "44f5bd08eb8ab44bcb94e66668d77ee095b8ae6ce0e10a65be765aa2b59a03b5",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8"
+        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
+        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
+        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16"
       },
       "dependencies": [
         "prd",
@@ -2426,23 +2428,23 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "model-vocabulary-and-evidence-limit-clarification",
-        "reviewed_at": "2026-09-22T18:58:36.664762+00:00",
+        "kind": "trusted-host-scope-correction",
+        "reviewed_at": "2026-09-22T20:23:29.540851+00:00",
         "executor": "Codex inline to-guardrails",
-        "scope": "Codex retains raw effort values including xhigh; Extra is a Claude-only label. Catalog evidence alone does not establish execution. Preserve all choices, security obligations, frozen design and formal unrun statuses; reuse unchanged document bytes."
+        "scope": "Remove the new blanket administrator-policy inspection inference. Preserve existing trusted-host policy, native/token authentication, subscription/provider status checks, exact model identity, model tool/MCP denial and formal unrun verification."
       },
       "open_questions": []
     },
     "user-journey": {
       "path": "docs/user-journey.md",
       "owner_skill": "to-user-journey",
-      "owner_invocation_id": "gpt-6-sol-20260922-wording-user-journey",
+      "owner_invocation_id": "claude-signin-20260922-host-trust-user-journey",
       "declared_output_set": [
         "docs/user-journey.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "gpt-6-sol-20260922-wording-user-journey",
+      "source_version": "claude-signin-20260922-host-trust-user-journey",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2450,9 +2452,9 @@
         "docs/guardrails.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "c39ac9ccdd367d738a1fb80a659af03010d166aeae4b70f65541be17b43f2fea",
-        "docs/project-context.md": "44f5bd08eb8ab44bcb94e66668d77ee095b8ae6ce0e10a65be765aa2b59a03b5",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
+        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
+        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214"
       },
       "dependencies": [
@@ -2461,14 +2463,14 @@
         "canonical-terms",
         "guardrails"
       ],
-      "content_hash": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
+      "content_hash": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "model-vocabulary-and-evidence-limit-clarification",
-        "reviewed_at": "2026-09-22T18:58:36.941065+00:00",
+        "kind": "trusted-host-scope-correction",
+        "reviewed_at": "2026-09-22T20:23:29.834097+00:00",
         "executor": "Codex inline to-user-journey",
-        "scope": "Codex retains raw effort values including xhigh; Extra is a Claude-only label. Catalog evidence alone does not establish execution. Preserve all choices, security obligations, frozen design and formal unrun statuses; reuse unchanged document bytes."
+        "scope": "Remove the new blanket administrator-policy inspection inference. Preserve existing trusted-host policy, native/token authentication, subscription/provider status checks, exact model identity, model tool/MCP denial and formal unrun verification."
       },
       "open_questions": []
     },
@@ -3480,13 +3482,13 @@
       },
       "path": "docs/screen-map.md",
       "owner_skill": "to-screen-map",
-      "owner_invocation_id": "gpt-6-sol-20260922-wording-screen-map",
+      "owner_invocation_id": "claude-signin-20260922-host-trust-screen-map",
       "declared_output_set": [
         "docs/screen-map.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "gpt-6-sol-20260922-wording-screen-map",
+      "source_version": "claude-signin-20260922-host-trust-screen-map",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3495,11 +3497,11 @@
         "docs/user-journey.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "c39ac9ccdd367d738a1fb80a659af03010d166aeae4b70f65541be17b43f2fea",
-        "docs/project-context.md": "44f5bd08eb8ab44bcb94e66668d77ee095b8ae6ce0e10a65be765aa2b59a03b5",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
+        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
+        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c"
+        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517"
       },
       "dependencies": [
         "prd",
@@ -3512,23 +3514,23 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "model-vocabulary-and-evidence-limit-clarification",
-        "reviewed_at": "2026-09-22T18:58:37.216707+00:00",
+        "kind": "trusted-host-scope-correction",
+        "reviewed_at": "2026-09-22T20:23:30.146486+00:00",
         "executor": "Codex inline to-screen-map",
-        "scope": "Codex retains raw effort values including xhigh; Extra is a Claude-only label. Catalog evidence alone does not establish execution. Preserve all choices, security obligations, frozen design and formal unrun statuses; reuse unchanged document bytes."
+        "scope": "Remove the new blanket administrator-policy inspection inference. Preserve existing trusted-host policy, native/token authentication, subscription/provider status checks, exact model identity, model tool/MCP denial and formal unrun verification."
       },
       "open_questions": []
     },
     "wireframes": {
       "path": "docs/wireframes.md",
       "owner_skill": "to-wireframes",
-      "owner_invocation_id": "gpt-6-sol-20260922-wording-wireframes",
+      "owner_invocation_id": "claude-signin-20260922-host-trust-wireframes",
       "declared_output_set": [
         "docs/wireframes.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "gpt-6-sol-20260922-wording-wireframes",
+      "source_version": "claude-signin-20260922-host-trust-wireframes",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3538,11 +3540,11 @@
         "docs/screen-map.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "c39ac9ccdd367d738a1fb80a659af03010d166aeae4b70f65541be17b43f2fea",
-        "docs/project-context.md": "44f5bd08eb8ab44bcb94e66668d77ee095b8ae6ce0e10a65be765aa2b59a03b5",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
+        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
+        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
+        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
         "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0"
       },
       "dependencies": [
@@ -3553,27 +3555,27 @@
         "user-journey",
         "screen-map"
       ],
-      "content_hash": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
+      "content_hash": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "model-vocabulary-and-evidence-limit-clarification",
-        "reviewed_at": "2026-09-22T18:58:37.538202+00:00",
+        "kind": "trusted-host-scope-correction",
+        "reviewed_at": "2026-09-22T20:23:30.493584+00:00",
         "executor": "Codex inline to-wireframes",
-        "scope": "Codex retains raw effort values including xhigh; Extra is a Claude-only label. Catalog evidence alone does not establish execution. Preserve all choices, security obligations, frozen design and formal unrun statuses; reuse unchanged document bytes."
+        "scope": "Remove the new blanket administrator-policy inspection inference. Preserve existing trusted-host policy, native/token authentication, subscription/provider status checks, exact model identity, model tool/MCP denial and formal unrun verification."
       },
       "open_questions": []
     },
     "design-brief": {
       "path": "docs/design-brief.md",
       "owner_skill": "to-design-brief",
-      "owner_invocation_id": "gpt-6-sol-20260922-wording-design-brief",
+      "owner_invocation_id": "claude-signin-20260922-host-trust-design-brief",
       "declared_output_set": [
         "docs/design-brief.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "gpt-6-sol-20260922-wording-design-brief",
+      "source_version": "claude-signin-20260922-host-trust-design-brief",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3585,13 +3587,13 @@
         "forge/runs/composer-sound-20260922/scoped-override.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "c39ac9ccdd367d738a1fb80a659af03010d166aeae4b70f65541be17b43f2fea",
-        "docs/project-context.md": "44f5bd08eb8ab44bcb94e66668d77ee095b8ae6ce0e10a65be765aa2b59a03b5",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
+        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
+        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
+        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
         "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
-        "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
+        "docs/wireframes.md": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
         "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b"
       },
       "dependencies": [
@@ -3603,14 +3605,14 @@
         "screen-map",
         "wireframes"
       ],
-      "content_hash": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
+      "content_hash": "fb1581811b291051e2315404c0c8bc00da2043e2949e4ada783fb2289a0ae421",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "model-vocabulary-and-evidence-limit-clarification",
-        "reviewed_at": "2026-09-22T18:58:37.861940+00:00",
+        "kind": "trusted-host-scope-correction",
+        "reviewed_at": "2026-09-22T20:23:30.840945+00:00",
         "executor": "Codex inline to-design-brief",
-        "scope": "Codex retains raw effort values including xhigh; Extra is a Claude-only label. Catalog evidence alone does not establish execution. Preserve all choices, security obligations, frozen design and formal unrun statuses; reuse unchanged document bytes."
+        "scope": "Remove the new blanket administrator-policy inspection inference. Preserve existing trusted-host policy, native/token authentication, subscription/provider status checks, exact model identity, model tool/MCP denial and formal unrun verification."
       },
       "open_questions": []
     },
@@ -3687,13 +3689,13 @@
       },
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "gpt-6-sol-20260922-wording-architecture",
+      "owner_invocation_id": "claude-signin-20260922-host-trust-architecture",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "gpt-6-sol-20260922-wording-architecture",
+      "source_version": "claude-signin-20260922-host-trust-architecture",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3703,18 +3705,20 @@
         "docs/screen-map.md": "full",
         "docs/wireframes.md": "full",
         "docs/design-brief.md": "full",
-        "docs/model-settings.md": "full"
+        "docs/model-settings.md": "full",
+        "forge/runs/claude-signin-20260922/source-review.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "c39ac9ccdd367d738a1fb80a659af03010d166aeae4b70f65541be17b43f2fea",
-        "docs/project-context.md": "44f5bd08eb8ab44bcb94e66668d77ee095b8ae6ce0e10a65be765aa2b59a03b5",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
+        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
+        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
+        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
         "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
-        "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
-        "docs/design-brief.md": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
-        "docs/model-settings.md": "55aa6791b57fc20fe74d1f2bbc25eb647f1f516547efc96bb1ad30a587052388"
+        "docs/wireframes.md": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
+        "docs/design-brief.md": "fb1581811b291051e2315404c0c8bc00da2043e2949e4ada783fb2289a0ae421",
+        "docs/model-settings.md": "c58fed0a9606f231ac8086c669b859cb58e372efdcd538ed2fee33cb091c8ecc",
+        "forge/runs/claude-signin-20260922/source-review.json": "ad878d853b9c6f30da817167e1db6dffaad9c2c2863354ad3331294d7b269def"
       },
       "dependencies": [
         "prd",
@@ -3726,14 +3730,14 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "f21da9fbb580370609563d24b1d7ef8de641c7ceab80e718cddef9538fdf9b85",
+      "content_hash": "39639c9d6fbe87a1f37c74b375a6678af856fa660a70fa033b7279566f4b425a",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "model-vocabulary-and-evidence-limit-clarification",
-        "reviewed_at": "2026-09-22T18:58:38.190870+00:00",
+        "kind": "trusted-host-scope-correction",
+        "reviewed_at": "2026-09-22T20:23:31.225853+00:00",
         "executor": "Codex inline to-architecture",
-        "scope": "Codex retains raw effort values including xhigh; Extra is a Claude-only label. Catalog evidence alone does not establish execution. Preserve all choices, security obligations, frozen design and formal unrun statuses; reuse unchanged document bytes."
+        "scope": "Remove the new blanket administrator-policy inspection inference. Preserve existing trusted-host policy, native/token authentication, subscription/provider status checks, exact model identity, model tool/MCP denial and formal unrun verification."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -3811,13 +3815,13 @@
       },
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "gpt-6-sol-20260922-wording-dod-evals",
+      "owner_invocation_id": "claude-signin-20260922-host-trust-dod-evals",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "gpt-6-sol-20260922-wording-dod-evals",
+      "source_version": "claude-signin-20260922-host-trust-dod-evals",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3830,15 +3834,15 @@
         "docs/architecture.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "c39ac9ccdd367d738a1fb80a659af03010d166aeae4b70f65541be17b43f2fea",
-        "docs/project-context.md": "44f5bd08eb8ab44bcb94e66668d77ee095b8ae6ce0e10a65be765aa2b59a03b5",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
+        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
+        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
+        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
         "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
-        "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
-        "docs/design-brief.md": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
-        "docs/architecture.md": "f21da9fbb580370609563d24b1d7ef8de641c7ceab80e718cddef9538fdf9b85"
+        "docs/wireframes.md": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
+        "docs/design-brief.md": "fb1581811b291051e2315404c0c8bc00da2043e2949e4ada783fb2289a0ae421",
+        "docs/architecture.md": "39639c9d6fbe87a1f37c74b375a6678af856fa660a70fa033b7279566f4b425a"
       },
       "dependencies": [
         "prd",
@@ -3855,10 +3859,10 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "model-vocabulary-and-evidence-limit-clarification",
-        "reviewed_at": "2026-09-22T18:58:38.911963+00:00",
+        "kind": "trusted-host-scope-correction",
+        "reviewed_at": "2026-09-22T20:23:31.954185+00:00",
         "executor": "Codex inline to-dod-evals",
-        "scope": "Codex retains raw effort values including xhigh; Extra is a Claude-only label. Catalog evidence alone does not establish execution. Preserve all choices, security obligations, frozen design and formal unrun statuses; reuse unchanged document bytes."
+        "scope": "Remove the new blanket administrator-policy inspection inference. Preserve existing trusted-host policy, native/token authentication, subscription/provider status checks, exact model identity, model tool/MCP denial and formal unrun verification."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -5625,13 +5629,13 @@
       },
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "gpt-6-sol-20260922-wording-qa-checklist",
+      "owner_invocation_id": "claude-signin-20260922-host-trust-qa-checklist",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "gpt-6-sol-20260922-wording-qa-checklist",
+      "source_version": "claude-signin-20260922-host-trust-qa-checklist",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -5645,15 +5649,15 @@
         "docs/dod-evals.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "c39ac9ccdd367d738a1fb80a659af03010d166aeae4b70f65541be17b43f2fea",
-        "docs/project-context.md": "44f5bd08eb8ab44bcb94e66668d77ee095b8ae6ce0e10a65be765aa2b59a03b5",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
+        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
+        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
+        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
         "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
-        "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
-        "docs/design-brief.md": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
-        "docs/architecture.md": "f21da9fbb580370609563d24b1d7ef8de641c7ceab80e718cddef9538fdf9b85",
+        "docs/wireframes.md": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
+        "docs/design-brief.md": "fb1581811b291051e2315404c0c8bc00da2043e2949e4ada783fb2289a0ae421",
+        "docs/architecture.md": "39639c9d6fbe87a1f37c74b375a6678af856fa660a70fa033b7279566f4b425a",
         "docs/dod-evals.md": "fd73d395eaddbd975420f6a73371bad428269508aa100c31b0a60136f294f59a"
       },
       "dependencies": [
@@ -5668,14 +5672,14 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "40486b1ad23ff78ab3b407c2a37addc2a6a5f1ad734de5a6a945f7c40c7f67f0",
+      "content_hash": "045e5e816d4877d736da5b6eaedfd2cc162996ec8a6f5920d51e280da1ab6fec",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "model-vocabulary-and-evidence-limit-clarification",
-        "reviewed_at": "2026-09-22T18:58:39.632964+00:00",
+        "kind": "trusted-host-scope-correction",
+        "reviewed_at": "2026-09-22T20:23:32.689080+00:00",
         "executor": "Codex inline to-qa-checklist",
-        "scope": "Codex retains raw effort values including xhigh; Extra is a Claude-only label. Catalog evidence alone does not establish execution. Preserve all choices, security obligations, frozen design and formal unrun statuses; reuse unchanged document bytes."
+        "scope": "Remove the new blanket administrator-policy inspection inference. Preserve existing trusted-host policy, native/token authentication, subscription/provider status checks, exact model identity, model tool/MCP denial and formal unrun verification."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -6767,13 +6771,13 @@
       },
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "gpt-6-sol-20260922-wording-development-plan",
+      "owner_invocation_id": "claude-signin-20260922-host-trust-development-plan",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "gpt-6-sol-20260922-wording-development-plan",
+      "source_version": "claude-signin-20260922-host-trust-development-plan",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -6790,19 +6794,19 @@
         "package.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "c39ac9ccdd367d738a1fb80a659af03010d166aeae4b70f65541be17b43f2fea",
-        "docs/project-context.md": "44f5bd08eb8ab44bcb94e66668d77ee095b8ae6ce0e10a65be765aa2b59a03b5",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
+        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
+        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
+        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
         "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
-        "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
-        "docs/design-brief.md": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
-        "docs/architecture.md": "f21da9fbb580370609563d24b1d7ef8de641c7ceab80e718cddef9538fdf9b85",
+        "docs/wireframes.md": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
+        "docs/design-brief.md": "fb1581811b291051e2315404c0c8bc00da2043e2949e4ada783fb2289a0ae421",
+        "docs/architecture.md": "39639c9d6fbe87a1f37c74b375a6678af856fa660a70fa033b7279566f4b425a",
         "docs/dod-evals.md": "fd73d395eaddbd975420f6a73371bad428269508aa100c31b0a60136f294f59a",
-        "docs/qa-checklist.md": "40486b1ad23ff78ab3b407c2a37addc2a6a5f1ad734de5a6a945f7c40c7f67f0",
-        "docs/model-settings.md": "55aa6791b57fc20fe74d1f2bbc25eb647f1f516547efc96bb1ad30a587052388",
-        "package.json": "9c3d1e2c1dadf561adfc4a6ef40a420213451cfd559c1db72a126f6f5149e1c4"
+        "docs/qa-checklist.md": "045e5e816d4877d736da5b6eaedfd2cc162996ec8a6f5920d51e280da1ab6fec",
+        "docs/model-settings.md": "c58fed0a9606f231ac8086c669b859cb58e372efdcd538ed2fee33cb091c8ecc",
+        "package.json": "094e408c16c3a8369b9f21a343bb562dc0cd20160e26b6c01f144bd83712a568"
       },
       "dependencies": [
         "prd",
@@ -6817,14 +6821,14 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "9d88dfcbf86dc079058fcf3782b8cc646070e8faf67f7f99c281adc8a6fb25e4",
+      "content_hash": "7da38ce225b9d0d60f2c40ce1618ab0c2af4df93420b36c22957d8902d5042a0",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "model-vocabulary-and-evidence-limit-clarification",
-        "reviewed_at": "2026-09-22T18:58:40.745028+00:00",
+        "kind": "trusted-host-scope-correction",
+        "reviewed_at": "2026-09-22T20:23:33.932356+00:00",
         "executor": "Codex inline to-development-plan",
-        "scope": "Codex retains raw effort values including xhigh; Extra is a Claude-only label. Catalog evidence alone does not establish execution. Preserve all choices, security obligations, frozen design and formal unrun statuses; reuse unchanged document bytes."
+        "scope": "Remove the new blanket administrator-policy inspection inference. Preserve existing trusted-host policy, native/token authentication, subscription/provider status checks, exact model identity, model tool/MCP denial and formal unrun verification."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -7337,7 +7341,7 @@
     "release_readiness": "not_evaluated",
     "source_hashes": {
       "docs/dod-evals.md": "fd73d395eaddbd975420f6a73371bad428269508aa100c31b0a60136f294f59a",
-      "docs/qa-checklist.md": "40486b1ad23ff78ab3b407c2a37addc2a6a5f1ad734de5a6a945f7c40c7f67f0"
+      "docs/qa-checklist.md": "045e5e816d4877d736da5b6eaedfd2cc162996ec8a6f5920d51e280da1ab6fec"
     },
     "gates": [
       {
@@ -8154,7 +8158,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Only a genuine authorization failure for the selected provider offers contextual reauthorization; quota and outage show their actual next action.",
+        "task": "Exercise the referenced use-case path and verify: Only a genuine authorization failure for the selected provider offers contextual reauthorization; quota and outage show their actual next action. Verify native first-party Claude subscription sign-in without an environment token, the separate explicit-token route, logged-out/expired/Console/API-key/third-party rejection and fresh auth-status validation before invocation. Run the portable official login command on the server computer; Check connection refreshes selected-provider availability without saving or discarding any unsaved model, reasoning, instruction or sound edits. The inactive Claude branch causes no warning; no browser credential field appears. Fixtures do not count as actual completed sign-in.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -8992,7 +8996,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Inject requests for secrets, tools, paid fallback and external messages; no permission or provider boundary expands. For Claude Critic, assert a command-level denial of known tools, no direct research flag, and a text-only role prompt containing the current owner question and prior confirmed discussion. Return a CLI `result` containing `<invoke name=\"Bash\">…</invoke>`; verify one natural-language retry and that neither attempt can enter events, sources or the browser.",
+        "task": "Exercise the referenced use-case path and verify: Inject requests for secrets, tools, paid fallback and external messages; no permission or provider boundary expands. For Claude Critic, assert a command-level denial of known tools, no direct research flag, and a text-only role prompt containing the current owner question and prior confirmed discussion. Cover native-home/config and isolated-token modes: no user/project customizations, built-in or MCP tools, session transcripts or private credential/error disclosure. Verify failed fresh subscription status or a reported provider-route mismatch starts no inference; failed CLI completion or an exact-model mismatch cannot commit output. Administrator policy remains part of the trusted host, not a claimed isolation boundary. Keep native credential storage intact on success, error and cancellation while removing temporary working data. Return a CLI `result` containing `<invoke name=\"Bash\">…</invoke>`; verify one natural-language retry and that neither attempt can enter events, sources or the browser.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -10134,202 +10138,204 @@
   },
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "9d88dfcbf86dc079058fcf3782b8cc646070e8faf67f7f99c281adc8a6fb25e4",
+    "development_plan_hash": "7da38ce225b9d0d60f2c40ce1618ab0c2af4df93420b36c22957d8902d5042a0",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-14T20:13:37+03:00",
-    "prompt_id": "gpt-6-sol-20260922",
-    "prompt_received_at": "2026-09-22T18:53:57.350592+00:00",
-    "released_at": "2026-09-22T18:58:41.105217+00:00",
+    "prompt_id": "claude-signin-20260922",
+    "prompt_received_at": "2026-09-22T20:15:22.931040+00:00",
+    "released_at": "2026-09-22T20:23:34.319083+00:00",
     "product_scope_hash": "defc5e24f0dd91be42b984888b157137f4f1ed361459e70f42b832e18c957bd4",
     "prompt_receipt": {
-      "path": "forge/runs/gpt-6-sol-20260922/implementation-prompt-wording.json",
-      "content_hash": "cfc6d0ecbf6139f77fca95cc7c7204db9bd1ddc7ccb42b97da38f94cbd66eab1"
+      "path": "forge/runs/claude-signin-20260922/implementation-prompt-host-trust.json",
+      "content_hash": "f3f3daac998228ebd1105fa6bf9556c151a314019bdd6497525afcd227ba12c2"
     },
-    "reason": "The explicit request to add GPT-6 Sol authorizes this affected existing change, preserving saved choices, frozen design and all security/billing boundaries."
+    "reason": "Explicit sign-in error repair authorizes the existing optional subscription-provider change, preserving models, tool denial, private credentials, frozen design and no billing fallback."
   },
   "dispatches": {
     "product-idea": {
-      "invocation_id": "gpt-6-sol-20260922-wording-product-idea",
+      "invocation_id": "claude-signin-20260922-product-idea",
       "outputs": [
         "docs/product-idea.md"
       ],
       "source_hashes": {
-        "docs/model-settings.md": "55aa6791b57fc20fe74d1f2bbc25eb647f1f516547efc96bb1ad30a587052388",
+        "docs/model-settings.md": "c58fed0a9606f231ac8086c669b859cb58e372efdcd538ed2fee33cb091c8ecc",
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2",
         "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b",
         "forge/runs/browser-research-claude-20260922/scope.json": "be36b8b0a9fb8470cbcf50a612765c82b4c53698d01c81108d172f8fd884342f",
         "forge/runs/gpt-6-sol-20260922/scope.json": "3ac0b3c942ad3ca32fca5da4bb59296417819d81d45f9d0d903ba395f8d1b538",
-        "forge/runs/gpt-6-sol-20260922/catalog-observation.json": "264f3452fd4e21cbe78454ef98b807f6a5b55b90bbe9463e4c5423ddc3bd5092"
+        "forge/runs/gpt-6-sol-20260922/catalog-observation.json": "264f3452fd4e21cbe78454ef98b807f6a5b55b90bbe9463e4c5423ddc3bd5092",
+        "forge/runs/claude-signin-20260922/scope.json": "e668531a6ffbdb53d1a51b844109828e71d73e37712ce308e90a8e82751e3559"
       }
     },
     "prd": {
-      "invocation_id": "gpt-6-sol-20260922-wording-prd",
+      "invocation_id": "claude-signin-20260922-host-trust-prd",
       "outputs": [
         "docs/prd.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "f51739fb00251206d6656e536e9dd3e144ea095f5f6d47c9f8b3dca2350ed2ae"
+        "docs/product-idea.md": "774052624d8545f610b3f0d39a073a95b2279508b80784411e22079e1918bf79"
       }
     },
     "project-context": {
-      "invocation_id": "gpt-6-sol-20260922-wording-project-context",
+      "invocation_id": "claude-signin-20260922-host-trust-project-context",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "f51739fb00251206d6656e536e9dd3e144ea095f5f6d47c9f8b3dca2350ed2ae",
-        "docs/prd.md": "c39ac9ccdd367d738a1fb80a659af03010d166aeae4b70f65541be17b43f2fea"
+        "docs/product-idea.md": "774052624d8545f610b3f0d39a073a95b2279508b80784411e22079e1918bf79",
+        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5"
       }
     },
     "canonical-terms": {
-      "invocation_id": "gpt-6-sol-20260922-wording-project-context",
+      "invocation_id": "claude-signin-20260922-host-trust-project-context",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "f51739fb00251206d6656e536e9dd3e144ea095f5f6d47c9f8b3dca2350ed2ae",
-        "docs/prd.md": "c39ac9ccdd367d738a1fb80a659af03010d166aeae4b70f65541be17b43f2fea"
+        "docs/product-idea.md": "774052624d8545f610b3f0d39a073a95b2279508b80784411e22079e1918bf79",
+        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5"
       }
     },
     "guardrails": {
-      "invocation_id": "gpt-6-sol-20260922-wording-guardrails",
+      "invocation_id": "claude-signin-20260922-host-trust-guardrails",
       "outputs": [
         "docs/guardrails.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "c39ac9ccdd367d738a1fb80a659af03010d166aeae4b70f65541be17b43f2fea",
-        "docs/project-context.md": "44f5bd08eb8ab44bcb94e66668d77ee095b8ae6ce0e10a65be765aa2b59a03b5",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8"
+        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
+        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
+        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16"
       }
     },
     "user-journey": {
-      "invocation_id": "gpt-6-sol-20260922-wording-user-journey",
+      "invocation_id": "claude-signin-20260922-host-trust-user-journey",
       "outputs": [
         "docs/user-journey.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "c39ac9ccdd367d738a1fb80a659af03010d166aeae4b70f65541be17b43f2fea",
-        "docs/project-context.md": "44f5bd08eb8ab44bcb94e66668d77ee095b8ae6ce0e10a65be765aa2b59a03b5",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
+        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
+        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214"
       }
     },
     "screen-map": {
-      "invocation_id": "gpt-6-sol-20260922-wording-screen-map",
+      "invocation_id": "claude-signin-20260922-host-trust-screen-map",
       "outputs": [
         "docs/screen-map.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "c39ac9ccdd367d738a1fb80a659af03010d166aeae4b70f65541be17b43f2fea",
-        "docs/project-context.md": "44f5bd08eb8ab44bcb94e66668d77ee095b8ae6ce0e10a65be765aa2b59a03b5",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
+        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
+        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c"
+        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517"
       }
     },
     "wireframes": {
-      "invocation_id": "gpt-6-sol-20260922-wording-wireframes",
+      "invocation_id": "claude-signin-20260922-host-trust-wireframes",
       "outputs": [
         "docs/wireframes.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "c39ac9ccdd367d738a1fb80a659af03010d166aeae4b70f65541be17b43f2fea",
-        "docs/project-context.md": "44f5bd08eb8ab44bcb94e66668d77ee095b8ae6ce0e10a65be765aa2b59a03b5",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
+        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
+        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
+        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
         "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0"
       }
     },
     "design-brief": {
-      "invocation_id": "gpt-6-sol-20260922-wording-design-brief",
+      "invocation_id": "claude-signin-20260922-host-trust-design-brief",
       "outputs": [
         "docs/design-brief.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "c39ac9ccdd367d738a1fb80a659af03010d166aeae4b70f65541be17b43f2fea",
-        "docs/project-context.md": "44f5bd08eb8ab44bcb94e66668d77ee095b8ae6ce0e10a65be765aa2b59a03b5",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
+        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
+        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
+        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
         "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
-        "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
+        "docs/wireframes.md": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
         "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b"
       }
     },
     "architecture": {
-      "invocation_id": "gpt-6-sol-20260922-wording-architecture",
+      "invocation_id": "claude-signin-20260922-host-trust-architecture",
       "outputs": [
         "docs/architecture.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "c39ac9ccdd367d738a1fb80a659af03010d166aeae4b70f65541be17b43f2fea",
-        "docs/project-context.md": "44f5bd08eb8ab44bcb94e66668d77ee095b8ae6ce0e10a65be765aa2b59a03b5",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
+        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
+        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
+        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
         "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
-        "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
-        "docs/design-brief.md": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
-        "docs/model-settings.md": "55aa6791b57fc20fe74d1f2bbc25eb647f1f516547efc96bb1ad30a587052388"
+        "docs/wireframes.md": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
+        "docs/design-brief.md": "fb1581811b291051e2315404c0c8bc00da2043e2949e4ada783fb2289a0ae421",
+        "docs/model-settings.md": "c58fed0a9606f231ac8086c669b859cb58e372efdcd538ed2fee33cb091c8ecc",
+        "forge/runs/claude-signin-20260922/source-review.json": "ad878d853b9c6f30da817167e1db6dffaad9c2c2863354ad3331294d7b269def"
       }
     },
     "dod-evals": {
-      "invocation_id": "gpt-6-sol-20260922-wording-dod-evals",
+      "invocation_id": "claude-signin-20260922-host-trust-dod-evals",
       "outputs": [
         "docs/dod-evals.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "c39ac9ccdd367d738a1fb80a659af03010d166aeae4b70f65541be17b43f2fea",
-        "docs/project-context.md": "44f5bd08eb8ab44bcb94e66668d77ee095b8ae6ce0e10a65be765aa2b59a03b5",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
+        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
+        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
+        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
         "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
-        "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
-        "docs/design-brief.md": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
-        "docs/architecture.md": "f21da9fbb580370609563d24b1d7ef8de641c7ceab80e718cddef9538fdf9b85"
+        "docs/wireframes.md": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
+        "docs/design-brief.md": "fb1581811b291051e2315404c0c8bc00da2043e2949e4ada783fb2289a0ae421",
+        "docs/architecture.md": "39639c9d6fbe87a1f37c74b375a6678af856fa660a70fa033b7279566f4b425a"
       }
     },
     "qa-checklist": {
-      "invocation_id": "gpt-6-sol-20260922-wording-qa-checklist",
+      "invocation_id": "claude-signin-20260922-host-trust-qa-checklist",
       "outputs": [
         "docs/qa-checklist.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "c39ac9ccdd367d738a1fb80a659af03010d166aeae4b70f65541be17b43f2fea",
-        "docs/project-context.md": "44f5bd08eb8ab44bcb94e66668d77ee095b8ae6ce0e10a65be765aa2b59a03b5",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
+        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
+        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
+        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
         "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
-        "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
-        "docs/design-brief.md": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
-        "docs/architecture.md": "f21da9fbb580370609563d24b1d7ef8de641c7ceab80e718cddef9538fdf9b85",
+        "docs/wireframes.md": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
+        "docs/design-brief.md": "fb1581811b291051e2315404c0c8bc00da2043e2949e4ada783fb2289a0ae421",
+        "docs/architecture.md": "39639c9d6fbe87a1f37c74b375a6678af856fa660a70fa033b7279566f4b425a",
         "docs/dod-evals.md": "fd73d395eaddbd975420f6a73371bad428269508aa100c31b0a60136f294f59a"
       }
     },
     "development-plan": {
-      "invocation_id": "gpt-6-sol-20260922-wording-development-plan",
+      "invocation_id": "claude-signin-20260922-host-trust-development-plan",
       "outputs": [
         "docs/development-plan.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "c39ac9ccdd367d738a1fb80a659af03010d166aeae4b70f65541be17b43f2fea",
-        "docs/project-context.md": "44f5bd08eb8ab44bcb94e66668d77ee095b8ae6ce0e10a65be765aa2b59a03b5",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
+        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
+        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
-        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
+        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
         "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
-        "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
-        "docs/design-brief.md": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
-        "docs/architecture.md": "f21da9fbb580370609563d24b1d7ef8de641c7ceab80e718cddef9538fdf9b85",
+        "docs/wireframes.md": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
+        "docs/design-brief.md": "fb1581811b291051e2315404c0c8bc00da2043e2949e4ada783fb2289a0ae421",
+        "docs/architecture.md": "39639c9d6fbe87a1f37c74b375a6678af856fa660a70fa033b7279566f4b425a",
         "docs/dod-evals.md": "fd73d395eaddbd975420f6a73371bad428269508aa100c31b0a60136f294f59a",
-        "docs/qa-checklist.md": "40486b1ad23ff78ab3b407c2a37addc2a6a5f1ad734de5a6a945f7c40c7f67f0",
-        "docs/model-settings.md": "55aa6791b57fc20fe74d1f2bbc25eb647f1f516547efc96bb1ad30a587052388",
-        "package.json": "9c3d1e2c1dadf561adfc4a6ef40a420213451cfd559c1db72a126f6f5149e1c4"
+        "docs/qa-checklist.md": "045e5e816d4877d736da5b6eaedfd2cc162996ec8a6f5920d51e280da1ab6fec",
+        "docs/model-settings.md": "c58fed0a9606f231ac8086c669b859cb58e372efdcd538ed2fee33cb091c8ecc",
+        "package.json": "094e408c16c3a8369b9f21a343bb562dc0cd20160e26b6c01f144bd83712a568"
       }
     }
   },
@@ -10374,6 +10380,31 @@
       "recorded_at": "2026-09-22T18:58:35.597738+00:00",
       "scope": "Codex effort labels remain raw values; qualify catalog-only evidence independently of runtime observations. Original user scope and authority are unchanged.",
       "superseded_bindings": "forge/runs/gpt-6-sol-20260922/wording-prior-bindings.json"
+    },
+    {
+      "event": "claude_native_signin_reconciliation_started",
+      "recorded_at": "2026-09-22T20:15:22.931040+00:00",
+      "scope": "Recognize ordinary native Claude Code subscription sign-in for the optional Critic, retain explicit isolated subscription-token mode, and provide truthful local sign-in guidance with Check connection recovery preserving unsaved Settings. No model/default, tool-authority, billing or visual-baseline change.",
+      "superseded_bindings": "forge/runs/claude-signin-20260922/prior-owner-bindings.json",
+      "evidence_limit": "No actual user sign-in, grant or model invocation is implied."
+    },
+    {
+      "event": "claude_native_signin_reconciliation_completed",
+      "recorded_at": "2026-09-22T20:18:39.828154+00:00",
+      "scope": "Native subscription identity, separate explicit-token mode, local official login and connection refresh; actual sign-in/execution evidence remains separate.",
+      "superseded_bindings": "forge/runs/claude-signin-20260922/mechanism-prior-bindings.json"
+    },
+    {
+      "event": "claude_native_oauth_discovery_correction",
+      "recorded_at": "2026-09-22T20:20:46.967657+00:00",
+      "scope": "Limit host-managed environment to explicit-token mode; preserve native OAuth discovery and unchanged scoped user authority.",
+      "superseded_bindings": "forge/runs/claude-signin-20260922/native-oauth-prior-bindings.json"
+    },
+    {
+      "event": "claude_signin_trusted_host_scope_correction",
+      "recorded_at": "2026-09-22T20:23:28.880300+00:00",
+      "scope": "Removed owner-inferred proactive managed-policy inspection; retained original user auth-repair scope and existing trusted-administrator boundary.",
+      "superseded_bindings": "forge/runs/claude-signin-20260922/host-trust-prior-bindings.json"
     }
   ],
   "input_requests": [],
@@ -10385,6 +10416,6 @@
     "status": "handed_off",
     "intake_id": "local-20260922-intake",
     "source_mode": "existing-file",
-    "product_idea_hash": "f51739fb00251206d6656e536e9dd3e144ea095f5f6d47c9f8b3dca2350ed2ae"
+    "product_idea_hash": "774052624d8545f610b3f0d39a073a95b2279508b80784411e22079e1918bf79"
   }
 }

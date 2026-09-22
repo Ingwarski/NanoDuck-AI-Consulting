@@ -41,7 +41,17 @@ Use authenticated subscription capabilities to validate a selected tuple before
 accepting it. An unavailable model or expired subscription stays unavailable;
 never silently substitute a model or effort. Preserve independent consultant and
 Critic settings. Provider authorization belongs to the local CLI, not a browser
-form containing credentials. No API-key billing fallback, automatic credits or
+form containing credentials. The optional Claude route accepts the current local
+user’s ordinary Claude Code subscription sign-in, established with
+`npm run claude:login` on the server computer. `CLAUDE_CONFIG_DIR`, when set,
+must identify the same native credential location for login and NanoDuck. An
+explicit `CLAUDE_CODE_OAUTH_TOKEN` remains a separate isolated mode. Check native
+first-party subscription status before selection and each invocation; API-key,
+Console-billed and third-party routes cannot qualify. After official sign-in,
+Settings → Check connection refreshes availability while preserving unsaved
+choices; it neither creates a grant nor proves a model call. See the official
+[authentication guide](https://code.claude.com/docs/en/authentication) and
+[CLI reference](https://code.claude.com/docs/en/cli-reference). No API-key billing fallback, automatic credits or
 Claude Fast Mode is permitted.
 
 Specialist count and discussion depth are separate preferences. Count supports

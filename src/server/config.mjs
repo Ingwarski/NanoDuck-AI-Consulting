@@ -89,6 +89,19 @@ function codexCommand() {
   return { command: join(root, "vendor", triple, "bin", process.platform === "win32" ? "codex.exe" : "codex"), args: Object.freeze([]) };
 }
 
+// Resolve Claude's own credential location without opening NanoDuck's store.
+// An explicit config directory is significant to the CLI's Keychain identity.
+export function loadClaudeRuntimeConfig(environment = process.env) {
+  const home = resolve(optionalString(environment.HOME) ?? optionalString(environment.USERPROFILE) ?? homedir());
+  const claude = packageCommand("@anthropic-ai/claude-code", "claude");
+  const configDirectory = optionalString(environment.CLAUDE_CONFIG_DIR);
+  return Object.freeze({
+    claudeCommand: claude.command, claudeCommandArgs: claude.args, claudeHome: home,
+    claudeConfigDirectory: configDirectory ? resolve(configDirectory) : undefined,
+    claudeOAuthToken: optionalString(environment.CLAUDE_CODE_OAUTH_TOKEN)
+  });
+}
+
 export function loadConfig(environment = process.env) {
   const forbidden = FORBIDDEN_RUNTIME_ENVIRONMENT_NAMES.filter(name => optionalString(environment[name]));
   if (forbidden.length) throw new Error(`Unsupported provider environment: ${forbidden.join(", ")}. Use subscription sign-in.`);
@@ -110,7 +123,7 @@ export function loadConfig(environment = process.env) {
   if (!parsed.checkPrivateKey(createPrivateKey(privateKey)) || saved.hostnames.some(name => !(name.includes(":") || /^\d+\.\d+\.\d+\.\d+$/u.test(name) ? parsed.checkIP(name) : parsed.checkHost(name, { wildcards: false })))) throw new Error("Local certificate key or host names do not match the workspace configuration.");
   if (Date.parse(parsed.validTo) <= Date.now() || Date.parse(parsed.validFrom) > Date.now()) throw new Error("Local HTTPS certificate is not current. Run npm run setup -- --renew-certificate.");
   const allowedHosts = saved.hostnames.map(name => `${name.includes(":") ? `[${name}]` : name}${port === 443 ? "" : `:${port}`}`);
-  const codex = codexCommand(); const claude = packageCommand("@anthropic-ai/claude-code", "claude");
+  const codex = codexCommand(); const claude = loadClaudeRuntimeConfig(environment);
   const home = resolve(optionalString(environment.HOME) ?? optionalString(environment.USERPROFILE) ?? homedir());
   const codexHome = optionalString(environment.CODEX_HOME) ?? (mode === "test" ? undefined : join(home, ".codex"));
   const codexAuthPath = codexHome ? join(resolve(codexHome), "auth.json") : undefined;
@@ -126,7 +139,6 @@ export function loadConfig(environment = process.env) {
     codexCommand: testCommand ? process.execPath : codex.command,
     codexCommandArgs: testCommand ? Object.freeze([resolve(testCommand)]) : codex.args,
     codexAuthPath, readyForProvider,
-    claudeCommand: claude.command, claudeCommandArgs: claude.args,
-    claudeOAuthToken: optionalString(environment.CLAUDE_CODE_OAUTH_TOKEN), claudeModelCandidates
+    ...claude, claudeModelCandidates
   });
 }

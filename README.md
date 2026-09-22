@@ -76,16 +76,29 @@ npm run preflight
 
 The application uses the current user's `CODEX_HOME/auth.json`, or the standard
 `.codex/auth.json` in their home directory. It makes isolated provider requests;
-credentials never go to LAN browsers. The optional Claude Code Critic requires
-a subscription token supplied as `CLAUDE_CODE_OAUTH_TOKEN` in the server process
-and an available saved model. API-key billing routes and silent model fallback
-are disabled. See [exact model settings](docs/model-settings.md).
+credentials never go to LAN browsers. The optional Claude Code Critic uses the
+current local user's Claude Code subscription sign-in. On the computer running
+NanoDuck, from this repository directory, run:
 
-The bundled Claude Code 2.1.280 supports the optional Opus 5.5 choice
-(`claude-opus-5-5`). Existing selections stay unchanged. A Claude subscription
-token can be obtained with `npx claude setup-token`; keep it outside the source
-tree and supply it only to the local server. Signing into the NanoDuck browser
-does not authorize Claude Code.
+```sh
+npm run claude:login
+```
+
+Complete the official Claude sign-in, then return to Settings and use **Check
+connection**. This refresh preserves your unsaved choices. An existing local
+Claude Code subscription sign-in can be reused; signing into the NanoDuck
+browser does not authorize Claude Code. If you set `CLAUDE_CONFIG_DIR`, use the
+same value for login and the server. Credentials stay in Claude Code's native
+protected store; NanoDuck has no browser credential form.
+
+An explicit `CLAUDE_CODE_OAUTH_TOKEN` in the server environment remains an
+optional isolated subscription-token mode that takes precedence over native
+sign-in. Remove that server environment override to use the native login. Keep
+tokens outside the source tree.
+API-key, Console-billed and third-party routes cannot be used as fallbacks.
+The bundled Claude Code 2.1.280 retains the exact Opus 5 and optional Opus 5.5
+choices; no saved model changes automatically. See [exact model settings](docs/model-settings.md)
+and the [official authentication guide](https://code.claude.com/docs/en/authentication).
 
 Preflight inspects subscription/catalog availability without starting a model
 turn. It does not guarantee future quota. Private instruction copies begin with
@@ -115,7 +128,8 @@ encryption. Only one NanoDuck process may open a data directory.
 | `NANODUCK_HOST` | Listen address, default `0.0.0.0`; use `127.0.0.1` for this computer only |
 | `NANODUCK_ALLOWED_HOSTS` | Comma-separated local names/IPs to include during certificate setup |
 | `CODEX_HOME` | Directory containing your local Codex subscription sign-in |
-| `CLAUDE_CODE_OAUTH_TOKEN` | Optional Claude Code subscription credential |
+| `CLAUDE_CONFIG_DIR` | Optional native Claude configuration/sign-in directory; use the same value for login and server |
+| `CLAUDE_CODE_OAUTH_TOKEN` | Optional explicit isolated Claude subscription-token mode |
 
 Set environment variables through your shell or operating system; `.env` files
 are not loaded automatically. Never commit credentials or private data.

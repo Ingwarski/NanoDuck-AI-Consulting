@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "scope": "Native Claude Code subscription sign-in and truthful settings recovery",
+  "recorded_at": "2026-09-22T20:30:42.619Z",
+  "source": {
+    "base_commit": "f4f1ef593f22469718f19c979543110e281ffd4b",
+    "files": [
+      {
+        "path": "package-lock.json",
+        "sha256": "37cb4ca1504c28562ef782e54814e804f0fe3a8ab3d50948451dbdec03580229"
+      },
+      {
+        "path": "package.json",
+        "sha256": "094e408c16c3a8369b9f21a343bb562dc0cd20160e26b6c01f144bd83712a568"
+      },
+      {
+        "path": "scripts/browser-check.mjs",
+        "sha256": "ddd627d551a26fbae4e11d9cad19975458544c0abcf6c20f4cf0ebae86b14f9c"
+      },
+      {
+        "path": "scripts/browser-provider-connection.mjs",
+        "sha256": "7c879d59882cceb0eb4234e9489a340eae691ae3012a0086d770c5f59e894970"
+      },
+      {
+        "path": "scripts/claude-login.mjs",
+        "sha256": "c6c164a2461ae9e0ef862b9ed6c9a2573ff1f7151f407407a033fcef8c9be339"
+      },
+      {
+        "path": "src/client/app.js",
+        "sha256": "180e721d8b4c8327f3d6a79e4c240dd0b7884a37b9182bb74ccf8d51641044c2"
+      },
+      {
+        "path": "src/server/claude-provider.mjs",
+        "sha256": "737055b015564c073c10a84552faff4a5bca5f0543076f5a9103ec2317dfa546"
+      },
+      {
+        "path": "src/server/claude-runtime.mjs",
+        "sha256": "61f17d17096497db5b19cf08a512d2f7de7f39734a8409078868eefb281a0490"
+      },
+      {
+        "path": "src/server/config.mjs",
+        "sha256": "5e244f99a4897fbf26c78650061d6bfd8c83dfb0fe4fa18b77e06618e25d8cdb"
+      },
+      {
+        "path": "src/server/consultation.mjs",
+        "sha256": "862d3536b2ee0d35cc7d6e0e62605af92415d9f5ff0abeb6a205d3be60faf4d6"
+      },
+      {
+        "path": "test/claude-provider.test.mjs",
+        "sha256": "fa948980906d46d2674f8536c4a8db41561f4945509a9407431a3d22300d0dd4"
+      },
+      {
+        "path": "test/local-config-auth.test.mjs",
+        "sha256": "78d9eb523c69afc6c5ac1e6e76ee2b17497e1bb9b2733bf2309783b9d73e43ce"
+      }
+    ]
+  },
+  "checks": {
+    "node24": {
+      "version": "24.16.0",
+      "command": "npm run check",
+      "result": "passed",
+      "total": 204,
+      "passed": 202,
+      "failed": 0,
+      "skipped": 2,
+      "skip_reason": "Windows-only cases on macOS"
+    },
+    "browsers": {
+      "result": "passed",
+      "engines": [
+        "Chromium",
+        "Firefox",
+        "WebKit",
+        "installed Chrome"
+      ],
+      "commands": [
+        "npm run test:browsers",
+        "npm run test:browsers -- --channel=chrome"
+      ],
+      "scope": "Isolated synthetic application records and provider capabilities with real browser interactions",
+      "cases": [
+        "auth, quota, incompatible and unavailable failures remain distinct",
+        "successful connection refresh without page reload",
+        "failed HTTP check followed by recovery",
+        "unsaved edits made during an in-flight check survive",
+        "independent Codex and Claude provider drafts survive",
+        "checks do not write saved settings"
+      ]
+    },
+    "live_adapter": {
+      "result": "passed",
+      "command": "createClaudeProvider(loadConfig()).invoke",
+      "claude_version": "2.1.280",
+      "started_at": "2026-09-22T20:23:49.152Z",
+      "completed_at": "2026-09-22T20:23:51.592Z",
+      "requested_model": "claude-opus-5-5",
+      "returned_model": "claude-opus-5-5",
+      "effort": "medium",
+      "model_invocations": 1,
+      "synthetic_response_matched": true,
+      "authentication": "native first-party subscription; no API-key source",
+      "official_signin_completed_by_owner": true,
+      "research": false,
+      "private_conversation_accessed": false,
+      "application_store_accessed": false,
+      "temporary_command_workspaces_removed": true
+    },
+    "live_server": {
+      "result": "passed",
+      "at": "2026-09-22T20:28:06.788Z",
+      "restartedWithZeroActiveRuns": true,
+      "recordsAndSettingsUnchanged": true,
+      "httpsHealth": true,
+      "caVerified": true,
+      "currentAssets": true,
+      "interfaces": [
+        "loopback",
+        "private LAN from same computer"
+      ],
+      "verification_note": "Two earlier verification attempts stopped on observer errors (released socket access and wrong static URL); the final complete restart/check passed with zero active runs."
+    },
+    "native_safari": {
+      "result": "passed",
+      "scope": "Actual local authenticated Settings on macOS",
+      "connection_status": "Claude Code is connected. You can select it for the Critic.",
+      "provider_selected": true,
+      "models_visible": [
+        "Opus 5",
+        "Opus 5.5"
+      ],
+      "original_selection_restored": true,
+      "saved_settings_changed": false
+    },
+    "host_policy_observation": {
+      "result": "observed",
+      "scope": "Current macOS host; presence-only read",
+      "known_system_managed_files_present": false,
+      "known_native_remote_policy_cache_entries_present": false,
+      "limit": "Administrator policy remains trusted; no general policy isolation or cross-platform native-auth guarantee."
+    },
+    "sdd": {
+      "result": "passed",
+      "owner_checks": [
+        "pipeline-checks.json",
+        "native-oauth-checks.json",
+        "host-trust-checks.json"
+      ],
+      "formal_qa": "83 not_run",
+      "release_gates": "6 not_evaluated"
+    }
+  },
+  "ci": {
+    "status": "pending"
+  },
+  "limits": [
+    "Real native authentication/inference verified on macOS only; browser fixtures do not establish subscription entitlement.",
+    "No physical iPhone/iPad test, saved model change, API billing fallback or new provider-tool authority.",
+    "Explicit token auth status alone reports configuration, not server-side token validity."
+  ]
+}
