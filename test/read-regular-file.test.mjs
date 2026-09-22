@@ -58,10 +58,17 @@ test("pathname and symlink replacement after validation cannot replace the opene
       const stat = file.stat.bind(file);
       t.mock.method(file, "stat", async () => {
         const info = await stat();
-        if (replaceWithSymlink) {
-          await fs.unlink(path);
-          await fs.symlink(replacement, path);
-        } else await fs.rename(replacement, path);
+        try {
+          if (replaceWithSymlink) {
+            await fs.unlink(path);
+            await fs.symlink(replacement, path);
+          } else await fs.rename(replacement, path);
+        } catch (error) {
+          // Windows may deny replacement while this handle is open. Both OS
+          // denial and a successful rename must preserve the checked contents.
+          if (process.platform !== "win32" || !["EPERM", "EACCES"].includes(error.code)) throw error;
+          context.diagnostic("Windows denied replacement of an open file.");
+        }
         return info;
       });
     });

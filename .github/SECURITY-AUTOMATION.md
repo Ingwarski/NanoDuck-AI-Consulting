@@ -15,7 +15,7 @@ This configuration belongs to `Ingwarski/NanoDuck-AI-Consulting`.
   A successful upload does not mean a report contains no findings.
 
 Application CI checks Node.js 22 and 24 on macOS, Linux and Windows. Browser
-checks exercise Chromium, Firefox and WebKit against disposable local data and
+checks exercise Chromium, Firefox, WebKit and installed Edge against disposable local data and
 synthetic provider responses. These are separate from real subscription access
 and physical-device acceptance.
 
