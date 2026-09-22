@@ -36,6 +36,24 @@ test("live research keeps source metadata out of natural agent prose", async () 
   assert.match(result.sources[0].retrievedAt, /^\d{4}-\d{2}-\d{2}T/u);
 });
 
+test("research diagnostics count matching completed tool calls without logging queries", async () => {
+  const command = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));
+  const provider = createCodexProvider({ readyForProvider: true, codexCommand: process.execPath, codexCommandArgs: [command] });
+  const originalWrite = process.stdout.write;
+  let logs = "";
+  process.stdout.write = function (chunk, ...args) {
+    if (typeof chunk === "string" && chunk.startsWith('{"event":"nanoduck.provider.')) { logs += chunk; return true; }
+    return originalWrite.call(this, chunk, ...args);
+  };
+  try {
+    const result = await provider.invoke({ assignment: "Report completed research diagnostics.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Check public rules dated 04.11.2026.", discussion: "" }, research: true, runtimeInstructions: initialRuntimeInstructions });
+    assert.deepEqual(result, { ok: true, body: "A bounded answer.", sources: [] });
+  } finally { process.stdout.write = originalWrite; }
+  const completion = logs.trim().split("\n").map(line => JSON.parse(line)).find(item => item.event === "nanoduck.provider.turn_completed");
+  assert.equal(completion.webSearchCount, 2);
+  assert.doesNotMatch(logs, /synthetic-query-do-not-log|public rules dated|wrong-thread|wrong-turn/u);
+});
+
 test("prohibited source hosts, language and provider prose never reach a consultation", async () => {
   const command = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));
   const provider = createCodexProvider({ readyForProvider: true, codexCommand: process.execPath, codexCommandArgs: [command], codexAuthPath: undefined });

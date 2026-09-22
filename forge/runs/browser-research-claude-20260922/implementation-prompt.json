@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "event": "implementation_prompt",
+  "role": "user",
+  "intent": "start_production_implementation",
+  "prompt_id": "browser-research-claude-20260922",
+  "received_at": "2026-09-22T18:08:40.724511+00:00",
+  "timestamp_basis": "Tool-recording time of current explicit repair authority, not reconstructed original transport time. Existing completed-plan pause is retained; user instructions govern this affected change.",
+  "message": "Current explicit user correction: iPhone Chrome incoming sound, local Safari issue, unavailable public research, and current Claude Code Critic settings for the newly released Opus 5.5. Exact retained excerpts and limits are in scope.json.",
+  "scope": "Repair incoming audio on the reported iPhone Chrome path; preserve local HTTPS and truthful Safari evidence; prevent ordinary calendar dates from disabling public research; support the current optional Opus 5.5 Critic without changing saved choices or authentication.",
+  "development_plan_hash": "afe2990d3499bd415e96a917265d08df821b30094b6dd8b73930b6f5a098036d",
+  "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
+  "product_scope_hash": "defc5e24f0dd91be42b984888b157137f4f1ed361459e70f42b832e18c957bd4",
+  "source_receipt": {
+    "path": "forge/runs/browser-research-claude-20260922/scope.json",
+    "content_hash": "be36b8b0a9fb8470cbcf50a612765c82b4c53698d01c81108d172f8fd884342f"
+  }
+}

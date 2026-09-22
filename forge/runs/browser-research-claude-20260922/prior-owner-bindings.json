@@ -1,7 +1,5 @@
 {
-  "pipeline_version": "design-first-sdd-2026",
-  "checker_contract_version": 1,
-  "traceability_version": 1,
+  "recorded_at": "2026-09-22T18:08:40.724511+00:00",
   "artifacts": {
     "product-idea": {
       "traceability": {
@@ -65,34 +63,32 @@
       },
       "path": "docs/product-idea.md",
       "owner_skill": "to-product-idea",
-      "owner_invocation_id": "browser-research-claude-20260922-final-product-idea",
+      "owner_invocation_id": "composer-sound-20260922-product-idea",
       "declared_output_set": [
         "docs/product-idea.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "browser-research-claude-20260922-final-product-idea",
+      "source_version": "composer-sound-20260922-product-idea",
       "source_usage": {
         "docs/model-settings.md": "full",
         "forge/design/evidence/electric-v8-approval-20260914.json": "full",
-        "forge/runs/composer-sound-20260922/scoped-override.json": "full",
-        "forge/runs/browser-research-claude-20260922/scope.json": "full"
+        "forge/runs/composer-sound-20260922/scoped-override.json": "full"
       },
       "source_hashes": {
-        "docs/model-settings.md": "8bd22ba01f797242321e3aa7540c2d0409ad53cf540a28d760187ad7469fd9d9",
+        "docs/model-settings.md": "2a8cba482d77cc3774f49014f424051d088461c35b1f8f2ff84c26d2361f46f9",
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2",
-        "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b",
-        "forge/runs/browser-research-claude-20260922/scope.json": "be36b8b0a9fb8470cbcf50a612765c82b4c53698d01c81108d172f8fd884342f"
+        "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b"
       },
       "dependencies": [],
-      "content_hash": "93b33cc1f7da0b7473d0836e9572c3c2fd8d815ea21ea780b78b7077f6dba32b",
+      "content_hash": "d06e4cd0cb2f9bbd6c3916c5737b763a96b01c7e4b140f757a1b78e7afd2974f",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "affected-existing-change-owner-reconciliation",
-        "reviewed_at": "2026-09-22T18:11:18.679161+00:00",
+        "kind": "scoped-composer-sound-owner-reconciliation",
+        "reviewed_at": "2026-09-22T17:24:12.361853+00:00",
         "executor": "Codex inline to-product-idea",
-        "scope": "Reviewed current repair semantics and source bindings; preserved security obligations, IDs, frozen baseline and evidence limits. No product verification claim."
+        "scope": "Reviewed affected owner semantics and current source bindings; retained unaffected security obligations and frozen baseline. No product verification claim."
       },
       "open_questions": []
     },
@@ -2298,120 +2294,120 @@
       },
       "path": "docs/prd.md",
       "owner_skill": "to-sdd-prd",
-      "owner_invocation_id": "browser-research-claude-20260922-final-prd",
+      "owner_invocation_id": "composer-sound-20260922-prd",
       "declared_output_set": [
         "docs/prd.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "browser-research-claude-20260922-final-prd",
+      "source_version": "composer-sound-20260922-prd",
       "source_usage": {
         "docs/product-idea.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "93b33cc1f7da0b7473d0836e9572c3c2fd8d815ea21ea780b78b7077f6dba32b"
+        "docs/product-idea.md": "d06e4cd0cb2f9bbd6c3916c5737b763a96b01c7e4b140f757a1b78e7afd2974f"
       },
       "dependencies": [
         "product-idea"
       ],
-      "content_hash": "36b8c567f5b94898eac434c7fb608d27f8427be6f959c77a19d3a3c157ebab0e",
+      "content_hash": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "affected-existing-change-owner-reconciliation",
-        "reviewed_at": "2026-09-22T18:11:18.822231+00:00",
+        "kind": "scoped-composer-sound-owner-reconciliation",
+        "reviewed_at": "2026-09-22T17:24:25.407727+00:00",
         "executor": "Codex inline to-sdd-prd",
-        "scope": "Reviewed current repair semantics and source bindings; preserved security obligations, IDs, frozen baseline and evidence limits. No product verification claim."
+        "scope": "Reviewed affected owner semantics and current source bindings; retained unaffected security obligations and frozen baseline. No product verification claim."
       },
       "open_questions": []
     },
     "project-context": {
       "path": "docs/project-context.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "browser-research-claude-20260922-final-project-context",
+      "owner_invocation_id": "composer-sound-20260922-project-context-bundle",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "browser-research-claude-20260922-final-project-context",
+      "source_version": "composer-sound-20260922-project-context-bundle",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "93b33cc1f7da0b7473d0836e9572c3c2fd8d815ea21ea780b78b7077f6dba32b",
-        "docs/prd.md": "36b8c567f5b94898eac434c7fb608d27f8427be6f959c77a19d3a3c157ebab0e"
+        "docs/product-idea.md": "d06e4cd0cb2f9bbd6c3916c5737b763a96b01c7e4b140f757a1b78e7afd2974f",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "2b2131e372040c682fd60759cb5207cf184cf8ddc92e4d8fcf9b599303f18f6c",
+      "content_hash": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "affected-existing-change-owner-reconciliation",
-        "reviewed_at": "2026-09-22T18:11:19.171938+00:00",
+        "kind": "scoped-composer-sound-owner-reconciliation",
+        "reviewed_at": "2026-09-22T17:24:34.228825+00:00",
         "executor": "Codex inline to-project-context",
-        "scope": "Reviewed current repair semantics and source bindings; preserved security obligations, IDs, frozen baseline and evidence limits. No product verification claim."
+        "scope": "Reviewed affected owner semantics and current source bindings; retained unaffected security obligations and frozen baseline. No product verification claim."
       },
       "open_questions": []
     },
     "canonical-terms": {
       "path": "docs/canonical-terms.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "browser-research-claude-20260922-final-project-context",
+      "owner_invocation_id": "composer-sound-20260922-project-context-bundle",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "browser-research-claude-20260922-final-project-context",
+      "source_version": "composer-sound-20260922-project-context-bundle",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "93b33cc1f7da0b7473d0836e9572c3c2fd8d815ea21ea780b78b7077f6dba32b",
-        "docs/prd.md": "36b8c567f5b94898eac434c7fb608d27f8427be6f959c77a19d3a3c157ebab0e"
+        "docs/product-idea.md": "d06e4cd0cb2f9bbd6c3916c5737b763a96b01c7e4b140f757a1b78e7afd2974f",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+      "content_hash": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "affected-existing-change-owner-reconciliation",
-        "reviewed_at": "2026-09-22T18:11:19.172395+00:00",
+        "kind": "scoped-composer-sound-owner-reconciliation",
+        "reviewed_at": "2026-09-22T17:24:34.237673+00:00",
         "executor": "Codex inline to-project-context",
-        "scope": "Reviewed current repair semantics and source bindings; preserved security obligations, IDs, frozen baseline and evidence limits. No product verification claim."
+        "scope": "Reviewed affected owner semantics and current source bindings; retained unaffected security obligations and frozen baseline. No product verification claim."
       },
       "open_questions": []
     },
     "guardrails": {
       "path": "docs/guardrails.md",
       "owner_skill": "to-guardrails",
-      "owner_invocation_id": "browser-research-claude-20260922-final-guardrails",
+      "owner_invocation_id": "composer-sound-20260922-guardrails",
       "declared_output_set": [
         "docs/guardrails.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "browser-research-claude-20260922-final-guardrails",
+      "source_version": "composer-sound-20260922-guardrails",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
         "docs/canonical-terms.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "36b8c567f5b94898eac434c7fb608d27f8427be6f959c77a19d3a3c157ebab0e",
-        "docs/project-context.md": "2b2131e372040c682fd60759cb5207cf184cf8ddc92e4d8fcf9b599303f18f6c",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8"
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89"
       },
       "dependencies": [
         "prd",
@@ -2422,23 +2418,23 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "affected-existing-change-owner-reconciliation",
-        "reviewed_at": "2026-09-22T18:11:19.514274+00:00",
+        "kind": "scoped-composer-sound-owner-reconciliation",
+        "reviewed_at": "2026-09-22T17:24:34.649593+00:00",
         "executor": "Codex inline to-guardrails",
-        "scope": "Reviewed current repair semantics and source bindings; preserved security obligations, IDs, frozen baseline and evidence limits. No product verification claim."
+        "scope": "Reviewed affected owner semantics and current source bindings; retained unaffected security obligations and frozen baseline. No product verification claim."
       },
       "open_questions": []
     },
     "user-journey": {
       "path": "docs/user-journey.md",
       "owner_skill": "to-user-journey",
-      "owner_invocation_id": "browser-research-claude-20260922-final-user-journey",
+      "owner_invocation_id": "composer-sound-20260922-user-journey",
       "declared_output_set": [
         "docs/user-journey.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "browser-research-claude-20260922-final-user-journey",
+      "source_version": "composer-sound-20260922-user-journey",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2446,9 +2442,9 @@
         "docs/guardrails.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "36b8c567f5b94898eac434c7fb608d27f8427be6f959c77a19d3a3c157ebab0e",
-        "docs/project-context.md": "2b2131e372040c682fd60759cb5207cf184cf8ddc92e4d8fcf9b599303f18f6c",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214"
       },
       "dependencies": [
@@ -2461,10 +2457,10 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "affected-existing-change-owner-reconciliation",
-        "reviewed_at": "2026-09-22T18:11:19.875742+00:00",
+        "kind": "scoped-composer-sound-owner-reconciliation",
+        "reviewed_at": "2026-09-22T17:24:35.131118+00:00",
         "executor": "Codex inline to-user-journey",
-        "scope": "Reviewed current repair semantics and source bindings; preserved security obligations, IDs, frozen baseline and evidence limits. No product verification claim."
+        "scope": "Reviewed affected owner semantics and current source bindings; retained unaffected security obligations and frozen baseline. No product verification claim."
       },
       "open_questions": []
     },
@@ -3476,13 +3472,13 @@
       },
       "path": "docs/screen-map.md",
       "owner_skill": "to-screen-map",
-      "owner_invocation_id": "browser-research-claude-20260922-final-screen-map",
+      "owner_invocation_id": "composer-sound-20260922-screen-map",
       "declared_output_set": [
         "docs/screen-map.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "browser-research-claude-20260922-final-screen-map",
+      "source_version": "composer-sound-20260922-screen-map",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3491,9 +3487,9 @@
         "docs/user-journey.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "36b8c567f5b94898eac434c7fb608d27f8427be6f959c77a19d3a3c157ebab0e",
-        "docs/project-context.md": "2b2131e372040c682fd60759cb5207cf184cf8ddc92e4d8fcf9b599303f18f6c",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
         "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c"
       },
@@ -3508,23 +3504,23 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "affected-existing-change-owner-reconciliation",
-        "reviewed_at": "2026-09-22T18:11:20.227839+00:00",
+        "kind": "scoped-composer-sound-owner-reconciliation",
+        "reviewed_at": "2026-09-22T17:24:35.548166+00:00",
         "executor": "Codex inline to-screen-map",
-        "scope": "Reviewed current repair semantics and source bindings; preserved security obligations, IDs, frozen baseline and evidence limits. No product verification claim."
+        "scope": "Reviewed affected owner semantics and current source bindings; retained unaffected security obligations and frozen baseline. No product verification claim."
       },
       "open_questions": []
     },
     "wireframes": {
       "path": "docs/wireframes.md",
       "owner_skill": "to-wireframes",
-      "owner_invocation_id": "browser-research-claude-20260922-final-wireframes",
+      "owner_invocation_id": "composer-sound-20260922-wireframes",
       "declared_output_set": [
         "docs/wireframes.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "browser-research-claude-20260922-final-wireframes",
+      "source_version": "composer-sound-20260922-wireframes",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3534,9 +3530,9 @@
         "docs/screen-map.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "36b8c567f5b94898eac434c7fb608d27f8427be6f959c77a19d3a3c157ebab0e",
-        "docs/project-context.md": "2b2131e372040c682fd60759cb5207cf184cf8ddc92e4d8fcf9b599303f18f6c",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
         "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
         "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0"
@@ -3553,23 +3549,23 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "affected-existing-change-owner-reconciliation",
-        "reviewed_at": "2026-09-22T18:11:20.703036+00:00",
+        "kind": "scoped-composer-sound-owner-reconciliation",
+        "reviewed_at": "2026-09-22T17:24:36.023319+00:00",
         "executor": "Codex inline to-wireframes",
-        "scope": "Reviewed current repair semantics and source bindings; preserved security obligations, IDs, frozen baseline and evidence limits. No product verification claim."
+        "scope": "Reviewed affected owner semantics and current source bindings; retained unaffected security obligations and frozen baseline. No product verification claim."
       },
       "open_questions": []
     },
     "design-brief": {
       "path": "docs/design-brief.md",
       "owner_skill": "to-design-brief",
-      "owner_invocation_id": "browser-research-claude-20260922-final-design-brief",
+      "owner_invocation_id": "composer-sound-20260922-design-brief",
       "declared_output_set": [
         "docs/design-brief.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "browser-research-claude-20260922-final-design-brief",
+      "source_version": "composer-sound-20260922-design-brief",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3581,9 +3577,9 @@
         "forge/runs/composer-sound-20260922/scoped-override.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "36b8c567f5b94898eac434c7fb608d27f8427be6f959c77a19d3a3c157ebab0e",
-        "docs/project-context.md": "2b2131e372040c682fd60759cb5207cf184cf8ddc92e4d8fcf9b599303f18f6c",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
         "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
         "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
@@ -3603,10 +3599,10 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "affected-existing-change-owner-reconciliation",
-        "reviewed_at": "2026-09-22T18:11:21.605765+00:00",
+        "kind": "scoped-composer-sound-owner-reconciliation",
+        "reviewed_at": "2026-09-22T17:24:36.488090+00:00",
         "executor": "Codex inline to-design-brief",
-        "scope": "Reviewed current repair semantics and source bindings; preserved security obligations, IDs, frozen baseline and evidence limits. No product verification claim."
+        "scope": "Reviewed affected owner semantics and current source bindings; retained unaffected security obligations and frozen baseline. No product verification claim."
       },
       "open_questions": []
     },
@@ -3683,13 +3679,13 @@
       },
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "browser-research-claude-20260922-readiness-architecture",
+      "owner_invocation_id": "composer-sound-20260922-architecture",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "browser-research-claude-20260922-readiness-architecture",
+      "source_version": "composer-sound-20260922-architecture",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3702,15 +3698,15 @@
         "docs/model-settings.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "36b8c567f5b94898eac434c7fb608d27f8427be6f959c77a19d3a3c157ebab0e",
-        "docs/project-context.md": "2b2131e372040c682fd60759cb5207cf184cf8ddc92e4d8fcf9b599303f18f6c",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
         "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
         "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
         "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
         "docs/design-brief.md": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
-        "docs/model-settings.md": "8bd22ba01f797242321e3aa7540c2d0409ad53cf540a28d760187ad7469fd9d9"
+        "docs/model-settings.md": "2a8cba482d77cc3774f49014f424051d088461c35b1f8f2ff84c26d2361f46f9"
       },
       "dependencies": [
         "prd",
@@ -3722,14 +3718,14 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "5cd76e78034a5c8ec5412ad058650a18f6c3ff8c24b19211e6c6406e7fe5b030",
+      "content_hash": "e71738bf727f9ab5f65d9238378c46b4efd4d1d5b65b859e263e5468c4dee960",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "audio-readiness-semantic-clarification",
-        "reviewed_at": "2026-09-22T18:23:08.811248+00:00",
+        "kind": "scoped-composer-sound-owner-reconciliation",
+        "reviewed_at": "2026-09-22T17:24:36.928999+00:00",
         "executor": "Codex inline to-architecture",
-        "scope": "Clarify that completed silent priming or completed explicit Preview establishes readiness on the same context. No change to product behavior, frozen assets or execution claims."
+        "scope": "Reviewed affected owner semantics and current source bindings; retained unaffected security obligations and frozen baseline. No product verification claim."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -3807,13 +3803,13 @@
       },
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "browser-research-claude-20260922-readiness-dod-evals",
+      "owner_invocation_id": "composer-sound-20260922-dod-evals",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "browser-research-claude-20260922-readiness-dod-evals",
+      "source_version": "composer-sound-20260922-dod-evals",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3826,15 +3822,15 @@
         "docs/architecture.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "36b8c567f5b94898eac434c7fb608d27f8427be6f959c77a19d3a3c157ebab0e",
-        "docs/project-context.md": "2b2131e372040c682fd60759cb5207cf184cf8ddc92e4d8fcf9b599303f18f6c",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
         "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
         "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
         "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
         "docs/design-brief.md": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
-        "docs/architecture.md": "5cd76e78034a5c8ec5412ad058650a18f6c3ff8c24b19211e6c6406e7fe5b030"
+        "docs/architecture.md": "e71738bf727f9ab5f65d9238378c46b4efd4d1d5b65b859e263e5468c4dee960"
       },
       "dependencies": [
         "prd",
@@ -3847,14 +3843,14 @@
         "design-brief",
         "architecture"
       ],
-      "content_hash": "fd73d395eaddbd975420f6a73371bad428269508aa100c31b0a60136f294f59a",
+      "content_hash": "fe2c92684f77e26acb642e841b4a95de199836729f56cab022092ea41e0c104c",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "audio-readiness-semantic-clarification",
-        "reviewed_at": "2026-09-22T18:23:09.585369+00:00",
+        "kind": "scoped-composer-sound-owner-reconciliation",
+        "reviewed_at": "2026-09-22T17:24:37.338113+00:00",
         "executor": "Codex inline to-dod-evals",
-        "scope": "Clarify that completed silent priming or completed explicit Preview establishes readiness on the same context. No change to product behavior, frozen assets or execution claims."
+        "scope": "Reviewed affected owner semantics and current source bindings; retained unaffected security obligations and frozen baseline. No product verification claim."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -5621,13 +5617,13 @@
       },
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "browser-research-claude-20260922-readiness-qa-checklist",
+      "owner_invocation_id": "composer-sound-20260922-qa-checklist",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "browser-research-claude-20260922-readiness-qa-checklist",
+      "source_version": "composer-sound-20260922-qa-checklist",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -5641,16 +5637,16 @@
         "docs/dod-evals.md": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "36b8c567f5b94898eac434c7fb608d27f8427be6f959c77a19d3a3c157ebab0e",
-        "docs/project-context.md": "2b2131e372040c682fd60759cb5207cf184cf8ddc92e4d8fcf9b599303f18f6c",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
         "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
         "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
         "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
         "docs/design-brief.md": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
-        "docs/architecture.md": "5cd76e78034a5c8ec5412ad058650a18f6c3ff8c24b19211e6c6406e7fe5b030",
-        "docs/dod-evals.md": "fd73d395eaddbd975420f6a73371bad428269508aa100c31b0a60136f294f59a"
+        "docs/architecture.md": "e71738bf727f9ab5f65d9238378c46b4efd4d1d5b65b859e263e5468c4dee960",
+        "docs/dod-evals.md": "fe2c92684f77e26acb642e841b4a95de199836729f56cab022092ea41e0c104c"
       },
       "dependencies": [
         "prd",
@@ -5664,14 +5660,14 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "8bede8e3467cf1c9fc31c864a2ea4f281ca23c47d510081a53eb6ea1c60e6d33",
+      "content_hash": "38e22ed59c5ef82be03386c579d2d458f48eec963a93bd6c637f7cd86eb54731",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "audio-readiness-semantic-clarification",
-        "reviewed_at": "2026-09-22T18:23:10.366539+00:00",
+        "kind": "scoped-composer-sound-owner-reconciliation",
+        "reviewed_at": "2026-09-22T17:24:37.747519+00:00",
         "executor": "Codex inline to-qa-checklist",
-        "scope": "Clarify that completed silent priming or completed explicit Preview establishes readiness on the same context. No change to product behavior, frozen assets or execution claims."
+        "scope": "Reviewed affected owner semantics and current source bindings; retained unaffected security obligations and frozen baseline. No product verification claim."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -6763,13 +6759,13 @@
       },
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "browser-research-claude-20260922-readiness-development-plan",
+      "owner_invocation_id": "composer-sound-20260922-development-plan",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "browser-research-claude-20260922-readiness-development-plan",
+      "source_version": "composer-sound-20260922-development-plan",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -6786,19 +6782,19 @@
         "package.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "36b8c567f5b94898eac434c7fb608d27f8427be6f959c77a19d3a3c157ebab0e",
-        "docs/project-context.md": "2b2131e372040c682fd60759cb5207cf184cf8ddc92e4d8fcf9b599303f18f6c",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
         "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
         "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
         "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
         "docs/design-brief.md": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
-        "docs/architecture.md": "5cd76e78034a5c8ec5412ad058650a18f6c3ff8c24b19211e6c6406e7fe5b030",
-        "docs/dod-evals.md": "fd73d395eaddbd975420f6a73371bad428269508aa100c31b0a60136f294f59a",
-        "docs/qa-checklist.md": "8bede8e3467cf1c9fc31c864a2ea4f281ca23c47d510081a53eb6ea1c60e6d33",
-        "docs/model-settings.md": "8bd22ba01f797242321e3aa7540c2d0409ad53cf540a28d760187ad7469fd9d9",
-        "package.json": "67e6c8365947e61385a51d3f5d60bcbc3c46e6643e90c3abfff0d18a29850a36"
+        "docs/architecture.md": "e71738bf727f9ab5f65d9238378c46b4efd4d1d5b65b859e263e5468c4dee960",
+        "docs/dod-evals.md": "fe2c92684f77e26acb642e841b4a95de199836729f56cab022092ea41e0c104c",
+        "docs/qa-checklist.md": "38e22ed59c5ef82be03386c579d2d458f48eec963a93bd6c637f7cd86eb54731",
+        "docs/model-settings.md": "2a8cba482d77cc3774f49014f424051d088461c35b1f8f2ff84c26d2361f46f9",
+        "package.json": "cfe4c67287221083288ec8d25198ff285b2f3c0c16a9adb0a769dad9b2590246"
       },
       "dependencies": [
         "prd",
@@ -6813,3439 +6809,136 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "8ad08abd4856dec7bd1dc020daef6d4cab34f1779f9f92e50673df5bd22f6dd9",
+      "content_hash": "2f325a8ebda2203c7f2e5e9cb1d53ffe6e9f68a534e8936c1fcfd0888bc8e33b",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "audio-readiness-semantic-clarification",
-        "reviewed_at": "2026-09-22T18:23:11.602525+00:00",
+        "kind": "scoped-composer-sound-owner-reconciliation",
+        "reviewed_at": "2026-09-22T17:24:51.703761+00:00",
         "executor": "Codex inline to-development-plan",
-        "scope": "Clarify that completed silent priming or completed explicit Preview establishes readiness on the same context. No change to product behavior, frozen assets or execution claims."
+        "scope": "Reviewed affected owner semantics and current source bindings; retained unaffected security obligations and frozen baseline. No product verification claim."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
     }
   },
-  "language": {
-    "working_language": "en",
-    "selection_source": "latest-user-message",
-    "artifact_language": "en",
-    "product_content_locales": [
-      "en",
-      "uk"
-    ],
-    "preserved_english_terms": [
-      "Settings",
-      "Head Consultant",
-      "Critic"
-    ]
-  },
-  "design_execution": {
-    "mode": "codex",
-    "state": "approved",
-    "review_surface": "external_default",
-    "active_candidate_set_id": "web-nanoduck-equal-nodes-20260913",
-    "browser_preflight": {
-      "browser": "Safari",
-      "review_surface": "external_default",
-      "evidence": "CUA System Settings Desktop & Dock Default web browser field showed Safari; no settings changed",
-      "recorded_at": "2026-09-13T13:52:19.085710+00:00",
-      "observation_time_precision": "current review session"
-    },
-    "generation_started_at": "2026-09-13T20:40:19.426869+00:00",
-    "comparison_url": "http://127.0.0.1:4328/comparison/",
-    "comparison_source_root": "forge/design/candidate-sets/web-nanoduck-equal-nodes-20260913/v8/shared",
-    "comparison_tree_hash": "1acb39b50ed4eab676f19966467ccfa312d277139bfb05c552ddc7290c43535f",
-    "active_set_version": "v8",
-    "frozen_at": "2026-09-13T20:43:18.496020+00:00",
-    "browser_review_status": "passed_current_revision",
-    "revision_contract": {
-      "kind": "owner_supplied_logo",
-      "approval_granted": true,
-      "current_scope": "Uniform nodes and separated crown segments; selected Electric and retained references preserved."
-    },
-    "selected_candidate_id": "a",
-    "selected_candidate_version": "v8",
-    "selected_preview_url": "http://127.0.0.1:4328/a/v8/",
-    "approval_receipt": "forge/design/evidence/electric-v8-approval-20260914.json",
-    "retained_scope": "Immutable v8 visual reference; creation-context snapshots omitted by explicit owner history cleanup. Current behavior is defined by the reconciled canonical documents, not the fictional candidate."
-  },
-  "prototype_candidates": [
-    {
-      "candidate_id": "a",
-      "version": "v8",
-      "visual_target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
-      "prototype_tree_hash": "1de020dcfe48f3feb80db0e58ba911b821825b48730d32c72d9518ad512eb0d9",
-      "preview_url": "http://127.0.0.1:4328/a/v8/",
-      "candidate_set_id": "web-nanoduck-equal-nodes-20260913",
-      "name": "Electric",
-      "status": "ready_for_review",
-      "review_role": "selected_refinement",
-      "adapter": "codex",
-      "origin": "Codex vector reconstruction from owner-supplied JPEG",
-      "owner_task": "Codex root design adapter",
-      "changed_paths": [
-        "forge/design/candidates/a/v8/index.html",
-        "forge/design/candidates/a/v8/styles.css",
-        "forge/design/candidates/a/v8/app.js",
-        "forge/design/candidates/a/v8/nanoduck.svg",
-        "forge/design/candidates/a/v8/nanoduck-original.svg"
-      ],
-      "prototype_source_root": "forge/design/candidates/a/v8",
-      "hash_algorithm": "sdd-tree-sha256-v1",
-      "render_dependencies": [],
-      "visual_target_path": "forge/design/candidates/a/v8/index.html",
-      "visual_target_kind": "immutable_interactive_mockup",
-      "route": "/a/v8/",
-      "scope": {
-        "journeys": [
-          "J-01",
-          "J-02",
-          "J-03",
-          "J-04",
-          "J-05",
-          "J-06",
-          "J-07"
-        ],
-        "screens": [
-          "S-01",
-          "S-02",
-          "S-03",
-          "S-04",
-          "S-05",
-          "S-06",
-          "S-07",
-          "S-08",
-          "S-09"
-        ],
-        "states": [
-          "ST-01",
-          "ST-02",
-          "ST-03",
-          "ST-04",
-          "ST-05",
-          "ST-06",
-          "ST-07",
-          "ST-08",
-          "ST-09",
-          "ST-10",
-          "ST-11",
-          "ST-12",
-          "ST-13",
-          "ST-14",
-          "ST-15",
-          "ST-16",
-          "ST-17",
-          "ST-18",
-          "ST-19",
-          "ST-20",
-          "ST-21",
-          "ST-22",
-          "ST-23",
-          "ST-24",
-          "ST-25",
-          "ST-26",
-          "ST-27",
-          "ST-28",
-          "ST-29",
-          "ST-30",
-          "ST-31",
-          "ST-32",
-          "ST-33",
-          "ST-34",
-          "ST-35",
-          "ST-36",
-          "ST-37",
-          "ST-38",
-          "ST-39",
-          "ST-40",
-          "ST-41",
-          "ST-42",
-          "ST-43",
-          "ST-44"
-        ],
-        "jobs": [
-          "JOB-001",
-          "JOB-002",
-          "JOB-003",
-          "JOB-004",
-          "JOB-005",
-          "JOB-006"
-        ],
-        "use_cases": [
-          "UC-001",
-          "UC-002",
-          "UC-003",
-          "UC-004",
-          "UC-005",
-          "UC-006",
-          "UC-007"
-        ],
-        "locales": [
-          "en",
-          "uk"
-        ],
-        "working_language": "en",
-        "viewports": [
-          320,
-          390,
-          430,
-          768,
-          1280,
-          1440
-        ],
-        "fixture": "Fictional member-community mobile app versus better website discussion; eight full entries; W3C and MDN references; no fresh research timestamps."
-      },
-      "working_language": "en",
-      "frozen_at": "2026-09-13T20:43:18.496020+00:00",
-      "browser_receipt": {
-        "path": "forge/design/evidence/a-v8-browser.json",
-        "content_hash": "6ecde63ff5f1717d95f735aa877bed00f3b58b54f058b3557a68927d25894e47"
-      },
-      "visual_qa_evidence": {
-        "path": "forge/design/evidence/a-v8-visual-qa.json",
-        "content_hash": "02ca19382d5607943511d3eeb9cf2339317ee439c2adde28bb6f048c5006ce61"
-      },
-      "representative_user_validation": "deferred in design brief; not performed",
-      "supersedes": {
-        "candidate_id": "a",
-        "version": "v7"
-      },
-      "revision_reason": "All nine SVG nodes use radius 2.5. Separate yellow and orange crown paths leave a 3-unit clear gap between their endpoint circles.",
-      "retained_scope": "Immutable v8 visual reference; creation-context snapshots omitted by explicit owner history cleanup. Current behavior is defined by the reconciled canonical documents, not the fictional candidate."
-    },
-    {
-      "candidate_id": "b",
-      "version": "v8",
-      "visual_target_hash": "edd8a54d08ab4f404793599d81326f6b5abe2812089a3a7759b3b0fdd52b3ea0",
-      "prototype_tree_hash": "39d76e81dfa174da8a79b96bb7e9212669cf5ef58afcd46efe12a9e5785870cd",
-      "preview_url": "http://127.0.0.1:4328/b/v8/",
-      "candidate_set_id": "web-nanoduck-equal-nodes-20260913",
-      "name": "Solar",
-      "status": "ready_for_review",
-      "review_role": "retained_unchosen_reference",
-      "adapter": "codex",
-      "origin": "Codex vector reconstruction from owner-supplied JPEG",
-      "owner_task": "Codex root design adapter",
-      "changed_paths": [
-        "forge/design/candidates/b/v8/index.html",
-        "forge/design/candidates/b/v8/styles.css",
-        "forge/design/candidates/b/v8/app.js",
-        "forge/design/candidates/b/v8/nanoduck.svg",
-        "forge/design/candidates/b/v8/nanoduck-original.svg"
-      ],
-      "prototype_source_root": "forge/design/candidates/b/v8",
-      "hash_algorithm": "sdd-tree-sha256-v1",
-      "render_dependencies": [],
-      "visual_target_path": "forge/design/candidates/b/v8/index.html",
-      "visual_target_kind": "immutable_interactive_mockup",
-      "route": "/b/v8/",
-      "scope": {
-        "journeys": [
-          "J-01",
-          "J-02",
-          "J-03",
-          "J-04",
-          "J-05",
-          "J-06",
-          "J-07"
-        ],
-        "screens": [
-          "S-01",
-          "S-02",
-          "S-03",
-          "S-04",
-          "S-05",
-          "S-06",
-          "S-07",
-          "S-08",
-          "S-09"
-        ],
-        "states": [
-          "ST-01",
-          "ST-02",
-          "ST-03",
-          "ST-04",
-          "ST-05",
-          "ST-06",
-          "ST-07",
-          "ST-08",
-          "ST-09",
-          "ST-10",
-          "ST-11",
-          "ST-12",
-          "ST-13",
-          "ST-14",
-          "ST-15",
-          "ST-16",
-          "ST-17",
-          "ST-18",
-          "ST-19",
-          "ST-20",
-          "ST-21",
-          "ST-22",
-          "ST-23",
-          "ST-24",
-          "ST-25",
-          "ST-26",
-          "ST-27",
-          "ST-28",
-          "ST-29",
-          "ST-30",
-          "ST-31",
-          "ST-32",
-          "ST-33",
-          "ST-34",
-          "ST-35",
-          "ST-36",
-          "ST-37",
-          "ST-38",
-          "ST-39",
-          "ST-40",
-          "ST-41",
-          "ST-42",
-          "ST-43",
-          "ST-44"
-        ],
-        "jobs": [
-          "JOB-001",
-          "JOB-002",
-          "JOB-003",
-          "JOB-004",
-          "JOB-005",
-          "JOB-006"
-        ],
-        "use_cases": [
-          "UC-001",
-          "UC-002",
-          "UC-003",
-          "UC-004",
-          "UC-005",
-          "UC-006",
-          "UC-007"
-        ],
-        "locales": [
-          "en",
-          "uk"
-        ],
-        "working_language": "en",
-        "viewports": [
-          320,
-          390,
-          430,
-          768,
-          1280,
-          1440
-        ],
-        "fixture": "Fictional member-community mobile app versus better website discussion; eight full entries; W3C and MDN references; no fresh research timestamps."
-      },
-      "working_language": "en",
-      "frozen_at": "2026-09-13T20:43:18.496020+00:00",
-      "browser_receipt": {
-        "path": "forge/design/evidence/b-v8-browser.json",
-        "content_hash": "d510b532d8c4a1e623644909cab36287ed968a0e4bc68ad8b858764b4889747a"
-      },
-      "visual_qa_evidence": {
-        "path": "forge/design/evidence/b-v8-visual-qa.json",
-        "content_hash": "b6ff1c3906124fc1be85c6379f8dd7c5d64b9c73fed596bc19dc5728f0a28014"
-      },
-      "representative_user_validation": "deferred in design brief; not performed",
-      "supersedes": {
-        "candidate_id": "b",
-        "version": "v7"
-      },
-      "revision_reason": "All nine SVG nodes use radius 2.5. Separate yellow and orange crown paths leave a 3-unit clear gap between their endpoint circles.",
-      "retained_scope": "Immutable v8 visual reference; creation-context snapshots omitted by explicit owner history cleanup. Current behavior is defined by the reconciled canonical documents, not the fictional candidate."
-    },
-    {
-      "candidate_id": "c",
-      "version": "v8",
-      "visual_target_hash": "1b4d60a75898a98c154128a3e3fedd857a49d7e72ff604e718c7fc48aa447ed4",
-      "prototype_tree_hash": "6d9d28b03b54c8a617dfb4ef4f726dedec97497efc87ab0297736871d55274fc",
-      "preview_url": "http://127.0.0.1:4328/c/v8/",
-      "candidate_set_id": "web-nanoduck-equal-nodes-20260913",
-      "name": "Prismatic",
-      "status": "ready_for_review",
-      "review_role": "retained_unchosen_reference",
-      "adapter": "codex",
-      "origin": "Codex vector reconstruction from owner-supplied JPEG",
-      "owner_task": "Codex root design adapter",
-      "changed_paths": [
-        "forge/design/candidates/c/v8/index.html",
-        "forge/design/candidates/c/v8/styles.css",
-        "forge/design/candidates/c/v8/app.js",
-        "forge/design/candidates/c/v8/nanoduck.svg",
-        "forge/design/candidates/c/v8/nanoduck-original.svg"
-      ],
-      "prototype_source_root": "forge/design/candidates/c/v8",
-      "hash_algorithm": "sdd-tree-sha256-v1",
-      "render_dependencies": [],
-      "visual_target_path": "forge/design/candidates/c/v8/index.html",
-      "visual_target_kind": "immutable_interactive_mockup",
-      "route": "/c/v8/",
-      "scope": {
-        "journeys": [
-          "J-01",
-          "J-02",
-          "J-03",
-          "J-04",
-          "J-05",
-          "J-06",
-          "J-07"
-        ],
-        "screens": [
-          "S-01",
-          "S-02",
-          "S-03",
-          "S-04",
-          "S-05",
-          "S-06",
-          "S-07",
-          "S-08",
-          "S-09"
-        ],
-        "states": [
-          "ST-01",
-          "ST-02",
-          "ST-03",
-          "ST-04",
-          "ST-05",
-          "ST-06",
-          "ST-07",
-          "ST-08",
-          "ST-09",
-          "ST-10",
-          "ST-11",
-          "ST-12",
-          "ST-13",
-          "ST-14",
-          "ST-15",
-          "ST-16",
-          "ST-17",
-          "ST-18",
-          "ST-19",
-          "ST-20",
-          "ST-21",
-          "ST-22",
-          "ST-23",
-          "ST-24",
-          "ST-25",
-          "ST-26",
-          "ST-27",
-          "ST-28",
-          "ST-29",
-          "ST-30",
-          "ST-31",
-          "ST-32",
-          "ST-33",
-          "ST-34",
-          "ST-35",
-          "ST-36",
-          "ST-37",
-          "ST-38",
-          "ST-39",
-          "ST-40",
-          "ST-41",
-          "ST-42",
-          "ST-43",
-          "ST-44"
-        ],
-        "jobs": [
-          "JOB-001",
-          "JOB-002",
-          "JOB-003",
-          "JOB-004",
-          "JOB-005",
-          "JOB-006"
-        ],
-        "use_cases": [
-          "UC-001",
-          "UC-002",
-          "UC-003",
-          "UC-004",
-          "UC-005",
-          "UC-006",
-          "UC-007"
-        ],
-        "locales": [
-          "en",
-          "uk"
-        ],
-        "working_language": "en",
-        "viewports": [
-          320,
-          390,
-          430,
-          768,
-          1280,
-          1440
-        ],
-        "fixture": "Fictional member-community mobile app versus better website discussion; eight full entries; W3C and MDN references; no fresh research timestamps."
-      },
-      "working_language": "en",
-      "frozen_at": "2026-09-13T20:43:18.496020+00:00",
-      "browser_receipt": {
-        "path": "forge/design/evidence/c-v8-browser.json",
-        "content_hash": "f45c3b78ec53108d760686b8b85506935d52943119884c040b34dbb057e5cec0"
-      },
-      "visual_qa_evidence": {
-        "path": "forge/design/evidence/c-v8-visual-qa.json",
-        "content_hash": "f07243719d6107310a386d22671f62f3a8b6dc6a071465ad27e0957754e0ac7e"
-      },
-      "representative_user_validation": "deferred in design brief; not performed",
-      "supersedes": {
-        "candidate_id": "c",
-        "version": "v7"
-      },
-      "revision_reason": "All nine SVG nodes use radius 2.5. Separate yellow and orange crown paths leave a 3-unit clear gap between their endpoint circles.",
-      "retained_scope": "Immutable v8 visual reference; creation-context snapshots omitted by explicit owner history cleanup. Current behavior is defined by the reconciled canonical documents, not the fictional candidate."
-    }
-  ],
-  "active_baseline": {
-    "candidate_id": "a",
-    "version": "v8",
-    "prototype_source_root": "forge/design/candidates/a/v8",
-    "prototype_tree_hash": "1de020dcfe48f3feb80db0e58ba911b821825b48730d32c72d9518ad512eb0d9",
-    "hash_algorithm": "sdd-tree-sha256-v1",
-    "render_dependencies": [],
-    "visual_target_path": "forge/design/candidates/a/v8/index.html",
-    "visual_target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
-    "baseline_id": "nanoduck-electric-a-v8-20260914",
-    "canonical_ref": {
-      "path": "docs/design-brief.md",
-      "heading": "## Approved Visual Baseline"
-    },
-    "approval_receipt": {
-      "path": "forge/design/evidence/electric-v8-approval-20260914.json",
-      "content_hash": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2"
-    },
-    "operator_overrides": [
-      {
-        "path": "forge/runs/composer-sound-20260922/scoped-override.json",
-        "content_hash": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b",
-        "scope": "S-02 active composer and Stop; S-02/S-04 incoming-sound availability and recovery."
-      }
-    ]
-  },
-  "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
-  "verification": {
-    "definition_status": "prepared",
-    "release_readiness": "not_evaluated",
-    "source_hashes": {
-      "docs/dod-evals.md": "fd73d395eaddbd975420f6a73371bad428269508aa100c31b0a60136f294f59a",
-      "docs/qa-checklist.md": "8bede8e3467cf1c9fc31c864a2ea4f281ca23c47d510081a53eb6ea1c60e6d33"
-    },
-    "gates": [
-      {
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/dod-evals.md",
-          "heading": "## Gate table"
-        },
-        "active": true,
-        "required": true,
-        "applicability": "applicable",
-        "check_ids": [
-          "QA-R01",
-          "QA-R02",
-          "QA-R03",
-          "QA-R04",
-          "QA-R05",
-          "QA-R06",
-          "QA-R07",
-          "QA-R08",
-          "QA-R09",
-          "QA-R10",
-          "QA-R11",
-          "QA-R12",
-          "QA-R13",
-          "QA-R14",
-          "QA-R15",
-          "QA-R16",
-          "QA-R17",
-          "QA-R18",
-          "QA-R19",
-          "QA-R20",
-          "QA-R21",
-          "QA-R22",
-          "QA-R23",
-          "QA-R24",
-          "QA-R25",
-          "QA-R26",
-          "QA-R27",
-          "QA-R28",
-          "QA-R29",
-          "QA-R30",
-          "QA-R31",
-          "QA-R32",
-          "QA-R33",
-          "QA-R34",
-          "QA-R35",
-          "QA-S01",
-          "QA-S02",
-          "QA-S03",
-          "QA-S04",
-          "QA-S05",
-          "QA-S06",
-          "QA-S07",
-          "QA-S08",
-          "QA-S09",
-          "QA-R60"
-        ]
-      },
-      {
-        "gate_id": "product_security_requirements",
-        "definition_ref": {
-          "path": "docs/dod-evals.md",
-          "heading": "## Gate table"
-        },
-        "active": true,
-        "required": true,
-        "applicability": "applicable",
-        "check_ids": [
-          "QA-R43",
-          "QA-R44",
-          "QA-R45",
-          "QA-R46",
-          "QA-R47",
-          "QA-R48",
-          "QA-R49",
-          "QA-R50",
-          "QA-R51",
-          "QA-R52",
-          "QA-R53",
-          "QA-R54",
-          "QA-R55",
-          "QA-R56",
-          "QA-R57",
-          "QA-R58",
-          "QA-R59"
-        ],
-        "security_requirement_ids": [
-          "NFR-10.1",
-          "NFR-10.2",
-          "NFR-10.3",
-          "NFR-11.1",
-          "NFR-11.2",
-          "NFR-11.3",
-          "NFR-12.1",
-          "NFR-12.2",
-          "NFR-12.3",
-          "NFR-13.1",
-          "NFR-13.2",
-          "NFR-14.1",
-          "NFR-14.2",
-          "NFR-14.3",
-          "NFR-15.1",
-          "NFR-16.1",
-          "NFR-16.2"
-        ]
-      },
-      {
-        "gate_id": "approved_visual_baseline_fidelity",
-        "definition_ref": {
-          "path": "docs/dod-evals.md",
-          "heading": "## Gate table"
-        },
-        "active": true,
-        "required": true,
-        "applicability": "applicable",
-        "check_ids": [
-          "QA-R40",
-          "QA-R41",
-          "QA-R42"
-        ]
-      },
-      {
-        "gate_id": "heuristic_usability_review",
-        "definition_ref": {
-          "path": "docs/dod-evals.md",
-          "heading": "## Gate table"
-        },
-        "active": true,
-        "required": true,
-        "applicability": "applicable",
-        "check_ids": [
-          "QA-H01",
-          "QA-H02",
-          "QA-H03",
-          "QA-H04",
-          "QA-H05",
-          "QA-H06",
-          "QA-H07",
-          "QA-H08",
-          "QA-H09",
-          "QA-H10"
-        ]
-      },
-      {
-        "gate_id": "representative_user_task_validation",
-        "definition_ref": {
-          "path": "docs/dod-evals.md",
-          "heading": "## Gate table"
-        },
-        "active": true,
-        "required": true,
-        "applicability": "applicable",
-        "check_ids": [
-          "QA-U01",
-          "QA-U02",
-          "QA-U03",
-          "QA-U04"
-        ]
-      },
-      {
-        "gate_id": "lifecycle_and_continuity",
-        "definition_ref": {
-          "path": "docs/dod-evals.md",
-          "heading": "## Gate table"
-        },
-        "active": true,
-        "required": true,
-        "applicability": "applicable",
-        "check_ids": [
-          "QA-R36",
-          "QA-R37",
-          "QA-R38",
-          "QA-R39"
-        ]
-      }
-    ],
-    "checks": [
-      {
-        "check_id": "QA-R01",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "After local setup on macOS, Linux and Windows, open the app on the running computer and another device on the same Wi-Fi/LAN. A local password is the sole entry credential; Login, returning sessions and consent lead to work without a provider connection checklist.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-003"
-        ],
-        "use_case_ids": [
-          "UC-001"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R02",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Ordinary AI-processing consent is concise and explicit once per new authenticated session; reuse it throughout that session, including refresh, inactivity and browser reopening, unless its scope changes. Verify a new Login requests consent, while reload and reopening an unexpired consented session do not.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-003"
-        ],
-        "use_case_ids": [
-          "UC-001"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R03",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Text submission receives a distinguishable accepted state; an unsent draft never appears accepted. Enter submits in the chat composer and Shift+Enter retains a line break.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001"
-        ],
-        "use_case_ids": [
-          "UC-002"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R04",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: The authenticated owner can attach a JPEG, PNG or WebP image at most 8 MiB; PDF, SVG, video, audio, archives and other types are rejected.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001"
-        ],
-        "use_case_ids": [
-          "UC-002"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R05",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Every accepted question, including a simple definition, uses 1/2/3/5 relevant permitted specialists or a 1–5 count selected by Head in Auto; Head and Critic are excluded from the count and Auto selection is not rendered as advice. Leadership and esoteric roles never appear; Spiritual Consultant follows its doctrine and Psychotherapist follows its stated scope.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001"
-        ],
-        "use_case_ids": [
-          "UC-002"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R06",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Every participating consultant and Critic is a separate actual invocation/context with a distinct assignment, the owner question, prior confirmed discussion and a role/output contract rendered from the exact validated runtime-instructions Markdown/revision captured with the run. For every accepted question, observe the full topology: Head → each selected specialist with concise tasks only; each specialist → Critic with an independent position; then only Critic → specialist → Critic exchanges for every selected specialist at the configured depth; each specialist → Head with a final position; Critic → Head with a joint closing review; Head → owner once with Consolidated advice. Delay/fail each closing contribution and verify Head cannot run. Resume each partial closing stage without duplicating messages; missing agreement metadata remains unknown. Check the final heading in Discussion, Outcome, history and export; Outcome remains empty for a new question until its actual final message. No specialist-to-specialist routing, direct Head-answer route or pre-conclusion Head advice appears. Verify that current encrypted instructions and the immutable accepted run snapshot require Consultation Routing. Supply malformed owner-facing or generic Head output at the provider seam and verify one corrective retry, followed only if needed by a bounded case-specific task containing the stated decision. Every accepted task must repeat both an owner-case anchor and another decision detail; verify that each specialist receives its own exact committed task and ignores the other handoffs. Supply overlong provider prose and verify each contribution ends on a completed sentence inside its role-specific bound; verify that the role prompts prohibit generic exposition and unsupported invented figures, market claims, customer behavior or sources, then inspect an actual provider run for those visible failures.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001"
-        ],
-        "use_case_ids": [
-          "UC-002"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R07",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: A material Critic objection receives a relevant consultant response or revision; warranted agreement is permitted immediately.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001"
-        ],
-        "use_case_ids": [
-          "UC-002"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R08",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Consensus is stated only when Head, participating specialists and Critic agree on the same recommendation; otherwise the conclusion names the unresolved issue.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001"
-        ],
-        "use_case_ids": [
-          "UC-002"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R09",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Head finishes with a self-contained recommendation or bounded uncertainty, up to three actions, the main risk and a revisit condition.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001"
-        ],
-        "use_case_ids": [
-          "UC-002"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R10",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: The optional focused interview asks one question at a time, usually 1–3 and at most five, with a suggested answer or explicit assumption available.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001"
-        ],
-        "use_case_ids": [
-          "UC-002"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R11",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Full submitted business messages appear in canonical order with role, recipient where relevant and time; routine protocol paragraphs are omitted. During work, a labelled thought-bubble state and reachable Stop appear without an oversized conversation title; screen readers receive only newly arrived messages. The completed final synthesis creates the concise history/export title.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001"
-        ],
-        "use_case_ids": [
-          "UC-002"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R12",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: The first substantive request sets English/Ukrainian session language; explicit supported changes win and role names remain English. Russian/Belarusian owner input, generated prose and source metadata are rejected rather than stored or rendered. Verify that valid Ukrainian containing `які` passes owner input, both provider adapters and source-title/claim validation, while distinctive prohibited words/letters and forbidden hosts still fail. Supply one prohibited generated draft and verify that it is withheld, exactly one code-owned replacement invocation of the same role/task completes the step, and no System error or rejected text/source reaches the record.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001"
-        ],
-        "use_case_ids": [
-          "UC-002"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R13",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: While a run is active, the composer is hidden and no second context submission is silently queued. Stop, explicitly Send new context, and verify it enters the same record without rewriting confirmed messages; Continue instead resumes the preserved accepted context.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-002"
-        ],
-        "use_case_ids": [
-          "UC-003"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R14",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: At 320/390/430/768/1280/1440 CSS px, verify the unavailable composer is hidden during active work and a labelled square Stop stays reachable in the upper-right Discussion header while scrolling and on Outcome/Sources, separated from New and the former Send/reading positions. Keyboard focus is visible; Send does not auto-focus Stop. A pending/refused Stop shows truthful feedback without making input available prematurely; confirmed Stop prevents late visible results. Stop, failure and completion restore the composer and any unsent page-memory draft. Check touch/keyboard and forced-colors behavior; device observation is separate from automated layout assertions.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-002"
-        ],
-        "use_case_ids": [
-          "UC-003"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R15",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Continue resumes a stopped or bounded consultation with its accepted context; a failed consultation visibly offers Retry. Fail the specialist reply after its third Critic challenge, including the bounded replacement attempt. Retry must preserve the full saved prefix, resume that specialist reply, exclude System notices from provider context/step counts, then commit the specialist final position, Critic closing review and Head synthesis in order. Verify the same snapshot and generation fencing in the in-memory test store and encrypted SQLite store, denial while another run is active, stale conditional-update refusal, disabled repeat activation and useful feedback on a refused retry.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-002"
-        ],
-        "use_case_ids": [
-          "UC-003"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R16",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: New consultation creates a separate record while enforcing only one active consultation; start it above the chat and from Conversations, with no New item in either global menu.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-002"
-        ],
-        "use_case_ids": [
-          "UC-003"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R17",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Current claims and material uncertainty can trigger live public research without a special owner keyword. Include calendar-valid dotted, slash, ISO and range dates, and a leap-day case; dates alone must leave research available. Pair these with real phone/email, invalid-date and plus-prefixed numeric controls that remain protected. Record a real completed public search/open action separately from fixture outcomes.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-002"
-        ],
-        "use_case_ids": [
-          "UC-007"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R18",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Each cited source records title, direct URL, supported claim, retrieval time and publication date when available; the owner can inspect it. English/Ukrainian sources are retained; Russian/Belarusian language, terminology and `.ru`/`.by`/`.su` or Cyrillic-equivalent URLs are rejected.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-002"
-        ],
-        "use_case_ids": [
-          "UC-007"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R19",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Claude Critic can request and receive targeted team evidence through the existing Codex research capability without silently changing the selected provider.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-002"
-        ],
-        "use_case_ids": [
-          "UC-007"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R20",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Settings exposes functioning model and reasoning selectors separately for Head/specialists and Critic, including the optional Critic provider, using only the current supported catalog. Verify optional Opus 5.5 selection across all five efforts without modifying the existing Opus 5 or Codex preferences. Inspect exact CLI model IDs and reject absent, substituted or mixed modelUsage identities.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-003",
-          "JOB-005"
-        ],
-        "use_case_ids": [
-          "UC-005"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R21",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Saved changes apply to future runs; each active run retains the exact provider/model/reasoning, specialist-count, discussion-depth and runtime-instructions Markdown/revision snapshot used at acceptance. The independent message-sound preference applies to incoming browser feedback and never changes an active consultation’s logic.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-003",
-          "JOB-005"
-        ],
-        "use_case_ids": [
-          "UC-005"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R22",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Settings accepts specialist counts 1/2/3/5/Auto and discussion depth 1/3/5/Auto. It also exposes Knock, Chime, Ripple and Off with an owner-activated local browser WAV preview; load the saved choice on authenticated entry before opening Settings, including Off. Preview an unsaved choice and verify incoming alerts still use the saved choice. Preload and decode the actual saved asset and test cold loading, trusted-gesture context resume, readiness after completed all-zero priming or a completed explicit Preview on the same context, asynchronous completion/error/timeout and suspended/interrupted/blocked paths. Changing an unsaved preview must not change the saved incoming buffer or preference. Delay a confirmed agent message beyond the sending gesture and verify the reused audio player starts it; initial history, owner/System notices and repeated polling produce no sound, and one polling batch yields one alert. Simulate a browser playback rejection, verify visible Enable sound recovery, activate it deliberately and retry; visual/semantic feedback remains. Reload and repeat in Chromium, Firefox and WebKit, with actual iPhone/iPad audibility recorded separately if observed. Knock must use the same bundled recording for Preview and incoming alerts, with the exact owner-accepted v5 bytes: three blended sharp/woody table-ball impacts exactly 250 ms apart, preserved pitch, no clipping, quiet reflections at 28 ms and 47 ms, and silence after each 92 ms impact-and-reflection window. Verify the versioned URL avoids an older cached sound. Check HTTP `audio/wav` and browser playback separately from the owner listening verdict, which accepted v5 with a tiny echo. Verify Head chooses an Auto team from 1–5, each explicit depth produces that many Critic ↔ specialist exchanges per specialist, and Auto stops only after whole-team agreement or 10 exchanges per specialist. Cover every fixed count/depth combination; Strategy agreement must not bypass Finance disagreement. Resume after either side of a pair without duplicating confirmed messages, including missing saved agreement. A Finance provider failure preserves the discussion without a Head conclusion. Specialist agreement alone cannot end Auto: a closing Critic objection continues review within the cap. At fixed depth or the cap, unresolved advice is explicitly provisional; closing messages do not add to depth.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-003",
-          "JOB-005"
-        ],
-        "use_case_ids": [
-          "UC-005"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R23",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Usage presents real known quota/reset information or explicitly unavailable information; it never invents a per-session charge.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-003",
-          "JOB-005"
-        ],
-        "use_case_ids": [
-          "UC-005"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R24",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Only a genuine authorization failure for the selected provider offers contextual reauthorization; quota and outage show their actual next action.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-003",
-          "JOB-005"
-        ],
-        "use_case_ids": [
-          "UC-005"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R25",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Clicking and keyboard-activating the saved conversation row reopens complete confirmed conversation content, owned attachments and source records; Export and Delete do not open the record. Reload the record, Conversations and Settings surfaces and verify each stays in the same tab and restores its selected surface/reading position; Discussion also restores its selected local tab and record. Inspect tab storage to confirm it contains neither draft text nor conversation content and is cleared at Logoff. Restart the local server and repeat each read from the encrypted durable store; the browser receives the complete canonical record.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-004"
-        ],
-        "use_case_ids": [
-          "UC-004"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R26",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Export returns a downloadable .rtf with application/rtf and no-store headers. Open it with a real rich-text reader and verify title, bold speaker/recipient names, all messages in canonical order, date/time with explicit browser time zone, paragraphs, supported Markdown emphasis/lists/headings, Ukrainian text and emoji, sources and saved image references. Confirm valid bold text has no raw Markdown delimiters. RTF control text from messages/titles must remain inert; no embedded executable objects/fields, drafts, credentials or runtime instructions appear. Test absent/invalid time zone (UTC/422), anonymous and deleted-record requests (401/404). Native-reader rendering is distinct from browser/API or full-release evidence.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-004"
-        ],
-        "use_case_ids": [
-          "UC-004"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R27",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Explicit whole-conversation deletion removes its record and owned attachments; cancellation leaves them unchanged.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-004"
-        ],
-        "use_case_ids": [
-          "UC-004"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R28",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Where the browser offers speech recognition, it starts only after explicit Start and required permission; recognition and browser-service disclosure are visible. Verify Ukrainian uk-UA when supported. On every supported browser without this capability, typing and the full core workflow remain available.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-006"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R29",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Stop ends browser recognition and exposes editable text; Cancel aborts recognition. Verify that NanoDuck sends no voice audio or transcription request.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-006"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R30",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: The owner receives an editable transcript before any send, with no automatic submission.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-006"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R31",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Permission, unavailable browser/service, language, network and interruption failures preserve the typed draft and offer retry or typing.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-006"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R32",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Background recognition is prevented and the recognition session is stopped or aborted when it ends.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-006"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R33",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Desktop navigation is a standard floating bar available while scrolling; mobile uses a labelled hamburger for Discussion, Conversations and Settings while a separate, directly visible bar button shows Login while anonymous or Logoff while authenticated (also before consent). Verify this button stays visible with the mobile menu closed at 320px and at the actual narrow in-app preview width; there is no duplicate dropdown action. Verify both entry and exit, labels after reload, disabled pending requests, retry feedback on failure, closed mobile menu after action and no crowded bar at its breakpoint. New remains above the chat and in Conversations.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-002",
-          "JOB-003",
-          "JOB-005"
-        ],
-        "use_case_ids": [
-          "UC-001",
-          "UC-003",
-          "UC-005"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R34",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: The preference destination is literally labelled Settings; the rejected slogan and Your space label are removed.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-003",
-          "JOB-005"
-        ],
-        "use_case_ids": [
-          "UC-005"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R35",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "both",
-        "task": "Exercise the referenced use-case path and verify: The owner-requested combined black design uses Ember messages/local tabs and Cobalt chat/composer geometry, a recognizable icon-only SVG microphone, `You` for every visible owner label with an `I` avatar on owner messages, a visible filled Send button and the approved Electric palette after the three-palette comparison; all required flows remain available and Review states is absent from the normal view.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-002",
-          "JOB-003",
-          "JOB-004",
-          "JOB-005",
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-001",
-          "UC-002",
-          "UC-003",
-          "UC-004",
-          "UC-005",
-          "UC-006",
-          "UC-007"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R36",
-        "gate_id": "lifecycle_and_continuity",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: An acknowledged message survives browser refresh, network interruption and application restart. Reload an authenticated active discussion after scrolling and verify the same browser tab returns to its prior local tab, record and reading position with no stored draft or content. Simulate a slow ephemeral provider turn whose terminal notification has no message items; combine its matching completed message item with successful terminal completion and commit exactly one response without requesting saved history. Verify early notifications are retained, unrelated thread/turn events are ignored, and failed turns, cancelled waits or connection closure never commit partial output. Restart during an unresolved provider turn and verify the saved run resumes from its last confirmed message.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-002"
-        ],
-        "use_case_ids": [
-          "UC-003"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R37",
-        "gate_id": "lifecycle_and_continuity",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Reconnect/retry cannot duplicate a confirmed reply or permit competing runs. Concurrent mutations serialize and persist before acknowledgement. A second process targeting the same data directory refuses startup; after a crash the released ownership lock allows restart. An oversized 128 MiB state is refused without replacing the prior durable state.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-002"
-        ],
-        "use_case_ids": [
-          "UC-003"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R38",
-        "gate_id": "lifecycle_and_continuity",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Auto discussion depth reviews every specialist before assessing consensus and permits at most 10 complete Critic ↔ specialist exchanges per specialist. Explicit depth never requires filler or ceremonial rounds; retain the ten-minute continuation boundary.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-002"
-        ],
-        "use_case_ids": [
-          "UC-003"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R39",
-        "gate_id": "lifecycle_and_continuity",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Measure the existing 5-second acknowledgment, 30-second first useful contribution and 60-second stalled-work visibility targets without presenting filler as useful output.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-002"
-        ],
-        "use_case_ids": [
-          "UC-003"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R40",
-        "gate_id": "approved_visual_baseline_fidelity",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Core flows meet the WCAG 2.2 AA planning target, including keyboard, visible/unobscured focus, semantic names/states, errors, contrast and relevant assistive technology interactions.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-002",
-          "JOB-003",
-          "JOB-004",
-          "JOB-005",
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-001",
-          "UC-002",
-          "UC-003",
-          "UC-004",
-          "UC-005",
-          "UC-006",
-          "UC-007"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R41",
-        "gate_id": "approved_visual_baseline_fidelity",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Core flows reflow from 320 CSS px without page-level horizontal scroll and remain usable at 200% text size; genuine two-dimensional content retains an accessible way to inspect it.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-002",
-          "JOB-003",
-          "JOB-004",
-          "JOB-005",
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-001",
-          "UC-002",
-          "UC-003",
-          "UC-004",
-          "UC-005",
-          "UC-006",
-          "UC-007"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R42",
-        "gate_id": "approved_visual_baseline_fidelity",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Record actual operating-system and browser versions for macOS, Linux and Windows plus Safari, Chrome, Firefox and Edge where available. Run core workflows on the computer and from a separate Wi-Fi/LAN device using trusted HTTPS. Unavailable microphone or recognition preserves the FR-07.4 typing fallback. Browser-engine automation and simulated devices do not substitute for actual device evidence.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-003",
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-001",
-          "UC-006"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R43",
-        "gate_id": "product_security_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Set a local password through hidden setup prompts, rejecting mismatch or fewer than 12 characters. Verify only a salted scrypt verifier is stored. Correct password succeeds, wrong password fails generically and repeated attempts are bounded. Paste and long passphrases work. Password reset requires local OS access and invalidates old sessions without deleting data.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-003"
-        ],
-        "use_case_ids": [
-          "UC-001"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "security_requirement_ids": [
-          "NFR-10.1"
-        ],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R44",
-        "gate_id": "product_security_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Sign in and verify access just before 24 hours, after inactivity and browser reopening; expire at 24 hours. Logoff invalidates the current session and local password reset invalidates every existing session; activity cannot extend absolute expiry. Anonymous or cross-origin requests cannot revoke an authenticated session.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-003",
-          "JOB-005"
-        ],
-        "use_case_ids": [
-          "UC-001",
-          "UC-005"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "security_requirement_ids": [
-          "NFR-10.2"
-        ],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R45",
-        "gate_id": "product_security_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Attempt each private read/mutation anonymously, as a non-owner and with forged object/field identifiers; no protected content or state changes.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-002",
-          "JOB-003",
-          "JOB-004",
-          "JOB-005",
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-001",
-          "UC-002",
-          "UC-003",
-          "UC-004",
-          "UC-005",
-          "UC-006"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "security_requirement_ids": [
-          "NFR-10.3"
-        ],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R46",
-        "gate_id": "product_security_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: allowed Markdown emphasis, lists, quotations, inline code and approved HTTPS links render as content. Submit executable markup, unsafe URLs, malformed envelopes, prohibited Russian/Belarusian language and injection strings through text/files/provider output; they remain inert or are rejected.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-002",
-          "JOB-003",
-          "JOB-004",
-          "JOB-005",
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-002",
-          "UC-004",
-          "UC-005",
-          "UC-006",
-          "UC-007"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "security_requirement_ids": [
-          "NFR-11.1"
-        ],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R47",
-        "gate_id": "product_security_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Repeat acceptance, race Stop with late responses and exceed declared resource limits; accepted history stays atomic and bounded.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-002",
-          "JOB-003",
-          "JOB-005",
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-002",
-          "UC-003",
-          "UC-005",
-          "UC-006",
-          "UC-007"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "security_requirement_ids": [
-          "NFR-11.2"
-        ],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R48",
-        "gate_id": "product_security_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Deny unexpected Host values, unapproved certificate SAN names, missing or mismatched Origin, and missing/incorrect CSRF tokens on mutations. Use each valid local browser address to verify exact per-request HTTPS origin matching. Cookies are Secure, HttpOnly and SameSite=Strict. Forged forwarded headers confer no trust.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-002",
-          "JOB-003",
-          "JOB-004",
-          "JOB-005",
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-001",
-          "UC-002",
-          "UC-003",
-          "UC-004",
-          "UC-005",
-          "UC-006"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "security_requirement_ids": [
-          "NFR-11.3"
-        ],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R49",
-        "gate_id": "product_security_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Fetch public, private/metadata, redirecting and prohibited `.ru`/`.by`/`.su` or Cyrillic-equivalent targets; only permitted English/Ukrainian public evidence is returned, with no secret disclosure.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-002"
-        ],
-        "use_case_ids": [
-          "UC-007"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "security_requirement_ids": [
-          "NFR-12.1"
-        ],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R50",
-        "gate_id": "product_security_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Upload supported JPEG/PNG/WebP fixtures, including progressive JPEG and WebP animation, and exercise client-MIME mismatch, wrong signature, declared-length overrun, truncation, missing required image-data/terminal elements, invalid/zero dimensions, PNG CRC/type-depth/indexed-palette errors, malformed JPEG segments/scans, malformed WebP nested chunks, over-8-MiB files and more than four message attachments. Reject unsupported formats, including PDF, SVG, video, audio and archives, and unsupported JPEG deferred-height DNL. Only structurally accepted bounded originals persist as encrypted opaque blobs; owner-only retrieval uses the identified fixed type, attachment disposition and nosniff. Verify no pixel decompression, metadata interpretation, rendering or malware scan occurs and do not infer complete decoder validity from structural acceptance. Every rejection retains the typed draft and exposes no server path. Browser voice creates no NanoDuck upload.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-004",
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-002",
-          "UC-004",
-          "UC-006"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "security_requirement_ids": [
-          "NFR-12.2"
-        ],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R51",
-        "gate_id": "product_security_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Inject requests for secrets, tools, paid fallback and external messages; no permission or provider boundary expands. For Claude Critic, assert a command-level denial of known tools, no direct research flag, and a text-only role prompt containing the current owner question and prior confirmed discussion. Return a CLI `result` containing `<invoke name=\"Bash\">…</invoke>`; verify one natural-language retry and that neither attempt can enter events, sources or the browser.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-002",
-          "JOB-003",
-          "JOB-005"
-        ],
-        "use_case_ids": [
-          "UC-002",
-          "UC-005",
-          "UC-007"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "security_requirement_ids": [
-          "NFR-12.3"
-        ],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R52",
-        "gate_id": "product_security_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Inspect SQLite and its sidecars without the separate data key: settings, instructions and versions, conversations, sources, attachments, pending uploads, sessions, request IDs and run snapshots reveal no plaintext. Alter ciphertext or use a wrong key and verify refusal without replacement. Check private POSIX file modes or current-user Windows ACLs, and that the ownership database contains no application data.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-003",
-          "JOB-004",
-          "JOB-005"
-        ],
-        "use_case_ids": [
-          "UC-001",
-          "UC-004",
-          "UC-005"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "security_requirement_ids": [
-          "NFR-13.1"
-        ],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R53",
-        "gate_id": "product_security_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Trust the generated public local CA certificate on each test device, then verify hostname/SAN, expiration and HTTPS behavior. Untrusted, expired or wrong-name certificates cannot count as safe successful transfer. Renew the leaf certificate for current local addresses without changing password or data keys. External provider/research TLS validation remains enabled and rejects invalid certificates.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-002",
-          "JOB-003",
-          "JOB-004",
-          "JOB-005",
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-001",
-          "UC-002",
-          "UC-004",
-          "UC-005",
-          "UC-006",
-          "UC-007"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "security_requirement_ids": [
-          "NFR-13.2"
-        ],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R54",
-        "gate_id": "product_security_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Inspect provider/search requests, URLs, caches and logs with marked private fixtures; only authorized minimized content leaves the boundary.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-002",
-          "JOB-004",
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-002",
-          "UC-004",
-          "UC-006",
-          "UC-007"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "security_requirement_ids": [
-          "NFR-14.1"
-        ],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R55",
-        "gate_id": "product_security_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Cancel/fail/background voice recognition and sign out offline; browser recognition ends, client content is cleared as required and browser history cannot reveal private data. NanoDuck receives no audio.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-003",
-          "JOB-004",
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-001",
-          "UC-004",
-          "UC-006"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "security_requirement_ids": [
-          "NFR-14.2"
-        ],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R56",
-        "gate_id": "product_security_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Delete one conversation, restore an isolated backup and inspect unrelated data; accepted records recover and deletion decisions remain applied.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-002",
-          "JOB-004"
-        ],
-        "use_case_ids": [
-          "UC-003",
-          "UC-004"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "security_requirement_ids": [
-          "NFR-14.3"
-        ],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R57",
-        "gate_id": "product_security_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Install, set up and start from a clean checkout using supported Node versions on macOS, Linux and Windows. Verify an unconfigured app refuses startup; setup creates private per-user data outside the repository, default and explicit local bind addresses work, and another Wi-Fi/LAN browser can connect only with the local password. Check dependencies, start entry point, PORT and validated local host settings. Static serving cannot disclose private files, source, repository metadata or debug material. No other application or data directory changes.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-003",
-          "JOB-004"
-        ],
-        "use_case_ids": [
-          "UC-001",
-          "UC-002",
-          "UC-004"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "security_requirement_ids": [
-          "NFR-15.1"
-        ],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R58",
-        "gate_id": "product_security_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Produce auth/validation/recovery events and log-injection strings; protected metadata remains useful without leaking or forging content.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-002",
-          "JOB-003",
-          "JOB-004",
-          "JOB-005",
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-001",
-          "UC-002",
-          "UC-003",
-          "UC-004",
-          "UC-005",
-          "UC-006",
-          "UC-007"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "security_requirement_ids": [
-          "NFR-16.1"
-        ],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R59",
-        "gate_id": "product_security_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Fail validation/provider/research/storage/logging paths then retry; access stays denied where required and invalid partial commits never appear. Inject a provider JSON-RPC error and verify that protected logs retain only its normalized category, safe numeric code and failed operation; the browser receives the matching recovery state and never receives raw provider diagnostics, prompts or authentication material. Return two Claude tool transcripts and verify the run fails safely with the owner question retained, no raw tool material committed and no partial Head synthesis.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Allowed, denied and recovery paths in the referenced UC",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-002",
-          "JOB-003",
-          "JOB-004",
-          "JOB-005",
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-001",
-          "UC-002",
-          "UC-003",
-          "UC-004",
-          "UC-005",
-          "UC-006",
-          "UC-007"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "security_requirement_ids": [
-          "NFR-16.2"
-        ],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-S01",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Screen and state checks"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "both",
-        "task": "ST-01, ST-02, ST-03, ST-04; S-01; UC-001. Walk local password entry: signed-out, consent, denied/throttled, expired. Verify all controls, safe exits, preserved draft/record and observable completion from the wireframe contract. Actual state/interaction observations, candidate/version/source hash, viewport and console result; no simulated-runtime claim.",
-        "user_group": "Existing single owner",
-        "route": "#login",
-        "state": "signed-out, consent, denied, expired",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-003"
-        ],
-        "use_case_ids": [
-          "UC-001"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-S02",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Screen and state checks"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "both",
-        "task": "ST-05, ST-06, ST-07, ST-08, ST-09, ST-10, ST-11, ST-12, ST-13, ST-14, ST-15, ST-16, ST-17; S-02; UC-002, UC-003. Walk Discussion and composer: empty, draft, attachment-error, clarification, active, complete, stopped, offline, provider-auth, quota, research-error, system-error, long-content. Verify all controls, safe exits, preserved draft/record and observable completion from the wireframe contract. Actual state/interaction observations, candidate/version/source hash, viewport and console result; no simulated-runtime claim.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "empty, draft, attachment-error, clarification, active, complete, stopped, offline, provider-auth, quota, research-error, system-error, long-content",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-002"
-        ],
-        "use_case_ids": [
-          "UC-002",
-          "UC-003"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-S03",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Screen and state checks"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "both",
-        "task": "ST-18, ST-19, ST-20; S-03; UC-004. Walk Conversations: populated, empty, unavailable. Verify all controls, safe exits, preserved draft/record and observable completion from the wireframe contract. Actual state/interaction observations, candidate/version/source hash, viewport and console result; no simulated-runtime claim.",
-        "user_group": "Existing single owner",
-        "route": "#history",
-        "state": "populated, empty, unavailable",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-004"
-        ],
-        "use_case_ids": [
-          "UC-004"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-S04",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Screen and state checks"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "both",
-        "task": "ST-21, ST-22, ST-23, ST-24, ST-25; S-04; UC-005. Walk Settings: saved, edited, invalid-settings (model combination or runtime instructions), catalog-unavailable, session-control through current-session Logoff; operator password reset invalidates all sessions without a browser session manager. Verify all controls, safe exits, preserved draft/record and observable completion from the wireframe contract. Actual state/interaction observations, candidate/version/source hash, viewport and console result; no simulated-runtime claim.",
-        "user_group": "Existing single owner",
-        "route": "#settings",
-        "state": "saved, edited, invalid-combination, catalog-unavailable, session-control",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-003",
-          "JOB-005"
-        ],
-        "use_case_ids": [
-          "UC-005"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-S05",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Screen and state checks"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "both",
-        "task": "ST-26, ST-27, ST-28, ST-29, ST-30, ST-31, ST-32, ST-33; S-05; UC-006. Walk optional voice and typing fallback: ready, recognizing, recognition-complete, transcript, permission-denied, microphone-unavailable, interrupted, recognition-error. Verify all controls, safe exits, preserved draft/record and observable completion from the wireframe contract. Actual state/interaction observations, candidate/version/source hash, viewport and console result; no simulated-runtime claim.",
-        "user_group": "Existing single owner",
-        "route": "#voice",
-        "state": "permission, recording, transcribing, transcript, permission-denied, microphone-unavailable, interrupted, transcription-error",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-006"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-S06",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Screen and state checks"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "both",
-        "task": "ST-34, ST-35, ST-36; S-06; UC-007, UC-004. Walk Sources and detail: list, detail, unavailable. Verify all controls, safe exits, preserved draft/record and observable completion from the wireframe contract. Actual state/interaction observations, candidate/version/source hash, viewport and console result; no simulated-runtime claim.",
-        "user_group": "Existing single owner",
-        "route": "#sources",
-        "state": "list, detail, unavailable",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-002",
-          "JOB-004"
-        ],
-        "use_case_ids": [
-          "UC-007",
-          "UC-004"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-S07",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Screen and state checks"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "both",
-        "task": "ST-37, ST-38; S-07; UC-002, UC-004. Walk Outcome: recommendation, provisional. Verify all controls, safe exits, preserved draft/record and observable completion from the wireframe contract. Actual state/interaction observations, candidate/version/source hash, viewport and console result; no simulated-runtime claim.",
-        "user_group": "Existing single owner",
-        "route": "#outcome",
-        "state": "recommendation, provisional",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-004"
-        ],
-        "use_case_ids": [
-          "UC-002",
-          "UC-004"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-S08",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Screen and state checks"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "both",
-        "task": "ST-39, ST-40, ST-41, ST-42; S-08; UC-004. Walk Record action confirmation: delete-confirmation, deleted, export-ready, export-error. Verify all controls, safe exits, preserved draft/record and observable completion from the wireframe contract. Actual state/interaction observations, candidate/version/source hash, viewport and console result; no simulated-runtime claim.",
-        "user_group": "Existing single owner",
-        "route": "#record-action",
-        "state": "delete-confirmation, deleted, export-ready, export-error",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-004"
-        ],
-        "use_case_ids": [
-          "UC-004"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-S09",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Screen and state checks"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "both",
-        "task": "ST-43, ST-44; S-09; UC-001, UC-003, UC-005. Walk Mobile navigation: closed, open. Verify all controls, safe exits, preserved draft/record and observable completion from the wireframe contract. Actual state/interaction observations, candidate/version/source hash, viewport and console result; no simulated-runtime claim.",
-        "user_group": "Existing single owner",
-        "route": "#menu",
-        "state": "closed, open",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-002",
-          "JOB-003",
-          "JOB-005"
-        ],
-        "use_case_ids": [
-          "UC-001",
-          "UC-003",
-          "UC-005"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-H01",
-        "gate_id": "heuristic_usability_review",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Heuristic usability checks"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "both",
-        "task": "H1: Identify draft, accepted, active, paused, browser recognition, transcript and save/delete feedback without misleading completion. J-01–J-07; all relevant surfaces/UCs. Named reviewer, candidate scope, observations and classified findings.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "All relevant primary/recovery states",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-002",
-          "JOB-003",
-          "JOB-004",
-          "JOB-005",
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-001",
-          "UC-002",
-          "UC-003",
-          "UC-004",
-          "UC-005",
-          "UC-006",
-          "UC-007"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "heuristic_ids": [
-          "H1"
-        ],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-H02",
-        "gate_id": "heuristic_usability_review",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Heuristic usability checks"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "both",
-        "task": "H2: Use literal Settings, meaningful role/claim/action labels and readable English/Ukrainian fixture content; reject transport jargon and vague slogans. J-01–J-07; all relevant surfaces/UCs. Named reviewer, candidate scope, observations and classified findings.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "All relevant primary/recovery states",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-002",
-          "JOB-003",
-          "JOB-004",
-          "JOB-005",
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-001",
-          "UC-002",
-          "UC-003",
-          "UC-004",
-          "UC-005",
-          "UC-006",
-          "UC-007"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "heuristic_ids": [
-          "H2"
-        ],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-H03",
-        "gate_id": "heuristic_usability_review",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Heuristic usability checks"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "both",
-        "task": "H3: Complete Stop, Continue, Cancel, transcript editing, close/Back and cancelled deletion without loss or traps. J-01–J-07; all relevant surfaces/UCs. Named reviewer, candidate scope, observations and classified findings.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "All relevant primary/recovery states",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-002",
-          "JOB-003",
-          "JOB-004",
-          "JOB-005",
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-001",
-          "UC-002",
-          "UC-003",
-          "UC-004",
-          "UC-005",
-          "UC-006",
-          "UC-007"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "heuristic_ids": [
-          "H3"
-        ],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-H04",
-        "gate_id": "heuristic_usability_review",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Heuristic usability checks"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "both",
-        "task": "H4: Compare desktop floating navigation and mobile hamburger, fields and focus order across the approved Electric baseline and the implementation. J-01–J-07; all relevant surfaces/UCs. Named reviewer, candidate scope, observations and classified findings.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "All relevant primary/recovery states",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-002",
-          "JOB-003",
-          "JOB-004",
-          "JOB-005",
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-001",
-          "UC-002",
-          "UC-003",
-          "UC-004",
-          "UC-005",
-          "UC-006",
-          "UC-007"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "heuristic_ids": [
-          "H4"
-        ],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-H05",
-        "gate_id": "heuristic_usability_review",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Heuristic usability checks"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "both",
-        "task": "H5: Attempt invalid model/effort pairs, unconsented entry, repeat Send and voice/delete cancellation; prevent unintended actions. J-01–J-07; all relevant surfaces/UCs. Named reviewer, candidate scope, observations and classified findings.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "All relevant primary/recovery states",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-002",
-          "JOB-003",
-          "JOB-004",
-          "JOB-005",
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-001",
-          "UC-002",
-          "UC-003",
-          "UC-004",
-          "UC-005",
-          "UC-006",
-          "UC-007"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "heuristic_ids": [
-          "H5"
-        ],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-H06",
-        "gate_id": "heuristic_usability_review",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Heuristic usability checks"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "both",
-        "task": "H6: Return to a conversation and identify its context, saved/current model values and supporting sources without recall. J-01–J-07; all relevant surfaces/UCs. Named reviewer, candidate scope, observations and classified findings.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "All relevant primary/recovery states",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-002",
-          "JOB-003",
-          "JOB-004",
-          "JOB-005",
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-001",
-          "UC-002",
-          "UC-003",
-          "UC-004",
-          "UC-005",
-          "UC-006",
-          "UC-007"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "heuristic_ids": [
-          "H6"
-        ],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-H07",
-        "gate_id": "heuristic_usability_review",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Heuristic usability checks"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "both",
-        "task": "H7: Complete the simple novice path and repeated work with visible mic/navigation and keyboard alternatives; no unnecessary setup. J-01–J-07; all relevant surfaces/UCs. Named reviewer, candidate scope, observations and classified findings.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "All relevant primary/recovery states",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-002",
-          "JOB-003",
-          "JOB-004",
-          "JOB-005",
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-001",
-          "UC-002",
-          "UC-003",
-          "UC-004",
-          "UC-005",
-          "UC-006",
-          "UC-007"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "heuristic_ids": [
-          "H7"
-        ],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-H08",
-        "gate_id": "heuristic_usability_review",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Heuristic usability checks"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "both",
-        "task": "H8: Inspect first viewport and long content; hierarchy emphasizes conversation and controls without clipped or decorative noise. J-01–J-07; all relevant surfaces/UCs. Named reviewer, candidate scope, observations and classified findings.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "All relevant primary/recovery states",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-002",
-          "JOB-003",
-          "JOB-004",
-          "JOB-005",
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-001",
-          "UC-002",
-          "UC-003",
-          "UC-004",
-          "UC-005",
-          "UC-006",
-          "UC-007"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "heuristic_ids": [
-          "H8"
-        ],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-H09",
-        "gate_id": "heuristic_usability_review",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Heuristic usability checks"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "both",
-        "task": "H9: Trigger every recovery family and identify cause, preserved work, next action, retry/cancel and success. J-01–J-07; all relevant surfaces/UCs. Named reviewer, candidate scope, observations and classified findings.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "All relevant primary/recovery states",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-002",
-          "JOB-003",
-          "JOB-004",
-          "JOB-005",
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-001",
-          "UC-002",
-          "UC-003",
-          "UC-004",
-          "UC-005",
-          "UC-006",
-          "UC-007"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "heuristic_ids": [
-          "H9"
-        ],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-H10",
-        "gate_id": "heuristic_usability_review",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Heuristic usability checks"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "both",
-        "task": "H10: Find concise processing/voice/invalid-choice/source help at the point it is needed; no documentation dump. J-01–J-07; all relevant surfaces/UCs. Named reviewer, candidate scope, observations and classified findings.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "All relevant primary/recovery states",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-002",
-          "JOB-003",
-          "JOB-004",
-          "JOB-005",
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-001",
-          "UC-002",
-          "UC-003",
-          "UC-004",
-          "UC-005",
-          "UC-006",
-          "UC-007"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "heuristic_ids": [
-          "H10"
-        ],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-U01",
-        "gate_id": "representative_user_task_validation",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Usability validation checks"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "both",
-        "task": "Dictate and correct a Ukrainian request without accidental sending; UC-006 Where supported, browser recognition through editable transcript; otherwise complete the equivalent typed request; no moderator rescue, accidental send or lost draft. Phone and desktop; required before release. Actual participant/session observation required.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Critical task path",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-006"
-        ],
-        "use_case_ids": [
-          "UC-006"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-U02",
-        "gate_id": "representative_user_task_validation",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Usability validation checks"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "both",
-        "task": "Identify the Critic objection, consultant response and source; UC-002, UC-007 Correctly locate and explain evidence/uncertainty without moderator rescue. Phone and desktop; pre-approval when feasible, required after implementation. Actual participant/session observation required.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Critical task path",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-001",
-          "JOB-002"
-        ],
-        "use_case_ids": [
-          "UC-002",
-          "UC-007"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-U03",
-        "gate_id": "representative_user_task_validation",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Usability validation checks"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "both",
-        "task": "Change future model/reasoning without changing the active run; UC-005 Save a compatible selection and correctly identify which consultation uses it. Phone and desktop; pre-approval when feasible, required after implementation. Actual participant/session observation required.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Critical task path",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-003",
-          "JOB-005"
-        ],
-        "use_case_ids": [
-          "UC-005"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-U04",
-        "gate_id": "representative_user_task_validation",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Usability validation checks"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "both",
-        "task": "Stop/recover/export and cancel a deletion; UC-003, UC-004 Complete actions with no lost accepted work, duplication or unintended deletion. Phone and desktop; pre-approval when feasible, required after implementation. Actual participant/session observation required.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Critical task path",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-002",
-          "JOB-004"
-        ],
-        "use_case_ids": [
-          "UC-003",
-          "UC-004"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      },
-      {
-        "check_id": "QA-R60",
-        "gate_id": "product_functional_requirements",
-        "definition_ref": {
-          "path": "docs/qa-checklist.md",
-          "heading": "## Product acceptance"
-        },
-        "definition_status": "prepared",
-        "execution_status": "not_run",
-        "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: An empty local data directory receives the validated reusable runtime-instructions defaults exactly once. After an owner edit, restart retains the encrypted authoritative revision and never replaces it with defaults. Database export without the data key exposes no instruction plaintext. Settings loads the encrypted current document, rejects a missing required heading or placeholder without replacing its revision, accepts a valid edit, rejects a stale-browser save, lists saved-version metadata, retrieves a version only for the authenticated owner, and restores it by creating a fresh revision. Start a consultation, save or restore a later valid version, and verify the active run/provider still receives only the accepted Markdown/revision snapshot. Exercise each of the four fixed-name guidance editors, reject unknown names/empty/NUL/over-64-KiB text and stale revisions, inspect encrypted version history, restore as a new revision, and verify an active run retains all accepted document snapshots. Attempt to use document text to change authorization, role routing, output bounds or language/source restrictions; server invariants remain effective.",
-        "user_group": "Existing single owner",
-        "route": "#discussion",
-        "state": "Database document, saved, stale-save and invalid runtime-instructions paths in Settings",
-        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
-        "job_ids": [
-          "JOB-003",
-          "JOB-005"
-        ],
-        "use_case_ids": [
-          "UC-005"
-        ],
-        "applicability": "applicable",
-        "evidence": [],
-        "findings": [],
-        "baseline_id": "nanoduck-electric-a-v8-20260914",
-        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
-      }
-    ]
-  },
-  "state": "implementation-in-progress",
-  "product_scope": {
-    "profile": "existing_change",
-    "capabilities": {
-      "ui": true,
-      "api": true,
-      "persistence": true,
-      "payments": false,
-      "sensitive_data": true
-    },
-    "definition_ref": {
-      "path": "docs/product-idea.md",
-      "heading": "## Product scope"
-    }
-  },
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "8ad08abd4856dec7bd1dc020daef6d4cab34f1779f9f92e50673df5bd22f6dd9",
+    "development_plan_hash": "2f325a8ebda2203c7f2e5e9cb1d53ffe6e9f68a534e8936c1fcfd0888bc8e33b",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-14T20:13:37+03:00",
-    "prompt_id": "browser-research-claude-20260922",
-    "prompt_received_at": "2026-09-22T18:08:40.724511+00:00",
-    "released_at": "2026-09-22T18:23:11.995905+00:00",
+    "prompt_id": "composer-sound-20260922",
+    "prompt_received_at": "2026-09-22T17:24:12.123619+00:00",
+    "released_at": "2026-09-22T17:24:52.371346+00:00",
     "product_scope_hash": "defc5e24f0dd91be42b984888b157137f4f1ed361459e70f42b832e18c957bd4",
     "prompt_receipt": {
-      "path": "forge/runs/browser-research-claude-20260922/implementation-prompt-ready-state.json",
-      "content_hash": "3897ed4263d482e9cbcf5e486d1b9c6f3f67b414687cdd7934d3dbf8e9c0adeb"
+      "path": "forge/runs/composer-sound-20260922/implementation-prompt.json",
+      "content_hash": "89bf4d6574343225c4ca75c627fae16a89a9c04a59dc1455086cd8b5a0eabc10"
     },
-    "reason": "Current explicit repair request authorizes the affected existing change while preserving frozen design, saved choices and security boundaries."
+    "reason": "Explicit current user correction authorizes this owner-reconciled bounded existing change; full product release evidence remains separate."
   },
   "dispatches": {
     "product-idea": {
-      "invocation_id": "browser-research-claude-20260922-final-product-idea",
+      "invocation_id": "composer-sound-20260922-product-idea",
       "outputs": [
         "docs/product-idea.md"
       ],
       "source_hashes": {
-        "docs/model-settings.md": "8bd22ba01f797242321e3aa7540c2d0409ad53cf540a28d760187ad7469fd9d9",
+        "docs/model-settings.md": "2a8cba482d77cc3774f49014f424051d088461c35b1f8f2ff84c26d2361f46f9",
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2",
-        "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b",
-        "forge/runs/browser-research-claude-20260922/scope.json": "be36b8b0a9fb8470cbcf50a612765c82b4c53698d01c81108d172f8fd884342f"
+        "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b"
       }
     },
     "prd": {
-      "invocation_id": "browser-research-claude-20260922-final-prd",
+      "invocation_id": "composer-sound-20260922-prd",
       "outputs": [
         "docs/prd.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "93b33cc1f7da0b7473d0836e9572c3c2fd8d815ea21ea780b78b7077f6dba32b"
+        "docs/product-idea.md": "d06e4cd0cb2f9bbd6c3916c5737b763a96b01c7e4b140f757a1b78e7afd2974f"
       }
     },
     "project-context": {
-      "invocation_id": "browser-research-claude-20260922-final-project-context",
+      "invocation_id": "composer-sound-20260922-project-context-bundle",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "93b33cc1f7da0b7473d0836e9572c3c2fd8d815ea21ea780b78b7077f6dba32b",
-        "docs/prd.md": "36b8c567f5b94898eac434c7fb608d27f8427be6f959c77a19d3a3c157ebab0e"
+        "docs/product-idea.md": "d06e4cd0cb2f9bbd6c3916c5737b763a96b01c7e4b140f757a1b78e7afd2974f",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef"
       }
     },
     "canonical-terms": {
-      "invocation_id": "browser-research-claude-20260922-final-project-context",
+      "invocation_id": "composer-sound-20260922-project-context-bundle",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "93b33cc1f7da0b7473d0836e9572c3c2fd8d815ea21ea780b78b7077f6dba32b",
-        "docs/prd.md": "36b8c567f5b94898eac434c7fb608d27f8427be6f959c77a19d3a3c157ebab0e"
+        "docs/product-idea.md": "d06e4cd0cb2f9bbd6c3916c5737b763a96b01c7e4b140f757a1b78e7afd2974f",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef"
       }
     },
     "guardrails": {
-      "invocation_id": "browser-research-claude-20260922-final-guardrails",
+      "invocation_id": "composer-sound-20260922-guardrails",
       "outputs": [
         "docs/guardrails.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "36b8c567f5b94898eac434c7fb608d27f8427be6f959c77a19d3a3c157ebab0e",
-        "docs/project-context.md": "2b2131e372040c682fd60759cb5207cf184cf8ddc92e4d8fcf9b599303f18f6c",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8"
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89"
       }
     },
     "user-journey": {
-      "invocation_id": "browser-research-claude-20260922-final-user-journey",
+      "invocation_id": "composer-sound-20260922-user-journey",
       "outputs": [
         "docs/user-journey.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "36b8c567f5b94898eac434c7fb608d27f8427be6f959c77a19d3a3c157ebab0e",
-        "docs/project-context.md": "2b2131e372040c682fd60759cb5207cf184cf8ddc92e4d8fcf9b599303f18f6c",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214"
       }
     },
     "screen-map": {
-      "invocation_id": "browser-research-claude-20260922-final-screen-map",
+      "invocation_id": "composer-sound-20260922-screen-map",
       "outputs": [
         "docs/screen-map.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "36b8c567f5b94898eac434c7fb608d27f8427be6f959c77a19d3a3c157ebab0e",
-        "docs/project-context.md": "2b2131e372040c682fd60759cb5207cf184cf8ddc92e4d8fcf9b599303f18f6c",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
         "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c"
       }
     },
     "wireframes": {
-      "invocation_id": "browser-research-claude-20260922-final-wireframes",
+      "invocation_id": "composer-sound-20260922-wireframes",
       "outputs": [
         "docs/wireframes.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "36b8c567f5b94898eac434c7fb608d27f8427be6f959c77a19d3a3c157ebab0e",
-        "docs/project-context.md": "2b2131e372040c682fd60759cb5207cf184cf8ddc92e4d8fcf9b599303f18f6c",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
         "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
         "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0"
       }
     },
     "design-brief": {
-      "invocation_id": "browser-research-claude-20260922-final-design-brief",
+      "invocation_id": "composer-sound-20260922-design-brief",
       "outputs": [
         "docs/design-brief.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "36b8c567f5b94898eac434c7fb608d27f8427be6f959c77a19d3a3c157ebab0e",
-        "docs/project-context.md": "2b2131e372040c682fd60759cb5207cf184cf8ddc92e4d8fcf9b599303f18f6c",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
         "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
         "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
@@ -10254,118 +6947,77 @@
       }
     },
     "architecture": {
-      "invocation_id": "browser-research-claude-20260922-readiness-architecture",
+      "invocation_id": "composer-sound-20260922-architecture",
       "outputs": [
         "docs/architecture.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "36b8c567f5b94898eac434c7fb608d27f8427be6f959c77a19d3a3c157ebab0e",
-        "docs/project-context.md": "2b2131e372040c682fd60759cb5207cf184cf8ddc92e4d8fcf9b599303f18f6c",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
         "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
         "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
         "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
         "docs/design-brief.md": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
-        "docs/model-settings.md": "8bd22ba01f797242321e3aa7540c2d0409ad53cf540a28d760187ad7469fd9d9"
+        "docs/model-settings.md": "2a8cba482d77cc3774f49014f424051d088461c35b1f8f2ff84c26d2361f46f9"
       }
     },
     "dod-evals": {
-      "invocation_id": "browser-research-claude-20260922-readiness-dod-evals",
+      "invocation_id": "composer-sound-20260922-dod-evals",
       "outputs": [
         "docs/dod-evals.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "36b8c567f5b94898eac434c7fb608d27f8427be6f959c77a19d3a3c157ebab0e",
-        "docs/project-context.md": "2b2131e372040c682fd60759cb5207cf184cf8ddc92e4d8fcf9b599303f18f6c",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
         "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
         "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
         "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
         "docs/design-brief.md": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
-        "docs/architecture.md": "5cd76e78034a5c8ec5412ad058650a18f6c3ff8c24b19211e6c6406e7fe5b030"
+        "docs/architecture.md": "e71738bf727f9ab5f65d9238378c46b4efd4d1d5b65b859e263e5468c4dee960"
       }
     },
     "qa-checklist": {
-      "invocation_id": "browser-research-claude-20260922-readiness-qa-checklist",
+      "invocation_id": "composer-sound-20260922-qa-checklist",
       "outputs": [
         "docs/qa-checklist.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "36b8c567f5b94898eac434c7fb608d27f8427be6f959c77a19d3a3c157ebab0e",
-        "docs/project-context.md": "2b2131e372040c682fd60759cb5207cf184cf8ddc92e4d8fcf9b599303f18f6c",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
         "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
         "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
         "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
         "docs/design-brief.md": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
-        "docs/architecture.md": "5cd76e78034a5c8ec5412ad058650a18f6c3ff8c24b19211e6c6406e7fe5b030",
-        "docs/dod-evals.md": "fd73d395eaddbd975420f6a73371bad428269508aa100c31b0a60136f294f59a"
+        "docs/architecture.md": "e71738bf727f9ab5f65d9238378c46b4efd4d1d5b65b859e263e5468c4dee960",
+        "docs/dod-evals.md": "fe2c92684f77e26acb642e841b4a95de199836729f56cab022092ea41e0c104c"
       }
     },
     "development-plan": {
-      "invocation_id": "browser-research-claude-20260922-readiness-development-plan",
+      "invocation_id": "composer-sound-20260922-development-plan",
       "outputs": [
         "docs/development-plan.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "36b8c567f5b94898eac434c7fb608d27f8427be6f959c77a19d3a3c157ebab0e",
-        "docs/project-context.md": "2b2131e372040c682fd60759cb5207cf184cf8ddc92e4d8fcf9b599303f18f6c",
-        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/prd.md": "d5068470b51e9eff48c32e1cefcf45f8296a9d2f010fbb1a403dd4fa4e5a94ef",
+        "docs/project-context.md": "2a32c1ea7fb1f2b5c23a55a7b416d5a6978438134761ec5003cd1379b62b9541",
+        "docs/canonical-terms.md": "234fe920e84406d2a5687dda2bb74cd9679c702839d47b81d62edcdd443e3d89",
         "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
         "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
         "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
         "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
         "docs/design-brief.md": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
-        "docs/architecture.md": "5cd76e78034a5c8ec5412ad058650a18f6c3ff8c24b19211e6c6406e7fe5b030",
-        "docs/dod-evals.md": "fd73d395eaddbd975420f6a73371bad428269508aa100c31b0a60136f294f59a",
-        "docs/qa-checklist.md": "8bede8e3467cf1c9fc31c864a2ea4f281ca23c47d510081a53eb6ea1c60e6d33",
-        "docs/model-settings.md": "8bd22ba01f797242321e3aa7540c2d0409ad53cf540a28d760187ad7469fd9d9",
-        "package.json": "67e6c8365947e61385a51d3f5d60bcbc3c46e6643e90c3abfff0d18a29850a36"
+        "docs/architecture.md": "e71738bf727f9ab5f65d9238378c46b4efd4d1d5b65b859e263e5468c4dee960",
+        "docs/dod-evals.md": "fe2c92684f77e26acb642e841b4a95de199836729f56cab022092ea41e0c104c",
+        "docs/qa-checklist.md": "38e22ed59c5ef82be03386c579d2d458f48eec963a93bd6c637f7cd86eb54731",
+        "docs/model-settings.md": "2a8cba482d77cc3774f49014f424051d088461c35b1f8f2ff84c26d2361f46f9",
+        "package.json": "cfe4c67287221083288ec8d25198ff285b2f3c0c16a9adb0a769dad9b2590246"
       }
     }
-  },
-  "prototype_candidate_history": [],
-  "prototype_promotions": [],
-  "history": [
-    {
-      "event": "local_refactor_reconciliation",
-      "recorded_at": "2026-09-22T11:19:00.948553+00:00",
-      "basis": "Explicit owner request to refactor the existing application for local operation, clean public sources and consistent SDD documents.",
-      "evidence_limit": "Document reconciliation is not browser or provider execution evidence."
-    },
-    {
-      "event": "composer_sound_reconciliation_started",
-      "recorded_at": "2026-09-22T17:24:12.123619+00:00",
-      "basis": "Explicit owner correction to active input controls and incoming message sound.",
-      "superseded_bindings": "forge/runs/composer-sound-20260922/prior-owner-bindings.json",
-      "evidence_limit": "Document owner reconciliation; product verification is separate."
-    },
-    {
-      "event": "browser_research_claude_reconciliation_started",
-      "recorded_at": "2026-09-22T18:08:40.724511+00:00",
-      "scope": "Repair incoming audio on the reported iPhone Chrome path; preserve local HTTPS and truthful Safari evidence; prevent ordinary calendar dates from disabling public research; support the current optional Opus 5.5 Critic without changing saved choices or authentication.",
-      "superseded_bindings": "forge/runs/browser-research-claude-20260922/prior-owner-bindings.json",
-      "evidence_limit": "Owner document reconciliation only; runtime verification remains separate."
-    },
-    {
-      "event": "audio_readiness_clarification",
-      "recorded_at": "2026-09-22T18:23:11.995910+00:00",
-      "scope": "Completed explicit Preview also establishes readiness; silence is required only for silent priming.",
-      "superseded_bindings": "forge/runs/browser-research-claude-20260922/readiness-prior-bindings.json"
-    }
-  ],
-  "input_requests": [],
-  "next_ready_nodes": [
-    "implementation"
-  ],
-  "pause_reason": null,
-  "product_idea_intake": {
-    "status": "handed_off",
-    "intake_id": "local-20260922-intake",
-    "source_mode": "existing-file",
-    "product_idea_hash": "93b33cc1f7da0b7473d0836e9572c3c2fd8d815ea21ea780b78b7077f6dba32b"
   }
 }

@@ -81,6 +81,12 @@ a subscription token supplied as `CLAUDE_CODE_OAUTH_TOKEN` in the server process
 and an available saved model. API-key billing routes and silent model fallback
 are disabled. See [exact model settings](docs/model-settings.md).
 
+The bundled Claude Code 2.1.280 supports the optional Opus 5.5 choice
+(`claude-opus-5-5`). Existing selections stay unchanged. A Claude subscription
+token can be obtained with `npx claude setup-token`; keep it outside the source
+tree and supply it only to the local server. Signing into the NanoDuck browser
+does not authorize Claude Code.
+
 Preflight inspects subscription/catalog availability without starting a model
 turn. It does not guarantee future quota. Private instruction copies begin with
 the public files in `instructions/` and can be edited with version history in

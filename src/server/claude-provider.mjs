@@ -49,11 +49,15 @@ const classifyFailure = result => {
   return "provider_unavailable";
 };
 
-const parseCompletion = stdout => {
+const parseCompletion = (stdout, expectedModel) => {
   try {
     const parsed = JSON.parse(stdout);
     if (!record(parsed) || parsed.is_error === true || (parsed.subtype !== undefined && parsed.subtype !== "success") || typeof parsed.result !== "string" || !parsed.result.trim()) return undefined;
-    return parsed.result;
+    // JSON output suppresses the CLI's model-remapping warnings. Require its
+    // reported model identity before accepting an exact-model consultation.
+    const usedModels = record(parsed.modelUsage) ? Object.keys(parsed.modelUsage) : [];
+    if (usedModels.length !== 1 || usedModels[0] !== expectedModel) return { incompatible: true };
+    return { body: parsed.result };
   } catch { return undefined; }
 };
 
@@ -89,14 +93,12 @@ export const runClaudeCommand = ({ command, args, environment, cwd, signal, time
   if (signal?.aborted) abort();
 });
 
-const modelLabel = id => id === "claude-opus-5" ? "Opus 5" : id;
-// Claude Code uses concise CLI values while its owner-facing desktop picker
-// names the same choices Opus 5 and Extra. Persist and display the picker
-// vocabulary; translate only at the isolated process boundary.
-const cliModel = id => id === "claude-opus-5" ? "opus" : id;
+const modelLabel = id => ({ "claude-opus-5": "Opus 5", "claude-opus-5-5": "Opus 5.5" }[id] ?? id);
+// Preserve the saved model ID: the CLI's `opus` alias changes across releases.
+// Only the owner-facing Extra effort label needs translation at this boundary.
 const cliEffort = effort => effort === "extra" ? "xhigh" : effort;
 const catalog = config => Object.freeze(
-  [...new Set(["claude-opus-5", ...(config.claudeModelCandidates ?? [])])]
+  [...new Set(["claude-opus-5", "claude-opus-5-5", ...(config.claudeModelCandidates ?? [])])]
     .filter(safeModel)
     .map(id => Object.freeze({ id, label: modelLabel(id), efforts: supportedEfforts }))
 );
@@ -137,11 +139,13 @@ export function createClaudeProvider(config, { run = runClaudeCommand } = {}) {
       const prompt = `${input.assignment}\n\nOwner question:\n${evidence.owner ?? ""}\n\nPrior confirmed discussion:\n${evidence.discussion ?? ""}\n\n${outputContract} ${prompts.providerPolicy(false)}`;
       if (Buffer.byteLength(prompt, "utf8") > maxPromptBytes) return { ok: false, code: "incompatible" };
       const runOnce = async assignment => {
-        const args = ["--print", "--output-format", "json", "--no-session-persistence", "--strict-mcp-config", "--permission-mode", "dontAsk", "--disallowedTools", blockedTools, "--max-turns", "1", "--system-prompt", textOnlySystemPrompt, "--model", cliModel(input.model), "--effort", cliEffort(input.effort), assignment];
+        const args = ["--print", "--output-format", "json", "--no-session-persistence", "--strict-mcp-config", "--tools", "", "--disable-slash-commands", "--permission-mode", "dontAsk", "--disallowedTools", blockedTools, "--max-turns", "1", "--system-prompt", textOnlySystemPrompt, "--model", input.model, "--effort", cliEffort(input.effort), assignment];
         const result = await execute(args, input.signal);
         if (input.signal?.aborted || result.aborted) return { kind: "cancelled" };
-        const body = result.exitCode === 0 ? parseCompletion(result.stdout) : undefined;
-        if (!body) return { kind: "failure", code: classifyFailure(result) };
+        const completion = result.exitCode === 0 ? parseCompletion(result.stdout, input.model) : undefined;
+        if (completion?.incompatible) return { kind: "failure", code: "incompatible" };
+        if (!completion) return { kind: "failure", code: classifyFailure(result) };
+        const { body } = completion;
         return containsInternalToolTrace(body) ? { kind: "tool_trace" } : { kind: "completion", body };
       };
       try {

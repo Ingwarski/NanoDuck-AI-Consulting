@@ -107,6 +107,20 @@ test("only one consultation can be active across the owner's conversations", asy
   assert.equal((await store.continueRun(first.id))?.status, "active");
 });
 
+test("adding Opus 5.5 preserves independent saved Critic choices and existing defaults", () => {
+  const catalog = {
+    codex: { models: [{ id: "gpt-6-astra", efforts: ["xhigh", "ultra"] }] },
+    claude_code: { models: ["claude-opus-5", "claude-opus-5-5"].map(id => ({ id, efforts: ["low", "medium", "high", "extra", "max"] })) }
+  };
+  assert.deepEqual(parseSettings(defaultSettings, catalog), defaultSettings);
+  const oldClaude = { ...defaultSettings, criticProvider: "claude_code", criticClaudeModel: "claude-opus-5", criticClaudeReasoning: "high", criticModel: "claude-opus-5", criticReasoning: "high" };
+  assert.deepEqual(parseSettings(oldClaude, catalog), oldClaude);
+  const selected = { ...oldClaude, criticClaudeModel: "claude-opus-5-5", criticClaudeReasoning: "medium", criticModel: "claude-opus-5-5", criticReasoning: "medium" };
+  assert.deepEqual(parseSettings(selected, catalog), selected);
+  const switchedBack = { ...selected, criticProvider: "codex", criticModel: defaultSettings.criticCodexModel, criticReasoning: defaultSettings.criticCodexReasoning };
+  assert.deepEqual(parseSettings(switchedBack, catalog), switchedBack);
+});
+
 test("settings and message validation reject unsupported model values and malformed ids", () => {
   assert.deepEqual(parseSettings({ ...defaultSettings, specialistCount: "1", discussionDepth: "1" }), { ...defaultSettings, specialistCount: "1", discussionDepth: "1" });
   assert.deepEqual(parseSettings({ ...defaultSettings, specialistCount: "auto", discussionDepth: "auto" }), { ...defaultSettings, specialistCount: "auto", discussionDepth: "auto" });

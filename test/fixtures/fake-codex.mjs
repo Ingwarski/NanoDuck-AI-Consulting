@@ -34,6 +34,13 @@ createInterface({ input: process.stdin, crlfDelay: Infinity }).on("line", line =
   if (request.method === "account/rateLimits/read") return send({ id: request.id, result: { rateLimits: { rateLimitReachedType: null } } });
   if (request.method === "turn/start") {
     const prompt = request.params?.input?.[0]?.text ?? "";
+    if (prompt.includes("Report completed research diagnostics")) {
+      const search = { type: "webSearch", id: "search-1", query: "synthetic-query-do-not-log" };
+      send({ method: "item/completed", params: { threadId: "another-thread", turnId: "turn-1", item: { ...search, id: "wrong-thread" } } });
+      send({ method: "item/completed", params: { threadId: "isolated-thread", turnId: "another-turn", item: { ...search, id: "wrong-turn" } } });
+      for (let repeat = 0; repeat < 2; repeat += 1) send({ method: "item/completed", params: { threadId: "isolated-thread", turnId: "turn-1", item: search } });
+      return send({ id: request.id, result: { turn: { id: "turn-1", status: "completed", items: [search, { ...search, id: "search-2" }, { type: "agentMessage", text: "A bounded answer." }] } } });
+    }
     if (prompt.includes("Wait for the notification")) {
       send({ id: request.id, result: { turn: { id: "turn-1", status: "inProgress" } } });
       return setTimeout(() => send({ method: "turn/completed", params: { threadId: "isolated-thread", turn: { id: "turn-1", status: "completed", items: [{ type: "agentMessage", text: replyFor(prompt) }] } } }), 10);

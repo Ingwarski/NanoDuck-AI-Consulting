@@ -44,3 +44,7 @@ Commit/push reviewed artifacts to the already authorized public repository only 
 ## Out of scope and open questions
 
 This owner defines gates and runs no product tests. Current provider, cross-platform, actual-browser/local-network, assistive-technology and representative-owner evidence must be supplied by the actual executor. Prepared checks are not results. Missing evidence limits its corresponding readiness claim; the artifact checker cannot create a user observation or close a security check. No additional material product decision is required for the current architecture.
+
+## Scoped browser, research and provider evidence
+
+Apply the existing functional and security gates to the corrected date classification and exact Claude-model boundary. Positive date-only research evidence must accompany negative contact/secret checks. Package installation or authentication status alone cannot prove Opus 5.5 execution. Audio preparation and browser playback events do not establish physical iPhone audibility; that supported-device claim requires an observed listening result. Keep representative-user, accessibility and formal release evaluation separate from scoped regression evidence.

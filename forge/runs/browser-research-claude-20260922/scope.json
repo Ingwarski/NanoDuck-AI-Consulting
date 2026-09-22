@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "event": "explicit_existing_change_correction",
+  "role": "user",
+  "recorded_at": "2026-09-22T18:08:40.724511+00:00",
+  "timestamp_basis": "Tool-recording time during this active turn; original message transport timestamp is unavailable.",
+  "source": "Current task user correction, relayed by the root operator to the SDD owner.",
+  "message_excerpts": [
+    "1. No sound was on Chrome on my iPhone.",
+    "2. That’s on a local connection in Safari! Come on! What is this shit??? Fix it already!",
+    "4. Find out all the current settings for Claude Code connection for the Critic - Anthropic issued Opus 5.5 today!"
+  ],
+  "unquoted_request_summary": "The third item asks what the reported lack of internet search means. Full original transport text is not reproduced here.",
+  "scope": "Repair incoming audio on the reported iPhone Chrome path; preserve local HTTPS and truthful Safari evidence; prevent ordinary calendar dates from disabling public research; support the current optional Opus 5.5 Critic without changing saved choices or authentication.",
+  "preserved": [
+    "Electric A v8 and frozen sound asset",
+    "saved provider/model/effort choices",
+    "private local data and subscription-only authorization",
+    "existing security obligations"
+  ],
+  "limitations": [
+    "Specific Safari failure awaits clarification; local desktop navigation or preview feedback does not establish iPhone audibility.",
+    "No current Claude sign-in or model execution is implied.",
+    "This receipt records scoped repair authority, not new whole-design approval or formal QA execution."
+  ]
+}

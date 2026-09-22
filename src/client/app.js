@@ -365,12 +365,12 @@ function renderCriticControls() {
   $("#critic-provider").value = provider;
   const models = capability.models?.length ? capability.models : provider === "codex"
     ? [{ id: "gpt-6-astra", label: "gpt-6-astra", efforts: ["xhigh", "ultra"] }]
-    : [{ id: "claude-opus-5", label: "Opus 5", efforts: ["low", "medium", "high", "extra", "max"] }];
+    : ["claude-opus-5", "claude-opus-5-5"].map(id => ({ id, label: id === "claude-opus-5" ? "Opus 5" : "Opus 5.5", efforts: ["low", "medium", "high", "extra", "max"] }));
   const selectedModel = provider === "claude_code" ? state.criticSettings.criticClaudeModel : state.criticSettings.criticCodexModel;
   const selectedEffort = provider === "claude_code" ? state.criticSettings.criticClaudeReasoning ?? "high" : state.criticSettings.criticCodexReasoning;
   replaceOptions($("#critic-model"), models, selectedModel);
   const current = models.find(model => model.id === $("#critic-model").value) ?? models[0];
-  const effortLabel = id => provider === "claude_code" ? ({ low: "Low", medium: "Medium", high: "High (Default)", extra: "Extra", max: "Max" }[id] ?? id) : id;
+  const effortLabel = id => provider === "claude_code" ? ({ low: "Low", medium: "Medium", high: "High", extra: "Extra", max: "Max" }[id] ?? id) : id;
   replaceOptions($("#critic-reasoning"), current.efforts.map(id => ({ id, label: effortLabel(id) })), selectedEffort);
   const unavailable = provider === "claude_code" && capability.status !== "ready";
   $("#critic-model").disabled = unavailable; $("#critic-reasoning").disabled = unavailable;
@@ -708,7 +708,7 @@ $("#settings-form").addEventListener("submit", async event => {
     state.criticSettings = { ...state.criticSettings, ...data.settings }; setNotificationPreference(data.settings.notificationSound); toast("Settings saved for future consultations.");
   } catch { toast("Settings were not saved. Check the selected provider and try again."); }
 });
-// Prime the same media element in a trusted gesture, before any network awaits.
+// Resume the shared audio output in a trusted gesture, before any network awaits.
 for (const type of ["click", "keydown"]) document.addEventListener(type, event => {
   if (!event.isTrusted || event.target.closest?.("#preview-notification-sound, #enable-notification-sound")) return;
   primeNotificationAudio();

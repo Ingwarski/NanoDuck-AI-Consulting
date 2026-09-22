@@ -21,7 +21,15 @@ const providerFailureMessage = (code, provider) => ({
   provider_unavailable: `The selected ${providerName(provider)} route could not complete this request. Your question remains saved.`
 }[code]);
 
-const hasSensitiveResearchContext = text => /(?:\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b|\b(?:password|passcode|api[ _-]?key|secret|access[ _-]?token|iban|credit[ _-]?card|passport|medical)\b|(?:\+?\d[\d\s().-]{7,}\d)|\b(?:парол\p{L}*|ключ\p{L}*\s*api|секрет\p{L}*|токен\p{L}*|iban|картк\p{L}*|паспорт\p{L}*|медич\p{L}*)\b)/iu.test(text);
+const withoutCalendarDates = text => text.replace(/(?<![\d+])(?:\d{4}([-./])\d{1,2}\1\d{1,2}|\d{1,2}([-./])\d{1,2}\2\d{4})(?!\d)/gu, value => {
+  const parts = value.split(/[-./]/u);
+  const [year, month, day] = (parts[0].length === 4 ? parts : [...parts].reverse()).map(Number);
+  const date = new Date(Date.UTC(year, month - 1, day));
+  // Dates are ordinary consultation context, not contact numbers. Only remove
+  // real calendar dates from the number detector; retain the original evidence.
+  return year >= 1000 && date.getUTCFullYear() === year && date.getUTCMonth() === month - 1 && date.getUTCDate() === day ? "[date]" : value;
+});
+const hasSensitiveResearchContext = text => /(?:\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b|\b(?:password|passcode|api[ _-]?key|secret|access[ _-]?token|iban|credit[ _-]?card|passport|medical)\b|(?:\+?\d[\d\s().-]{7,}\d)|\b(?:парол\p{L}*|ключ\p{L}*\s*api|секрет\p{L}*|токен\p{L}*|iban|картк\p{L}*|паспорт\p{L}*|медич\p{L}*)\b)/iu.test(withoutCalendarDates(text));
 const discussion = events => events.map(event => `${event.role}${event.recipient ? ` → ${event.recipient}` : ""}: ${event.body}`).join("\n\n").slice(-80_000);
 const responseLanguage = text => {
   if (/\b(?:answer|respond|reply|write)\s+in\s+english\b|англійськ/iu.test(text)) return "English";

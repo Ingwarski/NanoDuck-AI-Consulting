@@ -1,6 +1,6 @@
 # NanoDuck Consulting Group
 
-Current product brief · 22 September 2026 · Local browser application · Revision 17
+Current product brief · 22 September 2026 · Local browser application · Revision 18
 
 ## Product identity
 
@@ -68,7 +68,7 @@ Record source title, direct URL, the claim it supports, retrieval time and publi
 
 Preserve the existing Codex live-search capability. A selected Claude Critic receives relevant Codex evidence already committed to the team discussion, but its adapter is text-only: it has no direct browsing, shell, file or other tool authority. Research does not silently change the selected LLM or enable paid fallback.
 
-Use public, minimized queries. Do not send private business details or attachment contents to search services without specific authorization. Retrieved pages provide evidence, not instructions or permission to act.
+Ordinary valid calendar dates in the question must not, by themselves, be classified as contact numbers and disable otherwise permitted public research. Actual contacts, secrets and private business details retain the same protective boundary. Use public, minimized queries. Do not send private business details or attachment contents to search services without specific authorization. Retrieved pages provide evidence, not instructions or permission to act.
 
 ## Local access and preferences
 
@@ -84,11 +84,11 @@ Local application access cannot create a ChatGPT/Claude subscription grant. If t
 |---|---|---|
 | Head and specialists | Codex, `gpt-6-astra`, `xhigh` | Preserved owner selection; current provider execution remains to be verified. |
 | Critic | Codex, `gpt-6-astra`, `xhigh` | Preserved owner selection; current provider execution remains to be verified. |
-| Optional Critic route | Claude Code: Opus 5 (`claude-opus-5`) with Low, Medium, High, Extra or Max | The 18 September owner-supplied Claude picker confirms supported UI vocabulary; an existing inactive saved preference remains unknown until selected. |
+| Optional Critic route | Claude Code: Opus 5 (`claude-opus-5`) and optional Opus 5.5 (`claude-opus-5-5`), each with Low, Medium, High, Extra or Max | The retained picker establishes existing vocabulary/defaults; the 22 September official release and current model-settings record establish the added optional choice. Neither is execution evidence. |
 
 The recorded content-free read supports the active Codex settings above; it is not a fresh entitlement check. The inactive Claude branch has no known saved preference; Settings starts a newly selected Claude branch at the screenshot-confirmed Opus 5 / High values, while a previously saved supported choice remains intact. Independently verify each exact active provider/model/effort combination before claiming provider readiness; Astra/xhigh catalog evidence alone is not an execution proof.
 
-Preserve subscription use, no silent model/effort substitution, no API-key/PAYG fallback, no automatic usage credits and no Claude Fast Mode. Current provider package pins are Codex `0.153.1` and Claude Code `2.1.258`; this implementation stores independent specialist-count and discussion-depth choices, defaults to 2 specialists and 1 exchange per specialist, and retains a 540,000 ms provider budget. Model settings and orchestration limits are separate concerns.
+Preserve subscription use, no silent model/effort substitution, no API-key/PAYG fallback, no automatic usage credits and no Claude Fast Mode. Current provider package pins are Codex `0.153.1` and Claude Code `2.1.280`; this implementation stores independent specialist-count and discussion-depth choices, defaults to 2 specialists and 1 exchange per specialist, and retains a 540,000 ms provider budget. Model settings and orchestration limits are separate concerns.
 
 ## V1 boundary
 
@@ -141,3 +141,7 @@ Internal SDD scope declaration, not application UI.
 ```json
 {"profile":"existing_change","capabilities":{"ui":true,"api":true,"persistence":true,"payments":false,"sensitive_data":true}}
 ```
+
+## Current browser, research and provider correction
+
+The [22 September correction](../forge/runs/browser-research-claude-20260922/scope.json) identifies missing incoming sound on Chrome on an iPhone, a local Safari issue needing exact reproduction, concern about unavailable internet research, and the newly released optional Claude model. Repair those established paths while retaining all saved choices, authentication and private records. “Local” remains a storage/execution boundary, not a promise that public-web research is disabled. The owner has not supplied a passing physical-iPhone listening observation; do not infer it from a desktop browser or preview message.

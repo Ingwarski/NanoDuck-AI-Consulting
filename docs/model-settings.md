@@ -11,9 +11,20 @@ provider availability or a completed model call.
 The optional Claude Code Critic branch has no inferred saved preference. When
 first selected, it offers Opus 5 (`claude-opus-5`) with High as its initial effort;
 available effort labels are Low, Medium, High, Extra and Max. At the isolated CLI
-boundary, the model maps to `opus` and Extra maps to `xhigh`. Saved settings and
-run snapshots retain the owner-facing values. Current packages are pinned to
-Codex `0.153.1` and Claude Code `2.1.258`.
+boundary, preserve the exact model ID and map only Extra to `xhigh`. Opus 5.5
+(`claude-opus-5-5`) is an additional explicit choice with the same five efforts.
+Existing Opus 5 / High and saved Codex selections remain unchanged; adding a model
+never selects it automatically. Anthropic defaults Opus 5.5 to Medium, distinct
+from NanoDuck’s retained High initial preference. Successful Claude output must
+report exactly the selected model in `modelUsage`; missing, mixed or substituted
+model identities are rejected. Current packages are pinned to Codex `0.153.1`
+and Claude Code `2.1.280`, the minimum documented version for Opus 5.5.
+
+Sources checked on 22 September 2026: [Anthropic release](https://www.anthropic.com/claude-opus-5-5)
+and [Claude Code model configuration](https://code.claude.com/docs/en/model-config).
+The CLI `opus` alias changes across releases and must not stand in for a saved
+exact model ID. An authenticated catalog is not proof of model entitlement,
+quota or a completed model call.
 
 Use authenticated subscription capabilities to validate a selected tuple before
 accepting it. An unavailable model or expired subscription stays unavailable;

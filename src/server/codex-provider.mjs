@@ -230,12 +230,17 @@ export function createCodexProvider(config) {
       let expectedTurnId;
       const completedTurns = new Map();
       const completedBodies = new Map();
+      const completedSearches = new Map();
       unsubscribe = connection.on(notification => {
         const params = notification.params;
         if (!record(params) || params.threadId !== threadId) return;
         if (notification.method === "item/completed" && typeof params.turnId === "string") {
           const body = bodyFrom({ items: [params.item] });
           if (body) completedBodies.set(params.turnId, body);
+          if (params.item?.type === "webSearch" && typeof params.item.id === "string") {
+            const searches = completedSearches.get(params.turnId) ?? new Set();
+            searches.add(params.item.id); completedSearches.set(params.turnId, searches);
+          }
         }
         if (notification.method !== "turn/completed") return;
         const completed = terminalTurn(params.turn);
@@ -259,7 +264,8 @@ export function createCodexProvider(config) {
       if (resolvedTurn.status !== "completed") throw new AppServerRequestError("turn/completed", resolvedTurn.error);
       const resultBody = bodyFrom(resolvedTurn) ?? completedBodies.get(expectedTurnId);
       const completionSource = terminalTurn(startedTurn) ? "turn_start" : "notification";
-      providerLog("nanoduck.provider.turn_completed", { outputKind, completionSource, durationMs: Date.now() - startedAt });
+      const searchIds = new Set([...(completedSearches.get(expectedTurnId) ?? []), ...(resolvedTurn.items ?? []).filter(item => item?.type === "webSearch" && typeof item.id === "string").map(item => item.id)]);
+      providerLog("nanoduck.provider.turn_completed", { outputKind, completionSource, durationMs: Date.now() - startedAt, webSearchCount: searchIds.size });
       unsubscribe();
       const output = typeof resultBody === "string" ? sourcesFrom(resultBody) : undefined;
       return output?.body ? { ok: true, body: output.body, sources: output.sources } : output ? { ok: false, code: "language_policy" } : { ok: false, code: "provider_unavailable" };

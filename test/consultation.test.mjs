@@ -262,6 +262,38 @@ test("ordinary consultations can use restricted live research without a keyword"
   assert.equal(calls.slice(2, -1).every(call => call.research === true), true);
 });
 
+test("calendar deadlines keep live research available throughout a consultation", async t => {
+  for (const date of ["20.09–04.11.2026", "2026-09-22", "2026.09.22", "29.02.2024", "04/11/2026"]) await t.test(date, async () => {
+    const store = createMemoryStore();
+    const conversation = await store.createConversation();
+    const question = `Check public eligibility rules and deadlines for ${date}.`;
+    const accepted = await store.acceptMessage(conversation.id, { body: question, clientRequestId: "dated-research-0001" }, defaultSettings);
+    const calls = [];
+    const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input, `Review the rules dated ${date}.`), sources: [] }; } };
+    await createConsultationService({ store, provider }).start(conversation.id, accepted.run);
+    await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+    assert.equal(calls.length, 12);
+    assert.equal(calls.every(call => call.evidence.owner === question), true);
+    assert.equal(calls.slice(0, 2).every(call => call.research === false), true);
+    assert.equal(calls.slice(2, -1).every(call => call.research === true), true);
+    assert.equal(calls.at(-1).research, false);
+  });
+});
+
+test("calendar exceptions never remove adjacent contact details or invalid number-like dates", async t => {
+  for (const value of ["04.11.2026; call +380 (50) 123-45-67", "04.11.2026; call 0501234567", "04.11.2026; email owner@example.com", "+2026-09-22", "31.02.2026"]) await t.test(value, async () => {
+    const store = createMemoryStore();
+    const conversation = await store.createConversation();
+    const accepted = await store.acceptMessage(conversation.id, { body: `Check current public rules: ${value}.`, clientRequestId: "private-dated-research-0001" }, defaultSettings);
+    const calls = [];
+    const provider = { async invoke(input) { calls.push(input); return { ok: true, body: successfulBody(input), sources: [] }; } };
+    await createConsultationService({ store, provider }).start(conversation.id, accepted.run);
+    await waitFor(async () => (await store.run(conversation.id))?.status === "complete");
+    assert.equal(calls.length, 12);
+    assert.equal(calls.every(call => call.research === false), true);
+  });
+});
+
 test("a simple Ukrainian explanation still convenes the configured specialists and Critic", async () => {
   const store = createMemoryStore();
   const conversation = await store.createConversation();

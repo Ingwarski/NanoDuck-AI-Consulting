@@ -18,7 +18,7 @@ The application runs on macOS, Linux and Windows computers. Browsers on that com
 
 Private records and keys remain on the computer running the application. First-run local setup and per-device connection trust are operational steps; ordinary daily consultation should not repeat them. The browser is the UI, with no browser extension required.
 
-Preserve Codex `gpt-6-astra` / `xhigh` for Head/specialists and Critic, independent specialist-count and depth controls, and the subscription constraints in the PRD. Supported model choices require current catalog evidence; existing records are not fresh execution proof.
+Preserve Codex `gpt-6-astra` / `xhigh` for Head/specialists and Critic, independent specialist-count and depth controls, and the subscription constraints in the PRD. Supported model choices require current catalog evidence; existing records are not fresh execution proof. Opus 5.5 is an optional explicit Critic choice alongside the retained Opus 5 / High branch; neither replaces the saved Codex choice. Calendar dates alone do not establish private contact data or disable public research.
 
 ## Scope and ownership
 
