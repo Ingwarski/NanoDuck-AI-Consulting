@@ -1,8 +1,9 @@
 {
   "schema_version": 1,
-  "kind": "scoped-local-runtime-verification",
-  "recorded_at": "2026-09-22T11:52:04.860360+00:00",
-  "executor": "Codex root test execution; SDD coordinator inspected final logs and test definitions",
+  "kind": "scoped-cross-platform-runtime-verification",
+  "recorded_at": "2026-09-22T13:10:45.482956+00:00",
+  "executor": "Codex root and GitHub Actions; SDD coordinator inspected final local logs and CI result reports",
+  "tested_runtime_commit": "34966f398944e1daebed7d185f25a2b00538b6eb",
   "source_snapshot": {
     "algorithm": "sha256 of sorted UTF-8 path + NUL + lowercase file SHA-256 + LF records",
     "roots": [
@@ -16,8 +17,8 @@
       "package.json",
       "package-lock.json"
     ],
-    "file_count": 77,
-    "sha256": "fff0428e1e132744cb9ccce4a4a1271c095701542073a72c7b330d1eda732e30",
+    "file_count": 85,
+    "sha256": "ef44e675a3f07f171371dd23b2414b20fdcb8f96189b6d063ffd6360e02d1ff1",
     "files": [
       {
         "path": "instructions/AGENTS.md",
@@ -81,11 +82,19 @@
       },
       {
         "path": "scripts/browser-check.mjs",
-        "sha256": "dfdc05596bee370cec18ae0325ed48995a45ddd29e7e9a7c9b25588f62a43caf"
+        "sha256": "954eab183ba91026ab4eed49eae4388b2bd84266db3576b4eab6e26093e85acd"
+      },
+      {
+        "path": "scripts/browser-logoff.mjs",
+        "sha256": "76cf55cad4cd7d51b369e5ea7444d4265d8e1a0fed12f5625197ae468576638b"
+      },
+      {
+        "path": "scripts/browser-send-retry.mjs",
+        "sha256": "8c15e6c631f4a0a7c9e72432fe70126cf736b05f72cc0e52bcbab5df30a437b2"
       },
       {
         "path": "scripts/check-artifacts.mjs",
-        "sha256": "722b9495f0bc5f53572084a6f6e4682503f795c397ef60165ae22147b591f378"
+        "sha256": "3c6e7da1c6631273749b33aa2af84851cb31b1e3c261cfd598f50befb25d06fb"
       },
       {
         "path": "scripts/serve-prototype.mjs",
@@ -97,7 +106,7 @@
       },
       {
         "path": "src/client/app.js",
-        "sha256": "47fbe003b9398939a51331c5093201b71798204d525edee6b5881478036df4f5"
+        "sha256": "c5a4191536c5541eb16a94cbdea79913507b01040c4127ac4407b9fdf37a255e"
       },
       {
         "path": "src/client/markdown.js",
@@ -109,7 +118,7 @@
       },
       {
         "path": "src/server/attachments.mjs",
-        "sha256": "c5a6ebb65ccefe9ec157d9b4bd46e9fe86792b912580ff2c4cac6ec9b7058015"
+        "sha256": "f87e7b6c1ec9e5726c584cb7e794df32a20bb17cd0d5307156f7a6911c8a6c38"
       },
       {
         "path": "src/server/auth.mjs",
@@ -160,6 +169,10 @@
         "sha256": "24be12b0b9e80fd1440d0211af334482417bf68fc5d97fce16b98e021f84da34"
       },
       {
+        "path": "src/server/image-structure.mjs",
+        "sha256": "be601c75542ed0bd6b3d7f94d22ffb4fb9556d62fcc958f3b127d714b2b5e80b"
+      },
+      {
         "path": "src/server/index.mjs",
         "sha256": "1892b9b4172a58e9d08b3dc4dc360a4bb0ce787de4c8afa5f4fe9c3ceda4d79e"
       },
@@ -201,7 +214,7 @@
       },
       {
         "path": "src/server/private-files.mjs",
-        "sha256": "2550644b7f115b646c8c9689354328ba5d0519462d1120083729e125d6012f65"
+        "sha256": "46c816cc38aed94204121d5d1270d5d6e09203af9d77e5cc97e822387f247e66"
       },
       {
         "path": "src/server/prompt-contracts.mjs",
@@ -241,7 +254,7 @@
       },
       {
         "path": "test/claude-process.test.mjs",
-        "sha256": "9a30014d41fa563593bfa1696cabaeee2bf0d295485228f92bf67989bcb97e9f"
+        "sha256": "9c7f9e21e7631432cc49029877127bf0934692f0ac44a2b795f23ba5a9a9015f"
       },
       {
         "path": "test/claude-provider.test.mjs",
@@ -269,7 +282,7 @@
       },
       {
         "path": "test/core.test.mjs",
-        "sha256": "e08c23fe23cd1a699855c75e197f95483a877037852c7c195215a33dc8cf6fa1"
+        "sha256": "0319b8b8035adb5931a1ac32b0efcad5ad09e6688c4a333bb54384e26d75900a"
       },
       {
         "path": "test/fixtures/auth-file-codex.mjs",
@@ -280,8 +293,20 @@
         "sha256": "ddb3b4fd9f1e07f30df8006f7e74db7edabb55a29536e1f9274f07b0ce672c66"
       },
       {
+        "path": "test/fixtures/images.mjs",
+        "sha256": "40c0da0adb57105e9913aa5d3a6c8e7a3952aced06c63a824f66902c2df05110"
+      },
+      {
         "path": "test/fixtures/local-runtime.mjs",
-        "sha256": "e6cab98921b06862a82de200cd336c60cc189bd745be864ae230b48a28715dd6"
+        "sha256": "0d1d37053581b4541e7a8d7a13fbfd25c5ecc72729175df1980ffb9900c47d7f"
+      },
+      {
+        "path": "test/fixtures/local-store-owner.mjs",
+        "sha256": "fecf8b534107a55e8c286f7b61bf7a3f281fc0b57e7bb275ef96f9c5bc7a926d"
+      },
+      {
+        "path": "test/fixtures/private-permissions-child.mjs",
+        "sha256": "7e67494a57bf1f4805af633337d9baa6a2c6bd737160327edf06bb039d38600d"
       },
       {
         "path": "test/fixtures/runtime-instructions.mjs",
@@ -289,7 +314,11 @@
       },
       {
         "path": "test/http.test.mjs",
-        "sha256": "aa910166405d3a95e370fd208ca6aef55834263ebf9fbb010341e046f9411d08"
+        "sha256": "d945e7d90eed179ea14ee4fbad7bd6c2c54c85a912986f901c79e6e43e0b1c10"
+      },
+      {
+        "path": "test/image-structure.test.mjs",
+        "sha256": "d41f39be42f7cff977e88fdbbc8e35f0d5e1e9f316ce0ab444d5ef6d28bae8a9"
       },
       {
         "path": "test/local-config-auth.test.mjs",
@@ -297,7 +326,7 @@
       },
       {
         "path": "test/local-store.test.mjs",
-        "sha256": "15455197e93eab004857635deb73ad65f23f4e0b489e0f12e6c7d5c8fa90a0db"
+        "sha256": "969461beb3a1b9e71238fb585c52b491fafb6d1aee8155814fc01f71e5ce5993"
       },
       {
         "path": "test/markdown.test.mjs",
@@ -305,7 +334,11 @@
       },
       {
         "path": "test/preflight.test.mjs",
-        "sha256": "25798a92f2b277109754135ec87c93836c4bbd4a0698a2dd0d767a1b94197f69"
+        "sha256": "5e731d7819dcd064b153b4a6eb57006b74a72a7d722d4adb564ea951bf9a1eab"
+      },
+      {
+        "path": "test/private-files.test.mjs",
+        "sha256": "c6805a119991b0c6e16c3162cbe34de1e10cc600633a408126209a13fc1d5752"
       },
       {
         "path": "test/project-consolidation.test.mjs",
@@ -317,11 +350,11 @@
       },
       {
         "path": "test/read-regular-file.test.mjs",
-        "sha256": "811e9695092efa09ad9b50fd58301f7aed82c6765f052b083ad7612d94ee6d41"
+        "sha256": "13c3c95ceabf2b1414a9196aa30c160d581effaa63421859499ce1a310a3e9b1"
       },
       {
         "path": "test/recovery-cli.test.mjs",
-        "sha256": "bd82d733d6644310037aacee5d14bfd3399d1a73a4040674c06019dadf54154d"
+        "sha256": "68de8337f7951630e729c8198968a90f716dae7554742336a7b13b5f7ff445c9"
       },
       {
         "path": "test/refresh-state.test.mjs",
@@ -329,75 +362,179 @@
       }
     ]
   },
-  "results": [
+  "application_ci": {
+    "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35731160632",
+    "runtime_jobs": [
+      {
+        "os": "Linux",
+        "node": 22,
+        "total": 168,
+        "passed": 166,
+        "skipped": 2,
+        "failed": 0,
+        "conclusion": "success",
+        "job_id": 106756788540,
+        "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35731160632/job/106756788540"
+      },
+      {
+        "os": "Linux",
+        "node": 24,
+        "total": 168,
+        "passed": 166,
+        "skipped": 2,
+        "failed": 0,
+        "conclusion": "success",
+        "job_id": 106756788396,
+        "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35731160632/job/106756788396"
+      },
+      {
+        "os": "macOS",
+        "node": 22,
+        "total": 168,
+        "passed": 166,
+        "skipped": 2,
+        "failed": 0,
+        "conclusion": "success",
+        "job_id": 106756788584,
+        "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35731160632/job/106756788584"
+      },
+      {
+        "os": "macOS",
+        "node": 24,
+        "total": 168,
+        "passed": 166,
+        "skipped": 2,
+        "failed": 0,
+        "conclusion": "success",
+        "job_id": 106756788703,
+        "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35731160632/job/106756788703"
+      },
+      {
+        "os": "Windows",
+        "node": 22,
+        "total": 164,
+        "passed": 159,
+        "skipped": 5,
+        "failed": 0,
+        "conclusion": "success",
+        "job_id": 106756788337,
+        "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35731160632/job/106756788337"
+      },
+      {
+        "os": "Windows",
+        "node": 24,
+        "total": 164,
+        "passed": 159,
+        "skipped": 5,
+        "failed": 0,
+        "conclusion": "success",
+        "job_id": 106756788468,
+        "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35731160632/job/106756788468"
+      }
+    ],
+    "browser_jobs": [
+      {
+        "browser": "chromium",
+        "conclusion": "success",
+        "job_id": 106756788070,
+        "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35731160632/job/106756788070"
+      },
+      {
+        "browser": "firefox",
+        "conclusion": "success",
+        "job_id": 106756788070,
+        "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35731160632/job/106756788070"
+      },
+      {
+        "browser": "webkit",
+        "conclusion": "success",
+        "job_id": 106756788070,
+        "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35731160632/job/106756788070"
+      },
+      {
+        "browser": "msedge",
+        "conclusion": "success",
+        "job_id": 106756788328,
+        "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35731160632/job/106756788328"
+      }
+    ]
+  },
+  "local_results": [
     {
       "check": "Node test suite",
       "platform": "macOS",
       "node": "22.23.2",
-      "passed": 148,
+      "total": 168,
+      "passed": 166,
       "failed": 0,
-      "skipped": 0,
-      "log_sha256": "ec382b4aa59bf7c2e9b58f34dbbf4aa79583c026878cb72ea7d12320c83c37a2"
+      "skipped": 2,
+      "log_sha256": "fba1fcb5135685c592080cf3a21ce5429c2400efe5ac81e20de414c3d11b32f6",
+      "output_excerpt": "1..130\n# tests 168\n# suites 0\n# pass 166\n# fail 0\n# cancelled 0\n# skipped 2\n# todo 0\n# duration_ms 3763.435042"
     },
     {
       "check": "Node test suite",
       "platform": "macOS",
       "node": "24.16.0",
-      "passed": 148,
+      "total": 168,
+      "passed": 166,
       "failed": 0,
-      "skipped": 0,
-      "log_sha256": "36e53fbeab0dfd4d44da5a4a0709b9f9f317f96f6b006cf06274262e38fff7c3"
+      "skipped": 2,
+      "log_sha256": "1ffff8a165174c93c6d9af80ca7e7d8f791cf85347117a62fe67e0b97813afc2",
+      "output_excerpt": "\u2714 same-tab refresh state rejects malformed or out-of-range browser data (0.093333ms)\n\u2139 tests 168\n\u2139 suites 0\n\u2139 pass 166\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 2\n\u2139 todo 0\n\u2139 duration_ms 3942.887709"
     },
     {
-      "check": "Artifact, link and syntax checker",
-      "command": "node scripts/check-artifacts.mjs",
-      "result": "passed",
-      "markdown_files": 23,
-      "javascript_files": 65,
-      "active_candidates": 3
-    },
-    {
-      "check": "Integrated browser workflow",
-      "command": "npm run test:browsers",
-      "result": "passed",
-      "engines": [
-        "Chromium 153",
-        "Firefox 155",
-        "WebKit 26.6"
-      ],
-      "log_sha256": "25ee0c9487c8c89998675e1e29ad445caf52b352c8bf9597c0fefd21cab60e46"
-    },
-    {
-      "check": "Installed Chrome workflow",
+      "check": "Installed Chrome integrated workflow",
+      "platform": "macOS",
       "command": "node scripts/browser-check.mjs --channel=chrome",
       "result": "passed",
-      "log_sha256": "e0b549ae89706776b9ece641b9ab6a261cf349d1ee2bf3f0d12662b639186f19"
-    },
-    {
-      "check": "Current source secret scan",
-      "tool": "Gitleaks 8.30.1",
-      "findings": 0,
-      "ignore_exceptions": 0,
-      "report_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+      "log_sha256": "6eab52188d072f581b60f2f288cbd0a7056f8caab3ce950d96ba468445ca009b",
+      "output_excerpt": "chrome: password, consent, consultation, lost-response retry with an edited draft and image, outcome, refresh, settings, saved history, mobile layout, voice fallback, offline/connected logout, late-response privacy and locked reload/history passed."
     }
   ],
+  "security": {
+    "security_scans": {
+      "run_id": 35731160269,
+      "conclusion": "success",
+      "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35731160269"
+    },
+    "codeql": {
+      "run_id": 35731159953,
+      "conclusion": "success",
+      "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35731159953"
+    },
+    "open_alerts": {
+      "code-scanning": 0,
+      "dependabot": 0,
+      "secret-scanning": 0
+    },
+    "observed_at": "2026-09-22T13:09:49.522727+00:00"
+  },
+  "artifact_checks": {
+    "result": "passed",
+    "markdown_files": 23,
+    "javascript_files": 73,
+    "active_candidates": 3
+  },
   "browser_scope": [
-    "Local password and session processing consent",
-    "Synthetic complete consultant/Critic discussion and Outcome",
+    "Local password and processing consent once per authenticated session",
+    "Complete synthetic consultant/Critic discussion and Outcome",
+    "Lost-response retry with original image/context preserved while the draft is edited",
     "Reload, saved history and Settings save",
-    "No warning for an unused Claude provider; explicit unavailable usage information",
-    "390px viewport without horizontal page overflow",
-    "Voice dialog and typed-input fallback; no microphone recognition test",
-    "Logoff and no uncaught page errors"
+    "No unused Claude warning and explicit unavailable usage information",
+    "390px viewport without page overflow",
+    "Voice dialog and typing fallback; no microphone recognition test",
+    "Offline Logoff clears private content immediately and prevents late responses from restoring it; a content-free pending marker survives reload until explicit retry confirms revocation",
+    "Malformed session/logout responses cannot claim revocation; browser Back reveals no private content; connected Logoff and no uncaught page errors"
   ],
-  "additional_test_scope": [
-    "HTTPS login through the computer\u2019s actual private LAN interface; client and server remain on the same physical computer",
-    "Full-state encryption, durable restart, duplicate requests, tamper denial and process ownership",
-    "Offline encrypted backup/restore without TLS files, deletion preservation and active-process refusal"
+  "additional_scope": [
+    "Actual private LAN interface HTTPS login from the same physical computer",
+    "Encrypted durability, atomic/idempotent mutations and process ownership",
+    "Offline encrypted backup/restore without TLS files, deletion preservation and active-process refusal",
+    "Seven bounded image-structure checks covering real encoder PNG/JPEG, progressive JPEG, static/lossless/animated WebP, truncation, required elements and opaque metadata",
+    "Native Windows private-file ACL helper and isolated profile behavior"
   ],
-  "tls_scope": "Node HTTPS requests verified the exact generated local CA. Disposable automated browser profiles ignored certificate errors; no OS or browser trust store was changed.",
-  "provider_scope": "Synthetic provider subprocess fixtures; no real provider account or consultation claim.",
-  "ci_status": "Cross-platform Node and Linux browser CI pending publication and execution.",
+  "tls_scope": "Node HTTPS clients verified the exact generated CA. Disposable browser profiles ignored certificate errors; no OS or browser trust store was modified.",
+  "provider_scope": "Synthetic subprocess fixtures; no real provider entitlement or consultation claim.",
   "formal_sdd": {
     "prepared_checks": 83,
     "checks_promoted_to_passed_by_this_receipt": 0,
@@ -405,13 +542,11 @@
     "release_readiness": "not_evaluated"
   },
   "not_run": [
-    "Native Safari application and installed Edge",
+    "Native Safari application",
     "Separate physical Wi-Fi/LAN client",
     "Physical mobile devices and microphone recognition",
     "Per-device certificate trust installation",
-    "Real selected-provider entitlement and consultation",
-    "Representative-owner tasks and assistive-technology validation",
-    "Linux and Windows execution at the time of this local receipt"
-  ],
-  "final_change_note": "After browser execution, only src/server/index.mjs startup-address logging was refined to omit addresses unreachable through the selected bind interface. Both 148-test Node suites reran successfully against this final source snapshot. Browser/authentication/storage behavior and browser test definitions were unchanged; browser observations retain their earlier execution scope."
+    "Real selected-provider entitlement and consultations",
+    "Representative-owner tasks and assistive-technology validation"
+  ]
 }
