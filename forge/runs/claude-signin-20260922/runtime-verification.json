@@ -151,11 +151,49 @@
     }
   },
   "ci": {
-    "status": "pending"
+    "status": "passed",
+    "revision": "101bbe831ab981b8443fe8176462d60682ac40bd",
+    "url": "https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35780853227",
+    "jobs": [
+      {
+        "name": "browsers",
+        "result": "success"
+      },
+      {
+        "name": "windows-24 / runtime",
+        "result": "success"
+      },
+      {
+        "name": "macos-22 / runtime",
+        "result": "success"
+      },
+      {
+        "name": "edge",
+        "result": "success"
+      },
+      {
+        "name": "linux-22 / runtime",
+        "result": "success"
+      },
+      {
+        "name": "macos-24 / runtime",
+        "result": "success"
+      },
+      {
+        "name": "windows-22 / runtime",
+        "result": "success"
+      },
+      {
+        "name": "linux-24 / runtime",
+        "result": "success"
+      }
+    ]
   },
   "limits": [
     "Real native authentication/inference verified on macOS only; browser fixtures do not establish subscription entitlement.",
     "No physical iPhone/iPad test, saved model change, API billing fallback or new provider-tool authority.",
     "Explicit token auth status alone reports configuration, not server-side token validity."
-  ]
+  ],
+  "committed_as": "101bbe831ab981b8443fe8176462d60682ac40bd",
+  "finalized_at": "2026-09-22T20:36:03.677Z"
 }
