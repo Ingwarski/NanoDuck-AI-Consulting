@@ -1,9 +1,10 @@
 import { readFile, readdir, access } from 'node:fs/promises';
-import { resolve, dirname, join, relative } from 'node:path';
+import { resolve, dirname, join, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
+const repositoryPath = path => relative(root, path).split(sep).join('/');
 async function files(dir) {
   const result = [];
   for (const entry of await readdir(dir, { withFileTypes: true })) {
@@ -28,13 +29,13 @@ else {
 }
 for (const script of ['setup', 'start', 'test']) if (typeof packageMetadata.scripts?.[script] !== 'string' || !packageMetadata.scripts[script].trim()) errors.push(`package.json: application requires a non-empty ${script} script`);
 const runtimeDependencies = packageMetadata.dependencies || {};
-for (const path of inventory.filter(path => relative(root, path).startsWith('src/server/') && /\.(?:mjs|js)$/.test(path))) {
+for (const path of inventory.filter(path => repositoryPath(path).startsWith('src/server/') && /\.(?:mjs|js)$/.test(path))) {
   const source = await readFile(path, 'utf8');
   for (const match of source.matchAll(/\bfrom\s+["']([^"']+)["']|\bimport\s+["']([^"']+)["']|\bimport\s*\(\s*["']([^"']+)["']/g)) {
     const specifier = match[1] ?? match[2] ?? match[3];
     if (specifier.startsWith('.') || specifier.startsWith('node:')) continue;
     const dependency = specifier.startsWith('@') ? specifier.split('/').slice(0, 2).join('/') : specifier.split('/')[0];
-    if (!(dependency in runtimeDependencies)) errors.push(`${relative(root, path)}: runtime package ${dependency} must be in dependencies`);
+    if (!(dependency in runtimeDependencies)) errors.push(`${repositoryPath(path)}: runtime package ${dependency} must be in dependencies`);
   }
 }
 const tracked = spawnSync('git', ['ls-files'], { cwd: root, encoding: 'utf8' });
@@ -54,7 +55,7 @@ for (const name of indexedEntries) {
 let scripts = 0, documents = 0, candidates = 0;
 for (const path of inventory) {
   if (!/\.(md|html|css|js|mjs|json)$/.test(path)) continue;
-  const name = relative(root, path), source = await readFile(path, 'utf8');
+  const name = repositoryPath(path), source = await readFile(path, 'utf8');
   if (/\/Users\/[A-Za-z]/.test(source)) errors.push(`${name}: local user path in publishable file`);
   if (path.endsWith('.md')) {
     documents++;
@@ -78,7 +79,7 @@ for (const path of inventory) {
     }
   }
   if (/^forge\/design\/candidates\//.test(name)) {
-    if (path.endsWith('/index.html')) {
+    if (name.endsWith('/index.html')) {
       candidates++;
       if (!indexedEntries.has(name)) errors.push(`${name}: candidate is absent from active and historical indexes`);
     }

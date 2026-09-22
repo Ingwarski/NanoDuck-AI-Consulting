@@ -6,32 +6,32 @@ permissions:
   contents: read
 jobs:
   linux-22:
-    uses: ./.github/workflows/runtime-checks.yml
+    uses: $/.github/workflows/runtime-checks.yml
     with:
       runner: ubuntu-latest
       node: '22'
   linux-24:
-    uses: ./.github/workflows/runtime-checks.yml
+    uses: $/.github/workflows/runtime-checks.yml
     with:
       runner: ubuntu-latest
       node: '24'
   macos-22:
-    uses: ./.github/workflows/runtime-checks.yml
+    uses: $/.github/workflows/runtime-checks.yml
     with:
       runner: macos-latest
       node: '22'
   macos-24:
-    uses: ./.github/workflows/runtime-checks.yml
+    uses: $/.github/workflows/runtime-checks.yml
     with:
       runner: macos-latest
       node: '24'
   windows-22:
-    uses: ./.github/workflows/runtime-checks.yml
+    uses: $/.github/workflows/runtime-checks.yml
     with:
       runner: windows-latest
       node: '22'
   windows-24:
-    uses: ./.github/workflows/runtime-checks.yml
+    uses: $/.github/workflows/runtime-checks.yml
     with:
       runner: windows-latest
       node: '24'

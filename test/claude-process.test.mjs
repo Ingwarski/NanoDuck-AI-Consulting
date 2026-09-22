@@ -40,8 +40,8 @@ test("cancellation closes parent and inherited-output child processes", { timeou
   const controller = new AbortController();
   t.after(() => controller.abort());
   const descendant = 'process.on("SIGTERM",()=>{});process.send("ready");setInterval(()=>process.stdout.write("tick"),100);';
-  const script = `const {spawn}=require('node:child_process');const {writeFileSync}=require('node:fs');const child=spawn(process.execPath,['-e',${JSON.stringify(descendant)}],{stdio:['ignore','inherit','inherit','ipc']});child.once('message',()=>writeFileSync(${JSON.stringify(marker)},JSON.stringify({parent:process.pid,child:child.pid})));setInterval(()=>{},1000);`;
-  const pending = run(cwd, script, { signal: controller.signal });
+  const script = `const {spawn}=require('node:child_process');const {writeFileSync}=require('node:fs');const child=spawn(process.execPath,['-e',process.env.NANODUCK_TEST_DESCENDANT],{stdio:['ignore','inherit','inherit','ipc']});child.once('message',()=>writeFileSync(process.env.NANODUCK_TEST_MARKER,JSON.stringify({parent:process.pid,child:child.pid})));setInterval(()=>{},1000);`;
+  const pending = run(cwd, script, { signal: controller.signal, environment: { ...process.env, NANODUCK_TEST_DESCENDANT: descendant, NANODUCK_TEST_MARKER: marker } });
   let observed; const deadline = Date.now() + 10_000;
   while (!observed && Date.now() < deadline) {
     try { observed = JSON.parse(await readFile(marker, "utf8")); } catch { await new Promise(resolve => setTimeout(resolve, 20)); }
