@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "unit": "U-04",
+  "run_id": "phase3-head-task-enforcement-20260915",
+  "executed_at": "2026-09-14T21:14:07Z",
+  "executor": "Codex local implementation runner",
+  "revision_base": "6e5765824576983930b51331002874e3a0a4188c",
+  "baseline_id": "nanoduck-electric-a-v8-20260914",
+  "development_plan_hash": "a6d7ac6f6a544a2f038da8e812f036598a07babb92d5c9d03d23d8603f318889",
+  "scope": "Enforce task-only Head-to-specialist handoffs in the local application. No GoDaddy application, database, migration, reset, deletion, deployment or external upload was contacted.",
+  "required_topology": [
+    "Head Consultant -> each selected specialist: task only",
+    "each selected specialist -> Critic: independent initial position",
+    "Critic -> relevant specialist -> Critic: selected-depth exchange",
+    "Head Consultant -> owner: final synthesis only"
+  ],
+  "checks": [
+    {
+      "name": "malformed Head-output guard",
+      "evidence": "test/consultation.test.mjs",
+      "observed": "A provider reply that says the Head recommends immediate scaling is discarded. The committed pre-conclusion Head entries are bounded role-specific tasks, and Head still appears once without a recipient at the end.",
+      "result": "passed",
+      "limit": "Controlled provider evidence does not prove every third-party model response is semantically useful."
+    },
+    {
+      "name": "real local provider topology check",
+      "evidence": "isolated synthetic local HTTP consultation through the actual local Codex app-server",
+      "observed": "One English, one-specialist run completed as owner -> Head Consultant to Finance Consultant task -> Finance Consultant to Critic -> Critic to Finance Consultant -> Finance Consultant to Critic -> Head Consultant final synthesis. The only pre-conclusion Head text was a two-sentence Finance investigation task; no Head-to-owner advice appeared before the final message.",
+      "result": "passed",
+      "limit": "This synthetic local run observes one provider response and the recipient/order guard only. It does not prove answer quality for all topics, live deployment, GoDaddy hosting or formal release QA."
+    },
+    {
+      "name": "regression suite",
+      "evidence": "npm run check",
+      "observed": "Static artifact checks passed and 37 Node tests passed.",
+      "result": "passed",
+      "limit": "The suite does not replace the prepared release QA/DoD gate evidence."
+    }
+  ],
+  "formal_release_status": {
+    "canonical_qa": "82 prepared / not_run",
+    "release_readiness": "not_evaluated"
+  },
+  "release_effect": "not_release_evidence",
+  "source_hashes": {
+    "docs/architecture.md": "5e874df056506e7b2657b21f89d7995238ee7090246aa2a3258d67960919bb93",
+    "docs/dod-evals.md": "717b155bce9c2b9bf4a0aaad47cf81a3a83f13ea37422add8f49505bc601c6a7",
+    "docs/qa-checklist.md": "b82ea59da9676625834cd7fac4e41c401dfc1319e7a7c82fcf0d9e8921a33de2",
+    "docs/development-plan.md": "a6d7ac6f6a544a2f038da8e812f036598a07babb92d5c9d03d23d8603f318889",
+    "src/server/consultation.mjs": "91c10694e333b53fddec139ac596e14e7ca5a0990f1c6cdbba1268a4bbcb5fa3",
+    "src/server/codex-provider.mjs": "be577b8fe90c07858936c1943f64248d611da53ae5f1915962bb7987c2c8be61",
+    "test/consultation.test.mjs": "776784f4e8571d2aadfc2832aef75cfe494961e45aac988a5ec4342e28c07f23"
+  }
+}

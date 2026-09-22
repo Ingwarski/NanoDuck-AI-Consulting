@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "kind": "godaddy-preview-mysql-json-read",
+  "executed_at": "2026-09-16T01:01:01+03:00",
+  "executor": "Codex via GoDaddy dashboard and Chrome",
+  "scope": "QA-R25 persistence-read regression only",
+  "target": {
+    "app_name": "Personal AI Consulting Group",
+    "app_id": "wy2v0putg6",
+    "environment": "private Preview",
+    "published": "unchanged"
+  },
+  "deployment": {
+    "commit": "ace195e3243c74fd4e0976e967a981205d0576c6",
+    "dashboard_health": "infrastructure OK; site status OK"
+  },
+  "checks": [
+    {
+      "kind": "functional",
+      "check_id": "QA-R25",
+      "result": "passed",
+      "observed": "The authenticated Preview listed the two existing saved consultations. Reopening the existing webinar-versus-workshop consultation rendered its title, preserved owner message and paused system state without service_unavailable. Chrome reported no browser console errors after the read.",
+      "limit": "The pre-existing provider run was already paused before a confirmed response, so this evidence proves persistence reopening, not a new complete provider consultation."
+    },
+    {
+      "kind": "regression",
+      "result": "passed",
+      "command": "npm test",
+      "observed": "53 Node tests passed, including the MySQL adapter test with mysql2-decoded settings, source and run-snapshot JSON values."
+    }
+  ],
+  "source_hashes": {
+    "docs/architecture.md": "14fb2a13c51cc25a2897e3cea6d7d6024459179d909a7bdc48c8d8304f75fd61",
+    "docs/dod-evals.md": "e3e91b8529a1b4df4b4867ed1e73216e674038296d53da953be87769b1677825",
+    "docs/qa-checklist.md": "960478143edc0db36dccaecba0faac4e435bb533a352db54c4fc57b511c7b005",
+    "docs/development-plan.md": "576bb439e7266e6f07c7db33a5ba02fb9dd682a901e673e3c4bc55ced6a2df5a",
+    "src/server/store.mjs": "3f4a3e459d5b4be11870e6692da950787db8408824321f8a3fcd3d512272bdad",
+    "test/core.test.mjs": "e1fbc6e0995a3eacb179e31519982d5514bf8e9a01099e06d3ec71015c267ffb"
+  },
+  "limits": [
+    "No Published deployment, database migration, reset, deletion, secret change or other GoDaddy application change was made.",
+    "The deployment health and browser observation do not make a release-readiness claim."
+  ]
+}

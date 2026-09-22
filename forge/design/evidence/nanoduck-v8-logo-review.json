@@ -1,0 +1,33 @@
+{
+  "reviewer": "Codex root",
+  "observed_at": "2026-09-13T20:43:18.496020+00:00",
+  "result": "passed_for_inspected_logo_delta",
+  "method": "Scoped source-to-vector visual and H4/H6/H8 expert review; not a new full H1-H10 execution.",
+  "observations": [
+    {
+      "heuristic_id": "H4",
+      "observation": "Same mark used in navigation, sign-in and favicon; original charcoal and light-on-black variants share identical geometry."
+    },
+    {
+      "heuristic_id": "H6",
+      "observation": "Full text name and accessible navigation label remain unchanged; icon does not replace a label."
+    },
+    {
+      "heuristic_id": "H8",
+      "observation": "Nine nodes use a uniform radius of 2.5; upper yellow and orange endpoint centres are 8 units apart with a 3-unit edge gap. Separate paths have no bridging stroke. No reflow failures in inspected screens."
+    }
+  ],
+  "source_hashes": {
+    "docs/design-brief.md": "3398b4bee67c1ea6328c361f2e86a87b466be1db57e4ccf94355b50fc6d685be",
+    "forge/design/evidence/nanoduck-supplied-logo.jpeg": "4e4e83b85f1baaaa4bc1d680dce4a3df2c68e75e73edb8b1308dc751b8719629"
+  },
+  "prior_review": "forge/design/evidence/nanoduck-v7-heuristic-review.json",
+  "findings": [],
+  "representative_user_validation": "not_run; existing plan retained",
+  "limitations": [
+    "Manual vector reconstruction from the supplied 100px JPEG, not an original vector master or pixel-identical tracing.",
+    "Asset-only design revision. No backend, live authentication, recording, AI, research or deployment.",
+    "27 responsive observations cover three screens at three actual CSS widths for each candidate; the full state/interaction suite was not rerun.",
+    "No representative-user or complete accessibility/security/performance claim. Screenshots inspected inline through CUA; no exported raster capture claimed."
+  ]
+}

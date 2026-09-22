@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "run_id": "phase3-local-preflight-20260914",
+  "unit_id": "U-01",
+  "observed_at": "2026-09-14T08:44:20.750Z",
+  "execution_revision": "669b104",
+  "executor": "Codex implementation operator",
+  "scope": "local workstation preflight only; no provider invocation, database connection, deployment, migration or GoDaddy operation",
+  "capabilities": [
+    {
+      "name": "controlled Codex app-server executable",
+      "status": "ready",
+      "observation": "The controlled local Codex app-server executable initialized successfully. No model turn was started."
+    },
+    {
+      "name": "provider authentication bootstrap",
+      "status": "ready",
+      "observation": "A mounted local Codex auth file allowed only account, model-catalog and rate-limit inspection. The preflight returned ready; it did not read conversations or use a fallback."
+    },
+    {
+      "name": "preserved Codex model tuples",
+      "status": "ready",
+      "observation": "Current model/list returned gpt-6-astra with xhigh and ultra reasoning efforts. The current saved Head/specialists and Critic tuples are both gpt-6-astra/xhigh. This is catalog support, not an invocation proof."
+    },
+    {
+      "name": "browser-native Ukrainian recognition",
+      "status": "partially_observed",
+      "observation": "The owner confirmed a Ukrainian result in current Safari and Chrome using the technical probe. The replacement app's dialog and Cancel path were then checked locally without activating the microphone. Mobile devices and full release QA remain unverified."
+    },
+    {
+      "name": "target MySQL and GoDaddy lifecycle",
+      "status": "partially_observed",
+      "observation": "A read-only audit of only Personal AI Consulting Group (wy2v0putg6) found a healthy published Node.js 22 app in Europe and a managed MySQL inventory shared by Preview and Published. No rows, schema details, secret values, export or mutation were opened. The dashboard did not expose a database ID or owner principal."
+    },
+    {
+      "name": "current saved/effective active Codex settings",
+      "status": "partially_observed",
+      "observation": "An authenticated read-only Settings-screen observation found Head/specialists Codex gpt-6-astra/xhigh, Critic Codex gpt-6-astra/xhigh and Balanced speed. The catalog display was stale/unavailable, but saved raw active values were exact. Inactive Claude preferences were not exposed and remain unknown. No model turn or settings mutation occurred."
+    }
+  ],
+  "result": "ready_for_local_provider_configuration",
+  "next_evidence": [
+    "Before a target-runtime connection, separately verify the currently saved active Codex tuple by an allowed invocation; retain the unknown inactive Claude branch rather than substituting it.",
+    "Do not make a model turn or restricted-research call until the separate live-provider authorization is granted.",
+    "Run the browser-native recognition path on mobile Safari and Android Chrome before release.",
+    "Inventory only the named GoDaddy consulting app and its exclusively owned database before any migration or reset."
+  ]
+}

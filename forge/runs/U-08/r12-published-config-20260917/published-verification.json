@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "run_id": "r12-published-config-20260917",
+  "recorded_at": "2026-09-17T02:28:06+03:00",
+  "kind": "published-startup-and-google-callback",
+  "result": "passed_with_limited_scope",
+  "environment": "GoDaddy Published app wy2v0putg6 only",
+  "published_origin": "https://wy2v0putg6.c35.airoapp.ai",
+  "implementation_revision": "1a2832e1584b94651131ba510ab15b83df4cf6c2",
+  "observations": [
+    "The owner supplied the successful-publication screen after the manual secret-import handoff. Its remaining optional sync selection contained only RUNTIME_INSTRUCTIONS_BOOTSTRAP_GZIP_B64.",
+    "The optional bootstrap sync was skipped using Not now. Existing instructions are already initialized in the shared owned database; this setting is not needed for the Published startup.",
+    "The authenticated GoDaddy Published tab showed infrastructure OK, site OK and exact revision 1a2832e. This was the Published tab, not the Preview tab.",
+    "An unauthenticated direct HTTPS GET /healthz returned status alive and store mysql; GET / returned HTTP 200 and the NanoDuck Consulting Group document title.",
+    "A fresh Chrome tab at the Published origin rendered the NanoDuck Google sign-in screen, without the GoDaddy private Preview interstitial or development login.",
+    "Continue with Google reached the account chooser. Selecting the existing signed-in owner account successfully returned to the Published app and its processing-consent screen, establishing a successful Google callback for this origin.",
+    "The processing-consent checkbox was left unchecked for the owner. No new consultation or provider turn was started on Published during this check."
+  ],
+  "limits": [
+    "This resolves the observed Published missing-secret startup failure and verifies live startup and Google callback. It is not a full production acceptance or security certification.",
+    "The earlier actual-provider thirteen-message consolidation test remains Preview evidence, not a Published provider execution.",
+    "Persisted owner history, editable runtime instructions, model access and a new consultation were not rechecked after the fresh Published sign-in in this receipt.",
+    "No secret value, provider credential, private conversation, account identifier, auth callback token or browser cookie is included. No key rotation, database reset or unrelated app change occurred."
+  ],
+  "next_action": "Owner accepts the processing disclosure and opens the Published workspace; then tests a normal consultation. The Published URL is the normal access link.",
+  "release_readiness": "full_release_gates_not_evaluated"
+}

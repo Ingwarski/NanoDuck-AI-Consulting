@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "unit": "U-08",
+  "run_id": "r12-published-config-20260917",
+  "recorded_at": "2026-09-17T01:48:28+03:00",
+  "kind": "published-startup-diagnosis",
+  "result": "blocked_on_owner_secret_sync",
+  "repository_revision": "7b1e2d428253a602725dacb2a54e9d92ad3f2ff1",
+  "environment": "GoDaddy app wy2v0putg6 only",
+  "observations": [
+    "The supplied deployment log records a Published startup attempt at 2026-09-16T22:43:19Z, running node src/server/start.mjs with Node v22.23.2.",
+    "Startup failed at config.mjs:139 with DATA_ENCRYPTION_KEY must be a supported 32-byte key in production, before opening the database migration connection.",
+    "Read-only source inspection and an isolated loadConfig call with production mode and a valid origin reproduce this exact error when DATA_ENCRYPTION_KEY is absent. The parser raises a different error for a malformed supplied key.",
+    "The authenticated dashboard showed Preview infrastructure and site OK at 7b1e2d4. GitHub main matched that revision.",
+    "The secret-name inventory confirms that Published lacks seven names present in Preview. No secret value was revealed, copied through the agent, edited, or committed.",
+    "The native sync confirmation offers a merge from Preview into Published, overwriting matching Published names while retaining Published-only names. Shared managed secrets are unaffected. It is not selective synchronization.",
+    "The correct Preview-to-Published dialog was prepared but not submitted. The earlier opposite-direction dialog was cancelled without mutation."
+  ],
+  "missing_published_names": [
+    "APP_ORIGIN",
+    "CODEX_APP_SERVER_AUTH_GZIP_B64",
+    "DATA_ENCRYPTION_KEY",
+    "NANODUCK_RUNTIME_MODE",
+    "RECOVERY_ENCRYPTION_KEY",
+    "RUNTIME_INSTRUCTIONS_BOOTSTRAP_GZIP_B64",
+    "SESSION_SIGNING_KEY"
+  ],
+  "remediation": [
+    "Owner completes the prepared native Preview-to-Published secret synchronization within the same app. Preserve the existing data-encryption key used by the shared owned database; do not generate a replacement.",
+    "After synchronization, set Published APP_ORIGIN to https://wy2v0putg6.c35.airoapp.ai before publishing. Verify the published Google callback configuration and other environment-specific settings; copying the Preview origin unchanged is not correct.",
+    "Republish the accepted application only after configuration is ready, then verify the exact Published revision, startup health, owner login and persisted consultation access."
+  ],
+  "limits": [
+    "No code defect or need to weaken encryption validation was established. Application source remains unchanged.",
+    "No successful Published deployment is claimed. Preview acceptance is separate evidence.",
+    "No secret write, database reset, new encryption key, provider grant, or unrelated GoDaddy operation was performed.",
+    "The initialization-only instruction bootstrap name is part of the native all-secrets merge, not a requirement to overwrite the already initialized database."
+  ],
+  "release_readiness": "blocked"
+}

@@ -1,0 +1,394 @@
+{
+  "reviewer": "Codex root",
+  "observed_at": "2026-09-13T19:18:04.641864+00:00",
+  "method": "Explicit H1-H10 rule-based review of the current combined prototype; separate from visual QA and representative-user validation",
+  "stage": "prototype walkthrough before whole-design approval",
+  "result": "passed_with_closed_findings_for_prototype_scope",
+  "formal_release_gate": "not_evaluated",
+  "coverage": [
+    {
+      "heuristic_id": "H1",
+      "owner_skill": "to-design-brief",
+      "artifact_section": "docs/design-brief.md#Heuristic review plan",
+      "validation_stage": "prototype",
+      "jobs": [
+        "JOB-001",
+        "JOB-002",
+        "JOB-003",
+        "JOB-004",
+        "JOB-005",
+        "JOB-006"
+      ],
+      "use_cases": [
+        "UC-001",
+        "UC-002",
+        "UC-003",
+        "UC-004",
+        "UC-005",
+        "UC-006",
+        "UC-007"
+      ],
+      "journey": "J-01 through J-07",
+      "scope": "S-02/S-04/S-05; ST-12..16/ST-21..33",
+      "applicability": "covered",
+      "expected_behavior": "As defined by current design brief and screen map",
+      "actual_observation": "Recording/transcript, saved/invalid settings and distinct recovery notices reveal the current preview state. Simulated services are labelled. Fixed 24-hour behavior is an intended contract, not a tested timer.",
+      "evidence": [
+        "forge/design/evidence/a-v3-visual-qa.json",
+        "forge/design/evidence/b-v3-visual-qa.json",
+        "forge/design/evidence/c-v3-visual-qa.json"
+      ],
+      "execution_status": "passed",
+      "severity": "No remaining blocking finding in inspected prototype scope",
+      "release_effect": "No production release conclusion"
+    },
+    {
+      "heuristic_id": "H2",
+      "owner_skill": "to-design-brief",
+      "artifact_section": "docs/design-brief.md#Heuristic review plan",
+      "validation_stage": "prototype",
+      "jobs": [
+        "JOB-001",
+        "JOB-002",
+        "JOB-003",
+        "JOB-004",
+        "JOB-005",
+        "JOB-006"
+      ],
+      "use_cases": [
+        "UC-001",
+        "UC-002",
+        "UC-003",
+        "UC-004",
+        "UC-005",
+        "UC-006",
+        "UC-007"
+      ],
+      "journey": "J-01 through J-07",
+      "scope": "S-02/S-04/S-09; English and Ukrainian fixtures",
+      "applicability": "covered",
+      "expected_behavior": "As defined by current design brief and screen map",
+      "actual_observation": "Literal Settings, model and reasoning labels; New is a task action above the workspace. Eight role-labelled messages include addressed challenge and an explicit revised recommendation.",
+      "evidence": [
+        "forge/design/evidence/a-v3-visual-qa.json",
+        "forge/design/evidence/b-v3-visual-qa.json",
+        "forge/design/evidence/c-v3-visual-qa.json"
+      ],
+      "execution_status": "passed",
+      "severity": "No remaining blocking finding in inspected prototype scope",
+      "release_effect": "No production release conclusion"
+    },
+    {
+      "heuristic_id": "H3",
+      "owner_skill": "to-design-brief",
+      "artifact_section": "docs/design-brief.md#Heuristic review plan",
+      "validation_stage": "prototype",
+      "jobs": [
+        "JOB-001",
+        "JOB-002",
+        "JOB-003",
+        "JOB-004",
+        "JOB-005",
+        "JOB-006"
+      ],
+      "use_cases": [
+        "UC-001",
+        "UC-002",
+        "UC-003",
+        "UC-004",
+        "UC-005",
+        "UC-006",
+        "UC-007"
+      ],
+      "journey": "J-01 through J-07",
+      "scope": "S-02/S-05/S-08; Electric interactive walkthrough",
+      "applicability": "covered",
+      "expected_behavior": "As defined by current design brief and screen map",
+      "actual_observation": "Cancel/Escape available in inspected dialogs. Voice transcript returns to the editable existing draft, with explicit separate Send.",
+      "evidence": [
+        "forge/design/evidence/a-v3-visual-qa.json",
+        "forge/design/evidence/b-v3-visual-qa.json",
+        "forge/design/evidence/c-v3-visual-qa.json"
+      ],
+      "execution_status": "passed",
+      "severity": "No remaining blocking finding in inspected prototype scope",
+      "release_effect": "No production release conclusion"
+    },
+    {
+      "heuristic_id": "H4",
+      "owner_skill": "to-design-brief",
+      "artifact_section": "docs/design-brief.md#Heuristic review plan",
+      "validation_stage": "prototype",
+      "jobs": [
+        "JOB-001",
+        "JOB-002",
+        "JOB-003",
+        "JOB-004",
+        "JOB-005",
+        "JOB-006"
+      ],
+      "use_cases": [
+        "UC-001",
+        "UC-002",
+        "UC-003",
+        "UC-004",
+        "UC-005",
+        "UC-006",
+        "UC-007"
+      ],
+      "journey": "J-01 through J-07",
+      "scope": "S-02/S-04/S-09; all three visual reviews",
+      "applicability": "covered",
+      "expected_behavior": "As defined by current design brief and screen map",
+      "actual_observation": "Floating desktop navigation and mobile hamburger share three destinations. The same combined layout and role positions persist across palettes. Keyboard tabs retain selection/focus semantics.",
+      "evidence": [
+        "forge/design/evidence/a-v3-visual-qa.json",
+        "forge/design/evidence/b-v3-visual-qa.json",
+        "forge/design/evidence/c-v3-visual-qa.json"
+      ],
+      "execution_status": "passed",
+      "severity": "No remaining blocking finding in inspected prototype scope",
+      "release_effect": "No production release conclusion"
+    },
+    {
+      "heuristic_id": "H5",
+      "owner_skill": "to-design-brief",
+      "artifact_section": "docs/design-brief.md#Heuristic review plan",
+      "validation_stage": "prototype",
+      "jobs": [
+        "JOB-001",
+        "JOB-002",
+        "JOB-003",
+        "JOB-004",
+        "JOB-005",
+        "JOB-006"
+      ],
+      "use_cases": [
+        "UC-001",
+        "UC-002",
+        "UC-003",
+        "UC-004",
+        "UC-005",
+        "UC-006",
+        "UC-007"
+      ],
+      "journey": "J-01 through J-07",
+      "scope": "S-01/S-04/S-05/S-08; Electric interactions and all-state rendering",
+      "applicability": "covered",
+      "expected_behavior": "As defined by current design brief and screen map",
+      "actual_observation": "Invalid model/effort disables Save; processing consent starts unchecked; voice does not auto-send. Record-specific deletion confirmation fixture is retained.",
+      "evidence": [
+        "forge/design/evidence/a-v3-visual-qa.json",
+        "forge/design/evidence/b-v3-visual-qa.json",
+        "forge/design/evidence/c-v3-visual-qa.json"
+      ],
+      "execution_status": "passed",
+      "severity": "No remaining blocking finding in inspected prototype scope",
+      "release_effect": "No production release conclusion"
+    },
+    {
+      "heuristic_id": "H6",
+      "owner_skill": "to-design-brief",
+      "artifact_section": "docs/design-brief.md#Heuristic review plan",
+      "validation_stage": "prototype",
+      "jobs": [
+        "JOB-001",
+        "JOB-002",
+        "JOB-003",
+        "JOB-004",
+        "JOB-005",
+        "JOB-006"
+      ],
+      "use_cases": [
+        "UC-001",
+        "UC-002",
+        "UC-003",
+        "UC-004",
+        "UC-005",
+        "UC-006",
+        "UC-007"
+      ],
+      "journey": "J-01 through J-07",
+      "scope": "S-02/S-04/S-06/S-07",
+      "applicability": "covered",
+      "expected_behavior": "As defined by current design brief and screen map",
+      "actual_observation": "Readable role names and avatars identify agents independently of colour. Outcome and Sources are visible tabs; saved selections and active example settings remain distinct.",
+      "evidence": [
+        "forge/design/evidence/a-v3-visual-qa.json",
+        "forge/design/evidence/b-v3-visual-qa.json",
+        "forge/design/evidence/c-v3-visual-qa.json"
+      ],
+      "execution_status": "passed",
+      "severity": "No remaining blocking finding in inspected prototype scope",
+      "release_effect": "No production release conclusion"
+    },
+    {
+      "heuristic_id": "H7",
+      "owner_skill": "to-design-brief",
+      "artifact_section": "docs/design-brief.md#Heuristic review plan",
+      "validation_stage": "prototype",
+      "jobs": [
+        "JOB-001",
+        "JOB-002",
+        "JOB-003",
+        "JOB-004",
+        "JOB-005",
+        "JOB-006"
+      ],
+      "use_cases": [
+        "UC-001",
+        "UC-002",
+        "UC-003",
+        "UC-004",
+        "UC-005",
+        "UC-006",
+        "UC-007"
+      ],
+      "journey": "J-01 through J-07",
+      "scope": "S-02/S-03/S-05/S-09",
+      "applicability": "covered",
+      "expected_behavior": "As defined by current design brief and screen map",
+      "actual_observation": "Workspace New avoids opening a menu. Conversations retains its New action. The mic is a single labelled icon, and tab keyboard navigation works.",
+      "evidence": [
+        "forge/design/evidence/a-v3-visual-qa.json",
+        "forge/design/evidence/b-v3-visual-qa.json",
+        "forge/design/evidence/c-v3-visual-qa.json"
+      ],
+      "execution_status": "passed",
+      "severity": "No remaining blocking finding in inspected prototype scope",
+      "release_effect": "No production release conclusion"
+    },
+    {
+      "heuristic_id": "H8",
+      "owner_skill": "to-design-brief",
+      "artifact_section": "docs/design-brief.md#Heuristic review plan",
+      "validation_stage": "prototype",
+      "jobs": [
+        "JOB-001",
+        "JOB-002",
+        "JOB-003",
+        "JOB-004",
+        "JOB-005",
+        "JOB-006"
+      ],
+      "use_cases": [
+        "UC-001",
+        "UC-002",
+        "UC-003",
+        "UC-004",
+        "UC-005",
+        "UC-006",
+        "UC-007"
+      ],
+      "journey": "J-01 through J-07",
+      "scope": "All surfaces; mobile and Safari desktop",
+      "applicability": "covered",
+      "expected_behavior": "As defined by current design brief and screen map",
+      "actual_observation": "Black surfaces, neutral body text, compact Ember metadata and Cobalt chat geometry are shared. Inspection tools are absent on normal pages; Send has a stable filled treatment.",
+      "evidence": [
+        "forge/design/evidence/a-v3-visual-qa.json",
+        "forge/design/evidence/b-v3-visual-qa.json",
+        "forge/design/evidence/c-v3-visual-qa.json"
+      ],
+      "execution_status": "passed",
+      "severity": "No remaining blocking finding in inspected prototype scope",
+      "release_effect": "No production release conclusion"
+    },
+    {
+      "heuristic_id": "H9",
+      "owner_skill": "to-design-brief",
+      "artifact_section": "docs/design-brief.md#Heuristic review plan",
+      "validation_stage": "prototype",
+      "jobs": [
+        "JOB-001",
+        "JOB-002",
+        "JOB-003",
+        "JOB-004",
+        "JOB-005",
+        "JOB-006"
+      ],
+      "use_cases": [
+        "UC-001",
+        "UC-002",
+        "UC-003",
+        "UC-004",
+        "UC-005",
+        "UC-006",
+        "UC-007"
+      ],
+      "journey": "J-01 through J-07",
+      "scope": "ST-12..16/ST-30..33/ST-36/ST-42",
+      "applicability": "covered",
+      "expected_behavior": "As defined by current design brief and screen map",
+      "actual_observation": "Five distinct discussion recovery fixtures retain the typed draft. Voice error, source unavailable and export error states render separately.",
+      "evidence": [
+        "forge/design/evidence/a-v3-visual-qa.json",
+        "forge/design/evidence/b-v3-visual-qa.json",
+        "forge/design/evidence/c-v3-visual-qa.json"
+      ],
+      "execution_status": "passed",
+      "severity": "No remaining blocking finding in inspected prototype scope",
+      "release_effect": "No production release conclusion"
+    },
+    {
+      "heuristic_id": "H10",
+      "owner_skill": "to-design-brief",
+      "artifact_section": "docs/design-brief.md#Heuristic review plan",
+      "validation_stage": "prototype",
+      "jobs": [
+        "JOB-001",
+        "JOB-002",
+        "JOB-003",
+        "JOB-004",
+        "JOB-005",
+        "JOB-006"
+      ],
+      "use_cases": [
+        "UC-001",
+        "UC-002",
+        "UC-003",
+        "UC-004",
+        "UC-005",
+        "UC-006",
+        "UC-007"
+      ],
+      "journey": "J-01 through J-07",
+      "scope": "S-01/S-04/S-05/S-06",
+      "applicability": "covered",
+      "expected_behavior": "As defined by current design brief and screen map",
+      "actual_observation": "Short contextual guidance covers invalid effort, sample voice review, intended 24-hour sessions and reference limitations. Extended inspection help stays on the development path.",
+      "evidence": [
+        "forge/design/evidence/a-v3-visual-qa.json",
+        "forge/design/evidence/b-v3-visual-qa.json",
+        "forge/design/evidence/c-v3-visual-qa.json"
+      ],
+      "execution_status": "passed",
+      "severity": "No remaining blocking finding in inspected prototype scope",
+      "release_effect": "No production release conclusion"
+    }
+  ],
+  "findings": [
+    {
+      "id": "HYBRID-VIS-01",
+      "severity": "P2",
+      "release_effect": "blocking",
+      "status": "closed",
+      "description": "Safari native model selects ignored the intended comfortable control height.",
+      "resolution": "Retained native select semantics with explicit appearance and CSS chevrons. Final Safari Settings screenshots inspected for all three candidates; final Chromium select height 46.796875px."
+    }
+  ],
+  "representative_user_task_validation": {
+    "execution_status": "not_run",
+    "coverage_status": "deferred",
+    "plan_ref": "docs/design-brief.md#Usability validation plan",
+    "owner": "Product owner and design reviewer",
+    "timing": "Whole-design comparison next; representative task validation before production release",
+    "risk": "Rule-based inspection does not establish real-user comprehension, mobile keyboard behavior or session reliability."
+  },
+  "limitations": [
+    "Design simulation only: no authentication, elapsed-time session test, provider execution, research, microphone capture, transcription service, persistence, database or GoDaddy operation.",
+    "The interactive regression sequence was exercised on Electric shared behavior; state rendering and responsive layout were exercised on all three palettes. No production suite pass is inferred.",
+    "No representative-user session, VoiceOver audit, physical mobile keyboard test, Firefox/Edge run, forced-colors rendering test, full Ukrainian interface localization, performance or production security result.",
+    "Normal screenshots and live UI were inspected. A tall full-page capture had stitching duplication; it is not used as layout evidence. No raster export is claimed."
+  ]
+}

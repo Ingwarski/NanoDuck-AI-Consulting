@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "unit": "U-06",
+  "run_id": "phase3-image-attachments-20260914",
+  "executed_at": "2026-09-14T18:37:12.154Z",
+  "executor": "Codex local implementation runner",
+  "revision_base": "383c80012266b85207d78923fbcf43c3b5fe706c",
+  "baseline_id": "nanoduck-electric-a-v8-20260914",
+  "development_plan_hash": "1687bb3f44dfad54074e252bd5b3dc9c19631fe67510e7ceff1aba38407e1843",
+  "scope": "Owner-only JPEG, PNG and WebP image attachments at most 8 MiB, encrypted opaque storage, message acceptance linking, protected download, cleanup and recovery coverage. Existing browser voice remains local and browser-native. No live target was contacted.",
+  "checks": [
+    {
+      "name": "image format and ciphertext handling",
+      "evidence": "test/core.test.mjs: signature checks, authenticated binary encryption, encrypted recovery and MySQL storage/link transaction",
+      "result": "passed"
+    },
+    {
+      "name": "owner HTTP attachment path",
+      "evidence": "test/http.test.mjs: owner-only raw-byte intake, MIME mismatch, pending isolation/deletion, message linking, protected download, PDF/truncation/over-limit rejection",
+      "result": "passed"
+    },
+    {
+      "name": "local browser composer",
+      "evidence": "In-app browser observation at http://127.0.0.1:4317/: mobile composer visibly exposes Attach image, Voice input, Send and the JPEG/PNG/WebP 8 MiB limit",
+      "result": "passed"
+    },
+    {
+      "name": "repository validation",
+      "evidence": "npm run check: 26 Markdown files, 48 JavaScript syntax checks and 36 tests passed",
+      "result": "passed"
+    },
+    {
+      "name": "SDD integrity",
+      "evidence": "sdd_check.py --before implementation, --after development-plan and --audit all passed",
+      "result": "passed"
+    }
+  ],
+  "source_hashes": {
+    "src/server/attachments.mjs": "c5a6ebb65ccefe9ec157d9b4bd46e9fe86792b912580ff2c4cac6ec9b7058015",
+    "src/server/crypto.mjs": "e52eaf0dfb7dc2d7cf8a02a6c5cd4016b998137790927d7f386dda2b02618a3b",
+    "src/server/index.mjs": "f7abc83c7f785c0b5ad08dec4e9b3e8343d3687b3a1b0ffa6be1ed8c335e0615",
+    "src/server/store.mjs": "fd48880574b3a765d6dc0133e03c0bce038c6878d539c31c83b7ee50b4e7117a",
+    "src/server/recovery.mjs": "9ec19c328bafb55e9da3f608d61dda0dcf6aa3a81a0d333ac0e15a79b8d345fa",
+    "src/server/schema.sql": "1c51869a1f5ccbe262b46c0f947089b7fcbff10c84e610293da9c88cebb3f154",
+    "src/server/config.mjs": "5d85daa33e5e610294dea82d07e192898858230c2d096817c978232a89c7a34a",
+    "src/client/app.js": "1597044552ccce4cb44b12dbd6664b42bbfba5bc5c29336c47dd4ff15aa0994a",
+    "public/index.html": "d2310b95dc00532dc732c136a2317783d7c6028bb2d92c86c5724fc65d6e69ed",
+    "public/styles.css": "fcba8f954b51b1bee04a3dc49908c89b350439a5b814b266e06c2930f0a86e34",
+    "test/core.test.mjs": "ce217967b6350b6a041a1b8463495de2a5bbad75ac14a5def087769f5696545a",
+    "test/http.test.mjs": "459f0e082fd46f23463f4e44f5d09514ecd4a4e163729376e7e5bafa0b819048",
+    "docs/development-plan.md": "1687bb3f44dfad54074e252bd5b3dc9c19631fe67510e7ceff1aba38407e1843",
+    "docs/sdd-consistency-audit.md": "baadf5026178d66947ed36d15f404e57d4ac8f2f97465220a0bbbddcabf43090"
+  },
+  "limits": [
+    "The image check verifies binary signatures and structural end/length markers; it deliberately does not decode, transform, preview or inspect image metadata.",
+    "The browser observation confirms the rendered composer controls. Automated HTTP coverage validates transfer and retrieval; it does not claim a production GoDaddy upload rehearsal.",
+    "No live provider, GoDaddy application, database migration or external scanner was used."
+  ],
+  "release_effect": "not_release_evidence"
+}

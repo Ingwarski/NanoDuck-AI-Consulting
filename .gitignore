@@ -1,5 +1,8 @@
-.DS_Store
+node_modules/
 .env
 .env.*
 !.env.example
-node_modules/
+.DS_Store
+review-session/
+.local/
+.wrangler/

@@ -1,0 +1,73 @@
+{
+  "stage": "approved-design-development-plan",
+  "working_language": "en",
+  "recorded_date": "2026-09-14",
+  "authority": {
+    "current_intent": "Owner design-first reset and SDD integrity requirements, combined Ember/Cobalt layout, 24-hour app sessions, then selection of Electric with HappyPro blue, yellow Head and raspberry Critic on 2026-09-13; then owner-requested NanoDuck Consulting Group SVG branding and warmer Head yellow; supplied actual logo replaces invented mark in v6; v7 corrects source-logo geometry after owner rejection of v6; v8 makes node radii uniform and separates the upper coloured segments; explicit whole-design approval of Electric A v8 and continuation through SDD planning on 2026-09-14",
+    "source_mode": "existing-file",
+    "design_approval": "nanoduck-electric-a-v8-20260914",
+    "production_implementation": "awaiting-separate-implementation-prompt"
+  },
+  "current_brief": {
+    "path": "docs/product-idea.md",
+    "sha256": "96199961a76c8379e586b7c4234b5bbb77450a5a56b32c9cf0d6924bb0b24dd1"
+  },
+  "design_traceability": [
+    {
+      "job_id": "JOB-001",
+      "surfaces": [
+        "Discussion",
+        "Outcome",
+        "Sources"
+      ]
+    },
+    {
+      "job_id": "JOB-002",
+      "surfaces": [
+        "Discussion",
+        "Composer",
+        "Stop and Continue"
+      ]
+    },
+    {
+      "job_id": "JOB-003",
+      "surfaces": [
+        "Sign in",
+        "Settings",
+        "Access expired"
+      ]
+    },
+    {
+      "job_id": "JOB-004",
+      "surfaces": [
+        "History",
+        "Export",
+        "Delete",
+        "Connection lost"
+      ]
+    },
+    {
+      "job_id": "JOB-005",
+      "surfaces": [
+        "Quota reached",
+        "Settings"
+      ]
+    },
+    {
+      "job_id": "JOB-006",
+      "surfaces": [
+        "Voice input",
+        "Editable transcript",
+        "Composer",
+        "Voice failure recovery"
+      ]
+    }
+  ],
+  "limits": [
+    "Prototype uses fictional data and no live services.",
+    "The current SDD manifest owns current dependencies, state coverage, candidate hashes and review receipts; Electric A v8 is explicitly approved.",
+    "Historical settings are not fresh saved-setting or entitlement evidence."
+  ],
+  "current_pipeline_manifest": "forge/sdd-manifest.json",
+  "approval_receipt": "forge/design/evidence/electric-v8-approval-20260914.json"
+}

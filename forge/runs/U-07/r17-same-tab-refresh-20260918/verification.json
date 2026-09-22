@@ -1,0 +1,42 @@
+{
+  "receipt_version": 1,
+  "recorded_at": "2026-09-18T02:25:16+03:00",
+  "scope": "Restore short-lived same-tab browser refresh context for an authenticated, consented owner without persisting drafts or conversation content.",
+  "implementation_prompt": {
+    "path": "forge/runs/implementation-prompt-20260918-r17-same-tab-refresh.json",
+    "content_hash": "64448a3c249a053c32ff421d3cd12a53eec992cd3e3dadc35f31a66af367dd9b"
+  },
+  "implementation": {
+    "module": "src/client/refresh-state.js",
+    "storage": "sessionStorage",
+    "stored_fields": ["page", "tab", "conversationId", "scrollY"],
+    "excluded_fields": ["draft", "message bodies", "attachments", "sources", "runtime instructions", "credentials"],
+    "logout_behavior": "Remove the refresh key before reload; the pagehide handler cannot recreate it after the session state is cleared.",
+    "record_recovery": "Reload the protected conversation before restoring the Discussion local tab and scroll position; unavailable records fall back to Discussion."
+  },
+  "verification": {
+    "automated": {
+      "command": "npm test",
+      "result": "passed",
+      "tests": 116,
+      "coverage": ["refresh-state validation", "privacy allow-list serialization", "served client-module assertion"]
+    },
+    "browser": {
+      "browser": "Chrome",
+      "environment": "local development fixture at http://127.0.0.1:4326/",
+      "steps": [
+        "Sign in as the development owner and accept processing consent.",
+        "Open Settings and scroll near the Runtime instructions/Saved versions/Session content.",
+        "Use browser Refresh in that same Chrome tab.",
+        "Observe Settings remains selected at the same rendered reading position after the page reloads."
+      ],
+      "result": "passed"
+    },
+    "excluded": [
+      "GoDaddy Preview or Published deployment",
+      "Google OAuth verification",
+      "Safari browser verification",
+      "full release-gate execution"
+    ]
+  }
+}

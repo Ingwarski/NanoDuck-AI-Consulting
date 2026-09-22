@@ -1,0 +1,61 @@
+{
+  "status": "listening_candidate_not_production",
+  "applied_to_app": false,
+  "source_page": "https://freesound.org/people/giddster/sounds/414460/",
+  "source_download": "https://cdn.freesound.org/previews/414/414460_1738686-hq.mp3",
+  "title": "Dropping ping pong ball on table",
+  "creator": "giddster",
+  "license": "CC0",
+  "source_sha256": "380fec20b4e6a289af202a5e64a9769c92ea0dcf06e471b4e610a0a82c652aa7",
+  "edit": "Retain more recorded table body: high-pass 360 Hz, broad +4 dB at 1100 Hz, low-pass 5500 Hz. Remove the earlier treble boost. Give the direct impact 6 ms before a 7 ms exponential decay; end at 45 ms. Stronger soft compression. Three taps remain 250 ms apart with no pitch change or added reverb.",
+  "measurements": {
+    "sample_rate": 48000,
+    "channels": 1,
+    "duration_seconds": 0.59,
+    "tap_length_ms": 45,
+    "onset_interval_ms": 250,
+    "high_pass_hz": 360,
+    "body_peak_hz": 1100,
+    "body_gain_db": 4,
+    "low_pass_hz": 5500,
+    "decay_after_ms": 6,
+    "decay_time_constant_ms": 7,
+    "source_segment_seconds": [
+      0.3945,
+      0.4395
+    ],
+    "impact_emphasis": "tanh compression, drive 2.2; peak 0.96",
+    "peak_fraction": 0.96,
+    "clipped_samples": 0,
+    "pitch": "unchanged; no resampling",
+    "reverb": "none added"
+  },
+  "preview_sha256": "7415b7d2e927dbf11d063ca616c0cfdaa1cfea55d8e7e245b65611a36ddac331",
+  "script_sha256": "b38d3236a7e1dac2a8d099e4abb4f2a039605f0b7d9d96a05f8ae733a219e4b6",
+  "pcm_verification": {
+    "peak_intervals_ms": [
+      250.0,
+      250.0
+    ],
+    "clipped_samples": 0,
+    "silence_between_impacts": true,
+    "previous": {
+      "spectral_centroid_hz": 4633.613947183975,
+      "body_400_to_2200_hz_percent": 57.28399678873159
+    },
+    "candidate": {
+      "spectral_centroid_hz": 1310.636733560575,
+      "body_400_to_2200_hz_percent": 91.49260458579126
+    },
+    "rms_gain_vs_v3_db": 3.220987648810497
+  },
+  "supersedes_preview": "forge/exploration/message-sound-table-250ms-v3/preview.wav",
+  "owner_feedback_on_previous": "It sounds plasticky. I need a bit more ping-pong woodish sound.",
+  "deployment": "not_performed",
+  "comparison": {
+    "path": "forge/exploration/message-sound-table-250ms-v4/comparison-old-then-wood.wav",
+    "sha256": "c037770f3e6ccc0e46aafe1a7631de612f61ce29816f1e83cd5128f9c1223199",
+    "order": "Previous v3, 900 ms silence, then warmer v4. Original levels preserved."
+  },
+  "owner_timbre_verdict": "Pending owner listening; numerical verification does not establish perceived timbre."
+}

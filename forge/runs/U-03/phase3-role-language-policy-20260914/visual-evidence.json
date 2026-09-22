@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "evidence_id": "u03-role-language-policy-local-browser-20260914",
+  "kind": "visual",
+  "observed_at": "2026-09-14T16:50:57+03:00",
+  "executor": "Codex local browser verification",
+  "environment": "local Node development server on port 4318, memory store and development owner; no live provider credential or GoDaddy target",
+  "route": "http://127.0.0.1:4318/",
+  "observed_states": [
+    "The private sign-in shows the black Electric composition, blue heading, corrected NanoDuck mark and floating desktop navigation.",
+    "The local workspace exposes Discussion, Outcome and Sources tabs, a visible Send button and an icon-only Voice input control.",
+    "Settings visibly preserves gpt-6-astra for Head and Critic, xhigh/ultra reasoning choices, Fast/Balanced/Thorough pace choices and the fixed 24-hour session boundary.",
+    "The current discussion contains no development-only review-state control, and New is present as the primary shortcut."
+  ],
+  "finding": "No visual blocker was observed in the checked local desktop states. Automated unit coverage verifies the role-routing and language/source-policy rules; responsive, assistive-technology and live-provider checks remain outside this evidence."
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "event": "implementation_prompt",
+  "role": "user",
+  "intent": "start_production_implementation",
+  "prompt_id": "impl-r16-discussion-feedback-20260918",
+  "message": "1. Має бути щось типу бульбашки FB месенджера, яка каже, що текст пишеться/думається. Може типу бульбашка яка звикло означає думки - кілька бульбашок і хмарка. 2. Також потрібен звук для надходження повідомлення - кілька на вибір - стук (туктуктук - як в Nokia), і ще два на твій вибір. 3. Заголовок дискусії потрібно суттєво зменшити, він завеликий і обрізаний. Потрібно формулювати заголовок з суті запиту. Як це краще зробити? Name of the conversation can be created when it is finished. The dialog can go on without it on top. Також глянь на останню розмову - в чому проблема? Система не повинна завалювати діалог, просто тому. Що мовна політика не спрацювала. Система має знайти спосіб це зробити інакше, щоб не тригерити помилку.",
+  "recorded_at": "2026-09-18T00:35:00+00:00",
+  "received_at": "2026-09-18T00:35:00+00:00",
+  "message_provenance": "Exact consecutive owner instructions for this scoped implementation correction; received_at and recorded_at capture receipt creation, not inferred message-arrival times.",
+  "development_plan_hash": "294e0ba1643858724845b2256c3f8246e6b6f6131579244262add58b711c32a0",
+  "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
+  "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
+  "scope_note": "Implement the owner-requested active thought indicator, selected local Web Audio incoming-message sounds, completed-only concise record title, and bounded same-role policy replacement. Preserve the approved Electric A v8 baseline except for this scoped presentation correction. No production deployment, secret replacement, data reset or unrelated GoDaddy operation is authorized by this receipt."
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "event": "implementation_prompt",
+  "role": "user",
+  "intent": "start_production_implementation",
+  "prompt_id": "impl-20260915-runtime-instructions-database",
+  "received_at": "2026-09-15T15:43:10+03:00",
+  "message": "then would it be best to use just this DB to store the instructions instead of md file>",
+  "development_plan_hash": "f5ec69dfb7b06b7fe1bd11709316334274788862d06671d627df3ff706d7a061",
+  "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
+  "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
+  "scope_note": "The owner selected the existing application database as the single active runtime-instructions document store. Local implementation, deterministic checks and local browser verification are authorized. Deployment, GoDaddy data operations and external changes remain outside authorization."
+}

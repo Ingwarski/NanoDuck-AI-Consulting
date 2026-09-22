@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "event": "implementation_prompt",
+  "role": "user",
+  "intent": "start_production_implementation",
+  "prompt_id": "impl-r14-visible-login-menu-20260917",
+  "message": "Create Login button for the menu bar. When logged in - instead of it should be logoff button!",
+  "recorded_at": "2026-09-16T23:53:41+00:00",
+  "received_at": "2026-09-16T23:53:41+00:00",
+  "message_provenance": "Exact current user message; received_at and recorded_at capture receipt creation, not an inferred exact message-arrival time.",
+  "development_plan_hash": "f9d3e8a58b4d97e15af3ae4219d2ee77341f3cecaf270ba4d878ac040faf780d",
+  "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
+  "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
+  "scope_note": "Implement the explicit Login/Logoff desktop and mobile menu correction and reconcile affected SDD owners. Existing single-owner authentication, consent, 24-hour session, approved A v8 design outside this override and deployment boundaries remain unchanged. No production deployment, secret replacement, data reset or unrelated app operation is authorized by this receipt."
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "unit": "U-04",
+  "run_id": "r10-whole-team-review-20260916",
+  "recorded_at": "2026-09-16T02:53:00+03:00",
+  "executor": "Codex using Chrome through the existing owner session",
+  "kind": "hosted-browser-provider",
+  "environment": "GoDaddy private Preview for app wy2v0putg6 only",
+  "implementation_revision": "fb5ec128ec6972cabfe5848726d840b154e7e371",
+  "deployment_health": "Infrastructure OK and site OK; exact deployed commit observed in the Preview tab",
+  "checks": ["QA-R06", "QA-R21", "QA-R22", "QA-R36"],
+  "result": "passed_with_limited_scope",
+  "fixture": "Synthetic review-coverage test: a fictional one-person bakery has two spare hours each week. Should it test preorders or a loyalty card first? Assess both and give one practical next step.",
+  "settings": {
+    "headModel": "gpt-6-astra",
+    "headReasoning": "xhigh",
+    "criticModel": "gpt-6-astra",
+    "criticReasoning": "xhigh",
+    "specialistCount": "2",
+    "discussionDepth": "1"
+  },
+  "observed_sequence": [
+    ["owner", null],
+    ["Head Consultant", "Strategy Consultant"],
+    ["Head Consultant", "Finance Consultant"],
+    ["Strategy Consultant", "Critic"],
+    ["Finance Consultant", "Critic"],
+    ["Critic", "Strategy Consultant"],
+    ["Strategy Consultant", "Critic"],
+    ["Critic", "Finance Consultant"],
+    ["Finance Consultant", "Critic"],
+    ["Head Consultant", null]
+  ],
+  "observations": [
+    "The accepted run began at 02:47 and the final synthesis displayed at 02:51 Europe/Kyiv on 16 September 2026.",
+    "Critic challenged Strategy's revenue-only continuation rule. Strategy revised it to include contribution, owner time and a financial threshold.",
+    "Critic then directly challenged Finance on distinguishing a preorder gain from ordinary weekly variation. Finance acknowledged the two-cycle limit and revised the evaluation to require baseline variation and repeated evidence.",
+    "Only after Finance replied did Head synthesize. The final advice retained provisional profitability and the need for repeated evidence before expansion.",
+    "The page displayed Discussion complete and the Outcome rendered the final synthesis.",
+    "After a browser reload, opening the synthetic record from Conversations restored all ten messages in the same directed order and the completed state.",
+    "The owner had one specialist and depth 1 saved before the test. Two specialists were saved temporarily, the test was accepted, and one specialist was restored while the test continued with its accepted two-specialist snapshot. A subsequent reload confirmed the original preference and both Astra/xhigh model settings.",
+    "Settings visibly explains that depth applies to every specialist and Auto is capped at ten exchanges per specialist."
+  ],
+  "historical_evidence": "R-09 remains transport/persistence evidence only; its missing Finance review cannot satisfy full team coverage.",
+  "limits": [
+    "One synthetic hosted run verifies two specialists at depth 1. Other fixed combinations, Auto, failure and interrupted review are covered by local regression fixtures, not claimed as hosted executions.",
+    "No performance, mobile voice, Google OAuth, security certification or full release acceptance is claimed.",
+    "No Published deployment, secret replacement, database reset, private-content export or unrelated GoDaddy resource change. No share token or owner instruction text is included."
+  ],
+  "release_readiness": "not_evaluated"
+}

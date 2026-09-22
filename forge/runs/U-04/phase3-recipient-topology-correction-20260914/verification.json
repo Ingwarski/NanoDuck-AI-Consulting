@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "unit": "U-04",
+  "run_id": "phase3-recipient-topology-correction-20260914",
+  "executed_at": "2026-09-14T20:40:00Z",
+  "executor": "Codex local implementation runner",
+  "revision_base": "b7b6110374e67f0b7369a9fde586ee5f0bb2466d",
+  "baseline_id": "nanoduck-electric-a-v8-20260914",
+  "development_plan_hash": "36bab1115f5405af4a40c8bb8c4c716962b0908cf4250099591b3afab5bab387",
+  "scope": "Correct local substantive-consultation recipient topology only. No GoDaddy application, database, migration, reset, deletion, deployment or external upload was contacted.",
+  "required_topology": [
+    "Head Consultant -> each selected specialist: concise task only",
+    "each selected specialist -> Critic: independent initial position",
+    "Critic -> relevant specialist -> Critic: one pair per selected discussion-depth exchange",
+    "Head Consultant -> owner: one final synthesis only"
+  ],
+  "checks": [
+    {
+      "name": "deterministic orchestration recipient matrix",
+      "evidence": "test/consultation.test.mjs",
+      "observed": "Two-, three-, five- and Auto-specialist cases assert Head tasks first, independent specialist-to-Critic positions, only Critic-specialist exchanges and one final Head-to-owner conclusion. The former Finance-to-Strategy route is denied.",
+      "result": "passed",
+      "limit": "Controlled fixture evidence does not prove actual provider prompt compliance."
+    },
+    {
+      "name": "HTTP integration recipient matrix",
+      "evidence": "test/http.test.mjs",
+      "observed": "The service integration sequence asserts individual Head task recipients, specialist-to-Critic replies, Critic challenge and reply, then one final Head conclusion.",
+      "result": "passed",
+      "limit": "Controlled fixture evidence does not invoke the subscribed provider."
+    },
+    {
+      "name": "local live multi-agent provider check",
+      "evidence": "synthetic no-sensitive browser consultation through the actual local Codex app-server",
+      "observed": "A two-specialist substantive consultation completed in a disposable local browser session. The displayed recipient matrix was Head Consultant -> Marketing Consultant; Head Consultant -> Product Consultant; Marketing Consultant -> Critic; Product Consultant -> Critic; Critic -> Marketing Consultant; Marketing Consultant -> Critic; Head Consultant -> owner. Both pre-conclusion Head messages were role-addressed tasks without owner advice, and no specialist-to-specialist message appeared.",
+      "result": "passed",
+      "limit": "One English synthetic run observes this recipient matrix and prompt compliance only. It does not prove every topic, Auto selection/depth, research, voice, target hosting or release behavior."
+    }
+  ],
+  "formal_release_status": {
+    "canonical_qa": "82 prepared / not_run",
+    "release_readiness": "not_evaluated"
+  },
+  "release_effect": "not_release_evidence",
+  "source_hashes": {
+    "docs/product-idea.md": "90ea855d4c479c3d4e23e350a0de0d9e89be24b40d15c00c18e5590cd9e5fc6c",
+    "docs/prd.md": "b3ef59189aed3191d9bd02a3cb0c4d7da13c6e6f5f099eb7f2a02b2fe05efdcc",
+    "docs/architecture.md": "98278642479be259a67b5757e6e6bb41836af34bc6899091722f583f0f64ed11",
+    "docs/dod-evals.md": "cba2ffc77ec3ed2c915e2a3f7be18264ab288d5b5df08799e4e79c7619cef0cf",
+    "docs/qa-checklist.md": "674c987a75c819033ee2853d48ebef00947c99860ad23dc765df48a502c5913f",
+    "docs/development-plan.md": "36bab1115f5405af4a40c8bb8c4c716962b0908cf4250099591b3afab5bab387",
+    "src/server/consultation.mjs": "bf4acc6c295fcec5e08832aeadbd8550bcfde79ef611d6367c092383929e5e1e",
+    "test/consultation.test.mjs": "fc724edcd087768e7e8bb78f4cb353b3d55650c01b7a5766f64c3c0ee8705530",
+    "test/http.test.mjs": "3f863a78ec3fa09afe508fcfccfedb61664ac5966fa945b0a6e196476c5a9bc8",
+    "test/fixtures/fake-codex.mjs": "6c8dcdd649ac41dedb22c9f44481e306eac0d95938ccc3f49ef7c9de76e7c769"
+  }
+}

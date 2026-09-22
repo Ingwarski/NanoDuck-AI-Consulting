@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "event": "implementation_prompt",
+  "role": "user",
+  "prompt_id": "impl-r08-godaddy-env-envelope-20260916",
+  "received_at": "2026-09-16T01:09:02+03:00",
+  "intent": "start_production_implementation",
+  "message": "There's probably some shit in code. Check the GoDaddy requirements and fix it.",
+  "authorized_scope": [
+    "repair the NanoDuck repository and SDD records",
+    "deploy only to the named Personal AI Consulting Group private Preview for verification"
+  ],
+  "prohibited_scope": [
+    "Published release",
+    "GoDaddy secret-value change or disclosure",
+    "database reset, deletion or migration outside the idempotent owned startup path",
+    "any other GoDaddy application or resource"
+  ],
+  "decision": "A GoDaddy rollback reports strict DATA_ENCRYPTION_KEY validation. Extend only the strict parser to recognize an exact same-name .env assignment envelope before its existing validation, with no derivation, substitution or secret logging.",
+  "development_plan_hash": "ffab21103667153244b1cd8d999adbb2c86cbb76d2caddae48168f3f0995c1b9",
+  "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
+  "product_scope_hash": "4fc3dfb32ddea9a879bbcda9b069505a6c48fb5b8e3176af2c6fd8f28aa31abc",
+  "scope_note": "Deploy only to the named Personal AI Consulting Group private Preview for verification. No Published release, secret replacement, database reset, deletion, migration outside the owned idempotent startup path, or change to any other GoDaddy resource is authorized."
+}

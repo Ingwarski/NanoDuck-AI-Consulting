@@ -1,0 +1,40 @@
+{
+  "status": "unapproved_sound_preview",
+  "applied_to_app": false,
+  "source_page": "https://freesound.org/people/giddster/sounds/414460/",
+  "source_download": "https://cdn.freesound.org/previews/414/414460_1738686-hq.mp3",
+  "title": "Dropping ping pong ball on table",
+  "creator": "giddster",
+  "license": "CC0",
+  "source_sha256": "380fec20b4e6a289af202a5e64a9769c92ea0dcf06e471b4e610a0a82c652aa7",
+  "edit": "Repeat one recorded table impact three times at 250 ms onset-to-onset. Preserve pitch; 1 ms entry/15 ms exit fades; normalize peak to 0.88.",
+  "measurements": {
+    "sample_rate": 48000,
+    "channels": 2,
+    "duration_seconds": 0.76,
+    "impact_starts_seconds": [
+      0.008,
+      0.258,
+      0.508
+    ],
+    "impact_interval_ms": 250,
+    "source_segment_seconds": [
+      0.385,
+      0.575
+    ],
+    "peak_fraction": 0.8800000000000001,
+    "clipped_samples": 0,
+    "pitch": "unchanged; no resampling or time stretching"
+  },
+  "preview_sha256": "171397e95315b6b77e089e0c7aa02e2bfbf35d3f7cc8905e7ee1c853d23500ef",
+  "script_sha256": "29f77ca97fcf7b04cf381e0e000eee18ae34ef8489193b4b9372db2cadb2e132",
+  "owner_timbre_verdict": "pending",
+  "pcm_verification": {
+    "peak_intervals_ms": [
+      250.0,
+      250.0
+    ],
+    "peak_sample": 28835,
+    "clipped_samples": 0
+  }
+}

@@ -1,0 +1,456 @@
+{
+  "recorded_at": "2026-09-16T23:53:41+00:00",
+  "executor": "Codex inline SDD owners and orchestrator",
+  "checks": [
+    {
+      "result": "passed",
+      "node": "product-idea",
+      "mode": "before",
+      "skipped_artifacts": [],
+      "checked_artifacts": [],
+      "affected_artifacts": [],
+      "issues": [],
+      "warnings": [],
+      "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+    },
+    {
+      "result": "passed",
+      "node": "product-idea",
+      "mode": "after",
+      "skipped_artifacts": [],
+      "checked_artifacts": [
+        "product-idea"
+      ],
+      "affected_artifacts": [],
+      "issues": [],
+      "warnings": [],
+      "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+    },
+    {
+      "result": "passed",
+      "node": "prd",
+      "mode": "before",
+      "skipped_artifacts": [],
+      "checked_artifacts": [
+        "product-idea"
+      ],
+      "affected_artifacts": [],
+      "issues": [],
+      "warnings": [],
+      "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+    },
+    {
+      "result": "passed",
+      "node": "prd",
+      "mode": "after",
+      "skipped_artifacts": [],
+      "checked_artifacts": [
+        "prd",
+        "product-idea"
+      ],
+      "affected_artifacts": [],
+      "issues": [],
+      "warnings": [],
+      "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+    },
+    {
+      "result": "passed",
+      "node": "project-context",
+      "mode": "before",
+      "skipped_artifacts": [],
+      "checked_artifacts": [
+        "prd",
+        "product-idea"
+      ],
+      "affected_artifacts": [],
+      "issues": [],
+      "warnings": [],
+      "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+    },
+    {
+      "result": "passed",
+      "node": "project-context",
+      "mode": "after",
+      "skipped_artifacts": [],
+      "checked_artifacts": [
+        "canonical-terms",
+        "prd",
+        "product-idea",
+        "project-context"
+      ],
+      "affected_artifacts": [],
+      "issues": [],
+      "warnings": [],
+      "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+    },
+    {
+      "result": "passed",
+      "node": "guardrails",
+      "mode": "before",
+      "skipped_artifacts": [],
+      "checked_artifacts": [
+        "canonical-terms",
+        "prd",
+        "product-idea",
+        "project-context"
+      ],
+      "affected_artifacts": [],
+      "issues": [],
+      "warnings": [],
+      "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+    },
+    {
+      "result": "passed",
+      "node": "guardrails",
+      "mode": "after",
+      "skipped_artifacts": [],
+      "checked_artifacts": [
+        "canonical-terms",
+        "guardrails",
+        "prd",
+        "product-idea",
+        "project-context"
+      ],
+      "affected_artifacts": [],
+      "issues": [],
+      "warnings": [],
+      "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+    },
+    {
+      "result": "passed",
+      "node": "user-journey",
+      "mode": "before",
+      "skipped_artifacts": [],
+      "checked_artifacts": [
+        "canonical-terms",
+        "guardrails",
+        "prd",
+        "product-idea",
+        "project-context"
+      ],
+      "affected_artifacts": [],
+      "issues": [],
+      "warnings": [],
+      "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+    },
+    {
+      "result": "passed",
+      "node": "user-journey",
+      "mode": "after",
+      "skipped_artifacts": [],
+      "checked_artifacts": [
+        "canonical-terms",
+        "guardrails",
+        "prd",
+        "product-idea",
+        "project-context",
+        "user-journey"
+      ],
+      "affected_artifacts": [],
+      "issues": [],
+      "warnings": [],
+      "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+    },
+    {
+      "result": "passed",
+      "node": "screen-map",
+      "mode": "before",
+      "skipped_artifacts": [],
+      "checked_artifacts": [
+        "canonical-terms",
+        "guardrails",
+        "prd",
+        "product-idea",
+        "project-context",
+        "user-journey"
+      ],
+      "affected_artifacts": [],
+      "issues": [],
+      "warnings": [],
+      "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+    },
+    {
+      "result": "passed",
+      "node": "screen-map",
+      "mode": "after",
+      "skipped_artifacts": [],
+      "checked_artifacts": [
+        "canonical-terms",
+        "guardrails",
+        "prd",
+        "product-idea",
+        "project-context",
+        "screen-map",
+        "user-journey"
+      ],
+      "affected_artifacts": [],
+      "issues": [],
+      "warnings": [],
+      "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+    },
+    {
+      "result": "passed",
+      "node": "wireframes",
+      "mode": "before",
+      "skipped_artifacts": [],
+      "checked_artifacts": [
+        "canonical-terms",
+        "guardrails",
+        "prd",
+        "product-idea",
+        "project-context",
+        "screen-map",
+        "user-journey"
+      ],
+      "affected_artifacts": [],
+      "issues": [],
+      "warnings": [],
+      "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+    },
+    {
+      "result": "passed",
+      "node": "wireframes",
+      "mode": "after",
+      "skipped_artifacts": [],
+      "checked_artifacts": [
+        "canonical-terms",
+        "guardrails",
+        "prd",
+        "product-idea",
+        "project-context",
+        "screen-map",
+        "user-journey",
+        "wireframes"
+      ],
+      "affected_artifacts": [],
+      "issues": [],
+      "warnings": [],
+      "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+    },
+    {
+      "result": "passed",
+      "node": "design-brief",
+      "mode": "before",
+      "skipped_artifacts": [],
+      "checked_artifacts": [
+        "canonical-terms",
+        "guardrails",
+        "prd",
+        "product-idea",
+        "project-context",
+        "screen-map",
+        "user-journey",
+        "wireframes"
+      ],
+      "affected_artifacts": [],
+      "issues": [],
+      "warnings": [],
+      "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+    },
+    {
+      "result": "passed",
+      "node": "design-brief",
+      "mode": "after",
+      "skipped_artifacts": [],
+      "checked_artifacts": [
+        "canonical-terms",
+        "design-brief",
+        "guardrails",
+        "prd",
+        "product-idea",
+        "project-context",
+        "screen-map",
+        "user-journey",
+        "wireframes"
+      ],
+      "affected_artifacts": [],
+      "issues": [],
+      "warnings": [],
+      "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+    },
+    {
+      "result": "passed",
+      "node": "architecture",
+      "mode": "before",
+      "skipped_artifacts": [],
+      "checked_artifacts": [
+        "canonical-terms",
+        "design-brief",
+        "guardrails",
+        "prd",
+        "product-idea",
+        "project-context",
+        "screen-map",
+        "user-journey",
+        "wireframes"
+      ],
+      "affected_artifacts": [],
+      "issues": [],
+      "warnings": [],
+      "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+    },
+    {
+      "result": "passed",
+      "node": "architecture",
+      "mode": "after",
+      "skipped_artifacts": [],
+      "checked_artifacts": [
+        "architecture",
+        "canonical-terms",
+        "design-brief",
+        "guardrails",
+        "prd",
+        "product-idea",
+        "project-context",
+        "screen-map",
+        "user-journey",
+        "wireframes"
+      ],
+      "affected_artifacts": [],
+      "issues": [],
+      "warnings": [],
+      "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+    },
+    {
+      "result": "passed",
+      "node": "dod-evals",
+      "mode": "before",
+      "skipped_artifacts": [],
+      "checked_artifacts": [
+        "architecture",
+        "canonical-terms",
+        "design-brief",
+        "guardrails",
+        "prd",
+        "product-idea",
+        "project-context",
+        "screen-map",
+        "user-journey",
+        "wireframes"
+      ],
+      "affected_artifacts": [],
+      "issues": [],
+      "warnings": [],
+      "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+    },
+    {
+      "result": "passed",
+      "node": "dod-evals",
+      "mode": "after",
+      "skipped_artifacts": [],
+      "checked_artifacts": [
+        "architecture",
+        "canonical-terms",
+        "design-brief",
+        "dod-evals",
+        "guardrails",
+        "prd",
+        "product-idea",
+        "project-context",
+        "screen-map",
+        "user-journey",
+        "wireframes"
+      ],
+      "affected_artifacts": [],
+      "issues": [],
+      "warnings": [],
+      "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+    },
+    {
+      "result": "passed",
+      "node": "qa-checklist",
+      "mode": "before",
+      "skipped_artifacts": [],
+      "checked_artifacts": [
+        "architecture",
+        "canonical-terms",
+        "design-brief",
+        "dod-evals",
+        "guardrails",
+        "prd",
+        "product-idea",
+        "project-context",
+        "screen-map",
+        "user-journey",
+        "wireframes"
+      ],
+      "affected_artifacts": [],
+      "issues": [],
+      "warnings": [],
+      "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+    },
+    {
+      "result": "passed",
+      "node": "qa-checklist",
+      "mode": "after",
+      "skipped_artifacts": [],
+      "checked_artifacts": [
+        "architecture",
+        "canonical-terms",
+        "design-brief",
+        "dod-evals",
+        "guardrails",
+        "prd",
+        "product-idea",
+        "project-context",
+        "qa-checklist",
+        "screen-map",
+        "user-journey",
+        "wireframes"
+      ],
+      "affected_artifacts": [],
+      "issues": [],
+      "warnings": [],
+      "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+    },
+    {
+      "result": "passed",
+      "node": "development-plan",
+      "mode": "before",
+      "skipped_artifacts": [],
+      "checked_artifacts": [
+        "architecture",
+        "canonical-terms",
+        "design-brief",
+        "dod-evals",
+        "guardrails",
+        "prd",
+        "product-idea",
+        "project-context",
+        "qa-checklist",
+        "screen-map",
+        "user-journey",
+        "wireframes"
+      ],
+      "affected_artifacts": [],
+      "issues": [],
+      "warnings": [],
+      "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+    },
+    {
+      "result": "passed",
+      "node": "development-plan",
+      "mode": "after",
+      "skipped_artifacts": [],
+      "checked_artifacts": [
+        "architecture",
+        "canonical-terms",
+        "design-brief",
+        "development-plan",
+        "dod-evals",
+        "guardrails",
+        "prd",
+        "product-idea",
+        "project-context",
+        "qa-checklist",
+        "screen-map",
+        "user-journey",
+        "wireframes"
+      ],
+      "affected_artifacts": [],
+      "issues": [],
+      "warnings": [],
+      "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+    }
+  ]
+}

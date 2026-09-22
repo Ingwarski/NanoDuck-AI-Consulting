@@ -1,0 +1,53 @@
+{
+  "recorded_at": "2026-09-18T00:40:00+00:00",
+  "executor": "Codex",
+  "base_revision": "458ff28",
+  "unit": "U-03/U-04",
+  "correction": "R-16",
+  "implementation_sha256": {
+    "src/client/app.js": "6e1592e56ee41f2e73761453349791d8440a8f3044867da66bad22d3fce6e88e",
+    "public/index.html": "69ce16a3e83d2ac5ae580e0d76f1faa968888f25217270bbe646775dc09beb1a",
+    "public/styles.css": "62846db13c24f14930073ecd597b3aea0d34aedf9006ce2abab55e4c1046d749",
+    "src/server/consultation.mjs": "16d234fbf2defe1088d412a04bc054906f85e305304edac26827eee332299df0",
+    "src/server/store.mjs": "35f8ca1c68322b8ad781957a8a962eb88bbe481b5fdfb31a7d1f35a31e3790a6",
+    "src/server/prompt-contracts.mjs": "e9ad56fdb433979e2c818706b31316a80e8dae1b3af92282fc0b000394230a9b",
+    "src/server/validation.mjs": "915a9b5fca03b4497e74735c972a53498bf384d26b58322e010b625964d2b217",
+    "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
+    "test/consultation.test.mjs": "16452c77434a0bd14ac7d832368531606e0ccc7c0eebf34ad563368b5b423b56",
+    "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
+    "test/prompt-contracts.test.mjs": "0dc1c3f1432438cf1709fdbf8a65780fcfcf1677e154ebda94ff4b5fee96c29e",
+    "test/http.test.mjs": "55e4924b65239d3af216967c598ba7957d3b2d16f05737ef47cdfd895e65530b"
+  },
+  "change": "Replace the oversized active discussion title with a compact thought-bubble state; save a concise deterministic title only after final synthesis; offer selected native incoming-message sounds; and retry one language/source-policy-rejected role draft without storing or rendering it.",
+  "environment": "Local development memory store with a fictional owner and the existing fake Codex provider. No live provider, database, hosted secrets or GoDaddy operation.",
+  "tests": {
+    "command": "npm test",
+    "passed": 109,
+    "failed": 0,
+    "targeted_coverage": [
+      "same role/task replacement after one policy-rejected provider draft",
+      "rejected text and source exclusion from the canonical event stream",
+      "Head synthesis only after all team closing contributions",
+      "completed-only deterministic conversation title",
+      "native incoming-sound preference validation and HTTP persistence",
+      "hard server-owned English/Ukrainian provider policy"
+    ]
+  },
+  "browser": {
+    "browser": "Chrome",
+    "result": "passed_with_audio_environment_limit",
+    "observations": [
+      "Signed in to the isolated local fixture and completed its processing consent.",
+      "Submitted a deliberately slow fictional consultation and observed the labelled thought bubble, accessible image name, compact active status and reachable Stop control.",
+      "Opened Settings and observed Knock — tuk-tuk-tuk, Chime, Ripple and Off plus the owner-activated Preview control and visible-feedback fallback text.",
+      "After completion, Conversations showed a concise saved title and no active heading was present in Discussion.",
+      "At 390 CSS px, the mobile bar retained Logoff and Menu without desktop navigation crowding."
+    ],
+    "audio_limit": "The automated Chrome surface exposes neither AudioContext nor webkitAudioContext, so audible playback itself was not asserted. The UI and native-browser fallback path were observed; real audible sound remains a normal-device Chrome/Safari check."
+  },
+  "sdd_audit": "passed; all 13 source-bound artifacts, no issues or warnings",
+  "limits": [
+    "No production deployment, live-provider consultation, hosted database verification or full release-gate pass is claimed.",
+    "The deterministic title derives from the owner question and does not add a provider/model call."
+  ]
+}

@@ -1,0 +1,239 @@
+{
+  "observed_at": "2026-09-13T21:43:35.070308+00:00",
+  "result": "passed",
+  "scope": "Explicit Electric A v8 approval; owner reconciliation and complete development planning; no production execution",
+  "baseline_id": "nanoduck-electric-a-v8-20260914",
+  "canonical_artifacts": 13,
+  "consumed_source_bindings": 137,
+  "context_terms_coupling": "One invocation; two declared outputs and independent hashes",
+  "required_clauses": 59,
+  "required_states": 44,
+  "security_clauses": 17,
+  "implementation_units": 8,
+  "historical_files_preserved": 174,
+  "reachable_skill_resources": 30,
+  "missing_skill_references": [],
+  "scope_repositories": {
+    "pipeline-skills": {
+      "clean": true,
+      "head": "408af3af8ba1d5690544796afb8dd2f5a2d06de0"
+    }
+  },
+  "source_hashes": {
+    "docs/product-idea.md": "122c7fed5979a0c8c298181c71fe73588c32859b689cb8d6d7dde80e7f41435e",
+    "docs/prd.md": "cb722b38f3496cca581cded40cc7458b35122945198622de9e91438bcf4f75f4",
+    "docs/project-context.md": "bd01389e184f32c0472c6e6d074ef4fb1fc332bd51ebdcc6451c3a50a04aafb8",
+    "docs/canonical-terms.md": "9c2f3444cc96a71af50bbf63c376c7e492df61021543fb4474dbb3492100e61a",
+    "docs/guardrails.md": "265989215b6104b58093134ebe15d55ba42dfe1d69126ffb73f53ab54588cab9",
+    "docs/user-journey.md": "cd04034d29303cc240af1f2fd867df5201c411b0e0ca3e6373d0c1118fe033f5",
+    "docs/screen-map.md": "3d6b78860cd0e598c9a192ca7c26d2bd6d336b837c47c7c6d4d43e9d6fd23274",
+    "docs/wireframes.md": "bfac68ee80d7ce6d618cc6fe3e568edbbb21431ff2c04960ffea66e2189abad4",
+    "docs/design-brief.md": "329a55b4bf87b9a0911997ded20c99457e9ad5e30e920c3d035ca93fd571ea57",
+    "docs/architecture.md": "ed3199fe7971a75777c025e640031f5893a58f8384ab4f0b02b3705b4609328b",
+    "docs/dod-evals.md": "38de078c4c26e35e952adeb068212d92fcced5b7d239c1cbf2f2db6a8079050b",
+    "docs/qa-checklist.md": "5dbe19653186beb8a808919831f3948bf9b7d65eba6adcb57a79ab3e71494aeb",
+    "docs/development-plan.md": "048c8d136d146a21490f5b2ec5563d481ffaa4e4846c0df6cd82f929e1694896"
+  },
+  "checks": [
+    {
+      "arguments": [
+        "--audit"
+      ],
+      "exit_code": 0,
+      "record": {
+        "result": "passed",
+        "node": "audit",
+        "mode": "audit",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "development-plan",
+          "dod-evals",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "qa-checklist",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    },
+    {
+      "arguments": [
+        "--after",
+        "architecture-approved"
+      ],
+      "exit_code": 0,
+      "record": {
+        "result": "passed",
+        "node": "architecture-approved",
+        "mode": "after",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    },
+    {
+      "arguments": [
+        "--after",
+        "dod-evals-approved"
+      ],
+      "exit_code": 0,
+      "record": {
+        "result": "passed",
+        "node": "dod-evals-approved",
+        "mode": "after",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "dod-evals",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    },
+    {
+      "arguments": [
+        "--after",
+        "qa-checklist-approved"
+      ],
+      "exit_code": 0,
+      "record": {
+        "result": "passed",
+        "node": "qa-checklist-approved",
+        "mode": "after",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "dod-evals",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "qa-checklist",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    },
+    {
+      "arguments": [
+        "--after",
+        "development-plan"
+      ],
+      "exit_code": 0,
+      "record": {
+        "result": "passed",
+        "node": "development-plan",
+        "mode": "after",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "development-plan",
+          "dod-evals",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "qa-checklist",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    },
+    {
+      "arguments": [
+        "--before",
+        "implementation"
+      ],
+      "exit_code": 1,
+      "record": {
+        "result": "blocked",
+        "node": "implementation",
+        "mode": "before",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "development-plan",
+          "dod-evals",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "qa-checklist",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [
+          {
+            "code": "implementation_not_authorized",
+            "target": "implementation",
+            "detail": "separate prompt must match current plan and baseline"
+          }
+        ],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    }
+  ],
+  "formal_checks": {
+    "count": 82,
+    "definition_status": "prepared",
+    "execution_status": "not_run",
+    "release_readiness": "not_evaluated"
+  },
+  "implementation_gate": "awaiting_implementation_prompt",
+  "implementation_denial_verified": true,
+  "godaddy_operations": []
+}

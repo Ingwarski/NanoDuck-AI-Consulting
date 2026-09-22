@@ -1,0 +1,10 @@
+{
+  "event": "implementation_prompt",
+  "role": "user",
+  "intent": "implement_same_tab_refresh_and_scroll_restore",
+  "message": "Page refresh should refresh on the same tab and scroll where it was.",
+  "message_sha256": "8b21f835227f2473bfa6c8891a31f413d0b2fee49e656d57c027d7b85e9bcd0a",
+  "received_at": "2026-09-18T02:25:16+03:00",
+  "base_revision": "4b902b3",
+  "scope": "Restore an authenticated owner to the same app surface and rendered reading position after a browser refresh. Keep the browser URL free of record data, persist no draft or conversation content, clear state at Logoff, reconcile affected SDD artifacts, and do not deploy or alter GoDaddy resources."
+}

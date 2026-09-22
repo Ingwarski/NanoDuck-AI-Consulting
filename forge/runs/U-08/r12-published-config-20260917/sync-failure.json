@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-09-17T01:57:29+03:00",
+  "run_id": "r12-published-config-20260917",
+  "kind": "secret-sync-follow-up",
+  "result": "manual_import_prepared_awaiting_owner",
+  "target": "GoDaddy app wy2v0putg6 only",
+  "observations": [
+    "The owner reported Failed to sync secrets after submitting the prepared native Preview-to-Published synchronization.",
+    "The authenticated Published secret panel displayed that exact error. A fresh reload retained the same seven missing names recorded in verification.json.",
+    "The dashboard counts remained Preview 33/50 and Published 26/50, excluding five shared managed database entries. The name inventory contained 38 Preview names and 31 Published names; Published-only names were absent. The displayed name-count limit does not explain this failure.",
+    "No specific request status, provider error code or server explanation was available from the visible alert or captured console messages. The sync failure's internal cause remains unconfirmed.",
+    "Published offers a native .env paste/import flow that prepares draft entries before saving. It was inspected empty; no values were entered or saved.",
+    "GoDaddy's current public Secrets API documents metadata-only reads and never returns secret values. It documents add/update/delete, but no secret-export or variant-sync endpoint.",
+    "The application repository contains only .env.example. A scoped search of this task's earlier deployment record located the original private Preview setup file outside the repository; it still exists with owner-only permissions. No broad credential search was performed.",
+    "A private Published import file was prepared in the owner's Downloads folder, preserving the exact original data, recovery, session and compressed Codex authentication values. APP_ORIGIN uses the Published hostname and NANODUCK_RUNTIME_MODE is production. The one-time instruction bootstrap was omitted because the shared owned database is already initialized.",
+    "The prepared file has owner-only read/write permissions. A local config parse validates key encoding and auth compression, and an exact local comparison confirms all four copied secret values match the original. No value was printed or included in Git; no provider or database was contacted.",
+    "The Published secret panel is left ready for the owner to import and save the file. The agent did not enter, import or save credentials."
+  ],
+  "sources": [
+    "https://developer.godaddy.com/en/docs/references/rest/nodejs-hosting/secrets",
+    "https://developer.godaddy.com/en/docs/references/rest/nodejs-hosting"
+  ],
+  "next_action": "Owner imports the prepared private Published .env file and saves secrets. Then verify the new name inventory and production configuration, republish the accepted app, and check Published health and owner login. Do not generate a replacement data key or reset the database.",
+  "limits": [
+    "No application source, secret value, database, provider grant, or unrelated app was changed.",
+    "No support message was sent and no Published retry was performed.",
+    "The prior working Preview and its consultation evidence remain distinct from blocked Published readiness."
+  ]
+}

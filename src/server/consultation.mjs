@@ -1,0 +1,418 @@
+import { containsSecretLikeContent } from "./content-policy.mjs";
+import { createRuntimePrompts, runtimeInstructionsFor } from "./prompt-contracts.mjs";
+import { deriveConversationTitle } from "./conversation-title.mjs";
+import { containsInternalToolTrace } from "./output-safety.mjs";
+
+const roleSettings = snapshot => Object.freeze({
+  head: { provider: "codex", model: snapshot.headModel, effort: snapshot.headReasoning },
+  consultant: { provider: "codex", model: snapshot.headModel, effort: snapshot.headReasoning },
+  critic: snapshot.criticProvider === "claude_code"
+    ? { provider: "claude_code", model: snapshot.criticClaudeModel ?? snapshot.criticModel, effort: snapshot.criticClaudeReasoning ?? snapshot.criticReasoning }
+    : { provider: "codex", model: snapshot.criticCodexModel ?? snapshot.criticModel, effort: snapshot.criticCodexReasoning ?? snapshot.criticReasoning }
+});
+
+const providerName = provider => provider === "claude_code" ? "Claude Code" : "Codex";
+const providerFailureMessage = (code, provider) => ({
+  auth_required: `The selected ${providerName(provider)} route needs its managed sign-in renewed. Your question remains saved.`,
+  quota_blocked: `The selected ${providerName(provider)} route has reached its current usage limit. Your question remains saved.`,
+  incompatible: `The selected ${providerName(provider)} model and reasoning configuration is unavailable on this route. Your question remains saved.`,
+  subscription_unavailable: `The selected ${providerName(provider)} subscription is unavailable. Your question remains saved.`,
+  method_unavailable: `The selected ${providerName(provider)} runtime cannot complete a required consultation step. Your question remains saved.`,
+  provider_unavailable: `The selected ${providerName(provider)} route could not complete this request. Your question remains saved.`
+}[code]);
+
+const hasSensitiveResearchContext = text => /(?:\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b|\b(?:password|passcode|api[ _-]?key|secret|access[ _-]?token|iban|credit[ _-]?card|passport|medical)\b|(?:\+?\d[\d\s().-]{7,}\d)|\b(?:парол\p{L}*|ключ\p{L}*\s*api|секрет\p{L}*|токен\p{L}*|iban|картк\p{L}*|паспорт\p{L}*|медич\p{L}*)\b)/iu.test(text);
+const discussion = events => events.map(event => `${event.role}${event.recipient ? ` → ${event.recipient}` : ""}: ${event.body}`).join("\n\n").slice(-80_000);
+const responseLanguage = text => {
+  if (/\b(?:answer|respond|reply|write)\s+in\s+english\b|англійськ/iu.test(text)) return "English";
+  if (/\b(?:answer|respond|reply|write)\s+in\s+ukrainian\b|українськ/iu.test(text)) return "Ukrainian";
+  return /[А-Яа-яІіЇїЄєҐґ]/u.test(text) ? "Ukrainian" : "English";
+};
+const taskExcerpt = (question, maximumLength = 180) => {
+  const plain = String(question ?? "").replace(/[<>]/gu, "").replace(/\s+/gu, " ").trim();
+  const clipped = plain.length > maximumLength ? `${plain.slice(0, maximumLength - 1).trimEnd()}…` : plain;
+  return clipped.replace(/[.!?]+$/u, "").trim() || "the stated decision";
+};
+const ignoredTaskTerms = new Set(["about", "after", "against", "also", "are", "been", "could", "does", "from", "have", "how", "into", "more", "next", "should", "that", "their", "there", "these", "this", "what", "when", "which", "with", "would", "your", "які", "для", "про", "так", "цей", "цією", "що", "як"]);
+const decisionTerms = question => [...new Set((String(question ?? "").match(/[\p{L}\p{N}]{3,}/gu) ?? []).filter(token => !ignoredTaskTerms.has(token.toLocaleLowerCase())))];
+const taskAnchor = question => {
+  const tokens = decisionTerms(question);
+  const uppercase = tokens.find(token => /^(?:[A-Z]{3,}|[А-ЯІЇЄҐ]{3,})$/u.test(token));
+  return uppercase ?? tokens[0] ?? "decision";
+};
+const taskDetail = (question, anchor) => decisionTerms(question).find(token => token.toLocaleLowerCase() !== anchor.toLocaleLowerCase());
+const taskFallbackFocus = Object.freeze({
+  English: Object.freeze({
+    "Strategy Consultant": "Separate the actual options and name the condition that should choose among them.",
+    "Finance Consultant": "Identify the exposure, affordability or loss-limit condition that rules an option in or out.",
+    "Operations Consultant": "Identify the delivery or capacity constraint that changes the viable option.",
+    "Sales Consultant": "Identify the buyer evidence or objection that changes the viable option.",
+    "Marketing Consultant": "Identify the audience or demand evidence that changes the viable option.",
+    "Product Consultant": "Identify the user-value evidence or product constraint that changes the viable option.",
+    "Spiritual Consultant": "Apply the stated doctrine to the concrete decision and identify the material spiritual consideration.",
+    Psychotherapist: "Use an appropriate non-clinical lens to identify the material pattern and grounded next step.",
+    "Risk Consultant": "Identify the downside that changes the viable option and the evidence needed to bound it."
+  }),
+  Ukrainian: Object.freeze({
+    "Strategy Consultant": "Розмежуй реальні варіанти й назви умову, що має визначити вибір між ними.",
+    "Finance Consultant": "Визнач умову щодо експозиції, спроможності або ліміту втрати, яка виключає чи допускає варіант.",
+    "Operations Consultant": "Визнач обмеження виконання або потужності, яке змінює життєздатний варіант.",
+    "Sales Consultant": "Визнач доказ від покупця або заперечення, яке змінює життєздатний варіант.",
+    "Marketing Consultant": "Визнач доказ щодо аудиторії чи попиту, який змінює життєздатний варіант.",
+    "Product Consultant": "Визнач доказ цінності для користувача або продуктове обмеження, яке змінює життєздатний варіант.",
+    "Spiritual Consultant": "Застосуй вказане вчення до конкретного рішення й визнач суттєвий духовний аспект.",
+    Psychotherapist: "Застосуй доречний неклінічний підхід, щоб визначити суттєвий патерн і обґрунтований наступний крок.",
+    "Risk Consultant": "Визнач ризик зниження, який змінює життєздатний варіант, і докази для його обмеження."
+  })
+});
+const headTaskFallback = (specialist, question, language) => {
+  const excerpt = taskExcerpt(question);
+  const focus = taskFallbackFocus[language]?.[specialist] ?? taskFallbackFocus.English["Strategy Consultant"];
+  return language === "Ukrainian"
+    ? `Проаналізуй це рішення з позиції ${specialist}: «${excerpt}». ${focus}`
+    : `Analyze this decision as the ${specialist}: “${excerpt}”. ${focus}`;
+};
+const headTaskOutput = (body, anchor, detail) => {
+  const match = /^\s*<nanoduck-task>\s*([\s\S]*?)\s*<\/nanoduck-task>\s*$/iu.exec(body);
+  if (!match) return undefined;
+  const task = match[1].replace(/\s+/gu, " ").trim();
+  const imperative = /^(?:Assess|Analyze|Analyse|Evaluate|Define|Map|Quantify|Test|Identify|Compare|Review|Examine|Clarify|Estimate|Check|Determine|Проаналізуй|Оціни|Визнач|Перевір|Зістав|Уточни|Порахуй|Вияви|Сформулюй|Досліди|Окресли|З’ясуй|З'ясуй)(?![\p{L}])/iu;
+  const ownerFacing = /(?:\b(?:i|we|owner|user|recommend(?:ation)?|conclusion)\b|власник|користувач|рекоменд\p{L}*|виснов\p{L}*)/iu;
+  const sentences = task.split(/[.!?]+/u).filter(Boolean);
+  const caseSpecific = typeof anchor === "string" && anchor.length > 0 && task.toLocaleLowerCase().includes(anchor.toLocaleLowerCase());
+  const detailSpecific = !detail || task.toLocaleLowerCase().includes(detail.toLocaleLowerCase());
+  return task.length <= 420 && sentences.length <= 2 && imperative.test(task) && !ownerFacing.test(task) && caseSpecific && detailSpecific ? Object.freeze({ body: task }) : undefined;
+};
+const compactMessage = (body, maximumCharacters = 2_000) => {
+  const text = typeof body === "string" ? body.trim() : "";
+  if (text.length <= maximumCharacters) return text;
+  const excerpt = text.slice(0, maximumCharacters + 1);
+  const endings = [...excerpt.matchAll(/[.!?](?:\s|$)/gu)];
+  const ending = endings.at(-1);
+  return text.slice(0, ending ? (ending.index ?? 0) + 1 : maximumCharacters).trim();
+};
+const compactOutput = maximumCharacters => body => Object.freeze({ body: compactMessage(body, maximumCharacters) });
+const consolidatedOutput = body => {
+  const heading = "## Consolidated advice\n\n";
+  const text = body.replace(/^\s*(?:#{1,6}\s*|\*\*)?Consolidated advice(?:\*\*)?\s*:?\s*\n+/iu, "");
+  if (!text.trim()) throw new Error("provider_contract");
+  return Object.freeze({ body: heading + compactMessage(text, 2_000 - heading.length) });
+};
+const policyCorrection = assignment => `${assignment}\n\nA prior draft was withheld before it reached the consultation because it did not meet the language-and-source policy. Return a complete replacement now. Use only English or Ukrainian. Do not use Russian or Belarusian language, terms, sources, or URLs, including .ru, .by, .su or their Cyrillic equivalents. Remove any disallowed citation rather than mentioning it. Do not explain this correction.`;
+const specialistFor = text => {
+  const subject = text.toLocaleLowerCase();
+  const matches = pattern => pattern.test(subject);
+  if (matches(/\b(risk|legal|compliance|threat)\b|ризик|юрид|відповідн|загроз/iu)) return "Risk Consultant";
+  if (matches(/\b(cash|margin|profit|revenue|budget|cost|pricing)\b|грош|марж|прибут|дохід|бюджет|витрат|ціноутвор/iu)) return "Finance Consultant";
+  if (matches(/\b(process|operations|delivery|capacity|workflow)\b|процес|операц|постач|потужн|навантаж/iu)) return "Operations Consultant";
+  if (matches(/\b(sales|pipeline|prospect|conversion|b2b|b2c)\b|продаж|лійк|потенційн.{0,8}клієнт|конверс/iu)) return "Sales Consultant";
+  if (matches(/\b(marketing|campaign|audience|traffic|brand|advertising)\b|маркетинг|кампан|аудитор|трафік|бренд|реклам/iu)) return "Marketing Consultant";
+  if (matches(/\b(product|feature|roadmap|retention|user experience)\b|продукт|функц|роудмап|утриман|досвід користувач/iu)) return "Product Consultant";
+  if (matches(/\b(spiritual|faith|christ|christian|gospel|church|salvation|prayer|scripture|bible)\b|духов|віра|христ|євангел|спасін|молит|біблі/iu)) return "Spiritual Consultant";
+  if (matches(/\b(psychotherapy|psychotherapist|therapy|therapist|mental health|trauma|ifs|internal family systems|anxiety|depression|relationship)\b|психотерап|психолог|терапі|менталь|травм|тривог|депрес|внутрішн.{0,8}сімейн|стосунк/iu)) return "Psychotherapist";
+  return "Strategy Consultant";
+};
+const specialistCandidates = text => {
+  const primary = specialistFor(text);
+  const complements = {
+    "Strategy Consultant": ["Finance Consultant", "Operations Consultant", "Product Consultant", "Risk Consultant"],
+    "Finance Consultant": ["Strategy Consultant", "Risk Consultant", "Sales Consultant", "Operations Consultant"],
+    "Operations Consultant": ["Strategy Consultant", "Product Consultant", "Finance Consultant", "Risk Consultant"],
+    "Sales Consultant": ["Marketing Consultant", "Finance Consultant", "Strategy Consultant", "Product Consultant"],
+    "Marketing Consultant": ["Product Consultant", "Sales Consultant", "Strategy Consultant", "Finance Consultant"],
+    "Product Consultant": ["Marketing Consultant", "Operations Consultant", "Strategy Consultant", "Finance Consultant"],
+    "Spiritual Consultant": ["Psychotherapist", "Strategy Consultant", "Risk Consultant", "Product Consultant"],
+    Psychotherapist: ["Spiritual Consultant", "Strategy Consultant", "Product Consultant", "Risk Consultant"],
+    "Risk Consultant": ["Strategy Consultant", "Finance Consultant", "Operations Consultant", "Product Consultant"]
+  };
+  return [...new Set([primary, ...(complements[primary] ?? [])])];
+};
+const legacySpecialistCount = speed => ({ fast: "1", balanced: "2", thorough: "3", ultra: "5" })[speed] ?? "2";
+const normalizedSnapshot = snapshot => Object.freeze({
+  ...snapshot,
+  criticProvider: snapshot.criticProvider ?? "codex",
+  criticCodexModel: snapshot.criticCodexModel ?? snapshot.criticModel,
+  criticCodexReasoning: snapshot.criticCodexReasoning ?? snapshot.criticReasoning,
+  criticClaudeModel: snapshot.criticClaudeModel,
+  criticClaudeReasoning: snapshot.criticClaudeReasoning,
+  specialistCount: snapshot.specialistCount ?? legacySpecialistCount(snapshot.speed),
+  discussionDepth: snapshot.discussionDepth ?? "1"
+});
+const chosenCount = snapshot => snapshot.specialistCount === "auto" ? snapshot.resolvedSpecialistCount : Number(snapshot.specialistCount);
+const teamMarker = body => {
+  const match = /^\s*\[TEAM:\s*([1-5])\]\s*/iu.exec(body);
+  return Object.freeze({ count: match ? Number(match[1]) : 3, body: body.replace(/^\s*\[TEAM:\s*[1-5]\]\s*/iu, "").trim() });
+};
+const consensusMarker = body => {
+  const match = /\s*\[CONSILIUM:\s*(REACHED|CONTINUE)\]\s*$/iu.exec(body);
+  return Object.freeze({ reached: match?.[1].toUpperCase() === "REACHED", body: body.replace(/\s*\[CONSILIUM:\s*(?:REACHED|CONTINUE)\]\s*$/iu, "").trim() });
+};
+const matches = (event, step) => event?.role === step.role && (event.recipient ?? null) === (step.recipient ?? null);
+
+export function createConsultationService({ store, provider }) {
+  const controllers = new Map();
+  const executions = new Map();
+  let closing = false;
+  const run = async (conversationId, runState) => {
+    const controller = new AbortController(); controllers.set(conversationId, controller);
+    const current = () => store.events(conversationId).then(events => {
+      // Recovery notices stay in the saved transcript, but never count as a
+      // completed consultant step or become evidence on a resumed attempt.
+      const confirmed = events.filter(event => event.role !== "System");
+      const ownerMessages = confirmed.filter(event => event.role === "owner");
+      return { events: confirmed, owner: ownerMessages.at(-1)?.body ?? "", sessionLanguage: responseLanguage(ownerMessages[0]?.body ?? ""), discussion: discussion(confirmed) };
+    });
+    const isCurrent = async () => {
+      const stored = await store.run(conversationId);
+      return stored?.status === "active" && stored.generation === runState.generation;
+    };
+    let snapshot = normalizedSnapshot(runState.snapshot);
+    let failedProvider = "codex";
+    const persistSnapshot = async patch => {
+      snapshot = Object.freeze({ ...snapshot, ...patch });
+      if (!await store.updateRunSnapshot(conversationId, runState.generation, snapshot)) throw new Error("invalid_run_state");
+    };
+    const invokeProvider = async step => {
+      const evidence = await current();
+      const documentText = (step.runtimeInstructions?.documents ?? []).map(d => d.markdown).join("\n");
+      const sensitive = hasSensitiveResearchContext(evidence.owner + "\n" + evidence.discussion) || containsSecretLikeContent(documentText) || /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/iu.test(documentText);
+      const input = { provider: step.provider, assignment: step.assignment, model: step.model, effort: step.effort, evidence, research: step.provider !== "claude_code" && !sensitive && step.research, outputKind: step.outputKind, maximumCharacters: step.maximumCharacters, runtimeInstructions: step.runtimeInstructions, signal: controller.signal };
+      failedProvider = input.provider ?? "codex";
+      let result = await provider.invoke(input);
+      if (!result.ok && result.code === "language_policy" && await isCurrent()) result = await provider.invoke({ ...input, assignment: policyCorrection(step.assignment), evidence: await current() });
+      return result;
+    };
+    const invoke = async (step, transform = undefined, fallback = undefined) => {
+      if (!await isCurrent()) return undefined;
+      const result = await invokeProvider(step);
+      if (!result.ok) throw new Error(result.code ?? "provider_unavailable");
+      if (containsInternalToolTrace(result.body)) throw new Error("provider_contract");
+      const output = (transform ?? compactOutput(step.maximumCharacters))(result.body) ?? (fallback ? { body: fallback() } : undefined);
+      if (!output?.body) throw new Error("provider_contract");
+      const committed = await store.appendAgentMessage(conversationId, runState.generation, { role: step.role, recipient: step.recipient, body: output.body, sources: output.sources ?? result.sources });
+      if (!committed) throw new Error("invalid_run_state");
+      return output;
+    };
+    const invokeHeadTask = async (step, { question, language }) => {
+      const request = async assignment => {
+        if (!await isCurrent()) return undefined;
+        const result = await invokeProvider({ ...step, assignment });
+        if (!result.ok) throw new Error(result.code ?? "provider_unavailable");
+        if (containsInternalToolTrace(result.body)) throw new Error("provider_contract");
+        return result;
+      };
+      let result = await request(step.assignment);
+      if (!result) return undefined;
+      let output = headTaskOutput(result.body, step.caseAnchor, step.caseDetail);
+      if (!output) {
+        const detailInstruction = step.caseDetail ? ` and the exact decision detail “${step.caseDetail}”` : "";
+        result = await request(`${step.assignment}\n\nYour prior output could not be committed. Return a replacement that follows the wrapper exactly and includes the exact case anchor “${step.caseAnchor}”${detailInstruction}. Do not write any other text.`);
+        if (!result) return undefined;
+        output = headTaskOutput(result.body, step.caseAnchor, step.caseDetail);
+      }
+      const committedOutput = output ?? Object.freeze({ body: headTaskFallback(step.recipient, question, language) });
+      const committed = await store.appendAgentMessage(conversationId, runState.generation, { role: step.role, recipient: step.recipient, body: committedOutput.body, sources: output?.sources ?? result.sources });
+      if (!committed) throw new Error("invalid_run_state");
+      return committedOutput;
+    };
+    try {
+      if (!await isCurrent()) return;
+      const first = await current();
+      const settings = roleSettings(snapshot); const instructions = Object.freeze({ ...runtimeInstructionsFor(snapshot), documents: snapshot.instructionDocuments ?? [] }); const prompts = createRuntimePrompts(instructions); const research = !hasSensitiveResearchContext(first.owner + "\n" + first.discussion); const language = first.sessionLanguage;
+      const ownerIndex = first.events.map(event => event.role).lastIndexOf("owner");
+      if (ownerIndex < 0) throw new Error("invalid_run_state");
+      let confirmed = first.events.slice(ownerIndex + 1);
+      const candidates = specialistCandidates(first.owner);
+      const selectAutomaticTeam = async () => {
+        if (!await isCurrent()) return undefined;
+        const result = await provider.invoke({
+          provider: settings.head.provider,
+          assignment: prompts.autoTeam({ candidates, language }),
+          model: settings.head.model,
+          effort: settings.head.effort,
+          evidence: await current(),
+          research: false,
+          outputKind: "auto_team",
+          maximumCharacters: 32,
+          runtimeInstructions: instructions,
+          signal: controller.signal
+        });
+        failedProvider = settings.head.provider;
+        if (!result.ok) throw new Error(result.code ?? "provider_unavailable");
+        return teamMarker(result.body).count;
+      };
+      let selected = chosenCount(snapshot);
+      if (!selected) {
+        const selectedByHead = await selectAutomaticTeam();
+        if (!selectedByHead) return;
+        selected = selectedByHead;
+        await persistSnapshot({ resolvedSpecialistCount: selected });
+        confirmed = (await current()).events.slice(ownerIndex + 1);
+      }
+      const team = candidates.slice(0, selected);
+      const caseAnchor = taskAnchor(first.owner);
+      const caseDetail = taskDetail(first.owner, caseAnchor) ?? caseAnchor;
+      const headTasks = team.map(specialist => ({
+          role: "Head Consultant",
+          recipient: specialist,
+          provider: settings.head.provider,
+          model: settings.head.model,
+          effort: settings.head.effort,
+          research: false,
+          outputKind: "head_task",
+          maximumCharacters: 420,
+          caseAnchor,
+          caseDetail,
+          runtimeInstructions: instructions,
+          assignment: prompts.headTask({ specialist, caseAnchor, caseDetail, language })
+        }));
+      for (let index = 0; index < headTasks.length; index += 1) {
+        const existing = confirmed[index];
+        if (existing) { if (!matches(existing, headTasks[index])) throw new Error("invalid_run_state"); }
+        else await invokeHeadTask(headTasks[index], { question: first.owner, language: first.sessionLanguage });
+      }
+      confirmed = (await current()).events.slice(ownerIndex + 1);
+      const positions = team.map((specialist, index) => {
+        const assignedTask = confirmed[index]?.body;
+        if (!assignedTask) throw new Error("invalid_run_state");
+        return {
+          role: specialist,
+          recipient: "Critic",
+          provider: settings.consultant.provider,
+          model: settings.consultant.model,
+          effort: settings.consultant.effort,
+          research,
+          outputKind: "specialist_position",
+          maximumCharacters: 1_400,
+          runtimeInstructions: instructions,
+          assignment: prompts.specialistPosition({ specialist, assignedBrief: assignedTask, language })
+        };
+      });
+      const initial = [...headTasks, ...positions];
+      for (let index = 0; index < positions.length; index += 1) {
+        const positionIndex = headTasks.length + index;
+        const existing = confirmed[positionIndex];
+        if (existing) { if (!matches(existing, positions[index])) throw new Error("invalid_run_state"); }
+        else await invoke(positions[index]);
+      }
+      confirmed = (await current()).events.slice(ownerIndex + 1);
+      let cursor = initial.length;
+      const automaticDepth = snapshot.discussionDepth === "auto";
+      const maximumDepth = automaticDepth ? 10 : Number(snapshot.discussionDepth);
+      // A depth step reviews the whole team. Legacy global consensus cannot
+      // stand in for a missing specialist's challenge and response.
+      const agreements = [...(snapshot.criticReview?.agreements ?? [])];
+      const closingReviews = [...(snapshot.consolidationReviews ?? [])];
+      let reviewStatus = "unconfirmed";
+      for (let exchange = 1; exchange <= maximumDepth; exchange += 1) {
+        let consensusReached = true;
+        for (const [index, specialist] of team.entries()) {
+          if (!await isCurrent()) return;
+          const challenge = { role: "Critic", recipient: specialist, provider: settings.critic.provider, model: settings.critic.model, effort: settings.critic.effort, research, outputKind: "critic_challenge", maximumCharacters: 1_000, runtimeInstructions: instructions, assignment: prompts.criticChallenge({ specialist, exchange, language }) };
+          const reply = { role: specialist, recipient: "Critic", provider: settings.consultant.provider, model: settings.consultant.model, effort: settings.consultant.effort, research, outputKind: "specialist_reply", maximumCharacters: 1_200, runtimeInstructions: instructions, assignment: prompts.specialistReply({ specialist, language, automaticDepth }) };
+          const existingChallenge = confirmed[cursor];
+          if (existingChallenge) { if (!matches(existingChallenge, challenge)) throw new Error("invalid_run_state"); }
+          else await invoke(challenge);
+          cursor += 1;
+          let replyOutcome;
+          const existingReply = confirmed[cursor];
+          if (existingReply) { if (!matches(existingReply, reply)) throw new Error("invalid_run_state"); }
+          else replyOutcome = await invoke(reply, automaticDepth ? body => {
+            const marked = consensusMarker(body);
+            return Object.freeze({ ...marked, body: compactMessage(marked.body, reply.maximumCharacters) });
+          } : compactOutput(reply.maximumCharacters));
+          cursor += 1;
+          if (automaticDepth) {
+            const reviewIndex = (exchange - 1) * team.length + index;
+            if (replyOutcome) {
+              agreements[reviewIndex] = replyOutcome.reached;
+              await persistSnapshot({ criticReview: { agreements: [...agreements] } });
+            }
+            // A crash between message commit and metadata save leaves agreement
+            // unknown. Continue conservatively; never replay the saved message.
+            consensusReached &&= agreements[reviewIndex] === true;
+          }
+        }
+        if (automaticDepth) {
+          await persistSnapshot({ autoDepthCompleted: exchange, consiliumReached: false });
+        }
+        // Closing positions are distinct, confirmed messages, never inferred
+        // from a previous reply or a saved global agreement flag.
+        confirmed = (await current()).events.slice(ownerIndex + 1);
+        const closingStarted = confirmed[cursor]?.recipient === "Head Consultant";
+        if (exchange === maximumDepth || (automaticDepth && (consensusReached || closingStarted))) {
+          const closingSteps = [
+            ...team.map(specialist => ({ role: specialist, recipient: "Head Consultant", provider: settings.consultant.provider, model: settings.consultant.model, effort: settings.consultant.effort, research, outputKind: "specialist_final", maximumCharacters: 1_200, runtimeInstructions: instructions, assignment: prompts.specialistFinal({ specialist, language }) })),
+            { role: "Critic", recipient: "Head Consultant", provider: settings.critic.provider, model: settings.critic.model, effort: settings.critic.effort, research, outputKind: "critic_final", maximumCharacters: 1_600, runtimeInstructions: instructions, assignment: prompts.criticFinal(language) }
+          ];
+          for (const step of closingSteps) {
+            if (!await isCurrent()) return;
+            const existing = confirmed[cursor];
+            if (existing) { if (!matches(existing, step)) throw new Error("invalid_run_state"); }
+            else {
+              const output = await invoke(step, step.outputKind === "critic_final" ? body => {
+                const marked = consensusMarker(body);
+                return Object.freeze({ ...marked, body: compactMessage(marked.body, step.maximumCharacters) });
+              } : undefined);
+              if (step.outputKind === "critic_final") {
+                closingReviews[exchange - 1] = { reached: output.reached };
+                await persistSnapshot({ consolidationReviews: [...closingReviews] });
+              }
+            }
+            cursor += 1;
+          }
+          const reached = closingReviews[exchange - 1]?.reached === true;
+          reviewStatus = reached ? "supported by the specialists and Critic" : "unresolved or unconfirmed";
+          await persistSnapshot({ consiliumReached: reached });
+          if (!automaticDepth || reached || exchange === maximumDepth) break;
+        }
+      }
+      if (!await isCurrent()) return;
+      confirmed = (await current()).events.slice(ownerIndex + 1);
+      if (confirmed.length < cursor) throw new Error("invalid_run_state");
+      const conclusion = { role: "Head Consultant", recipient: null, provider: settings.head.provider, model: settings.head.model, effort: settings.head.effort, research: false, outputKind: "head_final", maximumCharacters: 2_000, runtimeInstructions: instructions, assignment: prompts.conclusion(language, reviewStatus) };
+      if (confirmed[cursor]) {
+        if (!matches(confirmed[cursor], conclusion) || confirmed.length !== cursor + 1) throw new Error("invalid_run_state");
+      } else await invoke(conclusion, consolidatedOutput);
+      await store.finishRun(conversationId, runState.generation, "complete", deriveConversationTitle(first.owner));
+    } catch (error) {
+      if (!controller.signal.aborted) {
+        const body = providerFailureMessage(error.message, failedProvider) ?? (error.message === "language_policy" ? "A response did not meet the English/Ukrainian language policy. Your question remains saved." : "The consultation paused before a confirmed response. Your saved discussion remains available.");
+        await store.appendAgentMessage(conversationId, runState.generation, { role: "System", body, sources: [] });
+        await store.finishRun(conversationId, runState.generation, "failed");
+      }
+    } finally { if (controllers.get(conversationId) === controller) controllers.delete(conversationId); }
+  };
+  return Object.freeze({
+    async start(conversationId, runState) {
+      if (closing || executions.has(conversationId)) return;
+      const completion = run(conversationId, runState).catch(() => {}).finally(() => executions.delete(conversationId));
+      executions.set(conversationId, completion);
+    },
+    async stop(conversationId) {
+      const stopped = await store.stop(conversationId);
+      controllers.get(conversationId)?.abort();
+      await executions.get(conversationId);
+      return stopped;
+    },
+    async continue(conversationId) {
+      if (closing || executions.has(conversationId)) return undefined;
+      const runState = await store.continueRun(conversationId);
+      if (runState) await this.start(conversationId, runState);
+      return runState;
+    },
+    async resume() {
+      // A lost process cannot prove whether a provider call completed. Fence it
+      // and require the owner's Continue action instead of spending again.
+      for (const runState of await store.activeRuns()) {
+        await store.stop(runState.conversationId);
+      }
+    },
+    async close() {
+      closing = true;
+      for (const controller of controllers.values()) controller.abort();
+      await Promise.allSettled([...executions.keys()].map(id => store.stop(id)));
+      await Promise.allSettled([...executions.values()]);
+    }
+  });
+}

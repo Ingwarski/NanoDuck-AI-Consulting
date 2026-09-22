@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "kind": "godaddy-preview-activation",
+  "observed_at": "2026-09-15T14:34:41+03:00",
+  "target": {
+    "app_name": "Personal AI Consulting Group",
+    "app_id": "wy2v0putg6",
+    "preview_host": "wy2v0putg6.preview.c35.airoapp.ai",
+    "published_host": "wy2v0putg6.c35.airoapp.ai",
+    "scope": "named app only; Published and all other GoDaddy apps were not changed"
+  },
+  "deployment": {
+    "repository": "Ingwarski/personal-ai-consulting-web",
+    "branch": "main",
+    "commit": "c61fbb0826967cb4f7697faab70adda4b24b4ac5",
+    "runtime": "Node.js 22 / Europe",
+    "preview_health": "infrastructure OK; site status OK",
+    "secrets_provisioned_by_name_only": [
+      "DATA_ENCRYPTION_KEY",
+      "RECOVERY_ENCRYPTION_KEY",
+      "SESSION_SIGNING_KEY",
+      "RUNTIME_INSTRUCTIONS_BOOTSTRAP_GZIP_B64",
+      "CODEX_APP_SERVER_AUTH_GZIP_B64",
+      "APP_ORIGIN"
+    ]
+  },
+  "observations": [
+    {
+      "name": "owned MySQL migration",
+      "observed": "Preview created ten nanoduck_* tables."
+    },
+    {
+      "name": "instruction bootstrap",
+      "observed": "nanoduck_runtime_instructions contains one owner row with ciphertext, IV, authentication tag, revision and hash metadata; no instruction plaintext was inspected."
+    },
+    {
+      "name": "Google authentication configuration",
+      "observed": "The existing OAuth client was extended with the Preview callback. A Safari recheck exposed the host development sign-in path, so no Google completion is counted in this receipt."
+    }
+  ],
+  "limits": [
+    "The owner processing-consent checkbox was intentionally left unchecked.",
+    "No provider preflight, model turn, live research, consultation, voice-recognition run, publication or database deletion was performed.",
+    "The initial consent screen used the development path; Google authentication requires the later production-mode deployment and a fresh browser check."
+  ]
+}

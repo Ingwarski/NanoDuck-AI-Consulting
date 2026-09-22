@@ -1,0 +1,7 @@
+# Reviewed historical false positives only. Do not ignore whole files or rules.
+# Deliberate signing-key fixture in the in-memory cookie unit test.
+efa494fbe66580e79937977bf82949479c00df5c:test/core.test.mjs:generic-api-key:340
+# source_hashes entries; each SHA-256 was recomputed at the recorded commit.
+1e3c556035ab07d257a4c1851ddecae5328d0cf4:forge/runs/U-08/godaddy-host-compatibility-20260915/verification.json:generic-api-key:33
+1e3c556035ab07d257a4c1851ddecae5328d0cf4:forge/runs/U-08/godaddy-host-compatibility-20260915/verification.json:generic-api-key:40
+a27a39a6c1ebe4817ed538b549604246e5a0cab0:forge/runs/U-02/phase3-local-session-data-20260915/verification.json:generic-api-key:37
