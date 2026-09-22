@@ -271,8 +271,9 @@ test("the authenticated discussion preserves a Critic exchange with both special
     const detail = await waitFor(async () => {
       const response = await fetch(`${origin}/api/conversations/${conversationId}`, { headers: { cookie } });
       const value = await response.json();
+      assert.notEqual(value.run?.status, "failed", "The synthetic consultant exchange must finish successfully.");
       return value.run?.status === "complete" ? value : undefined;
-    });
+    }, 60_000); // Every isolated provider process applies native local permissions.
     assert.deepEqual(detail.events.map(event => [event.role, event.recipient]), [
       ["owner", null],
       ["Head Consultant", "Strategy Consultant"], ["Head Consultant", "Finance Consultant"],

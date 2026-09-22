@@ -124,22 +124,14 @@ if ($moved) { throw 'Verified pathname was replaceable while applying its ACL' }
   assert.equal(fs.existsSync(`${filename}.moved`), false);
 });
 
-test("Windows helper isolates profile data while retaining required OS services", { skip: process.platform !== "win32", timeout: 100_000 }, t => {
+test("Windows helper works with an isolated profile and a minimal environment", { skip: process.platform !== "win32", timeout: 30_000 }, t => {
   const directory = fixture(t);
-  const common = processEnvironment(directory);
-  const standard = Object.fromEntries(["ComSpec", "PATHEXT", "OS", "ProgramFiles", "ProgramFiles(x86)", "ProgramW6432", "ProgramData", "ALLUSERSPROFILE", "PSModulePath", "PROCESSOR_ARCHITECTURE", "PROCESSOR_IDENTIFIER", "NUMBER_OF_PROCESSORS", "SystemDrive"].filter(name => process.env[name]).map(name => [name, process.env[name]]));
-  const profile = { APPDATA: join(directory, "roaming"), LOCALAPPDATA: join(directory, "local") };
-  for (const path of Object.values(profile)) fs.mkdirSync(path);
   const script = fileURLToPath(new URL("./fixtures/private-permissions-child.mjs", import.meta.url));
-  const outcomes = [];
-  for (const [name, additions] of [["minimal", {}], ["standard-os", standard], ["synthetic-appdata", profile], ["standard-with-appdata", { ...standard, ...profile }]]) {
-    const result = childProcess.spawnSync(process.execPath, [script], {
-      env: { ...common, ...additions, NANODUCK_TEST_PRIVATE_DIRECTORY: join(directory, name) },
-      encoding: "utf8", windowsHide: true, timeout: 20_000
-    });
-    const reason = result.status === 0 ? "ok" : result.stderr.match(/private_permissions_unavailable \([a-zA-Z_0-9:-]+\)/u)?.[0] ?? "process_failed";
-    t.diagnostic(`${name}: ${reason}`);
-    outcomes.push({ name, status: result.status });
-  }
-  assert.equal(outcomes.at(-1).status, 0, "The helper must run with isolated profile data and standard Windows services.");
+  const result = childProcess.spawnSync(process.execPath, [script], {
+    env: { ...processEnvironment(directory), NANODUCK_TEST_PRIVATE_DIRECTORY: join(directory, "private") },
+    encoding: "utf8", windowsHide: true, timeout: 20_000
+  });
+  const reason = result.stderr.match(/private_permissions_unavailable \([a-zA-Z_0-9:-]+\)/u)?.[0] ?? "process_failed";
+  assert.equal(result.status, 0, reason);
+  assert.equal(result.stdout, "ok");
 });

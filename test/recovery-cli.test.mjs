@@ -63,21 +63,25 @@ async function privateOutput(filename, environment) {
   }
   const program = `
 $ErrorActionPreference = 'Stop'
-$acl = Get-Acl -LiteralPath $env:NANODUCK_TEST_BACKUP_PATH
+$acl = [System.IO.FileInfo]::new($env:NANODUCK_TEST_BACKUP_PATH).GetAccessControl()
 $sid = [System.Security.Principal.WindowsIdentity]::GetCurrent().User.Value
-$rules = @($acl.GetAccessRules($true, $true, [System.Security.Principal.SecurityIdentifier]) | ForEach-Object {
-  @{ sid = $_.IdentityReference.Value; type = $_.AccessControlType.ToString(); rights = $_.FileSystemRights.ToString(); inherited = $_.IsInherited }
-})
-@{ currentSid = $sid; owner = $acl.GetOwner([System.Security.Principal.SecurityIdentifier]).Value; protected = $acl.AreAccessRulesProtected; rules = $rules } | ConvertTo-Json -Depth 4 -Compress
+$rules = @($acl.GetAccessRules($true, $true, [System.Security.Principal.SecurityIdentifier]))
+[Console]::WriteLine($sid)
+[Console]::WriteLine($acl.GetOwner([System.Security.Principal.SecurityIdentifier]).Value)
+[Console]::WriteLine($acl.AreAccessRulesProtected)
+[Console]::WriteLine($rules.Count)
+foreach ($rule in $rules) {
+  [Console]::WriteLine($rule.IdentityReference.Value + '|' + $rule.AccessControlType + '|' + $rule.FileSystemRights + '|' + $rule.IsInherited)
+}
 `;
   const executable = join(environment.SystemRoot ?? environment.WINDIR, "System32", "WindowsPowerShell", "v1.0", "powershell.exe");
   const { stdout } = await execute(executable, ["-NoLogo", "-NoProfile", "-NonInteractive", "-EncodedCommand", Buffer.from(program, "utf16le").toString("base64")], {
     env: { ...environment, NANODUCK_TEST_BACKUP_PATH: filename }, windowsHide: true, timeout: 15_000
   });
-  const permissions = JSON.parse(stdout.replace(/^\uFEFF/u, ""));
-  assert.equal(permissions.owner, permissions.currentSid);
-  assert.equal(permissions.protected, true);
-  assert.deepEqual(permissions.rules, [{ sid: permissions.currentSid, type: "Allow", rights: "FullControl", inherited: false }]);
+  const permissions = stdout.replace(/^\uFEFF/u, "").trim().split(/\r?\n/u);
+  const currentSid = permissions[0];
+  assert.match(currentSid, /^S-1-5-/u);
+  assert.deepEqual(permissions, [currentSid, currentSid, "True", "1", `${currentSid}|Allow|FullControl|False`]);
 }
 
 test("offline recovery CLI restores encrypted records without TLS, preserves deletion and requires configuration confirmation", { timeout: 240_000 }, async t => {
