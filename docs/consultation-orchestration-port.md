@@ -1,6 +1,6 @@
 # Head-led consultation port brief
 
-23 September 2026. This is a reusable implementation prompt for the two sister repositories: Neo and the separately hosted sister. It incorporates the consultation repair implemented in `8a63a7c`. It contains no private consultation transcript, account identifiers, credentials or machine paths. This checkout is the reference implementation; this document does not authorize changes to either sister repository.
+23 September 2026. This is a reusable implementation prompt for the two sister repositories: Neo and the separately hosted sister. It incorporates the consultation repairs implemented through `c595090`. For the focused first-Head-message latency fix, use [head-first-response-port.md](head-first-response-port.md), which distinguishes the two repositories' current coordinator paths. These prompts contain no private consultation transcript, account identifiers, credentials or machine paths. This checkout is the reference implementation; this document does not authorize changes to either sister repository.
 
 ## Prompt to use in each sister repository
 
