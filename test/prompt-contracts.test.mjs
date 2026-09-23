@@ -53,6 +53,22 @@ test("saved former public defaults migrate without retaining task wrappers or an
   assert.equal((await store.runtimeInstructionVersion(prior.revision)).markdown, prior.markdown);
 });
 
+test("Critic defaults become evidence-based and owner-edited guidance remains intact", () => {
+  const priorChallenge = "Review the {{specialist}} directly on exchange {{exchange}}. If the reply is circular, irrelevant, fabricated or unsupported, command the consultant to stop and rework it. Identify the exact claim or omission, explain the defect, and state what a useful correction must contain. Otherwise ask only one material unresolved question. Write this message in {{language}}.";
+  const priorFinal = "You are the Critic. Address the Head Consultant after reviewing every selected specialist's final position together. Assess whether they support the same current recommendation; identify any incompatibility, unresolved objection, or condition the final advice must preserve. Do not treat a specialist accepting an earlier objection as proof of team agreement. Finish with [CONSILIUM: REACHED] only if all final positions support the same recommendation and you also support it; otherwise finish with [CONSILIUM: CONTINUE]. Write this message in {{language}}.";
+  const old = testRuntimeInstructions.markdown.replace(/(?<=## Critic Challenge\n)[^\n]+/u, priorChallenge).replace(/(?<=## Critic Final Review\n)[^\n]+/u, priorFinal);
+  const upgraded = upgradeRuntimeInstructionMarkdown(old);
+  assert.match(upgraded, /supports its factual and numerical claims/u);
+  assert.match(upgraded, /missing requested item/u);
+  const custom = old.replace(priorChallenge, "Challenge the {{specialist}} on exchange {{exchange}} using my rubric. Write this message in {{language}}.");
+  const customUpgraded = upgradeRuntimeInstructionMarkdown(custom);
+  assert.match(customUpgraded, /using my rubric/u);
+  const prompts = createRuntimePrompts(parseRuntimeInstructions(customUpgraded));
+  assert.match(prompts.criticChallenge({ specialist: "Finance Consultant", exchange: 1, language: "English" }), /name the exact issue and direct a specific rework/u);
+  assert.match(prompts.criticFinal("English"), /check every requested owner deliverable/u);
+  assert.equal(upgradeRuntimeInstructionMarkdown(customUpgraded), customUpgraded);
+});
+
 test("a saved Markdown contract renders the customised text for the model", () => {
   const markdown = testRuntimeInstructions.markdown.replace("Every accepted owner question must use the specialist-and-Critic consultation.", "Every accepted owner question must use the specialist-and-Critic consultation, with a distinct task for every selected specialist.");
   const contract = parseRuntimeInstructions(markdown);

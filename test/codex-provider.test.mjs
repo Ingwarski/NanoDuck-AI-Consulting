@@ -75,15 +75,19 @@ test("research diagnostics count matching completed tool calls without logging q
   assert.doesNotMatch(logs, /synthetic-query-do-not-log|public rules dated|wrong-thread|wrong-turn/u);
 });
 
-test("prohibited source hosts, language and provider prose never reach a consultation", async () => {
+test("prohibited sources and isolated language fragments are withheld without losing useful advice", async () => {
   const command = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));
   const provider = createCodexProvider({ readyForProvider: true, codexCommand: process.execPath, codexCommandArgs: [command], codexAuthPath: undefined });
   const source = await provider.invoke({ assignment: "Return a prohibited source.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: true, runtimeInstructions: initialRuntimeInstructions, signal: new AbortController().signal });
   assert.deepEqual(source, { ok: true, body: "A bounded answer.", sources: [] });
   const prose = await provider.invoke({ assignment: "Return prohibited prose.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions, signal: new AbortController().signal });
   assert.deepEqual(prose, { ok: false, code: "language_policy" });
+  const mixed = await provider.invoke({ assignment: "Return mixed-language prose.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions, signal: new AbortController().signal });
+  assert.deepEqual(mixed, { ok: true, body: "The buyer test should run for two weeks. [prohibited-language fragment omitted] Measure qualified replies and conversion.", sources: [] });
   const bodyUrl = await provider.invoke({ assignment: "Return prohibited body URL.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions, signal: new AbortController().signal });
-  assert.deepEqual(bodyUrl, { ok: false, code: "language_policy" });
+  assert.deepEqual(bodyUrl, { ok: true, body: "Read blocked (source link omitted: unapproved URL).", sources: [] });
+  const onlyUrl = await provider.invoke({ assignment: "Return only a prohibited body URL.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions, signal: new AbortController().signal });
+  assert.deepEqual(onlyUrl, { ok: false, code: "output_policy" });
 });
 
 test("a completed provider notification clears its deadline waiter", async () => {

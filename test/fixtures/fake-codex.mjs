@@ -21,7 +21,9 @@ const replyFor = prompt => {
   else if (prompt.includes("only owner-facing synthesis")) answer = "Start with a narrow buyer list, measure interview acceptance, then decide whether the position has evidence.";
   if (prompt.includes("Return a prohibited source")) return `${answer}\n<nanoduck-source>{\"title\":\"Как это работает\",\"url\":\"https://example.su/buyer-evidence\",\"claim\":\"Это запрещенный источник.\",\"publishedAt\":\"2026-09-01\"}</nanoduck-source>`;
   if (prompt.includes("Return prohibited body URL")) return "Read [blocked](https://example.su/buyer-evidence).";
+  if (prompt.includes("Return only a prohibited body URL")) return "https://example.su/buyer-evidence";
   if (prompt.includes("Return prohibited prose")) return "Как это работает?";
+  if (prompt.includes("Return mixed-language prose")) return "The buyer test should run for two weeks. Как это работает? Measure qualified replies and conversion.";
   if (prompt.includes("Use live public web research") && !prompt.includes("Use only English or Ukrainian sources")) return "The source language policy is missing.";
   return prompt.includes("Use live public web research") || prompt.includes("Answer the Head's task") ? `${answer}\n<nanoduck-source>{\"title\":\"Buyer evidence\",\"url\":\"https://example.com/buyer-evidence\",\"claim\":\"Buyer willingness must be measured before positioning.\",\"publishedAt\":\"2026-09-01\"}</nanoduck-source>` : answer;
 };

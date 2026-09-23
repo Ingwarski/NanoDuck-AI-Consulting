@@ -4,7 +4,7 @@
 
 ## Language and vocabulary
 
-Working language is English, from the owner's latest substantive request. Product conversations and source metadata support English and Ukrainian only; the first substantive request sets the language and an explicit supported-language change wins. Russian and Belarusian language, terminology, sources and URLs are prohibited, including `.ru`, `.by`, `.su` and Cyrillic equivalents. A prohibited provider draft is discarded before persistence and gets one same-role, same-task compliant-replacement attempt; the first policy rejection is not a terminal consultation outcome. Role names and provider/model identifiers remain English. The [canonical terms](canonical-terms.md) distinguish product labels from internal mechanisms.
+Working language is English, from the owner's latest substantive request. Product conversations and source metadata support English and Ukrainian only; the first substantive request sets the language and an explicit supported-language change wins. Russian and Belarusian language, terminology, sources and URLs are prohibited, including `.ru`, `.by`, `.su` and Cyrillic equivalents. Owner input and saved source metadata reject prohibited content. Generated prose omits the detected guilty fragment and unsuitable URL while keeping usable surrounding advice; an answer with no usable content or a tool transcript receives one same-role, same-task replacement attempt. Valid shared Ukrainian words and English names for the languages do not trigger rejection. Role names and provider/model identifiers remain English. The [canonical terms](canonical-terms.md) distinguish product labels from internal mechanisms.
 
 ## Product and user
 

@@ -114,6 +114,27 @@ test("Claude Code exposes only authenticated configured models and returns safe 
   assert.match(prompt, /Do not claim research that was not performed\./u);
 });
 
+test("Claude keeps English criticism when an unsuitable citation must be omitted", async () => {
+  const provider = createClaudeProvider({ claudeCommand: "claude", claudeOAuthToken: "managed-token" }, { run: async input => input.args.includes("auth")
+    ? { exitCode: 0, stdout: JSON.stringify({ loggedIn: true, authMethod: "oauth_token", apiProvider: "firstParty" }), stderr: "" }
+    : { exitCode: 0, stdout: JSON.stringify({ subtype: "success", modelUsage: { "claude-opus-5": {} }, result: "The Russian market claim needs evidence from [this source](https://example.su/claim)." }), stderr: "" } });
+  const result = await provider.invoke(criticInput);
+  assert.equal(result.ok, true);
+  assert.equal(result.body, "The Russian market claim needs evidence from this source (source link omitted: unapproved URL).");
+  assert.deepEqual(result.sources, []);
+});
+
+test("Claude withholds a prohibited-language fragment while preserving the Critic's specific objection", async () => {
+  const provider = createClaudeProvider({ claudeCommand: "claude", claudeOAuthToken: "managed-token" }, { run: async input => input.args.includes("auth")
+    ? { exitCode: 0, stdout: JSON.stringify({ loggedIn: true, authMethod: "oauth_token", apiProvider: "firstParty" }), stderr: "" }
+    : { exitCode: 0, stdout: JSON.stringify({ subtype: "success", modelUsage: { "claude-opus-5": {} }, result: "The margin estimate lacks its cost basis. Как это работает? Rework it using the stated unit costs." }), stderr: "" } });
+  const result = await provider.invoke(criticInput);
+  assert.equal(result.ok, true);
+  assert.match(result.body, /margin estimate lacks its cost basis/u);
+  assert.match(result.body, /Rework it using the stated unit costs/u);
+  assert.doesNotMatch(result.body, /Как|это/u);
+});
+
 test("Claude Code withholds an internal tool trace and retries once for text-only output", async () => {
   let completions = 0;
   const provider = createClaudeProvider({ claudeCommand: "claude", claudeOAuthToken: "managed-token", claudeModelCandidates: [] }, {

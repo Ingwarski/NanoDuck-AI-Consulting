@@ -3,7 +3,7 @@ import { spawnIsolatedProcess, signalProcessTree } from "./child-process.mjs";
 import { mkdtemp, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { hasProhibitedLanguage, hasUnsafeExternalUrl, safeExternalUrl } from "./validation.mjs";
+import { hasProhibitedLanguage, omitProhibitedLanguage, omitUnsafeExternalUrls, safeExternalUrl } from "./validation.mjs";
 import { createRuntimePrompts } from "./prompt-contracts.mjs";
 import { containsInternalToolTrace } from "./output-safety.mjs";
 import { claudeEnvironment, claudeSafetyArgs } from "./claude-runtime.mjs";
@@ -41,7 +41,10 @@ const sourcesFrom = text => {
     if (source) sources.push(source);
   }
   const unique = new Map(); for (const source of sources) if (!unique.has(source.url)) unique.set(source.url, source);
-  return Object.freeze({ body: hasProhibitedLanguage(body) || hasUnsafeExternalUrl(body) ? undefined : body, sources: Object.freeze([...unique.values()]) });
+  const filtered = omitUnsafeExternalUrls(body);
+  const language = omitProhibitedLanguage(filtered.body);
+  const failureReason = !language.body.trim() ? "empty_response" : !language.substantive ? (language.omittedCount ? "prohibited_language" : "no_usable_content") : undefined;
+  return Object.freeze({ body: failureReason ? undefined : language.body, sources: Object.freeze([...unique.values()]), urlOmissionCount: filtered.omittedCount, languageOmissionCount: language.omittedCount, failureReason });
 };
 
 const classifyFailure = result => {
@@ -179,7 +182,10 @@ export function createClaudeProvider(config, { run = runClaudeCommand } = {}) {
         if (completion.kind === "cancelled") return { ok: false, code: "cancelled" };
         if (completion.kind !== "completion") return { ok: false, code: completion.kind === "failure" ? completion.code : "provider_unavailable" };
         const output = sourcesFrom(completion.body);
-        return output.body ? { ok: true, body: output.body, sources: output.sources } : { ok: false, code: "language_policy" };
+        if (output.urlOmissionCount) process.stdout.write(`${JSON.stringify({ event: "nanoduck.provider.output_policy", outputKind: input.outputKind, reason: "unapproved_url_omitted", count: output.urlOmissionCount })}\n`);
+        if (output.languageOmissionCount) process.stdout.write(`${JSON.stringify({ event: "nanoduck.provider.output_policy", outputKind: input.outputKind, reason: "prohibited_fragment_omitted", count: output.languageOmissionCount })}\n`);
+        if (output.failureReason) process.stdout.write(`${JSON.stringify({ event: "nanoduck.provider.output_policy", outputKind: input.outputKind, reason: output.failureReason })}\n`);
+        return output.body ? { ok: true, body: output.body, sources: output.sources } : { ok: false, code: output.failureReason === "prohibited_language" ? "language_policy" : output.failureReason === "no_usable_content" ? "output_policy" : "provider_unavailable" };
       } catch { return { ok: false, code: "provider_unavailable" }; }
     }
   });

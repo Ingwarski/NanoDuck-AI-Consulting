@@ -6,7 +6,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { randomId } from "./crypto.mjs";
 import { createRuntimePrompts, RuntimeInstructionError } from "./prompt-contracts.mjs";
-import { hasProhibitedLanguage, hasUnsafeExternalUrl, safeExternalUrl } from "./validation.mjs";
+import { hasProhibitedLanguage, omitProhibitedLanguage, omitUnsafeExternalUrls, safeExternalUrl } from "./validation.mjs";
 
 const waitFor = (promise, milliseconds, label, signal = undefined) => new Promise((resolve, reject) => {
   let settled = false;
@@ -176,7 +176,10 @@ function sourcesFrom(text) {
   }
   const deduplicated = new Map();
   for (const source of sources) if (!deduplicated.has(source.url)) deduplicated.set(source.url, source);
-  return Object.freeze({ body: hasProhibitedLanguage(body) || hasUnsafeExternalUrl(body) ? undefined : body, sources: Object.freeze([...deduplicated.values()]) });
+  const filtered = omitUnsafeExternalUrls(body);
+  const language = omitProhibitedLanguage(filtered.body);
+  const failureReason = !language.body.trim() ? "empty_response" : !language.substantive ? (language.omittedCount ? "prohibited_language" : "no_usable_content") : undefined;
+  return Object.freeze({ body: failureReason ? undefined : language.body, sources: Object.freeze([...deduplicated.values()]), urlOmissionCount: filtered.omittedCount, languageOmissionCount: language.omittedCount, failureReason });
 }
 
 async function supportedCatalog(connection) {
@@ -274,7 +277,10 @@ export function createCodexProvider(config) {
       providerLog("nanoduck.provider.turn_completed", { outputKind, completionSource, durationMs: Date.now() - startedAt, webSearchCount: searchIds.size });
       unsubscribe();
       const output = typeof resultBody === "string" ? sourcesFrom(resultBody) : undefined;
-      return output?.body ? { ok: true, body: output.body, sources: output.sources } : output ? { ok: false, code: "language_policy" } : { ok: false, code: "provider_unavailable" };
+      if (output?.urlOmissionCount) providerLog("nanoduck.provider.output_policy", { outputKind, reason: "unapproved_url_omitted", count: output.urlOmissionCount });
+      if (output?.languageOmissionCount) providerLog("nanoduck.provider.output_policy", { outputKind, reason: "prohibited_fragment_omitted", count: output.languageOmissionCount });
+      if (output?.failureReason) providerLog("nanoduck.provider.output_policy", { outputKind, reason: output.failureReason });
+      return output?.body ? { ok: true, body: output.body, sources: output.sources } : output ? { ok: false, code: output.failureReason === "prohibited_language" ? "language_policy" : output.failureReason === "no_usable_content" ? "output_policy" : "provider_unavailable" } : { ok: false, code: "provider_unavailable" };
     } catch (error) {
       const details = providerFailureDetails(error);
       const code = signal?.aborted || error.message === "cancelled" ? "cancelled" : details.category;

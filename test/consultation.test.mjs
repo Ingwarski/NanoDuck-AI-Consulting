@@ -196,6 +196,19 @@ test("a failed specialist reply resumes after the confirmed challenge without re
   assert.deepEqual((await fixture.store.events(fixture.id)).slice(0, preserved.length), preserved);
 });
 
+test("content-free policy output retries the same role without losing confirmed work", async () => {
+  const fixture = await makeRun(undefined, { specialistCount: "1", discussionDepth: "1" });
+  const calls = [];
+  await runToStatus(fixture, fakeProvider(calls, input => input.outputKind === "specialist_position" && calls.filter(call => call.outputKind === "specialist_position").length === 1
+    ? { ok: false, code: "output_policy" } : undefined, ["Strategy Consultant"]));
+  const positions = calls.filter(call => call.outputKind === "specialist_position");
+  assert.equal(positions.length, 2);
+  assert.equal(positions[0].role, positions[1].role);
+  assert.equal(positions[0].recipient, positions[1].recipient);
+  assert.match(positions[1].assignment, /Return a complete replacement now/u);
+  assert.equal((await fixture.store.events(fixture.id)).some(event => event.role === "System"), false);
+});
+
 test("a provider failure never silently substitutes another model or a generic Head task", async () => {
   const fixture = await makeRun(undefined, { specialistCount: "1", discussionDepth: "1" }); const calls = [];
   await runToStatus(fixture, fakeProvider(calls, input => input.outputKind === "head_task" ? { ok: false, code: "incompatible" } : undefined, ["Strategy Consultant"]), "failed");

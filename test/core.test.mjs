@@ -4,7 +4,7 @@ import { decryptBytes, decryptText, encryptBytes, encryptText } from "../src/ser
 import { inspectImageAttachment } from "../src/server/attachments.mjs";
 import { openRecoveryEnvelope, sealRecoverySnapshot } from "../src/server/recovery.mjs";
 import { createMemoryStore, defaultSettings } from "../src/server/store.mjs";
-import { hasProhibitedLanguage, parseConversationIds, parseMessage, parseSettings, safeExternalUrl } from "../src/server/validation.mjs";
+import { hasProhibitedLanguage, omitProhibitedLanguage, omitUnsafeExternalUrls, parseConversationIds, parseMessage, parseSettings, safeExternalUrl } from "../src/server/validation.mjs";
 import { testRuntimeInstructions } from "./fixtures/runtime-instructions.mjs";
 import { jpeg, png, webp } from "./fixtures/images.mjs";
 
@@ -166,12 +166,36 @@ test("settings and message validation reject unsupported model values and malfor
 });
 
 test("Ukrainian shared words are allowed without permitting distinctive prohibited language", () => {
-  for (const body of ["Які умови вступу?", "Перевірте курси, які викладають англійською.", "Уточніть, які саме дані потрібно надати."]) {
+  for (const body of ["Які умови вступу?", "Перевірте курси, які викладають англійською.", "Уточніть, які саме дані потрібно надати.", "The Russian and Belarusian markets require separate review."]) {
     assert.equal(hasProhibitedLanguage(body), false, body);
     assert.equal(parseMessage({ body, clientRequestId: "ukrainian-word-check-0001" })?.body, body);
   }
   for (const body of ["Как это работает?", "Які гэта мае вынікі?", "Якія сёння ўмовы?", "Якая крыніца?"]) assert.equal(hasProhibitedLanguage(body), true);
   for (const suffix of ["ru", "by", "su"]) assert.equal(safeExternalUrl(`https://example.${suffix}/report`), undefined);
+});
+
+test("provider prose omits unapproved links without discarding otherwise useful advice", () => {
+  const value = "Read [the report](https://example.su/report), then compare https://example.com/approved and http://localhost:3000/demo.";
+  const result = omitUnsafeExternalUrls(value);
+  assert.equal(result.omittedCount, 2);
+  assert.match(result.body, /the report \(source link omitted: unapproved URL\)/u);
+  assert.match(result.body, /https:\/\/example\.com\/approved/u);
+  assert.doesNotMatch(result.body, /example\.su|localhost/u);
+});
+
+test("provider prose withholds only detected prohibited-language fragments", () => {
+  const result = omitProhibitedLanguage("Keep the English recommendation. Как это работает? Перевірте, які дані потрібні.");
+  assert.equal(result.omittedCount, 1);
+  assert.equal(result.substantive, true);
+  assert.match(result.body, /Keep the English recommendation/u);
+  assert.match(result.body, /Перевірте, які дані потрібні/u);
+  assert.doesNotMatch(result.body, /Как|это/u);
+  assert.equal(omitProhibitedLanguage("Как это?").substantive, false);
+  assert.equal(omitProhibitedLanguage("[unapproved URL omitted]").substantive, false);
+  const linked = omitProhibitedLanguage("Keep this recommendation. Как это работает with https://example.com/report? Keep the safe conclusion.");
+  assert.equal(linked.omittedCount, 1);
+  assert.doesNotMatch(linked.body, /работает|example\.com/u);
+  assert.match(linked.body, /Keep this recommendation.*Keep the safe conclusion/u);
 });
 
 test("source links accept only public HTTPS destinations", () => {

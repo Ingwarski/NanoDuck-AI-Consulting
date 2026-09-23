@@ -4,9 +4,25 @@ const identifier = value => typeof value === "string" && /^[A-Za-z0-9_-]{16,128}
 const forbiddenHostSuffixes = Object.freeze([".ru", ".by", ".su", ".xn--p1ai", ".xn--90ais"]);
 // Shared vocabulary such as Ukrainian "які" cannot identify a prohibited
 // language by itself. Match distinctive letters/words, including in mixed prose.
-const forbiddenLanguage = /[ЁёЫыЪъЭэЎў]|(?:^|[^\p{L}])(?:russian|belarusian|россия|русск(?:ий|ая|ие|ого|им|их)?|беларус(?:ь|ский|кая|кие|кого|ким|ких)?|как|это|какой|какая|какие|котор(?:ый|ая|ые|ого|ому|ых|ыми)?|сегодня|сейчас|только|может|нужно|должен|будет|время|деньги|рынок|решение|вопрос|источник|исследование|данные|продажи|цена|цены|гэта|якая|якія|крыніца|даследаванне|рашэнне|пытанне|сёння|цяпер|толькі|можа|павінен|будзе|рынак)(?=$|[^\p{L}])/iu;
+const forbiddenLanguage = /[\p{L}]*[ЁёЫыЪъЭэЎў][\p{L}]*|(?<!\p{L})(?:россия|русск(?:ий|ая|ие|ого|им|их)?|беларус(?:ь|ский|кая|кие|кого|ким|ких)?|как|это|какой|какая|какие|котор(?:ый|ая|ые|ого|ому|ых|ыми)?|сегодня|сейчас|только|может|нужно|должен|будет|время|деньги|рынок|решение|вопрос|источник|исследование|данные|продажи|цена|цены|гэта|якая|якія|крыніца|даследаванне|рашэнне|пытанне|сёння|цяпер|толькі|можа|павінен|будзе|рынак)(?!\p{L})/iu;
+const sentenceSegmenter = new Intl.Segmenter("en", { granularity: "sentence" });
 
 export const hasProhibitedLanguage = value => typeof value === "string" && forbiddenLanguage.test(value);
+export function omitProhibitedLanguage(value) {
+  if (typeof value !== "string") return { body: value, omittedCount: 0, substantive: false };
+  let omittedCount = 0;
+  // Remove the sentence containing a distinctive prohibited-language signal.
+  // Replacing just that signal would leak the remainder of a Russian sentence.
+  const body = [...sentenceSegmenter.segment(value)].map(({ segment }) => {
+    if (!hasProhibitedLanguage(segment)) return segment;
+    omittedCount += 1;
+    return `[prohibited-language fragment omitted]${segment.match(/\s*$/u)?.[0] ?? ""}`;
+  }).join("");
+  const remaining = body.replaceAll("[prohibited-language fragment omitted]", "")
+    .replaceAll("[unapproved URL omitted]", "")
+    .replaceAll("(source link omitted: unapproved URL)", "");
+  return { body, omittedCount, substantive: /[\p{L}\p{N}]/u.test(remaining) };
+}
 export const hasProhibitedSourceHost = hostname => hostname === "ru" || hostname === "by" || hostname === "su" || hostname === "xn--p1ai" || hostname === "xn--90ais" || forbiddenHostSuffixes.some(suffix => hostname.endsWith(suffix));
 
 export function parseJson(value) {
@@ -17,6 +33,26 @@ export function parseJson(value) {
 const externalUrlMatch = /\bhttps?:\/\/[^\s<>"']+/gu;
 const trimUrlPunctuation = value => value.replace(/[),.;:!?]+$/gu, "");
 export const hasUnsafeExternalUrl = value => typeof value === "string" && [...value.matchAll(externalUrlMatch)].some(match => !safeExternalUrl(trimUrlPunctuation(match[0])));
+
+// Model prose may include one unsuitable citation even when its advice is
+// otherwise usable. Remove that link explicitly instead of discarding the
+// whole answer; source metadata is validated separately.
+export function omitUnsafeExternalUrls(value) {
+  if (typeof value !== "string") return { body: value, omittedCount: 0 };
+  let omittedCount = 0;
+  const withoutBadMarkdownLinks = value.replace(/\[([^\]\n]{1,280})\]\((https?:\/\/[^\s)]+)\)/gu, (whole, label, url) => {
+    if (safeExternalUrl(url)) return whole;
+    omittedCount += 1;
+    return `${label} (source link omitted: unapproved URL)`;
+  });
+  const body = withoutBadMarkdownLinks.replace(externalUrlMatch, raw => {
+    const candidate = trimUrlPunctuation(raw);
+    if (safeExternalUrl(candidate)) return raw;
+    omittedCount += 1;
+    return `[unapproved URL omitted]${raw.slice(candidate.length)}`;
+  });
+  return { body, omittedCount };
+}
 
 export function parseMessage(value) {
   const body = parseJson(value);
