@@ -145,9 +145,38 @@ test("phone numbers in private context do not suppress isolated public research 
   assert.equal(researchCall.evidence.owner.includes(privateNumber), false);
   assert.equal(researchCall.evidence.discussion, "");
   assert.equal(researchCall.runtimeInstructions.documents, undefined);
-  const headTask = (await fixture.store.events(fixture.id)).find(event => event.role === "Head Consultant" && event.recipient);
-  assert.equal(headTask.sources.length, 12);
+  const firstTask = (await fixture.store.events(fixture.id)).find(event => event.role === "Head Consultant" && event.recipient);
+  const firstPosition = (await fixture.store.events(fixture.id)).find(event => event.role === "Strategy Consultant" && event.recipient === "Critic");
+  assert.equal(firstTask.sources.length, 0, "Head's task is committed before the public search");
+  assert.equal(firstPosition.sources.length, 12);
+  assert.ok(calls.findIndex(call => call.outputKind === "head_task") < calls.findIndex(call => call.outputKind === "public_research"));
   assert.ok(calls.find(call => call.outputKind === "head_final").evidence.discussion.includes("https://example.org/page-11"));
+});
+
+test("Head tasks remain visible during slow research and a failed search becomes an evidence limitation", async () => {
+  const fixture = await makeRun("Check current public demand before recommending a fictional bakery offer.", { specialistCount: "1", discussionDepth: "1" });
+  const calls = [];
+  let finishResearch;
+  const provider = fakeProvider(calls, input => {
+    if (input.outputKind === "research_query") return { ok: true, body: "public bakery demand report", sources: [] };
+    if (input.outputKind === "public_research") return new Promise(resolve => { finishResearch = resolve; });
+    return undefined;
+  }, ["Strategy Consultant"]);
+  const service = createConsultationService({ store: fixture.store, provider });
+  await service.start(fixture.id, fixture.run);
+  await waitFor(async () => Boolean(finishResearch));
+  const duringResearch = await fixture.store.events(fixture.id);
+  assert.equal((await fixture.store.run(fixture.id)).status, "active");
+  assert.deepEqual(duringResearch.filter(event => event.role === "Head Consultant" && event.recipient).map(event => event.recipient), ["Strategy Consultant"]);
+  assert.equal(duringResearch.some(event => event.role === "Strategy Consultant"), false);
+  finishResearch({ ok: false, code: "provider_unavailable" });
+  await waitFor(async () => (await fixture.store.run(fixture.id)).status === "complete");
+  const snapshot = (await fixture.store.run(fixture.id)).snapshot;
+  assert.equal(snapshot.researchAttempted, true);
+  assert.equal(snapshot.researchUnavailable, true);
+  assert.equal(snapshot.researchUnavailableReason, "provider_unavailable");
+  assert.ok(calls.find(call => call.outputKind === "specialist_position").evidence.discussion.includes("A public research attempt did not complete"));
+  assert.equal((await fixture.store.events(fixture.id)).some(event => event.role === "System"), false);
 });
 
 test("unsafe public query is withheld without blocking the consultation", async () => {
@@ -155,7 +184,7 @@ test("unsafe public query is withheld without blocking the consultation", async 
   await runToStatus(fixture, fakeProvider(calls, input => input.outputKind === "research_query" ? { ok: true, body: "Call +1 415 555 0199 for the rule", sources: [] } : undefined, ["Strategy Consultant"]));
   assert.equal(calls.some(call => call.outputKind === "public_research"), false);
   assert.equal((await fixture.store.run(fixture.id)).snapshot.researchUnavailable, true);
-  assert.ok(calls.find(call => call.outputKind === "head_final").evidence.discussion.includes("Public research was unavailable"));
+  assert.ok(calls.find(call => call.outputKind === "head_final").evidence.discussion.includes("A public research attempt was withheld"));
 });
 
 test("a tool-free Claude Critic's evidence gap can trigger isolated Codex follow-up research", async () => {

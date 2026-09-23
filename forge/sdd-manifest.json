@@ -3689,13 +3689,13 @@
       },
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "language-critic-20260923-architecture",
+      "owner_invocation_id": "head-first-research-20260923-architecture",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "language-critic-20260923-architecture",
+      "source_version": "head-first-research-20260923-architecture",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3734,14 +3734,14 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "2728f6c4d7e3b548da2a34a1cc5ed741eeed7a49b90a4b03c42df0b668afbbaa",
+      "content_hash": "8d490a89cbe83054d9e86b6d0a8d9aba00f8398d37c2f5a6e8ffb714f2b615e0",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "head-led-consultation-reconciliation",
-        "reviewed_at": "2026-09-23T08:16:00.317478+00:00",
+        "reviewed_at": "2026-09-23T08:47:41.138674+00:00",
         "executor": "Codex inline to-architecture",
-        "scope": "Specify Head-led coordinator, verbatim task persistence, complete context, legacy run continuation, isolated public-query boundary, source ledger and truthful finite transport ceilings."
+        "scope": "Commit Head assignments before isolated live research; attach resulting sources to specialist work and preserve the run on search failure or timeout."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -3819,13 +3819,13 @@
       },
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "language-critic-20260923-dod-evals",
+      "owner_invocation_id": "head-first-research-20260923-dod-evals",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "language-critic-20260923-dod-evals",
+      "source_version": "head-first-research-20260923-dod-evals",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3846,7 +3846,7 @@
         "docs/screen-map.md": "7167de5cedeba896bd8664fac13c6b260b04d40a5eaea145201e3ae45dbbacb3",
         "docs/wireframes.md": "0d1dc1b29819097af12047d7ab3925f24fc5c563dc5a3df43f92f700fea0d5e0",
         "docs/design-brief.md": "fb1581811b291051e2315404c0c8bc00da2043e2949e4ada783fb2289a0ae421",
-        "docs/architecture.md": "2728f6c4d7e3b548da2a34a1cc5ed741eeed7a49b90a4b03c42df0b668afbbaa"
+        "docs/architecture.md": "8d490a89cbe83054d9e86b6d0a8d9aba00f8398d37c2f5a6e8ffb714f2b615e0"
       },
       "dependencies": [
         "prd",
@@ -3859,14 +3859,14 @@
         "design-brief",
         "architecture"
       ],
-      "content_hash": "2937fd464781b6955300409a189fceca50d6af708dc5ac1cfe0b61a55d569819",
+      "content_hash": "297357d5b2408118c20904fa954c8ca2f3063f9140417bcc478c1ceed87fd370",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "head-led-consultation-reconciliation",
-        "reviewed_at": "2026-09-23T08:16:00.704438+00:00",
+        "reviewed_at": "2026-09-23T08:48:11.994400+00:00",
         "executor": "Codex inline to-dod-evals",
-        "scope": "Tie completion evidence to actual role routing, complete context/output, targeted Critic rework, useful review depth, public search isolation and safe continuation."
+        "scope": "Require evidence that first Head task precedes slow research and a failed search preserves the run with an explicit evidence gap."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -5633,13 +5633,13 @@
       },
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "language-critic-20260923-qa-checklist",
+      "owner_invocation_id": "head-first-research-20260923-qa-checklist",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "language-critic-20260923-qa-checklist",
+      "source_version": "head-first-research-20260923-qa-checklist",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -5661,8 +5661,8 @@
         "docs/screen-map.md": "7167de5cedeba896bd8664fac13c6b260b04d40a5eaea145201e3ae45dbbacb3",
         "docs/wireframes.md": "0d1dc1b29819097af12047d7ab3925f24fc5c563dc5a3df43f92f700fea0d5e0",
         "docs/design-brief.md": "fb1581811b291051e2315404c0c8bc00da2043e2949e4ada783fb2289a0ae421",
-        "docs/architecture.md": "2728f6c4d7e3b548da2a34a1cc5ed741eeed7a49b90a4b03c42df0b668afbbaa",
-        "docs/dod-evals.md": "2937fd464781b6955300409a189fceca50d6af708dc5ac1cfe0b61a55d569819"
+        "docs/architecture.md": "8d490a89cbe83054d9e86b6d0a8d9aba00f8398d37c2f5a6e8ffb714f2b615e0",
+        "docs/dod-evals.md": "297357d5b2408118c20904fa954c8ca2f3063f9140417bcc478c1ceed87fd370"
       },
       "dependencies": [
         "prd",
@@ -5676,14 +5676,14 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "4f0a712a7ff09a8380ff1f45f377924de2b66962e5d5f924b6f4885e8f80150f",
+      "content_hash": "540b3089c5322a50b2e65a9baa6a7d9b5fa8e47f9253f88dddf08cbc6528d241",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "head-led-consultation-reconciliation",
-        "reviewed_at": "2026-09-23T08:16:01.089455+00:00",
+        "reviewed_at": "2026-09-23T08:48:21.537850+00:00",
         "executor": "Codex inline to-qa-checklist",
-        "scope": "Reconcile focused checks for Head tasks, full-context final output, research/source handling, depth ceilings, Stop/Continue and unchanged browser interface; formal QA remains unrun until evidenced."
+        "scope": "Test visible Head assignment during delayed research, source isolation, timeout continuation and cancellation; formal QA execution remains separately evidenced."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -6775,13 +6775,13 @@
       },
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "language-critic-20260923-development-plan",
+      "owner_invocation_id": "head-first-research-20260923-development-plan",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "language-critic-20260923-development-plan",
+      "source_version": "head-first-research-20260923-development-plan",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -6807,9 +6807,9 @@
         "docs/screen-map.md": "7167de5cedeba896bd8664fac13c6b260b04d40a5eaea145201e3ae45dbbacb3",
         "docs/wireframes.md": "0d1dc1b29819097af12047d7ab3925f24fc5c563dc5a3df43f92f700fea0d5e0",
         "docs/design-brief.md": "fb1581811b291051e2315404c0c8bc00da2043e2949e4ada783fb2289a0ae421",
-        "docs/architecture.md": "2728f6c4d7e3b548da2a34a1cc5ed741eeed7a49b90a4b03c42df0b668afbbaa",
-        "docs/dod-evals.md": "2937fd464781b6955300409a189fceca50d6af708dc5ac1cfe0b61a55d569819",
-        "docs/qa-checklist.md": "4f0a712a7ff09a8380ff1f45f377924de2b66962e5d5f924b6f4885e8f80150f",
+        "docs/architecture.md": "8d490a89cbe83054d9e86b6d0a8d9aba00f8398d37c2f5a6e8ffb714f2b615e0",
+        "docs/dod-evals.md": "297357d5b2408118c20904fa954c8ca2f3063f9140417bcc478c1ceed87fd370",
+        "docs/qa-checklist.md": "540b3089c5322a50b2e65a9baa6a7d9b5fa8e47f9253f88dddf08cbc6528d241",
         "docs/model-settings.md": "c58fed0a9606f231ac8086c669b859cb58e372efdcd538ed2fee33cb091c8ecc",
         "package.json": "094e408c16c3a8369b9f21a343bb562dc0cd20160e26b6c01f144bd83712a568",
         "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318"
@@ -6827,14 +6827,14 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "d8431679c34dfe4e64a59adac8ceac63e458f2345132260ba41046754499723a",
+      "content_hash": "c88ef1714505f61b7cf9324d5085a76a89ad7acd246754dec126bcc7672dbc59",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "head-led-consultation-reconciliation",
-        "reviewed_at": "2026-09-23T08:16:01.783402+00:00",
+        "reviewed_at": "2026-09-23T08:49:25.492480+00:00",
         "executor": "Codex inline to-development-plan",
-        "scope": "Authorize this checkout only, map implementation and verification to current SDD authority, and link a portable non-private handoff for the two untouched sister repositories."
+        "scope": "Map the Head-first research sequence and truthful failure recovery to U-05 without changing the approved visual baseline or other repositories."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -7346,8 +7346,8 @@
     "definition_status": "prepared",
     "release_readiness": "not_evaluated",
     "source_hashes": {
-      "docs/dod-evals.md": "2937fd464781b6955300409a189fceca50d6af708dc5ac1cfe0b61a55d569819",
-      "docs/qa-checklist.md": "4f0a712a7ff09a8380ff1f45f377924de2b66962e5d5f924b6f4885e8f80150f"
+      "docs/dod-evals.md": "297357d5b2408118c20904fa954c8ca2f3063f9140417bcc478c1ceed87fd370",
+      "docs/qa-checklist.md": "540b3089c5322a50b2e65a9baa6a7d9b5fa8e47f9253f88dddf08cbc6528d241"
     },
     "gates": [
       {
@@ -10144,18 +10144,18 @@
   },
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "d8431679c34dfe4e64a59adac8ceac63e458f2345132260ba41046754499723a",
+    "development_plan_hash": "c88ef1714505f61b7cf9324d5085a76a89ad7acd246754dec126bcc7672dbc59",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-14T20:13:37+03:00",
-    "prompt_id": "language-critic-20260923",
-    "prompt_received_at": "2026-09-23T08:09:18.309493+00:00",
-    "released_at": "2026-09-23T08:09:18.309493+00:00",
+    "prompt_id": "head-first-research-20260923",
+    "prompt_received_at": "2026-09-23T08:49:39.203912+00:00",
+    "released_at": "2026-09-23T08:49:39.203912+00:00",
     "product_scope_hash": "defc5e24f0dd91be42b984888b157137f4f1ed361459e70f42b832e18c957bd4",
     "prompt_receipt": {
-      "path": "forge/runs/language-critic-20260923/implementation-prompt.json",
-      "content_hash": "dda43e7464707b45de3d9ee417ab1bb9402245db5a1d8e56e997209c9192eecc"
+      "path": "forge/runs/head-first-research-20260923/implementation-prompt.json",
+      "content_hash": "3e2dd329272f8bfd338fe05b4e7d5835dc2851f4b08cefd87d8825bdca2137be"
     },
-    "reason": "The owner explicitly requested the cause be fixed and then directed fragment-level omission and stronger Critic scrutiny in this checkout."
+    "reason": "The owner explicitly requested a fix for the nine-minute wait without a first Head Consultant answer."
   },
   "dispatches": {
     "product-idea": {
@@ -10271,7 +10271,7 @@
       }
     },
     "architecture": {
-      "invocation_id": "language-critic-20260923-architecture",
+      "invocation_id": "head-first-research-20260923-architecture",
       "outputs": [
         "docs/architecture.md"
       ],
@@ -10291,7 +10291,7 @@
       }
     },
     "dod-evals": {
-      "invocation_id": "language-critic-20260923-dod-evals",
+      "invocation_id": "head-first-research-20260923-dod-evals",
       "outputs": [
         "docs/dod-evals.md"
       ],
@@ -10304,11 +10304,11 @@
         "docs/screen-map.md": "7167de5cedeba896bd8664fac13c6b260b04d40a5eaea145201e3ae45dbbacb3",
         "docs/wireframes.md": "0d1dc1b29819097af12047d7ab3925f24fc5c563dc5a3df43f92f700fea0d5e0",
         "docs/design-brief.md": "fb1581811b291051e2315404c0c8bc00da2043e2949e4ada783fb2289a0ae421",
-        "docs/architecture.md": "2728f6c4d7e3b548da2a34a1cc5ed741eeed7a49b90a4b03c42df0b668afbbaa"
+        "docs/architecture.md": "8d490a89cbe83054d9e86b6d0a8d9aba00f8398d37c2f5a6e8ffb714f2b615e0"
       }
     },
     "qa-checklist": {
-      "invocation_id": "language-critic-20260923-qa-checklist",
+      "invocation_id": "head-first-research-20260923-qa-checklist",
       "outputs": [
         "docs/qa-checklist.md"
       ],
@@ -10321,12 +10321,12 @@
         "docs/screen-map.md": "7167de5cedeba896bd8664fac13c6b260b04d40a5eaea145201e3ae45dbbacb3",
         "docs/wireframes.md": "0d1dc1b29819097af12047d7ab3925f24fc5c563dc5a3df43f92f700fea0d5e0",
         "docs/design-brief.md": "fb1581811b291051e2315404c0c8bc00da2043e2949e4ada783fb2289a0ae421",
-        "docs/architecture.md": "2728f6c4d7e3b548da2a34a1cc5ed741eeed7a49b90a4b03c42df0b668afbbaa",
-        "docs/dod-evals.md": "2937fd464781b6955300409a189fceca50d6af708dc5ac1cfe0b61a55d569819"
+        "docs/architecture.md": "8d490a89cbe83054d9e86b6d0a8d9aba00f8398d37c2f5a6e8ffb714f2b615e0",
+        "docs/dod-evals.md": "297357d5b2408118c20904fa954c8ca2f3063f9140417bcc478c1ceed87fd370"
       }
     },
     "development-plan": {
-      "invocation_id": "language-critic-20260923-development-plan",
+      "invocation_id": "head-first-research-20260923-development-plan",
       "outputs": [
         "docs/development-plan.md"
       ],
@@ -10339,9 +10339,9 @@
         "docs/screen-map.md": "7167de5cedeba896bd8664fac13c6b260b04d40a5eaea145201e3ae45dbbacb3",
         "docs/wireframes.md": "0d1dc1b29819097af12047d7ab3925f24fc5c563dc5a3df43f92f700fea0d5e0",
         "docs/design-brief.md": "fb1581811b291051e2315404c0c8bc00da2043e2949e4ada783fb2289a0ae421",
-        "docs/architecture.md": "2728f6c4d7e3b548da2a34a1cc5ed741eeed7a49b90a4b03c42df0b668afbbaa",
-        "docs/dod-evals.md": "2937fd464781b6955300409a189fceca50d6af708dc5ac1cfe0b61a55d569819",
-        "docs/qa-checklist.md": "4f0a712a7ff09a8380ff1f45f377924de2b66962e5d5f924b6f4885e8f80150f",
+        "docs/architecture.md": "8d490a89cbe83054d9e86b6d0a8d9aba00f8398d37c2f5a6e8ffb714f2b615e0",
+        "docs/dod-evals.md": "297357d5b2408118c20904fa954c8ca2f3063f9140417bcc478c1ceed87fd370",
+        "docs/qa-checklist.md": "540b3089c5322a50b2e65a9baa6a7d9b5fa8e47f9253f88dddf08cbc6528d241",
         "docs/model-settings.md": "c58fed0a9606f231ac8086c669b859cb58e372efdcd538ed2fee33cb091c8ecc",
         "package.json": "094e408c16c3a8369b9f21a343bb562dc0cd20160e26b6c01f144bd83712a568",
         "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318"
