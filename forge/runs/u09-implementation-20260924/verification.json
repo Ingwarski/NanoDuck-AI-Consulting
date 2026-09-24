@@ -48,5 +48,32 @@
     "Provider token usage and subscription quota impact are unavailable from the synthetic fixture.",
     "No physical iPhone, iPad, Windows or Linux device was tested.",
     "The full SDD QA and representative-user gates are not claimed complete."
-  ]
+  ],
+  "runtime_activation": {
+    "activated_at": "2026-09-24T13:44:24.174032+00:00",
+    "pre_restart_active_runs": 0,
+    "old_process_shutdown": "graceful SIGTERM after encrypted-state read-only active-run check",
+    "new_process": "running in managed local terminal session from this checkout",
+    "loopback_https_health": {
+      "status_code": 200,
+      "body": {
+        "status": "alive",
+        "store": "sqlite"
+      }
+    },
+    "private_lan_https_health": {
+      "status_code": 200,
+      "body": {
+        "status": "alive",
+        "store": "sqlite"
+      }
+    },
+    "default_document_migration": {
+      "AGENTS.md": 2,
+      "CONSILIUM.md": 2,
+      "action": "parallel_protocol_migration"
+    },
+    "owner_content_or_grants_changed": false
+  },
+  "implementation_commit": "262e9b2"
 }
