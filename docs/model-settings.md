@@ -59,7 +59,7 @@ Specialist count and discussion depth are separate preferences. Count supports
 specialists. Depth supports 1, 3, 5 and Auto complete Critic/specialist exchanges
 per selected specialist. Auto checks the whole team and stops after supported
 agreement or ten exchanges per specialist. Defaults remain two specialists and
-one exchange. The provider budget remains 540,000 ms.
+one exchange. Codex uses a 540,000 ms inactivity budget renewed only by matching-turn progress, with a 1,800,000 ms absolute ceiling. Claude retains its 540,000 ms absolute deadline. Exact selected model and reasoning settings never change to work around a timeout.
 
 Each accepted consultation snapshots its exact model, effort, specialist count,
 depth and effective instructions. Later preference or instruction changes affect

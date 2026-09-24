@@ -7,6 +7,13 @@ import { fileURLToPath } from "node:url";
 import { createCodexProvider } from "../src/server/codex-provider.mjs";
 import { testRuntimeInstructions as initialRuntimeInstructions } from "./fixtures/runtime-instructions.mjs";
 
+test("Codex allows a progressing answer past its idle budget, but bounds silence and total duration", async () => {
+  for (const [suffix, expected] of [["", { ok: true, body: "A bounded answer.", sources: [] }], [" wrong turn", { ok: false, code: "provider_idle_timeout" }], [" never completes", { ok: false, code: "provider_timeout" }]]) {
+    const provider = createCodexProvider({ readyForProvider: true, codexCommand: process.execPath, codexCommandArgs: [fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url))] }, { idleMs: 300, maximumMs: suffix.includes("never") ? 550 : 2_000 });
+    assert.deepEqual(await provider.invoke({ assignment: `Exercise progress deadline${suffix}`, model: "gpt-6-sol", effort: "max", evidence: { owner: "Synthetic question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions }), expected);
+  }
+});
+
 test("Codex turns use an owned workspace and deny local tool channels", async () => {
   const command = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));
   const provider = createCodexProvider({ readyForProvider: true, codexCommand: process.execPath, codexCommandArgs: [command], codexAuthPath: undefined });

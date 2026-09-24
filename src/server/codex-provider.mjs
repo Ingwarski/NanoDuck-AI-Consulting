@@ -5,6 +5,7 @@ import { createInterface } from "node:readline";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { randomId } from "./crypto.mjs";
+import { createTurnDeadline, isTurnProgress } from "./turn-deadline.mjs";
 import { createRuntimePrompts, RuntimeInstructionError } from "./prompt-contracts.mjs";
 import { hasProhibitedLanguage, omitProhibitedLanguage, omitUnsafeExternalUrls, safeExternalUrl } from "./validation.mjs";
 
@@ -15,7 +16,7 @@ const waitFor = (promise, milliseconds, label, signal = undefined) => new Promis
     settled = true; clearTimeout(timer); signal?.removeEventListener("abort", abort); callback(value);
   };
   const abort = () => finish(reject, new Error("cancelled"));
-  const timer = setTimeout(() => finish(reject, new Error(label)), milliseconds);
+  const timer = milliseconds === undefined ? undefined : setTimeout(() => finish(reject, new Error(label)), milliseconds);
   if (signal?.aborted) return abort();
   signal?.addEventListener("abort", abort, { once: true });
   Promise.resolve(promise).then(value => finish(resolve, value), error => finish(reject, error));
@@ -54,8 +55,8 @@ const providerFailureDetails = error => {
     category: error.category,
     request: error.requestMethod
   });
-  const code = ["cancelled", "provider_timeout", "app_server_timeout", "app_server_closed"].includes(error?.message) ? error.message : "provider_error";
-  return Object.freeze({ code, category: error?.message === "cancelled" ? "cancelled" : "provider_unavailable" });
+  const code = ["cancelled", "provider_timeout", "provider_idle_timeout", "app_server_timeout", "app_server_closed"].includes(error?.message) ? error.message : "provider_error";
+  return Object.freeze({ code, category: ["cancelled", "provider_timeout", "provider_idle_timeout"].includes(code) ? code : "provider_unavailable" });
 };
 const providerFailureCategory = error => providerFailureDetails(error).category;
 const providerStatus = error => {
@@ -204,7 +205,7 @@ async function supportedCatalog(connection) {
   return supported.length ? Object.freeze(supported) : undefined;
 }
 
-export function createCodexProvider(config) {
+export function createCodexProvider(config, deadlineOptions = undefined) {
   const inspect = async () => {
     if (!config.readyForProvider) return Object.freeze({ status: "unavailable", models: Object.freeze([]) });
     let connection;
@@ -225,7 +226,8 @@ export function createCodexProvider(config) {
   const invoke = async ({ assignment, model, effort, evidence, research, outputKind = "discussion", maximumCharacters = undefined, runtimeInstructions, signal }) => {
     if (!config.readyForProvider) return { ok: false, code: "provider_unavailable" };
     if (!runtimeInstructions) throw new RuntimeInstructionError("Provider invocation is missing its runtime-instructions contract.");
-    let connection; let threadId; let unsubscribe = () => {};
+    let connection; let threadId; let unsubscribe = () => {}; let deadline;
+    let startedAt; let lastProgressAt; let progressCount = 0;
     try {
       connection = await startConnection(config, signal);
       if (signal?.aborted) throw new Error("cancelled");
@@ -237,12 +239,16 @@ export function createCodexProvider(config) {
       const prompt = `${assignment}\n\nOwner question:\n${evidence.owner}\n\nPrior confirmed discussion:\n${evidence.discussion}\n\n${outputContract} ${prompts.providerPolicy(research)}`;
       let resolveTurn; const turnDone = new Promise(resolve => { resolveTurn = resolve; });
       let expectedTurnId;
+      deadline = createTurnDeadline(deadlineOptions);
       const completedTurns = new Map();
       const completedBodies = new Map();
       const completedSearches = new Map();
       unsubscribe = connection.on(notification => {
         const params = notification.params;
         if (!record(params) || params.threadId !== threadId) return;
+        if (isTurnProgress(notification, threadId, expectedTurnId)) {
+          lastProgressAt = Date.now(); progressCount += 1; deadline.progress();
+        }
         if (notification.method === "item/completed" && typeof params.turnId === "string") {
           const body = bodyFrom({ items: [params.item] });
           if (body) completedBodies.set(params.turnId, body);
@@ -262,13 +268,14 @@ export function createCodexProvider(config) {
       const startedTurn = record(turn) && record(turn.turn) ? turn.turn : undefined;
       if (!record(startedTurn) || typeof startedTurn.id !== "string") throw new Error("provider_error");
       expectedTurnId = startedTurn.id;
-      const startedAt = Date.now();
+      startedAt = Date.now(); lastProgressAt ??= startedAt;
+      deadline.start();
       providerLog("nanoduck.provider.turn_started", { outputKind, research, effort });
       // Ephemeral threads have no saved turn history. Consume the subscribed event
       // stream; thread/read(includeTurns:true) is rejected by the pinned app server.
       const resolvedTurn = terminalTurn(startedTurn) ?? completedTurns.get(expectedTurnId) ?? await waitFor(
-        Promise.race([turnDone, connection.closed.then(error => { throw error; })]),
-        540_000, "provider_timeout", signal
+        Promise.race([turnDone, deadline.promise, connection.closed.then(error => { throw error; })]),
+        undefined, "provider_timeout", signal
       );
       if (resolvedTurn.status !== "completed") throw new AppServerRequestError("turn/completed", resolvedTurn.error);
       const resultBody = bodyFrom(resolvedTurn) ?? completedBodies.get(expectedTurnId);
@@ -284,9 +291,10 @@ export function createCodexProvider(config) {
     } catch (error) {
       const details = providerFailureDetails(error);
       const code = signal?.aborted || error.message === "cancelled" ? "cancelled" : details.category;
-      providerLog("nanoduck.provider.turn_failed", { outputKind, ...details });
+      providerLog("nanoduck.provider.turn_failed", { outputKind, ...details, ...(startedAt ? { durationMs: Date.now() - startedAt, idleMs: Date.now() - lastProgressAt, progressCount } : {}) });
       return { ok: false, code };
     } finally {
+      deadline?.stop();
       unsubscribe();
       if (connection && threadId && !signal?.aborted) await connection.request("thread/unsubscribe", { threadId }, 1_000).catch(() => {});
       await connection?.close().catch(() => {});

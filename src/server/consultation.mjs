@@ -17,6 +17,8 @@ const roleSettings = snapshot => Object.freeze({
 
 const providerName = provider => provider === "claude_code" ? "Claude Code" : "Codex";
 const providerFailureMessage = (code, provider) => ({
+  provider_idle_timeout: `The selected ${providerName(provider)} call stopped reporting progress for nine minutes. Your question and confirmed replies remain saved. Choose Retry to resume the unfinished step.`,
+  provider_timeout: `The selected ${providerName(provider)} call reached its maximum waiting time. Your question and confirmed replies remain saved. Choose Retry to resume the unfinished step.`,
   auth_required: `The selected ${providerName(provider)} route needs its subscription sign-in renewed. Your question remains saved.`,
   quota_blocked: `The selected ${providerName(provider)} route has reached its current usage limit. Your question remains saved.`,
   incompatible: `The selected ${providerName(provider)} model and reasoning configuration is unavailable on this route. Your question remains saved.`,

@@ -225,6 +225,26 @@ test("a failed specialist reply resumes after the confirmed challenge without re
   assert.deepEqual((await fixture.store.events(fixture.id)).slice(0, preserved.length), preserved);
 });
 
+test("a Codex timeout names the cause and Retry preserves the confirmed work and exact settings", async () => {
+  for (const code of ["provider_idle_timeout", "provider_timeout"]) {
+    const fixture = await makeRun(undefined, { specialistCount: "1", discussionDepth: "1", headModel: "gpt-6-sol", headReasoning: "max" });
+    const calls = []; let fail = true;
+    const provider = fakeProvider(calls, input => input.outputKind === "specialist_position" && fail ? { ok: false, code } : undefined, ["Strategy Consultant"]);
+    const service = await runToStatus(fixture, provider, "failed");
+    const saved = await fixture.store.events(fixture.id);
+    assert.match(saved.at(-1).body, code === "provider_idle_timeout" ? /stopped reporting progress for nine minutes/u : /maximum waiting time/u);
+    assert.match(saved.at(-1).body, /Choose Retry/u);
+    fail = false; await service.continue(fixture.id);
+    await waitFor(async () => (await fixture.store.run(fixture.id)).status === "complete");
+    assert.deepEqual((await fixture.store.events(fixture.id)).slice(0, saved.length), saved);
+    assert.equal(calls.filter(input => input.outputKind === "head_task").length, 1);
+    for (const call of calls.filter(input => input.outputKind === "specialist_position")) {
+      assert.equal(call.model, "gpt-6-sol"); assert.equal(call.effort, "max");
+      assert.doesNotMatch(call.evidence.discussion, /Choose Retry/u);
+    }
+  }
+});
+
 test("content-free policy output retries the same role without losing confirmed work", async () => {
   const fixture = await makeRun(undefined, { specialistCount: "1", discussionDepth: "1" });
   const calls = [];

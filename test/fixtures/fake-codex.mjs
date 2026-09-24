@@ -48,6 +48,15 @@ createInterface({ input: process.stdin, crlfDelay: Infinity }).on("line", line =
   if (request.method === "account/rateLimits/read") return send({ id: request.id, result: { rateLimits: { rateLimitReachedType: null } } });
   if (request.method === "turn/start") {
     const prompt = request.params?.input?.[0]?.text ?? "";
+    if (prompt.includes("Exercise progress deadline")) {
+      send({ id: request.id, result: { turn: { id: "turn-1", status: "inProgress" } } });
+      const interval = setInterval(() => send({ method: "item/reasoning/summaryTextDelta", params: { threadId: "isolated-thread", turnId: prompt.includes("wrong turn") ? "other-turn" : "turn-1", delta: "private-reasoning-must-not-be-logged" } }), 40);
+      if (!prompt.includes("never completes")) setTimeout(() => {
+        clearInterval(interval);
+        send({ method: "turn/completed", params: { threadId: "isolated-thread", turn: { id: "turn-1", status: "completed", items: [{ type: "agentMessage", text: "A bounded answer." }] } } });
+      }, 650);
+      return;
+    }
     if (prompt.includes("Report selected model and effort")) return send({ id: request.id, result: { turn: { id: "turn-1", status: "completed", items: [{ type: "agentMessage", text: JSON.stringify({ threadModel, turnModel: request.params.model, effort: request.params.effort }) }] } } });
     if (prompt.includes("Report completed research diagnostics")) {
       const search = { type: "webSearch", id: "search-1", query: "synthetic-query-do-not-log" };
