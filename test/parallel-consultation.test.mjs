@@ -58,6 +58,19 @@ test("Head creates unlisted roles; independent consultants overlap and faster re
   assert.equal(calls.filter(input => input.outputKind === "head_final").length, 1);
 });
 
+test("an unusual long Head task reaches its recipient byte-for-byte", async () => {
+  const sample = await fixture({ specialistCount: "1" });
+  const task = `  Test the bakery's exceptional overnight preorder constraint.\n${"Consider the cold-chain handoff and name the one measurable failure point. ".repeat(20)}  `;
+  const provider = { async invoke(input) {
+    const body = input.outputKind === "head_plan" ? JSON.stringify({ assignments: [{ role: "Cold Chain Analyst", guidance: "Assess temperature-sensitive handoffs.", task, dependsOn: [] }], researchQuery: null }) : answer(input);
+    return { ok: true, body, sources: [] };
+  } };
+  await start(sample, provider);
+  await waitFor(async () => (await sample.store.run(sample.id)).status === "complete");
+  const assignment = (await sample.store.events(sample.id)).find(event => event.role === "Head Consultant" && event.recipient === "Cold Chain Analyst");
+  assert.equal(assignment.body, task);
+});
+
 test("a repeated answer cannot satisfy a Critic order; final answer remains provisional", async () => {
   const sample = await fixture({ specialistCount: "1" }); const calls = [];
   const provider = { async invoke(input) {

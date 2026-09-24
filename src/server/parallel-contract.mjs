@@ -15,7 +15,7 @@ export function parseHeadPlan(body, count, ids) {
   if (!object(value) || !Array.isArray(value.assignments) || value.assignments.length < 1 || value.assignments.length > 5 || (count !== "auto" && value.assignments.length !== Number(count))) throw new Error("provider_contract");
   const assignments = value.assignments.map((item, index) => {
     if (!object(item) || !name(item.role) || !prose(item.guidance) || !prose(item.task) || !Array.isArray(item.dependsOn) || item.dependsOn.some(number => !Number.isInteger(number) || number < 1 || number > index)) throw new Error("provider_contract");
-    return { id: ids[index], role: item.role.trim(), guidance: item.guidance.trim(), task: item.task.trim(), dependsOn: [...new Set(item.dependsOn)].map(number => ids[number - 1]) };
+    return { id: ids[index], role: item.role.trim(), guidance: item.guidance.trim(), task: item.task, dependsOn: [...new Set(item.dependsOn)].map(number => ids[number - 1]) };
   });
   if (new Set(assignments.map(item => item.role.toLocaleLowerCase())).size !== assignments.length) throw new Error("provider_contract");
   if (value.researchQuery !== null && value.researchQuery !== undefined && value.researchQuery !== "" && !prose(value.researchQuery)) throw new Error("provider_contract");
