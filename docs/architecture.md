@@ -141,3 +141,7 @@ Dependency/incident review belongs to the maintainer: inspect reported security 
 ## Out of scope and open questions
 
 Public internet access, multiuser accounts, billing, automatic external business actions, private-record import from another installation and unrelated visual changes are outside this refactor. No architecture mechanism requires another material product decision. The exact runtime implementation and actual cross-platform/network/provider results must be checked before their corresponding readiness claims; missing evidence remains a limitation, not an invented pass.
+
+## P5 Stop presentation binding
+
+Share `--consultant-avatar-size` and `--consultant-avatar-radius` between `.avatar` and `.stop-consultation`. The white button face follows the approved P5 dimensions; its transparent pseudo-element extends the hit area to 44px high without changing layout. Existing button identity, disabled state, native keyboard semantics, Stop request and generation fencing remain unchanged.

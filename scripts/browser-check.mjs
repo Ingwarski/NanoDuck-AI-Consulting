@@ -129,7 +129,7 @@ try {
       await page.screenshot({ path: join(root, 'output', 'playwright', `${name}-mobile.png`), fullPage: true });
       await phase(`${name} private logoff`, () => verifyPrivateLogoff(page, context, origin, password, name));
       assert.deepEqual(errors, [], `${name} uncaught browser errors`);
-      console.log(`${name}: password, consent, independent Sol/Astra models and efforts, saved choices, accepted model snapshots, unavailable Sol, compact active composer, isolated square Stop, draft/image restoration, saved sound hydration, delayed native audio, duplicate suppression, blocked recovery, Off on reload, consultation, lost-response retry with an edited draft and image, outcome, refresh, settings, saved history, mobile layout, voice fallback, offline/connected logout, late-response privacy and locked reload/history passed.`);
+      console.log(`${name}: password, consent, independent Sol/Astra models and efforts, saved choices, accepted model snapshots, unavailable Sol, compact active composer, avatar-sized Porcelain Stop, draft/image restoration, saved sound hydration, delayed native audio, duplicate suppression, blocked recovery, Off on reload, consultation, lost-response retry with an edited draft and image, outcome, refresh, settings, saved history, mobile layout, voice fallback, offline/connected logout, late-response privacy and locked reload/history passed.`);
       await context.close();
     } catch (error) {
       console.error(`${name}: browser verification failed before cleanup.`, error);

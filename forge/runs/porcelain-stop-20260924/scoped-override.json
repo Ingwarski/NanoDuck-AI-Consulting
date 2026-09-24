@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "event": "accepted_scoped_baseline_override",
+  "actor": "user",
+  "approved_at": "2026-09-24T11:16:53.632235+00:00",
+  "timestamp_basis": "Time the current explicit design instruction was recorded; transport timestamp unavailable.",
+  "baseline_id": "nanoduck-electric-a-v8-20260914",
+  "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
+  "tree_hash": "1de020dcfe48f3feb80db0e58ba911b821825b48730d32c72d9518ad512eb0d9",
+  "prompt_id": "porcelain-stop-20260924",
+  "message": "let's make it P5 but the button has to be the hight of a consultants icon with the same rounded angles.",
+  "scope": "P5 Porcelain Stop, position 1 upper-right Discussion header; 88px width, consultant avatar height and 7px radius. White face, dark square glyph and inline Stop label. Preserve effective 44px touch area and existing cancellation. Supersedes the prior red square Stop appearance only.",
+  "evidence_limit": "Explicit scoped appearance approval and implementation request, not a whole-product redesign."
+}
