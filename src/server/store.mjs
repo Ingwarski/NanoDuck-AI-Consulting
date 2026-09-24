@@ -2,6 +2,7 @@ import { createMemoryDocuments } from "./instruction-documents.mjs";
 import { randomId } from "./crypto.mjs";
 import { normalizeRecoverySnapshot } from "./recovery.mjs";
 import { validateLocalState } from "./local-state.mjs";
+import { validateParallelTransition } from "./parallel-contract.mjs";
 
 const defaults = Object.freeze({
   headModel: "gpt-6-astra",
@@ -17,6 +18,7 @@ const defaults = Object.freeze({
 });
 
 const now = () => new Date().toISOString();
+const idForMessage = value => typeof value === "string" && /^[A-Za-z0-9_-]{16,128}$/u.test(value);
 const publicAttachment = attachment => Object.freeze({ id: attachment.id, contentType: attachment.contentType, byteLength: attachment.byteLength, createdAt: attachment.createdAt });
 const publicMessage = message => Object.freeze({ id: message.id, role: message.role, recipient: message.recipient ?? null, body: message.body, sequence: message.sequence, createdAt: message.createdAt, sources: message.sources ?? [], attachments: message.attachments ?? [] });
 const recoverySnapshot = (conversations, configuration) => normalizeRecoverySnapshot({ schemaVersion: 1, kind: "nanoduck-owner-records", createdAt: now(), conversations, ...(configuration ? { configuration } : {}) });
@@ -162,6 +164,21 @@ export function createMemoryStore(initialState = undefined) {
       const run = runs.get(conversationId);
       if (!run || run.status !== "active" || run.generation !== generation) return undefined;
       run.snapshot = Object.freeze({ ...snapshot }); run.updatedAt = now(); return { ...run };
+    },
+    async commitParallelWork(conversationId, generation, expectedRevision, work, additions = []) {
+      const run = runs.get(conversationId); const conversation = conversations.get(conversationId);
+      if (!run || run.status !== "active" || run.generation !== generation || run.snapshot?.contractVersion !== "parallel-v1" || !conversation || conversation.deletedAt) return undefined;
+      const before = run.snapshot.parallelWork;
+      if ((before?.revision ?? -1) !== expectedRevision || !Array.isArray(additions)) return undefined;
+      const stream = messages.get(conversationId) ?? [];
+      const ids = new Set(stream.map(item => item.id));
+      if (additions.some(item => !item || !idForMessage(item.id) || ids.has(item.id) || typeof item.role !== "string" || !item.role || typeof item.body !== "string" || !item.body.trim() || !Array.isArray(item.sources ?? []))) return undefined;
+      for (const item of additions) ids.add(item.id);
+      if (ids.size !== stream.length + additions.length || !validateParallelTransition(before, work, additions, stream)) return undefined;
+      const committed = additions.map((item, index) => ({ id: item.id, role: item.role, recipient: item.recipient, body: item.body, sources: item.sources ?? [], sequence: stream.length + index + 1, createdAt: now() }));
+      stream.push(...committed); messages.set(conversationId, stream);
+      run.snapshot = { ...run.snapshot, parallelWork: structuredClone(work) }; run.updatedAt = now(); conversation.updatedAt = now();
+      return { revision: work.revision, messages: committed.map(publicMessage) };
     },
     async finishRun(conversationId, generation, status, completedTitle = undefined) {
       const run = runs.get(conversationId); if (!run || run.generation !== generation || run.status !== "active") return false;

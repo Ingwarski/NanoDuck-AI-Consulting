@@ -4,6 +4,7 @@ import { deriveConversationTitle } from "./conversation-title.mjs";
 import { containsInternalToolTrace } from "./output-safety.mjs";
 import { hasProhibitedLanguage, hasUnsafeExternalUrl, safeExternalUrl } from "./validation.mjs";
 import { readFileSync } from "node:fs";
+import { runParallelConsultation } from "./consultation-parallel.mjs";
 
 const publicInstructions = parseRuntimeInstructions(readFileSync(new URL("../../instructions/RUNTIME_PROMPTS.md", import.meta.url), "utf8"));
 
@@ -134,6 +135,10 @@ export function createConsultationService({ store, provider }) {
     };
     try {
       if (!await isCurrent()) return;
+      if (snapshot.contractVersion === "parallel-v1") {
+        await runParallelConsultation({ store, provider, conversationId, runState, signal: controller.signal, onProvider: value => { failedProvider = value; } });
+        return;
+      }
       const first = await current();
       const settings = roleSettings(snapshot); const instructions = Object.freeze({ ...runtimeInstructionsFor(snapshot), documents: snapshot.instructionDocuments ?? [] }); const prompts = createRuntimePrompts(instructions); const language = first.sessionLanguage;
       const ownerIndex = first.events.map(event => event.role).lastIndexOf("owner");

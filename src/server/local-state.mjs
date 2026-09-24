@@ -1,6 +1,7 @@
 import { normalizeConfiguration } from "./configuration-recovery.mjs";
 import { normalizeRecoverySnapshot } from "./recovery.mjs";
 import { inspectImageAttachment } from "./attachments.mjs";
+import { validateParallelWork } from "./parallel-contract.mjs";
 
 const object = value => value !== null && typeof value === "object" && !Array.isArray(value);
 const id = value => typeof value === "string" && /^[A-Za-z0-9_-]{16,128}$/u.test(value);
@@ -49,6 +50,8 @@ export function validateLocalState(input) {
     const conversation = conversations.get(key);
     if (!conversation || !object(run) || !id(run.id) || run.conversationId !== key || !["active", "stopped", "failed", "complete", "deleted"].includes(run.status) || !Number.isSafeInteger(run.generation) || run.generation < 1 || !object(run.snapshot) || !date(run.createdAt) || !date(run.updatedAt)) fail();
     if (Boolean(conversation.deletedAt) !== (run.status === "deleted") || (run.status === "deleted" && Object.keys(run.snapshot).length)) fail();
+    if (run.snapshot.contractVersion === "parallel-v1" && run.snapshot.parallelWork && !validateParallelWork(run.snapshot.parallelWork, messages.get(key))) fail();
+    if (run.snapshot.contractVersion && !["parallel-v1"].includes(run.snapshot.contractVersion)) fail();
     if (run.status === "active") active += 1;
   }
   if (active > 1) fail();

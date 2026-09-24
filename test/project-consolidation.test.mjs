@@ -18,9 +18,12 @@ import { sealRecoverySnapshot, openRecoveryEnvelope } from "../src/server/recove
   await store.acceptMessage(conversation.id, { body: "A synthetic question", clientRequestId: "immutable-snapshot-request" }, snapshot);
   const versions = await Promise.all([store.saveInstructionDocument("WORKING_CONTEXT.md", 1, "# First private edit"), store.saveInstructionDocument("WORKING_CONTEXT.md", 1, "# Conflicting edit")]);
   assert.equal(versions.filter(Boolean).length, 1);
+  await store.saveInstructionDocument("AGENTS.md", 1, "# Owner-edited role guidance");
   await initializeInstructions(store);
   assert.equal((await store.runtimeInstructions()).markdown, edited.markdown);
   assert.equal((await store.instructionVersion("WORKING_CONTEXT.md",2)).markdown, "# First private edit");
+  assert.equal((await store.instructionVersion("AGENTS.md", 2)).markdown, "# Owner-edited role guidance");
+  assert.equal((await store.instructionHistory("AGENTS.md")).length, 2);
   assert.equal((await store.run(conversation.id)).snapshot.instructionDocuments.at(-1).revision, 1);
   await assert.rejects(readDocumentDefault("../AGENTS.md"), /invalid_instruction_document/);
   assert.equal(await store.saveInstructionDocument("WORKING_CONTEXT.md", 2, "x".repeat(65537)), undefined);

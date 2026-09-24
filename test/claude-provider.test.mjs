@@ -114,6 +114,22 @@ test("Claude Code exposes only authenticated configured models and returns safe 
   assert.match(prompt, /Do not claim research that was not performed\./u);
 });
 
+test("Claude Critic can return structured team review without file tools", async () => {
+  const calls = [];
+  const expected = JSON.stringify({ summary: "The demand answer lacks evidence.", findings: [{ assignment: 1, issue: "A count is unsupported.", correction: "Remove it or cite a direct source." }] });
+  const provider = createClaudeProvider({ claudeCommand: "claude", claudeOAuthToken: "managed-token" }, { run: async input => {
+    calls.push(input);
+    return input.args.includes("auth")
+      ? { exitCode: 0, stdout: JSON.stringify({ loggedIn: true, authMethod: "oauth_token", apiProvider: "firstParty" }), stderr: "" }
+      : { exitCode: 0, stdout: JSON.stringify({ subtype: "success", modelUsage: { "claude-opus-5": {} }, result: expected }), stderr: "" };
+  } });
+  const result = await provider.invoke({ ...criticInput, outputKind: "team_review", assignment: "Return only JSON with summary and findings." });
+  assert.equal(result.ok, true);
+  assert.equal(result.body, expected);
+  assert.match(calls.at(-1).args[calls.at(-1).args.indexOf("--system-prompt") + 1], /JSON is allowed/u);
+  assert.equal(calls.at(-1).args[calls.at(-1).args.indexOf("--tools") + 1], "");
+});
+
 test("Claude keeps English criticism when an unsuitable citation must be omitted", async () => {
   const provider = createClaudeProvider({ claudeCommand: "claude", claudeOAuthToken: "managed-token" }, { run: async input => input.args.includes("auth")
     ? { exitCode: 0, stdout: JSON.stringify({ loggedIn: true, authMethod: "oauth_token", apiProvider: "firstParty" }), stderr: "" }

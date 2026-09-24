@@ -9,9 +9,9 @@ import { ensurePrivateDirectory, ensurePrivateFile } from "./private-files.mjs";
 
 const maximumStateBytes = 128 * 1024 * 1024;
 const mutations = new Set([
-  "initializeDocuments", "saveInstructionDocument", "createSession", "updateSession", "revokeSession", "saveSettings",
+  "initializeDocuments", "migrateDefaultDocuments", "saveInstructionDocument", "createSession", "updateSession", "revokeSession", "saveSettings",
   "bootstrapRuntimeInstructions", "migrateRuntimeInstructions", "saveRuntimeInstructions", "restoreRuntimeInstructions",
-  "createConversation", "createAttachment", "deletePendingAttachment", "acceptMessage", "appendAgentMessage", "updateRunSnapshot",
+  "createConversation", "createAttachment", "deletePendingAttachment", "acceptMessage", "appendAgentMessage", "updateRunSnapshot", "commitParallelWork",
   "finishRun", "stop", "continueRun", "restoreRecovery", "deleteConversation", "deleteConversations"
 ]);
 const hiddenMethods = new Set(["snapshotState", "restoreState", "exportDocuments", "replaceDocuments"]);

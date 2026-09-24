@@ -9,6 +9,7 @@ let privacyLocked = false; let clientGeneration = 0; let initializing = true;
 const $ = selector => document.querySelector(selector);
 const roleInitials = { owner: "I", "Head Consultant": "HC", "Strategy Consultant": "SC", "Finance Consultant": "FC", "Operations Consultant": "OC", "Sales Consultant": "SL", "Marketing Consultant": "MC", "Product Consultant": "PC", "Spiritual Consultant": "SP", Psychotherapist: "PT", "Risk Consultant": "RC", Critic: "CR", System: "•" };
 const displayRole = role => role === "owner" ? "You" : role;
+const initialsFor = role => roleInitials[role] ?? role.split(/\s+/u).filter(Boolean).slice(0, 2).map(word => word[0].toLocaleUpperCase()).join("").slice(0, 2);
 
 const request = async (path, options = {}) => {
   if (privacyLocked && !["/api/session", "/api/logout"].includes(path)) throw new Error("client_locked");
@@ -232,7 +233,7 @@ function renderEvents() {
   }
   for (const event of state.events) {
     const message = node("article", { class: "message", "data-role": event.role });
-    message.append(node("div", { class: "avatar", "aria-hidden": true }, roleInitials[event.role] ?? "AI"));
+    message.append(node("div", { class: "avatar", "aria-hidden": true }, initialsFor(event.role)));
     const content = node("div", { class: "message-content" }); const meta = node("div", { class: "message-meta" });
     meta.append(node("strong", {}, displayRole(event.role))); if (event.recipient) meta.append(node("small", {}, `→ ${displayRole(event.recipient)}`)); meta.append(node("time", { dateTime: event.createdAt }, formatTime(event.createdAt)));
     const body = node("div", { class: "message-body" }); renderMarkdown(body, event.body); content.append(meta, body);
@@ -255,7 +256,11 @@ function renderEvents() {
     indicator.append(cloud, node("span", {}, "The team is thinking…")); thread.append(indicator);
   }
   const labels = { active: "The team is preparing the next message.", stopped: "Consultation stopped. Confirmed discussion is preserved.", complete: "Discussion complete.", failed: "Paused before the next reply. Retry to continue here." };
-  $("#run-status").textContent = (state.stopping ? "Stopping the consultation…" : labels[state.run?.status]) ?? "Describe the decision you want to make.";
+  const work = state.run?.progress;
+  const completed = work?.completed ?? 0;
+  const total = work?.total ?? 0;
+  const progress = active && total ? completed < total ? `${completed} of ${total} consultant answers received.` : `Consultants answered. Critic review ${work.round || 1} is in progress.` : null;
+  $("#run-status").textContent = state.stopping ? "Stopping the consultation…" : (progress ?? labels[state.run?.status] ?? "Describe the decision you want to make.");
   renderOutcome(); renderSources();
 }
 

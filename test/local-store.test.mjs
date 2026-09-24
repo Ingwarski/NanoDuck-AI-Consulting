@@ -102,6 +102,47 @@ test("parallel acceptance is idempotent and returned snapshots cannot mutate sto
   assert.equal((await store.events(conversation.id))[1].sources[0].title, "Synthetic source");
 });
 
+test("parallel work checkpoints are atomic, reject wrong recipients and survive reopen", async t => {
+  const config = await fixture(t); let store = await config.open();
+  await store.initializeDocuments(); await store.bootstrapRuntimeInstructions(testRuntimeInstructions);
+  const conversation = await store.createConversation();
+  const accepted = await store.acceptMessage(conversation.id, message(), { ...defaultSettings, contractVersion: "parallel-v1", runtimeInstructions: await store.runtimeInstructions(), instructionDocuments: await store.instructionDocuments() });
+  const assignmentId = randomId(); const taskMessageId = randomId();
+  const assignment = { id: assignmentId, role: "Custom Analyst", guidance: "Assess the case.", task: "Answer the concrete issue.", dependsOn: [], taskMessageId };
+  const initial = { version: 1, revision: 0, ownerMessageIds: [accepted.message.id], assignments: [assignment], results: {}, orders: [], rounds: [] };
+  assert.ok(await store.commitParallelWork(conversation.id, accepted.run.generation, -1, initial, [{ id: taskMessageId, role: "Head Consultant", recipient: "Custom Analyst", body: assignment.task }]));
+  const resultId = randomId(); const result = { ...initial, revision: 1, results: { [assignmentId]: { messageId: resultId, body: "A grounded pilot answer.", version: 1 } } };
+  assert.equal(await store.commitParallelWork(conversation.id, accepted.run.generation, 0, result, [{ id: resultId, role: "Other Analyst", recipient: "Critic", body: "A grounded pilot answer." }]), undefined);
+  assert.equal((await store.events(conversation.id)).length, 2);
+  assert.ok(await store.commitParallelWork(conversation.id, accepted.run.generation, 0, result, [{ id: resultId, role: "Custom Analyst", recipient: "Critic", body: "A grounded pilot answer." }]));
+  assert.equal(await store.commitParallelWork(conversation.id, accepted.run.generation, 0, result, []), undefined);
+  const revisedId = randomId();
+  const revised = { ...result, revision: 2, results: { [assignmentId]: { messageId: revisedId, body: "A revised grounded pilot answer.", version: 2 } } };
+  assert.ok(await store.commitParallelWork(conversation.id, accepted.run.generation, 1, revised, [{ id: revisedId, role: "Custom Analyst", recipient: "Critic", body: "A revised grounded pilot answer." }]));
+  const reviewId = randomId(); const orderId = randomId(); const orderMessageId = randomId();
+  const staleOrder = { id: orderId, assignmentId, resultMessageId: resultId, messageId: orderMessageId, issue: "Missing evidence.", correction: "Add a direct source.", state: "open" };
+  const stale = { ...revised, revision: 3, orders: [staleOrder], rounds: [{ number: 1, reviewMessageId: reviewId, orderIds: [orderId] }] };
+  assert.equal(await store.commitParallelWork(conversation.id, accepted.run.generation, 2, stale, [{ id: reviewId, role: "Critic", recipient: "Head Consultant", body: "A source is missing." }, { id: orderMessageId, role: "Critic", recipient: "Custom Analyst", body: "Add a source." }]), undefined);
+  const validOrder = { ...staleOrder, resultMessageId: revisedId };
+  const ordered = { ...stale, orders: [validOrder] };
+  assert.ok(await store.commitParallelWork(conversation.id, accepted.run.generation, 2, ordered, [{ id: reviewId, role: "Critic", recipient: "Head Consultant", body: "A source is missing." }, { id: orderMessageId, role: "Critic", recipient: "Custom Analyst", body: "Add a source." }]));
+  const correctionId = randomId();
+  const respondedOrder = { ...validOrder, responseMessageId: correctionId };
+  const responded = { ...ordered, revision: 4, results: { [assignmentId]: { messageId: correctionId, body: "I added a direct source.", version: 3 } }, orders: [respondedOrder] };
+  assert.ok(await store.commitParallelWork(conversation.id, accepted.run.generation, 3, responded, [{ id: correctionId, role: "Custom Analyst", recipient: "Critic", body: "I added a direct source." }]));
+  const invalidSelfResolution = { ...responded, revision: 5, orders: [{ ...respondedOrder, state: "resolved_corrected" }] };
+  assert.equal(await store.commitParallelWork(conversation.id, accepted.run.generation, 4, invalidSelfResolution, []), undefined);
+  const assessmentId = randomId();
+  const assessed = { ...responded, revision: 5, orders: [{ ...respondedOrder, state: "resolved_corrected", assessmentMessageId: assessmentId, assessmentReason: "The source now supports the claim." }], rounds: [{ ...responded.rounds[0], assessmentMessageId: assessmentId }] };
+  assert.ok(await store.commitParallelWork(conversation.id, accepted.run.generation, 4, assessed, [{ id: assessmentId, role: "Critic", recipient: "Head Consultant", body: "The source now supports the claim." }]));
+  await store.close(); store = await config.open();
+  assert.equal((await store.run(conversation.id)).snapshot.parallelWork.results[assignmentId].messageId, correctionId);
+  assert.equal((await store.run(conversation.id)).snapshot.parallelWork.orders[0].state, "resolved_corrected");
+  const stopped = await store.stop(conversation.id);
+  assert.equal(await store.commitParallelWork(conversation.id, accepted.run.generation, 5, assessed, []), undefined);
+  assert.equal(stopped.status, "stopped");
+});
+
 test("failed commits restore memory and leave disk unchanged", async t => {
   const config = await fixture(t); const store = await config.open();
   const blocker = new DatabaseSync(join(config.dataDirectory, "state.sqlite"));

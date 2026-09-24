@@ -1,0 +1,52 @@
+{
+  "run_id": "u09-implementation-20260924",
+  "unit": "U-09",
+  "recorded_at": "2026-09-24T13:40:26.751064+00:00",
+  "base_commit": "31fc10ea3d4495e1f4bc4729b5d8b6068f81b806",
+  "plan_sha256": "4f8114aef45627f808d66c21a4f0c3e2bc7a0dc8dd07d94f7f0f26083f318ae6",
+  "implementation_prompt": "forge/runs/u09-implementation-20260924/implementation-prompt.json",
+  "checks": [
+    {
+      "command": "npm run check",
+      "result": "passed",
+      "tests": 182,
+      "passed": 180,
+      "skipped": 2,
+      "failed": 0,
+      "scope": "synthetic automated tests and artifact checks"
+    },
+    {
+      "command": "npm run test:browsers",
+      "result": "passed",
+      "engines": [
+        "Chromium",
+        "Firefox",
+        "WebKit"
+      ],
+      "scope": "isolated synthetic local-browser fixture; not physical devices"
+    },
+    {
+      "command": "sdd_check.py --project . --before implementation",
+      "result": "passed",
+      "issues": 0,
+      "warnings": 0
+    },
+    {
+      "command": "sdd_check.py --project . --after implementation",
+      "result": "passed",
+      "issues": 0,
+      "warnings": 0
+    },
+    {
+      "command": "git diff --check",
+      "result": "passed"
+    }
+  ],
+  "workload_comparison": "forge/runs/u09-implementation-20260924/workload-comparison.json",
+  "limits": [
+    "No live Codex/Claude consultation was run for this receipt.",
+    "Provider token usage and subscription quota impact are unavailable from the synthetic fixture.",
+    "No physical iPhone, iPad, Windows or Linux device was tested.",
+    "The full SDD QA and representative-user gates are not claimed complete."
+  ]
+}

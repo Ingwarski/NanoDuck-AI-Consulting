@@ -58,7 +58,8 @@ test("Critic defaults become evidence-based and owner-edited guidance remains in
   const priorFinal = "You are the Critic. Address the Head Consultant after reviewing every selected specialist's final position together. Assess whether they support the same current recommendation; identify any incompatibility, unresolved objection, or condition the final advice must preserve. Do not treat a specialist accepting an earlier objection as proof of team agreement. Finish with [CONSILIUM: REACHED] only if all final positions support the same recommendation and you also support it; otherwise finish with [CONSILIUM: CONTINUE]. Write this message in {{language}}.";
   const old = testRuntimeInstructions.markdown.replace(/(?<=## Critic Challenge\n)[^\n]+/u, priorChallenge).replace(/(?<=## Critic Final Review\n)[^\n]+/u, priorFinal);
   const upgraded = upgradeRuntimeInstructionMarkdown(old);
-  assert.match(upgraded, /supports its factual and numerical claims/u);
+  assert.match(upgraded, /specific correction required/u);
+  assert.match(upgraded, /Do not invent a defect or force a reply/u);
   assert.match(upgraded, /missing requested item/u);
   const custom = old.replace(priorChallenge, "Challenge the {{specialist}} on exchange {{exchange}} using my rubric. Write this message in {{language}}.");
   const customUpgraded = upgradeRuntimeInstructionMarkdown(custom);

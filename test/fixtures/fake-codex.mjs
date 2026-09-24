@@ -7,6 +7,20 @@ const expectedFeatures = ["shell_tool", "unified_exec", "view_image", "shell_sna
 const replyFor = prompt => {
   let answer = "A bounded answer.";
   if (prompt.includes("Return a Ukrainian relative-pronoun example")) return 'Уточніть, які умови потрібно виконати.\n<nanoduck-source>{"title":"Курси, які доступні","url":"https://example.com/courses","claim":"Вимоги, які підтверджує програма."}</nanoduck-source>';
+  if (prompt.includes("In one coordinated plan") && /Synthetic \w+ browser decision/u.test(prompt)) return JSON.stringify({ assignments: [
+    { role: "Buyer Demand Analyst", guidance: "Evaluate buyer need.", task: "Find a reversible buyer-demand test.", dependsOn: [] },
+    { role: "Capacity Planner", guidance: "Evaluate delivery capacity.", task: "Set a capacity threshold for that test.", dependsOn: [] }
+  ], researchQuery: null });
+  if (prompt.includes("In one coordinated plan")) return JSON.stringify({ assignments: [
+    { role: "Strategy Consultant", guidance: "Assess buyer evidence and a reversible positioning test.", task: "Assess buyer evidence and name the positioning test that changes the decision.", dependsOn: [] },
+    { role: "Finance Consultant", guidance: "Assess the cost and measurement of the buyer test.", task: "Assess the test cost and the threshold for proceeding.", dependsOn: [] }
+  ], researchQuery: "buyer positioning evidence" });
+  if (prompt.includes('Return only JSON: {"summary"') && /Synthetic \w+ browser decision/u.test(prompt)) return JSON.stringify({ summary: "Both answers support a bounded buyer test.", findings: [] });
+  if (prompt.includes('Return only JSON: {"summary"')) return JSON.stringify({ summary: "The strategy answer assumes prospects will accept interviews; finance gives a bounded test cost.", findings: [{ assignment: 1, issue: "The strategy answer assumes those buyers will take calls without evidence.", correction: "Recruit calls from a defined prospect list and measure interview acceptance." }] });
+  if (prompt.includes('Return only JSON: {"assessments"')) return JSON.stringify({ assessments: [{ orderId: prompt.match(/order ([A-Za-z0-9_-]{32})/u)?.[1], state: "resolved_corrected", reason: "The revision now measures interview acceptance from a defined prospect list." }] });
+  if (prompt.includes("The Critic has ordered you to stop going in circles")) return "I accept the gap: recruit calls from a defined prospect list and record interview acceptance before drawing the conclusion.";
+  if (prompt.includes("Private role guidance:") && prompt.includes("Head assignment:")) return "The position is viable only if a defined buyer has an urgent problem; test targeted interviews before committing.\n<nanoduck-source>{\"title\":\"Buyer evidence\",\"url\":\"https://example.com/buyer-evidence\",\"claim\":\"Buyer willingness must be measured before positioning.\",\"publishedAt\":\"2026-09-01\"}</nanoduck-source>";
+  if (prompt.includes("There are no separate compulsory final speeches")) return "Start with a narrow buyer list, measure interview acceptance, then decide whether the position has evidence.";
   if (prompt.includes("List each distinct requested deliverable")) answer = "1. Assess current market evidence. 2. Recommend a positioning test with a source.";
   else if (prompt.includes("Return only [TEAM: Role, Role]")) answer = "[TEAM: Strategy Consultant, Finance Consultant]";
   else if (prompt.includes("Decide whether the owner's requested outputs require current public facts")) answer = "buyer positioning evidence";

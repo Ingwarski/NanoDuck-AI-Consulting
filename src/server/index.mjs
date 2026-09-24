@@ -33,6 +33,11 @@ const mime = { ".html": "text/html; charset=utf-8", ".css": "text/css; charset=u
 
 const securityHeaders = { "cache-control": "no-store", "content-security-policy": "default-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; connect-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; media-src 'self' blob:;", "permissions-policy": "camera=(), geolocation=(), microphone=(self)", "referrer-policy": "no-referrer", "x-content-type-options": "nosniff", "x-frame-options": "DENY" };
 const send = (response, status, value, headers = {}) => { const body = JSON.stringify(value); response.writeHead(status, { ...securityHeaders, "content-type": "application/json; charset=utf-8", "content-length": Buffer.byteLength(body), ...headers }); response.end(body); };
+const publicRun = run => {
+  if (!run || run.snapshot?.contractVersion !== "parallel-v1") return run;
+  const { parallelWork, ...snapshot } = run.snapshot;
+  return { ...run, snapshot, progress: parallelWork ? { completed: Object.keys(parallelWork.results ?? {}).length, total: parallelWork.assignments.length, round: parallelWork.rounds.length } : { completed: 0, total: 0, round: 0 } };
+};
 const empty = (response, status, headers = {}) => { response.writeHead(status, { ...securityHeaders, ...headers }); response.end(); };
 const bytes = (response, status, value, headers = {}) => {
   if (!["application/octet-stream", "application/rtf", "image/jpeg", "image/png", "image/webp"].includes(headers["content-type"] ?? "application/octet-stream")) throw new Error("invalid_download_type");
@@ -148,7 +153,7 @@ const handler = async (request, response) => {
     if (matched) {
       const [, conversationId, action, resourceId] = matched; if (!parseConversationId(conversationId)) return send(response, 404, { error: "not_found" });
       if (!await protectedSession(request, response, { csrf: request.method !== "GET" })) return;
-      if (request.method === "GET" && !action) { const conversation = await store.getConversation(conversationId); return conversation ? send(response, 200, { conversation, run: await store.run(conversationId), events: await store.events(conversationId, Number(url.searchParams.get("after") ?? 0)) }) : send(response, 404, { error: "not_found" }); }
+      if (request.method === "GET" && !action) { const conversation = await store.getConversation(conversationId); return conversation ? send(response, 200, { conversation, run: publicRun(await store.run(conversationId)), events: await store.events(conversationId, Number(url.searchParams.get("after") ?? 0)) }) : send(response, 404, { error: "not_found" }); }
       if (request.method === "POST" && action === "attachments" && !resourceId) {
         const attachment = await readImageAttachment(request, config.maxAttachmentBytes);
         const created = await store.createAttachment(conversationId, attachment);
@@ -162,11 +167,11 @@ const handler = async (request, response) => {
       if (request.method === "POST" && action === "messages") {
         const raw = await json(request); const input = parseMessage(raw); if (!input) return send(response, 422, { error: messageError(raw) });
         const [settings, runtimeInstructions] = await Promise.all([store.settings(), activeRuntimeInstructions()]);
-        const accepted = await store.acceptMessage(conversationId, input, { ...settings, runtimeInstructions: { markdown: runtimeInstructions.markdown, revision: runtimeInstructions.revision }, instructionDocuments: await store.instructionDocuments() });
-        if (!accepted) return send(response, 409, { error: "active_or_missing_conversation" }); if (!accepted.replayed) await consultation.start(conversationId, accepted.run); return send(response, 202, accepted);
+        const accepted = await store.acceptMessage(conversationId, input, { ...settings, contractVersion: "parallel-v1", runtimeInstructions: { markdown: runtimeInstructions.markdown, revision: runtimeInstructions.revision }, instructionDocuments: await store.instructionDocuments() });
+        if (!accepted) return send(response, 409, { error: "active_or_missing_conversation" }); if (!accepted.replayed) await consultation.start(conversationId, accepted.run); return send(response, 202, { ...accepted, run: publicRun(accepted.run) });
       }
-      if (request.method === "POST" && action === "stop") { const run = await consultation.stop(conversationId); return run ? send(response, 200, { run }) : send(response, 409, { error: "no_active_run" }); }
-      if (request.method === "POST" && action === "continue") { const run = await consultation.continue(conversationId); return run ? send(response, 202, { run }) : send(response, 409, { error: "not_stopped" }); }
+      if (request.method === "POST" && action === "stop") { const run = await consultation.stop(conversationId); return run ? send(response, 200, { run: publicRun(run) }) : send(response, 409, { error: "no_active_run" }); }
+      if (request.method === "POST" && action === "continue") { const run = await consultation.continue(conversationId); return run ? send(response, 202, { run: publicRun(run) }) : send(response, 409, { error: "not_stopped" }); }
       if (request.method === "GET" && action === "export") {
         const exported = await store.exportConversation(conversationId);
         if (!exported) return send(response, 404, { error: "not_found" });

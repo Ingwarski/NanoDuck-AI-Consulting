@@ -99,6 +99,7 @@ try {
       await phase(`${name} acceptance retry`, () => verifyLostAcceptanceRetry(page, name));
       await page.waitForFunction(() => document.querySelector('#run-status').textContent.toLowerCase().includes('complete'), undefined, { timeout: 30_000 });
       assert.match(await page.locator('#thread').innerText(), /Critic/);
+      assert.equal(await page.locator('#thread .message[data-role="Buyer Demand Analyst"] .avatar').innerText(), 'BD', 'Dynamic consultant initials are visible and safe');
       assert.equal(await page.locator('#composer').isVisible(), true, 'Completion restores composer');
       await page.getByRole('tab', { name: 'Outcome', exact: true }).click();
       assert.match(await page.locator('#outcome').innerText(), /buyer/i);
