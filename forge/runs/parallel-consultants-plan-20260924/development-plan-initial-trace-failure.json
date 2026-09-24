@@ -1,0 +1,58 @@
+{
+  "result": "blocked",
+  "node": "development-plan",
+  "mode": "after",
+  "skipped_artifacts": [],
+  "checked_artifacts": [
+    "architecture",
+    "canonical-terms",
+    "design-brief",
+    "development-plan",
+    "dod-evals",
+    "guardrails",
+    "prd",
+    "product-idea",
+    "project-context",
+    "qa-checklist",
+    "screen-map",
+    "user-journey",
+    "wireframes"
+  ],
+  "affected_artifacts": [
+    "development-plan"
+  ],
+  "issues": [
+    {
+      "code": "trace_link",
+      "target": "development-plan",
+      "detail": "relationship must be cited in its owner's document"
+    },
+    {
+      "code": "trace_coverage",
+      "target": "development-plan",
+      "detail": "FR-02.10: missing implements"
+    },
+    {
+      "code": "trace_coverage",
+      "target": "development-plan",
+      "detail": "FR-02.11: missing implements"
+    },
+    {
+      "code": "trace_coverage",
+      "target": "development-plan",
+      "detail": "FR-02.12: missing implements"
+    },
+    {
+      "code": "trace_coverage",
+      "target": "development-plan",
+      "detail": "FR-02.13: missing implements"
+    },
+    {
+      "code": "trace_coverage",
+      "target": "development-plan",
+      "detail": "FR-02.14: missing implements"
+    }
+  ],
+  "warnings": [],
+  "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+}

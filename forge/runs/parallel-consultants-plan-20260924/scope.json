@@ -1,0 +1,29 @@
+{
+  "event": "accepted_scoped_baseline_override",
+  "actor": "user",
+  "approved_at": "2026-09-24T13:00:20.203238+00:00",
+  "timestamp_basis": "Recording time; original message timestamps unavailable.",
+  "baseline_id": "nanoduck-electric-a-v8-20260914",
+  "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
+  "tree_hash": "1de020dcfe48f3feb80db0e58ba911b821825b48730d32c72d9518ad512eb0d9",
+  "scope": "Planning-only reconciliation of accepted Head-led application-managed parallel consultants, concise visible assignments, private dynamic role guidance, user-selected discussion depth and tracked Critic orders within existing Discussion/Settings/Outcome surfaces. Preserve Electric A v8 and P5 geometry. No new visual composition or production authorization.",
+  "user_decisions": [
+    {
+      "quote": "OK. I agree. So what is your plan of implementing all of the above changes discussion since last code edit run?",
+      "meaning": "Accepts application-managed execution with Head creating roles and tasks."
+    },
+    {
+      "quote": "There is an option for the depth of the discussion. This is User's choosing, not the app's.",
+      "meaning": "Fixed 1/3/5 counts remain user-controlled; Auto alone permits Head-selected early closure. No fabricated criticism to fill rounds."
+    },
+    {
+      "quote": "Visible in chat - just the assignment (role instructions do not need to appear in chat, just task instructions).",
+      "meaning": "Reuse existing message presentation, keeping internal role guidance out of chat."
+    },
+    {
+      "quote": "include this in the implementing 10 steps plan. Make it a whole unit - like in development-plan.md. Reconcile all the sdd docs",
+      "meaning": "Track Critic-order fulfillment as part of the integrated ten-step unit; author SDD only."
+    }
+  ],
+  "evidence_limit": "Explicit scope and existing-surface behavior decisions; not a new rendered-design approval or implementation prompt."
+}

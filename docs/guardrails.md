@@ -6,7 +6,7 @@ Consume [PRD](prd.md), [project context](project-context.md) and [canonical term
 
 ## AI autonomy and allowed changes
 
-Complete the explicitly requested existing-application refactor, SDD reconciliation and verification for macOS/Linux/Windows and same-network browser access in this repository. Preserve the approved Electric visual composition. Apply the owner’s current Head-led consultation correction: Head selects and directs the team, actual task text is delivered without generic substitution, Critic can order targeted rework, review depth is a ceiling, and safe public research is isolated from private consultation content. The owner authorized removing unnecessary current-source and repository history from this repository only. Retain the current necessary visual source and genuine approval evidence. Use fictional examples in public evidence and resolve routine implementation choices without repeated permission questions.
+Complete the explicitly requested existing-application refactor, SDD reconciliation and verification for macOS/Linux/Windows and same-network browser access in this repository. Preserve the approved Electric visual composition. Apply the owner’s current Head-led consultation correction: Head selects and directs the team, actual task text is delivered without generic substitution, Critic can order targeted rework, fixed review depth belongs to the owner and Auto closure belongs to Head, and safe public research is isolated from private consultation content. The owner authorized removing unnecessary current-source and repository history from this repository only. Retain the current necessary visual source and genuine approval evidence. Use fictional examples in public evidence and resolve routine implementation choices without repeated permission questions.
 
 ## Forbidden changes and stops
 
@@ -35,3 +35,7 @@ Representative-owner validation is planned for critical decision, privacy and vo
 ## Open questions
 
 No new authorization question blocks the scoped local refactor. Current provider execution, each supported operating system, local-network browser behavior, optional speech and protected local recovery remain named verification limits in the PRD. The Electric A v8 visual baseline is selected.
+
+## Parallel planning and authority
+
+This reconciliation defines FR-02.9–FR-02.15 and its downstream plan; it authorizes no production edit, restart, provider call or sister-repository change. Head alone authors substantive roles/tasks/dependencies. The app may enforce schema, ownership, generation and permission boundaries but cannot invent or rewrite assignments, reject unfamiliar professions, judge compliance with a keyword heuristic or mark an order resolved because a consultant replied. Critic owns resolution judgments; Head handles remaining work or explicit provisional closure. Dynamic role guidance cannot override security, model choices or user depth. Keep full exact owner context while minimizing unrelated discussion; never trade missing deliverables for lower token counts. Preserve previous authorizations only for their historical scopes; release this new plan only after a later implementation prompt.

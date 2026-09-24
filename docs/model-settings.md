@@ -56,10 +56,7 @@ Claude Fast Mode is permitted.
 
 Specialist count and discussion depth are separate preferences. Count supports
 1, 2, 3, 5 and Auto, excluding Head and Critic. Auto selects one through five
-specialists. Depth supports 1, 3, 5 and Auto complete Critic/specialist exchanges
-per selected specialist. Auto checks the whole team and stops after supported
-agreement or ten exchanges per specialist. Defaults remain two specialists and
-one exchange. Codex uses a 540,000 ms inactivity budget renewed only by matching-turn progress, with a 1,800,000 ms absolute ceiling. Claude retains its 540,000 ms absolute deadline. Exact selected model and reasoning settings never change to work around a timeout.
+specialists. For the planned U-09 contract, fixed depth selects 1, 3 or 5 team review rounds; Auto lets Head close when useful, up to ten. Only consultants with material findings must reply, and Critic explicitly assesses correction fulfillment. Defaults remain two specialists and one review round. Existing accepted legacy runs retain their original exchange/depth semantics until terminal; this document does not claim U-09 is deployed. Codex uses a 540,000 ms inactivity budget renewed only by matching-turn progress, with a 1,800,000 ms absolute ceiling. Claude retains its 540,000 ms absolute deadline. Exact selected model and reasoning settings never change to work around a timeout.
 
 Each accepted consultation snapshots its exact model, effort, specialist count,
 depth and effective instructions. Later preference or instruction changes affect

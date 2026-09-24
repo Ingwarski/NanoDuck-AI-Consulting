@@ -65,13 +65,13 @@
       },
       "path": "docs/product-idea.md",
       "owner_skill": "to-product-idea",
-      "owner_invocation_id": "porcelain-stop-20260924-product-idea",
+      "owner_invocation_id": "parallel-consultants-plan-20260924-product-idea",
       "declared_output_set": [
         "docs/product-idea.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "porcelain-stop-20260924-product-idea",
+      "source_version": "parallel-consultants-plan-20260924",
       "source_usage": {
         "docs/model-settings.md": "full",
         "forge/design/evidence/electric-v8-approval-20260914.json": "full",
@@ -79,26 +79,28 @@
         "forge/runs/browser-research-claude-20260922/scope.json": "full",
         "forge/runs/gpt-6-sol-20260922/scope.json": "full",
         "forge/runs/gpt-6-sol-20260922/catalog-observation.json": "full",
-        "forge/runs/claude-signin-20260922/scope.json": "full"
+        "forge/runs/claude-signin-20260922/scope.json": "full",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "full"
       },
       "source_hashes": {
-        "docs/model-settings.md": "b5ee6b66a184ae3bef715e460773669e1386849e64b277b73f1363b4964d7fec",
+        "docs/model-settings.md": "3a8bc160e049057cd3702c072d7023b182aa3d9c9cefe9ed28815c7e9e5a9fec",
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2",
         "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b",
         "forge/runs/browser-research-claude-20260922/scope.json": "be36b8b0a9fb8470cbcf50a612765c82b4c53698d01c81108d172f8fd884342f",
         "forge/runs/gpt-6-sol-20260922/scope.json": "3ac0b3c942ad3ca32fca5da4bb59296417819d81d45f9d0d903ba395f8d1b538",
         "forge/runs/gpt-6-sol-20260922/catalog-observation.json": "264f3452fd4e21cbe78454ef98b807f6a5b55b90bbe9463e4c5423ddc3bd5092",
-        "forge/runs/claude-signin-20260922/scope.json": "e668531a6ffbdb53d1a51b844109828e71d73e37712ce308e90a8e82751e3559"
+        "forge/runs/claude-signin-20260922/scope.json": "e668531a6ffbdb53d1a51b844109828e71d73e37712ce308e90a8e82751e3559",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952"
       },
       "dependencies": [],
-      "content_hash": "84d2895a21194d2bb5a634eb67766f1f557ee7c1d47afd14b9e9f46681b63235",
+      "content_hash": "391da3661e2209b6fea2963cf52378c885cf3eb0d9848f9d74a3a1ab69a502ff",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "codex-progress-deadline-reconciliation",
-        "reviewed_at": "2026-09-24T11:16:53.632235+00:00",
+        "kind": "parallel-consultation-plan-reconciliation",
+        "reviewed_at": "2026-09-24T13:00:20.203238+00:00",
         "executor": "Codex inline to-product-idea",
-        "scope": "Apply the explicitly selected P5 Porcelain Stop with consultant avatar height/radius, retaining upper-right placement and cancellation. Frozen Electric A v8 files remain unchanged; scoped appearance override recorded."
+        "scope": "Owner-authored planning correction; production and tests not run. Preserve frozen baseline and existing security boundaries."
       },
       "open_questions": []
     },
@@ -706,6 +708,69 @@
             "definition_ref": {
               "path": "docs/prd.md",
               "heading": "### Settings and limits"
+            }
+          },
+          {
+            "id": "FR-02.9",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "id": "FR-02.10",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "id": "FR-02.11",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "id": "FR-02.12",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "id": "FR-02.13",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "id": "FR-02.14",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "id": "FR-02.15",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
             }
           }
         ],
@@ -1969,6 +2034,69 @@
               "path": "docs/prd.md",
               "heading": "### Settings and limits"
             }
+          },
+          {
+            "from": "FR-02.9",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "from": "FR-02.10",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "from": "FR-02.11",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "from": "FR-02.12",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "from": "FR-02.13",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "from": "FR-02.14",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "from": "FR-02.15",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
           }
         ]
       },
@@ -2304,158 +2432,168 @@
       },
       "path": "docs/prd.md",
       "owner_skill": "to-sdd-prd",
-      "owner_invocation_id": "porcelain-stop-20260924-prd",
+      "owner_invocation_id": "parallel-consultants-plan-20260924-final-prd",
       "declared_output_set": [
         "docs/prd.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "porcelain-stop-20260924-prd",
+      "source_version": "parallel-consultants-plan-20260924",
       "source_usage": {
-        "docs/product-idea.md": "full"
+        "docs/product-idea.md": "full",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "84d2895a21194d2bb5a634eb67766f1f557ee7c1d47afd14b9e9f46681b63235"
+        "docs/product-idea.md": "391da3661e2209b6fea2963cf52378c885cf3eb0d9848f9d74a3a1ab69a502ff",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952"
       },
       "dependencies": [
         "product-idea"
       ],
-      "content_hash": "3834381ab0f585668043d7333c336cac1f1b851dd93be46051f81beb4000d993",
+      "content_hash": "2363887b1500e6ad6367d1902173204b3c1c62710f02fee646e048d728b95e96",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "codex-progress-deadline-reconciliation",
-        "reviewed_at": "2026-09-24T11:16:53.632235+00:00",
+        "kind": "parallel-consultation-plan-reconciliation",
+        "reviewed_at": "2026-09-24T13:02:29.667785+00:00",
         "executor": "Codex inline to-sdd-prd",
-        "scope": "Apply the explicitly selected P5 Porcelain Stop with consultant avatar height/radius, retaining upper-right placement and cancellation. Frozen Electric A v8 files remain unchanged; scoped appearance override recorded."
+        "scope": "Owner-authored planning correction; production and tests not run. Preserve frozen baseline and existing security boundaries."
       },
       "open_questions": []
     },
     "project-context": {
       "path": "docs/project-context.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "porcelain-stop-20260924-context-bundle",
+      "owner_invocation_id": "parallel-consultants-plan-20260924-final-project-context-bundle",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "porcelain-stop-20260924-context-bundle",
+      "source_version": "parallel-consultants-plan-20260924",
       "source_usage": {
         "docs/product-idea.md": "full",
-        "docs/prd.md": "full"
+        "docs/prd.md": "full",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "84d2895a21194d2bb5a634eb67766f1f557ee7c1d47afd14b9e9f46681b63235",
-        "docs/prd.md": "3834381ab0f585668043d7333c336cac1f1b851dd93be46051f81beb4000d993"
+        "docs/product-idea.md": "391da3661e2209b6fea2963cf52378c885cf3eb0d9848f9d74a3a1ab69a502ff",
+        "docs/prd.md": "2363887b1500e6ad6367d1902173204b3c1c62710f02fee646e048d728b95e96",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "a18ec8336dbffcf695e9e0f5306d5858ee8c120ae361f1353ba60b69f28b4849",
+      "content_hash": "273971cc3d51666d1e79a47f23f4b6b4508e725f2d0987c620b8730e627b6f80",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "codex-progress-deadline-reconciliation",
-        "reviewed_at": "2026-09-24T11:16:53.632235+00:00",
+        "kind": "parallel-consultation-plan-reconciliation",
+        "reviewed_at": "2026-09-24T13:02:29.667785+00:00",
         "executor": "Codex inline to-project-context",
-        "scope": "Apply the explicitly selected P5 Porcelain Stop with consultant avatar height/radius, retaining upper-right placement and cancellation. Frozen Electric A v8 files remain unchanged; scoped appearance override recorded."
+        "scope": "Owner-authored planning correction; production and tests not run. Preserve frozen baseline and existing security boundaries."
       },
       "open_questions": []
     },
     "canonical-terms": {
       "path": "docs/canonical-terms.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "porcelain-stop-20260924-context-bundle",
+      "owner_invocation_id": "parallel-consultants-plan-20260924-final-project-context-bundle",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "porcelain-stop-20260924-context-bundle",
+      "source_version": "parallel-consultants-plan-20260924",
       "source_usage": {
         "docs/product-idea.md": "full",
-        "docs/prd.md": "full"
+        "docs/prd.md": "full",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "84d2895a21194d2bb5a634eb67766f1f557ee7c1d47afd14b9e9f46681b63235",
-        "docs/prd.md": "3834381ab0f585668043d7333c336cac1f1b851dd93be46051f81beb4000d993"
+        "docs/product-idea.md": "391da3661e2209b6fea2963cf52378c885cf3eb0d9848f9d74a3a1ab69a502ff",
+        "docs/prd.md": "2363887b1500e6ad6367d1902173204b3c1c62710f02fee646e048d728b95e96",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
+      "content_hash": "1d17248d68dd5e39e194595848c85306ecbe6bf32013c7485a6970f01a91527b",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "codex-progress-deadline-reconciliation",
-        "reviewed_at": "2026-09-24T11:16:53.632235+00:00",
+        "kind": "parallel-consultation-plan-reconciliation",
+        "reviewed_at": "2026-09-24T13:02:29.667785+00:00",
         "executor": "Codex inline to-project-context",
-        "scope": "Apply the explicitly selected P5 Porcelain Stop with consultant avatar height/radius, retaining upper-right placement and cancellation. Frozen Electric A v8 files remain unchanged; scoped appearance override recorded."
+        "scope": "Owner-authored planning correction; production and tests not run. Preserve frozen baseline and existing security boundaries."
       },
       "open_questions": []
     },
     "guardrails": {
       "path": "docs/guardrails.md",
       "owner_skill": "to-guardrails",
-      "owner_invocation_id": "porcelain-stop-20260924-guardrails",
+      "owner_invocation_id": "parallel-consultants-plan-20260924-final-guardrails",
       "declared_output_set": [
         "docs/guardrails.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "porcelain-stop-20260924-guardrails",
+      "source_version": "parallel-consultants-plan-20260924",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
-        "docs/canonical-terms.md": "full"
+        "docs/canonical-terms.md": "full",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "3834381ab0f585668043d7333c336cac1f1b851dd93be46051f81beb4000d993",
-        "docs/project-context.md": "a18ec8336dbffcf695e9e0f5306d5858ee8c120ae361f1353ba60b69f28b4849",
-        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7"
+        "docs/prd.md": "2363887b1500e6ad6367d1902173204b3c1c62710f02fee646e048d728b95e96",
+        "docs/project-context.md": "273971cc3d51666d1e79a47f23f4b6b4508e725f2d0987c620b8730e627b6f80",
+        "docs/canonical-terms.md": "1d17248d68dd5e39e194595848c85306ecbe6bf32013c7485a6970f01a91527b",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952"
       },
       "dependencies": [
         "prd",
         "project-context",
         "canonical-terms"
       ],
-      "content_hash": "1aaac49164a6e1b2e5bb61b5fce7ed2a71e603b27ff372d94a7baf131e267942",
+      "content_hash": "2ad1074d14b86bacadebc994d2aa408077b033d0f4cc68fada1c932ad5a75502",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "codex-progress-deadline-reconciliation",
-        "reviewed_at": "2026-09-24T11:16:53.632235+00:00",
+        "kind": "parallel-consultation-plan-reconciliation",
+        "reviewed_at": "2026-09-24T13:02:29.667785+00:00",
         "executor": "Codex inline to-guardrails",
-        "scope": "Apply the explicitly selected P5 Porcelain Stop with consultant avatar height/radius, retaining upper-right placement and cancellation. Frozen Electric A v8 files remain unchanged; scoped appearance override recorded."
+        "scope": "Owner-authored planning correction; production and tests not run. Preserve frozen baseline and existing security boundaries."
       },
       "open_questions": []
     },
     "user-journey": {
       "path": "docs/user-journey.md",
       "owner_skill": "to-user-journey",
-      "owner_invocation_id": "porcelain-stop-20260924-user-journey",
+      "owner_invocation_id": "parallel-consultants-plan-20260924-final-user-journey",
       "declared_output_set": [
         "docs/user-journey.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "porcelain-stop-20260924-user-journey",
+      "source_version": "parallel-consultants-plan-20260924",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
         "docs/canonical-terms.md": "full",
-        "docs/guardrails.md": "full"
+        "docs/guardrails.md": "full",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "3834381ab0f585668043d7333c336cac1f1b851dd93be46051f81beb4000d993",
-        "docs/project-context.md": "a18ec8336dbffcf695e9e0f5306d5858ee8c120ae361f1353ba60b69f28b4849",
-        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
-        "docs/guardrails.md": "1aaac49164a6e1b2e5bb61b5fce7ed2a71e603b27ff372d94a7baf131e267942"
+        "docs/prd.md": "2363887b1500e6ad6367d1902173204b3c1c62710f02fee646e048d728b95e96",
+        "docs/project-context.md": "273971cc3d51666d1e79a47f23f4b6b4508e725f2d0987c620b8730e627b6f80",
+        "docs/canonical-terms.md": "1d17248d68dd5e39e194595848c85306ecbe6bf32013c7485a6970f01a91527b",
+        "docs/guardrails.md": "2ad1074d14b86bacadebc994d2aa408077b033d0f4cc68fada1c932ad5a75502",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952"
       },
       "dependencies": [
         "prd",
@@ -2463,14 +2601,14 @@
         "canonical-terms",
         "guardrails"
       ],
-      "content_hash": "57affb03dc73a520607662dec87fe7137bfdf5daaa152e632638788e197025d5",
+      "content_hash": "04d9c662b94940cfbef8f348fbafcdf65e315b3db8cdc7855e1b047337776c24",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "codex-progress-deadline-reconciliation",
-        "reviewed_at": "2026-09-24T11:16:53.632235+00:00",
+        "kind": "parallel-consultation-plan-reconciliation",
+        "reviewed_at": "2026-09-24T13:02:29.667785+00:00",
         "executor": "Codex inline to-user-journey",
-        "scope": "Apply the explicitly selected P5 Porcelain Stop with consultant avatar height/radius, retaining upper-right placement and cancellation. Frozen Electric A v8 files remain unchanged; scoped appearance override recorded."
+        "scope": "Owner-authored planning correction; production and tests not run. Preserve frozen baseline and existing security boundaries."
       },
       "open_questions": []
     },
@@ -3482,26 +3620,28 @@
       },
       "path": "docs/screen-map.md",
       "owner_skill": "to-screen-map",
-      "owner_invocation_id": "porcelain-stop-20260924-screen-map",
+      "owner_invocation_id": "parallel-consultants-plan-20260924-final-screen-map",
       "declared_output_set": [
         "docs/screen-map.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "porcelain-stop-20260924-screen-map",
+      "source_version": "parallel-consultants-plan-20260924",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
         "docs/canonical-terms.md": "full",
         "docs/guardrails.md": "full",
-        "docs/user-journey.md": "full"
+        "docs/user-journey.md": "full",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "3834381ab0f585668043d7333c336cac1f1b851dd93be46051f81beb4000d993",
-        "docs/project-context.md": "a18ec8336dbffcf695e9e0f5306d5858ee8c120ae361f1353ba60b69f28b4849",
-        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
-        "docs/guardrails.md": "1aaac49164a6e1b2e5bb61b5fce7ed2a71e603b27ff372d94a7baf131e267942",
-        "docs/user-journey.md": "57affb03dc73a520607662dec87fe7137bfdf5daaa152e632638788e197025d5"
+        "docs/prd.md": "2363887b1500e6ad6367d1902173204b3c1c62710f02fee646e048d728b95e96",
+        "docs/project-context.md": "273971cc3d51666d1e79a47f23f4b6b4508e725f2d0987c620b8730e627b6f80",
+        "docs/canonical-terms.md": "1d17248d68dd5e39e194595848c85306ecbe6bf32013c7485a6970f01a91527b",
+        "docs/guardrails.md": "2ad1074d14b86bacadebc994d2aa408077b033d0f4cc68fada1c932ad5a75502",
+        "docs/user-journey.md": "04d9c662b94940cfbef8f348fbafcdf65e315b3db8cdc7855e1b047337776c24",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952"
       },
       "dependencies": [
         "prd",
@@ -3510,42 +3650,44 @@
         "guardrails",
         "user-journey"
       ],
-      "content_hash": "4a84310f6ee2096b0b8a04ffff929cadaba49da1e8efd9deaa8e3a96fdf6ed12",
+      "content_hash": "8f307336aa8cad927bfc3fe8fffc67735badf428001c4b6dcfb8b6a138813533",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "codex-progress-deadline-reconciliation",
-        "reviewed_at": "2026-09-24T11:16:53.632235+00:00",
+        "kind": "parallel-consultation-plan-reconciliation",
+        "reviewed_at": "2026-09-24T13:02:29.667785+00:00",
         "executor": "Codex inline to-screen-map",
-        "scope": "Apply the explicitly selected P5 Porcelain Stop with consultant avatar height/radius, retaining upper-right placement and cancellation. Frozen Electric A v8 files remain unchanged; scoped appearance override recorded."
+        "scope": "Owner-authored planning correction; production and tests not run. Preserve frozen baseline and existing security boundaries."
       },
       "open_questions": []
     },
     "wireframes": {
       "path": "docs/wireframes.md",
       "owner_skill": "to-wireframes",
-      "owner_invocation_id": "porcelain-stop-20260924-wireframes",
+      "owner_invocation_id": "parallel-consultants-plan-20260924-final-wireframes",
       "declared_output_set": [
         "docs/wireframes.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "porcelain-stop-20260924-wireframes",
+      "source_version": "parallel-consultants-plan-20260924",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
         "docs/canonical-terms.md": "full",
         "docs/guardrails.md": "full",
         "docs/user-journey.md": "full",
-        "docs/screen-map.md": "full"
+        "docs/screen-map.md": "full",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "3834381ab0f585668043d7333c336cac1f1b851dd93be46051f81beb4000d993",
-        "docs/project-context.md": "a18ec8336dbffcf695e9e0f5306d5858ee8c120ae361f1353ba60b69f28b4849",
-        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
-        "docs/guardrails.md": "1aaac49164a6e1b2e5bb61b5fce7ed2a71e603b27ff372d94a7baf131e267942",
-        "docs/user-journey.md": "57affb03dc73a520607662dec87fe7137bfdf5daaa152e632638788e197025d5",
-        "docs/screen-map.md": "4a84310f6ee2096b0b8a04ffff929cadaba49da1e8efd9deaa8e3a96fdf6ed12"
+        "docs/prd.md": "2363887b1500e6ad6367d1902173204b3c1c62710f02fee646e048d728b95e96",
+        "docs/project-context.md": "273971cc3d51666d1e79a47f23f4b6b4508e725f2d0987c620b8730e627b6f80",
+        "docs/canonical-terms.md": "1d17248d68dd5e39e194595848c85306ecbe6bf32013c7485a6970f01a91527b",
+        "docs/guardrails.md": "2ad1074d14b86bacadebc994d2aa408077b033d0f4cc68fada1c932ad5a75502",
+        "docs/user-journey.md": "04d9c662b94940cfbef8f348fbafcdf65e315b3db8cdc7855e1b047337776c24",
+        "docs/screen-map.md": "8f307336aa8cad927bfc3fe8fffc67735badf428001c4b6dcfb8b6a138813533",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952"
       },
       "dependencies": [
         "prd",
@@ -3555,27 +3697,27 @@
         "user-journey",
         "screen-map"
       ],
-      "content_hash": "a7e49b5acd1e9a8410c8149ee068edf12a34da614f6ce885655c7390d65bfdc3",
+      "content_hash": "5c4036d37ecbfdcb44fdd4844c0ab6cd4125e98a4607d2fcb7a4426a8fc2eb2e",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "codex-progress-deadline-reconciliation",
-        "reviewed_at": "2026-09-24T11:16:53.632235+00:00",
+        "kind": "parallel-consultation-plan-reconciliation",
+        "reviewed_at": "2026-09-24T13:02:29.667785+00:00",
         "executor": "Codex inline to-wireframes",
-        "scope": "Apply the explicitly selected P5 Porcelain Stop with consultant avatar height/radius, retaining upper-right placement and cancellation. Frozen Electric A v8 files remain unchanged; scoped appearance override recorded."
+        "scope": "Owner-authored planning correction; production and tests not run. Preserve frozen baseline and existing security boundaries."
       },
       "open_questions": []
     },
     "design-brief": {
       "path": "docs/design-brief.md",
       "owner_skill": "to-design-brief",
-      "owner_invocation_id": "porcelain-stop-20260924-design-brief",
+      "owner_invocation_id": "parallel-consultants-plan-20260924-final-design-brief",
       "declared_output_set": [
         "docs/design-brief.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "porcelain-stop-20260924-design-brief",
+      "source_version": "parallel-consultants-plan-20260924",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3585,18 +3727,20 @@
         "docs/screen-map.md": "full",
         "docs/wireframes.md": "full",
         "forge/runs/composer-sound-20260922/scoped-override.json": "full",
-        "forge/runs/porcelain-stop-20260924/scoped-override.json": "full"
+        "forge/runs/porcelain-stop-20260924/scoped-override.json": "full",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "3834381ab0f585668043d7333c336cac1f1b851dd93be46051f81beb4000d993",
-        "docs/project-context.md": "a18ec8336dbffcf695e9e0f5306d5858ee8c120ae361f1353ba60b69f28b4849",
-        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
-        "docs/guardrails.md": "1aaac49164a6e1b2e5bb61b5fce7ed2a71e603b27ff372d94a7baf131e267942",
-        "docs/user-journey.md": "57affb03dc73a520607662dec87fe7137bfdf5daaa152e632638788e197025d5",
-        "docs/screen-map.md": "4a84310f6ee2096b0b8a04ffff929cadaba49da1e8efd9deaa8e3a96fdf6ed12",
-        "docs/wireframes.md": "a7e49b5acd1e9a8410c8149ee068edf12a34da614f6ce885655c7390d65bfdc3",
+        "docs/prd.md": "2363887b1500e6ad6367d1902173204b3c1c62710f02fee646e048d728b95e96",
+        "docs/project-context.md": "273971cc3d51666d1e79a47f23f4b6b4508e725f2d0987c620b8730e627b6f80",
+        "docs/canonical-terms.md": "1d17248d68dd5e39e194595848c85306ecbe6bf32013c7485a6970f01a91527b",
+        "docs/guardrails.md": "2ad1074d14b86bacadebc994d2aa408077b033d0f4cc68fada1c932ad5a75502",
+        "docs/user-journey.md": "04d9c662b94940cfbef8f348fbafcdf65e315b3db8cdc7855e1b047337776c24",
+        "docs/screen-map.md": "8f307336aa8cad927bfc3fe8fffc67735badf428001c4b6dcfb8b6a138813533",
+        "docs/wireframes.md": "5c4036d37ecbfdcb44fdd4844c0ab6cd4125e98a4607d2fcb7a4426a8fc2eb2e",
         "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b",
-        "forge/runs/porcelain-stop-20260924/scoped-override.json": "df8177ecc6e68c658ff5672b14e7def000ba241f9932639711885a4ba17afc74"
+        "forge/runs/porcelain-stop-20260924/scoped-override.json": "df8177ecc6e68c658ff5672b14e7def000ba241f9932639711885a4ba17afc74",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952"
       },
       "dependencies": [
         "prd",
@@ -3607,14 +3751,14 @@
         "screen-map",
         "wireframes"
       ],
-      "content_hash": "6bf8891bb83b6c6ca29438b4314e577d1614f180fe2198fac8ecd6cd6ecd2e4c",
+      "content_hash": "a665a02258306bdb04293f5dc60a0c2113b80077079a8fe0cddee6817aa50e58",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "codex-progress-deadline-reconciliation",
-        "reviewed_at": "2026-09-24T11:16:53.632235+00:00",
+        "kind": "parallel-consultation-plan-reconciliation",
+        "reviewed_at": "2026-09-24T13:02:29.667785+00:00",
         "executor": "Codex inline to-design-brief",
-        "scope": "Apply the explicitly selected P5 Porcelain Stop with consultant avatar height/radius, retaining upper-right placement and cancellation. Frozen Electric A v8 files remain unchanged; scoped appearance override recorded."
+        "scope": "Owner-authored planning correction; production and tests not run. Preserve frozen baseline and existing security boundaries."
       },
       "open_questions": []
     },
@@ -3691,13 +3835,13 @@
       },
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "porcelain-stop-20260924-architecture",
+      "owner_invocation_id": "parallel-consultants-plan-20260924-final-architecture-approved",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "porcelain-stop-20260924-architecture",
+      "source_version": "parallel-consultants-plan-20260924",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3710,21 +3854,25 @@
         "docs/model-settings.md": "full",
         "forge/runs/claude-signin-20260922/source-review.json": "full",
         "forge/runs/sound-media-playback-20260923/scope.json": "full",
-        "forge/runs/claude-context-transport-20260923/scope.json": "full"
+        "forge/runs/claude-context-transport-20260923/scope.json": "full",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "full",
+        "forge/runs/parallel-consultants-plan-20260924/repository-observation.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "3834381ab0f585668043d7333c336cac1f1b851dd93be46051f81beb4000d993",
-        "docs/project-context.md": "a18ec8336dbffcf695e9e0f5306d5858ee8c120ae361f1353ba60b69f28b4849",
-        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
-        "docs/guardrails.md": "1aaac49164a6e1b2e5bb61b5fce7ed2a71e603b27ff372d94a7baf131e267942",
-        "docs/user-journey.md": "57affb03dc73a520607662dec87fe7137bfdf5daaa152e632638788e197025d5",
-        "docs/screen-map.md": "4a84310f6ee2096b0b8a04ffff929cadaba49da1e8efd9deaa8e3a96fdf6ed12",
-        "docs/wireframes.md": "a7e49b5acd1e9a8410c8149ee068edf12a34da614f6ce885655c7390d65bfdc3",
-        "docs/design-brief.md": "6bf8891bb83b6c6ca29438b4314e577d1614f180fe2198fac8ecd6cd6ecd2e4c",
-        "docs/model-settings.md": "b5ee6b66a184ae3bef715e460773669e1386849e64b277b73f1363b4964d7fec",
+        "docs/prd.md": "2363887b1500e6ad6367d1902173204b3c1c62710f02fee646e048d728b95e96",
+        "docs/project-context.md": "273971cc3d51666d1e79a47f23f4b6b4508e725f2d0987c620b8730e627b6f80",
+        "docs/canonical-terms.md": "1d17248d68dd5e39e194595848c85306ecbe6bf32013c7485a6970f01a91527b",
+        "docs/guardrails.md": "2ad1074d14b86bacadebc994d2aa408077b033d0f4cc68fada1c932ad5a75502",
+        "docs/user-journey.md": "04d9c662b94940cfbef8f348fbafcdf65e315b3db8cdc7855e1b047337776c24",
+        "docs/screen-map.md": "8f307336aa8cad927bfc3fe8fffc67735badf428001c4b6dcfb8b6a138813533",
+        "docs/wireframes.md": "5c4036d37ecbfdcb44fdd4844c0ab6cd4125e98a4607d2fcb7a4426a8fc2eb2e",
+        "docs/design-brief.md": "a665a02258306bdb04293f5dc60a0c2113b80077079a8fe0cddee6817aa50e58",
+        "docs/model-settings.md": "3a8bc160e049057cd3702c072d7023b182aa3d9c9cefe9ed28815c7e9e5a9fec",
         "forge/runs/claude-signin-20260922/source-review.json": "ad878d853b9c6f30da817167e1db6dffaad9c2c2863354ad3331294d7b269def",
         "forge/runs/sound-media-playback-20260923/scope.json": "7a5aa70bf52fa77a4dea9e39e5a49453c6be40c5b1a347632f4da4f5294455a0",
-        "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318"
+        "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
+        "forge/runs/parallel-consultants-plan-20260924/repository-observation.json": "76930bc48e23a9d650e5b394b513a9cd895ccae11804942ffb69cff8c9f8094d"
       },
       "dependencies": [
         "prd",
@@ -3736,14 +3884,14 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "10556c7144a416268e91e87d8d13671740bc010e3c93aaf5972fe52028b21b4e",
+      "content_hash": "6cd14b347c76b945814c78baab713a566107f4c419d50ba63f0184fe8d8bfb60",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "codex-progress-deadline-reconciliation",
-        "reviewed_at": "2026-09-24T11:16:53.632235+00:00",
+        "kind": "parallel-consultation-plan-reconciliation",
+        "reviewed_at": "2026-09-24T13:02:29.667785+00:00",
         "executor": "Codex inline to-architecture",
-        "scope": "Apply the explicitly selected P5 Porcelain Stop with consultant avatar height/radius, retaining upper-right placement and cancellation. Frozen Electric A v8 files remain unchanged; scoped appearance override recorded."
+        "scope": "Owner-authored planning correction; production and tests not run. Preserve frozen baseline and existing security boundaries."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -3821,13 +3969,13 @@
       },
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "porcelain-stop-20260924-dod-evals",
+      "owner_invocation_id": "parallel-consultants-plan-20260924-final-dod-evals-approved",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "porcelain-stop-20260924-dod-evals",
+      "source_version": "parallel-consultants-plan-20260924",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3837,18 +3985,20 @@
         "docs/screen-map.md": "full",
         "docs/wireframes.md": "full",
         "docs/design-brief.md": "full",
-        "docs/architecture.md": "full"
+        "docs/architecture.md": "full",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "3834381ab0f585668043d7333c336cac1f1b851dd93be46051f81beb4000d993",
-        "docs/project-context.md": "a18ec8336dbffcf695e9e0f5306d5858ee8c120ae361f1353ba60b69f28b4849",
-        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
-        "docs/guardrails.md": "1aaac49164a6e1b2e5bb61b5fce7ed2a71e603b27ff372d94a7baf131e267942",
-        "docs/user-journey.md": "57affb03dc73a520607662dec87fe7137bfdf5daaa152e632638788e197025d5",
-        "docs/screen-map.md": "4a84310f6ee2096b0b8a04ffff929cadaba49da1e8efd9deaa8e3a96fdf6ed12",
-        "docs/wireframes.md": "a7e49b5acd1e9a8410c8149ee068edf12a34da614f6ce885655c7390d65bfdc3",
-        "docs/design-brief.md": "6bf8891bb83b6c6ca29438b4314e577d1614f180fe2198fac8ecd6cd6ecd2e4c",
-        "docs/architecture.md": "10556c7144a416268e91e87d8d13671740bc010e3c93aaf5972fe52028b21b4e"
+        "docs/prd.md": "2363887b1500e6ad6367d1902173204b3c1c62710f02fee646e048d728b95e96",
+        "docs/project-context.md": "273971cc3d51666d1e79a47f23f4b6b4508e725f2d0987c620b8730e627b6f80",
+        "docs/canonical-terms.md": "1d17248d68dd5e39e194595848c85306ecbe6bf32013c7485a6970f01a91527b",
+        "docs/guardrails.md": "2ad1074d14b86bacadebc994d2aa408077b033d0f4cc68fada1c932ad5a75502",
+        "docs/user-journey.md": "04d9c662b94940cfbef8f348fbafcdf65e315b3db8cdc7855e1b047337776c24",
+        "docs/screen-map.md": "8f307336aa8cad927bfc3fe8fffc67735badf428001c4b6dcfb8b6a138813533",
+        "docs/wireframes.md": "5c4036d37ecbfdcb44fdd4844c0ab6cd4125e98a4607d2fcb7a4426a8fc2eb2e",
+        "docs/design-brief.md": "a665a02258306bdb04293f5dc60a0c2113b80077079a8fe0cddee6817aa50e58",
+        "docs/architecture.md": "6cd14b347c76b945814c78baab713a566107f4c419d50ba63f0184fe8d8bfb60",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952"
       },
       "dependencies": [
         "prd",
@@ -3861,14 +4011,14 @@
         "design-brief",
         "architecture"
       ],
-      "content_hash": "297357d5b2408118c20904fa954c8ca2f3063f9140417bcc478c1ceed87fd370",
+      "content_hash": "1874c90f129f7b8f8f0e63f09edd5ccf98ad015a771aa5037f8e12322465a4ec",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "codex-progress-deadline-reconciliation",
-        "reviewed_at": "2026-09-24T11:16:53.632235+00:00",
+        "kind": "parallel-consultation-plan-reconciliation",
+        "reviewed_at": "2026-09-24T13:02:29.667785+00:00",
         "executor": "Codex inline to-dod-evals",
-        "scope": "Apply the explicitly selected P5 Porcelain Stop with consultant avatar height/radius, retaining upper-right placement and cancellation. Frozen Electric A v8 files remain unchanged; scoped appearance override recorded."
+        "scope": "Owner-authored planning correction; production and tests not run. Preserve frozen baseline and existing security boundaries."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -4621,6 +4771,69 @@
             "definition_ref": {
               "path": "docs/qa-checklist.md",
               "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R61",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Parallel consultation acceptance"
+            }
+          },
+          {
+            "id": "QA-R62",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Parallel consultation acceptance"
+            }
+          },
+          {
+            "id": "QA-R63",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Parallel consultation acceptance"
+            }
+          },
+          {
+            "id": "QA-R64",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Parallel consultation acceptance"
+            }
+          },
+          {
+            "id": "QA-R65",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Parallel consultation acceptance"
+            }
+          },
+          {
+            "id": "QA-R66",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Parallel consultation acceptance"
+            }
+          },
+          {
+            "id": "QA-R67",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Parallel consultation acceptance"
             }
           }
         ],
@@ -5560,6 +5773,114 @@
               "path": "docs/qa-checklist.md",
               "heading": "## Product acceptance"
             }
+          },
+          {
+            "from": "QA-R61",
+            "to": "FR-02.9",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Parallel consultation acceptance"
+            }
+          },
+          {
+            "from": "QA-R61",
+            "to": "FR-02.10",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Parallel consultation acceptance"
+            }
+          },
+          {
+            "from": "QA-R62",
+            "to": "FR-02.11",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Parallel consultation acceptance"
+            }
+          },
+          {
+            "from": "QA-R63",
+            "to": "FR-02.12",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Parallel consultation acceptance"
+            }
+          },
+          {
+            "from": "QA-R64",
+            "to": "FR-02.13",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Parallel consultation acceptance"
+            }
+          },
+          {
+            "from": "QA-R65",
+            "to": "FR-02.14",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Parallel consultation acceptance"
+            }
+          },
+          {
+            "from": "QA-R65",
+            "to": "FR-05.3",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Parallel consultation acceptance"
+            }
+          },
+          {
+            "from": "QA-R65",
+            "to": "NFR-01.3",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Parallel consultation acceptance"
+            }
+          },
+          {
+            "from": "QA-R66",
+            "to": "FR-02.15",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Parallel consultation acceptance"
+            }
+          },
+          {
+            "from": "QA-R67",
+            "to": "FR-03.5",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Parallel consultation acceptance"
+            }
+          },
+          {
+            "from": "QA-R67",
+            "to": "NFR-01.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Parallel consultation acceptance"
+            }
+          },
+          {
+            "from": "QA-R67",
+            "to": "FR-02.13",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Parallel consultation acceptance"
+            }
           }
         ]
       },
@@ -5635,13 +5956,13 @@
       },
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "porcelain-stop-20260924-qa-checklist",
+      "owner_invocation_id": "parallel-consultants-plan-20260924-final-qa-checklist-approved",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "porcelain-stop-20260924-qa-checklist",
+      "source_version": "parallel-consultants-plan-20260924",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -5652,19 +5973,21 @@
         "docs/wireframes.md": "full",
         "docs/design-brief.md": "full",
         "docs/architecture.md": "full",
-        "docs/dod-evals.md": "full"
+        "docs/dod-evals.md": "full",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "3834381ab0f585668043d7333c336cac1f1b851dd93be46051f81beb4000d993",
-        "docs/project-context.md": "a18ec8336dbffcf695e9e0f5306d5858ee8c120ae361f1353ba60b69f28b4849",
-        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
-        "docs/guardrails.md": "1aaac49164a6e1b2e5bb61b5fce7ed2a71e603b27ff372d94a7baf131e267942",
-        "docs/user-journey.md": "57affb03dc73a520607662dec87fe7137bfdf5daaa152e632638788e197025d5",
-        "docs/screen-map.md": "4a84310f6ee2096b0b8a04ffff929cadaba49da1e8efd9deaa8e3a96fdf6ed12",
-        "docs/wireframes.md": "a7e49b5acd1e9a8410c8149ee068edf12a34da614f6ce885655c7390d65bfdc3",
-        "docs/design-brief.md": "6bf8891bb83b6c6ca29438b4314e577d1614f180fe2198fac8ecd6cd6ecd2e4c",
-        "docs/architecture.md": "10556c7144a416268e91e87d8d13671740bc010e3c93aaf5972fe52028b21b4e",
-        "docs/dod-evals.md": "297357d5b2408118c20904fa954c8ca2f3063f9140417bcc478c1ceed87fd370"
+        "docs/prd.md": "2363887b1500e6ad6367d1902173204b3c1c62710f02fee646e048d728b95e96",
+        "docs/project-context.md": "273971cc3d51666d1e79a47f23f4b6b4508e725f2d0987c620b8730e627b6f80",
+        "docs/canonical-terms.md": "1d17248d68dd5e39e194595848c85306ecbe6bf32013c7485a6970f01a91527b",
+        "docs/guardrails.md": "2ad1074d14b86bacadebc994d2aa408077b033d0f4cc68fada1c932ad5a75502",
+        "docs/user-journey.md": "04d9c662b94940cfbef8f348fbafcdf65e315b3db8cdc7855e1b047337776c24",
+        "docs/screen-map.md": "8f307336aa8cad927bfc3fe8fffc67735badf428001c4b6dcfb8b6a138813533",
+        "docs/wireframes.md": "5c4036d37ecbfdcb44fdd4844c0ab6cd4125e98a4607d2fcb7a4426a8fc2eb2e",
+        "docs/design-brief.md": "a665a02258306bdb04293f5dc60a0c2113b80077079a8fe0cddee6817aa50e58",
+        "docs/architecture.md": "6cd14b347c76b945814c78baab713a566107f4c419d50ba63f0184fe8d8bfb60",
+        "docs/dod-evals.md": "1874c90f129f7b8f8f0e63f09edd5ccf98ad015a771aa5037f8e12322465a4ec",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952"
       },
       "dependencies": [
         "prd",
@@ -5678,14 +6001,14 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "7c2da5176ae739ff4353441b476dad56f63c8c3a9a47515a17d50f6261225b73",
+      "content_hash": "3d8d4090f6f783046cf9ccb08bae88c1a46b6b2452a7c1643e9962f0bc3c53d7",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "codex-progress-deadline-reconciliation",
-        "reviewed_at": "2026-09-24T11:16:53.632235+00:00",
+        "kind": "parallel-consultation-plan-reconciliation",
+        "reviewed_at": "2026-09-24T13:02:29.667785+00:00",
         "executor": "Codex inline to-qa-checklist",
-        "scope": "Apply the explicitly selected P5 Porcelain Stop with consultant avatar height/radius, retaining upper-right placement and cancellation. Frozen Electric A v8 files remain unchanged; scoped appearance override recorded."
+        "scope": "Owner-authored planning correction; production and tests not run. Preserve frozen baseline and existing security boundaries."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -5764,6 +6087,15 @@
               "path": "docs/development-plan.md",
               "heading": "### U-08 — Verify the integrated app and prepare the scoped release"
             }
+          },
+          {
+            "id": "U-09",
+            "kind": "unit",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
           }
         ],
         "links": [
@@ -5797,51 +6129,6 @@
           {
             "from": "U-06",
             "to": "FR-02.2",
-            "relation": "implements",
-            "definition_ref": {
-              "path": "docs/development-plan.md",
-              "heading": "## Clause coverage"
-            }
-          },
-          {
-            "from": "U-04",
-            "to": "FR-02.3",
-            "relation": "implements",
-            "definition_ref": {
-              "path": "docs/development-plan.md",
-              "heading": "## Clause coverage"
-            }
-          },
-          {
-            "from": "U-04",
-            "to": "FR-02.4",
-            "relation": "implements",
-            "definition_ref": {
-              "path": "docs/development-plan.md",
-              "heading": "## Clause coverage"
-            }
-          },
-          {
-            "from": "U-04",
-            "to": "FR-02.5",
-            "relation": "implements",
-            "definition_ref": {
-              "path": "docs/development-plan.md",
-              "heading": "## Clause coverage"
-            }
-          },
-          {
-            "from": "U-04",
-            "to": "FR-02.6",
-            "relation": "implements",
-            "definition_ref": {
-              "path": "docs/development-plan.md",
-              "heading": "## Clause coverage"
-            }
-          },
-          {
-            "from": "U-04",
-            "to": "FR-02.7",
             "relation": "implements",
             "definition_ref": {
               "path": "docs/development-plan.md",
@@ -5887,15 +6174,6 @@
           {
             "from": "U-04",
             "to": "FR-03.4",
-            "relation": "implements",
-            "definition_ref": {
-              "path": "docs/development-plan.md",
-              "heading": "## Clause coverage"
-            }
-          },
-          {
-            "from": "U-04",
-            "to": "FR-03.5",
             "relation": "implements",
             "definition_ref": {
               "path": "docs/development-plan.md",
@@ -6085,24 +6363,6 @@
           {
             "from": "U-04",
             "to": "NFR-01.1",
-            "relation": "implements",
-            "definition_ref": {
-              "path": "docs/development-plan.md",
-              "heading": "## Clause coverage"
-            }
-          },
-          {
-            "from": "U-04",
-            "to": "NFR-01.2",
-            "relation": "implements",
-            "definition_ref": {
-              "path": "docs/development-plan.md",
-              "heading": "## Clause coverage"
-            }
-          },
-          {
-            "from": "U-04",
-            "to": "NFR-01.3",
             "relation": "implements",
             "definition_ref": {
               "path": "docs/development-plan.md",
@@ -6702,6 +6962,204 @@
               "path": "docs/development-plan.md",
               "heading": "## Clause coverage"
             }
+          },
+          {
+            "from": "U-09",
+            "to": "FR-02.9",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "FR-02.10",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "FR-02.11",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "FR-02.12",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "FR-02.13",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "FR-02.14",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "FR-02.15",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "FR-02.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "FR-02.4",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "FR-02.5",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "FR-02.6",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "FR-02.7",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "FR-03.5",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "FR-05.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "NFR-01.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "NFR-01.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "ST-09",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "ST-11",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "ST-16",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "ST-21",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "ST-37",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "ST-38",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
           }
         ]
       },
@@ -6777,13 +7235,13 @@
       },
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "porcelain-stop-20260924-development-plan",
+      "owner_invocation_id": "parallel-consultants-plan-20260924-final-development-plan",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "porcelain-stop-20260924-development-plan",
+      "source_version": "parallel-consultants-plan-20260924",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -6798,23 +7256,27 @@
         "docs/qa-checklist.md": "full",
         "docs/model-settings.md": "full",
         "package.json": "full",
-        "forge/runs/claude-context-transport-20260923/scope.json": "full"
+        "forge/runs/claude-context-transport-20260923/scope.json": "full",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "full",
+        "forge/runs/parallel-consultants-plan-20260924/repository-observation.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "3834381ab0f585668043d7333c336cac1f1b851dd93be46051f81beb4000d993",
-        "docs/project-context.md": "a18ec8336dbffcf695e9e0f5306d5858ee8c120ae361f1353ba60b69f28b4849",
-        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
-        "docs/guardrails.md": "1aaac49164a6e1b2e5bb61b5fce7ed2a71e603b27ff372d94a7baf131e267942",
-        "docs/user-journey.md": "57affb03dc73a520607662dec87fe7137bfdf5daaa152e632638788e197025d5",
-        "docs/screen-map.md": "4a84310f6ee2096b0b8a04ffff929cadaba49da1e8efd9deaa8e3a96fdf6ed12",
-        "docs/wireframes.md": "a7e49b5acd1e9a8410c8149ee068edf12a34da614f6ce885655c7390d65bfdc3",
-        "docs/design-brief.md": "6bf8891bb83b6c6ca29438b4314e577d1614f180fe2198fac8ecd6cd6ecd2e4c",
-        "docs/architecture.md": "10556c7144a416268e91e87d8d13671740bc010e3c93aaf5972fe52028b21b4e",
-        "docs/dod-evals.md": "297357d5b2408118c20904fa954c8ca2f3063f9140417bcc478c1ceed87fd370",
-        "docs/qa-checklist.md": "7c2da5176ae739ff4353441b476dad56f63c8c3a9a47515a17d50f6261225b73",
-        "docs/model-settings.md": "b5ee6b66a184ae3bef715e460773669e1386849e64b277b73f1363b4964d7fec",
+        "docs/prd.md": "2363887b1500e6ad6367d1902173204b3c1c62710f02fee646e048d728b95e96",
+        "docs/project-context.md": "273971cc3d51666d1e79a47f23f4b6b4508e725f2d0987c620b8730e627b6f80",
+        "docs/canonical-terms.md": "1d17248d68dd5e39e194595848c85306ecbe6bf32013c7485a6970f01a91527b",
+        "docs/guardrails.md": "2ad1074d14b86bacadebc994d2aa408077b033d0f4cc68fada1c932ad5a75502",
+        "docs/user-journey.md": "04d9c662b94940cfbef8f348fbafcdf65e315b3db8cdc7855e1b047337776c24",
+        "docs/screen-map.md": "8f307336aa8cad927bfc3fe8fffc67735badf428001c4b6dcfb8b6a138813533",
+        "docs/wireframes.md": "5c4036d37ecbfdcb44fdd4844c0ab6cd4125e98a4607d2fcb7a4426a8fc2eb2e",
+        "docs/design-brief.md": "a665a02258306bdb04293f5dc60a0c2113b80077079a8fe0cddee6817aa50e58",
+        "docs/architecture.md": "6cd14b347c76b945814c78baab713a566107f4c419d50ba63f0184fe8d8bfb60",
+        "docs/dod-evals.md": "1874c90f129f7b8f8f0e63f09edd5ccf98ad015a771aa5037f8e12322465a4ec",
+        "docs/qa-checklist.md": "3d8d4090f6f783046cf9ccb08bae88c1a46b6b2452a7c1643e9962f0bc3c53d7",
+        "docs/model-settings.md": "3a8bc160e049057cd3702c072d7023b182aa3d9c9cefe9ed28815c7e9e5a9fec",
         "package.json": "094e408c16c3a8369b9f21a343bb562dc0cd20160e26b6c01f144bd83712a568",
-        "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318"
+        "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
+        "forge/runs/parallel-consultants-plan-20260924/repository-observation.json": "76930bc48e23a9d650e5b394b513a9cd895ccae11804942ffb69cff8c9f8094d"
       },
       "dependencies": [
         "prd",
@@ -6829,14 +7291,14 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "a2a37cbfd2a62e5d1461c4bc8120762438da3c5c6745747e9382c8a87ee51482",
+      "content_hash": "4f8114aef45627f808d66c21a4f0c3e2bc7a0dc8dd07d94f7f0f26083f318ae6",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "codex-progress-deadline-reconciliation",
-        "reviewed_at": "2026-09-24T11:16:53.632235+00:00",
+        "kind": "parallel-consultation-plan-reconciliation",
+        "reviewed_at": "2026-09-24T13:02:29.667785+00:00",
         "executor": "Codex inline to-development-plan",
-        "scope": "Apply the explicitly selected P5 Porcelain Stop with consultant avatar height/radius, retaining upper-right placement and cancellation. Frozen Electric A v8 files remain unchanged; scoped appearance override recorded."
+        "scope": "Owner-authored planning correction; production and tests not run. Preserve frozen baseline and existing security boundaries."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -7345,6 +7807,11 @@
         "path": "forge/runs/porcelain-stop-20260924/scoped-override.json",
         "content_hash": "df8177ecc6e68c658ff5672b14e7def000ba241f9932639711885a4ba17afc74",
         "scope": "P5 Porcelain Stop, position 1 upper-right Discussion header; 88px width, consultant avatar height and 7px radius. White face, dark square glyph and inline Stop label. Preserve effective 44px touch area and existing cancellation. Supersedes the prior red square Stop appearance only."
+      },
+      {
+        "path": "forge/runs/parallel-consultants-plan-20260924/scope.json",
+        "content_hash": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
+        "scope": "Planning-only reconciliation of accepted Head-led application-managed parallel consultants, concise visible assignments, private dynamic role guidance, user-selected discussion depth and tracked Critic orders within existing Discussion/Settings/Outcome surfaces. Preserve Electric A v8 and P5 geometry. No new visual composition or production authorization."
       }
     ]
   },
@@ -7353,8 +7820,8 @@
     "definition_status": "prepared",
     "release_readiness": "not_evaluated",
     "source_hashes": {
-      "docs/dod-evals.md": "297357d5b2408118c20904fa954c8ca2f3063f9140417bcc478c1ceed87fd370",
-      "docs/qa-checklist.md": "7c2da5176ae739ff4353441b476dad56f63c8c3a9a47515a17d50f6261225b73"
+      "docs/dod-evals.md": "1874c90f129f7b8f8f0e63f09edd5ccf98ad015a771aa5037f8e12322465a4ec",
+      "docs/qa-checklist.md": "3d8d4090f6f783046cf9ccb08bae88c1a46b6b2452a7c1643e9962f0bc3c53d7"
     },
     "gates": [
       {
@@ -7411,7 +7878,14 @@
           "QA-S07",
           "QA-S08",
           "QA-S09",
-          "QA-R60"
+          "QA-R60",
+          "QA-R61",
+          "QA-R62",
+          "QA-R63",
+          "QA-R64",
+          "QA-R65",
+          "QA-R66",
+          "QA-R67"
         ]
       },
       {
@@ -7651,7 +8125,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Head chooses the actual relevant permitted specialist roles in every fixed 1/2/3/5 setting and a 1–5 roster in Auto; the application only validates and routes that roster. Head and Critic are excluded from the count. Leadership and esoteric roles never appear; Spiritual Consultant follows its doctrine and Psychotherapist its stated scope.",
+        "task": "For fixed and Auto team sizes, Head selects the exact accepted count excluding Head/Critic, using reusable, adapted or new roles. Preserve substantive faith/coaching boundaries without a profession allowlist. Verify role names confer no tool/provider authority.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -7678,7 +8152,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Each role is a separate actual invocation with the same complete ordered owner text/corrections, full confirmed discussion, source ledger and its own assignment from the exact accepted runtime-instructions revision. Head first records every requested output, chooses an exact distinct specialist roster, and gives each a considered recipient-specific task. Supply unusual, long and non-imperative Head tasks; verify each successful task is committed and delivered byte-for-byte once without semantic rejection, wrapper, retry, trimming or generic fallback. Each specialist gives Critic an independent position, receives at least one direct challenge/reply, and sends Head a final position. Head explicitly closes or continues after each team-wide review within the selected depth ceiling; Critic jointly assesses final positions before Head gives one Consolidated advice. Fail or delay each closing step and verify no premature Head conclusion. Stop/Continue and process restart preserve the saved prefix, roster and decisions without duplicate messages. Verify the full final heading in Discussion, Outcome, history and export, and that Outcome is empty until the current question’s final message. The text-only image limitation must be explicit. Verify Claude receives the full reconstructed UTF-8 prompt through stdin with exact model/effort; oversized context fails truthfully before inference, never silently trims or changes provider.",
+        "task": "Verify separate participant invocations, exact Head task delivery without prose rejection or generic fallback, complete owner text once, accepted instruction/model snapshots, and current result references. Compare out-of-order worker completion with canonical commit order. Head synthesis waits for the selected review depth and current Critic assessments. Retain image limitation and complete UTF-8 stdin transport tests; overflow never trims context or substitutes a model.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -7705,7 +8179,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: A material Critic objection receives a relevant response or justified agreement. Supply circular, irrelevant, fabricated and unsupported consultant drafts. Critic issues one targeted stop-and-rework naming the claim, reason and needed correction; the consultant materially revises, states a specific evidence-based objection or admits unavailable evidence. Head sees and arbitrates the result; no repeated filler loop is required.",
+        "task": "Critic identifies a real circular/evasive/unsupported claim and issues a specific correction; the recipient materially corrects it, objects with evidence or records an evidence gap. Persist and assess fulfillment under QA-R64; a reply alone never resolves the issue. Sound work receives no invented defect.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -7732,7 +8206,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Consensus is stated only when Head, participating specialists and Critic agree on the same recommendation; otherwise the conclusion names the unresolved issue.",
+        "task": "Permit consensus only when current specialist results, Critic assessments and Head agree, with no open/evidence-blocked findings or unreviewed material revision. Otherwise preserve provisional advice and explicit disagreements.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -7759,7 +8233,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Head’s final Consolidated advice gives a self-contained recommendation or bounded uncertainty, every distinct owner-requested output, direct supporting source links and explicit missing items, sufficient actions, the main risk and a revisit condition. A long response is saved and exported whole, without a three-action or 2,000-character trim.",
+        "task": "Head synthesizes current reviewed results without obligatory closing speeches; all requested outputs, direct supporting links, risks and necessary actions remain complete. Outcome/history/export show only the current final advice and preserve unresolved Critic findings.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -7840,7 +8314,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: The first substantive request sets English/Ukrainian session language; explicit supported changes win and role names remain English. Russian/Belarusian owner input, generated prose and source metadata are rejected rather than stored or rendered. Verify that valid Ukrainian containing `які` passes owner input, both provider adapters and source-title/claim validation, while distinctive prohibited words/letters and forbidden hosts still fail. Supply one prohibited generated draft and verify that it is withheld, exactly one code-owned replacement invocation of the same role/task completes the step, and no System error or rejected text/source reaches the record.",
+        "task": "Exercise the referenced use-case path and verify: The first substantive request sets English/Ukrainian session language; explicit supported changes win and role names remain English. Russian/Belarusian owner input and source metadata are rejected. Valid Ukrainian containing `які` and English descriptors such as “Russian” pass owner input, both provider adapters and source-title/claim validation; distinctive prohibited words/letters and forbidden hosts still fail. Supply mixed generated prose to both providers: only the guilty sentence is replaced by an omission marker, useful English/Ukrainian advice remains and the run continues without a System error. Supply an unsuitable link: omit only the URL and do not add it as a source. A wholly unusable answer gets one same-role/task replacement attempt; neither the omitted text nor URL reaches the record or logs.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -7894,7 +8368,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: At 320/390/430/768/1280/1440 CSS px, verify the unavailable composer is hidden during active work and a labelled square Stop stays reachable in the upper-right Discussion header while scrolling and on Outcome/Sources, separated from New and the former Send/reading positions. Keyboard focus is visible; Send does not auto-focus Stop. A pending/refused Stop shows truthful feedback without making input available prematurely; confirmed Stop prevents late visible results. Stop, failure and completion restore the composer and any unsent page-memory draft. Check touch/keyboard and forced-colors behavior; device observation is separate from automated layout assertions.",
+        "task": "Exercise the referenced use-case path and verify: At 320/390/430/768/1280/1440 CSS px, verify the unavailable composer is hidden during active work and a labelled P5 Porcelain Stop matches the actual consultant avatar height (38px desktop, 32px mobile) and 7px radius, with a 44px-high effective hit area, and stays reachable in the upper-right Discussion header while scrolling and on Outcome/Sources, separated from New and the former Send/reading positions. Keyboard focus is visible; Send does not auto-focus Stop. A pending/refused Stop shows truthful feedback without making input available prematurely; confirmed Stop prevents late visible results. Stop, failure and completion restore the composer and any unsent page-memory draft. Check touch/keyboard and forced-colors behavior; device observation is separate from automated layout assertions.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -7921,7 +8395,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Continue resumes stopped work and Retry resumes failed work at the next missing step. Fail a specialist reply after a Critic stop-and-rework and separately fail a closing contribution. Retry preserves the complete saved prefix, exact roster, tasks, Head review decisions and accepted settings; it excludes System notices from provider context/step counts and commits the missing reply before closing and synthesis. Verify in memory and encrypted SQLite, denial while another run is active, stale-generation refusal and useful feedback on refused retry.",
+        "task": "Stop/Continue and Retry use durable assignment/directive checkpoints, exact accepted settings and context; successful siblings are not invoked again. Fail a correction assessment and a worker independently, resume only missing work, and prevent stale results or System notices satisfying readiness.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -7975,7 +8449,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Current claims can trigger live public research without a keyword. Include a private contact in the full owner request and a public article URL with a long numeric ID; Head can still form a minimal safe public query. Inspect the actual web-enabled provider prompt: it contains only that validated query, no private discussion, contact, attachment, private guidance or credential. A query containing a real phone/email, secret or unsafe URL is withheld and reported as unavailable without fabricating research. Confirm direct URLs/claims from more than eight valid sources survive and reach the final context. Record a real completed public search/open action separately from fixtures.",
+        "task": "Exercise the referenced use-case path and verify: Current claims can trigger live public research without a keyword. Include a private contact in the full owner request and a public article URL with a long numeric ID; Head can still form a minimal safe public query. Inspect the actual web-enabled provider prompt: it contains only that validated query, no private discussion, contact, attachment, private guidance or credential. A query containing a real phone/email, secret or unsafe URL is withheld and reported as unavailable without fabricating research. Confirm the first recipient-bound Head assignment is visible before a deliberately delayed public search resolves. A timed-out or failed search records an evidence limitation, leaves confirmed tasks intact and lets the consultation continue without claiming a fresh check; cancellation still stops it. Confirm direct URLs/claims from more than eight valid sources survive and reach the final context. Record a real completed public search/open action separately from fixtures.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -8115,7 +8589,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Settings accepts specialist counts 1/2/3/5/Auto and discussion depth 1/3/5/Auto. It also exposes Knock, Chime, Ripple and Off with an owner-activated local browser WAV preview; load the saved choice on authenticated entry before opening Settings, including Off. Preview an unsaved choice and verify incoming alerts still use the saved choice. Stage the actual saved asset on one persistent HTMLAudioElement and test cold loading, trusted-gesture playback of a finite 50 ms all-zero WAV, natural ended before readiness, subsequent saved-source staging on the same element, asynchronous completion/error/eight-second timeout and blocked paths. Reuse the element for delayed alerts and unsaved Preview, restore its saved source afterward, and never change the saved preference. Verify cancellation/generation fencing, Off/source/Blob cleanup and logout disposal; no AudioContext or AudioSession override remains. Delay a confirmed agent message beyond the sending gesture and verify the reused audio player starts it; initial history, owner/System notices and repeated polling produce no sound, and one polling batch yields one alert. Simulate a browser playback rejection, verify visible Enable sound recovery, activate it deliberately and retry; visual/semantic feedback remains. In disposable fixture sessions, reload and repeat in Chromium, Firefox and WebKit under restrictive autoplay settings. Record native Safari playback and actual device audibility separately; a play promise, moving clock, ended event or success toast cannot prove sound was heard. The owner’s running consultation must not be interrupted, reloaded or restarted for this repair; record any recovery in that tab as separate evidence. Knock must use the same bundled recording for Preview and incoming alerts, with the exact owner-accepted v5 bytes: three blended sharp/woody table-ball impacts exactly 250 ms apart, preserved pitch, no clipping, quiet reflections at 28 ms and 47 ms, and silence after each 92 ms impact-and-reflection window. Verify the versioned URL avoids an older cached sound. Check HTTP `audio/wav` and browser playback separately from the owner listening verdict, which accepted v5 with a tiny echo. Verify the Settings copy describes depth as a ceiling, not a quota. For 1/3/5/Auto and fixed/Auto teams, every selected specialist receives a first Critic challenge/reply. Head can close after a useful first round or continue for a targeted issue within the selected ceiling; Auto never exceeds 10. No specialist’s agreement bypasses another’s material objection, and no filler rounds are forced. Resume after either side of a pair without duplicate confirmed messages or premature Head synthesis. At the ceiling, unresolved advice is explicitly provisional; closing messages do not add to depth.",
+        "task": "Exercise the referenced use-case path and verify: Settings accepts specialist counts 1/2/3/5/Auto and discussion depth 1/3/5/Auto. It also exposes Knock, Chime, Ripple and Off with an owner-activated local browser WAV preview; load the saved choice on authenticated entry before opening Settings, including Off. Preview an unsaved choice and verify incoming alerts still use the saved choice. Stage the actual saved asset on one persistent HTMLAudioElement and test cold loading, trusted-gesture playback of a finite 50 ms all-zero WAV, natural ended before readiness, subsequent saved-source staging on the same element, asynchronous completion/error/eight-second timeout and blocked paths. Reuse the element for delayed alerts and unsaved Preview, restore its saved source afterward, and never change the saved preference. Verify cancellation/generation fencing, Off/source/Blob cleanup and logout disposal; no AudioContext or AudioSession override remains. Delay a confirmed agent message beyond the sending gesture and verify the reused audio player starts it; initial history, owner/System notices and repeated polling produce no sound, and one polling batch yields one alert. Simulate a browser playback rejection, verify visible Enable sound recovery, activate it deliberately and retry; visual/semantic feedback remains. In disposable fixture sessions, reload and repeat in Chromium, Firefox and WebKit under restrictive autoplay settings. Record native Safari playback and actual device audibility separately; a play promise, moving clock, ended event or success toast cannot prove sound was heard. The owner’s running consultation must not be interrupted, reloaded or restarted for this repair; record any recovery in that tab as separate evidence. Knock must use the same bundled recording for Preview and incoming alerts, with the exact owner-accepted v5 bytes: three blended sharp/woody table-ball impacts exactly 250 ms apart, preserved pitch, no clipping, quiet reflections at 28 ms and 47 ms, and silence after each 92 ms impact-and-reflection window. Verify the versioned URL avoids an older cached sound. Check HTTP `audio/wav` and browser playback separately from the owner listening verdict, which accepted v5 with a tiny echo. Verify fixed-depth versus Auto copy and round behavior using QA-R65; retain accepted-run settings snapshots.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -8566,7 +9040,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: Auto discussion depth reviews every specialist before assessing consensus and permits at most 10 complete Critic ↔ specialist exchanges per specialist. Explicit depth never requires filler or ceremonial rounds; retain the ten-minute continuation boundary.",
+        "task": "Verify fixed 1/3/5 team review rounds and Head-controlled Auto up to ten under QA-R65. Distinguish provider timeouts from recovery targets. No filler objections, obligatory unaffected replies or extra full rounds from resolution checks.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -8827,7 +9301,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Exercise the referenced use-case path and verify: allowed Markdown emphasis, lists, quotations, inline code and approved HTTPS links render as content. Submit executable markup, unsafe URLs, malformed envelopes, prohibited Russian/Belarusian language and injection strings through text/files/provider output; they remain inert or are rejected.",
+        "task": "Exercise the referenced use-case path and verify: allowed Markdown emphasis, lists, quotations, inline code and approved HTTPS links render as content. Submit executable markup, unsafe URLs, malformed envelopes, prohibited Russian/Belarusian language and injection strings through text/files/provider output; they remain inert, are rejected at owner/source boundaries, or are omitted from generated prose while safe surrounding advice remains.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -9295,7 +9769,7 @@
         "definition_status": "prepared",
         "execution_status": "not_run",
         "phase": "implementation",
-        "task": "Fail validation/provider/research/storage/logging paths then retry; access stays denied where required and invalid partial commits never appear. Inject a provider JSON-RPC error and verify that protected logs retain only its normalized category, safe numeric code and failed operation; the browser receives the matching recovery state and never receives raw provider diagnostics, prompts or authentication material. Return two Claude tool transcripts and verify the run fails safely with the owner question retained, no raw tool material committed and no partial Head synthesis. Exceed Claude’s documented local request-size bound and verify a distinct size/recovery notice, no model-unavailable claim or inference, and the unchanged accepted question, confirmed messages and model/effort snapshot.",
+        "task": "Exercise the referenced use-case path and verify: Fail validation/provider/research/storage/logging paths then retry; access stays denied where required and invalid partial commits never appear. Inject a provider JSON-RPC error and verify that protected logs retain only its normalized category, safe numeric code and failed operation; the browser receives the matching recovery state and never receives raw provider diagnostics, prompts or authentication material. Return two Claude tool transcripts and verify the run fails safely with the owner question retained, no raw tool material committed and no partial Head synthesis. Exceed Claude’s documented local request-size bound and verify a distinct size/recovery notice, no model-unavailable claim or inference, and the unchanged accepted question, confirmed messages and model/effort snapshot.",
         "user_group": "Existing single owner",
         "route": "#discussion",
         "state": "Allowed, denied and recovery paths in the referenced UC",
@@ -10131,10 +10605,220 @@
         "findings": [],
         "baseline_id": "nanoduck-electric-a-v8-20260914",
         "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
+      },
+      {
+        "check_id": "QA-R61",
+        "gate_id": "product_functional_requirements",
+        "definition_ref": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Parallel consultation acceptance"
+        },
+        "definition_status": "prepared",
+        "execution_status": "not_run",
+        "phase": "implementation",
+        "task": "Create an unlisted specialist and adapt a library role; verify Head authored each distinct task, only its own role guidance reaches each consultant, the compact index omits unused details, and private role text is absent from chat/export. One planning call yields separate visible assignments. Long/unusual valid wording is delivered unchanged; no generic fallback or role allowlist refusal.",
+        "user_group": "Existing single owner",
+        "route": "#discussion",
+        "state": "Allowed, denied and recovery paths in the referenced UC",
+        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
+        "job_ids": [
+          "JOB-001",
+          "JOB-002"
+        ],
+        "use_case_ids": [
+          "UC-002",
+          "UC-003",
+          "UC-005"
+        ],
+        "applicability": "applicable",
+        "evidence": [],
+        "findings": [],
+        "baseline_id": "nanoduck-electric-a-v8-20260914",
+        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
+      },
+      {
+        "check_id": "QA-R62",
+        "gate_id": "product_functional_requirements",
+        "definition_ref": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Parallel consultation acceptance"
+        },
+        "definition_status": "prepared",
+        "execution_status": "not_run",
+        "phase": "implementation",
+        "task": "Hold two independent synthetic workers simultaneously and complete them out of order; each result commits once and appears immediately. A dependent task waits for its declared result, while unrelated work continues. Exercise provider queue/failure without silent model/effort changes or hidden serialization.",
+        "user_group": "Existing single owner",
+        "route": "#discussion",
+        "state": "Allowed, denied and recovery paths in the referenced UC",
+        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
+        "job_ids": [
+          "JOB-001",
+          "JOB-002"
+        ],
+        "use_case_ids": [
+          "UC-002",
+          "UC-003",
+          "UC-005"
+        ],
+        "applicability": "applicable",
+        "evidence": [],
+        "findings": [],
+        "baseline_id": "nanoduck-electric-a-v8-20260914",
+        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
+      },
+      {
+        "check_id": "QA-R63",
+        "gate_id": "product_functional_requirements",
+        "definition_ref": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Parallel consultation acceptance"
+        },
+        "definition_status": "prepared",
+        "execution_status": "not_run",
+        "phase": "implementation",
+        "task": "Capture synthetic provider inputs: all exact ordered owner messages/corrections occur once, own task/guidance and referenced evidence are present, unrelated role prose/System events/obsolete drafts are absent. Critic sees all current results. Stop, send a correction, and verify a new boundary plus Head-directed affected work; preserve original messages and image capability disclosure.",
+        "user_group": "Existing single owner",
+        "route": "#discussion",
+        "state": "Allowed, denied and recovery paths in the referenced UC",
+        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
+        "job_ids": [
+          "JOB-001",
+          "JOB-002"
+        ],
+        "use_case_ids": [
+          "UC-002",
+          "UC-003",
+          "UC-005"
+        ],
+        "applicability": "applicable",
+        "evidence": [],
+        "findings": [],
+        "baseline_id": "nanoduck-electric-a-v8-20260914",
+        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
+      },
+      {
+        "check_id": "QA-R64",
+        "gate_id": "product_functional_requirements",
+        "definition_ref": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Parallel consultation acceptance"
+        },
+        "definition_status": "prepared",
+        "execution_status": "not_run",
+        "phase": "implementation",
+        "task": "Persist a Critic order against a specific result. A repeated answer, unsupported objection and self-declared completion leave it unresolved. Batch independent corrections into a joint resolution assessment; a substantive fix needs a matching Critic assessment before resolution; a supported objection is explicitly upheld; missing evidence is blocked, not passed. Reject stale/wrong-recipient resolution and preserve status across restart, Stop and retry. Escalate repeated noncompliance to Head without an automatic inference loop.",
+        "user_group": "Existing single owner",
+        "route": "#discussion",
+        "state": "Allowed, denied and recovery paths in the referenced UC",
+        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
+        "job_ids": [
+          "JOB-001",
+          "JOB-002"
+        ],
+        "use_case_ids": [
+          "UC-002",
+          "UC-003",
+          "UC-005"
+        ],
+        "applicability": "applicable",
+        "evidence": [],
+        "findings": [],
+        "baseline_id": "nanoduck-electric-a-v8-20260914",
+        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
+      },
+      {
+        "check_id": "QA-R65",
+        "gate_id": "product_functional_requirements",
+        "definition_ref": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Parallel consultation acceptance"
+        },
+        "definition_status": "prepared",
+        "execution_status": "not_run",
+        "phase": "implementation",
+        "task": "For depths 1/3/5, count exactly that many team assessments on a successful run even when round one is adequate; subsequent assessment can be concise, with no invented flaw or mandatory unaffected replies. Auto closes by Head decision within ten. Final-round correction gets focused resolution only; no extra full round. Unresolved or evidence-blocked orders yield provisional advice and never false consensus.",
+        "user_group": "Existing single owner",
+        "route": "#discussion",
+        "state": "Allowed, denied and recovery paths in the referenced UC",
+        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
+        "job_ids": [
+          "JOB-001",
+          "JOB-002"
+        ],
+        "use_case_ids": [
+          "UC-002",
+          "UC-003",
+          "UC-005"
+        ],
+        "applicability": "applicable",
+        "evidence": [],
+        "findings": [],
+        "baseline_id": "nanoduck-electric-a-v8-20260914",
+        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
+      },
+      {
+        "check_id": "QA-R66",
+        "gate_id": "product_functional_requirements",
+        "definition_ref": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Parallel consultation acceptance"
+        },
+        "definition_status": "prepared",
+        "execution_status": "not_run",
+        "phase": "implementation",
+        "task": "Compare baseline and revised synthetic consultations with identical model/effort/team/depth and deliverable rubric, including clean work, targeted rework and long corrected requests. Report call counts, context bytes and actual token categories where available; inspect duplicate removal and complete results. Treat savings as unverified if usage is missing and never claim subscriber quota savings from API pricing.",
+        "user_group": "Existing single owner",
+        "route": "#discussion",
+        "state": "Allowed, denied and recovery paths in the referenced UC",
+        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
+        "job_ids": [
+          "JOB-001",
+          "JOB-002"
+        ],
+        "use_case_ids": [
+          "UC-002",
+          "UC-003",
+          "UC-005"
+        ],
+        "applicability": "applicable",
+        "evidence": [],
+        "findings": [],
+        "baseline_id": "nanoduck-electric-a-v8-20260914",
+        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
+      },
+      {
+        "check_id": "QA-R67",
+        "gate_id": "product_functional_requirements",
+        "definition_ref": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Parallel consultation acceptance"
+        },
+        "definition_status": "prepared",
+        "execution_status": "not_run",
+        "phase": "implementation",
+        "task": "Crash between parallel result and checkpoint writes, retry a failed worker while another succeeds, double-submit a resume, and Stop all workers. Verify atomic unique commits, no lost results, no late commits, preserved directives and exact settings. Migrate an isolated encrypted legacy record without altering its transcript or inventing resolved orders; legacy active runs use their accepted contract until terminal. No real owner run is interrupted.",
+        "user_group": "Existing single owner",
+        "route": "#discussion",
+        "state": "Allowed, denied and recovery paths in the referenced UC",
+        "viewport": "320/390/430/768/1280/1440 CSS px; relevant browser coverage",
+        "job_ids": [
+          "JOB-001",
+          "JOB-002"
+        ],
+        "use_case_ids": [
+          "UC-002",
+          "UC-003",
+          "UC-005"
+        ],
+        "applicability": "applicable",
+        "evidence": [],
+        "findings": [],
+        "baseline_id": "nanoduck-electric-a-v8-20260914",
+        "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc"
       }
     ]
   },
-  "state": "implementation-in-progress",
+  "state": "awaiting-implementation-prompt",
   "product_scope": {
     "profile": "existing_change",
     "capabilities": {
@@ -10150,209 +10834,220 @@
     }
   },
   "implementation_gate": {
-    "state": "authorized_for_phase3",
-    "development_plan_hash": "a2a37cbfd2a62e5d1461c4bc8120762438da3c5c6745747e9382c8a87ee51482",
+    "state": "awaiting_implementation_prompt",
+    "development_plan_hash": "4f8114aef45627f808d66c21a4f0c3e2bc7a0dc8dd07d94f7f0f26083f318ae6",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
-    "awaiting_at": "2026-09-14T20:13:37+03:00",
-    "prompt_id": "porcelain-stop-20260924",
-    "prompt_received_at": "2026-09-24T11:16:53.632235+00:00",
-    "released_at": "2026-09-24T11:16:53.632235+00:00",
+    "awaiting_at": "2026-09-24T13:00:20.203238+00:00",
     "product_scope_hash": "defc5e24f0dd91be42b984888b157137f4f1ed361459e70f42b832e18c957bd4",
-    "prompt_receipt": {
-      "path": "forge/runs/porcelain-stop-20260924/implementation-prompt.json",
-      "content_hash": "93c55f3e6431cb17341bf67be41d1279ce2785eafe55112d5d002928eca1c56e"
-    },
-    "reason": "The owner explicitly requested implementation of P5 with consultant avatar height and rounded corners."
+    "prompt_id": null,
+    "prompt_received_at": null,
+    "released_at": null,
+    "reason": "Reconciled U-09 ten-step plan; separate later implementation prompt required."
   },
   "dispatches": {
     "product-idea": {
-      "invocation_id": "porcelain-stop-20260924-product-idea",
+      "invocation_id": "parallel-consultants-plan-20260924-product-idea",
       "outputs": [
         "docs/product-idea.md"
       ],
       "source_hashes": {
-        "docs/model-settings.md": "b5ee6b66a184ae3bef715e460773669e1386849e64b277b73f1363b4964d7fec",
+        "docs/model-settings.md": "3a8bc160e049057cd3702c072d7023b182aa3d9c9cefe9ed28815c7e9e5a9fec",
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2",
         "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b",
         "forge/runs/browser-research-claude-20260922/scope.json": "be36b8b0a9fb8470cbcf50a612765c82b4c53698d01c81108d172f8fd884342f",
         "forge/runs/gpt-6-sol-20260922/scope.json": "3ac0b3c942ad3ca32fca5da4bb59296417819d81d45f9d0d903ba395f8d1b538",
         "forge/runs/gpt-6-sol-20260922/catalog-observation.json": "264f3452fd4e21cbe78454ef98b807f6a5b55b90bbe9463e4c5423ddc3bd5092",
-        "forge/runs/claude-signin-20260922/scope.json": "e668531a6ffbdb53d1a51b844109828e71d73e37712ce308e90a8e82751e3559"
+        "forge/runs/claude-signin-20260922/scope.json": "e668531a6ffbdb53d1a51b844109828e71d73e37712ce308e90a8e82751e3559",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952"
       }
     },
     "prd": {
-      "invocation_id": "porcelain-stop-20260924-prd",
+      "invocation_id": "parallel-consultants-plan-20260924-final-prd",
       "outputs": [
         "docs/prd.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "84d2895a21194d2bb5a634eb67766f1f557ee7c1d47afd14b9e9f46681b63235"
+        "docs/product-idea.md": "391da3661e2209b6fea2963cf52378c885cf3eb0d9848f9d74a3a1ab69a502ff",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952"
       }
     },
     "project-context": {
-      "invocation_id": "porcelain-stop-20260924-context-bundle",
+      "invocation_id": "parallel-consultants-plan-20260924-final-project-context-bundle",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "84d2895a21194d2bb5a634eb67766f1f557ee7c1d47afd14b9e9f46681b63235",
-        "docs/prd.md": "3834381ab0f585668043d7333c336cac1f1b851dd93be46051f81beb4000d993"
+        "docs/product-idea.md": "391da3661e2209b6fea2963cf52378c885cf3eb0d9848f9d74a3a1ab69a502ff",
+        "docs/prd.md": "2363887b1500e6ad6367d1902173204b3c1c62710f02fee646e048d728b95e96",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952"
       }
     },
     "canonical-terms": {
-      "invocation_id": "porcelain-stop-20260924-context-bundle",
+      "invocation_id": "parallel-consultants-plan-20260924-final-project-context-bundle",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "84d2895a21194d2bb5a634eb67766f1f557ee7c1d47afd14b9e9f46681b63235",
-        "docs/prd.md": "3834381ab0f585668043d7333c336cac1f1b851dd93be46051f81beb4000d993"
+        "docs/product-idea.md": "391da3661e2209b6fea2963cf52378c885cf3eb0d9848f9d74a3a1ab69a502ff",
+        "docs/prd.md": "2363887b1500e6ad6367d1902173204b3c1c62710f02fee646e048d728b95e96",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952"
       }
     },
     "guardrails": {
-      "invocation_id": "porcelain-stop-20260924-guardrails",
+      "invocation_id": "parallel-consultants-plan-20260924-final-guardrails",
       "outputs": [
         "docs/guardrails.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "3834381ab0f585668043d7333c336cac1f1b851dd93be46051f81beb4000d993",
-        "docs/project-context.md": "a18ec8336dbffcf695e9e0f5306d5858ee8c120ae361f1353ba60b69f28b4849",
-        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7"
+        "docs/prd.md": "2363887b1500e6ad6367d1902173204b3c1c62710f02fee646e048d728b95e96",
+        "docs/project-context.md": "273971cc3d51666d1e79a47f23f4b6b4508e725f2d0987c620b8730e627b6f80",
+        "docs/canonical-terms.md": "1d17248d68dd5e39e194595848c85306ecbe6bf32013c7485a6970f01a91527b",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952"
       }
     },
     "user-journey": {
-      "invocation_id": "porcelain-stop-20260924-user-journey",
+      "invocation_id": "parallel-consultants-plan-20260924-final-user-journey",
       "outputs": [
         "docs/user-journey.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "3834381ab0f585668043d7333c336cac1f1b851dd93be46051f81beb4000d993",
-        "docs/project-context.md": "a18ec8336dbffcf695e9e0f5306d5858ee8c120ae361f1353ba60b69f28b4849",
-        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
-        "docs/guardrails.md": "1aaac49164a6e1b2e5bb61b5fce7ed2a71e603b27ff372d94a7baf131e267942"
+        "docs/prd.md": "2363887b1500e6ad6367d1902173204b3c1c62710f02fee646e048d728b95e96",
+        "docs/project-context.md": "273971cc3d51666d1e79a47f23f4b6b4508e725f2d0987c620b8730e627b6f80",
+        "docs/canonical-terms.md": "1d17248d68dd5e39e194595848c85306ecbe6bf32013c7485a6970f01a91527b",
+        "docs/guardrails.md": "2ad1074d14b86bacadebc994d2aa408077b033d0f4cc68fada1c932ad5a75502",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952"
       }
     },
     "screen-map": {
-      "invocation_id": "porcelain-stop-20260924-screen-map",
+      "invocation_id": "parallel-consultants-plan-20260924-final-screen-map",
       "outputs": [
         "docs/screen-map.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "3834381ab0f585668043d7333c336cac1f1b851dd93be46051f81beb4000d993",
-        "docs/project-context.md": "a18ec8336dbffcf695e9e0f5306d5858ee8c120ae361f1353ba60b69f28b4849",
-        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
-        "docs/guardrails.md": "1aaac49164a6e1b2e5bb61b5fce7ed2a71e603b27ff372d94a7baf131e267942",
-        "docs/user-journey.md": "57affb03dc73a520607662dec87fe7137bfdf5daaa152e632638788e197025d5"
+        "docs/prd.md": "2363887b1500e6ad6367d1902173204b3c1c62710f02fee646e048d728b95e96",
+        "docs/project-context.md": "273971cc3d51666d1e79a47f23f4b6b4508e725f2d0987c620b8730e627b6f80",
+        "docs/canonical-terms.md": "1d17248d68dd5e39e194595848c85306ecbe6bf32013c7485a6970f01a91527b",
+        "docs/guardrails.md": "2ad1074d14b86bacadebc994d2aa408077b033d0f4cc68fada1c932ad5a75502",
+        "docs/user-journey.md": "04d9c662b94940cfbef8f348fbafcdf65e315b3db8cdc7855e1b047337776c24",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952"
       }
     },
     "wireframes": {
-      "invocation_id": "porcelain-stop-20260924-wireframes",
+      "invocation_id": "parallel-consultants-plan-20260924-final-wireframes",
       "outputs": [
         "docs/wireframes.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "3834381ab0f585668043d7333c336cac1f1b851dd93be46051f81beb4000d993",
-        "docs/project-context.md": "a18ec8336dbffcf695e9e0f5306d5858ee8c120ae361f1353ba60b69f28b4849",
-        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
-        "docs/guardrails.md": "1aaac49164a6e1b2e5bb61b5fce7ed2a71e603b27ff372d94a7baf131e267942",
-        "docs/user-journey.md": "57affb03dc73a520607662dec87fe7137bfdf5daaa152e632638788e197025d5",
-        "docs/screen-map.md": "4a84310f6ee2096b0b8a04ffff929cadaba49da1e8efd9deaa8e3a96fdf6ed12"
+        "docs/prd.md": "2363887b1500e6ad6367d1902173204b3c1c62710f02fee646e048d728b95e96",
+        "docs/project-context.md": "273971cc3d51666d1e79a47f23f4b6b4508e725f2d0987c620b8730e627b6f80",
+        "docs/canonical-terms.md": "1d17248d68dd5e39e194595848c85306ecbe6bf32013c7485a6970f01a91527b",
+        "docs/guardrails.md": "2ad1074d14b86bacadebc994d2aa408077b033d0f4cc68fada1c932ad5a75502",
+        "docs/user-journey.md": "04d9c662b94940cfbef8f348fbafcdf65e315b3db8cdc7855e1b047337776c24",
+        "docs/screen-map.md": "8f307336aa8cad927bfc3fe8fffc67735badf428001c4b6dcfb8b6a138813533",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952"
       }
     },
     "design-brief": {
-      "invocation_id": "porcelain-stop-20260924-design-brief",
+      "invocation_id": "parallel-consultants-plan-20260924-final-design-brief",
       "outputs": [
         "docs/design-brief.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "3834381ab0f585668043d7333c336cac1f1b851dd93be46051f81beb4000d993",
-        "docs/project-context.md": "a18ec8336dbffcf695e9e0f5306d5858ee8c120ae361f1353ba60b69f28b4849",
-        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
-        "docs/guardrails.md": "1aaac49164a6e1b2e5bb61b5fce7ed2a71e603b27ff372d94a7baf131e267942",
-        "docs/user-journey.md": "57affb03dc73a520607662dec87fe7137bfdf5daaa152e632638788e197025d5",
-        "docs/screen-map.md": "4a84310f6ee2096b0b8a04ffff929cadaba49da1e8efd9deaa8e3a96fdf6ed12",
-        "docs/wireframes.md": "a7e49b5acd1e9a8410c8149ee068edf12a34da614f6ce885655c7390d65bfdc3",
+        "docs/prd.md": "2363887b1500e6ad6367d1902173204b3c1c62710f02fee646e048d728b95e96",
+        "docs/project-context.md": "273971cc3d51666d1e79a47f23f4b6b4508e725f2d0987c620b8730e627b6f80",
+        "docs/canonical-terms.md": "1d17248d68dd5e39e194595848c85306ecbe6bf32013c7485a6970f01a91527b",
+        "docs/guardrails.md": "2ad1074d14b86bacadebc994d2aa408077b033d0f4cc68fada1c932ad5a75502",
+        "docs/user-journey.md": "04d9c662b94940cfbef8f348fbafcdf65e315b3db8cdc7855e1b047337776c24",
+        "docs/screen-map.md": "8f307336aa8cad927bfc3fe8fffc67735badf428001c4b6dcfb8b6a138813533",
+        "docs/wireframes.md": "5c4036d37ecbfdcb44fdd4844c0ab6cd4125e98a4607d2fcb7a4426a8fc2eb2e",
         "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b",
-        "forge/runs/porcelain-stop-20260924/scoped-override.json": "df8177ecc6e68c658ff5672b14e7def000ba241f9932639711885a4ba17afc74"
+        "forge/runs/porcelain-stop-20260924/scoped-override.json": "df8177ecc6e68c658ff5672b14e7def000ba241f9932639711885a4ba17afc74",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952"
       }
     },
     "architecture": {
-      "invocation_id": "porcelain-stop-20260924-architecture",
+      "invocation_id": "parallel-consultants-plan-20260924-final-architecture-approved",
       "outputs": [
         "docs/architecture.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "3834381ab0f585668043d7333c336cac1f1b851dd93be46051f81beb4000d993",
-        "docs/project-context.md": "a18ec8336dbffcf695e9e0f5306d5858ee8c120ae361f1353ba60b69f28b4849",
-        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
-        "docs/guardrails.md": "1aaac49164a6e1b2e5bb61b5fce7ed2a71e603b27ff372d94a7baf131e267942",
-        "docs/user-journey.md": "57affb03dc73a520607662dec87fe7137bfdf5daaa152e632638788e197025d5",
-        "docs/screen-map.md": "4a84310f6ee2096b0b8a04ffff929cadaba49da1e8efd9deaa8e3a96fdf6ed12",
-        "docs/wireframes.md": "a7e49b5acd1e9a8410c8149ee068edf12a34da614f6ce885655c7390d65bfdc3",
-        "docs/design-brief.md": "6bf8891bb83b6c6ca29438b4314e577d1614f180fe2198fac8ecd6cd6ecd2e4c",
-        "docs/model-settings.md": "b5ee6b66a184ae3bef715e460773669e1386849e64b277b73f1363b4964d7fec",
+        "docs/prd.md": "2363887b1500e6ad6367d1902173204b3c1c62710f02fee646e048d728b95e96",
+        "docs/project-context.md": "273971cc3d51666d1e79a47f23f4b6b4508e725f2d0987c620b8730e627b6f80",
+        "docs/canonical-terms.md": "1d17248d68dd5e39e194595848c85306ecbe6bf32013c7485a6970f01a91527b",
+        "docs/guardrails.md": "2ad1074d14b86bacadebc994d2aa408077b033d0f4cc68fada1c932ad5a75502",
+        "docs/user-journey.md": "04d9c662b94940cfbef8f348fbafcdf65e315b3db8cdc7855e1b047337776c24",
+        "docs/screen-map.md": "8f307336aa8cad927bfc3fe8fffc67735badf428001c4b6dcfb8b6a138813533",
+        "docs/wireframes.md": "5c4036d37ecbfdcb44fdd4844c0ab6cd4125e98a4607d2fcb7a4426a8fc2eb2e",
+        "docs/design-brief.md": "a665a02258306bdb04293f5dc60a0c2113b80077079a8fe0cddee6817aa50e58",
+        "docs/model-settings.md": "3a8bc160e049057cd3702c072d7023b182aa3d9c9cefe9ed28815c7e9e5a9fec",
         "forge/runs/claude-signin-20260922/source-review.json": "ad878d853b9c6f30da817167e1db6dffaad9c2c2863354ad3331294d7b269def",
         "forge/runs/sound-media-playback-20260923/scope.json": "7a5aa70bf52fa77a4dea9e39e5a49453c6be40c5b1a347632f4da4f5294455a0",
-        "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318"
+        "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
+        "forge/runs/parallel-consultants-plan-20260924/repository-observation.json": "76930bc48e23a9d650e5b394b513a9cd895ccae11804942ffb69cff8c9f8094d"
       }
     },
     "dod-evals": {
-      "invocation_id": "porcelain-stop-20260924-dod-evals",
+      "invocation_id": "parallel-consultants-plan-20260924-final-dod-evals-approved",
       "outputs": [
         "docs/dod-evals.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "3834381ab0f585668043d7333c336cac1f1b851dd93be46051f81beb4000d993",
-        "docs/project-context.md": "a18ec8336dbffcf695e9e0f5306d5858ee8c120ae361f1353ba60b69f28b4849",
-        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
-        "docs/guardrails.md": "1aaac49164a6e1b2e5bb61b5fce7ed2a71e603b27ff372d94a7baf131e267942",
-        "docs/user-journey.md": "57affb03dc73a520607662dec87fe7137bfdf5daaa152e632638788e197025d5",
-        "docs/screen-map.md": "4a84310f6ee2096b0b8a04ffff929cadaba49da1e8efd9deaa8e3a96fdf6ed12",
-        "docs/wireframes.md": "a7e49b5acd1e9a8410c8149ee068edf12a34da614f6ce885655c7390d65bfdc3",
-        "docs/design-brief.md": "6bf8891bb83b6c6ca29438b4314e577d1614f180fe2198fac8ecd6cd6ecd2e4c",
-        "docs/architecture.md": "10556c7144a416268e91e87d8d13671740bc010e3c93aaf5972fe52028b21b4e"
+        "docs/prd.md": "2363887b1500e6ad6367d1902173204b3c1c62710f02fee646e048d728b95e96",
+        "docs/project-context.md": "273971cc3d51666d1e79a47f23f4b6b4508e725f2d0987c620b8730e627b6f80",
+        "docs/canonical-terms.md": "1d17248d68dd5e39e194595848c85306ecbe6bf32013c7485a6970f01a91527b",
+        "docs/guardrails.md": "2ad1074d14b86bacadebc994d2aa408077b033d0f4cc68fada1c932ad5a75502",
+        "docs/user-journey.md": "04d9c662b94940cfbef8f348fbafcdf65e315b3db8cdc7855e1b047337776c24",
+        "docs/screen-map.md": "8f307336aa8cad927bfc3fe8fffc67735badf428001c4b6dcfb8b6a138813533",
+        "docs/wireframes.md": "5c4036d37ecbfdcb44fdd4844c0ab6cd4125e98a4607d2fcb7a4426a8fc2eb2e",
+        "docs/design-brief.md": "a665a02258306bdb04293f5dc60a0c2113b80077079a8fe0cddee6817aa50e58",
+        "docs/architecture.md": "6cd14b347c76b945814c78baab713a566107f4c419d50ba63f0184fe8d8bfb60",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952"
       }
     },
     "qa-checklist": {
-      "invocation_id": "porcelain-stop-20260924-qa-checklist",
+      "invocation_id": "parallel-consultants-plan-20260924-final-qa-checklist-approved",
       "outputs": [
         "docs/qa-checklist.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "3834381ab0f585668043d7333c336cac1f1b851dd93be46051f81beb4000d993",
-        "docs/project-context.md": "a18ec8336dbffcf695e9e0f5306d5858ee8c120ae361f1353ba60b69f28b4849",
-        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
-        "docs/guardrails.md": "1aaac49164a6e1b2e5bb61b5fce7ed2a71e603b27ff372d94a7baf131e267942",
-        "docs/user-journey.md": "57affb03dc73a520607662dec87fe7137bfdf5daaa152e632638788e197025d5",
-        "docs/screen-map.md": "4a84310f6ee2096b0b8a04ffff929cadaba49da1e8efd9deaa8e3a96fdf6ed12",
-        "docs/wireframes.md": "a7e49b5acd1e9a8410c8149ee068edf12a34da614f6ce885655c7390d65bfdc3",
-        "docs/design-brief.md": "6bf8891bb83b6c6ca29438b4314e577d1614f180fe2198fac8ecd6cd6ecd2e4c",
-        "docs/architecture.md": "10556c7144a416268e91e87d8d13671740bc010e3c93aaf5972fe52028b21b4e",
-        "docs/dod-evals.md": "297357d5b2408118c20904fa954c8ca2f3063f9140417bcc478c1ceed87fd370"
+        "docs/prd.md": "2363887b1500e6ad6367d1902173204b3c1c62710f02fee646e048d728b95e96",
+        "docs/project-context.md": "273971cc3d51666d1e79a47f23f4b6b4508e725f2d0987c620b8730e627b6f80",
+        "docs/canonical-terms.md": "1d17248d68dd5e39e194595848c85306ecbe6bf32013c7485a6970f01a91527b",
+        "docs/guardrails.md": "2ad1074d14b86bacadebc994d2aa408077b033d0f4cc68fada1c932ad5a75502",
+        "docs/user-journey.md": "04d9c662b94940cfbef8f348fbafcdf65e315b3db8cdc7855e1b047337776c24",
+        "docs/screen-map.md": "8f307336aa8cad927bfc3fe8fffc67735badf428001c4b6dcfb8b6a138813533",
+        "docs/wireframes.md": "5c4036d37ecbfdcb44fdd4844c0ab6cd4125e98a4607d2fcb7a4426a8fc2eb2e",
+        "docs/design-brief.md": "a665a02258306bdb04293f5dc60a0c2113b80077079a8fe0cddee6817aa50e58",
+        "docs/architecture.md": "6cd14b347c76b945814c78baab713a566107f4c419d50ba63f0184fe8d8bfb60",
+        "docs/dod-evals.md": "1874c90f129f7b8f8f0e63f09edd5ccf98ad015a771aa5037f8e12322465a4ec",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952"
       }
     },
     "development-plan": {
-      "invocation_id": "porcelain-stop-20260924-development-plan",
+      "invocation_id": "parallel-consultants-plan-20260924-final-development-plan",
       "outputs": [
         "docs/development-plan.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "3834381ab0f585668043d7333c336cac1f1b851dd93be46051f81beb4000d993",
-        "docs/project-context.md": "a18ec8336dbffcf695e9e0f5306d5858ee8c120ae361f1353ba60b69f28b4849",
-        "docs/canonical-terms.md": "9e9825d34d13e35b43bb9665243db8d8cd7c345a2b61192c3e656df7572a58d7",
-        "docs/guardrails.md": "1aaac49164a6e1b2e5bb61b5fce7ed2a71e603b27ff372d94a7baf131e267942",
-        "docs/user-journey.md": "57affb03dc73a520607662dec87fe7137bfdf5daaa152e632638788e197025d5",
-        "docs/screen-map.md": "4a84310f6ee2096b0b8a04ffff929cadaba49da1e8efd9deaa8e3a96fdf6ed12",
-        "docs/wireframes.md": "a7e49b5acd1e9a8410c8149ee068edf12a34da614f6ce885655c7390d65bfdc3",
-        "docs/design-brief.md": "6bf8891bb83b6c6ca29438b4314e577d1614f180fe2198fac8ecd6cd6ecd2e4c",
-        "docs/architecture.md": "10556c7144a416268e91e87d8d13671740bc010e3c93aaf5972fe52028b21b4e",
-        "docs/dod-evals.md": "297357d5b2408118c20904fa954c8ca2f3063f9140417bcc478c1ceed87fd370",
-        "docs/qa-checklist.md": "7c2da5176ae739ff4353441b476dad56f63c8c3a9a47515a17d50f6261225b73",
-        "docs/model-settings.md": "b5ee6b66a184ae3bef715e460773669e1386849e64b277b73f1363b4964d7fec",
+        "docs/prd.md": "2363887b1500e6ad6367d1902173204b3c1c62710f02fee646e048d728b95e96",
+        "docs/project-context.md": "273971cc3d51666d1e79a47f23f4b6b4508e725f2d0987c620b8730e627b6f80",
+        "docs/canonical-terms.md": "1d17248d68dd5e39e194595848c85306ecbe6bf32013c7485a6970f01a91527b",
+        "docs/guardrails.md": "2ad1074d14b86bacadebc994d2aa408077b033d0f4cc68fada1c932ad5a75502",
+        "docs/user-journey.md": "04d9c662b94940cfbef8f348fbafcdf65e315b3db8cdc7855e1b047337776c24",
+        "docs/screen-map.md": "8f307336aa8cad927bfc3fe8fffc67735badf428001c4b6dcfb8b6a138813533",
+        "docs/wireframes.md": "5c4036d37ecbfdcb44fdd4844c0ab6cd4125e98a4607d2fcb7a4426a8fc2eb2e",
+        "docs/design-brief.md": "a665a02258306bdb04293f5dc60a0c2113b80077079a8fe0cddee6817aa50e58",
+        "docs/architecture.md": "6cd14b347c76b945814c78baab713a566107f4c419d50ba63f0184fe8d8bfb60",
+        "docs/dod-evals.md": "1874c90f129f7b8f8f0e63f09edd5ccf98ad015a771aa5037f8e12322465a4ec",
+        "docs/qa-checklist.md": "3d8d4090f6f783046cf9ccb08bae88c1a46b6b2452a7c1643e9962f0bc3c53d7",
+        "docs/model-settings.md": "3a8bc160e049057cd3702c072d7023b182aa3d9c9cefe9ed28815c7e9e5a9fec",
         "package.json": "094e408c16c3a8369b9f21a343bb562dc0cd20160e26b6c01f144bd83712a568",
-        "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318"
+        "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
+        "forge/runs/parallel-consultants-plan-20260924/repository-observation.json": "76930bc48e23a9d650e5b394b513a9cd895ccae11804942ffb69cff8c9f8094d"
       }
     }
   },
@@ -10455,17 +11150,30 @@
       "scope": "Implement the selected P5 Porcelain Stop in the upper-right Discussion header at consultant avatar height and radius, preserving accessible input and cancellation.",
       "superseded_bindings": "forge/runs/porcelain-stop-20260924/prior-owner-bindings.json",
       "evidence_limit": "Document reconciliation is distinct from runtime and browser verification."
+    },
+    {
+      "event": "parallel_consultation_plan_reconciliation",
+      "recorded_at": "2026-09-24T13:00:20.203238+00:00",
+      "scope_ref": "forge/runs/parallel-consultants-plan-20260924/scope.json",
+      "superseded_bindings": "forge/runs/parallel-consultants-plan-20260924/prior-bindings.json",
+      "unit": "U-09",
+      "evidence_limit": "Document validation only; production unchanged and new QA not_run."
     }
   ],
   "input_requests": [],
-  "next_ready_nodes": [
-    "implementation"
-  ],
-  "pause_reason": null,
+  "next_ready_nodes": [],
+  "pause_reason": "Separate implementation prompt required for revised U-09 plan; no production changes authorized this turn.",
   "product_idea_intake": {
     "status": "handed_off",
     "intake_id": "local-20260922-intake",
     "source_mode": "existing-file",
-    "product_idea_hash": "84d2895a21194d2bb5a634eb67766f1f557ee7c1d47afd14b9e9f46681b63235"
-  }
+    "product_idea_hash": "391da3661e2209b6fea2963cf52378c885cf3eb0d9848f9d74a3a1ab69a502ff"
+  },
+  "affected_feature_units": [
+    "U-03",
+    "U-04",
+    "U-07",
+    "U-08",
+    "U-09"
+  ]
 }
