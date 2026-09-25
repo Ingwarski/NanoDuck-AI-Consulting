@@ -1,0 +1,7 @@
+{
+  "request": "DiscussionOutcomeSourcesUsage should be available in the sticky menu",
+  "received_at": "2026-09-25T20:37:37.430844+00:00",
+  "scope": "Keep all four consultation-view tabs pinned with the Discussion status and Stop, below the main menu, on desktop and mobile. No provider or server restart change.",
+  "baseline": "nanoduck-electric-a-v8-20260914",
+  "permitted_variance": "Sticky positioning of the existing Discussion header and tabs; preserve existing controls, styling and P5 geometry."
+}

@@ -152,3 +152,7 @@ Extend QA-R64/QA-R67: multiple findings for one consultant preserve every issue/
 ## Scoped execution evidence — 2026-09-25
 
 [Verification receipt](../forge/runs/critic-usage-20260925/verification.json) binds the evaluated implementation files, commands, synthetic screenshots and live provider probes. Executed by Codex on macOS / Node 24.16.0: 189 tests passed, 2 skipped, 0 failed; full Chromium/Firefox/WebKit suite and final focused Usage suite passed. Short Codex Astra and Claude Opus 5.5 Max subscription calls returned reported model usage. CA-verified localhost and LAN health passed after restart; the five saved consultant answers remain stopped and intact. These are passing scoped regressions for QA-R22/R64/R66/R67 and related privacy/browser controls, not completion of every indexed check. Historical usage, the original full private consultation, real thirty-minute duration, physical iPhone audio, Windows/Linux, representative-user validation and whole-product release remain outside this evidence. Release Readiness: not_evaluated.
+
+## Sticky consultation views — 2026-09-25
+
+Extend existing S-02 and navigation/keyboard checks: scroll the Discussion/Usage view at desktop and 320px; all four tabs remain below the main menu and within the viewport, active Stop stays reachable, selected panel switching still works, and no horizontal page overflow occurs. Definition prepared; inspect the scoped browser receipt for actual execution evidence.

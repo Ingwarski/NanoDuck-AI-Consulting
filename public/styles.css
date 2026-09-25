@@ -51,3 +51,9 @@
 }
 .usage-heading select { display: block; width: 100%; min-height: 44px; margin-top: 6px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--ink); font-size: 16px; }
 .usage-model summary:focus-visible { outline: 3px solid var(--blue-light); outline-offset: 3px; }
+
+/* Keep consultation navigation and Stop together below the main sticky menu. */
+.discussion-header { position: sticky; top: 96px; z-index: 12; padding-top: 12px; background: var(--canvas); }
+.discussion-header .topic[data-active="true"] { position: static; padding-top: 0; }
+.discussion-header .tabs { margin-bottom: 0; }
+@media (max-width: 700px) { .discussion-header { top: 86px; } }

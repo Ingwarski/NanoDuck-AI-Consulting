@@ -56,3 +56,7 @@ FR-02.9–FR-02.15 belong to `product_functional_requirements`; FR-03.5/NFR-01.2
 ## Critic reliability and model usage — 2026-09-25
 
 Extend existing functional, persistence, product_security_requirements and browser gates for FR-02.13/FR-02.15/FR-05.3. Require multi-finding preservation, one bounded malformed-review repair, finite long-Claude timeout/cancellation, safe failure diagnostics, provider-native token accounting without duplicate totals, encrypted restart/backup/restore/deletion, and authenticated responsive Usage states. Definition status: prepared; execution evidence is recorded separately in QA. This extension does not imply account-wide usage or historical backfill.
+
+## Sticky consultation views — 2026-09-25
+
+For the existing navigation/fidelity/browser gates, verify all four view controls remain visible and reachable after scrolling in active and inactive discussion states, without changing Stop behavior. Keep functional, visual and representative-user evidence distinct.

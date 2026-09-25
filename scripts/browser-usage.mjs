@@ -24,7 +24,15 @@ export async function verifyUsage(page, name, root) {
   assert.equal(await page.evaluate(() => document.querySelector('#usage-tab').getBoundingClientRect().right <= document.querySelector('.tabs').getBoundingClientRect().right), true, 'Every tab label remains visible');
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.screenshot({ path: join(root, 'output', 'playwright', `${name}-usage-mobile.png`), fullPage: true });
+  await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+  for (const label of ['Discussion', 'Outcome', 'Sources', 'Usage']) {
+    const box = await page.getByRole('tab', { name: label, exact: true }).boundingBox();
+    assert.ok(box && box.y >= 76 && box.y + box.height <= 844, `${label} remains visible while scrolling`);
+  }
   await page.setViewportSize({ width: 1280, height: 900 });
+  await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+  assert.ok((await page.getByRole('tab', { name: 'Usage', exact: true }).boundingBox()).y >= 82);
+  await page.evaluate(() => window.scrollTo(0, 0));
   await page.getByRole('tab', { name: 'Usage', exact: true }).focus();
   await page.keyboard.press('ArrowLeft');
   assert.equal(await page.getByRole('tab', { name: 'Sources', exact: true }).getAttribute('aria-selected'), 'true');

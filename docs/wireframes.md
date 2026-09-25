@@ -55,3 +55,7 @@ S-02/ST-09 retains its ordered message column and P5 Stop. Show one ordinary Hea
 ## Critic reliability and model usage — 2026-09-25
 
 Within S-02, add Usage as the fourth consultation-view tab. Its panel orders content as: title and scope selector; reported-token total; coverage/status note; provider/model rows with input/output/total and expandable cache/reasoning breakdown. At narrow widths rows stack and long model IDs wrap. Keep the topic, P5 Stop position, transcript and composer geometry unchanged.
+
+## Sticky consultation views — 2026-09-25
+
+The owner requests Discussion, Outcome, Sources and Usage in the sticky menu. Group the existing status/Stop row and four view tabs in one sticky Discussion header below the main navigation. Preserve content order and access on narrow screens; the transcript and selected panel scroll underneath.

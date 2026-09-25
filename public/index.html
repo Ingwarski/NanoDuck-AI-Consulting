@@ -39,8 +39,10 @@
     <section id="app" hidden>
       <div id="sound-notice" class="sound-notice" hidden><p id="sound-status" class="hint" role="status"></p><button id="enable-notification-sound" type="button" class="secondary">Enable sound</button></div>
       <section id="discussion-page" class="page">
+        <div class="discussion-header">
         <div class="topic"><div><p class="eyebrow">Discussion</p><p id="run-status" class="status" tabindex="-1">Describe the decision you want to make.</p></div><button id="stop" type="button" class="stop-consultation" aria-label="Stop consultation" title="Stop consultation" hidden><span class="stop-symbol" aria-hidden="true"></span><span aria-hidden="true">Stop</span></button></div>
         <div class="tabs" role="tablist" aria-label="Consultation views"><button role="tab" aria-selected="true" data-tab="discussion">Discussion</button><button role="tab" aria-selected="false" data-tab="outcome">Outcome</button><button role="tab" aria-selected="false" data-tab="sources">Sources</button><button id="usage-tab" role="tab" aria-selected="false" aria-controls="usage" data-tab="usage">Usage</button></div>
+        </div>
         <div id="thread" class="thread" aria-live="off"></div><p id="message-announcement" class="sr-only" role="status"></p>
         <div id="outcome" class="panel" hidden></div><div id="sources" class="panel" hidden></div>
         <section id="usage" class="panel usage-panel" role="tabpanel" aria-labelledby="usage-tab" hidden>

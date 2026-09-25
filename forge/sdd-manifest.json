@@ -3678,13 +3678,13 @@
     "wireframes": {
       "path": "docs/wireframes.md",
       "owner_skill": "to-wireframes",
-      "owner_invocation_id": "critic-usage-20260925-wireframes",
+      "owner_invocation_id": "sticky-view-nav-20260925-wireframes",
       "declared_output_set": [
         "docs/wireframes.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "critic-usage-20260925",
+      "source_version": "sticky-view-nav-20260925",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3693,7 +3693,8 @@
         "docs/user-journey.md": "full",
         "docs/screen-map.md": "full",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "full",
-        "forge/runs/critic-usage-20260925/scope.json": "full"
+        "forge/runs/critic-usage-20260925/scope.json": "full",
+        "forge/runs/sticky-view-nav-20260925/scope.json": "full"
       },
       "source_hashes": {
         "docs/prd.md": "17822fd007aa19ca8dab22776b15f8d331a7c86ef47369de1fd19bdaf89d6ae3",
@@ -3703,7 +3704,8 @@
         "docs/user-journey.md": "e1a963995aeb4bd897b3343c467c9af21018652b8dbc9608e5968c2fd059b017",
         "docs/screen-map.md": "82d7158faaf68e72cd06abcb794e24777968e598a41352002e7abdf2e217255d",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
-        "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4"
+        "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
+        "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e"
       },
       "dependencies": [
         "prd",
@@ -3713,27 +3715,27 @@
         "user-journey",
         "screen-map"
       ],
-      "content_hash": "87163a65bb294383f97cc3241e488ae35948c65038648bf52e750230ab77a032",
+      "content_hash": "2c5b9c8b36daa85da96638beecb42f038c34ad0d0c24bc7b66c2a75dbbd1fede",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "scoped-reliability-usage-reconciliation",
-        "reviewed_at": "2026-09-25T19:55:40.215562+00:00",
+        "kind": "scoped-sticky-navigation-reconciliation",
+        "reviewed_at": "2026-09-25T20:37:37.430844+00:00",
         "executor": "Codex inline to-wireframes",
-        "scope": "Owner-reconciled definition; implementation verification remains pending."
+        "scope": "The owner requests Discussion, Outcome, Sources and Usage in the sticky menu. Group the existing status/Stop row and four view tabs in one sticky Discussion header below the main navigation. Preserve content order and access on narrow screens; the transcript and selected panel scroll underneath."
       },
       "open_questions": []
     },
     "design-brief": {
       "path": "docs/design-brief.md",
       "owner_skill": "to-design-brief",
-      "owner_invocation_id": "critic-usage-20260925-design-brief",
+      "owner_invocation_id": "sticky-view-nav-20260925-design-brief",
       "declared_output_set": [
         "docs/design-brief.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "critic-usage-20260925",
+      "source_version": "sticky-view-nav-20260925",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3745,7 +3747,8 @@
         "forge/runs/composer-sound-20260922/scoped-override.json": "full",
         "forge/runs/porcelain-stop-20260924/scoped-override.json": "full",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "full",
-        "forge/runs/critic-usage-20260925/scope.json": "full"
+        "forge/runs/critic-usage-20260925/scope.json": "full",
+        "forge/runs/sticky-view-nav-20260925/scope.json": "full"
       },
       "source_hashes": {
         "docs/prd.md": "17822fd007aa19ca8dab22776b15f8d331a7c86ef47369de1fd19bdaf89d6ae3",
@@ -3754,11 +3757,12 @@
         "docs/guardrails.md": "c730c0df935c11123c6ce0b9c47c3ef9217394963d2031d54b30bccb1d78c943",
         "docs/user-journey.md": "e1a963995aeb4bd897b3343c467c9af21018652b8dbc9608e5968c2fd059b017",
         "docs/screen-map.md": "82d7158faaf68e72cd06abcb794e24777968e598a41352002e7abdf2e217255d",
-        "docs/wireframes.md": "87163a65bb294383f97cc3241e488ae35948c65038648bf52e750230ab77a032",
+        "docs/wireframes.md": "2c5b9c8b36daa85da96638beecb42f038c34ad0d0c24bc7b66c2a75dbbd1fede",
         "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b",
         "forge/runs/porcelain-stop-20260924/scoped-override.json": "df8177ecc6e68c658ff5672b14e7def000ba241f9932639711885a4ba17afc74",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
-        "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4"
+        "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
+        "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e"
       },
       "dependencies": [
         "prd",
@@ -3769,14 +3773,14 @@
         "screen-map",
         "wireframes"
       ],
-      "content_hash": "a9a86da44d219a37f6b9548c0070b4a00ca63955f78544631a29548b60c0dbc9",
+      "content_hash": "083a5b185fa042f18584dee87ee0440283aad0e3f4bd9e79e0485c15ad484e0b",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "scoped-reliability-usage-reconciliation",
-        "reviewed_at": "2026-09-25T19:55:40.215562+00:00",
+        "kind": "scoped-sticky-navigation-reconciliation",
+        "reviewed_at": "2026-09-25T20:37:37.430844+00:00",
         "executor": "Codex inline to-design-brief",
-        "scope": "Owner-reconciled definition; implementation verification remains pending."
+        "scope": "Accepted [sticky-view navigation override](../forge/runs/sticky-view-nav-20260925/scope.json): retain Electric A v8 and P5 appearance, and pin the existing status/Stop row plus all four view tabs below the main menu. Use the canvas background and existing separators; no overlay obscures the tabs or Stop. The override is limited to positioning and persistent reachability."
       },
       "open_questions": []
     },
@@ -3853,13 +3857,13 @@
       },
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "critic-usage-20260925-architecture",
+      "owner_invocation_id": "sticky-view-nav-20260925-architecture",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "critic-usage-20260925",
+      "source_version": "sticky-view-nav-20260925",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3875,7 +3879,8 @@
         "forge/runs/claude-context-transport-20260923/scope.json": "full",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "full",
         "forge/runs/parallel-consultants-plan-20260924/repository-observation.json": "full",
-        "forge/runs/critic-usage-20260925/scope.json": "full"
+        "forge/runs/critic-usage-20260925/scope.json": "full",
+        "forge/runs/sticky-view-nav-20260925/scope.json": "full"
       },
       "source_hashes": {
         "docs/prd.md": "17822fd007aa19ca8dab22776b15f8d331a7c86ef47369de1fd19bdaf89d6ae3",
@@ -3884,15 +3889,16 @@
         "docs/guardrails.md": "c730c0df935c11123c6ce0b9c47c3ef9217394963d2031d54b30bccb1d78c943",
         "docs/user-journey.md": "e1a963995aeb4bd897b3343c467c9af21018652b8dbc9608e5968c2fd059b017",
         "docs/screen-map.md": "82d7158faaf68e72cd06abcb794e24777968e598a41352002e7abdf2e217255d",
-        "docs/wireframes.md": "87163a65bb294383f97cc3241e488ae35948c65038648bf52e750230ab77a032",
-        "docs/design-brief.md": "a9a86da44d219a37f6b9548c0070b4a00ca63955f78544631a29548b60c0dbc9",
+        "docs/wireframes.md": "2c5b9c8b36daa85da96638beecb42f038c34ad0d0c24bc7b66c2a75dbbd1fede",
+        "docs/design-brief.md": "083a5b185fa042f18584dee87ee0440283aad0e3f4bd9e79e0485c15ad484e0b",
         "docs/model-settings.md": "2d0b9fe9d045e289b228adfe2d27aa6c1d94632eef60c78df60091eb181c4628",
         "forge/runs/claude-signin-20260922/source-review.json": "ad878d853b9c6f30da817167e1db6dffaad9c2c2863354ad3331294d7b269def",
         "forge/runs/sound-media-playback-20260923/scope.json": "7a5aa70bf52fa77a4dea9e39e5a49453c6be40c5b1a347632f4da4f5294455a0",
         "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/parallel-consultants-plan-20260924/repository-observation.json": "76930bc48e23a9d650e5b394b513a9cd895ccae11804942ffb69cff8c9f8094d",
-        "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4"
+        "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
+        "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e"
       },
       "dependencies": [
         "prd",
@@ -3904,14 +3910,14 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "7fcfc9c5ce75934d214d689d3711b6ac92cb5851323adf25edf8fb7ba4211374",
+      "content_hash": "4921a9742e28f1e5e1b1056d0d103f9b4df8518b02bf08da93d93cc6c6dc469f",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "scoped-reliability-usage-reconciliation",
-        "reviewed_at": "2026-09-25T19:55:40.215562+00:00",
+        "kind": "scoped-sticky-navigation-reconciliation",
+        "reviewed_at": "2026-09-25T20:37:37.430844+00:00",
         "executor": "Codex inline to-architecture",
-        "scope": "Owner-reconciled definition; implementation verification remains pending."
+        "scope": "Use one CSS sticky wrapper around the existing topic and tab list; remove the nested active-topic sticky positioning so Stop and tabs cannot overlap. Preserve the existing tab handlers, keyboard navigation and private content boundaries. Static assets are read on request; this change requires a browser refresh, not a provider/server restart."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -3989,13 +3995,13 @@
       },
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "critic-usage-20260925-dod-evals",
+      "owner_invocation_id": "sticky-view-nav-20260925-dod-evals",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "critic-usage-20260925",
+      "source_version": "sticky-view-nav-20260925",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -4007,7 +4013,8 @@
         "docs/design-brief.md": "full",
         "docs/architecture.md": "full",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "full",
-        "forge/runs/critic-usage-20260925/scope.json": "full"
+        "forge/runs/critic-usage-20260925/scope.json": "full",
+        "forge/runs/sticky-view-nav-20260925/scope.json": "full"
       },
       "source_hashes": {
         "docs/prd.md": "17822fd007aa19ca8dab22776b15f8d331a7c86ef47369de1fd19bdaf89d6ae3",
@@ -4016,11 +4023,12 @@
         "docs/guardrails.md": "c730c0df935c11123c6ce0b9c47c3ef9217394963d2031d54b30bccb1d78c943",
         "docs/user-journey.md": "e1a963995aeb4bd897b3343c467c9af21018652b8dbc9608e5968c2fd059b017",
         "docs/screen-map.md": "82d7158faaf68e72cd06abcb794e24777968e598a41352002e7abdf2e217255d",
-        "docs/wireframes.md": "87163a65bb294383f97cc3241e488ae35948c65038648bf52e750230ab77a032",
-        "docs/design-brief.md": "a9a86da44d219a37f6b9548c0070b4a00ca63955f78544631a29548b60c0dbc9",
-        "docs/architecture.md": "7fcfc9c5ce75934d214d689d3711b6ac92cb5851323adf25edf8fb7ba4211374",
+        "docs/wireframes.md": "2c5b9c8b36daa85da96638beecb42f038c34ad0d0c24bc7b66c2a75dbbd1fede",
+        "docs/design-brief.md": "083a5b185fa042f18584dee87ee0440283aad0e3f4bd9e79e0485c15ad484e0b",
+        "docs/architecture.md": "4921a9742e28f1e5e1b1056d0d103f9b4df8518b02bf08da93d93cc6c6dc469f",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
-        "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4"
+        "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
+        "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e"
       },
       "dependencies": [
         "prd",
@@ -4033,14 +4041,14 @@
         "design-brief",
         "architecture"
       ],
-      "content_hash": "17c4cfdc2f27c17884e0c64a5d2c9cd72c0b6e9751648a07e410f69402dc3f97",
+      "content_hash": "adfd7ca0380d84d3ad9bc6728005341671bae55b7ef982f25c62ccdf8ac0e7aa",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "scoped-reliability-usage-reconciliation",
-        "reviewed_at": "2026-09-25T19:55:40.215562+00:00",
+        "kind": "scoped-sticky-navigation-reconciliation",
+        "reviewed_at": "2026-09-25T20:37:37.430844+00:00",
         "executor": "Codex inline to-dod-evals",
-        "scope": "Owner-reconciled definition; implementation verification remains pending."
+        "scope": "For the existing navigation/fidelity/browser gates, verify all four view controls remain visible and reachable after scrolling in active and inactive discussion states, without changing Stop behavior. Keep functional, visual and representative-user evidence distinct."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -5978,13 +5986,13 @@
       },
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "critic-usage-20260925-qa-checklist",
+      "owner_invocation_id": "sticky-view-nav-20260925-qa-checklist",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "critic-usage-20260925",
+      "source_version": "sticky-view-nav-20260925",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -5998,7 +6006,8 @@
         "docs/dod-evals.md": "full",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "full",
         "forge/runs/critic-usage-20260925/scope.json": "full",
-        "forge/runs/critic-usage-20260925/verification.json": "full"
+        "forge/runs/critic-usage-20260925/verification.json": "full",
+        "forge/runs/sticky-view-nav-20260925/scope.json": "full"
       },
       "source_hashes": {
         "docs/prd.md": "17822fd007aa19ca8dab22776b15f8d331a7c86ef47369de1fd19bdaf89d6ae3",
@@ -6007,13 +6016,14 @@
         "docs/guardrails.md": "c730c0df935c11123c6ce0b9c47c3ef9217394963d2031d54b30bccb1d78c943",
         "docs/user-journey.md": "e1a963995aeb4bd897b3343c467c9af21018652b8dbc9608e5968c2fd059b017",
         "docs/screen-map.md": "82d7158faaf68e72cd06abcb794e24777968e598a41352002e7abdf2e217255d",
-        "docs/wireframes.md": "87163a65bb294383f97cc3241e488ae35948c65038648bf52e750230ab77a032",
-        "docs/design-brief.md": "a9a86da44d219a37f6b9548c0070b4a00ca63955f78544631a29548b60c0dbc9",
-        "docs/architecture.md": "7fcfc9c5ce75934d214d689d3711b6ac92cb5851323adf25edf8fb7ba4211374",
-        "docs/dod-evals.md": "17c4cfdc2f27c17884e0c64a5d2c9cd72c0b6e9751648a07e410f69402dc3f97",
+        "docs/wireframes.md": "2c5b9c8b36daa85da96638beecb42f038c34ad0d0c24bc7b66c2a75dbbd1fede",
+        "docs/design-brief.md": "083a5b185fa042f18584dee87ee0440283aad0e3f4bd9e79e0485c15ad484e0b",
+        "docs/architecture.md": "4921a9742e28f1e5e1b1056d0d103f9b4df8518b02bf08da93d93cc6c6dc469f",
+        "docs/dod-evals.md": "adfd7ca0380d84d3ad9bc6728005341671bae55b7ef982f25c62ccdf8ac0e7aa",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
-        "forge/runs/critic-usage-20260925/verification.json": "3bb9e18d641a3053af6a0206de3eb4b0859b9a096199b96eae3cd3b06a79df13"
+        "forge/runs/critic-usage-20260925/verification.json": "3bb9e18d641a3053af6a0206de3eb4b0859b9a096199b96eae3cd3b06a79df13",
+        "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e"
       },
       "dependencies": [
         "prd",
@@ -6027,14 +6037,14 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "6f208f82127a4ea06f3dda387daa310499a16a9979c2d3717ceea33150cf0414",
+      "content_hash": "0d53b2595b921f5855088c4dabe5e0ec25f06b4c6efe08916c817de097785360",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "scoped-reliability-usage-reconciliation",
-        "reviewed_at": "2026-09-25T19:55:40.215562+00:00",
+        "kind": "scoped-sticky-navigation-reconciliation",
+        "reviewed_at": "2026-09-25T20:37:37.430844+00:00",
         "executor": "Codex inline to-qa-checklist",
-        "scope": "Owner-reconciled definition; implementation verification remains pending."
+        "scope": "Extend existing S-02 and navigation/keyboard checks: scroll the Discussion/Usage view at desktop and 320px; all four tabs remain below the main menu and within the viewport, active Stop stays reachable, selected panel switching still works, and no horizontal page overflow occurs. Definition prepared; inspect the scoped browser receipt for actual execution evidence."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -7261,13 +7271,13 @@
       },
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "critic-usage-20260925-development-plan",
+      "owner_invocation_id": "sticky-view-nav-20260925-development-plan",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "critic-usage-20260925",
+      "source_version": "sticky-view-nav-20260925",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -7285,7 +7295,8 @@
         "forge/runs/claude-context-transport-20260923/scope.json": "full",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "full",
         "forge/runs/parallel-consultants-plan-20260924/repository-observation.json": "full",
-        "forge/runs/critic-usage-20260925/scope.json": "full"
+        "forge/runs/critic-usage-20260925/scope.json": "full",
+        "forge/runs/sticky-view-nav-20260925/scope.json": "full"
       },
       "source_hashes": {
         "docs/prd.md": "17822fd007aa19ca8dab22776b15f8d331a7c86ef47369de1fd19bdaf89d6ae3",
@@ -7294,17 +7305,18 @@
         "docs/guardrails.md": "c730c0df935c11123c6ce0b9c47c3ef9217394963d2031d54b30bccb1d78c943",
         "docs/user-journey.md": "e1a963995aeb4bd897b3343c467c9af21018652b8dbc9608e5968c2fd059b017",
         "docs/screen-map.md": "82d7158faaf68e72cd06abcb794e24777968e598a41352002e7abdf2e217255d",
-        "docs/wireframes.md": "87163a65bb294383f97cc3241e488ae35948c65038648bf52e750230ab77a032",
-        "docs/design-brief.md": "a9a86da44d219a37f6b9548c0070b4a00ca63955f78544631a29548b60c0dbc9",
-        "docs/architecture.md": "7fcfc9c5ce75934d214d689d3711b6ac92cb5851323adf25edf8fb7ba4211374",
-        "docs/dod-evals.md": "17c4cfdc2f27c17884e0c64a5d2c9cd72c0b6e9751648a07e410f69402dc3f97",
-        "docs/qa-checklist.md": "6f208f82127a4ea06f3dda387daa310499a16a9979c2d3717ceea33150cf0414",
+        "docs/wireframes.md": "2c5b9c8b36daa85da96638beecb42f038c34ad0d0c24bc7b66c2a75dbbd1fede",
+        "docs/design-brief.md": "083a5b185fa042f18584dee87ee0440283aad0e3f4bd9e79e0485c15ad484e0b",
+        "docs/architecture.md": "4921a9742e28f1e5e1b1056d0d103f9b4df8518b02bf08da93d93cc6c6dc469f",
+        "docs/dod-evals.md": "adfd7ca0380d84d3ad9bc6728005341671bae55b7ef982f25c62ccdf8ac0e7aa",
+        "docs/qa-checklist.md": "0d53b2595b921f5855088c4dabe5e0ec25f06b4c6efe08916c817de097785360",
         "docs/model-settings.md": "2d0b9fe9d045e289b228adfe2d27aa6c1d94632eef60c78df60091eb181c4628",
         "package.json": "094e408c16c3a8369b9f21a343bb562dc0cd20160e26b6c01f144bd83712a568",
         "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/parallel-consultants-plan-20260924/repository-observation.json": "76930bc48e23a9d650e5b394b513a9cd895ccae11804942ffb69cff8c9f8094d",
-        "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4"
+        "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
+        "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e"
       },
       "dependencies": [
         "prd",
@@ -7319,14 +7331,14 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "ec83dda2a890a69ca82d1c7e6e6b52774f2c866c79d51354f892f839efa0704f",
+      "content_hash": "ab4c64f750dd852f890eeb0ca3848af4b94b60a62d11421c5a31ca74e42c08df",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "scoped-reliability-usage-reconciliation",
-        "reviewed_at": "2026-09-25T19:55:40.215562+00:00",
+        "kind": "scoped-sticky-navigation-reconciliation",
+        "reviewed_at": "2026-09-25T20:37:37.430844+00:00",
         "executor": "Codex inline to-development-plan",
-        "scope": "Owner-reconciled definition; implementation verification remains pending."
+        "scope": "Explicit owner request authorizes the existing U-04/U-09 presentation follow-up: sticky topic/tab wrapper in public/index.html and public/styles.css, with scroll assertions in scripts/browser-usage.mjs. Preserve current provider calls and saved work; publish through static asset refresh without restarting an active consultation. Use the retained baseline plus the accepted sticky navigation override."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -7845,6 +7857,11 @@
         "path": "forge/runs/critic-usage-20260925/scope.json",
         "content_hash": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "scope": "Explicitly requested Usage tab within S-02 under existing Electric A v8 tokens. Preserve frozen source and P5 Stop geometry."
+      },
+      {
+        "path": "forge/runs/sticky-view-nav-20260925/scope.json",
+        "content_hash": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e",
+        "scope": "Sticky positioning of the existing Discussion header and tabs; preserve existing controls, styling and P5 geometry."
       }
     ]
   },
@@ -7853,8 +7870,8 @@
     "definition_status": "prepared",
     "release_readiness": "not_evaluated",
     "source_hashes": {
-      "docs/dod-evals.md": "17c4cfdc2f27c17884e0c64a5d2c9cd72c0b6e9751648a07e410f69402dc3f97",
-      "docs/qa-checklist.md": "6f208f82127a4ea06f3dda387daa310499a16a9979c2d3717ceea33150cf0414"
+      "docs/dod-evals.md": "adfd7ca0380d84d3ad9bc6728005341671bae55b7ef982f25c62ccdf8ac0e7aa",
+      "docs/qa-checklist.md": "0d53b2595b921f5855088c4dabe5e0ec25f06b4c6efe08916c817de097785360"
     },
     "gates": [
       {
@@ -10884,17 +10901,17 @@
   },
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "ec83dda2a890a69ca82d1c7e6e6b52774f2c866c79d51354f892f839efa0704f",
+    "development_plan_hash": "ab4c64f750dd852f890eeb0ca3848af4b94b60a62d11421c5a31ca74e42c08df",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-24T13:00:20.203238+00:00",
     "product_scope_hash": "defc5e24f0dd91be42b984888b157137f4f1ed361459e70f42b832e18c957bd4",
-    "prompt_id": "critic-usage-20260925",
-    "prompt_received_at": "2026-09-25T19:55:40.215562+00:00",
-    "released_at": "2026-09-25T19:56:14.774244+00:00",
-    "reason": "Explicit user instruction to fix diagnosed blockers and add token usage for all used models.",
+    "prompt_id": "sticky-view-nav-20260925",
+    "prompt_received_at": "2026-09-25T20:37:37.430844+00:00",
+    "released_at": "2026-09-25T20:37:37.430844+00:00",
+    "reason": "DiscussionOutcomeSourcesUsage should be available in the sticky menu",
     "prompt_receipt": {
-      "path": "forge/runs/critic-usage-20260925/implementation-prompt.json",
-      "content_hash": "7d3e72a0b8feec00ecb2827be25f0c12a240a8a14ae2f73cb9ef05a28bb4fe47"
+      "path": "forge/runs/sticky-view-nav-20260925/implementation-prompt.json",
+      "content_hash": "ff5fb03b1d10f039a575bc59a3830d5dabd6eb63f4d3b7b86e8aface30c023c2"
     }
   },
   "dispatches": {
@@ -10995,7 +11012,7 @@
       }
     },
     "wireframes": {
-      "invocation_id": "critic-usage-20260925-wireframes",
+      "invocation_id": "sticky-view-nav-20260925-wireframes",
       "outputs": [
         "docs/wireframes.md"
       ],
@@ -11007,11 +11024,12 @@
         "docs/user-journey.md": "e1a963995aeb4bd897b3343c467c9af21018652b8dbc9608e5968c2fd059b017",
         "docs/screen-map.md": "82d7158faaf68e72cd06abcb794e24777968e598a41352002e7abdf2e217255d",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
-        "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4"
+        "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
+        "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e"
       }
     },
     "design-brief": {
-      "invocation_id": "critic-usage-20260925-design-brief",
+      "invocation_id": "sticky-view-nav-20260925-design-brief",
       "outputs": [
         "docs/design-brief.md"
       ],
@@ -11022,15 +11040,16 @@
         "docs/guardrails.md": "c730c0df935c11123c6ce0b9c47c3ef9217394963d2031d54b30bccb1d78c943",
         "docs/user-journey.md": "e1a963995aeb4bd897b3343c467c9af21018652b8dbc9608e5968c2fd059b017",
         "docs/screen-map.md": "82d7158faaf68e72cd06abcb794e24777968e598a41352002e7abdf2e217255d",
-        "docs/wireframes.md": "87163a65bb294383f97cc3241e488ae35948c65038648bf52e750230ab77a032",
+        "docs/wireframes.md": "2c5b9c8b36daa85da96638beecb42f038c34ad0d0c24bc7b66c2a75dbbd1fede",
         "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b",
         "forge/runs/porcelain-stop-20260924/scoped-override.json": "df8177ecc6e68c658ff5672b14e7def000ba241f9932639711885a4ba17afc74",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
-        "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4"
+        "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
+        "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e"
       }
     },
     "architecture": {
-      "invocation_id": "critic-usage-20260925-architecture",
+      "invocation_id": "sticky-view-nav-20260925-architecture",
       "outputs": [
         "docs/architecture.md"
       ],
@@ -11041,19 +11060,20 @@
         "docs/guardrails.md": "c730c0df935c11123c6ce0b9c47c3ef9217394963d2031d54b30bccb1d78c943",
         "docs/user-journey.md": "e1a963995aeb4bd897b3343c467c9af21018652b8dbc9608e5968c2fd059b017",
         "docs/screen-map.md": "82d7158faaf68e72cd06abcb794e24777968e598a41352002e7abdf2e217255d",
-        "docs/wireframes.md": "87163a65bb294383f97cc3241e488ae35948c65038648bf52e750230ab77a032",
-        "docs/design-brief.md": "a9a86da44d219a37f6b9548c0070b4a00ca63955f78544631a29548b60c0dbc9",
+        "docs/wireframes.md": "2c5b9c8b36daa85da96638beecb42f038c34ad0d0c24bc7b66c2a75dbbd1fede",
+        "docs/design-brief.md": "083a5b185fa042f18584dee87ee0440283aad0e3f4bd9e79e0485c15ad484e0b",
         "docs/model-settings.md": "2d0b9fe9d045e289b228adfe2d27aa6c1d94632eef60c78df60091eb181c4628",
         "forge/runs/claude-signin-20260922/source-review.json": "ad878d853b9c6f30da817167e1db6dffaad9c2c2863354ad3331294d7b269def",
         "forge/runs/sound-media-playback-20260923/scope.json": "7a5aa70bf52fa77a4dea9e39e5a49453c6be40c5b1a347632f4da4f5294455a0",
         "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/parallel-consultants-plan-20260924/repository-observation.json": "76930bc48e23a9d650e5b394b513a9cd895ccae11804942ffb69cff8c9f8094d",
-        "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4"
+        "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
+        "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e"
       }
     },
     "dod-evals": {
-      "invocation_id": "critic-usage-20260925-dod-evals",
+      "invocation_id": "sticky-view-nav-20260925-dod-evals",
       "outputs": [
         "docs/dod-evals.md"
       ],
@@ -11064,15 +11084,16 @@
         "docs/guardrails.md": "c730c0df935c11123c6ce0b9c47c3ef9217394963d2031d54b30bccb1d78c943",
         "docs/user-journey.md": "e1a963995aeb4bd897b3343c467c9af21018652b8dbc9608e5968c2fd059b017",
         "docs/screen-map.md": "82d7158faaf68e72cd06abcb794e24777968e598a41352002e7abdf2e217255d",
-        "docs/wireframes.md": "87163a65bb294383f97cc3241e488ae35948c65038648bf52e750230ab77a032",
-        "docs/design-brief.md": "a9a86da44d219a37f6b9548c0070b4a00ca63955f78544631a29548b60c0dbc9",
-        "docs/architecture.md": "7fcfc9c5ce75934d214d689d3711b6ac92cb5851323adf25edf8fb7ba4211374",
+        "docs/wireframes.md": "2c5b9c8b36daa85da96638beecb42f038c34ad0d0c24bc7b66c2a75dbbd1fede",
+        "docs/design-brief.md": "083a5b185fa042f18584dee87ee0440283aad0e3f4bd9e79e0485c15ad484e0b",
+        "docs/architecture.md": "4921a9742e28f1e5e1b1056d0d103f9b4df8518b02bf08da93d93cc6c6dc469f",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
-        "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4"
+        "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
+        "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e"
       }
     },
     "qa-checklist": {
-      "invocation_id": "critic-usage-20260925-qa-checklist",
+      "invocation_id": "sticky-view-nav-20260925-qa-checklist",
       "outputs": [
         "docs/qa-checklist.md"
       ],
@@ -11083,17 +11104,18 @@
         "docs/guardrails.md": "c730c0df935c11123c6ce0b9c47c3ef9217394963d2031d54b30bccb1d78c943",
         "docs/user-journey.md": "e1a963995aeb4bd897b3343c467c9af21018652b8dbc9608e5968c2fd059b017",
         "docs/screen-map.md": "82d7158faaf68e72cd06abcb794e24777968e598a41352002e7abdf2e217255d",
-        "docs/wireframes.md": "87163a65bb294383f97cc3241e488ae35948c65038648bf52e750230ab77a032",
-        "docs/design-brief.md": "a9a86da44d219a37f6b9548c0070b4a00ca63955f78544631a29548b60c0dbc9",
-        "docs/architecture.md": "7fcfc9c5ce75934d214d689d3711b6ac92cb5851323adf25edf8fb7ba4211374",
-        "docs/dod-evals.md": "17c4cfdc2f27c17884e0c64a5d2c9cd72c0b6e9751648a07e410f69402dc3f97",
+        "docs/wireframes.md": "2c5b9c8b36daa85da96638beecb42f038c34ad0d0c24bc7b66c2a75dbbd1fede",
+        "docs/design-brief.md": "083a5b185fa042f18584dee87ee0440283aad0e3f4bd9e79e0485c15ad484e0b",
+        "docs/architecture.md": "4921a9742e28f1e5e1b1056d0d103f9b4df8518b02bf08da93d93cc6c6dc469f",
+        "docs/dod-evals.md": "adfd7ca0380d84d3ad9bc6728005341671bae55b7ef982f25c62ccdf8ac0e7aa",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
-        "forge/runs/critic-usage-20260925/verification.json": "3bb9e18d641a3053af6a0206de3eb4b0859b9a096199b96eae3cd3b06a79df13"
+        "forge/runs/critic-usage-20260925/verification.json": "3bb9e18d641a3053af6a0206de3eb4b0859b9a096199b96eae3cd3b06a79df13",
+        "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e"
       }
     },
     "development-plan": {
-      "invocation_id": "critic-usage-20260925-development-plan",
+      "invocation_id": "sticky-view-nav-20260925-development-plan",
       "outputs": [
         "docs/development-plan.md"
       ],
@@ -11104,17 +11126,18 @@
         "docs/guardrails.md": "c730c0df935c11123c6ce0b9c47c3ef9217394963d2031d54b30bccb1d78c943",
         "docs/user-journey.md": "e1a963995aeb4bd897b3343c467c9af21018652b8dbc9608e5968c2fd059b017",
         "docs/screen-map.md": "82d7158faaf68e72cd06abcb794e24777968e598a41352002e7abdf2e217255d",
-        "docs/wireframes.md": "87163a65bb294383f97cc3241e488ae35948c65038648bf52e750230ab77a032",
-        "docs/design-brief.md": "a9a86da44d219a37f6b9548c0070b4a00ca63955f78544631a29548b60c0dbc9",
-        "docs/architecture.md": "7fcfc9c5ce75934d214d689d3711b6ac92cb5851323adf25edf8fb7ba4211374",
-        "docs/dod-evals.md": "17c4cfdc2f27c17884e0c64a5d2c9cd72c0b6e9751648a07e410f69402dc3f97",
-        "docs/qa-checklist.md": "6f208f82127a4ea06f3dda387daa310499a16a9979c2d3717ceea33150cf0414",
+        "docs/wireframes.md": "2c5b9c8b36daa85da96638beecb42f038c34ad0d0c24bc7b66c2a75dbbd1fede",
+        "docs/design-brief.md": "083a5b185fa042f18584dee87ee0440283aad0e3f4bd9e79e0485c15ad484e0b",
+        "docs/architecture.md": "4921a9742e28f1e5e1b1056d0d103f9b4df8518b02bf08da93d93cc6c6dc469f",
+        "docs/dod-evals.md": "adfd7ca0380d84d3ad9bc6728005341671bae55b7ef982f25c62ccdf8ac0e7aa",
+        "docs/qa-checklist.md": "0d53b2595b921f5855088c4dabe5e0ec25f06b4c6efe08916c817de097785360",
         "docs/model-settings.md": "2d0b9fe9d045e289b228adfe2d27aa6c1d94632eef60c78df60091eb181c4628",
         "package.json": "094e408c16c3a8369b9f21a343bb562dc0cd20160e26b6c01f144bd83712a568",
         "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/parallel-consultants-plan-20260924/repository-observation.json": "76930bc48e23a9d650e5b394b513a9cd895ccae11804942ffb69cff8c9f8094d",
-        "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4"
+        "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
+        "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e"
       }
     }
   },
@@ -11252,6 +11275,25 @@
       "result": "passed",
       "release_readiness": "not_evaluated",
       "detail": "Scoped implementation verified and activated locally; prior full-product check states remain unchanged."
+    },
+    {
+      "event": "sticky_views_explicit_implementation",
+      "at": "2026-09-25T20:37:37.430844+00:00",
+      "prior_implementation_gate": {
+        "state": "authorized_for_phase3",
+        "development_plan_hash": "ec83dda2a890a69ca82d1c7e6e6b52774f2c866c79d51354f892f839efa0704f",
+        "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
+        "awaiting_at": "2026-09-24T13:00:20.203238+00:00",
+        "product_scope_hash": "defc5e24f0dd91be42b984888b157137f4f1ed361459e70f42b832e18c957bd4",
+        "prompt_id": "critic-usage-20260925",
+        "prompt_received_at": "2026-09-25T19:55:40.215562+00:00",
+        "released_at": "2026-09-25T19:56:14.774244+00:00",
+        "reason": "Explicit user instruction to fix diagnosed blockers and add token usage for all used models.",
+        "prompt_receipt": {
+          "path": "forge/runs/critic-usage-20260925/implementation-prompt.json",
+          "content_hash": "7d3e72a0b8feec00ecb2827be25f0c12a240a8a14ae2f73cb9ef05a28bb4fe47"
+        }
+      }
     }
   ],
   "input_requests": [],

@@ -143,3 +143,7 @@ H1/H3/H6/H7/H8/H9/H10 apply to parallel status, Stop, traceable corrections, red
 ## Critic reliability and model usage — 2026-09-25
 
 Accepted scoped implementation request: [scope receipt](../forge/runs/critic-usage-20260925/scope.json). Preserve the immutable Electric A v8 baseline and P5 Stop. Add the requested Usage panel using existing tab, panel, text, muted and accent tokens; tabular numerals, readable exact counts, restrained separators and responsive wrapping. Unknown counts use “Unavailable”; loading and retry are explicit. H1/H6/H8/H9/H10: make coverage and recovery understandable without interrupting discussion. Representative-user validation remains unperformed; browser checks do not establish it.
+
+## Sticky consultation views — 2026-09-25
+
+Accepted [sticky-view navigation override](../forge/runs/sticky-view-nav-20260925/scope.json): retain Electric A v8 and P5 appearance, and pin the existing status/Stop row plus all four view tabs below the main menu. Use the canvas background and existing separators; no overlay obscures the tabs or Stop. The override is limited to positioning and persistent reachability.
