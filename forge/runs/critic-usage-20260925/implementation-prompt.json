@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "event": "implementation_prompt",
+  "actor": "user",
+  "role": "user",
+  "intent": "start_production_implementation",
+  "message": "1. fix all this.\n2. i need a token usage counter for all used models.",
+  "timestamp_basis": "Recording time; original message timestamp unavailable",
+  "received_at": "2026-09-25T19:55:40.215562+00:00",
+  "scope": "Implement the diagnosed Critic reliability fixes and private model usage counter in this repository only.",
+  "prompt_id": "critic-usage-20260925",
+  "development_plan_hash": "ec83dda2a890a69ca82d1c7e6e6b52774f2c866c79d51354f892f839efa0704f",
+  "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
+  "product_scope_hash": "defc5e24f0dd91be42b984888b157137f4f1ed361459e70f42b832e18c957bd4"
+}

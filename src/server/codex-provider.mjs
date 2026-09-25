@@ -1,3 +1,4 @@
+import { beginUsage, codexTokens } from "./usage.mjs";
 import { ensurePrivateDirectory, ensurePrivateFile } from "./private-files.mjs";
 import { spawnIsolatedProcess, signalProcessTree } from "./child-process.mjs";
 import { copyFile, mkdir, mkdtemp, rm, writeFile } from "node:fs/promises";
@@ -223,11 +224,12 @@ export function createCodexProvider(config, deadlineOptions = undefined) {
       await connection?.close().catch(() => {});
     }
   };
-  const invoke = async ({ assignment, model, effort, evidence, research, outputKind = "discussion", maximumCharacters = undefined, runtimeInstructions, signal }) => {
+  const invoke = async ({ assignment, model, effort, evidence, research, outputKind = "discussion", maximumCharacters = undefined, runtimeInstructions, signal, onUsage }) => {
     if (!config.readyForProvider) return { ok: false, code: "provider_unavailable" };
     if (!runtimeInstructions) throw new RuntimeInstructionError("Provider invocation is missing its runtime-instructions contract.");
     let connection; let threadId; let unsubscribe = () => {}; let deadline;
     let startedAt; let lastProgressAt; let progressCount = 0;
+    let finishUsage; let expectedUsageTurn; let usageStatus = "failed"; const usageByTurn = new Map();
     try {
       connection = await startConnection(config, signal);
       if (signal?.aborted) throw new Error("cancelled");
@@ -246,6 +248,7 @@ export function createCodexProvider(config, deadlineOptions = undefined) {
       unsubscribe = connection.on(notification => {
         const params = notification.params;
         if (!record(params) || params.threadId !== threadId) return;
+        if (notification.method === "thread/tokenUsage/updated" && typeof params.turnId === "string" && record(params.tokenUsage?.total)) usageByTurn.set(params.turnId, codexTokens(params.tokenUsage.total));
         if (isTurnProgress(notification, threadId, expectedTurnId)) {
           lastProgressAt = Date.now(); progressCount += 1; deadline.progress();
         }
@@ -264,10 +267,11 @@ export function createCodexProvider(config, deadlineOptions = undefined) {
         if (completed.id === expectedTurnId) resolveTurn(completed);
       });
       if (signal?.aborted) throw new Error("cancelled");
+      finishUsage = await beginUsage(onUsage, "codex", model);
       const turn = await waitFor(connection.request("turn/start", { threadId, input: [{ type: "text", text: prompt, text_elements: [] }], model, approvalPolicy: "never", sandboxPolicy: { type: "readOnly", networkAccess: research }, environments: [], effort }), 20_000, "app_server_timeout", signal);
       const startedTurn = record(turn) && record(turn.turn) ? turn.turn : undefined;
       if (!record(startedTurn) || typeof startedTurn.id !== "string") throw new Error("provider_error");
-      expectedTurnId = startedTurn.id;
+      expectedTurnId = startedTurn.id; expectedUsageTurn = expectedTurnId;
       startedAt = Date.now(); lastProgressAt ??= startedAt;
       deadline.start();
       providerLog("nanoduck.provider.turn_started", { outputKind, research, effort });
@@ -277,6 +281,7 @@ export function createCodexProvider(config, deadlineOptions = undefined) {
         Promise.race([turnDone, deadline.promise, connection.closed.then(error => { throw error; })]),
         undefined, "provider_timeout", signal
       );
+      usageStatus = resolvedTurn.status === "completed" ? "completed" : "failed";
       if (resolvedTurn.status !== "completed") throw new AppServerRequestError("turn/completed", resolvedTurn.error);
       const resultBody = bodyFrom(resolvedTurn) ?? completedBodies.get(expectedTurnId);
       const completionSource = terminalTurn(startedTurn) ? "turn_start" : "notification";
@@ -295,6 +300,7 @@ export function createCodexProvider(config, deadlineOptions = undefined) {
       return { ok: false, code };
     } finally {
       deadline?.stop();
+      await finishUsage?.(signal?.aborted ? "cancelled" : usageStatus, usageByTurn.has(expectedUsageTurn) ? [{ model, tokens: usageByTurn.get(expectedUsageTurn) }] : []);
       unsubscribe();
       if (connection && threadId && !signal?.aborted) await connection.request("thread/unsubscribe", { threadId }, 1_000).catch(() => {});
       await connection?.close().catch(() => {});

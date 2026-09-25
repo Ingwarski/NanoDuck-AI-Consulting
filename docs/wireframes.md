@@ -51,3 +51,7 @@ Use one-column reading and stacked fieldsets on phones; larger widths may reveal
 ## Parallel transcript and correction variants
 
 S-02/ST-09 retains its ordered message column and P5 Stop. Show one ordinary Head message per assignment, recipient/name followed by task text, with no role-definition card or internal metadata. Append each confirmed result on arrival. Critic identifies the affected consultant and issue in normal message text; the correction and subsequent assessment make resolution understandable without technical IDs. Reuse status text for actual waiting/working/partial completion. For ST-16: a worker failed → retain other results and unresolved orders → Retry failed work → preserve completed messages → resume required review when dependencies are available. For ST-11 and new context: Stop all work, restore composer, explicitly Send correction, let Head identify affected assignments; no active-input queue. S-07/ST-38 retains explicit unresolved findings in provisional advice. Sources: FR-02.9–FR-02.14, FR-03.5; J-03/J-05; UC-002/UC-003.
+
+## Critic reliability and model usage — 2026-09-25
+
+Within S-02, add Usage as the fourth consultation-view tab. Its panel orders content as: title and scope selector; reported-token total; coverage/status note; provider/model rows with input/output/total and expandable cache/reasoning breakdown. At narrow widths rows stack and long model IDs wrap. Keep the topic, P5 Stop position, transcript and composer geometry unchanged.

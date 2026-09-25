@@ -1,3 +1,4 @@
+import { normalizeUsageAttempt, summarizeUsage } from "./usage.mjs";
 import { createMemoryDocuments } from "./instruction-documents.mjs";
 import { randomId } from "./crypto.mjs";
 import { normalizeRecoverySnapshot } from "./recovery.mjs";
@@ -24,6 +25,7 @@ const publicMessage = message => Object.freeze({ id: message.id, role: message.r
 const recoverySnapshot = (conversations, configuration) => normalizeRecoverySnapshot({ schemaVersion: 1, kind: "nanoduck-owner-records", createdAt: now(), conversations, ...(configuration ? { configuration } : {}) });
 export function createMemoryStore(initialState = undefined) {
   const conversations = new Map();
+  const usage = new Map();
   const messages = new Map();
   const attachments = new Map();
   const runs = new Map();
@@ -44,7 +46,7 @@ export function createMemoryStore(initialState = undefined) {
 
   const snapshotState = () => structuredClone({
     schemaVersion: 1, kind: "nanoduck-local-state",
-    conversations: [...conversations], messages: [...messages],
+    conversations: [...conversations], messages: [...messages], usage: [...usage],
     attachments: [...attachments].map(([id, item]) => [id, { ...item, content: item.content.toString("base64url") }]),
     runs: [...runs], requests: [...requests], sessions: [...sessions], settings,
     runtimeInstructions: runtimeInstructions ?? null, runtimeInstructionHistory: [...runtimeInstructionHistory],
@@ -52,7 +54,7 @@ export function createMemoryStore(initialState = undefined) {
   });
   const restoreState = input => {
     const state = validateLocalState(input);
-    for (const [target, records] of [[conversations, state.conversations], [messages, state.messages], [runs, state.runs], [requests, state.requests], [sessions, state.sessions], [runtimeInstructionHistory, state.runtimeInstructionHistory]]) {
+    for (const [target, records] of [[usage, state.usage ?? []], [conversations, state.conversations], [messages, state.messages], [runs, state.runs], [requests, state.requests], [sessions, state.sessions], [runtimeInstructionHistory, state.runtimeInstructionHistory]]) {
       target.clear(); for (const [key, value] of records) target.set(key, value);
     }
     attachments.clear(); for (const [key, value] of state.attachments) attachments.set(key, { ...value, content: Buffer.from(value.content, "base64url") });
@@ -66,6 +68,28 @@ export function createMemoryStore(initialState = undefined) {
     kind: "memory",
     snapshotState, restoreState,
     ...documents,
+    async recordUsage(conversationId, input) {
+      const conversation = conversations.get(conversationId);
+      if (!conversation || conversation.deletedAt) return false;
+      const attempt = normalizeUsageAttempt(input);
+      if (!attempt) throw new Error("invalid_usage");
+      const entries = usage.get(conversationId) ?? [];
+      const index = entries.findIndex(item => item.id === attempt.id);
+      if (index >= 0) {
+        const prior = entries[index];
+        if (["provider", "model", "startedAt"].some(key => prior[key] !== attempt[key])) throw new Error("invalid_usage");
+        if (!["running", "interrupted"].includes(prior.status)) return false;
+        entries[index] = attempt;
+      } else entries.push(attempt);
+      usage.set(conversationId, entries); return true;
+    },
+    async interruptUsage() {
+      for (const entries of usage.values()) for (const attempt of entries) if (attempt.status === "running") attempt.status = "interrupted";
+    },
+    async usageSummary(conversationId = undefined) {
+      if (conversationId && (!conversations.has(conversationId) || conversations.get(conversationId).deletedAt)) return undefined;
+      return summarizeUsage([...conversations.values()].filter(item => !item.deletedAt && (!conversationId || item.id === conversationId)).map(item => ({ usage: usage.get(item.id) ?? [] })));
+    },
     async createSession(input) { sessions.set(input.id, { ...input }); return { ...input }; },
     async session(id) { const item = sessions.get(id); return item ? { ...item } : undefined; },
     async updateSession(id, patch) { const item = sessions.get(id); if (!item || item.revokedAt) return undefined; Object.assign(item, patch); return { ...item }; },
@@ -201,7 +225,7 @@ export function createMemoryStore(initialState = undefined) {
       return Object.freeze({ conversation: { ...conversation }, messages: (messages.get(conversationId) ?? []).map(publicMessage) });
     },
     async recoverySnapshot() {
-      return recoverySnapshot([...conversations.values()].map(conversation => ({ conversation: { ...conversation }, messages: conversation.deletedAt ? [] : (messages.get(conversation.id) ?? []).map(publicMessage), attachments: conversation.deletedAt ? [] : [...attachments.values()].filter(attachment => attachment.conversationId === conversation.id && attachment.messageId).map(attachment => ({ ...publicAttachment(attachment), messageId: attachment.messageId, content: attachment.content.toString("base64url") })) })), { settings, runtimeInstructions, runtimeHistory: [...runtimeInstructionHistory.values()], documents: documents.exportDocuments() });
+      return recoverySnapshot([...conversations.values()].map(conversation => ({ conversation: { ...conversation }, usage: conversation.deletedAt ? [] : structuredClone(usage.get(conversation.id) ?? []), messages: conversation.deletedAt ? [] : (messages.get(conversation.id) ?? []).map(publicMessage), attachments: conversation.deletedAt ? [] : [...attachments.values()].filter(attachment => attachment.conversationId === conversation.id && attachment.messageId).map(attachment => ({ ...publicAttachment(attachment), messageId: attachment.messageId, content: attachment.content.toString("base64url") })) })), { settings, runtimeInstructions, runtimeHistory: [...runtimeInstructionHistory.values()], documents: documents.exportDocuments() });
     },
     async restoreRecovery(snapshot, { restoreConfiguration = false } = {}) {
       const recovered = normalizeRecoverySnapshot(snapshot); if (!recovered) return undefined;
@@ -219,16 +243,17 @@ export function createMemoryStore(initialState = undefined) {
         if (existing?.deletedAt) { preservedTombstones += 1; continue; }
         if (record.conversation.deletedAt) {
           conversations.set(id, { ...record.conversation, title: "Deleted consultation" }); messages.set(id, []); for (const attachment of [...attachments.values()].filter(item => item.conversationId === id)) attachments.delete(attachment.id); const run = runs.get(id); if (run) { run.generation += 1; run.status = "deleted"; run.snapshot = {}; run.updatedAt = record.conversation.deletedAt; }
-          forgetRequests(id); tombstones += 1; continue;
+          usage.delete(id); forgetRequests(id); tombstones += 1; continue;
         }
         if (existing) continue;
+        usage.set(id, structuredClone(record.usage ?? []));
         conversations.set(id, { ...record.conversation }); messages.set(id, record.messages.map(item => ({ ...item, sources: [...item.sources], attachments: [...item.attachments] }))); for (const attachment of record.attachments) attachments.set(attachment.id, { ...attachment, conversationId: id, content: Buffer.from(attachment.content, "base64url") }); restored += 1;
       }
       return Object.freeze({ restored, tombstones, preservedTombstones });
     },
     async deleteConversation(conversationId) {
       const conversation = conversations.get(conversationId); if (!conversation || conversation.deletedAt) return false;
-      forgetRequests(conversationId);
+      forgetRequests(conversationId); usage.delete(conversationId);
       conversation.title = "Deleted consultation"; conversation.deletedAt = now(); conversation.updatedAt = conversation.deletedAt; messages.set(conversationId, []); for (const attachment of [...attachments.values()].filter(item => item.conversationId === conversationId)) attachments.delete(attachment.id); const run = runs.get(conversationId); if (run) { run.generation += 1; run.status = "deleted"; run.snapshot = {}; } return true;
     },
     async deleteConversations(conversationIds) {

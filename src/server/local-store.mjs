@@ -9,7 +9,7 @@ import { ensurePrivateDirectory, ensurePrivateFile } from "./private-files.mjs";
 
 const maximumStateBytes = 128 * 1024 * 1024;
 const mutations = new Set([
-  "initializeDocuments", "migrateDefaultDocuments", "saveInstructionDocument", "createSession", "updateSession", "revokeSession", "saveSettings",
+  "recordUsage", "interruptUsage", "initializeDocuments", "migrateDefaultDocuments", "saveInstructionDocument", "createSession", "updateSession", "revokeSession", "saveSettings",
   "bootstrapRuntimeInstructions", "migrateRuntimeInstructions", "saveRuntimeInstructions", "restoreRuntimeInstructions",
   "createConversation", "createAttachment", "deletePendingAttachment", "acceptMessage", "appendAgentMessage", "updateRunSnapshot", "commitParallelWork",
   "finishRun", "stop", "continueRun", "restoreRecovery", "deleteConversation", "deleteConversations"
@@ -68,7 +68,8 @@ export async function createLocalStore({ dataDirectory, dataKey }) {
       try { database.prepare("INSERT INTO local_state(id,envelope) VALUES(1,?) ON CONFLICT(id) DO UPDATE SET envelope=excluded.envelope").run(envelope); database.exec("COMMIT"); }
       catch (error) { try { database.exec("ROLLBACK"); } catch {} throw error; }
     };
-    if (newDatabase) persist();
+    await memory.interruptUsage();
+    persist();
     const enqueue = operation => {
       if (closing || closed) return Promise.reject(new Error("local_store_closed"));
       const result = queue.then(operation); queue = result.catch(() => {}); return result;

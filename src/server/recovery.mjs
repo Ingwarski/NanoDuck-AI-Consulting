@@ -1,3 +1,4 @@
+import { normalizeUsageAttempt } from "./usage.mjs";
 import { normalizeConfiguration } from "./configuration-recovery.mjs";
 import { decryptText, encryptText } from "./crypto.mjs";
 import { hasProhibitedLanguage, safeExternalUrl } from "./validation.mjs";
@@ -40,12 +41,15 @@ const entry = value => {
   if (!record(value) || !Array.isArray(value.messages) || (value.attachments !== undefined && !Array.isArray(value.attachments))) return undefined;
   const item = conversation(value.conversation);
   if (!item) return undefined;
+  if (value.usage !== undefined && !Array.isArray(value.usage)) return undefined;
+  const usage = (value.usage ?? []).map(normalizeUsageAttempt);
+  if (usage.some(item => !item) || new Set(usage.map(item => item.id)).size !== usage.length) return undefined;
   const messages = value.messages.map(message);
   const attachments = (value.attachments ?? []).map(attachment);
   if (messages.some(item => !item) || new Set(messages.map(item => item.id)).size !== messages.length || messages.some((item, index) => item.sequence !== index + 1)) return undefined;
   if (attachments.some(item => !item) || new Set(attachments.map(item => item.id)).size !== attachments.length || attachments.some(item => !messages.some(message => message.id === item.messageId))) return undefined;
-  if (item.deletedAt && (messages.length || attachments.length)) return undefined;
-  return Object.freeze({ conversation: item, messages: Object.freeze(messages.map(message => Object.freeze({ ...message, attachments: Object.freeze(attachments.filter(item => item.messageId === message.id).map(item => Object.freeze({ id: item.id, contentType: item.contentType, byteLength: item.byteLength, createdAt: item.createdAt }))) }))), attachments: Object.freeze(attachments) });
+  if (item.deletedAt && (messages.length || attachments.length || usage.length)) return undefined;
+  return Object.freeze({ conversation: item, usage: Object.freeze(usage), messages: Object.freeze(messages.map(message => Object.freeze({ ...message, attachments: Object.freeze(attachments.filter(item => item.messageId === message.id).map(item => Object.freeze({ id: item.id, contentType: item.contentType, byteLength: item.byteLength, createdAt: item.createdAt }))) }))), attachments: Object.freeze(attachments) });
 };
 
 export function normalizeRecoverySnapshot(value) {

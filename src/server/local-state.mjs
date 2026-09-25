@@ -1,3 +1,4 @@
+import { normalizeUsageAttempt } from "./usage.mjs";
 import { normalizeConfiguration } from "./configuration-recovery.mjs";
 import { normalizeRecoverySnapshot } from "./recovery.mjs";
 import { inspectImageAttachment } from "./attachments.mjs";
@@ -18,6 +19,11 @@ export function validateLocalState(input) {
   const state = structuredClone(input);
   const conversations = pairs(state.conversations);
   const messages = pairs(state.messages);
+  const usage = pairs(state.usage ?? []);
+  for (const [key, entries] of usage) {
+    if (!conversations.has(key) || conversations.get(key).deletedAt || !Array.isArray(entries) || entries.some(item => !normalizeUsageAttempt(item)) || new Set(entries.map(item => item.id)).size !== entries.length) fail();
+  }
+  state.usage = [...usage];
   const attachments = pairs(state.attachments);
   const runs = pairs(state.runs);
   const requests = pairs(state.requests, key => typeof key === "string" && key.split(":").length === 2 && key.split(":").every(id));

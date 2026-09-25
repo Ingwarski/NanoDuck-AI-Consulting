@@ -52,3 +52,7 @@ Apply the existing functional and security gates to the corrected date classific
 ## Parallel consultation evaluation scope
 
 FR-02.9–FR-02.15 belong to `product_functional_requirements`; FR-03.5/NFR-01.2–01.3 also use existing continuity checks. Product security gate retains every mapped security clause and extends its evidence to dynamic-role authority, private guidance, cross-run references, concurrent commits and stale Critic assessments. Lifecycle evidence includes legacy/new contract recovery and cancellation of all workers. Efficiency evidence compares matching synthetic scenarios and complete outcomes; no fixed saving percentage or invented quota metric is required. The existing UI, heuristic and representative-user gates cover changed Discussion/Settings/Outcome behavior within the retained baseline. New definitions are prepared; no execution or release success is implied.
+
+## Critic reliability and model usage — 2026-09-25
+
+Extend existing functional, persistence, product_security_requirements and browser gates for FR-02.13/FR-02.15/FR-05.3. Require multi-finding preservation, one bounded malformed-review repair, finite long-Claude timeout/cancellation, safe failure diagnostics, provider-native token accounting without duplicate totals, encrypted restart/backup/restore/deletion, and authenticated responsive Usage states. Definition status: prepared; execution evidence is recorded separately in QA. This extension does not imply account-wide usage or historical backfill.

@@ -38,3 +38,7 @@ No material intent question blocks the scoped local refactor. Architecture owns 
 ## Parallel consultation context
 
 FR-02.9–FR-02.15 define the accepted correction. Head authors roles and concise tasks; application-managed workers execute independent work concurrently. The role library supplies optional expertise, not a fixed roster. Chat is the sole authoritative record; per-agent context is complete for owner intent and selective for work dependencies. Critic-order resolution is explicit and private bookkeeping is separate from business messages. Fixed depth is user-controlled; Auto permits Head-directed closure. This revised plan is awaiting a separate implementation prompt; earlier repair authorizations do not authorize the new unit.
+
+## Critic reliability and model usage — 2026-09-25
+
+Scope source: the owner requests repairs for rejected multi-finding Critic reviews and a durable per-model usage counter. Existing mixed Codex/Claude subscriptions, complete chat-derived request context, private local storage and LAN HTTPS remain the operating context. Reported metrics are scoped to saved conversations, not the account-wide subscription allowance.

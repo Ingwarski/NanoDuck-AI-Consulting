@@ -29,8 +29,16 @@ export function parseTeamReview(body, assignments) {
     if (!object(item) || !Number.isInteger(item.assignment) || item.assignment < 1 || item.assignment > assignments.length || !prose(item.issue) || !prose(item.correction)) throw new Error("provider_contract");
     return { assignmentId: assignments[item.assignment - 1].id, issue: item.issue.trim(), correction: item.correction.trim() };
   });
-  if (new Set(findings.map(item => item.assignmentId)).size !== findings.length) throw new Error("provider_contract");
-  return { summary: value.summary.trim(), findings };
+  const grouped = new Map();
+  for (const finding of findings) {
+    const items = grouped.get(finding.assignmentId) ?? [];
+    items.push(finding); grouped.set(finding.assignmentId, items);
+  }
+  return { summary: value.summary.trim(), findings: [...grouped].map(([assignmentId, items]) => items.length === 1 ? items[0] : {
+    assignmentId,
+    issue: items.map((item, index) => `${index + 1}. ${item.issue}`).join("\n\n"),
+    correction: items.map((item, index) => `${index + 1}. ${item.correction}`).join("\n\n")
+  }) };
 }
 
 export function parseOrderAssessment(body, orders) {

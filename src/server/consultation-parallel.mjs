@@ -72,7 +72,7 @@ export async function runParallelConsultation({ store, provider, conversationId,
   const currentWork = async () => (await store.run(conversationId))?.snapshot.parallelWork;
   const invoke = async ({ route, assignment, outputKind, discussion = "", research = false, instructions = fullInstructions, ownerText = owner }) => {
     if (!await isCurrent()) throw new Error("cancelled");
-    onProvider(route.provider);
+    onProvider(route.provider, outputKind);
     const input = { ...route, assignment, evidence: { owner: ownerText, discussion }, outputKind, research, runtimeInstructions: instructions, signal };
     let result = await provider.invoke(input);
     if (!result.ok && ["language_policy", "output_policy"].includes(result.code) && await isCurrent()) result = await provider.invoke({ ...input, assignment: correctionPrompt(assignment) });
@@ -166,7 +166,13 @@ export async function runParallelConsultation({ store, provider, conversationId,
     if (!round) {
       const reviewPrompt = `You are Critic reviewing the team together for substantive round ${number} of ${maximumDepth}. Compare the complete owner request and every Head assignment with the latest answer and evidence. Detect obvious nonsense, false certainty, circular repetition, omitted deliverables, unsupported claims and contradictions. Issue a direct correction order only for a material actual defect; do not manufacture one. Do not repeat an existing open order against the same result. A good answer needs no order. Return only JSON: {"summary":"brief team assessment","findings":[{"assignment":1,"issue":"exact defect","correction":"specific required rework"}]}. The assignment number is 1-based. If no material defect, findings is []. Write text in ${language}.`;
       const review = await invoke({ route: settings.critic, assignment: reviewPrompt, outputKind: "team_review", discussion: `${compactRecord(work)}\n\nExisting Critic orders:\n${orderRecord(work)}\n\n${researchContext}`, instructions: criticInstructions });
-      const parsed = parseTeamReview(review.body, work.assignments);
+      let parsed;
+      try { parsed = parseTeamReview(review.body, work.assignments); }
+      catch {
+        const repaired = await invoke({ route: settings.critic, assignment: `${reviewPrompt}\nRepair only the structure of your previous review below. Preserve every substantive issue and correction, including multiple findings for a consultant; do not perform another review.\nPrevious review:\n${review.body}`, outputKind: "team_review", instructions: criticInstructions });
+        try { parsed = parseTeamReview(repaired.body, work.assignments); }
+        catch { throw new Error("team_review_contract"); }
+      }
       const reviewMessage = { id: randomId(), role: "Critic", recipient: "Head Consultant", body: parsed.summary, sources: review.sources ?? [] };
       const orders = parsed.findings.filter(finding => !work.orders.some(old => old.assignmentId === finding.assignmentId && ["open", "blocked_evidence"].includes(old.state))).map(finding => {
         const assignment = work.assignments.find(item => item.id === finding.assignmentId);

@@ -192,3 +192,7 @@ subscription acceptance; the verification document records the actual scope.
 
 Licensed under the [MIT License](LICENSE). Third-party dependencies retain their
 own licenses.
+
+## Token usage
+
+Open **Discussion → Usage** to inspect reported input, output and total tokens for each Codex/Claude model, for the current conversation or all saved conversations. Cache and reasoning breakdowns are included when the provider reports them. Retries and failed calls count when usage is available. Unknown and pre-tracking history are not estimated; these totals do not represent your account-wide subscription allowance. Usage is encrypted with the private workspace, included in recovery backups and removed with deleted conversations.

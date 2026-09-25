@@ -26,6 +26,8 @@ const providerFailureMessage = (code, provider) => ({
   context_too_large: `The complete saved context exceeds the ${providerName(provider)} request capacity. Nothing was shortened or lost. Your question and discussion remain saved.`,
   subscription_unavailable: `The selected ${providerName(provider)} subscription is unavailable. Your question remains saved.`,
   method_unavailable: `The selected ${providerName(provider)} runtime cannot complete a required consultation step. Your question remains saved.`,
+  team_review_contract: "The Critic review could not be read after one format repair. Your question and consultant replies remain saved. Choose Retry to resume this review.",
+  provider_contract: "An agent returned an unreadable response format. Your question and confirmed replies remain saved. Choose Retry to resume the unfinished step.",
   provider_unavailable: `The selected ${providerName(provider)} route could not complete this request. Your question remains saved.`
 }[code]);
 
@@ -86,12 +88,17 @@ const consensusMarker = body => {
 };
 const matches = (event, step) => event?.role === step.role && (event.recipient ?? null) === (step.recipient ?? null);
 
-export function createConsultationService({ store, provider }) {
+export function createConsultationService({ store, provider: baseProvider }) {
   const controllers = new Map();
   const executions = new Map();
   let closing = false;
   const run = async (conversationId, runState) => {
     const controller = new AbortController(); controllers.set(conversationId, controller);
+    let phase = "initializing"; const startedAt = Date.now();
+    const provider = { invoke: input => {
+      phase = input.outputKind ?? "discussion";
+      return baseProvider.invoke({ ...input, onUsage: attempt => store.recordUsage(conversationId, attempt) });
+    } };
     const current = () => store.events(conversationId).then(events => {
       // Recovery notices stay in the saved transcript, but never count as a
       // completed consultant step or become evidence on a resumed attempt.
@@ -136,7 +143,7 @@ export function createConsultationService({ store, provider }) {
     try {
       if (!await isCurrent()) return;
       if (snapshot.contractVersion === "parallel-v1") {
-        await runParallelConsultation({ store, provider, conversationId, runState, signal: controller.signal, onProvider: value => { failedProvider = value; } });
+        await runParallelConsultation({ store, provider, conversationId, runState, signal: controller.signal, onProvider: (value, stage) => { failedProvider = value; phase = stage; } });
         return;
       }
       const first = await current();
@@ -329,6 +336,9 @@ export function createConsultationService({ store, provider }) {
       await store.finishRun(conversationId, runState.generation, "complete", deriveConversationTitle(first.owner));
     } catch (error) {
       if (!controller.signal.aborted) {
+        const code = ["provider_timeout", "provider_idle_timeout", "provider_contract", "team_review_contract", "auth_required", "quota_blocked", "incompatible", "context_too_large", "subscription_unavailable", "method_unavailable", "provider_unavailable", "language_policy", "output_policy", "invalid_run_state"].includes(error.message) ? error.message : "unexpected_failure";
+        const safePhase = ["initializing", "discussion", "head_plan", "head_assignment", "team_review", "order_assessment", "specialist_reply", "specialist_position", "critic_order_assessment", "public_research", "research_query", "head_final", "head_review_decision", "specialist_final", "critic_final", "critic_reply"].includes(phase) ? phase : "consultation_step";
+        process.stdout.write(`${JSON.stringify({ event: "nanoduck.consultation.failed", provider: failedProvider, phase: safePhase, code, durationMs: Date.now() - startedAt })}\n`);
         const body = providerFailureMessage(error.message, failedProvider) ?? (["language_policy", "output_policy"].includes(error.message) ? "This agent returned no usable answer after disallowed content was withheld and one correction attempt. Your question is saved; Retry resumes this step." : "The consultation paused before a confirmed response. Your saved discussion remains available.");
         await store.appendAgentMessage(conversationId, runState.generation, { role: "System", body, sources: [] });
         await store.finishRun(conversationId, runState.generation, "failed");

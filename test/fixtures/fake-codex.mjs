@@ -62,6 +62,11 @@ createInterface({ input: process.stdin, crlfDelay: Infinity }).on("line", line =
   if (request.method === "account/rateLimits/read") return send({ id: request.id, result: { rateLimits: { rateLimitReachedType: null } } });
   if (request.method === "turn/start") {
     const prompt = request.params?.input?.[0]?.text ?? "";
+    if (!prompt.includes("Without token usage")) {
+      const tokenUsage = { total: { inputTokens: 100, outputTokens: 40, totalTokens: 140, cachedInputTokens: 60, reasoningOutputTokens: 30 }, last: { inputTokens: 10, outputTokens: 4, totalTokens: 14, cachedInputTokens: 6, reasoningOutputTokens: 3 } };
+      for (let copy = 0; copy < 2; copy++) send({ method: "thread/tokenUsage/updated", params: { threadId: "isolated-thread", turnId: "turn-1", tokenUsage } });
+      for (const [threadId, turnId] of [["wrong-thread", "turn-1"], ["isolated-thread", "wrong-turn"]]) send({ method: "thread/tokenUsage/updated", params: { threadId, turnId, tokenUsage: { total: { ...tokenUsage.total, totalTokens: 99999 }, last: tokenUsage.last } } });
+    }
     if (prompt.includes("Exercise progress deadline")) {
       send({ id: request.id, result: { turn: { id: "turn-1", status: "inProgress" } } });
       const interval = setInterval(() => send({ method: "item/reasoning/summaryTextDelta", params: { threadId: "isolated-thread", turnId: prompt.includes("wrong turn") ? "other-turn" : "turn-1", delta: "private-reasoning-must-not-be-logged" } }), 40);

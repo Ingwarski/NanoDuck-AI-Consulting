@@ -139,6 +139,13 @@ const handler = async (request, response) => {
       }
       return send(response, 405, { error: "method_not_allowed" });
     }
+    if (request.method === "GET" && url.pathname === "/api/usage") {
+      if (!await protectedSession(request, response)) return;
+      const conversationId = url.searchParams.get("conversationId") ?? undefined;
+      if (conversationId !== undefined && !parseConversationId(conversationId)) return send(response, 422, { error: "invalid_conversation" });
+      const usage = await store.usageSummary(conversationId);
+      return usage ? send(response, 200, { usage }) : send(response, 404, { error: "not_found" });
+    }
     if (request.method === "GET" && url.pathname === "/api/conversations") { if (!await protectedSession(request, response)) return; return send(response, 200, { conversations: await store.listConversations() }); }
     if (request.method === "POST" && url.pathname === "/api/conversations") { if (!await protectedSession(request, response, { csrf: true })) return; return send(response, 201, { conversation: await store.createConversation() }); }
     if (request.method === "DELETE" && url.pathname === "/api/conversations") {

@@ -92,3 +92,7 @@ No material surface gap remains. The screen-map owner retains user-facing route 
 ## Parallel work within existing states
 
 S-02/ST-09 supports concise individual assignments and out-of-order worker completion in canonical commit order (UC-002; FR-02.9–FR-02.14). Reuse current message recipient labels for Critic orders, corrections and assessments; internal role guidance/IDs are not transcript messages. Existing status text distinguishes actual working, waiting for a dependency or provider queue, and completed work without a new dashboard. ST-16 preserves partial successful work and exposes Retry; ST-11 cancels all active workers. S-04/ST-21–ST-24 describes fixed 1/3/5 team-review counts and Auto separately (FR-05.3). S-07/ST-37–ST-38 distinguishes resolved advice from advice carrying unresolved/evidence-blocked orders. These are variants of existing states, not new routes or a new visual composition.
+
+## Critic reliability and model usage — 2026-09-25
+
+S-02 retains its existing discussion/record states and gains a Usage inspection panel alongside Discussion, Outcome and Sources. Panel states: loading, no recorded usage, reported/partial usage, and retryable load failure. A scope selector chooses this conversation or all saved conversations. Viewing counters never stops generation. Existing failure/continue states display the specific review or provider failure.

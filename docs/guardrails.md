@@ -39,3 +39,7 @@ No new authorization question blocks the scoped local refactor. Current provider
 ## Parallel planning and authority
 
 This reconciliation defines FR-02.9–FR-02.15 and its downstream plan; it authorizes no production edit, restart, provider call or sister-repository change. Head alone authors substantive roles/tasks/dependencies. The app may enforce schema, ownership, generation and permission boundaries but cannot invent or rewrite assignments, reject unfamiliar professions, judge compliance with a keyword heuristic or mark an order resolved because a consultant replied. Critic owns resolution judgments; Head handles remaining work or explicit provisional closure. Dynamic role guidance cannot override security, model choices or user depth. Keep full exact owner context while minimizing unrelated discussion; never trade missing deliverables for lower token counts. Preserve previous authorizations only for their historical scopes; release this new plan only after a later implementation prompt.
+
+## Critic reliability and model usage — 2026-09-25
+
+Keep usage counters inside authenticated private storage and existing recovery/deletion boundaries. Never infer absent usage as zero, reconstruct old usage from text length, treat cache discounts as subscription savings, or log private Critic content to explain errors. Exact model and effort remain owner choices. The current explicit request authorizes this scoped implementation; unrelated repositories remain out of scope.

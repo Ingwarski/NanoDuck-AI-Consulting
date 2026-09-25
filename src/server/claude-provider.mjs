@@ -1,3 +1,4 @@
+import { beginUsage, claudeTokens } from "./usage.mjs";
 import { ensurePrivateDirectory } from "./private-files.mjs";
 import { spawnIsolatedProcess, signalProcessTree } from "./child-process.mjs";
 import { mkdtemp, rm } from "node:fs/promises";
@@ -48,8 +49,15 @@ const sourcesFrom = text => {
 };
 
 const classifyFailure = result => {
-  if (result.timedOut || result.spawnFailed || result.inputFailed || result.exceeded || result.terminationFailed) return "provider_unavailable";
-  const text = `${result.stdout}\n${result.stderr}`.toLocaleLowerCase();
+  if (result.timedOut) return "provider_timeout";
+  if (result.spawnFailed || result.inputFailed || result.exceeded || result.terminationFailed) return "provider_unavailable";
+  let detail = result.stdout;
+  try {
+    const value = JSON.parse(result.stdout);
+    // Usage field names such as inputTokens are not authentication errors.
+    detail = [value?.result, value?.message, typeof value?.error === "string" ? value.error : value?.error?.message, ...(Array.isArray(value?.errors) ? value.errors : [])].filter(item => typeof item === "string").join("\n");
+  } catch { /* Plain CLI error text is classified without exposing it. */ }
+  const text = `${detail ?? ""}\n${result.stderr ?? ""}`.toLocaleLowerCase();
   if (/\b429\b|rate.?limit|quota|usage limit/iu.test(text)) return "quota_blocked";
   if (/\b(?:401|403)\b|auth(?:entication|orization)?|not logged in|oauth|token|credential/iu.test(text)) return "auth_required";
   if (/model.{0,80}(?:not found|unavailable|unsupported)|(?:invalid|unknown|unsupported) model|effort.{0,80}(?:not found|unavailable|unsupported)/iu.test(text)) return "incompatible";
@@ -70,6 +78,7 @@ const parseCompletion = (stdout, expectedModel) => {
 
 const subscriptionTypes = new Set(["pro", "max", "team", "enterprise"]);
 const authenticationStatus = (result, tokenMode) => {
+  if (result.timedOut) return "provider_unavailable";
   try {
     const parsed = JSON.parse(result.stdout);
     if (record(parsed) && parsed.loggedIn === true && result.exitCode === 0 && !result.timedOut && !result.aborted && !result.exceeded) {
@@ -87,7 +96,7 @@ const authenticationStatus = (result, tokenMode) => {
   return classifyFailure(result);
 };
 
-export const runClaudeCommand = ({ command, args, environment, cwd, signal, stdinText, timeoutMilliseconds = 540_000 }) => new Promise(resolve => {
+export const runClaudeCommand = ({ command, args, environment, cwd, signal, stdinText, timeoutMilliseconds = 1_800_000 }) => new Promise(resolve => {
   if (signal?.aborted) return resolve({ exitCode: null, stdout: "", stderr: "", aborted: true });
   const chunks = { stdout: [], stderr: [] }; const sizes = { stdout: 0, stderr: 0 };
   let settled = false; let timedOut = false; let exceeded = false; let inputFailed = false; let timeout; let killTimeout;
@@ -139,7 +148,7 @@ export function createClaudeProvider(config, { run = runClaudeCommand } = {}) {
         cwd: directory,
         signal,
         stdinText,
-        timeoutMilliseconds: args[0] === "auth" ? 20_000 : 540_000,
+        timeoutMilliseconds: args[0] === "auth" ? 20_000 : 1_800_000,
         environment: claudeEnvironment(config, directory)
       });
     } finally { await rm(directory, { recursive: true, force: true }); }
@@ -168,8 +177,15 @@ export function createClaudeProvider(config, { run = runClaudeCommand } = {}) {
       const runOnce = async assignment => {
         if (Buffer.byteLength(assignment, "utf8") > maxPromptBytes) return { kind: "failure", code: "context_too_large" };
         const args = ["--print", "--input-format", "text", "--output-format", "json", "--no-session-persistence", "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}', "--tools", "", "--disable-slash-commands", "--permission-mode", "dontAsk", "--disallowedTools", blockedTools, "--max-turns", "1", "--system-prompt", textOnlySystemPrompt, "--model", input.model, "--effort", cliEffort(input.effort)];
-        const result = await execute(args, input.signal, assignment);
+        const finishUsage = await beginUsage(input.onUsage, "claude_code", input.model);
+        const startedAt = Date.now();
+        let result;
+        try { result = await execute(args, input.signal, assignment); }
+        catch { await finishUsage(input.signal?.aborted ? "cancelled" : "failed"); throw new Error("provider_unavailable"); }
+        await finishUsage(input.signal?.aborted || result.aborted ? "cancelled" : result.exitCode === 0 && !result.timedOut ? "completed" : "failed", claudeTokens(result.stdout));
+        process.stdout.write(`${JSON.stringify({ event: "nanoduck.claude.call_finished", durationMs: Date.now() - startedAt, outcome: result.aborted ? "cancelled" : result.timedOut ? "provider_timeout" : result.exitCode === 0 ? "completed" : classifyFailure(result) })}\n`);
         if (input.signal?.aborted || result.aborted) return { kind: "cancelled" };
+        if (result.timedOut || result.exceeded || result.inputFailed || result.spawnFailed || result.terminationFailed) return { kind: "failure", code: classifyFailure(result) };
         const completion = result.exitCode === 0 ? parseCompletion(result.stdout, input.model) : undefined;
         if (completion?.incompatible) return { kind: "failure", code: "incompatible" };
         if (!completion) return { kind: "failure", code: classifyFailure(result) };

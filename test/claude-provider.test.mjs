@@ -258,7 +258,7 @@ test("native Claude subscription sign-in keeps the CLI credential identity and s
   const completion = calls.at(-1);
   assert.equal(completion.args[completion.args.indexOf("--mcp-config") + 1], '{"mcpServers":{}}');
   assert.equal(completion.args[completion.args.indexOf("--disallowedTools") + 1].includes("mcp__*"), true);
-  assert.equal(calls[0].timeoutMilliseconds, 20_000); assert.equal(completion.timeoutMilliseconds, 540_000);
+  assert.equal(calls[0].timeoutMilliseconds, 20_000); assert.equal(completion.timeoutMilliseconds, 1_800_000);
 });
 
 test("explicit Claude OAuth token overrides native sign-in without sharing its home", async () => {
@@ -305,5 +305,23 @@ test("Claude refuses paid credential sources and distinguishes connection failur
     assert.deepEqual(await provider.inspect(), { status: expected, models: [] });
     assert.deepEqual(await provider.invoke(criticInput), { ok: false, code: expected });
     assert.equal(calls.every(call => call.args.includes("auth")), true, "Denied authorization must never reach a model turn");
+  }
+});
+
+test("Claude records each internal retry and error usage before rejecting output, with truthful timeout status", async () => {
+  for (const mode of ["retry", "timeout", "failed"]) {
+    const records = []; let calls = 0;
+    const provider = createClaudeProvider({ claudeCommand: "claude", claudeOAuthToken: "synthetic" }, { run: async input => {
+      if (input.args.includes("auth")) return { exitCode: 0, stdout: JSON.stringify({ loggedIn: true, authMethod: "oauth_token", apiProvider: "firstParty" }), stderr: "" };
+      assert.equal(input.timeoutMilliseconds, 1_800_000);
+      calls++;
+      return { exitCode: mode === "failed" ? 1 : 0, timedOut: mode === "timeout", stderr: "", stdout: JSON.stringify({ subtype: mode === "failed" ? "error_max_turns" : "success", result: mode === "retry" && calls === 1 ? '<tool_use name="Bash">pwd</tool_use>' : "The pilot should measure demand.", modelUsage: { "claude-opus-5": { inputTokens: 2, cacheReadInputTokens: 60, cacheCreationInputTokens: 38, outputTokens: 40 } } }) };
+    } });
+    const result = await provider.invoke({ ...criticInput, onUsage: value => records.push(value) });
+    assert.equal(result.code, mode === "timeout" ? "provider_timeout" : mode === "failed" ? "provider_unavailable" : undefined);
+    assert.equal(calls, mode === "retry" ? 2 : 1);
+    const finished = records.filter(item => item.finishedAt);
+    assert.equal(finished.length, calls); assert.equal(new Set(finished.map(item => item.id)).size, calls);
+    assert.equal(finished.every(item => item.usage[0].tokens.total === 140), true);
   }
 });

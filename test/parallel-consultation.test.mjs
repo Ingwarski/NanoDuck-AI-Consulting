@@ -231,3 +231,47 @@ test("a later owner correction reaches every new participant once, without repla
     else assert.equal(call.evidence.discussion.includes("Consolidated advice"), false);
   }
 });
+
+test("multiple Critic findings for one consultant become one complete order and one reply", async () => {
+  const sample = await fixture(); const calls = [];
+  const defects = [
+    { assignment: 1, issue: "The demand number lacks evidence.", correction: "Replace it with a measured preorder count." },
+    { assignment: 2, issue: "Capacity excludes packing.", correction: "Include packing time in the capacity estimate." },
+    { assignment: 1, issue: "The trial has no stop condition.", correction: "State a measurable stop condition." }
+  ];
+  await start(sample, { async invoke(input) {
+    calls.push(input);
+    const body = input.outputKind === "team_review" ? JSON.stringify({ summary: "Three material defects need correction.", findings: defects })
+      : input.outputKind === "specialist_reply" ? "Use a measured preorder count, a measurable stop condition and packing time in the estimate."
+      : input.outputKind === "critic_order_assessment" ? JSON.stringify({ assessments: [...input.evidence.discussion.matchAll(/order ([A-Za-z0-9_-]{32})/gu)].map(match => ({ orderId: match[1], state: "resolved_corrected", reason: "The requested measures and conditions are now supplied." })) })
+      : answer(input);
+    return { ok: true, body, sources: [] };
+  } });
+  await waitFor(async () => (await sample.store.run(sample.id)).status === "complete");
+  const work = (await sample.store.run(sample.id)).snapshot.parallelWork;
+  assert.equal(work.orders.length, 2);
+  const first = work.orders.find(item => item.assignmentId === work.assignments[0].id);
+  for (const defect of [defects[0], defects[2]]) { assert.ok(first.issue.includes(defect.issue)); assert.ok(first.correction.includes(defect.correction)); }
+  assert.equal(work.orders.every(order => order.state === "resolved_corrected"), true);
+  assert.equal(calls.filter(input => input.outputKind === "team_review").length, 1, "Valid repeated recipients never spend a format-repair call");
+  assert.equal(calls.filter(input => input.outputKind === "specialist_reply").length, 2);
+  assert.equal(calls.filter(input => input.outputKind === "critic_order_assessment").length, 1);
+});
+
+for (const repaired of [true, false]) test(`malformed Critic review is repaired once; repair success=${repaired}`, async () => {
+  const sample = await fixture(); let reviews = 0;
+  const service = await start(sample, { async invoke(input) {
+    if (input.outputKind === "team_review" && ++reviews <= (repaired ? 1 : 2)) return { ok: true, body: "The review omitted its JSON structure.", sources: [] };
+    return { ok: true, body: answer(input), sources: [] };
+  } });
+  await waitFor(async () => (await sample.store.run(sample.id)).status === (repaired ? "complete" : "failed"));
+  assert.equal(reviews, 2);
+  const run = await sample.store.run(sample.id);
+  assert.equal(Object.keys(run.snapshot.parallelWork.results).length, 2);
+  if (!repaired) {
+    assert.match((await sample.store.events(sample.id)).at(-1).body, /Critic review.*one format repair/);
+    await service.continue(sample.id);
+    await waitFor(async () => (await sample.store.run(sample.id)).status === "complete");
+    assert.equal((await sample.store.events(sample.id)).filter(event => event.role === "Demand Analyst").length, 1);
+  }
+});

@@ -53,3 +53,7 @@ Internal-only terms include run generation, process ownership, event cursor, mod
 | Critic order | Specific defect and required correction linked to a result and recipient | A response is not a resolution |
 | Resolution assessment | Critic’s decision on a referenced correction or supported objection | Blocked/unresolved is never passed |
 | Worker | Application-managed separate model invocation executing Head’s work | No native subagent feature or extra AI orchestrator |
+
+## Critic reliability and model usage — 2026-09-25
+
+**Usage attempt**: one application-dispatched provider inference attempt, including a retry. **Reported tokens**: provider-measured counts, never estimates from characters. **Unavailable usage**: a call/category for which no trustworthy count was returned. **Total input** includes cache reads/writes; cached input and reasoning output are breakdowns, not amounts to add again. **All saved conversations** excludes deleted conversations and unrelated applications.

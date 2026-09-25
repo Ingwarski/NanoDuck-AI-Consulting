@@ -1,6 +1,6 @@
 # Development plan
 
-24 September 2026 · Status: **U-09 planned; awaiting a separate implementation prompt**. The application remains a local macOS/Linux/Windows web project reachable on the same Wi-Fi/LAN. The two sister repositories are handoff targets only and are not changed here.
+25 September 2026 · Status: **U-09 initial implementation present; Critic reliability and token usage follow-up authorized**. The application remains a local macOS/Linux/Windows web project reachable on the same Wi-Fi/LAN. The two sister repositories are handoff targets only and are not changed here.
 
 ## Source References
 
@@ -42,7 +42,7 @@ Replace fictional content, remove inspection/version scaffolding, wire real serv
 
 **Source trace:** All JOB-001–JOB-006, UC-001–UC-007, J-01–J-07 indirectly; enables every runtime surface. Exact clause allocation appears below; architecture's corresponding boundary controls the mechanism.
 
-**Work:** Verify supported Node versions and portable setup/start on macOS, Linux and Windows. Preserve every exact model, effort, specialist count and depth defined by model-settings.md; show unavailable choices honestly. Resolve local subscription authentication through CODEX_HOME or the current user home without public machine-specific paths. Optional Claude uses the local user’s native first-party subscription sign-in, with a matching configured/default credential identity, or a separately configured isolated subscription token. Recheck subscription status before invocation; no browser credential form or API billing route is introduced. Retain isolated role subprocesses, restricted research, cancellation and the 540000 ms deadline. Inspect browser speech capability rather than assuming it exists; typing is always supported. Verify actual local LAN addresses, certificate trust procedures and filesystem protection before dependent security runs. Use fictional/minimized fixtures and never place keys, passwords or private provider material in Git.
+**Work:** Verify supported Node versions and portable setup/start on macOS, Linux and Windows. Preserve every exact model, effort, specialist count and depth defined by model-settings.md; show unavailable choices honestly. Resolve local subscription authentication through CODEX_HOME or the current user home without public machine-specific paths. Optional Claude uses the local user’s native first-party subscription sign-in, with a matching configured/default credential identity, or a separately configured isolated subscription token. Recheck subscription status before invocation; no browser credential form or API billing route is introduced. Retain isolated role subprocesses, restricted research, cancellation and the provider-specific deadlines in FR-05.3. Inspect browser speech capability rather than assuming it exists; typing is always supported. Verify actual local LAN addresses, certificate trust procedures and filesystem protection before dependent security runs. Use fictional/minimized fixtures and never place keys, passwords or private provider material in Git.
 
 **Acceptance:** A dated capability table separates actual results from untested operating systems, browsers, provider accounts and speech services. Supported Node versions are ^22.13.0 or ^24.0.0. No silent model substitution, paid fallback or unsupported compatibility claim is introduced. Resolve a material conflict through the responsible owner before dependent implementation.
 
@@ -83,7 +83,7 @@ Replace fictional content, remove inspection/version scaffolding, wire real serv
 
 **Source trace:** JOB-001/JOB-002 → UC-002/UC-003 → J-02/J-03/J-05/J-06 → S-02/ST-05–ST-17 and S-07/ST-37–ST-38. Exact clause allocation appears below; architecture's corresponding boundary controls the mechanism.
 
-**Work:** Maintain accepted-message durability, idempotency, one-active-run ownership, exact settings/instruction snapshots, policy-safe provider transport, Stop/Continue and complete final deliverables. U-09 now owns the planned replacement of sequential role/message-position execution, fixed roster, mandatory Critic pairs and closing speeches with Head-authored dynamic parallel work and explicit order resolution. Until U-09 implementation, those mechanisms remain legacy behavior, not proof of current requirements.
+**Work:** Maintain accepted-message durability, idempotency, one-active-run ownership, exact settings/instruction snapshots, policy-safe provider transport, Stop/Continue and complete final deliverables. U-09 owns the replacement of sequential role/message-position execution, fixed roster, mandatory Critic pairs and closing speeches with Head-authored dynamic parallel work and explicit order resolution. Those mechanisms remain available only for accepted legacy runs; newly accepted parallel-v1 runs use U-09.
 
 **Acceptance:** Existing authentication, language/source boundaries, exact models, public research isolation, complete owner text and saved history remain intact. U-09 supplies the new orchestration acceptance; prior U-04 evidence cannot establish parallelism or verified Critic compliance.
 
@@ -149,7 +149,7 @@ Replace fictional content, remove inspection/version scaffolding, wire real serv
 
 ### U-09 — Parallel Head-led consultation and verified Critic orders
 
-**Status/owner/layer:** planned, not implemented; authorized implementation operator after a later explicit prompt; full-stack with provider integration. This is one end-to-end feature unit comprising the ten steps below, not ten unrelated deliveries.
+**Status/owner/layer:** initial implementation present; current scoped follow-up explicitly authorized; implementation operator; full-stack with provider integration. This is one end-to-end feature unit comprising the ten steps below, not ten unrelated deliveries.
 
 **Source trace:** JOB-001/JOB-002/JOB-003 → UC-002/UC-003/UC-005 → J-03/J-05/J-07 → S-02/ST-09–ST-17 (including ST-09, ST-11, ST-16), S-04/ST-21–ST-24 (including ST-21), S-07/ST-37–ST-38 (ST-37, ST-38). FR-02.3, FR-02.4, FR-02.5, FR-02.6, FR-02.7, FR-02.9, FR-02.10, FR-02.11, FR-02.12, FR-02.13, FR-02.14, FR-02.15, FR-03.1, FR-03.3, FR-03.4, FR-03.5, FR-05.2, FR-05.3, NFR-01.1, NFR-01.2, NFR-01.3, NFR-01.4 and affected security clauses. Dependencies: existing U-01 provider seam, U-02 store, U-03 UI/settings, U-04 legacy coordinator and U-05 evidence. U-07 consumes record compatibility; U-08 performs final integrated verification after U-09.
 
@@ -310,7 +310,7 @@ No further aesthetic or product-intent decision blocks implementation. Actual OS
 
 ## Handoff and implementation boundary
 
-This revised plan is documentation-only and awaits a separate implementation prompt. Earlier refactor/P5/provider repair receipts remain historical authority for their exact scopes; they do not authorize U-09. After owner reconciliation and checker success, the orchestrator records the new plan hash and retained baseline with `state: awaiting-implementation-prompt` and `implementation_gate.state: awaiting_implementation_prompt`. All new checks remain prepared/not_run and release readiness not_evaluated.
+The original planning handoff was documentation-only. The owner subsequently authorized U-09, now present in the repository; the current explicit repair and usage request authorizes the scoped follow-up below. Earlier refactor/P5/provider repair receipts remain historical authority for their exact scopes; their authority remains limited to those scopes. After owner reconciliation and checker success, the orchestrator records the new plan hash and retained baseline with `state: awaiting-implementation-prompt` and `implementation_gate.state: awaiting_implementation_prompt`. All new checks remain prepared/not_run and release readiness not_evaluated.
 
 ## Historical browser, research and provider repair handoff
 
@@ -348,4 +348,8 @@ The owner’s 23 September 2026 implementation request authorizes this checkout�
 
 ## Latest planning authority
 
-U-09 is the current ten-step planned correction, including the complete Critic fulfillment lifecycle. Historical repair sections above retain their provenance and do not override the revised PRD/depth/context contract or release this unit. Current state: awaiting-implementation-prompt.
+U-09 is the ten-step correction, including the complete Critic fulfillment lifecycle; its initial implementation is present at 7978da8. Historical repair sections above retain their provenance and do not override the revised PRD/depth/context contract or release this unit. Current state: implementation-in-progress for the authorized Critic reliability and usage follow-up.
+
+## Critic reliability and model usage — 2026-09-25
+
+Current correction unit: U-09 follow-up with U-03 provider and U-07 persistence seams; explicitly authorized by the current [implementation request](../forge/runs/critic-usage-20260925/scope.json). Deliver as one full-stack change: (1) bundle Critic findings and repair malformed review once; (2) finite Claude timeout and content-free failure diagnostics; (3) native per-attempt usage normalization; (4) validated encrypted storage and recovery/deletion; (5) authenticated aggregation API; (6) additive Usage tab; (7) regressions and browser verification; (8) sister-repository port instructions. Interfaces: adapters produce usage attempts; store owns durable records; API exposes summaries; client renders only authenticated totals. Existing U-09 trace UC-002/UC-004, S-02 and QA-R22/R64/R66/R67 applies, with unchanged baseline plus Usage variance. No frozen prototype reuse is introduced. U-09 initial implementation at 7978da8 is observed repository evidence; earlier “awaiting” sections describe the dated planning handoff, not current authority. Keep release readiness not_evaluated until all required evidence exists.

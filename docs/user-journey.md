@@ -37,3 +37,7 @@ The local-network phone/desktop scenarios and critical voice/control tasks still
 ## Parallel review and recovery consequences
 
 J-03 (JOB-001, UC-002; FR-02.9–FR-02.15): the owner sees concise individual Head assignments, including newly named specialists, then results as ready. Internal role instructions and context revisions remain hidden. Fixed 1/3/5 review depth is honored; Auto permits Head-selected closure. The owner can follow an exact Critic finding through correction and resolution without reading repeated background or a technical log. J-05 (JOB-002, UC-003; FR-03.5) retains Stop-first context changes and per-task recovery: completed work survives another worker’s failure, and unresolved findings cannot disappear during Retry. A final evidence gap is an honest limitation, not fabricated completion.
+
+## Critic reliability and model usage — 2026-09-25
+
+J-02/J-03, UC-002/UC-003: multiple Critic defects become one complete correction assignment; a malformed review is repaired once, and a terminal failure explains the stage/cause, preserves work and offers Continue. J-06, UC-004: open Usage within Discussion, compare this conversation with all saved conversations, inspect reported counts and coverage, then return to Discussion without affecting the run.

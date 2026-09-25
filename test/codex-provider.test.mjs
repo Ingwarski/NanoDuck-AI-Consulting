@@ -185,3 +185,19 @@ createInterface({ input: process.stdin }).on('line', line => { const message = J
     assert.throws(() => process.kill(observed.pid,0), { code: "ESRCH" });
   } finally { await rm(root, { recursive: true, force: true }); }
  });
+
+test("Codex usage captures cumulative matching-turn counts once, including failed and cancelled turns", async () => {
+  for (const assignment of ["Give a practical answer.", "Fail after a completed item", "Wait until cancelled", "Without token usage"]) {
+    const records = []; const controller = new AbortController();
+    const provider = createCodexProvider({ readyForProvider: true, codexCommand: process.execPath, codexCommandArgs: [fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url))] });
+    const timer = assignment === "Wait until cancelled" ? setTimeout(() => controller.abort(), 200) : null;
+    try {
+      await provider.invoke({ assignment, model: "gpt-6-sol", effort: "medium", evidence: { owner: "Synthetic usage check", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions, signal: controller.signal, onUsage: value => records.push(value) });
+      assert.equal(records.length, 2); assert.equal(records[0].id, records[1].id);
+      assert.equal(records[0].status, "running");
+      if (assignment === "Without token usage") assert.deepEqual(records[1].usage, []);
+      else assert.equal(records[1].usage[0].tokens.total, 140, "Do not sum total+last, duplicate events or other turns");
+      assert.equal(records[1].status, assignment.includes("cancelled") ? "cancelled" : assignment.startsWith("Fail") ? "failed" : "completed");
+    } finally { clearTimeout(timer); }
+  }
+});

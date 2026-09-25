@@ -137,7 +137,7 @@ function clearPrivateClientContent() {
   clientGeneration++;
   for (const controller of activeRequests) controller.abort();
   activeRequests.clear(); stopPolling(); releaseVoice();
-  state.conversation = null; state.events = []; state.run = null;
+  state.conversation = null; state.events = []; state.run = null; usageRequest++; panelUsageSignature = undefined;
   state.attachmentFiles = []; state.attachmentError = ""; state.pendingSubmissions.clear();
   state.runtimeInstructionHistory = []; state.documents = []; state.conversations = [];
   state.selectedConversationIds.clear(); state.criticSettings = null; state.criticProviders = null;
@@ -150,7 +150,7 @@ function clearPrivateClientContent() {
   for (const field of document.querySelectorAll("textarea, input")) { field.value = ""; if (field.type === "checkbox") field.checked = false; }
   for (const select of document.querySelectorAll("select")) select.selectedIndex = Math.max(0, [...select.options].findIndex(option => option.defaultSelected));
   for (const element of document.querySelectorAll("[data-revision], [data-name], [data-history-id], [data-current]")) for (const key of ["revision", "name", "historyId", "current"]) delete element.dataset[key];
-  for (const selector of ["#thread", "#outcome", "#sources", "#conversation-list", "#conversation-toolbar", "#attachment-list", "#runtime-instruction-history", "#managed-document-history", "#settings-status", "#runtime-instructions-status", "#managed-document-status", "#session-expiry", "#runtime-instructions-version-meta", "#message-announcement", "#voice-timer", "#toast"]) $(selector)?.replaceChildren();
+  for (const selector of ["#thread", "#outcome", "#sources", "#usage-content", "#usage-status", "#conversation-list", "#conversation-toolbar", "#attachment-list", "#runtime-instruction-history", "#managed-document-history", "#settings-status", "#runtime-instructions-status", "#managed-document-status", "#session-expiry", "#runtime-instructions-version-meta", "#message-announcement", "#voice-timer", "#toast"]) $(selector)?.replaceChildren();
   clearTimeout(toast.timer); $("#toast").hidden = true; $("#app").hidden = true; $("#consent").hidden = true; $("#sign-in").hidden = true;
 }
 
@@ -456,7 +456,7 @@ function renderCriticControls(preserveEffort = true) {
   replaceOptions($("#critic-reasoning"), modelEffortOptions(current, selectedEffort, preserveEffort, effortLabel), selectedEffort);
   const unavailable = provider === "claude_code" && capability.status !== "ready";
   $("#critic-model").disabled = unavailable; $("#critic-reasoning").disabled = unavailable || Boolean(current.disabled);
-  $("#settings-status").textContent = [criticProviderStatus("codex"), ...(provider === "claude_code" ? [criticProviderStatus("claude_code")] : []), "Usage totals and reset time are unavailable."].join(" ");
+  $("#settings-status").textContent = [criticProviderStatus("codex"), ...(provider === "claude_code" ? [criticProviderStatus("claude_code")] : []), "Account-wide subscription usage and reset time are unavailable. Conversation token counts are in Discussion → Usage."].join(" ");
   if (unavailable) showCriticConnectionStatus(claudeConnectionMessage());
 }
 async function loadSettings() {
@@ -680,14 +680,66 @@ function startPolling() {
       const { data } = await request(`/api/conversations/${conversationId}`);
       if (generation !== pollGeneration || state.conversation?.id !== conversationId) return;
       const previous = state.events; state.conversation = data.conversation; state.events = data.events; state.run = data.run;
-      announceIncomingMessages(previous, state.events); renderEvents(); if (state.run?.status !== "active") stopPolling();
+      announceIncomingMessages(previous, state.events); renderEvents(); if (state.tab === "usage" && state.page === "discussion") void loadUsage({ quiet: true }); if (state.run?.status !== "active") stopPolling();
     } catch { if (generation === pollGeneration) stopPolling(); }
     finally { pending = false; }
   }, 2_000);
 }
 function stopPolling() { pollGeneration++; if (state.poll) clearInterval(state.poll); state.poll = null; }
 
-function setTab(tab) { state.tab = tab; document.querySelectorAll("[data-tab]").forEach(button => button.setAttribute("aria-selected", String(button.dataset.tab === tab))); $("#thread").hidden = tab !== "discussion"; renderRunControls(); $("#outcome").hidden = tab !== "outcome"; $("#sources").hidden = tab !== "sources"; }
+let usageRequest = 0;
+const tokenNumber = value => value === null ? "Unavailable" : new Intl.NumberFormat().format(value);
+function renderUsage(usage) {
+  const panel = clear($("#usage-content"));
+  panel.append(node("p", { class: "usage-total" }, tokenNumber(usage.total)), node("p", { class: "hint" }, "Reported tokens · input + output"));
+  const note = usage.attempts ? `${usage.attempts} call attempts · ${usage.incomplete} running or interrupted · ${usage.unavailable} without complete usage. First recorded call: ${formatDate(usage.startedAt)}.` : "No model calls have been recorded in this view yet.";
+  panel.append(node("p", { class: "usage-coverage" }, note), node("p", { class: "hint" }, "Calls made before tracking was added are not included. Missing counts are unavailable, never estimated. These are NanoDuck conversation totals, not your account’s subscription allowance."));
+  for (const model of usage.models) {
+    const row = node("article", { class: "usage-model" });
+    row.append(node("h3", {}, model.model), node("p", { class: "hint" }, `${model.provider === "claude_code" ? "Claude Code" : "Codex"} · ${model.calls} call attempts`));
+    const metric = (label, field) => {
+      const value = model.tokens[field]; const group = node("div");
+      group.append(node("dt", {}, label), node("dd", {}, tokenNumber(value.value)));
+      if (value.unavailable && value.value !== null) group.append(node("small", { class: "hint" }, `${value.unavailable} call(s) unreported`));
+      return group;
+    };
+    const main = node("dl", { class: "usage-metrics" });
+    main.append(metric("Input", "input"), metric("Output", "output"), metric("Total", "total")); row.append(main);
+    const details = node("details"); details.append(node("summary", {}, "Cache and reasoning breakdown"));
+    const breakdown = node("dl", { class: "usage-metrics" });
+    breakdown.append(metric("Cache read", "cachedInput"), metric("Cache write", "cacheWriteInput"), metric("Reasoning output", "reasoningOutput"));
+    details.append(breakdown, node("p", { class: "hint" }, "These are included in input or output totals. They are not added again.")); row.append(details); panel.append(row);
+  }
+}
+async function loadUsage({ quiet = false } = {}) {
+  const requestId = ++usageRequest; const conversationId = state.conversation?.id;
+  const select = $("#usage-scope"); select.options[0].disabled = !conversationId;
+  if (!conversationId) select.value = "all";
+  const scope = select.value;
+  if (!quiet) { clear($("#usage-content")); $("#usage-status").textContent = "Loading usage…"; }
+  try {
+    const { data } = await request(`/api/usage${scope === "conversation" ? `?conversationId=${encodeURIComponent(conversationId)}` : ""}`);
+    if (requestId !== usageRequest || state.tab !== "usage" || conversationId !== state.conversation?.id || scope !== select.value) return;
+    const signature = JSON.stringify(data.usage);
+    if (panelUsageSignature !== signature || !$("#usage-content").childNodes.length) { renderUsage(data.usage); panelUsageSignature = signature; }
+    $("#usage-status").textContent = "Usage updates as provider calls finish.";
+  } catch {
+    if (requestId === usageRequest && !privacyLocked && state.session?.authenticated) $("#usage-status").textContent = "Usage could not refresh. Any shown counts may be out of date. Choose Refresh usage to try again.";
+  }
+}
+document.querySelector(".tabs").addEventListener("keydown", event => {
+  if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+  const tabs = [...document.querySelectorAll("[data-tab]")]; const index = tabs.indexOf(event.target);
+  if (index < 0) return;
+  event.preventDefault();
+  const next = event.key === "Home" ? 0 : event.key === "End" ? tabs.length - 1 : (index + (event.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length;
+  setTab(tabs[next].dataset.tab); tabs[next].focus();
+});
+let panelUsageSignature;
+$("#usage-scope").addEventListener("change", () => void loadUsage());
+$("#usage-refresh").addEventListener("click", () => void loadUsage());
+
+function setTab(tab) { state.tab = tab; document.querySelectorAll("[data-tab]").forEach(button => { button.setAttribute("aria-selected", String(button.dataset.tab === tab)); button.tabIndex = button.dataset.tab === tab ? 0 : -1; }); $("#thread").hidden = tab !== "discussion"; renderRunControls(); $("#outcome").hidden = tab !== "outcome"; $("#sources").hidden = tab !== "sources"; $("#usage").hidden = tab !== "usage"; if (tab === "usage") void loadUsage(); }
 
 const recognitionConstructor = () => window.SpeechRecognition ?? window.webkitSpeechRecognition;
 const browserLanguage = () => {

@@ -28,3 +28,26 @@
 .sound-notice{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 0 20px}.sound-notice .hint{margin:0}.sound-notice button{flex-shrink:0}@media(max-width:700px){.topic{gap:24px}.sound-notice{align-items:flex-start;gap:12px}.sound-notice button{max-width:140px}}
 
 .topic[data-active="true"]{position:sticky;top:96px;z-index:12;padding-top:12px;background:var(--canvas)}@media(max-width:700px){.topic[data-active="true"]{top:86px}}@media(forced-colors:active){.stop-symbol{background:ButtonText;forced-color-adjust:none}.stop-consultation{border-color:ButtonText}}
+
+/* Usage stays within the existing consultation panel and Electric type scale. */
+.usage-heading { display: flex; align-items: start; justify-content: space-between; gap: 24px; }
+.usage-heading h2 { margin-top: 8px; }
+.usage-heading label { min-width: 200px; }
+.usage-total { font-size: clamp(32px, 6vw, 52px); font-weight: 650; line-height: 1.15; margin: 24px 0 8px; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.usage-coverage { margin-top: 24px; }
+.usage-model { border-top: 1px solid var(--line); padding: 24px 0; }
+.usage-model h3 { overflow-wrap: anywhere; margin: 0 0 8px; }
+.usage-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; font-variant-numeric: tabular-nums; }
+.usage-metrics dt { font-size: 13px; color: var(--muted); }
+.usage-metrics dd { margin: 8px 0 0; font-size: 22px; overflow-wrap: anywhere; }
+.usage-model summary { cursor: pointer; padding: 12px 0; }
+@media (max-width: 560px) {
+  .usage-heading { flex-direction: column; gap: 8px; }
+  .usage-heading label { width: 100%; min-width: 0; }
+  .usage-metrics { gap: 10px; }
+  .usage-metrics dd { font-size: 17px; }
+  .tabs { gap: 12px; }
+  .tabs button { font-size: 14px; min-width: 44px; }
+}
+.usage-heading select { display: block; width: 100%; min-height: 44px; margin-top: 6px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--ink); font-size: 16px; }
+.usage-model summary:focus-visible { outline: 3px solid var(--blue-light); outline-offset: 3px; }

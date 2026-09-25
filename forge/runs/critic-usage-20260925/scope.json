@@ -1,0 +1,9 @@
+{
+  "id": "critic-usage-20260925",
+  "received_at": "2026-09-25T19:55:40.215562+00:00",
+  "request": "1. fix all this. 2. i need a token usage counter for all used models.",
+  "scope": "Fix valid repeated-assignment Critic findings, malformed-review repair, Claude inference timeout and safe failure diagnostics; add durable provider/model token usage for current and all saved conversations. Preserve exact model/effort, user depth, complete context and existing security boundaries.",
+  "baseline": "nanoduck-electric-a-v8-20260914",
+  "permitted_variance": "Add a Usage tab within the existing Discussion view using Electric A v8 tokens. Keep the frozen prototype and P5 Stop control unchanged.",
+  "authority": "Explicit user implementation request; scoped existing-product correction."
+}

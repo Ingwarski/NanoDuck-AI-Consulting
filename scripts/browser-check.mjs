@@ -1,3 +1,4 @@
+import { verifyUsage } from './browser-usage.mjs';
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
 import { once } from 'node:events';
@@ -85,6 +86,7 @@ try {
       const page = await context.newPage(); const errors = [];
       page.on('pageerror', error => errors.push(error.message));
       await recordNotificationPlayback(page);
+      assert.equal((await context.request.get(`${origin}/api/usage`)).status(), 401, 'Usage is private before sign-in');
       await page.goto(origin);
       await page.locator('#sign-in').waitFor({ state: 'visible' });
       await page.getByLabel('Workspace password', { exact: true }).fill(password);
@@ -92,6 +94,23 @@ try {
       await page.locator('#consent-check').check();
       await page.locator('#consent-button').click();
       await page.locator('#app').waitFor({ state: 'visible' });
+      if (process.argv.includes('--usage-only')) {
+        await mkdir(join(root, 'output', 'playwright'), { recursive: true });
+        await page.locator('#new-conversation').click();
+        await page.waitForFunction(() => document.querySelector('#thread .empty'));
+        await page.locator('#message').fill(`Synthetic ${name} usage: assess a fictional bakery pilot.`);
+        await page.locator('#send').click();
+        await page.waitForFunction(() => document.querySelector('#run-status').textContent.toLowerCase().includes('complete'), undefined, { timeout: 30_000 });
+        await verifyUsage(page, name, root);
+        await page.locator('[data-session-action]').click();
+        await page.locator('#sign-in').waitFor({ state: 'visible' });
+        assert.equal(await page.locator('#usage-content').textContent(), '', 'Logout clears private model counts');
+        assert.equal((await context.request.get(`${origin}/api/usage`)).status(), 401, 'Usage is private after logout');
+        assert.deepEqual(errors, []);
+        console.log(`${name}: authenticated usage, exact counts, scope, keyboard, 320px reflow, failure/retry and reload passed.`);
+        await context.close();
+        continue;
+      }
       await phase(`${name} independent model settings`, () => verifyModelSettings(page, name));
       await phase(`${name} provider connection recovery`, () => verifyProviderConnection(page, name));
       await phase(`${name} native audio`, () => verifyNotificationAudio(page, name));
@@ -99,6 +118,7 @@ try {
       await phase(`${name} acceptance retry`, () => verifyLostAcceptanceRetry(page, name));
       await page.waitForFunction(() => document.querySelector('#run-status').textContent.toLowerCase().includes('complete'), undefined, { timeout: 30_000 });
       assert.match(await page.locator('#thread').innerText(), /Critic/);
+      await phase(`${name} model usage`, () => verifyUsage(page, name, root));
       assert.equal(await page.locator('#thread .message[data-role="Buyer Demand Analyst"] .avatar').innerText(), 'BD', 'Dynamic consultant initials are visible and safe');
       assert.equal(await page.locator('#composer').isVisible(), true, 'Completion restores composer');
       await page.getByRole('tab', { name: 'Outcome', exact: true }).click();
@@ -110,7 +130,7 @@ try {
       await page.waitForFunction(() => document.querySelector('#settings-status').textContent.includes('Codex'));
       await page.waitForFunction(() => document.querySelector('#managed-document-markdown').value.length > 0);
       assert.doesNotMatch(await page.locator('#settings-status').innerText(), /Claude/);
-      assert.match(await page.locator('#settings-status').innerText(), /Usage totals and reset time are unavailable/);
+      assert.match(await page.locator('#settings-status').innerText(), /Account-wide subscription usage and reset time are unavailable/);
       await page.locator('#notification-sound').selectOption('off');
       await page.getByRole('button', { name: 'Save settings', exact: true }).click();
       await page.waitForFunction(() => document.querySelector('#toast').textContent.includes('Settings saved')).catch(async error => { throw new Error(`${error.message}: ${await page.locator('#toast').innerText()}`); });
