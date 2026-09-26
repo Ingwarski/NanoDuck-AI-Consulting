@@ -75,3 +75,17 @@ Test mixed efforts on one model, unchanged totals, mismatched snapshots and
 multi-request histories. Compare saved runs before spending tokens on new probes;
 report consultant count, research actions, corrections, cache use and latency,
 and distinguish observed differences from causal or quality claims.
+
+## Activity counts follow-up
+
+Expose a scoped `activity` summary with consultant assignments, issued review
+rounds, issued correction orders, research call attempts and web actions.
+`store.mjs` supplies counts from the saved parallel ledger (assignments, rounds,
+orders). Flag incomplete historical coverage if earlier owner requests are not
+in that ledger. `usage.mjs` counts `public_research` attempts and sums their
+reported `webSearchCount` values. Unknown stages or missing telemetry remain
+unknown/partial; a saved conversation without recorded attempts is not proof of
+zero research. Count retries as calls, never as additional consultants or rounds.
+Render all five metrics in Usage with labels and coverage; respect its selected
+conversation/all-conversations scope. Test exact counts, aggregated ledgers,
+legacy gaps, running telemetry and narrow-screen rendering.

@@ -88,7 +88,13 @@ export function createMemoryStore(initialState = undefined) {
     },
     async usageSummary(conversationId = undefined) {
       if (conversationId && (!conversations.has(conversationId) || conversations.get(conversationId).deletedAt)) return undefined;
-      return summarizeUsage([...conversations.values()].filter(item => !item.deletedAt && (!conversationId || item.id === conversationId)).map(item => ({ conversationId: item.id, usage: (usage.get(item.id) ?? []).map(attempt => usageWithSavedEffort(attempt, runs.get(item.id)?.snapshot, (messages.get(item.id) ?? []).filter(message => message.role === "owner"))) })));
+      return summarizeUsage([...conversations.values()].filter(item => !item.deletedAt && (!conversationId || item.id === conversationId)).map(item => {
+        const snapshot = runs.get(item.id)?.snapshot;
+        const owners = (messages.get(item.id) ?? []).filter(message => message.role === "owner");
+        const work = snapshot?.parallelWork;
+        return { conversationId: item.id, hasMessages: owners.length > 0, activity: work ? { consultants: work.assignments.length, reviewRounds: work.rounds.length, correctionOrders: work.orders.length, partial: owners.some(owner => !work.ownerMessageIds.includes(owner.id)) } : null,
+          usage: (usage.get(item.id) ?? []).map(attempt => usageWithSavedEffort(attempt, snapshot, owners)) };
+      }));
     },
     async createSession(input) { sessions.set(input.id, { ...input }); return { ...input }; },
     async session(id) { const item = sessions.get(id); return item ? { ...item } : undefined; },

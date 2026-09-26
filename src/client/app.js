@@ -790,6 +790,17 @@ async function loadAccountUsage() {
 }
 function renderUsage(usage) {
   const panel = clear($("#usage-content"));
+  if (usage.activity) {
+    const activity = node("section", { class: "usage-activity" });
+    activity.append(node("h3", {}, "Consultation activity"));
+    const metrics = node("dl", { class: "usage-metrics" });
+    for (const [field, label] of [["consultants", "Consultants"], ["reviewRounds", "Review rounds"], ["correctionOrders", "Correction orders"], ["researchCalls", "Research calls"], ["webActions", "Web actions"]]) {
+      const metric = usage.activity[field]; const group = node("div");
+      group.append(node("dt", {}, label), node("dd", {}, `${tokenNumber(metric.value)}${metric.partial && metric.value !== null ? " (partial)" : ""}`)); metrics.append(group);
+    }
+    activity.append(metrics, node("p", { class: "hint" }, "Consultants counts assignments, excluding Head and Critic. Rounds and orders count issued reviews and orders. Research calls include retries; web actions include search, open and find operations. Across conversations, counts are added. Missing older records remain unavailable; partial means only known activity is shown."));
+    panel.append(activity);
+  }
   const providers = node("div", { class: "usage-providers" });
   for (const provider of usage.providers ?? []) providers.append(providerSummary(provider));
   panel.append(providers, node("p", { class: "hint" }, `Accounting status: ${usage.coverage ?? (usage.incomplete || usage.unavailable ? "partial" : "complete")}. Complete means input/output totals are reported; optional metrics can still be missing.`), node("h3", {}, "Combined reported tokens"));

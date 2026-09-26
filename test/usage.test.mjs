@@ -143,3 +143,20 @@ test("historical reasoning uses only a matching single-request snapshot", async 
   assert.equal(usageWithSavedEffort(original, { ...snapshot, requestMessageId: randomId() }, [owner]), original);
   assert.equal(usageWithSavedEffort({ ...original, diagnostics: { stage: "head_plan", effort: "medium" } }, snapshot, [owner]).diagnostics.effort, "medium");
 });
+
+test("activity counts distinguish issued work, research attempts and partial web telemetry", async () => {
+  const { summarizeUsage } = await import("../src/server/usage.mjs");
+  const known = { activity: { consultants: 5, reviewRounds: 1, correctionOrders: 4, partial: false }, usage: [attempt({ diagnostics: { stage: "public_research", webSearchCount: 6 } }), attempt({ diagnostics: { stage: "head_plan", webSearchCount: 0 } })] };
+  const activity = summarizeUsage([known]).activity;
+  assert.deepEqual(activity.consultants, { value: 5, partial: false });
+  assert.deepEqual(activity.reviewRounds, { value: 1, partial: false });
+  assert.deepEqual(activity.correctionOrders, { value: 4, partial: false });
+  assert.deepEqual(activity.researchCalls, { value: 1, partial: false });
+  assert.deepEqual(activity.webActions, { value: 6, partial: false });
+  const mixed = summarizeUsage([known, { usage: [attempt()] }]).activity;
+  assert.deepEqual(mixed.consultants, { value: 5, partial: true });
+  assert.deepEqual(mixed.webActions, { value: 6, partial: true });
+  assert.deepEqual(summarizeUsage([{ usage: [attempt()] }]).activity.researchCalls, { value: null, partial: true });
+  assert.equal(summarizeUsage([known, known]).activity.consultants.value, 10);
+  assert.deepEqual(summarizeUsage([{ hasMessages: true, usage: [] }]).activity.researchCalls, { value: null, partial: true });
+});

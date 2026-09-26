@@ -65,13 +65,13 @@
       },
       "path": "docs/product-idea.md",
       "owner_skill": "to-product-idea",
-      "owner_invocation_id": "usage-reasoning-20260926-product-idea",
+      "owner_invocation_id": "usage-activity-20260926-product-idea",
       "declared_output_set": [
         "docs/product-idea.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "usage-reasoning-20260926",
+      "source_version": "usage-activity-20260926",
       "source_usage": {
         "docs/model-settings.md": "full",
         "forge/design/evidence/electric-v8-approval-20260914.json": "full",
@@ -89,7 +89,8 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "full",
         "forge/runs/upstream-usage-20260926/scope.json": "full",
         "forge/runs/usage-dashboard-20260926/scope.json": "full",
-        "forge/runs/usage-reasoning-20260926/scope.json": "full"
+        "forge/runs/usage-reasoning-20260926/scope.json": "full",
+        "forge/runs/usage-activity-20260926/scope.json": "full"
       },
       "source_hashes": {
         "docs/model-settings.md": "2d0b9fe9d045e289b228adfe2d27aa6c1d94632eef60c78df60091eb181c4628",
@@ -108,15 +109,16 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
-        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156"
+        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
       },
       "dependencies": [],
-      "content_hash": "7dbeaa730902c8e9400227c061bfdebd824021801396bccff0dfd1061a453d5b",
+      "content_hash": "65ec4a9fabd868d7daa9d884723dbbacbc1089bb0c47638fb120d5b970d078f8",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T18:27:48.336043+00:00",
+        "reviewed_at": "2026-09-26T18:31:17.948890+00:00",
         "executor": "Codex inline to-product-idea",
         "scope": "Owner-reconciled definition; implementation verification remains pending."
       },
@@ -2450,13 +2452,13 @@
       },
       "path": "docs/prd.md",
       "owner_skill": "to-sdd-prd",
-      "owner_invocation_id": "usage-reasoning-20260926-prd",
+      "owner_invocation_id": "usage-activity-20260926-prd",
       "declared_output_set": [
         "docs/prd.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "usage-reasoning-20260926",
+      "source_version": "usage-activity-20260926",
       "source_usage": {
         "docs/product-idea.md": "full",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "full",
@@ -2468,10 +2470,11 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "full",
         "forge/runs/upstream-usage-20260926/scope.json": "full",
         "forge/runs/usage-dashboard-20260926/scope.json": "full",
-        "forge/runs/usage-reasoning-20260926/scope.json": "full"
+        "forge/runs/usage-reasoning-20260926/scope.json": "full",
+        "forge/runs/usage-activity-20260926/scope.json": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "7dbeaa730902c8e9400227c061bfdebd824021801396bccff0dfd1061a453d5b",
+        "docs/product-idea.md": "65ec4a9fabd868d7daa9d884723dbbacbc1089bb0c47638fb120d5b970d078f8",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -2481,17 +2484,18 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
-        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156"
+        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
       },
       "dependencies": [
         "product-idea"
       ],
-      "content_hash": "c8c4482b62671d0edd635942aaf7409af0ecd6a9c452495ce9e20cf56364fa3e",
+      "content_hash": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T18:27:48.336043+00:00",
+        "reviewed_at": "2026-09-26T18:31:17.948890+00:00",
         "executor": "Codex inline to-sdd-prd",
         "scope": "Owner-reconciled definition; implementation verification remains pending."
       },
@@ -2500,14 +2504,14 @@
     "project-context": {
       "path": "docs/project-context.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "usage-reasoning-20260926-project-context",
+      "owner_invocation_id": "usage-activity-20260926-project-context",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "usage-reasoning-20260926",
+      "source_version": "usage-activity-20260926",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full",
@@ -2520,11 +2524,12 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "full",
         "forge/runs/upstream-usage-20260926/scope.json": "full",
         "forge/runs/usage-dashboard-20260926/scope.json": "full",
-        "forge/runs/usage-reasoning-20260926/scope.json": "full"
+        "forge/runs/usage-reasoning-20260926/scope.json": "full",
+        "forge/runs/usage-activity-20260926/scope.json": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "7dbeaa730902c8e9400227c061bfdebd824021801396bccff0dfd1061a453d5b",
-        "docs/prd.md": "c8c4482b62671d0edd635942aaf7409af0ecd6a9c452495ce9e20cf56364fa3e",
+        "docs/product-idea.md": "65ec4a9fabd868d7daa9d884723dbbacbc1089bb0c47638fb120d5b970d078f8",
+        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -2534,18 +2539,19 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
-        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156"
+        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "bb19d1b94a8123c5fb1af661323c53223d97f5bc5775b85b3180f6422851722f",
+      "content_hash": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T18:27:48.336043+00:00",
+        "reviewed_at": "2026-09-26T18:31:17.948890+00:00",
         "executor": "Codex inline to-project-context",
         "scope": "Owner-reconciled definition; implementation verification remains pending."
       },
@@ -2554,14 +2560,14 @@
     "canonical-terms": {
       "path": "docs/canonical-terms.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "usage-reasoning-20260926-project-context",
+      "owner_invocation_id": "usage-activity-20260926-project-context",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "usage-reasoning-20260926",
+      "source_version": "usage-activity-20260926",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full",
@@ -2574,11 +2580,12 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "full",
         "forge/runs/upstream-usage-20260926/scope.json": "full",
         "forge/runs/usage-dashboard-20260926/scope.json": "full",
-        "forge/runs/usage-reasoning-20260926/scope.json": "full"
+        "forge/runs/usage-reasoning-20260926/scope.json": "full",
+        "forge/runs/usage-activity-20260926/scope.json": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "7dbeaa730902c8e9400227c061bfdebd824021801396bccff0dfd1061a453d5b",
-        "docs/prd.md": "c8c4482b62671d0edd635942aaf7409af0ecd6a9c452495ce9e20cf56364fa3e",
+        "docs/product-idea.md": "65ec4a9fabd868d7daa9d884723dbbacbc1089bb0c47638fb120d5b970d078f8",
+        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -2588,18 +2595,19 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
-        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156"
+        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "19bd5c886324246ed5c8b438828e67f05c134b4930fe334cb53c33c800c2443a",
+      "content_hash": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T18:27:48.336043+00:00",
+        "reviewed_at": "2026-09-26T18:31:17.948890+00:00",
         "executor": "Codex inline to-project-context",
         "scope": "Owner-reconciled definition; implementation verification remains pending."
       },
@@ -2608,13 +2616,13 @@
     "guardrails": {
       "path": "docs/guardrails.md",
       "owner_skill": "to-guardrails",
-      "owner_invocation_id": "usage-reasoning-20260926-guardrails",
+      "owner_invocation_id": "usage-activity-20260926-guardrails",
       "declared_output_set": [
         "docs/guardrails.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "usage-reasoning-20260926",
+      "source_version": "usage-activity-20260926",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2628,12 +2636,13 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "full",
         "forge/runs/upstream-usage-20260926/scope.json": "full",
         "forge/runs/usage-dashboard-20260926/scope.json": "full",
-        "forge/runs/usage-reasoning-20260926/scope.json": "full"
+        "forge/runs/usage-reasoning-20260926/scope.json": "full",
+        "forge/runs/usage-activity-20260926/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "c8c4482b62671d0edd635942aaf7409af0ecd6a9c452495ce9e20cf56364fa3e",
-        "docs/project-context.md": "bb19d1b94a8123c5fb1af661323c53223d97f5bc5775b85b3180f6422851722f",
-        "docs/canonical-terms.md": "19bd5c886324246ed5c8b438828e67f05c134b4930fe334cb53c33c800c2443a",
+        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
+        "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -2643,19 +2652,20 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
-        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156"
+        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
       },
       "dependencies": [
         "prd",
         "project-context",
         "canonical-terms"
       ],
-      "content_hash": "f55865c40a38e8f4d39ffc6ad92a20dc9a3a9d851cda42990f673875da4151eb",
+      "content_hash": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T18:27:48.336043+00:00",
+        "reviewed_at": "2026-09-26T18:31:17.948890+00:00",
         "executor": "Codex inline to-guardrails",
         "scope": "Owner-reconciled definition; implementation verification remains pending."
       },
@@ -2664,13 +2674,13 @@
     "user-journey": {
       "path": "docs/user-journey.md",
       "owner_skill": "to-user-journey",
-      "owner_invocation_id": "usage-reasoning-20260926-user-journey",
+      "owner_invocation_id": "usage-activity-20260926-user-journey",
       "declared_output_set": [
         "docs/user-journey.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "usage-reasoning-20260926",
+      "source_version": "usage-activity-20260926",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2685,13 +2695,14 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "full",
         "forge/runs/upstream-usage-20260926/scope.json": "full",
         "forge/runs/usage-dashboard-20260926/scope.json": "full",
-        "forge/runs/usage-reasoning-20260926/scope.json": "full"
+        "forge/runs/usage-reasoning-20260926/scope.json": "full",
+        "forge/runs/usage-activity-20260926/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "c8c4482b62671d0edd635942aaf7409af0ecd6a9c452495ce9e20cf56364fa3e",
-        "docs/project-context.md": "bb19d1b94a8123c5fb1af661323c53223d97f5bc5775b85b3180f6422851722f",
-        "docs/canonical-terms.md": "19bd5c886324246ed5c8b438828e67f05c134b4930fe334cb53c33c800c2443a",
-        "docs/guardrails.md": "f55865c40a38e8f4d39ffc6ad92a20dc9a3a9d851cda42990f673875da4151eb",
+        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
+        "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
+        "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -2701,7 +2712,8 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
-        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156"
+        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
       },
       "dependencies": [
         "prd",
@@ -2709,12 +2721,12 @@
         "canonical-terms",
         "guardrails"
       ],
-      "content_hash": "d02dc738721b51f3a2dfe91d47f9d554791f32d6477f09f099e260d0df81f43a",
+      "content_hash": "8600d211c29ca8686d2c75c87a7975163f1dd62eff4d2ea712a11f9d42f6b602",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T18:27:48.336043+00:00",
+        "reviewed_at": "2026-09-26T18:31:17.948890+00:00",
         "executor": "Codex inline to-user-journey",
         "scope": "Owner-reconciled definition; implementation verification remains pending."
       },
@@ -3728,13 +3740,13 @@
       },
       "path": "docs/screen-map.md",
       "owner_skill": "to-screen-map",
-      "owner_invocation_id": "usage-reasoning-20260926-screen-map",
+      "owner_invocation_id": "usage-activity-20260926-screen-map",
       "declared_output_set": [
         "docs/screen-map.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "usage-reasoning-20260926",
+      "source_version": "usage-activity-20260926",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3752,14 +3764,15 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "full",
         "forge/runs/upstream-usage-20260926/scope.json": "full",
         "forge/runs/usage-dashboard-20260926/scope.json": "full",
-        "forge/runs/usage-reasoning-20260926/scope.json": "full"
+        "forge/runs/usage-reasoning-20260926/scope.json": "full",
+        "forge/runs/usage-activity-20260926/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "c8c4482b62671d0edd635942aaf7409af0ecd6a9c452495ce9e20cf56364fa3e",
-        "docs/project-context.md": "bb19d1b94a8123c5fb1af661323c53223d97f5bc5775b85b3180f6422851722f",
-        "docs/canonical-terms.md": "19bd5c886324246ed5c8b438828e67f05c134b4930fe334cb53c33c800c2443a",
-        "docs/guardrails.md": "f55865c40a38e8f4d39ffc6ad92a20dc9a3a9d851cda42990f673875da4151eb",
-        "docs/user-journey.md": "d02dc738721b51f3a2dfe91d47f9d554791f32d6477f09f099e260d0df81f43a",
+        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
+        "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
+        "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
+        "docs/user-journey.md": "8600d211c29ca8686d2c75c87a7975163f1dd62eff4d2ea712a11f9d42f6b602",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -3771,7 +3784,8 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
-        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156"
+        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
       },
       "dependencies": [
         "prd",
@@ -3780,12 +3794,12 @@
         "guardrails",
         "user-journey"
       ],
-      "content_hash": "1988b283b9c8d13310eb0f8d56c82b00049ce4fe475e6cb0f66056d9d3198a5f",
+      "content_hash": "da5c0aea5e9fe16828c4bdbaadbb62ae022daa7ca22a19380ccf8a64f99fed12",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T18:27:48.336043+00:00",
+        "reviewed_at": "2026-09-26T18:31:17.948890+00:00",
         "executor": "Codex inline to-screen-map",
         "scope": "Owner-reconciled definition; implementation verification remains pending."
       },
@@ -3794,13 +3808,13 @@
     "wireframes": {
       "path": "docs/wireframes.md",
       "owner_skill": "to-wireframes",
-      "owner_invocation_id": "usage-reasoning-20260926-wireframes",
+      "owner_invocation_id": "usage-activity-20260926-wireframes",
       "declared_output_set": [
         "docs/wireframes.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "usage-reasoning-20260926",
+      "source_version": "usage-activity-20260926",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3820,15 +3834,16 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "full",
         "forge/runs/upstream-usage-20260926/scope.json": "full",
         "forge/runs/usage-dashboard-20260926/scope.json": "full",
-        "forge/runs/usage-reasoning-20260926/scope.json": "full"
+        "forge/runs/usage-reasoning-20260926/scope.json": "full",
+        "forge/runs/usage-activity-20260926/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "c8c4482b62671d0edd635942aaf7409af0ecd6a9c452495ce9e20cf56364fa3e",
-        "docs/project-context.md": "bb19d1b94a8123c5fb1af661323c53223d97f5bc5775b85b3180f6422851722f",
-        "docs/canonical-terms.md": "19bd5c886324246ed5c8b438828e67f05c134b4930fe334cb53c33c800c2443a",
-        "docs/guardrails.md": "f55865c40a38e8f4d39ffc6ad92a20dc9a3a9d851cda42990f673875da4151eb",
-        "docs/user-journey.md": "d02dc738721b51f3a2dfe91d47f9d554791f32d6477f09f099e260d0df81f43a",
-        "docs/screen-map.md": "1988b283b9c8d13310eb0f8d56c82b00049ce4fe475e6cb0f66056d9d3198a5f",
+        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
+        "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
+        "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
+        "docs/user-journey.md": "8600d211c29ca8686d2c75c87a7975163f1dd62eff4d2ea712a11f9d42f6b602",
+        "docs/screen-map.md": "da5c0aea5e9fe16828c4bdbaadbb62ae022daa7ca22a19380ccf8a64f99fed12",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e",
@@ -3841,7 +3856,8 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
-        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156"
+        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
       },
       "dependencies": [
         "prd",
@@ -3851,12 +3867,12 @@
         "user-journey",
         "screen-map"
       ],
-      "content_hash": "dc22bbb74cc02620861911df6f1b9cb98f6532643bb3890e1e0569bcd189ba70",
+      "content_hash": "f6c59c79b531b9598732acf7cbe7c0b81a99076f7d528aa605d6bf61f72c3f5b",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T18:27:48.336043+00:00",
+        "reviewed_at": "2026-09-26T18:31:17.948890+00:00",
         "executor": "Codex inline to-wireframes",
         "scope": "The owner requests Discussion, Outcome, Sources and Usage in the sticky menu. Group the existing status/Stop row and four view tabs in one sticky Discussion header below the main navigation. Preserve content order and access on narrow screens; the transcript and selected panel scroll underneath."
       },
@@ -3865,13 +3881,13 @@
     "design-brief": {
       "path": "docs/design-brief.md",
       "owner_skill": "to-design-brief",
-      "owner_invocation_id": "usage-reasoning-20260926-design-brief",
+      "owner_invocation_id": "usage-activity-20260926-design-brief",
       "declared_output_set": [
         "docs/design-brief.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "usage-reasoning-20260926",
+      "source_version": "usage-activity-20260926",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3894,16 +3910,17 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "full",
         "forge/runs/upstream-usage-20260926/scope.json": "full",
         "forge/runs/usage-dashboard-20260926/scope.json": "full",
-        "forge/runs/usage-reasoning-20260926/scope.json": "full"
+        "forge/runs/usage-reasoning-20260926/scope.json": "full",
+        "forge/runs/usage-activity-20260926/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "c8c4482b62671d0edd635942aaf7409af0ecd6a9c452495ce9e20cf56364fa3e",
-        "docs/project-context.md": "bb19d1b94a8123c5fb1af661323c53223d97f5bc5775b85b3180f6422851722f",
-        "docs/canonical-terms.md": "19bd5c886324246ed5c8b438828e67f05c134b4930fe334cb53c33c800c2443a",
-        "docs/guardrails.md": "f55865c40a38e8f4d39ffc6ad92a20dc9a3a9d851cda42990f673875da4151eb",
-        "docs/user-journey.md": "d02dc738721b51f3a2dfe91d47f9d554791f32d6477f09f099e260d0df81f43a",
-        "docs/screen-map.md": "1988b283b9c8d13310eb0f8d56c82b00049ce4fe475e6cb0f66056d9d3198a5f",
-        "docs/wireframes.md": "dc22bbb74cc02620861911df6f1b9cb98f6532643bb3890e1e0569bcd189ba70",
+        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
+        "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
+        "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
+        "docs/user-journey.md": "8600d211c29ca8686d2c75c87a7975163f1dd62eff4d2ea712a11f9d42f6b602",
+        "docs/screen-map.md": "da5c0aea5e9fe16828c4bdbaadbb62ae022daa7ca22a19380ccf8a64f99fed12",
+        "docs/wireframes.md": "f6c59c79b531b9598732acf7cbe7c0b81a99076f7d528aa605d6bf61f72c3f5b",
         "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b",
         "forge/runs/porcelain-stop-20260924/scoped-override.json": "df8177ecc6e68c658ff5672b14e7def000ba241f9932639711885a4ba17afc74",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
@@ -3918,7 +3935,8 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
-        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156"
+        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
       },
       "dependencies": [
         "prd",
@@ -3929,12 +3947,12 @@
         "screen-map",
         "wireframes"
       ],
-      "content_hash": "e01fb6aeeea2fbfb51ab1d890fc8e15405a500a1382afa2d6fc4479a7a72c974",
+      "content_hash": "7413f67a3ab5b775e5f080c69a879b5580146867c905e8352688519ab269add7",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T18:27:48.336043+00:00",
+        "reviewed_at": "2026-09-26T18:31:17.948890+00:00",
         "executor": "Codex inline to-design-brief",
         "scope": "Accepted [sticky-view navigation override](../forge/runs/sticky-view-nav-20260925/scope.json): retain Electric A v8 and P5 appearance, and pin the existing status/Stop row plus all four view tabs below the main menu. Use the canvas background and existing separators; no overlay obscures the tabs or Stop. The override is limited to positioning and persistent reachability."
       },
@@ -4013,13 +4031,13 @@
       },
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "usage-reasoning-20260926-architecture",
+      "owner_invocation_id": "usage-activity-20260926-architecture",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "usage-reasoning-20260926",
+      "source_version": "usage-activity-20260926",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -4048,17 +4066,18 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "full",
         "forge/runs/upstream-usage-20260926/scope.json": "full",
         "forge/runs/usage-dashboard-20260926/scope.json": "full",
-        "forge/runs/usage-reasoning-20260926/scope.json": "full"
+        "forge/runs/usage-reasoning-20260926/scope.json": "full",
+        "forge/runs/usage-activity-20260926/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "c8c4482b62671d0edd635942aaf7409af0ecd6a9c452495ce9e20cf56364fa3e",
-        "docs/project-context.md": "bb19d1b94a8123c5fb1af661323c53223d97f5bc5775b85b3180f6422851722f",
-        "docs/canonical-terms.md": "19bd5c886324246ed5c8b438828e67f05c134b4930fe334cb53c33c800c2443a",
-        "docs/guardrails.md": "f55865c40a38e8f4d39ffc6ad92a20dc9a3a9d851cda42990f673875da4151eb",
-        "docs/user-journey.md": "d02dc738721b51f3a2dfe91d47f9d554791f32d6477f09f099e260d0df81f43a",
-        "docs/screen-map.md": "1988b283b9c8d13310eb0f8d56c82b00049ce4fe475e6cb0f66056d9d3198a5f",
-        "docs/wireframes.md": "dc22bbb74cc02620861911df6f1b9cb98f6532643bb3890e1e0569bcd189ba70",
-        "docs/design-brief.md": "e01fb6aeeea2fbfb51ab1d890fc8e15405a500a1382afa2d6fc4479a7a72c974",
+        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
+        "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
+        "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
+        "docs/user-journey.md": "8600d211c29ca8686d2c75c87a7975163f1dd62eff4d2ea712a11f9d42f6b602",
+        "docs/screen-map.md": "da5c0aea5e9fe16828c4bdbaadbb62ae022daa7ca22a19380ccf8a64f99fed12",
+        "docs/wireframes.md": "f6c59c79b531b9598732acf7cbe7c0b81a99076f7d528aa605d6bf61f72c3f5b",
+        "docs/design-brief.md": "7413f67a3ab5b775e5f080c69a879b5580146867c905e8352688519ab269add7",
         "docs/model-settings.md": "2d0b9fe9d045e289b228adfe2d27aa6c1d94632eef60c78df60091eb181c4628",
         "forge/runs/claude-signin-20260922/source-review.json": "ad878d853b9c6f30da817167e1db6dffaad9c2c2863354ad3331294d7b269def",
         "forge/runs/sound-media-playback-20260923/scope.json": "7a5aa70bf52fa77a4dea9e39e5a49453c6be40c5b1a347632f4da4f5294455a0",
@@ -4078,7 +4097,8 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
-        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156"
+        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
       },
       "dependencies": [
         "prd",
@@ -4090,12 +4110,12 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "ba03ce21b86160c4c90282f044d6e2805edcfed900a27ff08b8d8411d9ef51a8",
+      "content_hash": "5ceb6fb99532fa6f9bde6cdf439d8abe701d3c67201dec289bcada4e0dcb1cc8",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T18:27:48.336043+00:00",
+        "reviewed_at": "2026-09-26T18:31:17.948890+00:00",
         "executor": "Codex inline to-architecture",
         "scope": "Existing source persistence and recovery contract repair; retained upstream scope and approved baseline."
       },
@@ -4175,13 +4195,13 @@
       },
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "usage-reasoning-20260926-dod-evals",
+      "owner_invocation_id": "usage-activity-20260926-dod-evals",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "usage-reasoning-20260926",
+      "source_version": "usage-activity-20260926",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -4206,18 +4226,19 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "full",
         "forge/runs/upstream-usage-20260926/scope.json": "full",
         "forge/runs/usage-dashboard-20260926/scope.json": "full",
-        "forge/runs/usage-reasoning-20260926/scope.json": "full"
+        "forge/runs/usage-reasoning-20260926/scope.json": "full",
+        "forge/runs/usage-activity-20260926/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "c8c4482b62671d0edd635942aaf7409af0ecd6a9c452495ce9e20cf56364fa3e",
-        "docs/project-context.md": "bb19d1b94a8123c5fb1af661323c53223d97f5bc5775b85b3180f6422851722f",
-        "docs/canonical-terms.md": "19bd5c886324246ed5c8b438828e67f05c134b4930fe334cb53c33c800c2443a",
-        "docs/guardrails.md": "f55865c40a38e8f4d39ffc6ad92a20dc9a3a9d851cda42990f673875da4151eb",
-        "docs/user-journey.md": "d02dc738721b51f3a2dfe91d47f9d554791f32d6477f09f099e260d0df81f43a",
-        "docs/screen-map.md": "1988b283b9c8d13310eb0f8d56c82b00049ce4fe475e6cb0f66056d9d3198a5f",
-        "docs/wireframes.md": "dc22bbb74cc02620861911df6f1b9cb98f6532643bb3890e1e0569bcd189ba70",
-        "docs/design-brief.md": "e01fb6aeeea2fbfb51ab1d890fc8e15405a500a1382afa2d6fc4479a7a72c974",
-        "docs/architecture.md": "ba03ce21b86160c4c90282f044d6e2805edcfed900a27ff08b8d8411d9ef51a8",
+        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
+        "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
+        "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
+        "docs/user-journey.md": "8600d211c29ca8686d2c75c87a7975163f1dd62eff4d2ea712a11f9d42f6b602",
+        "docs/screen-map.md": "da5c0aea5e9fe16828c4bdbaadbb62ae022daa7ca22a19380ccf8a64f99fed12",
+        "docs/wireframes.md": "f6c59c79b531b9598732acf7cbe7c0b81a99076f7d528aa605d6bf61f72c3f5b",
+        "docs/design-brief.md": "7413f67a3ab5b775e5f080c69a879b5580146867c905e8352688519ab269add7",
+        "docs/architecture.md": "5ceb6fb99532fa6f9bde6cdf439d8abe701d3c67201dec289bcada4e0dcb1cc8",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e",
@@ -4232,7 +4253,8 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
-        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156"
+        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
       },
       "dependencies": [
         "prd",
@@ -4245,12 +4267,12 @@
         "design-brief",
         "architecture"
       ],
-      "content_hash": "3979c458623785a433663f0d1b3a9912f4329dbb4cb777c8fc4d8b7582519c0c",
+      "content_hash": "b5206cb44a4626b8c29126bb046279cf055c0ff98a794daa91eb2ef78a55e2b4",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T18:27:48.336043+00:00",
+        "reviewed_at": "2026-09-26T18:31:17.948890+00:00",
         "executor": "Codex inline to-dod-evals",
         "scope": "Existing source persistence and recovery contract repair; retained upstream scope and approved baseline."
       },
@@ -6196,7 +6218,7 @@
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "usage-reasoning-20260926",
+      "source_version": "usage-activity-20260926",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -6228,19 +6250,21 @@
         "forge/runs/usage-dashboard-20260926/scope.json": "full",
         "forge/runs/usage-dashboard-20260926/verification.json": "full",
         "forge/runs/usage-reasoning-20260926/scope.json": "full",
-        "forge/runs/usage-reasoning-20260926/verification.json": "full"
+        "forge/runs/usage-reasoning-20260926/verification.json": "full",
+        "forge/runs/usage-activity-20260926/scope.json": "full",
+        "forge/runs/usage-activity-20260926/verification.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "c8c4482b62671d0edd635942aaf7409af0ecd6a9c452495ce9e20cf56364fa3e",
-        "docs/project-context.md": "bb19d1b94a8123c5fb1af661323c53223d97f5bc5775b85b3180f6422851722f",
-        "docs/canonical-terms.md": "19bd5c886324246ed5c8b438828e67f05c134b4930fe334cb53c33c800c2443a",
-        "docs/guardrails.md": "f55865c40a38e8f4d39ffc6ad92a20dc9a3a9d851cda42990f673875da4151eb",
-        "docs/user-journey.md": "d02dc738721b51f3a2dfe91d47f9d554791f32d6477f09f099e260d0df81f43a",
-        "docs/screen-map.md": "1988b283b9c8d13310eb0f8d56c82b00049ce4fe475e6cb0f66056d9d3198a5f",
-        "docs/wireframes.md": "dc22bbb74cc02620861911df6f1b9cb98f6532643bb3890e1e0569bcd189ba70",
-        "docs/design-brief.md": "e01fb6aeeea2fbfb51ab1d890fc8e15405a500a1382afa2d6fc4479a7a72c974",
-        "docs/architecture.md": "ba03ce21b86160c4c90282f044d6e2805edcfed900a27ff08b8d8411d9ef51a8",
-        "docs/dod-evals.md": "3979c458623785a433663f0d1b3a9912f4329dbb4cb777c8fc4d8b7582519c0c",
+        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
+        "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
+        "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
+        "docs/user-journey.md": "8600d211c29ca8686d2c75c87a7975163f1dd62eff4d2ea712a11f9d42f6b602",
+        "docs/screen-map.md": "da5c0aea5e9fe16828c4bdbaadbb62ae022daa7ca22a19380ccf8a64f99fed12",
+        "docs/wireframes.md": "f6c59c79b531b9598732acf7cbe7c0b81a99076f7d528aa605d6bf61f72c3f5b",
+        "docs/design-brief.md": "7413f67a3ab5b775e5f080c69a879b5580146867c905e8352688519ab269add7",
+        "docs/architecture.md": "5ceb6fb99532fa6f9bde6cdf439d8abe701d3c67201dec289bcada4e0dcb1cc8",
+        "docs/dod-evals.md": "b5206cb44a4626b8c29126bb046279cf055c0ff98a794daa91eb2ef78a55e2b4",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/critic-usage-20260925/verification.json": "3bb9e18d641a3053af6a0206de3eb4b0859b9a096199b96eae3cd3b06a79df13",
@@ -6261,7 +6285,9 @@
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
         "forge/runs/usage-dashboard-20260926/verification.json": "19051abd9a48836e3126b27196fce580d85376b37bdf11eb70498c5130e4ff25",
         "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
-        "forge/runs/usage-reasoning-20260926/verification.json": "bea2d0246df65c85c4fd8134f2b5f6eba754767776d6816ef6d5c203556dc6d6"
+        "forge/runs/usage-reasoning-20260926/verification.json": "bea2d0246df65c85c4fd8134f2b5f6eba754767776d6816ef6d5c203556dc6d6",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
+        "forge/runs/usage-activity-20260926/verification.json": "c675305666e04d18abce7e7c47c44e49ac7522c8dd6e3c2c482ad38e996b6d4d"
       },
       "dependencies": [
         "prd",
@@ -6275,12 +6301,12 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "61dd9e371583491bd31ce19ac548ab147a01243d0d04cddb51546c24cb78ed06",
+      "content_hash": "89b512c41a5a400077fa084c2090d37f102be6f4ddbd96519361c93eb1d7d1c6",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T18:28:49.727451+00:00",
+        "reviewed_at": "2026-09-26T18:32:56.099644+00:00",
         "executor": "Codex inline to-qa-checklist",
         "scope": "Existing source persistence and recovery contract repair; retained upstream scope and approved baseline."
       },
@@ -7515,7 +7541,7 @@
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "usage-reasoning-20260926",
+      "source_version": "usage-activity-20260926",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -7551,20 +7577,22 @@
         "forge/runs/usage-dashboard-20260926/scope.json": "full",
         "forge/runs/usage-dashboard-20260926/verification.json": "full",
         "forge/runs/usage-reasoning-20260926/scope.json": "full",
-        "forge/runs/usage-reasoning-20260926/verification.json": "full"
+        "forge/runs/usage-reasoning-20260926/verification.json": "full",
+        "forge/runs/usage-activity-20260926/scope.json": "full",
+        "forge/runs/usage-activity-20260926/verification.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "c8c4482b62671d0edd635942aaf7409af0ecd6a9c452495ce9e20cf56364fa3e",
-        "docs/project-context.md": "bb19d1b94a8123c5fb1af661323c53223d97f5bc5775b85b3180f6422851722f",
-        "docs/canonical-terms.md": "19bd5c886324246ed5c8b438828e67f05c134b4930fe334cb53c33c800c2443a",
-        "docs/guardrails.md": "f55865c40a38e8f4d39ffc6ad92a20dc9a3a9d851cda42990f673875da4151eb",
-        "docs/user-journey.md": "d02dc738721b51f3a2dfe91d47f9d554791f32d6477f09f099e260d0df81f43a",
-        "docs/screen-map.md": "1988b283b9c8d13310eb0f8d56c82b00049ce4fe475e6cb0f66056d9d3198a5f",
-        "docs/wireframes.md": "dc22bbb74cc02620861911df6f1b9cb98f6532643bb3890e1e0569bcd189ba70",
-        "docs/design-brief.md": "e01fb6aeeea2fbfb51ab1d890fc8e15405a500a1382afa2d6fc4479a7a72c974",
-        "docs/architecture.md": "ba03ce21b86160c4c90282f044d6e2805edcfed900a27ff08b8d8411d9ef51a8",
-        "docs/dod-evals.md": "3979c458623785a433663f0d1b3a9912f4329dbb4cb777c8fc4d8b7582519c0c",
-        "docs/qa-checklist.md": "61dd9e371583491bd31ce19ac548ab147a01243d0d04cddb51546c24cb78ed06",
+        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
+        "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
+        "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
+        "docs/user-journey.md": "8600d211c29ca8686d2c75c87a7975163f1dd62eff4d2ea712a11f9d42f6b602",
+        "docs/screen-map.md": "da5c0aea5e9fe16828c4bdbaadbb62ae022daa7ca22a19380ccf8a64f99fed12",
+        "docs/wireframes.md": "f6c59c79b531b9598732acf7cbe7c0b81a99076f7d528aa605d6bf61f72c3f5b",
+        "docs/design-brief.md": "7413f67a3ab5b775e5f080c69a879b5580146867c905e8352688519ab269add7",
+        "docs/architecture.md": "5ceb6fb99532fa6f9bde6cdf439d8abe701d3c67201dec289bcada4e0dcb1cc8",
+        "docs/dod-evals.md": "b5206cb44a4626b8c29126bb046279cf055c0ff98a794daa91eb2ef78a55e2b4",
+        "docs/qa-checklist.md": "89b512c41a5a400077fa084c2090d37f102be6f4ddbd96519361c93eb1d7d1c6",
         "docs/model-settings.md": "2d0b9fe9d045e289b228adfe2d27aa6c1d94632eef60c78df60091eb181c4628",
         "package.json": "094e408c16c3a8369b9f21a343bb562dc0cd20160e26b6c01f144bd83712a568",
         "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318",
@@ -7588,7 +7616,9 @@
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
         "forge/runs/usage-dashboard-20260926/verification.json": "19051abd9a48836e3126b27196fce580d85376b37bdf11eb70498c5130e4ff25",
         "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
-        "forge/runs/usage-reasoning-20260926/verification.json": "bea2d0246df65c85c4fd8134f2b5f6eba754767776d6816ef6d5c203556dc6d6"
+        "forge/runs/usage-reasoning-20260926/verification.json": "bea2d0246df65c85c4fd8134f2b5f6eba754767776d6816ef6d5c203556dc6d6",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
+        "forge/runs/usage-activity-20260926/verification.json": "c675305666e04d18abce7e7c47c44e49ac7522c8dd6e3c2c482ad38e996b6d4d"
       },
       "dependencies": [
         "prd",
@@ -7603,12 +7633,12 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "149dcf29230be37a660bc8cfcd03b9459a591b8f1b30a86be7c8ceabf5b4caaf",
+      "content_hash": "9512d76648ae088ed5ffc7b17d77e3d48e03b0787836dd0d4e42a126044cf342",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T18:28:49.727451+00:00",
+        "reviewed_at": "2026-09-26T18:32:56.099644+00:00",
         "executor": "Codex inline to-development-plan",
         "scope": "Existing source persistence and recovery contract repair; retained upstream scope and approved baseline."
       },
@@ -8142,8 +8172,8 @@
     "definition_status": "prepared",
     "release_readiness": "not_evaluated",
     "source_hashes": {
-      "docs/dod-evals.md": "3979c458623785a433663f0d1b3a9912f4329dbb4cb777c8fc4d8b7582519c0c",
-      "docs/qa-checklist.md": "61dd9e371583491bd31ce19ac548ab147a01243d0d04cddb51546c24cb78ed06"
+      "docs/dod-evals.md": "b5206cb44a4626b8c29126bb046279cf055c0ff98a794daa91eb2ef78a55e2b4",
+      "docs/qa-checklist.md": "89b512c41a5a400077fa084c2090d37f102be6f4ddbd96519361c93eb1d7d1c6"
     },
     "gates": [
       {
@@ -11173,22 +11203,22 @@
   },
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "149dcf29230be37a660bc8cfcd03b9459a591b8f1b30a86be7c8ceabf5b4caaf",
+    "development_plan_hash": "9512d76648ae088ed5ffc7b17d77e3d48e03b0787836dd0d4e42a126044cf342",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-24T13:00:20.203238+00:00",
     "product_scope_hash": "defc5e24f0dd91be42b984888b157137f4f1ed361459e70f42b832e18c957bd4",
-    "prompt_id": "usage-reasoning-20260926",
-    "prompt_received_at": "2026-09-26T18:27:54.126007+00:00",
-    "released_at": "2026-09-26T18:27:54.126007+00:00",
-    "reason": "User requested reasoning labels and comparison of the saved medium and high runs.",
+    "prompt_id": "usage-activity-20260926",
+    "prompt_received_at": "2026-09-26T18:31:23.833650+00:00",
+    "released_at": "2026-09-26T18:31:23.833650+00:00",
+    "reason": "User requested five consultation activity counts in Usage.",
     "prompt_receipt": {
-      "path": "forge/runs/usage-reasoning-20260926/implementation-prompt.json",
-      "content_hash": "b19314baa72d9baa6cd7ef51c84cef38f7ea7c0e5a98af978f2facff0aecbbd6"
+      "path": "forge/runs/usage-activity-20260926/implementation-prompt.json",
+      "content_hash": "00f854f31d780ef8c97c4588c4ddb7f10f7eb21bfb687c0d79efc4cff7f15736"
     }
   },
   "dispatches": {
     "product-idea": {
-      "invocation_id": "usage-reasoning-20260926-product-idea",
+      "invocation_id": "usage-activity-20260926-product-idea",
       "outputs": [
         "docs/product-idea.md"
       ],
@@ -11209,16 +11239,17 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
-        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156"
+        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
       }
     },
     "prd": {
-      "invocation_id": "usage-reasoning-20260926-prd",
+      "invocation_id": "usage-activity-20260926-prd",
       "outputs": [
         "docs/prd.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "7dbeaa730902c8e9400227c061bfdebd824021801396bccff0dfd1061a453d5b",
+        "docs/product-idea.md": "65ec4a9fabd868d7daa9d884723dbbacbc1089bb0c47638fb120d5b970d078f8",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -11228,18 +11259,19 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
-        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156"
+        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
       }
     },
     "project-context": {
-      "invocation_id": "usage-reasoning-20260926-project-context",
+      "invocation_id": "usage-activity-20260926-project-context",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "7dbeaa730902c8e9400227c061bfdebd824021801396bccff0dfd1061a453d5b",
-        "docs/prd.md": "c8c4482b62671d0edd635942aaf7409af0ecd6a9c452495ce9e20cf56364fa3e",
+        "docs/product-idea.md": "65ec4a9fabd868d7daa9d884723dbbacbc1089bb0c47638fb120d5b970d078f8",
+        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -11249,18 +11281,19 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
-        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156"
+        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
       }
     },
     "canonical-terms": {
-      "invocation_id": "usage-reasoning-20260926-project-context",
+      "invocation_id": "usage-activity-20260926-project-context",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "7dbeaa730902c8e9400227c061bfdebd824021801396bccff0dfd1061a453d5b",
-        "docs/prd.md": "c8c4482b62671d0edd635942aaf7409af0ecd6a9c452495ce9e20cf56364fa3e",
+        "docs/product-idea.md": "65ec4a9fabd868d7daa9d884723dbbacbc1089bb0c47638fb120d5b970d078f8",
+        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -11270,18 +11303,19 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
-        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156"
+        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
       }
     },
     "guardrails": {
-      "invocation_id": "usage-reasoning-20260926-guardrails",
+      "invocation_id": "usage-activity-20260926-guardrails",
       "outputs": [
         "docs/guardrails.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "c8c4482b62671d0edd635942aaf7409af0ecd6a9c452495ce9e20cf56364fa3e",
-        "docs/project-context.md": "bb19d1b94a8123c5fb1af661323c53223d97f5bc5775b85b3180f6422851722f",
-        "docs/canonical-terms.md": "19bd5c886324246ed5c8b438828e67f05c134b4930fe334cb53c33c800c2443a",
+        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
+        "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -11291,19 +11325,20 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
-        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156"
+        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
       }
     },
     "user-journey": {
-      "invocation_id": "usage-reasoning-20260926-user-journey",
+      "invocation_id": "usage-activity-20260926-user-journey",
       "outputs": [
         "docs/user-journey.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "c8c4482b62671d0edd635942aaf7409af0ecd6a9c452495ce9e20cf56364fa3e",
-        "docs/project-context.md": "bb19d1b94a8123c5fb1af661323c53223d97f5bc5775b85b3180f6422851722f",
-        "docs/canonical-terms.md": "19bd5c886324246ed5c8b438828e67f05c134b4930fe334cb53c33c800c2443a",
-        "docs/guardrails.md": "f55865c40a38e8f4d39ffc6ad92a20dc9a3a9d851cda42990f673875da4151eb",
+        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
+        "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
+        "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -11313,20 +11348,21 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
-        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156"
+        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
       }
     },
     "screen-map": {
-      "invocation_id": "usage-reasoning-20260926-screen-map",
+      "invocation_id": "usage-activity-20260926-screen-map",
       "outputs": [
         "docs/screen-map.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "c8c4482b62671d0edd635942aaf7409af0ecd6a9c452495ce9e20cf56364fa3e",
-        "docs/project-context.md": "bb19d1b94a8123c5fb1af661323c53223d97f5bc5775b85b3180f6422851722f",
-        "docs/canonical-terms.md": "19bd5c886324246ed5c8b438828e67f05c134b4930fe334cb53c33c800c2443a",
-        "docs/guardrails.md": "f55865c40a38e8f4d39ffc6ad92a20dc9a3a9d851cda42990f673875da4151eb",
-        "docs/user-journey.md": "d02dc738721b51f3a2dfe91d47f9d554791f32d6477f09f099e260d0df81f43a",
+        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
+        "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
+        "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
+        "docs/user-journey.md": "8600d211c29ca8686d2c75c87a7975163f1dd62eff4d2ea712a11f9d42f6b602",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -11338,21 +11374,22 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
-        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156"
+        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
       }
     },
     "wireframes": {
-      "invocation_id": "usage-reasoning-20260926-wireframes",
+      "invocation_id": "usage-activity-20260926-wireframes",
       "outputs": [
         "docs/wireframes.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "c8c4482b62671d0edd635942aaf7409af0ecd6a9c452495ce9e20cf56364fa3e",
-        "docs/project-context.md": "bb19d1b94a8123c5fb1af661323c53223d97f5bc5775b85b3180f6422851722f",
-        "docs/canonical-terms.md": "19bd5c886324246ed5c8b438828e67f05c134b4930fe334cb53c33c800c2443a",
-        "docs/guardrails.md": "f55865c40a38e8f4d39ffc6ad92a20dc9a3a9d851cda42990f673875da4151eb",
-        "docs/user-journey.md": "d02dc738721b51f3a2dfe91d47f9d554791f32d6477f09f099e260d0df81f43a",
-        "docs/screen-map.md": "1988b283b9c8d13310eb0f8d56c82b00049ce4fe475e6cb0f66056d9d3198a5f",
+        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
+        "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
+        "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
+        "docs/user-journey.md": "8600d211c29ca8686d2c75c87a7975163f1dd62eff4d2ea712a11f9d42f6b602",
+        "docs/screen-map.md": "da5c0aea5e9fe16828c4bdbaadbb62ae022daa7ca22a19380ccf8a64f99fed12",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e",
@@ -11365,22 +11402,23 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
-        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156"
+        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
       }
     },
     "design-brief": {
-      "invocation_id": "usage-reasoning-20260926-design-brief",
+      "invocation_id": "usage-activity-20260926-design-brief",
       "outputs": [
         "docs/design-brief.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "c8c4482b62671d0edd635942aaf7409af0ecd6a9c452495ce9e20cf56364fa3e",
-        "docs/project-context.md": "bb19d1b94a8123c5fb1af661323c53223d97f5bc5775b85b3180f6422851722f",
-        "docs/canonical-terms.md": "19bd5c886324246ed5c8b438828e67f05c134b4930fe334cb53c33c800c2443a",
-        "docs/guardrails.md": "f55865c40a38e8f4d39ffc6ad92a20dc9a3a9d851cda42990f673875da4151eb",
-        "docs/user-journey.md": "d02dc738721b51f3a2dfe91d47f9d554791f32d6477f09f099e260d0df81f43a",
-        "docs/screen-map.md": "1988b283b9c8d13310eb0f8d56c82b00049ce4fe475e6cb0f66056d9d3198a5f",
-        "docs/wireframes.md": "dc22bbb74cc02620861911df6f1b9cb98f6532643bb3890e1e0569bcd189ba70",
+        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
+        "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
+        "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
+        "docs/user-journey.md": "8600d211c29ca8686d2c75c87a7975163f1dd62eff4d2ea712a11f9d42f6b602",
+        "docs/screen-map.md": "da5c0aea5e9fe16828c4bdbaadbb62ae022daa7ca22a19380ccf8a64f99fed12",
+        "docs/wireframes.md": "f6c59c79b531b9598732acf7cbe7c0b81a99076f7d528aa605d6bf61f72c3f5b",
         "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b",
         "forge/runs/porcelain-stop-20260924/scoped-override.json": "df8177ecc6e68c658ff5672b14e7def000ba241f9932639711885a4ba17afc74",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
@@ -11395,23 +11433,24 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
-        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156"
+        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
       }
     },
     "architecture": {
-      "invocation_id": "usage-reasoning-20260926-architecture",
+      "invocation_id": "usage-activity-20260926-architecture",
       "outputs": [
         "docs/architecture.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "c8c4482b62671d0edd635942aaf7409af0ecd6a9c452495ce9e20cf56364fa3e",
-        "docs/project-context.md": "bb19d1b94a8123c5fb1af661323c53223d97f5bc5775b85b3180f6422851722f",
-        "docs/canonical-terms.md": "19bd5c886324246ed5c8b438828e67f05c134b4930fe334cb53c33c800c2443a",
-        "docs/guardrails.md": "f55865c40a38e8f4d39ffc6ad92a20dc9a3a9d851cda42990f673875da4151eb",
-        "docs/user-journey.md": "d02dc738721b51f3a2dfe91d47f9d554791f32d6477f09f099e260d0df81f43a",
-        "docs/screen-map.md": "1988b283b9c8d13310eb0f8d56c82b00049ce4fe475e6cb0f66056d9d3198a5f",
-        "docs/wireframes.md": "dc22bbb74cc02620861911df6f1b9cb98f6532643bb3890e1e0569bcd189ba70",
-        "docs/design-brief.md": "e01fb6aeeea2fbfb51ab1d890fc8e15405a500a1382afa2d6fc4479a7a72c974",
+        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
+        "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
+        "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
+        "docs/user-journey.md": "8600d211c29ca8686d2c75c87a7975163f1dd62eff4d2ea712a11f9d42f6b602",
+        "docs/screen-map.md": "da5c0aea5e9fe16828c4bdbaadbb62ae022daa7ca22a19380ccf8a64f99fed12",
+        "docs/wireframes.md": "f6c59c79b531b9598732acf7cbe7c0b81a99076f7d528aa605d6bf61f72c3f5b",
+        "docs/design-brief.md": "7413f67a3ab5b775e5f080c69a879b5580146867c905e8352688519ab269add7",
         "docs/model-settings.md": "2d0b9fe9d045e289b228adfe2d27aa6c1d94632eef60c78df60091eb181c4628",
         "forge/runs/claude-signin-20260922/source-review.json": "ad878d853b9c6f30da817167e1db6dffaad9c2c2863354ad3331294d7b269def",
         "forge/runs/sound-media-playback-20260923/scope.json": "7a5aa70bf52fa77a4dea9e39e5a49453c6be40c5b1a347632f4da4f5294455a0",
@@ -11431,24 +11470,25 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
-        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156"
+        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
       }
     },
     "dod-evals": {
-      "invocation_id": "usage-reasoning-20260926-dod-evals",
+      "invocation_id": "usage-activity-20260926-dod-evals",
       "outputs": [
         "docs/dod-evals.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "c8c4482b62671d0edd635942aaf7409af0ecd6a9c452495ce9e20cf56364fa3e",
-        "docs/project-context.md": "bb19d1b94a8123c5fb1af661323c53223d97f5bc5775b85b3180f6422851722f",
-        "docs/canonical-terms.md": "19bd5c886324246ed5c8b438828e67f05c134b4930fe334cb53c33c800c2443a",
-        "docs/guardrails.md": "f55865c40a38e8f4d39ffc6ad92a20dc9a3a9d851cda42990f673875da4151eb",
-        "docs/user-journey.md": "d02dc738721b51f3a2dfe91d47f9d554791f32d6477f09f099e260d0df81f43a",
-        "docs/screen-map.md": "1988b283b9c8d13310eb0f8d56c82b00049ce4fe475e6cb0f66056d9d3198a5f",
-        "docs/wireframes.md": "dc22bbb74cc02620861911df6f1b9cb98f6532643bb3890e1e0569bcd189ba70",
-        "docs/design-brief.md": "e01fb6aeeea2fbfb51ab1d890fc8e15405a500a1382afa2d6fc4479a7a72c974",
-        "docs/architecture.md": "ba03ce21b86160c4c90282f044d6e2805edcfed900a27ff08b8d8411d9ef51a8",
+        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
+        "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
+        "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
+        "docs/user-journey.md": "8600d211c29ca8686d2c75c87a7975163f1dd62eff4d2ea712a11f9d42f6b602",
+        "docs/screen-map.md": "da5c0aea5e9fe16828c4bdbaadbb62ae022daa7ca22a19380ccf8a64f99fed12",
+        "docs/wireframes.md": "f6c59c79b531b9598732acf7cbe7c0b81a99076f7d528aa605d6bf61f72c3f5b",
+        "docs/design-brief.md": "7413f67a3ab5b775e5f080c69a879b5580146867c905e8352688519ab269add7",
+        "docs/architecture.md": "5ceb6fb99532fa6f9bde6cdf439d8abe701d3c67201dec289bcada4e0dcb1cc8",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e",
@@ -11463,7 +11503,8 @@
         "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
-        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156"
+        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
       }
     },
     "qa-checklist": {
@@ -11472,16 +11513,16 @@
         "docs/qa-checklist.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "c8c4482b62671d0edd635942aaf7409af0ecd6a9c452495ce9e20cf56364fa3e",
-        "docs/project-context.md": "bb19d1b94a8123c5fb1af661323c53223d97f5bc5775b85b3180f6422851722f",
-        "docs/canonical-terms.md": "19bd5c886324246ed5c8b438828e67f05c134b4930fe334cb53c33c800c2443a",
-        "docs/guardrails.md": "f55865c40a38e8f4d39ffc6ad92a20dc9a3a9d851cda42990f673875da4151eb",
-        "docs/user-journey.md": "d02dc738721b51f3a2dfe91d47f9d554791f32d6477f09f099e260d0df81f43a",
-        "docs/screen-map.md": "1988b283b9c8d13310eb0f8d56c82b00049ce4fe475e6cb0f66056d9d3198a5f",
-        "docs/wireframes.md": "dc22bbb74cc02620861911df6f1b9cb98f6532643bb3890e1e0569bcd189ba70",
-        "docs/design-brief.md": "e01fb6aeeea2fbfb51ab1d890fc8e15405a500a1382afa2d6fc4479a7a72c974",
-        "docs/architecture.md": "ba03ce21b86160c4c90282f044d6e2805edcfed900a27ff08b8d8411d9ef51a8",
-        "docs/dod-evals.md": "3979c458623785a433663f0d1b3a9912f4329dbb4cb777c8fc4d8b7582519c0c",
+        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
+        "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
+        "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
+        "docs/user-journey.md": "8600d211c29ca8686d2c75c87a7975163f1dd62eff4d2ea712a11f9d42f6b602",
+        "docs/screen-map.md": "da5c0aea5e9fe16828c4bdbaadbb62ae022daa7ca22a19380ccf8a64f99fed12",
+        "docs/wireframes.md": "f6c59c79b531b9598732acf7cbe7c0b81a99076f7d528aa605d6bf61f72c3f5b",
+        "docs/design-brief.md": "7413f67a3ab5b775e5f080c69a879b5580146867c905e8352688519ab269add7",
+        "docs/architecture.md": "5ceb6fb99532fa6f9bde6cdf439d8abe701d3c67201dec289bcada4e0dcb1cc8",
+        "docs/dod-evals.md": "b5206cb44a4626b8c29126bb046279cf055c0ff98a794daa91eb2ef78a55e2b4",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/critic-usage-20260925/verification.json": "3bb9e18d641a3053af6a0206de3eb4b0859b9a096199b96eae3cd3b06a79df13",
@@ -11502,7 +11543,9 @@
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
         "forge/runs/usage-dashboard-20260926/verification.json": "19051abd9a48836e3126b27196fce580d85376b37bdf11eb70498c5130e4ff25",
         "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
-        "forge/runs/usage-reasoning-20260926/verification.json": "bea2d0246df65c85c4fd8134f2b5f6eba754767776d6816ef6d5c203556dc6d6"
+        "forge/runs/usage-reasoning-20260926/verification.json": "bea2d0246df65c85c4fd8134f2b5f6eba754767776d6816ef6d5c203556dc6d6",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
+        "forge/runs/usage-activity-20260926/verification.json": "c675305666e04d18abce7e7c47c44e49ac7522c8dd6e3c2c482ad38e996b6d4d"
       }
     },
     "development-plan": {
@@ -11511,17 +11554,17 @@
         "docs/development-plan.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "c8c4482b62671d0edd635942aaf7409af0ecd6a9c452495ce9e20cf56364fa3e",
-        "docs/project-context.md": "bb19d1b94a8123c5fb1af661323c53223d97f5bc5775b85b3180f6422851722f",
-        "docs/canonical-terms.md": "19bd5c886324246ed5c8b438828e67f05c134b4930fe334cb53c33c800c2443a",
-        "docs/guardrails.md": "f55865c40a38e8f4d39ffc6ad92a20dc9a3a9d851cda42990f673875da4151eb",
-        "docs/user-journey.md": "d02dc738721b51f3a2dfe91d47f9d554791f32d6477f09f099e260d0df81f43a",
-        "docs/screen-map.md": "1988b283b9c8d13310eb0f8d56c82b00049ce4fe475e6cb0f66056d9d3198a5f",
-        "docs/wireframes.md": "dc22bbb74cc02620861911df6f1b9cb98f6532643bb3890e1e0569bcd189ba70",
-        "docs/design-brief.md": "e01fb6aeeea2fbfb51ab1d890fc8e15405a500a1382afa2d6fc4479a7a72c974",
-        "docs/architecture.md": "ba03ce21b86160c4c90282f044d6e2805edcfed900a27ff08b8d8411d9ef51a8",
-        "docs/dod-evals.md": "3979c458623785a433663f0d1b3a9912f4329dbb4cb777c8fc4d8b7582519c0c",
-        "docs/qa-checklist.md": "61dd9e371583491bd31ce19ac548ab147a01243d0d04cddb51546c24cb78ed06",
+        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
+        "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
+        "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
+        "docs/user-journey.md": "8600d211c29ca8686d2c75c87a7975163f1dd62eff4d2ea712a11f9d42f6b602",
+        "docs/screen-map.md": "da5c0aea5e9fe16828c4bdbaadbb62ae022daa7ca22a19380ccf8a64f99fed12",
+        "docs/wireframes.md": "f6c59c79b531b9598732acf7cbe7c0b81a99076f7d528aa605d6bf61f72c3f5b",
+        "docs/design-brief.md": "7413f67a3ab5b775e5f080c69a879b5580146867c905e8352688519ab269add7",
+        "docs/architecture.md": "5ceb6fb99532fa6f9bde6cdf439d8abe701d3c67201dec289bcada4e0dcb1cc8",
+        "docs/dod-evals.md": "b5206cb44a4626b8c29126bb046279cf055c0ff98a794daa91eb2ef78a55e2b4",
+        "docs/qa-checklist.md": "89b512c41a5a400077fa084c2090d37f102be6f4ddbd96519361c93eb1d7d1c6",
         "docs/model-settings.md": "2d0b9fe9d045e289b228adfe2d27aa6c1d94632eef60c78df60091eb181c4628",
         "package.json": "094e408c16c3a8369b9f21a343bb562dc0cd20160e26b6c01f144bd83712a568",
         "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318",
@@ -11545,7 +11588,9 @@
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
         "forge/runs/usage-dashboard-20260926/verification.json": "19051abd9a48836e3126b27196fce580d85376b37bdf11eb70498c5130e4ff25",
         "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
-        "forge/runs/usage-reasoning-20260926/verification.json": "bea2d0246df65c85c4fd8134f2b5f6eba754767776d6816ef6d5c203556dc6d6"
+        "forge/runs/usage-reasoning-20260926/verification.json": "bea2d0246df65c85c4fd8134f2b5f6eba754767776d6816ef6d5c203556dc6d6",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
+        "forge/runs/usage-activity-20260926/verification.json": "c675305666e04d18abce7e7c47c44e49ac7522c8dd6e3c2c482ad38e996b6d4d"
       }
     }
   },
@@ -48880,6 +48925,115 @@
       "artifact": "development-plan",
       "previous_content_hash": "0cd85b60307f90a17dc00c7d61a91cd1d83451f3474c35a1e939b71d1c1608b5",
       "recorded_at": "2026-09-26T18:28:49.727451+00:00"
+    },
+    {
+      "event": "critic_cache_usage_reconciliation",
+      "artifact": "product-idea",
+      "recorded_at": "2026-09-26T18:31:17.948890+00:00",
+      "previous_content_hash": "7dbeaa730902c8e9400227c061bfdebd824021801396bccff0dfd1061a453d5b"
+    },
+    {
+      "event": "critic_cache_usage_reconciliation",
+      "artifact": "prd",
+      "recorded_at": "2026-09-26T18:31:17.948890+00:00",
+      "previous_content_hash": "c8c4482b62671d0edd635942aaf7409af0ecd6a9c452495ce9e20cf56364fa3e"
+    },
+    {
+      "event": "critic_cache_usage_reconciliation",
+      "artifact": "project-context",
+      "recorded_at": "2026-09-26T18:31:17.948890+00:00",
+      "previous_content_hash": "bb19d1b94a8123c5fb1af661323c53223d97f5bc5775b85b3180f6422851722f"
+    },
+    {
+      "event": "critic_cache_usage_reconciliation",
+      "artifact": "canonical-terms",
+      "recorded_at": "2026-09-26T18:31:17.948890+00:00",
+      "previous_content_hash": "19bd5c886324246ed5c8b438828e67f05c134b4930fe334cb53c33c800c2443a"
+    },
+    {
+      "event": "critic_cache_usage_reconciliation",
+      "artifact": "guardrails",
+      "recorded_at": "2026-09-26T18:31:17.948890+00:00",
+      "previous_content_hash": "f55865c40a38e8f4d39ffc6ad92a20dc9a3a9d851cda42990f673875da4151eb"
+    },
+    {
+      "event": "critic_cache_usage_reconciliation",
+      "artifact": "user-journey",
+      "recorded_at": "2026-09-26T18:31:17.948890+00:00",
+      "previous_content_hash": "d02dc738721b51f3a2dfe91d47f9d554791f32d6477f09f099e260d0df81f43a"
+    },
+    {
+      "event": "critic_cache_usage_reconciliation",
+      "artifact": "screen-map",
+      "recorded_at": "2026-09-26T18:31:17.948890+00:00",
+      "previous_content_hash": "1988b283b9c8d13310eb0f8d56c82b00049ce4fe475e6cb0f66056d9d3198a5f"
+    },
+    {
+      "event": "critic_cache_usage_reconciliation",
+      "artifact": "wireframes",
+      "recorded_at": "2026-09-26T18:31:17.948890+00:00",
+      "previous_content_hash": "dc22bbb74cc02620861911df6f1b9cb98f6532643bb3890e1e0569bcd189ba70"
+    },
+    {
+      "event": "critic_cache_usage_reconciliation",
+      "artifact": "design-brief",
+      "recorded_at": "2026-09-26T18:31:17.948890+00:00",
+      "previous_content_hash": "e01fb6aeeea2fbfb51ab1d890fc8e15405a500a1382afa2d6fc4479a7a72c974"
+    },
+    {
+      "event": "critic_cache_usage_reconciliation",
+      "artifact": "architecture",
+      "recorded_at": "2026-09-26T18:31:17.948890+00:00",
+      "previous_content_hash": "ba03ce21b86160c4c90282f044d6e2805edcfed900a27ff08b8d8411d9ef51a8"
+    },
+    {
+      "event": "critic_cache_usage_reconciliation",
+      "artifact": "dod-evals",
+      "recorded_at": "2026-09-26T18:31:17.948890+00:00",
+      "previous_content_hash": "3979c458623785a433663f0d1b3a9912f4329dbb4cb777c8fc4d8b7582519c0c"
+    },
+    {
+      "event": "critic_cache_usage_reconciliation",
+      "artifact": "qa-checklist",
+      "recorded_at": "2026-09-26T18:31:17.948890+00:00",
+      "previous_content_hash": "61dd9e371583491bd31ce19ac548ab147a01243d0d04cddb51546c24cb78ed06"
+    },
+    {
+      "event": "critic_cache_usage_reconciliation",
+      "artifact": "development-plan",
+      "recorded_at": "2026-09-26T18:31:17.948890+00:00",
+      "previous_content_hash": "149dcf29230be37a660bc8cfcd03b9459a591b8f1b30a86be7c8ceabf5b4caaf"
+    },
+    {
+      "event": "prior_implementation_gate",
+      "recorded_at": "2026-09-26T18:31:23.833650+00:00",
+      "record": {
+        "state": "authorized_for_phase3",
+        "development_plan_hash": "149dcf29230be37a660bc8cfcd03b9459a591b8f1b30a86be7c8ceabf5b4caaf",
+        "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
+        "awaiting_at": "2026-09-24T13:00:20.203238+00:00",
+        "product_scope_hash": "defc5e24f0dd91be42b984888b157137f4f1ed361459e70f42b832e18c957bd4",
+        "prompt_id": "usage-reasoning-20260926",
+        "prompt_received_at": "2026-09-26T18:27:54.126007+00:00",
+        "released_at": "2026-09-26T18:27:54.126007+00:00",
+        "reason": "User requested reasoning labels and comparison of the saved medium and high runs.",
+        "prompt_receipt": {
+          "path": "forge/runs/usage-reasoning-20260926/implementation-prompt.json",
+          "content_hash": "b19314baa72d9baa6cd7ef51c84cef38f7ea7c0e5a98af978f2facff0aecbbd6"
+        }
+      }
+    },
+    {
+      "event": "usage_dashboard_verification",
+      "artifact": "qa-checklist",
+      "previous_content_hash": "2791e868e8cb673e40774837da17424a9f6d2c5e7bf68818f86d5b2accd4ae9a",
+      "recorded_at": "2026-09-26T18:32:56.099644+00:00"
+    },
+    {
+      "event": "usage_dashboard_verification",
+      "artifact": "development-plan",
+      "previous_content_hash": "db83eb12bcf6af5345bbaf46cbb109ffa5edd5ff5e406b92b151ee3582ff8130",
+      "recorded_at": "2026-09-26T18:32:56.099644+00:00"
     }
   ],
   "input_requests": [],

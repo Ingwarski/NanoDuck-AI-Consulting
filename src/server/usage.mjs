@@ -119,7 +119,20 @@ export function summarizeUsage(entries, includeStages = true) {
     return [...grouped.values()].map(({ key, label, usage }) => ({ key, label, ...summarizeUsage([{ usage }], false) })).sort((a, b) => (b.total ?? -1) - (a.total ?? -1));
   };
   const repeatEntries = entries.map(entry => ({ usage: (entry.usage ?? []).filter(attempt => ["failed", "cancelled", "interrupted"].includes(attempt.status) || ["retry", "correction", "followup_research"].includes(attempt.attribution?.purpose)) }));
-  return { coverage, ...(includeStages ? {
+  const activity = {};
+  for (const field of ["consultants", "reviewRounds", "correctionOrders"]) {
+    const known = entries.filter(entry => Number.isSafeInteger(entry.activity?.[field]));
+    activity[field] = { value: known.length ? known.reduce((total, entry) => total + entry.activity[field], 0) : null,
+      partial: entries.some(entry => !entry.activity || entry.activity.partial) };
+  }
+  const attemptsList = entries.flatMap(entry => entry.usage ?? []);
+  const research = attemptsList.filter(attempt => attempt.diagnostics?.stage === "public_research");
+  const unknownStages = entries.some(entry => entry.hasMessages && !entry.usage?.length) || attemptsList.some(attempt => !attempt.diagnostics?.stage || attempt.diagnostics.stage === "unavailable");
+  activity.researchCalls = { value: research.length || !unknownStages ? research.length : null, partial: unknownStages };
+  const knownActions = research.filter(attempt => count(attempt.diagnostics?.webSearchCount) !== null);
+  activity.webActions = { value: knownActions.length ? knownActions.reduce((total, attempt) => total + attempt.diagnostics.webSearchCount, 0) : !research.length && !unknownStages ? 0 : null,
+    partial: unknownStages || knownActions.length !== research.length || research.some(attempt => attempt.status === "running" || attempt.status === "interrupted") };
+  return { coverage, ...(includeStages ? { activity,
     providers: groups(attempt => ({ key: attempt.provider, label: attempt.provider === "codex" ? "OpenAI · Codex" : "Anthropic · Claude" })),
     requests: groups((attempt, entry) => ({ key: `${entry.conversationId ?? ""}:${attempt.attribution?.requestId ?? "legacy"}`, label: attempt.attribution?.requestId ? `Request · ${attempt.attribution.requestId.slice(0, 8)}` : "Earlier calls — request unknown" })),
     participants: groups(attempt => ({ key: attempt.attribution?.participantId ?? attempt.attribution?.participant ?? "unknown", label: attempt.attribution?.participant ?? "Earlier calls — participant unknown" })),

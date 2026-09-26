@@ -1,0 +1,21 @@
+{
+  "unit": "U-13 activity counts",
+  "tests": {
+    "passed": 227,
+    "skipped": 2,
+    "failed": 0
+  },
+  "browsers": [
+    "chromium",
+    "firefox",
+    "webkit"
+  ],
+  "coverage": [
+    "five activity labels",
+    "scoped counts",
+    "legacy unknown coverage",
+    "aggregate counts",
+    "320px reflow"
+  ],
+  "saved_data_check": "Read-only ledger and telemetry summaries verified; no private conversation content committed."
+}

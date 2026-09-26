@@ -232,3 +232,9 @@ U-13 verification completed: 224 tests passed, 2 platform-specific checks skippe
 U-13 reasoning attribution follow-up: Usage model rows and call timeline show the selected reasoning effort. Aggregate by provider, model and effort so different configurations never collapse together. New adapters record actual requested effort. Older calls may recover the value only from a matching immutable single-request snapshot with a known stage, provider and model; otherwise show unknown. Preserve counters, request isolation and privacy. The user authorizes this change and a read-only comparison of saved high/medium runs, not an unqualified quality claim.
 
 U-13 reasoning attribution verified: 226 tests passed, 2 platform-specific skips; Chromium, Firefox and WebKit show reasoning beside models. Mixed-effort grouping and conservative historical recovery tests pass. Read-only inspection confirmed the two saved configurations without copying private content. See [evidence](../forge/runs/usage-reasoning-20260926/verification.json).
+
+## U-13 activity counts follow-up — 2026-09-26
+
+U-13 activity counts follow-up: show five metrics in Usage: consultant assignments excluding Head/Critic, issued review rounds, issued correction orders, research provider-call attempts including retries, and reported search/open/find web actions. Read team counts from saved parallel ledgers and research counts from usage telemetry. Scope follows the selected conversation/all view. Aggregate known values and mark partial coverage; missing older data is never zero. Preserve privacy and active consultations.
+
+U-13 activity counts verified: 227 tests passed and 2 platform-specific skips. Chromium, Firefox and WebKit verify all five labels, scoped display and 320px reflow. Saved-ledger counts match read-only usage summaries. [Evidence](../forge/runs/usage-activity-20260926/verification.json). Unknown historical telemetry remains partial or unavailable.

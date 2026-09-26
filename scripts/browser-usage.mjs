@@ -16,6 +16,7 @@ export async function verifyUsage(page, name, root) {
   assert.match(await page.locator('.usage-repeat').innerText(), /Each attempt counts once/);
   await page.waitForFunction(() => document.querySelector('#account-usage').textContent.includes('account-wide'));
   assert.match(await page.locator('#account-usage').innerText(), /Open Claude account usage/);
+  for (const label of ['Consultants', 'Review rounds', 'Correction orders', 'Research calls', 'Web actions']) assert.ok((await page.locator('.usage-activity').innerText()).includes(label));
   const current = await page.locator('.usage-total').innerText();
   assert.notEqual(current, 'Unavailable');
   assert.ok(Number(current.replace(/\D/gu, '')) > 0);
