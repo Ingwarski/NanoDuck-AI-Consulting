@@ -98,3 +98,13 @@
 
 .chat-jumps{position:fixed;inset:0;z-index:15;pointer-events:none}.chat-jumps button{pointer-events:auto;position:fixed;left:50%;transform:translateX(-50%);display:grid;place-items:center;width:44px;height:44px;min-width:44px;padding:10px;border:1.5px solid var(--muted);border-radius:50%;background:transparent;color:var(--ink)}.chat-jumps button:hover{background:transparent;border-color:var(--blue-light);color:var(--blue-light)}.chat-jumps svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 #chat-start{top:calc(96px + env(safe-area-inset-top, 0px))}#chat-end{bottom:calc(16px + env(safe-area-inset-bottom, 0px))}
+
+/* U-13: provider totals and account-wide allowance retain separate scopes. */
+.usage-providers{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,24rem),1fr));gap:1rem;margin:1.2rem 0}
+.usage-provider{border:1px solid var(--line,#34363d);border-radius:1rem;padding:1.2rem;min-width:0}
+.usage-provider-total{font-size:1.8rem;font-weight:700;margin:.6rem 0}
+.usage-provider .usage-metrics dd{font-size:1.15rem;overflow-wrap:anywhere}
+#account-usage{margin:1rem 0}#account-usage meter{width:100%;max-width:28rem;height:1rem}
+.usage-repeat{padding:1rem;border-inline-start:3px solid #54d4cc;line-height:1.6}
+.usage-stage{overflow-wrap:anywhere}
+#usage-content > .usage-total{font-size:1.25rem;font-weight:600;margin:.5rem 0}

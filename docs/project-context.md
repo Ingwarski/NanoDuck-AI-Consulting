@@ -62,3 +62,7 @@ U-12 follow-up: retain an isolated Claude working context within one accepted re
 ## U-12 upstream usage verification — 2026-09-26
 
 U-12 upstream accounting follow-up: opt into the pinned Codex experimental raw completion event, extract only numeric usage from upstream metadata, deduplicate by response within the expected turn and reconcile against cumulative totals. Preserve explicit zero versus missing field; never infer writes from uncached input. Store numeric accounting provenance only, never raw responses, attribution IDs, output or hidden reasoning. Display upstream-verified versus legacy normalized counters in existing Usage. Preserve exact models, private context, authentication and live runs. Experimental telemetry failure must not interrupt consulting. Verify real coordinator Critic cache reuse with synthetic data and document historical limits. User explicitly authorizes this investigation and implementation.
+
+## U-13 actionable usage dashboard — 2026-09-26
+
+U-13 extends authenticated Usage only. Native provider telemetry is authoritative; no private OAuth endpoint, additional inference call or shared request context is introduced.

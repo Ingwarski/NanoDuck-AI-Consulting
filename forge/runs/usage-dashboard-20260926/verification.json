@@ -1,0 +1,54 @@
+{
+  "unit": "U-13",
+  "recorded_at": "2026-09-26T17:44:37.614717+00:00",
+  "checks": {
+    "full_suite": {
+      "command": "npm run check",
+      "passed": 224,
+      "skipped": 2,
+      "failed": 0
+    },
+    "browsers": {
+      "command": "node scripts/browser-check.mjs --usage-only",
+      "engines": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "passed": true,
+      "coverage": [
+        "provider breakdown",
+        "request and participant groups",
+        "timeline request filter",
+        "account percentage fixture",
+        "320px reflow",
+        "refresh failures and reload",
+        "partial and missing usage",
+        "keyboard navigation"
+      ]
+    },
+    "native_account_read": {
+      "provider": "codex",
+      "windows": 1,
+      "numeric_validation": true,
+      "inference_calls": 0
+    },
+    "visual_review": {
+      "viewports": [
+        320,
+        1280
+      ],
+      "synthetic_data": true
+    }
+  },
+  "limits": [
+    "Claude allowance linked to official usage page; noninteractive result does not expose percentage windows.",
+    "Historical request and participant attribution is not reconstructed.",
+    "Tokens do not determine subscription deductions.",
+    "No representative-user or OS portability study performed."
+  ],
+  "fixed_during_verification": [
+    "ARIA labels must be DOM attributes so timeline filter and meters have accessible names."
+  ],
+  "release_readiness": "not_evaluated"
+}

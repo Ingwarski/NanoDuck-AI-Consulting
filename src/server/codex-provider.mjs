@@ -1,3 +1,4 @@
+import { codexAllowance } from "./account-usage.mjs";
 import { sourceKey } from "./research-evidence.mjs";
 import { buildProviderContext, consultationBaseInstructions } from "./provider-context.mjs";
 import { beginUsage, codexTokens, codexResponseTokens, sumTokenUsage } from "./usage.mjs";
@@ -242,6 +243,18 @@ export function createCodexProvider(config, deadlineOptions = undefined) {
       await connection?.close().catch(() => {});
     }
   };
+  const accountUsage = async () => {
+    if (!config.readyForProvider) throw new Error("provider_unavailable");
+    let connection;
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 10_000);
+    try {
+      connection = await startConnection(config, controller.signal);
+      const account = await waitFor(connection.request("account/read", { refreshToken: false }), 10_000, "app_server_timeout", controller.signal);
+      if (account?.account?.type !== "chatgpt") throw new Error("auth_required");
+      return codexAllowance(await waitFor(connection.request("account/rateLimits/read", {}), 10_000, "app_server_timeout", controller.signal));
+    } finally { clearTimeout(timer); await connection?.close().catch(() => {}); }
+  };
   const invoke = async ({ assignment, model, effort, evidence, research, outputKind = "discussion", maximumCharacters = undefined, runtimeInstructions, signal, onUsage, contextScope }) => {
     if (!config.readyForProvider) return { ok: false, code: "provider_unavailable" };
     if (!runtimeInstructions) throw new RuntimeInstructionError("Provider invocation is missing its runtime-instructions contract.");
@@ -355,5 +368,5 @@ export function createCodexProvider(config, deadlineOptions = undefined) {
       await connection?.close().catch(() => {});
     }
   };
-  return Object.freeze({ inspect, invoke, releaseScope, id: () => randomId() });
+  return Object.freeze({ inspect, accountUsage, invoke, releaseScope, id: () => randomId() });
 }

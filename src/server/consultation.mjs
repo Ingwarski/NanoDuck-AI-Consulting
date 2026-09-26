@@ -97,7 +97,16 @@ export function createConsultationService({ store, provider: baseProvider }) {
     let phase = "initializing"; const startedAt = Date.now();
     const provider = { invoke: input => {
       phase = input.outputKind ?? "discussion";
-      return baseProvider.invoke({ ...input, contextScope: runState.id, onUsage: attempt => store.recordUsage(conversationId, attempt) });
+      const ids = new Set();
+      const participant = input.usageParticipant ?? input.role ?? (/critic|team_review/u.test(input.outputKind ?? "") ? "Critic" : /^specialist/u.test(input.outputKind ?? "") ? "Consultant" : "Head Consultant");
+      return baseProvider.invoke({ ...input, contextScope: runState.id, onUsage: attempt => {
+        ids.add(attempt.id);
+        return store.recordUsage(conversationId, { ...attempt, attribution: {
+          requestId: snapshot?.requestMessageId ?? runState.id,
+          participantId: input.usageParticipantId ?? null, participant,
+          purpose: [...ids].indexOf(attempt.id) > 0 ? "retry" : input.usagePurpose ?? (input.outputKind === "specialist_reply" ? "correction" : "initial")
+        } });
+      } });
     } };
     const current = () => store.events(conversationId).then(events => {
       // Recovery notices stay in the saved transcript, but never count as a
@@ -127,7 +136,7 @@ export function createConsultationService({ store, provider: baseProvider }) {
       const input = { provider: step.provider, role: step.role, recipient: step.recipient, assignment: step.assignment, model: step.model, effort: step.effort, evidence, research: step.provider !== "claude_code" && step.research, outputKind: step.outputKind, runtimeInstructions: step.runtimeInstructions, signal: controller.signal };
       failedProvider = input.provider ?? "codex";
       let result = await provider.invoke(input);
-      if (!result.ok && (result.code === "language_policy" || result.code === "output_policy") && await isCurrent()) result = await provider.invoke({ ...input, assignment: policyCorrection(step.assignment), evidence: await current() });
+      if (!result.ok && (result.code === "language_policy" || result.code === "output_policy") && await isCurrent()) result = await provider.invoke({ ...input, usagePurpose: "retry", assignment: policyCorrection(step.assignment), evidence: await current() });
       return result;
     };
     const invoke = async (step, transform = undefined) => {

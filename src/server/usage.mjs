@@ -44,10 +44,17 @@ const normalizeDiagnostics = value => ({
   })) } : {})
 });
 
+const safeId = value => typeof value === "string" && /^[A-Za-z0-9_-]{1,128}$/u.test(value) ? value : null;
+export function usageAttribution(value) {
+  return { requestId: safeId(value?.requestId), participantId: safeId(value?.participantId),
+    participant: typeof value?.participant === "string" && value.participant.length <= 100 && !/[\p{Cc}\p{Cf}]/u.test(value.participant) ? value.participant : null,
+    purpose: ["initial", "retry", "correction", "followup_research"].includes(value?.purpose) ? value.purpose : null };
+}
+
 export function normalizeUsageAttempt(value) {
   if (!object(value) || typeof value.id !== "string" || !/^[A-Za-z0-9_-]{32}$/u.test(value.id) || !["codex", "claude_code"].includes(value.provider) || !modelId(value.model) || !["running", "completed", "failed", "cancelled", "interrupted"].includes(value.status) || typeof value.startedAt !== "string" || !Number.isFinite(Date.parse(value.startedAt)) || (value.finishedAt !== null && (typeof value.finishedAt !== "string" || !Number.isFinite(Date.parse(value.finishedAt)))) || !Array.isArray(value.usage)) return undefined;
   if (value.usage.some(item => !object(item) || !modelId(item.model) || !object(item.tokens) || tokenFields.some(key => item.tokens[key] !== null && count(item.tokens[key]) === null)) || new Set(value.usage.map(item => item.model)).size !== value.usage.length) return undefined;
-  return { id: value.id, provider: value.provider, model: value.model, ...(value.diagnostics ? { diagnostics: normalizeDiagnostics(value.diagnostics) } : {}), status: value.status, startedAt: value.startedAt, finishedAt: value.finishedAt, usage: value.usage.map(item => ({ model: item.model, tokens: Object.fromEntries(tokenFields.map(key => [key, item.tokens[key]])) })) };
+  return { attribution: usageAttribution(value.attribution), id: value.id, provider: value.provider, model: value.model, ...(value.diagnostics ? { diagnostics: normalizeDiagnostics(value.diagnostics) } : {}), status: value.status, startedAt: value.startedAt, finishedAt: value.finishedAt, usage: value.usage.map(item => ({ model: item.model, tokens: Object.fromEntries(tokenFields.map(key => [key, item.tokens[key]])) })) };
 }
 
 // Only allowlisted numeric/model metadata crosses this callback. Usage storage
@@ -73,7 +80,7 @@ export function summarizeUsage(entries, includeStages = true) {
     attempts += 1;
     if ((["running", "interrupted"].includes(attempt.status) || attempt.diagnostics?.usageCoverage === "partial")) incomplete += 1;
     if (!startedAt || attempt.startedAt < startedAt) startedAt = attempt.startedAt;
-    if (!attempt.usage.length || attempt.usage.some(item => item.tokens.total === null)) unavailable += 1;
+    if (!attempt.usage.length || attempt.usage.some(item => ["input", "output", "total"].some(field => item.tokens[field] === null))) unavailable += 1;
     for (const item of attempt.usage.length ? attempt.usage : [{ model: attempt.model, tokens: emptyTokens() }]) {
       const key = `${attempt.provider}:${item.model}`;
       const row = models.get(key) ?? { provider: attempt.provider, model: item.model, calls: 0, tokens: Object.fromEntries(tokenFields.map(field => [field, { value: null, unavailable: 0 }])) };
@@ -88,7 +95,7 @@ export function summarizeUsage(entries, includeStages = true) {
   const rows = [...models.values()].sort((a, b) => `${a.provider}:${a.model}`.localeCompare(`${b.provider}:${b.model}`));
   const totals = rows.map(row => row.tokens.total.value).filter(value => value !== null);
   const callDetails = entries.flatMap(entry => (entry.usage ?? []).map(attempt => ({
-    id: attempt.id, provider: attempt.provider, model: attempt.model, status: attempt.status,
+    id: attempt.id, attribution: usageAttribution(attempt.attribution), conversationId: entry.conversationId ?? null, provider: attempt.provider, model: attempt.model, status: attempt.status,
     startedAt: attempt.startedAt, finishedAt: attempt.finishedAt,
     stage: attempt.diagnostics?.stage ?? "unavailable", usageSource: attempt.diagnostics?.usageSource ?? (attempt.provider === "claude_code" ? "claude_model_usage" : "codex_normalized"), responseCount: attempt.diagnostics?.responseCount ?? null, usageCoverage: attempt.diagnostics?.usageCoverage ?? "normalized", usage: attempt.usage
   }))).sort((a, b) => a.startedAt.localeCompare(b.startedAt));
@@ -98,5 +105,21 @@ export function summarizeUsage(entries, includeStages = true) {
     if (!stages.has(stage)) stages.set(stage, []);
     stages.get(stage).push(attempt);
   }
-  return { ...(includeStages ? { callDetails, stages: [...stages].map(([stage, usage]) => ({ stage, ...summarizeUsage([{ usage }], false) })) } : {}), attempts, incomplete, unavailable, startedAt, total: totals.length ? sum(totals) : null, models: rows, historyMayBeMissing: true };
+  const coverage = entries.some(entry => entry.usage?.some(attempt => attempt.status === "running")) ? "running" : incomplete || unavailable ? "partial" : "complete";
+  const groups = (keyFor) => {
+    const grouped = new Map();
+    for (const entry of entries) for (const attempt of entry.usage ?? []) {
+      const { key, label } = keyFor(attempt, entry);
+      if (!grouped.has(key)) grouped.set(key, { key, label, usage: [] });
+      grouped.get(key).usage.push(attempt);
+    }
+    return [...grouped.values()].map(({ key, label, usage }) => ({ key, label, ...summarizeUsage([{ usage }], false) })).sort((a, b) => (b.total ?? -1) - (a.total ?? -1));
+  };
+  const repeatEntries = entries.map(entry => ({ usage: (entry.usage ?? []).filter(attempt => ["failed", "cancelled", "interrupted"].includes(attempt.status) || ["retry", "correction", "followup_research"].includes(attempt.attribution?.purpose)) }));
+  return { coverage, ...(includeStages ? {
+    providers: groups(attempt => ({ key: attempt.provider, label: attempt.provider === "codex" ? "OpenAI · Codex" : "Anthropic · Claude" })),
+    requests: groups((attempt, entry) => ({ key: `${entry.conversationId ?? ""}:${attempt.attribution?.requestId ?? "legacy"}`, label: attempt.attribution?.requestId ? `Request · ${attempt.attribution.requestId.slice(0, 8)}` : "Earlier calls — request unknown" })),
+    participants: groups(attempt => ({ key: attempt.attribution?.participantId ?? attempt.attribution?.participant ?? "unknown", label: attempt.attribution?.participant ?? "Earlier calls — participant unknown" })),
+    repeatWork: summarizeUsage(repeatEntries, false),
+    callDetails, stages: [...stages].map(([stage, usage]) => ({ stage, ...summarizeUsage([{ usage }], false) })).sort((a, b) => (b.total ?? -1) - (a.total ?? -1)) } : {}), attempts, incomplete, unavailable, startedAt, total: totals.length ? sum(totals) : null, models: rows, historyMayBeMissing: true };
 }

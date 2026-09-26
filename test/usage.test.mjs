@@ -100,3 +100,25 @@ test("running usage snapshots stay ordered and final usage cannot be overwritten
  await Promise.all([finish('running',[{model:'gpt-6-sol',tokens:{...tokens,input:50}}]),finish('completed',[{model:'gpt-6-sol',tokens}])]);
  assert.deepEqual(received.map(x=>x.status),['running','running','completed']);assert.equal(received[1].finishedAt,null);assert.equal(received[2].usage[0].tokens.input,100);assert.ok(received[2].finishedAt);
 });
+
+test("dashboard attribution groups requests and participants and counts overlapping repeat work once", async () => {
+  const store = createMemoryStore(); const conversation = await store.createConversation();
+  const requestId = randomId();
+  await store.recordUsage(conversation.id, attempt({ attribution: { requestId, participantId: "finance", participant: "Finance Consultant", purpose: "retry" }, status: "failed" }));
+  await store.recordUsage(conversation.id, attempt({ attribution: { requestId, participantId: "finance", participant: "Finance Consultant", purpose: "correction" } }));
+  await store.recordUsage(conversation.id, attempt());
+  const summary = await store.usageSummary(conversation.id);
+  assert.equal(summary.requests.length, 2);
+  assert.equal(summary.requests[0].total, 280);
+  assert.equal(summary.participants[0].label, "Finance Consultant");
+  assert.equal(summary.providers[0].total, 420);
+  assert.equal(summary.repeatWork.total, 280);
+  assert.equal(summary.repeatWork.attempts, 2);
+  assert.equal(summary.coverage, "complete");
+  assert.equal(summary.callDetails[0].attribution.requestId, requestId);
+  assert.equal(summary.callDetails[0].conversationId, conversation.id);
+  await store.recordUsage(conversation.id, attempt({ status: "running", finishedAt: null, usage: [] }));
+  assert.equal((await store.usageSummary(conversation.id)).coverage, "running");
+  await store.interruptUsage();
+  assert.equal((await store.usageSummary(conversation.id)).coverage, "partial");
+});

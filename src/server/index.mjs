@@ -139,6 +139,10 @@ const handler = async (request, response) => {
       }
       return send(response, 405, { error: "method_not_allowed" });
     }
+    if (request.method === "GET" && url.pathname === "/api/account-usage") {
+      if (!await protectedSession(request, response)) return;
+      return send(response, 200, { accounts: await providers.accountUsage() });
+    }
     if (request.method === "GET" && url.pathname === "/api/usage") {
       if (!await protectedSession(request, response)) return;
       const conversationId = url.searchParams.get("conversationId") ?? undefined;

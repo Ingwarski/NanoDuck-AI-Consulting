@@ -77,7 +77,7 @@ export function createMemoryStore(initialState = undefined) {
       const index = entries.findIndex(item => item.id === attempt.id);
       if (index >= 0) {
         const prior = entries[index];
-        if (["provider", "model", "startedAt"].some(key => prior[key] !== attempt[key])) throw new Error("invalid_usage");
+        if (["provider", "model", "startedAt"].some(key => prior[key] !== attempt[key]) || (prior.attribution && JSON.stringify(prior.attribution) !== JSON.stringify(attempt.attribution))) throw new Error("invalid_usage");
         if (!["running", "interrupted"].includes(prior.status)) return false;
         entries[index] = attempt;
       } else entries.push(attempt);
@@ -88,7 +88,7 @@ export function createMemoryStore(initialState = undefined) {
     },
     async usageSummary(conversationId = undefined) {
       if (conversationId && (!conversations.has(conversationId) || conversations.get(conversationId).deletedAt)) return undefined;
-      return summarizeUsage([...conversations.values()].filter(item => !item.deletedAt && (!conversationId || item.id === conversationId)).map(item => ({ usage: usage.get(item.id) ?? [] })));
+      return summarizeUsage([...conversations.values()].filter(item => !item.deletedAt && (!conversationId || item.id === conversationId)).map(item => ({ conversationId: item.id, usage: usage.get(item.id) ?? [] })));
     },
     async createSession(input) { sessions.set(input.id, { ...input }); return { ...input }; },
     async session(id) { const item = sessions.get(id); return item ? { ...item } : undefined; },

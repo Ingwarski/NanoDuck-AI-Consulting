@@ -241,3 +241,10 @@ test('raw usage survives a failed turn without cumulative counters and is explic
  await provider.invoke({assignment:'Exercise upstream usage raw only partial raw Fail after a completed item',model:'gpt-6-sol',effort:'high',evidence:{owner:'Synthetic test',discussion:''},research:false,runtimeInstructions:initialRuntimeInstructions,onUsage:value=>records.push(value)});
  const final=records.at(-1);assert.equal(final.status,'failed');assert.equal(final.usage[0].tokens.total,70);assert.equal(final.diagnostics.usageCoverage,'partial');const summary=summarizeUsage([{usage:[final]}]);assert.equal(summary.total,70);assert.equal(summary.incomplete,1);
 });
+
+
+test("Codex account allowance read does not start a model turn", async () => {
+  const command = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));
+  const provider = createCodexProvider({ readyForProvider: true, codexCommand: process.execPath, codexCommandArgs: [command] });
+  assert.deepEqual(await provider.accountUsage(), []);
+});

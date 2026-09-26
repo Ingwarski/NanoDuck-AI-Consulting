@@ -37,7 +37,7 @@ const toast = message => { if (privacyLocked) return; const item = $("#toast"); 
 const formatTime = value => new Intl.DateTimeFormat(undefined, { hour: "numeric", minute: "2-digit" }).format(new Date(value));
 const formatDate = value => new Intl.DateTimeFormat(undefined, { dateStyle: "medium" }).format(new Date(value));
 const clear = element => { element.replaceChildren(); return element; };
-const node = (tag, attributes = {}, text) => { const item = document.createElement(tag); for (const [key, value] of Object.entries(attributes)) { if (key === "class") item.className = value; else if (key.startsWith("data-")) item.setAttribute(key, value); else item[key] = value; } if (text !== undefined) item.textContent = text; return item; };
+const node = (tag, attributes = {}, text) => { const item = document.createElement(tag); for (const [key, value] of Object.entries(attributes)) { if (key === "class") item.className = value; else if (key.startsWith("data-") || key.startsWith("aria-")) item.setAttribute(key, value); else item[key] = value; } if (text !== undefined) item.textContent = text; return item; };
 const appendMarkdownTokens = (target, tokens) => { for (const token of tokens) { if (token.type === "break") target.append(document.createElement("br")); else if (token.type === "strong") target.append(node("strong", {}, token.value)); else if (token.type === "emphasis") target.append(node("em", {}, token.value)); else if (token.type === "code") target.append(node("code", {}, token.value)); else if (token.type === "link") target.append(node("a", { href: token.href, target: "_blank", rel: "noopener noreferrer" }, token.value)); else target.append(document.createTextNode(token.value)); } };
 const renderMarkdown = (target, value) => {
   clear(target);
@@ -166,7 +166,7 @@ function clearPrivateClientContent() {
   for (const field of document.querySelectorAll("textarea, input")) { field.value = ""; if (field.type === "checkbox") field.checked = false; }
   for (const select of document.querySelectorAll("select")) select.selectedIndex = Math.max(0, [...select.options].findIndex(option => option.defaultSelected));
   for (const element of document.querySelectorAll("[data-revision], [data-name], [data-history-id], [data-current]")) for (const key of ["revision", "name", "historyId", "current"]) delete element.dataset[key];
-  for (const selector of ["#thread", "#outcome", "#sources", "#usage-content", "#usage-status", "#conversation-list", "#conversation-toolbar", "#attachment-list", "#runtime-instruction-history", "#managed-document-history", "#settings-status", "#runtime-instructions-status", "#managed-document-status", "#session-expiry", "#runtime-instructions-version-meta", "#message-announcement", "#voice-timer", "#toast"]) $(selector)?.replaceChildren();
+  for (const selector of ["#thread", "#outcome", "#sources", "#account-usage", "#usage-content", "#usage-status", "#conversation-list", "#conversation-toolbar", "#attachment-list", "#runtime-instruction-history", "#managed-document-history", "#settings-status", "#runtime-instructions-status", "#managed-document-status", "#session-expiry", "#runtime-instructions-version-meta", "#message-announcement", "#voice-timer", "#toast"]) $(selector)?.replaceChildren();
   clearTimeout(toast.timer); $("#toast").hidden = true; $("#app").hidden = true; $("#consent").hidden = true; $("#sign-in").hidden = true;
 }
 
@@ -732,17 +732,78 @@ function stopPolling() {
 let usageRequest = 0;
 let usageFlight;
 const tokenNumber = value => value === null ? "Unavailable" : new Intl.NumberFormat().format(value);
+const usageTime = value => value && Number.isFinite(Date.parse(value)) ? new Date(value).toLocaleString() : "Time unavailable";
+function usageRanking(title, rows) {
+  const section = node("details", { class: "usage-stages" });
+  section.append(node("summary", {}, title));
+  for (const [index, row] of (rows ?? []).entries()) {
+    const item = node("div", { class: "usage-stage" });
+    item.append(node("strong", {}, `${row.label ?? row.key}${index === 0 && rows.length > 1 ? " · largest reported consumer" : ""}`), node("p", { class: "hint" }, `${tokenNumber(row.total)} tokens · ${row.attempts} attempts · ${row.coverage}${row.startedAt ? ` · ${usageTime(row.startedAt)}` : ""}`));
+    section.append(item);
+  }
+  return section;
+}
+function providerSummary(provider) {
+  const section = node("article", { class: "usage-provider" });
+  section.append(node("h3", {}, provider.label), node("p", { class: "usage-provider-total" }, `${tokenNumber(provider.total)} tokens`), node("p", { class: "hint" }, `${provider.coverage} · ${provider.attempts} attempts · NanoDuck only`));
+  for (const model of provider.models) {
+    const input = model.tokens.input, cached = model.tokens.cachedInput;
+    const complete = input.value !== null && cached.value !== null && !input.unavailable && !cached.unavailable && input.value >= cached.value;
+    const line = node("dl", { class: "usage-metrics" });
+    for (const [label, value] of [["Uncached input", complete ? tokenNumber(input.value - cached.value) : "Incomplete data"], ["Cache read", `${tokenNumber(cached.value)}${cached.unavailable ? " (partial)" : ""}`], ["Output", `${tokenNumber(model.tokens.output.value)}${model.tokens.output.unavailable ? " (partial)" : ""}`]]) {
+      const group = node("div"); group.append(node("dt", {}, label), node("dd", {}, value)); line.append(group);
+    }
+    section.append(node("strong", {}, model.model), line, node("p", { class: "hint" }, `Input cache hit: ${complete && input.value > 0 ? `${(100 * cached.value / input.value).toFixed(1)}%` : "not calculable"}. ${provider.key === "claude_code" ? "Uncached input includes cache creation." : ""}`));
+    if (provider.key === "claude_code") section.append(node("p", { class: "hint" }, `Cache creation: ${tokenNumber(model.tokens.cacheWriteInput.value)}${model.tokens.cacheWriteInput.unavailable ? " (partial)" : ""} · included in input.`));
+    if (model.tokens.reasoningOutput.value !== null) section.append(node("p", { class: "hint" }, `Reasoning: ${tokenNumber(model.tokens.reasoningOutput.value)}${model.tokens.reasoningOutput.unavailable ? " (partial)" : ""} · included in output.`));
+  }
+  return section;
+}
+let accountUsageFlight;
+async function loadAccountUsage() {
+  if (accountUsageFlight) return;
+  const generation = clientGeneration;
+  accountUsageFlight = true;
+  try {
+    const { data } = await request("/api/account-usage", { timeoutMs: 15_000 });
+    if (generation !== clientGeneration || privacyLocked || state.tab !== "usage") return;
+    const panel = clear($("#account-usage"));
+    panel.append(node("h3", {}, "Subscription allowance · account-wide"), node("p", { class: "hint" }, "Shared with other apps using this account. These percentages are not deductions calculated from the token totals below. Refreshed at most once per minute."));
+    for (const [provider, account] of Object.entries(data.accounts)) {
+      const card = node("article", { class: "usage-stage" }); card.append(node("strong", {}, provider === "codex" ? "OpenAI · Codex" : "Anthropic · Claude"));
+      if (account.status === "external") {
+        card.append(node("p", { class: "hint" }, "This Claude connection does not expose account percentages through its noninteractive usage response."), node("a", { href: "https://claude.ai/settings/usage", target: "_blank", rel: "noopener noreferrer" }, "Open Claude account usage"));
+      } else {
+        card.append(node("p", { class: "hint" }, `${account.stale ? "Refresh failed · previous reading · " : ""}${account.checkedAt ? `Checked ${usageTime(account.checkedAt)}` : "No account reading available"}`));
+        for (const window of account.windows ?? []) {
+          const label = `${window.bucket} · ${window.windowDurationMins ? `${window.windowDurationMins / 60} hours` : window.kind}`;
+          card.append(node("p", {}, `${label}: ${window.usedPercent}% used${window.resetsAt ? ` · resets ${usageTime(new Date(window.resetsAt * 1000).toISOString())}` : " · reset time unavailable"}`), node("meter", { min: 0, max: 100, value: Math.min(100, window.usedPercent), "aria-label": label }));
+        }
+        if (!account.windows?.length) card.append(node("p", { class: "hint" }, "The provider did not supply allowance windows. This is not zero usage."));
+      }
+      panel.append(card);
+    }
+  } catch {
+    if (generation === clientGeneration && !privacyLocked && state.tab === "usage") $("#account-usage").textContent = "Account allowance could not refresh. Conversation token accounting remains available.";
+  } finally { accountUsageFlight = false; }
+}
 function renderUsage(usage) {
   const panel = clear($("#usage-content"));
+  const providers = node("div", { class: "usage-providers" });
+  for (const provider of usage.providers ?? []) providers.append(providerSummary(provider));
+  panel.append(providers, node("p", { class: "hint" }, `Accounting status: ${usage.coverage ?? (usage.incomplete || usage.unavailable ? "partial" : "complete")}. Complete means input/output totals are reported; optional metrics can still be missing.`), node("h3", {}, "Combined reported tokens"));
   panel.append(node("p", { class: "usage-total" }, tokenNumber(usage.total)), node("p", { class: "hint" }, usage.incomplete || usage.unavailable ? "Partial reported tokens · input + output · more usage may be unreported" : "Reported tokens · input + output"));
-  const note = usage.attempts ? `${usage.attempts} call attempts · ${usage.incomplete} running, interrupted or partial · ${usage.unavailable} without complete usage. First recorded call: ${formatDate(usage.startedAt)}.` : "No model calls have been recorded in this view yet.";
+  const note = usage.attempts ? `${usage.attempts} call attempts · ${usage.incomplete} running, interrupted or partial · ${usage.unavailable} without complete usage. First recorded call: ${usageTime(usage.startedAt)}.` : "No model calls have been recorded in this view yet.";
   panel.append(node("p", { class: "usage-coverage" }, note), node("p", { class: "hint" }, "Calls made before tracking was added are not included. Missing counts are unavailable, never estimated. These are NanoDuck conversation totals, not your account’s subscription allowance."));
+  if (usage.requests?.length) panel.append(usageRanking("Usage by request", usage.requests));
+  if (usage.participants?.length) panel.append(usageRanking("Usage by participant", usage.participants));
+  if (usage.repeatWork) panel.append(node("p", { class: "usage-repeat" }, `Repeat-work and unsuccessful attempts: ${tokenNumber(usage.repeatWork.attempts ? usage.repeatWork.total : 0)} tokens · ${usage.repeatWork.attempts} attempts · ${usage.repeatWork.coverage}. Each attempt counts once, including overlapping retry, correction and failure categories. Necessary corrections and follow-up research are not automatically waste. Older attempts may lack purpose attribution.`));
   if (usage.stages?.length) {
     const stages = node("details", { class: "usage-stages" }); stages.append(node("summary", {}, "Usage by task"));
     const labels = { head_plan: "Head assignments", public_research: "Public research", research_query: "Research query planning", specialist_position: "Consultant answers", specialist_reply: "Consultant corrections", team_review: "Critic team review", critic_order_assessment: "Critic correction assessment", head_review: "Head continuation decision", head_final: "Final advice", unavailable: "Earlier calls — task unavailable" };
-    for (const stage of usage.stages) {
+    for (const [index, stage] of usage.stages.entries()) {
       const item = node("div", { class: "usage-stage" });
-      item.append(node("strong", {}, labels[stage.stage] ?? stage.stage.replaceAll("_", " ")), node("p", { class: "hint" }, `${stage.attempts} call attempts · ${tokenNumber(stage.total)} reported tokens`));
+      item.append(node("strong", {}, `${labels[stage.stage] ?? stage.stage.replaceAll("_", " ")}${index === 0 && usage.stages.length > 1 ? " · largest reported consumer" : ""}`), node("p", { class: "hint" }, `${stage.attempts} call attempts · ${tokenNumber(stage.total)} reported tokens`));
       for (const model of stage.models) {
         const input = model.tokens.input; const cached = model.tokens.cachedInput;
         const uncached = input.unavailable || cached.unavailable || input.value === null || cached.value === null ? null : Math.max(0, input.value - cached.value);
@@ -769,10 +830,22 @@ function renderUsage(usage) {
     details.append(breakdown, node("p", { class: "hint" }, "These are included in input or output totals. They are not added again."), node("p", { class: "hint" }, model.provider === "codex" ? "New Codex calls are checked against upstream response usage. Older calls retain normalized Codex counters. Verified zero means the provider reported zero, not that no cache was stored. Codex credit billing has no separate cache-write charge." : "Claude input includes ordinary input, cache reads and cache creation once. Zero cache read means no reuse was reported. Reasoning is included in output when the provider does not report it separately.")); row.append(details); panel.append(row);
   }
   if (usage.callDetails?.length) {
-    const calls = node("details", { class: "usage-calls" }); calls.append(node("summary", {}, "All call attempts"));
+    const calls = node("details", { class: "usage-calls" }); calls.append(node("summary", {}, "Request timeline · all call attempts"));
+    const filter = node("select", { "aria-label": "Filter timeline by request" });
+    filter.append(node("option", { value: "all" }, "All requests"));
+    const requestKeys = [...new Set(usage.callDetails.map(call => `${call.conversationId ?? ""}:${call.attribution?.requestId ?? "legacy"}`))];
+    for (const key of requestKeys) {
+      const call = usage.callDetails.find(item => `${item.conversationId ?? ""}:${item.attribution?.requestId ?? "legacy"}` === key);
+      filter.append(node("option", { value: key }, `${call.attribution?.requestId ? `Request ${call.attribution.requestId.slice(0, 8)}` : "Earlier request unknown"} · ${usageTime(call.startedAt)}`));
+    }
+    calls.append(filter);
+    filter.addEventListener("change", () => { for (const article of calls.querySelectorAll("[data-request-key]")) article.hidden = filter.value !== "all" && article.dataset.requestKey !== filter.value; });
     for (const call of usage.callDetails) {
       const article = node("article", { class: "usage-stage" });
-      article.append(node("strong", {}, `${call.model} · ${call.stage.replaceAll("_", " ")} · ${call.status}`), node("p", { class: "hint" }, `${formatDate(call.startedAt)}${call.finishedAt ? ` → ${formatDate(call.finishedAt)}` : " · awaiting final usage"}`));
+      article.dataset.requestKey = `${call.conversationId ?? ""}:${call.attribution?.requestId ?? "legacy"}`;
+      const duration = Math.max(0, ((call.finishedAt ? Date.parse(call.finishedAt) : Date.now()) - Date.parse(call.startedAt)) / 1000);
+      article.append(node("p", { class: "hint" }, `${call.attribution?.requestId ? `Request ${call.attribution.requestId.slice(0, 8)}` : "Earlier request unknown"} · ${call.attribution?.participant ?? "Participant unknown"} · ${call.attribution?.purpose ?? "Purpose unknown"} · ${duration.toFixed(1)}s${call.finishedAt ? "" : " elapsed"}`));
+      article.append(node("strong", {}, `${call.model} · ${call.stage.replaceAll("_", " ")} · ${call.status}`), node("p", { class: "hint" }, `${usageTime(call.startedAt)}${call.finishedAt ? ` → ${usageTime(call.finishedAt)}` : " · awaiting final usage"}`));
       article.append(node("p", { class: "hint" }, call.usageSource === "upstream_responses" ? `Accounting: upstream response fields · ${call.responseCount} upstream response(s)${call.usageCoverage === "partial" ? " · partial coverage; cumulative totals unavailable" : ""}.` : call.provider === "claude_code" ? "Accounting: Claude Code per-model usage." : "Accounting: Codex normalized counters; upstream field presence was not verified."));
       if (!call.usage.length) article.append(node("p", {}, "Usage unavailable — this does not mean zero tokens."));
       for (const item of call.usage) {
@@ -789,6 +862,7 @@ function renderUsage(usage) {
   }
 }
 async function loadUsage({ quiet = false } = {}) {
+  void loadAccountUsage();
   const conversationId = state.conversation?.id;
   const select = $("#usage-scope"); select.options[0].disabled = !conversationId;
   if (!conversationId) select.value = "all";
