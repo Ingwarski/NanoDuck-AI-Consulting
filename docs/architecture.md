@@ -232,3 +232,7 @@ U-12 upstream accounting follow-up: opt into the pinned Codex experimental raw c
 ## U-13 actionable usage dashboard — 2026-09-26
 
 U-13 enriches attempts at the consultation boundary with immutable request and participant identity plus purpose. Summary groups use the same attempt records and union repeat-work counts. Native account limits have a separate authenticated endpoint, finite timeout, single-flight and TTL. Legacy records have explicit unknown attribution. Client renders text safely and preserves generation guards.
+
+## U-13 reasoning attribution follow-up — 2026-09-26
+
+U-13 reasoning attribution follow-up: Usage model rows and call timeline show the selected reasoning effort. Aggregate by provider, model and effort so different configurations never collapse together. New adapters record actual requested effort. Older calls may recover the value only from a matching immutable single-request snapshot with a known stage, provider and model; otherwise show unknown. Preserve counters, request isolation and privacy. The user authorizes this change and a read-only comparison of saved high/medium runs, not an unqualified quality claim.

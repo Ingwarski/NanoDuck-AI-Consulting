@@ -1,4 +1,4 @@
-import { normalizeUsageAttempt, summarizeUsage } from "./usage.mjs";
+import { normalizeUsageAttempt, summarizeUsage, usageWithSavedEffort } from "./usage.mjs";
 import { createMemoryDocuments } from "./instruction-documents.mjs";
 import { randomId } from "./crypto.mjs";
 import { normalizeRecoverySnapshot } from "./recovery.mjs";
@@ -88,7 +88,7 @@ export function createMemoryStore(initialState = undefined) {
     },
     async usageSummary(conversationId = undefined) {
       if (conversationId && (!conversations.has(conversationId) || conversations.get(conversationId).deletedAt)) return undefined;
-      return summarizeUsage([...conversations.values()].filter(item => !item.deletedAt && (!conversationId || item.id === conversationId)).map(item => ({ conversationId: item.id, usage: usage.get(item.id) ?? [] })));
+      return summarizeUsage([...conversations.values()].filter(item => !item.deletedAt && (!conversationId || item.id === conversationId)).map(item => ({ conversationId: item.id, usage: (usage.get(item.id) ?? []).map(attempt => usageWithSavedEffort(attempt, runs.get(item.id)?.snapshot, (messages.get(item.id) ?? []).filter(message => message.role === "owner"))) })));
     },
     async createSession(input) { sessions.set(input.id, { ...input }); return { ...input }; },
     async session(id) { const item = sessions.get(id); return item ? { ...item } : undefined; },

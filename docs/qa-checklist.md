@@ -226,3 +226,9 @@ U-12 upstream usage verification executed: 220 passed, 2 platform-specific skips
 U-13 checks: aggregate providers/requests/participants and repeat union; timestamp durations; malformed/missing account windows; authenticated endpoint; refresh privacy; legacy attempts; live running/partial status; narrow/wide browser rendering. Execution evidence follows implementation.
 
 U-13 verification completed: 224 tests passed, 2 platform-specific checks skipped; Chromium, Firefox and WebKit Usage flows passed including request filtering, account meters, partial values, retry/reload and 320px reflow. Native Codex read-only account telemetry returned a valid window without inference. Earlier browser iteration exposed and fixed missing ARIA attributes. See [evidence](../forge/runs/usage-dashboard-20260926/verification.json). No representative-user study or exact subscription-charge verification is claimed.
+
+## U-13 reasoning attribution follow-up — 2026-09-26
+
+U-13 reasoning attribution follow-up: Usage model rows and call timeline show the selected reasoning effort. Aggregate by provider, model and effort so different configurations never collapse together. New adapters record actual requested effort. Older calls may recover the value only from a matching immutable single-request snapshot with a known stage, provider and model; otherwise show unknown. Preserve counters, request isolation and privacy. The user authorizes this change and a read-only comparison of saved high/medium runs, not an unqualified quality claim.
+
+U-13 reasoning attribution verified: 226 tests passed, 2 platform-specific skips; Chromium, Firefox and WebKit show reasoning beside models. Mixed-effort grouping and conservative historical recovery tests pass. Read-only inspection confirmed the two saved configurations without copying private content. See [evidence](../forge/runs/usage-reasoning-20260926/verification.json).

@@ -183,3 +183,7 @@ U-12 upstream accounting follow-up: opt into the pinned Codex experimental raw c
 ## U-13 actionable usage dashboard — 2026-09-26
 
 User accepted U-13 with “implement all of it.” This scoped extension preserves Electric A v8 typography, borders, colors and navigation. Use semantic headings, native disclosure controls and accessible meters; no horizontal overflow at 320px. Frozen prototype evidence remains unchanged.
+
+## U-13 reasoning attribution follow-up — 2026-09-26
+
+U-13 reasoning attribution follow-up: Usage model rows and call timeline show the selected reasoning effort. Aggregate by provider, model and effort so different configurations never collapse together. New adapters record actual requested effort. Older calls may recover the value only from a matching immutable single-request snapshot with a known stage, provider and model; otherwise show unknown. Preserve counters, request isolation and privacy. The user authorizes this change and a read-only comparison of saved high/medium runs, not an unqualified quality claim.

@@ -56,3 +56,22 @@ Physical cache storage, exact subscription deductions and missing historical
 telemetry cannot be reconstructed from these counters. Provider-reported token
 usage stays authoritative. A verified zero cache-write counter means accounting
 zero, not proof that nothing was physically cached.
+
+## Reasoning attribution follow-up
+
+Record the selected effort in adapter `beginUsage` diagnostics (`effort` and
+`effortSource: request`) for Codex and Claude. Claude records its effective CLI
+value after mapping Extra to xhigh. Allowlist these fields in `usage.mjs`, group
+model totals by provider/model/effort, and expose the effort in individual calls.
+Show it beside each model in provider cards, detailed model rows, activity rows
+and the timeline. Do not confuse this setting with reasoning-output token counts.
+
+For older records, a read-only summary enrichment may use the immutable saved
+run configuration only when there is exactly one owner request, its ID matches
+the snapshot, the attempt follows its timestamp, any recorded request ID matches,
+and stage/provider/model identify the route. Preserve an existing recorded effort.
+Otherwise show unknown; never use today's settings to label yesterday's calls.
+Test mixed efforts on one model, unchanged totals, mismatched snapshots and
+multi-request histories. Compare saved runs before spending tokens on new probes;
+report consultant count, research actions, corrections, cache use and latency,
+and distinguish observed differences from causal or quality claims.

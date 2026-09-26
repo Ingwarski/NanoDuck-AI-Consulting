@@ -320,7 +320,7 @@ export function createCodexProvider(config, deadlineOptions = undefined) {
         if (completed.id === expectedTurnId) resolveTurn(completed);
       });
       if (signal?.aborted) throw new Error("cancelled");
-      finishUsage = await beginUsage(onUsage, "codex", model, { stage: outputKind, promptBytes, prefixBytes });
+      finishUsage = await beginUsage(onUsage, "codex", model, { stage: outputKind, effort, effortSource: "request", promptBytes, prefixBytes });
       const turn = await waitFor(connection.request("turn/start", { threadId, input: [{ type: "text", text: prompt, text_elements: [] }], model, approvalPolicy: "never", sandboxPolicy: { type: "readOnly", networkAccess: research }, environments: [], effort }), 20_000, "app_server_timeout", signal);
       const startedTurn = record(turn) && record(turn.turn) ? turn.turn : undefined;
       if (!record(startedTurn) || typeof startedTurn.id !== "string") throw new Error("provider_error");

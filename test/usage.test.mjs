@@ -122,3 +122,24 @@ test("dashboard attribution groups requests and participants and counts overlapp
   await store.interruptUsage();
   assert.equal((await store.usageSummary(conversation.id)).coverage, "partial");
 });
+
+test("usage separates the same model at different reasoning levels", async () => {
+  const store = createMemoryStore(); const conversation = await store.createConversation();
+  for (const effort of ["medium", "high"]) await store.recordUsage(conversation.id, attempt({ diagnostics: { stage: "head_plan", effort, effortSource: "request" } }));
+  const summary = await store.usageSummary(conversation.id);
+  assert.deepEqual(summary.models.map(row => row.effort).sort(), ["high", "medium"]);
+  assert.equal(summary.total, 280);
+  assert.equal(summary.callDetails[0].effortSource, "request");
+});
+
+test("historical reasoning uses only a matching single-request snapshot", async () => {
+  const { usageWithSavedEffort } = await import("../src/server/usage.mjs");
+  const owner = { id: randomId(), createdAt: "2026-09-25T11:00:00Z" };
+  const snapshot = { requestMessageId: owner.id, headModel: "gpt-6-sol", headReasoning: "high" };
+  const original = attempt({ diagnostics: { stage: "head_plan" } });
+  assert.equal(usageWithSavedEffort(original, snapshot, [owner]).diagnostics.effort, "high");
+  assert.equal(usageWithSavedEffort(original, snapshot, [owner]).diagnostics.effortSource, "saved_run");
+  assert.equal(usageWithSavedEffort(original, snapshot, [owner, owner]), original);
+  assert.equal(usageWithSavedEffort(original, { ...snapshot, requestMessageId: randomId() }, [owner]), original);
+  assert.equal(usageWithSavedEffort({ ...original, diagnostics: { stage: "head_plan", effort: "medium" } }, snapshot, [owner]).diagnostics.effort, "medium");
+});

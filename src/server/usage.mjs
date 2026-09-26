@@ -33,7 +33,10 @@ export function claudeTokens(stdout) {
   });
 }
 
+const efforts = new Set(["none", "minimal", "low", "medium", "high", "xhigh", "extra", "max", "ultra"]);
 const normalizeDiagnostics = value => ({
+  effort: efforts.has(value?.effort) ? value.effort : null,
+  effortSource: ["request", "saved_run"].includes(value?.effortSource) ? value.effortSource : null,
   ...(["upstream_responses", "codex_normalized"].includes(value?.usageSource) ? { usageSource: value.usageSource, responseCount: count(value.responseCount) } : {}),
   ...(["reconciled", "partial", "normalized"].includes(value?.usageCoverage) ? { usageCoverage: value.usageCoverage } : {}),
   stage: typeof value?.stage === "string" && /^[a-z_]{1,48}$/u.test(value.stage) ? value.stage : "unavailable",
@@ -82,8 +85,8 @@ export function summarizeUsage(entries, includeStages = true) {
     if (!startedAt || attempt.startedAt < startedAt) startedAt = attempt.startedAt;
     if (!attempt.usage.length || attempt.usage.some(item => ["input", "output", "total"].some(field => item.tokens[field] === null))) unavailable += 1;
     for (const item of attempt.usage.length ? attempt.usage : [{ model: attempt.model, tokens: emptyTokens() }]) {
-      const key = `${attempt.provider}:${item.model}`;
-      const row = models.get(key) ?? { provider: attempt.provider, model: item.model, calls: 0, tokens: Object.fromEntries(tokenFields.map(field => [field, { value: null, unavailable: 0 }])) };
+      const key = `${attempt.provider}:${item.model}:${attempt.diagnostics?.effort ?? "unknown"}`;
+      const row = models.get(key) ?? { provider: attempt.provider, model: item.model, effort: attempt.diagnostics?.effort ?? null, calls: 0, tokens: Object.fromEntries(tokenFields.map(field => [field, { value: null, unavailable: 0 }])) };
       row.calls += 1;
       for (const field of tokenFields) {
         if (item.tokens[field] === null) row.tokens[field].unavailable += 1;
@@ -95,7 +98,7 @@ export function summarizeUsage(entries, includeStages = true) {
   const rows = [...models.values()].sort((a, b) => `${a.provider}:${a.model}`.localeCompare(`${b.provider}:${b.model}`));
   const totals = rows.map(row => row.tokens.total.value).filter(value => value !== null);
   const callDetails = entries.flatMap(entry => (entry.usage ?? []).map(attempt => ({
-    id: attempt.id, attribution: usageAttribution(attempt.attribution), conversationId: entry.conversationId ?? null, provider: attempt.provider, model: attempt.model, status: attempt.status,
+    id: attempt.id, effort: attempt.diagnostics?.effort ?? null, effortSource: attempt.diagnostics?.effortSource ?? null, attribution: usageAttribution(attempt.attribution), conversationId: entry.conversationId ?? null, provider: attempt.provider, model: attempt.model, status: attempt.status,
     startedAt: attempt.startedAt, finishedAt: attempt.finishedAt,
     stage: attempt.diagnostics?.stage ?? "unavailable", usageSource: attempt.diagnostics?.usageSource ?? (attempt.provider === "claude_code" ? "claude_model_usage" : "codex_normalized"), responseCount: attempt.diagnostics?.responseCount ?? null, usageCoverage: attempt.diagnostics?.usageCoverage ?? "normalized", usage: attempt.usage
   }))).sort((a, b) => a.startedAt.localeCompare(b.startedAt));
@@ -122,4 +125,19 @@ export function summarizeUsage(entries, includeStages = true) {
     participants: groups(attempt => ({ key: attempt.attribution?.participantId ?? attempt.attribution?.participant ?? "unknown", label: attempt.attribution?.participant ?? "Earlier calls — participant unknown" })),
     repeatWork: summarizeUsage(repeatEntries, false),
     callDetails, stages: [...stages].map(([stage, usage]) => ({ stage, ...summarizeUsage([{ usage }], false) })).sort((a, b) => (b.total ?? -1) - (a.total ?? -1)) } : {}), attempts, incomplete, unavailable, startedAt, total: totals.length ? sum(totals) : null, models: rows, historyMayBeMissing: true };
+}
+
+// Conservative historical attribution: only the immutable snapshot of a
+// single accepted request can establish the setting for its recorded calls.
+export function usageWithSavedEffort(attempt, snapshot, owners) {
+  if (attempt.diagnostics?.effort || owners.length !== 1 || owners[0].id !== snapshot?.requestMessageId || Date.parse(attempt.startedAt) < Date.parse(owners[0].createdAt)) return attempt;
+  if (attempt.attribution?.requestId && attempt.attribution.requestId !== snapshot.requestMessageId) return attempt;
+  const stage = attempt.diagnostics?.stage;
+  if (!["head_plan", "owner_deliverables", "public_research", "research_query", "specialist_position", "specialist_reply", "specialist_final", "head_review", "head_final", "team_review", "critic_order_assessment", "critic_challenge", "critic_final"].includes(stage)) return attempt;
+  const critic = ["team_review", "critic_order_assessment", "critic_challenge", "critic_final"].includes(stage);
+  const provider = critic ? snapshot.criticProvider : "codex";
+  const model = critic ? snapshot.criticModel : snapshot.headModel;
+  const effort = critic ? snapshot.criticReasoning : snapshot.headReasoning;
+  if (attempt.provider !== provider || attempt.model !== model || !efforts.has(effort)) return attempt;
+  return { ...attempt, diagnostics: { ...attempt.diagnostics, effort, effortSource: "saved_run" } };
 }

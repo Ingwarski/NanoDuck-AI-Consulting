@@ -378,3 +378,7 @@ U-12 upstream accounting follow-up: opt into the pinned Codex experimental raw c
 ## U-13 actionable usage dashboard — 2026-09-26
 
 U-13 requires separate Codex and Claude summaries, native account limits where exposed, visible cached/uncached input and output, request/participant/activity attribution, repeat-work totals without double counting, complete/running/partial coverage and a chronological call timeline. Never infer subscription charges or cache writes. Historical missing attribution remains unknown. Preserve authenticated access and private storage.
+
+## U-13 reasoning attribution follow-up — 2026-09-26
+
+U-13 reasoning attribution follow-up: Usage model rows and call timeline show the selected reasoning effort. Aggregate by provider, model and effort so different configurations never collapse together. New adapters record actual requested effort. Older calls may recover the value only from a matching immutable single-request snapshot with a known stage, provider and model; otherwise show unknown. Preserve counters, request isolation and privacy. The user authorizes this change and a read-only comparison of saved high/medium runs, not an unqualified quality claim.

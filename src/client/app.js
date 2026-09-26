@@ -732,6 +732,7 @@ function stopPolling() {
 let usageRequest = 0;
 let usageFlight;
 const tokenNumber = value => value === null ? "Unavailable" : new Intl.NumberFormat().format(value);
+const usageModelLabel = model => `${model.model} · reasoning: ${model.effort ?? "unknown (older record)"}`;
 const usageTime = value => value && Number.isFinite(Date.parse(value)) ? new Date(value).toLocaleString() : "Time unavailable";
 function usageRanking(title, rows) {
   const section = node("details", { class: "usage-stages" });
@@ -753,7 +754,7 @@ function providerSummary(provider) {
     for (const [label, value] of [["Uncached input", complete ? tokenNumber(input.value - cached.value) : "Incomplete data"], ["Cache read", `${tokenNumber(cached.value)}${cached.unavailable ? " (partial)" : ""}`], ["Output", `${tokenNumber(model.tokens.output.value)}${model.tokens.output.unavailable ? " (partial)" : ""}`]]) {
       const group = node("div"); group.append(node("dt", {}, label), node("dd", {}, value)); line.append(group);
     }
-    section.append(node("strong", {}, model.model), line, node("p", { class: "hint" }, `Input cache hit: ${complete && input.value > 0 ? `${(100 * cached.value / input.value).toFixed(1)}%` : "not calculable"}. ${provider.key === "claude_code" ? "Uncached input includes cache creation." : ""}`));
+    section.append(node("strong", {}, usageModelLabel(model)), line, node("p", { class: "hint" }, `Input cache hit: ${complete && input.value > 0 ? `${(100 * cached.value / input.value).toFixed(1)}%` : "not calculable"}. ${provider.key === "claude_code" ? "Uncached input includes cache creation." : ""}`));
     if (provider.key === "claude_code") section.append(node("p", { class: "hint" }, `Cache creation: ${tokenNumber(model.tokens.cacheWriteInput.value)}${model.tokens.cacheWriteInput.unavailable ? " (partial)" : ""} · included in input.`));
     if (model.tokens.reasoningOutput.value !== null) section.append(node("p", { class: "hint" }, `Reasoning: ${tokenNumber(model.tokens.reasoningOutput.value)}${model.tokens.reasoningOutput.unavailable ? " (partial)" : ""} · included in output.`));
   }
@@ -807,7 +808,7 @@ function renderUsage(usage) {
       for (const model of stage.models) {
         const input = model.tokens.input; const cached = model.tokens.cachedInput;
         const uncached = input.unavailable || cached.unavailable || input.value === null || cached.value === null ? null : Math.max(0, input.value - cached.value);
-        item.append(node("p", { class: "hint" }, `${model.model}: input ${tokenNumber(input.value)} · cache read ${tokenNumber(cached.value)} · uncached input ${tokenNumber(uncached)} · output ${tokenNumber(model.tokens.output.value)}`));
+        item.append(node("p", { class: "hint" }, `${usageModelLabel(model)}: input ${tokenNumber(input.value)} · cache read ${tokenNumber(cached.value)} · uncached input ${tokenNumber(uncached)} · output ${tokenNumber(model.tokens.output.value)}`));
       }
       stages.append(item);
     }
@@ -815,7 +816,7 @@ function renderUsage(usage) {
   }
   for (const model of usage.models) {
     const row = node("article", { class: "usage-model" });
-    row.append(node("h3", {}, model.model), node("p", { class: "hint" }, `${model.provider === "claude_code" ? "Claude Code" : "Codex"} · ${model.calls} call attempts`));
+    row.append(node("h3", {}, usageModelLabel(model)), node("p", { class: "hint" }, `${model.provider === "claude_code" ? "Claude Code" : "Codex"} · ${model.calls} call attempts`));
     const metric = (label, field) => {
       const value = model.tokens[field]; const group = node("div");
       group.append(node("dt", {}, label), node("dd", {}, `${tokenNumber(value.value)}${value.value !== null && (value.unavailable || usage.incomplete) ? " (partial)" : ""}`));
@@ -845,8 +846,9 @@ function renderUsage(usage) {
       article.dataset.requestKey = `${call.conversationId ?? ""}:${call.attribution?.requestId ?? "legacy"}`;
       const duration = Math.max(0, ((call.finishedAt ? Date.parse(call.finishedAt) : Date.now()) - Date.parse(call.startedAt)) / 1000);
       article.append(node("p", { class: "hint" }, `${call.attribution?.requestId ? `Request ${call.attribution.requestId.slice(0, 8)}` : "Earlier request unknown"} · ${call.attribution?.participant ?? "Participant unknown"} · ${call.attribution?.purpose ?? "Purpose unknown"} · ${duration.toFixed(1)}s${call.finishedAt ? "" : " elapsed"}`));
-      article.append(node("strong", {}, `${call.model} · ${call.stage.replaceAll("_", " ")} · ${call.status}`), node("p", { class: "hint" }, `${usageTime(call.startedAt)}${call.finishedAt ? ` → ${usageTime(call.finishedAt)}` : " · awaiting final usage"}`));
+      article.append(node("strong", {}, `${usageModelLabel(call)} · ${call.stage.replaceAll("_", " ")} · ${call.status}`), node("p", { class: "hint" }, `${usageTime(call.startedAt)}${call.finishedAt ? ` → ${usageTime(call.finishedAt)}` : " · awaiting final usage"}`));
       article.append(node("p", { class: "hint" }, call.usageSource === "upstream_responses" ? `Accounting: upstream response fields · ${call.responseCount} upstream response(s)${call.usageCoverage === "partial" ? " · partial coverage; cumulative totals unavailable" : ""}.` : call.provider === "claude_code" ? "Accounting: Claude Code per-model usage." : "Accounting: Codex normalized counters; upstream field presence was not verified."));
+      if (call.effortSource === "saved_run") article.append(node("p", { class: "hint" }, "Reasoning setting recovered from this request’s saved configuration."));
       if (!call.usage.length) article.append(node("p", {}, "Usage unavailable — this does not mean zero tokens."));
       for (const item of call.usage) {
         article.append(node("p", {}, item.model));

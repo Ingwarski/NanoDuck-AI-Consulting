@@ -8,6 +8,7 @@ export async function verifyUsage(page, name, root) {
   assert.match(await page.locator('.usage-stages').filter({ has: page.getByText('Usage by task', { exact: true }) }).innerText(), /Head assignments/);
   assert.match(await page.locator('.usage-stages').filter({ has: page.getByText('Usage by task', { exact: true }) }).innerText(), /uncached input/);
   assert.ok(await page.locator('.usage-provider').count() > 0);
+  assert.match(await page.locator('.usage-providers').innerText(), /reasoning: (high|xhigh|medium|ultra)/);
   assert.match(await page.locator('.usage-providers').innerText(), /Uncached input/);
   assert.match(await page.locator('.usage-providers').innerText(), /Input cache hit/);
   await page.getByText('Usage by request', { exact: true }).click();

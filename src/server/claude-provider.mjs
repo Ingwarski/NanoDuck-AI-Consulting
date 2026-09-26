@@ -192,7 +192,7 @@ export function createClaudeProvider(config, { run = runClaudeCommand } = {}) {
       const runOnce = async assignment => {
         if (Buffer.byteLength(assignment, "utf8") > maxPromptBytes) return { kind: "failure", code: "context_too_large" };
         const args = ["--print", "--input-format", "text", "--output-format", "json", "--no-session-persistence", "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}', "--tools", "", "--disable-slash-commands", "--permission-mode", "dontAsk", "--disallowedTools", blockedTools, "--max-turns", "1", "--system-prompt", textOnlySystemPrompt, "--model", input.model, "--effort", cliEffort(input.effort)];
-        const finishUsage = await beginUsage(input.onUsage, "claude_code", input.model, { stage: input.outputKind ?? "discussion", promptBytes: Buffer.byteLength(assignment), prefixBytes });
+        const finishUsage = await beginUsage(input.onUsage, "claude_code", input.model, { stage: input.outputKind ?? "discussion", effort: cliEffort(input.effort), effortSource: "request", promptBytes: Buffer.byteLength(assignment), prefixBytes });
         const startedAt = Date.now();
         let result;
         // A stable system block gives the CLI an explicit cache boundary before
