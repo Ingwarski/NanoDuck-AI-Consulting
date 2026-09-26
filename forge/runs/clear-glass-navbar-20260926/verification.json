@@ -1,0 +1,29 @@
+{
+  "scope": "Clear-glass top navigation",
+  "verification": {
+    "engines": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ],
+    "widths": [
+      320,
+      390,
+      768,
+      1280
+    ],
+    "checks": [
+      "translucent background",
+      "no blur filter",
+      "no horizontal overflow",
+      "visible keyboard focus",
+      "forced-colors fallback"
+    ],
+    "visual_review": "Isolated fixture using real navbar markup and stylesheet with synthetic background; desktop screenshot inspected.",
+    "artifact_check": "passed"
+  },
+  "session_safety": "No server restart, active-tab reload or runtime state mutation.",
+  "limitations": [
+    "Synthetic visual fixture does not claim live authenticated-flow testing or formal accessibility certification."
+  ]
+}

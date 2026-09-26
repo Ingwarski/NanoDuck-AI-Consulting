@@ -1,0 +1,9 @@
+{
+  "event": "accepted_scoped_baseline_override",
+  "actor": "user",
+  "request": "Make the top menu transparent clear glass, not frosted; do not interrupt the running session.",
+  "accepted_proposal": "Apply the user-requested clear-glass finish to the top navigation without changing layout or interrupting the session.",
+  "recorded_at": "2026-09-26T19:02:24.178792+00:00",
+  "baseline": "nanoduck-electric-a-v8-20260914",
+  "limits": "Existing local repository only; preserve full current request, auth, Stop, exact models, depth and approved visual foundation. No guaranteed provider cache hit or subscription-cost claim."
+}

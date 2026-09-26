@@ -431,3 +431,9 @@ U-13 reasoning attribution follow-up implemented. Adapters persist requested eff
 U-13 activity counts follow-up: show five metrics in Usage: consultant assignments excluding Head/Critic, issued review rounds, issued correction orders, research provider-call attempts including retries, and reported search/open/find web actions. Read team counts from saved parallel ledgers and research counts from usage telemetry. Scope follows the selected conversation/all view. Aggregate known values and mark partial coverage; missing older data is never zero. Preserve privacy and active consultations.
 
 U-13 activity counts implemented in Usage: consultant assignments, review rounds, correction orders, research call attempts and web actions. Counts follow conversation/all scope and retain missing-data coverage. [Verification](../forge/runs/usage-activity-20260926/verification.json); sister-port instructions updated. No consulting prompts or provider settings changed.
+
+## Clear-glass navigation follow-up — 2026-09-26
+
+User-authorized clear-glass top navigation: replace the opaque bar with low-opacity tint, restrained specular edges and saturation/contrast without blur. Preserve geometry, controls, focus indicators and Electric A v8 foundation. Local button tint and text shadow protect label legibility. Reduced-transparency and forced-color preferences receive opaque readable fallbacks. Verify actual navigation markup at narrow and wide widths in isolated browsers. No live-page reload, server restart, session change or consulting interruption.
+
+User-requested clear-glass navigation finish implemented in public/styles.css. Geometry and behavior unchanged; no blur, with readable labels and preference fallbacks. [Verification](../forge/runs/clear-glass-navbar-20260926/verification.json). Existing open pages adopt the stylesheet on a later normal load; no forced reload or server restart.

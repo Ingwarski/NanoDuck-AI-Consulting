@@ -238,3 +238,9 @@ U-13 reasoning attribution verified: 226 tests passed, 2 platform-specific skips
 U-13 activity counts follow-up: show five metrics in Usage: consultant assignments excluding Head/Critic, issued review rounds, issued correction orders, research provider-call attempts including retries, and reported search/open/find web actions. Read team counts from saved parallel ledgers and research counts from usage telemetry. Scope follows the selected conversation/all view. Aggregate known values and mark partial coverage; missing older data is never zero. Preserve privacy and active consultations.
 
 U-13 activity counts verified: 227 tests passed and 2 platform-specific skips. Chromium, Firefox and WebKit verify all five labels, scoped display and 320px reflow. Saved-ledger counts match read-only usage summaries. [Evidence](../forge/runs/usage-activity-20260926/verification.json). Unknown historical telemetry remains partial or unavailable.
+
+## Clear-glass navigation follow-up — 2026-09-26
+
+User-authorized clear-glass top navigation: replace the opaque bar with low-opacity tint, restrained specular edges and saturation/contrast without blur. Preserve geometry, controls, focus indicators and Electric A v8 foundation. Local button tint and text shadow protect label legibility. Reduced-transparency and forced-color preferences receive opaque readable fallbacks. Verify actual navigation markup at narrow and wide widths in isolated browsers. No live-page reload, server restart, session change or consulting interruption.
+
+Clear-glass navbar verified in isolated Chromium, Firefox and WebKit fixtures using production markup/CSS at 320, 390, 768 and 1280px. Transparency/no-blur, reflow, keyboard focus and forced-color fallback passed; desktop screenshot inspected. Artifact checks pass. No active session or server was interrupted. [Evidence](../forge/runs/clear-glass-navbar-20260926/verification.json).
