@@ -358,3 +358,7 @@ FR-02.13 accepts multiple valid material findings for the same consultant and pr
 ## Isolated request and cache economy — 2026-09-26
 
 FR-02.12 now binds each newly accepted run to exactly its submitted owner message, without earlier messages, results, sources or saved memory. Continue/Retry retains that binding and current-run evidence. This replaces implicit corrections accumulated across new Send actions. FR-02.15 requires stable policy/request prefixes before variable assignments, stage-appropriate context, and bounded numeric diagnostics by task. Cache reads are provider-reported subsets of input, not extra tokens; missing cache writes remain unavailable. Existing history is not retroactively assigned stages. Preserve models, reasoning, fixed/Auto depth, full current request and substantive deliverables. WORKING_CONTEXT.md is reference-only. Security review: this narrows disclosure under existing NFR-12.2/NFR-12.3/NFR-14.1; authentication, CSRF, encryption and public-query isolation are unchanged.
+
+## Chat beginning and end controls — 2026-09-26
+
+The user explicitly requested two transparent outlined circular arrow buttons to jump to the beginning and end of the chat. This is a scoped addition to existing S-02 navigation under UC-003/JOB-001; preserve Stop, drafts and ongoing work.

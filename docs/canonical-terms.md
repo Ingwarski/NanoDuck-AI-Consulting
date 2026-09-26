@@ -61,3 +61,7 @@ Internal-only terms include run generation, process ownership, event cursor, mod
 ## Isolated request and cache economy — 2026-09-26
 
 An isolated request is one newly accepted owner message and only its resulting work/evidence, identified internally by immutable requestMessageId and run ID. A saved chat is an archive that may contain several isolated requests. Continue/Retry resumes accepted work; Send creates a fresh scope. Cached input is a reported subset of input, not memory access or an additional total.
+
+## Chat beginning and end controls — 2026-09-26
+
+Chat beginning/end: explicit navigation to the first/last message in Discussion, without sending, stopping or resuming work.

@@ -46,3 +46,7 @@ Scope source: the owner requests repairs for rejected multi-finding Critic revie
 ## Isolated request and cache economy — 2026-09-26
 
 FR-02.12/FR-02.15 distinguish the saved archive from the active isolated request. Every Send is independent; Continue/Retry preserves paused accepted work. General role guidance remains usable, personal WORKING_CONTEXT.md does not enter model prompts. Provider caching is opportunistic; measured context reduction is independent of cache availability.
+
+## Chat beginning and end controls — 2026-09-26
+
+The user explicitly requested two transparent outlined circular arrow buttons to jump to the beginning and end of the chat. This is a scoped addition to existing S-02 navigation under UC-003/JOB-001; preserve Stop, drafts and ongoing work.

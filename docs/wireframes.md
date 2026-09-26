@@ -67,3 +67,7 @@ The owner requests Discussion, Outcome, Sources and Usage in the sticky menu. Gr
 ## Isolated request and cache economy — 2026-09-26
 
 S-02 Usage uses one expandable group before existing model cards, with readable text rows and natural wrapping at 320 CSS pixels. Composer has a short isolation hint. S-04 keeps the document editor and adds an explicit reference-only note for WORKING_CONTEXT.md. No change to navigation, Porcelain Stop or reading-mode layout.
+
+## Chat beginning and end controls — 2026-09-26
+
+The user explicitly requested two transparent outlined circular arrow buttons to jump to the beginning and end of the chat. This is a scoped addition to existing S-02 navigation under UC-003/JOB-001; preserve Stop, drafts and ongoing work.

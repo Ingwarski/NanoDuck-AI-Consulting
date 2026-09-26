@@ -155,3 +155,7 @@ Accepted [sticky-view navigation override](../forge/runs/sticky-view-nav-2026092
 ## Isolated request and cache economy — 2026-09-26
 
 Retain nanoduck-electric-a-v8-20260914 and its frozen evidence. The authorized cache/context implementation adds subordinate explanatory text and an expandable diagnostic group within existing Usage. Reuse current typography, muted hints, borders and spacing; no replacement visual concept or prototype promotion. Original design simulations remain separate from runtime verification.
+
+## Chat beginning and end controls — 2026-09-26
+
+The user explicitly requested two transparent outlined circular arrow buttons to jump to the beginning and end of the chat. This is a scoped addition to existing S-02 navigation under UC-003/JOB-001; preserve Stop, drafts and ongoing work. Reuse Electric A v8 colors. Two 44px circles, transparent fill including hover, 1.5px muted border, thin up/down arrow strokes, 8px gap. Place in sticky navigation away from Stop; wrap to a separate row on narrow screens. Existing focus outline remains.

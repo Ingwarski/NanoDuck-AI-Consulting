@@ -47,3 +47,7 @@ Keep usage counters inside authenticated private storage and existing recovery/d
 ## Isolated request and cache economy — 2026-09-26
 
 Never silently replay another request, saved personal memory, or an earlier request source into a new Send. Preserve immutable accepted request binding through Continue/Retry. Keep per-invocation provider sessions ephemeral, file/memory tools disabled, public research limited to sanitized public queries. Do not reduce selected depth, switch models, truncate current owner input, estimate unavailable tokens, or promise cache/subscription savings to make metrics look better.
+
+## Chat beginning and end controls — 2026-09-26
+
+The user explicitly requested two transparent outlined circular arrow buttons to jump to the beginning and end of the chat. This is a scoped addition to existing S-02 navigation under UC-003/JOB-001; preserve Stop, drafts and ongoing work.

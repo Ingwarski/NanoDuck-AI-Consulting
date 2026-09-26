@@ -104,3 +104,7 @@ S-02 retains its existing discussion/record states and gains a Usage inspection 
 ## Isolated request and cache economy — 2026-09-26
 
 S-02 retains Discussion/Outcome/Sources/Usage and current reading/Stop behavior. Usage adds a native expandable Usage by task group with per-stage attempts and per-model input/cache-read/uncached-input/output. Missing historical stages are labelled unavailable. Composer explains Send isolation versus Continue. S-04 explains that WORKING_CONTEXT.md is reference-only.
+
+## Chat beginning and end controls — 2026-09-26
+
+The user explicitly requested two transparent outlined circular arrow buttons to jump to the beginning and end of the chat. This is a scoped addition to existing S-02 navigation under UC-003/JOB-001; preserve Stop, drafts and ongoing work.

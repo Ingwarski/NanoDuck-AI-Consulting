@@ -808,6 +808,21 @@ readingLayout.addEventListener("change", updateTabOrientation); updateTabOrienta
 $("#consultation-view").addEventListener("change", event => setTab(event.target.value));
 $("#expand-composer").addEventListener("click", () => { state.composerCollapsed = false; renderRunControls(); $("#message").focus(); });
 $("#collapse-composer").addEventListener("click", () => { renderRunControls(); state.composerCollapsed = true; renderRunControls(); $("#expand-composer").focus({ preventScroll: true }); });
+function jumpChat(end) {
+  setTab("discussion");
+  requestAnimationFrame(() => {
+    const thread = $("#thread");
+    const target = (end ? thread.lastElementChild : thread.firstElementChild) ?? thread;
+    const behavior = matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth";
+    if (end) target.scrollIntoView({ block: "end", behavior });
+    else {
+      const offset = matchMedia("(min-width:1100px)").matches ? 110 : 100 + $(".discussion-header").getBoundingClientRect().height;
+      window.scrollTo({ top: Math.max(0, scrollY + target.getBoundingClientRect().top - offset), behavior });
+    }
+  });
+}
+$("#chat-start").addEventListener("click", () => jumpChat(false));
+$("#chat-end").addEventListener("click", () => jumpChat(true));
 $("#read-outcome").addEventListener("click", () => { setTab("outcome"); $("#outcome").scrollIntoView({ block: "start" }); });
 let panelUsageSignature;
 $("#usage-scope").addEventListener("change", () => void loadUsage());

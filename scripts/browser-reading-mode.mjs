@@ -19,6 +19,13 @@ export async function verifyReadingMode(page, name, root) {
   assert.equal(await page.locator('#composer').isVisible(), false);
   await page.locator('#read-outcome').click();
   assert.equal(await page.locator('#outcome').isVisible(), true);
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.locator('#chat-end').click();
+  await page.waitForFunction(() => { const el = document.querySelector('#thread').lastElementChild; return el && el.getBoundingClientRect().bottom <= innerHeight + 2; });
+  assert.equal(await page.locator('#thread').isVisible(), true);
+  await page.locator('#chat-start').click();
+  await page.waitForFunction(() => { const el = document.querySelector('#thread').firstElementChild; return el && el.getBoundingClientRect().top >= 100; });
+  assert.equal(await page.locator('#chat-start').evaluate(el => getComputedStyle(el).backgroundColor), 'rgba(0, 0, 0, 0)');
   await page.locator('#expand-composer').click();
   await page.locator('#message').fill('Follow-up draft');
   await page.locator('#collapse-composer').click();

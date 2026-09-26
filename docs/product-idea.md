@@ -165,3 +165,7 @@ The owner explicitly requests reliable completion of Critic review and a token u
 ## Isolated request and cache economy — 2026-09-26
 
 Every new Send is a separate request, including a new message in an existing saved chat. Prior requests, answers, sources and saved personal memory are excluded. Continue/Retry after interruption retains the accepted request and completed work. The saved chat remains the full readable/exportable archive, not an implicit model context. Preserve complete current input, selected depth and exact models while eliminating unnecessary repeats. WORKING_CONTEXT.md remains an encrypted reference editor but is not sent to any model.
+
+## Chat beginning and end controls — 2026-09-26
+
+The user explicitly requested two transparent outlined circular arrow buttons to jump to the beginning and end of the chat. This is a scoped addition to existing S-02 navigation under UC-003/JOB-001; preserve Stop, drafts and ongoing work.

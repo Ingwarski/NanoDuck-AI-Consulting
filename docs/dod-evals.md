@@ -68,3 +68,7 @@ Existing functional, security and lifecycle gates apply to the architecture's re
 ## Isolated request and cache economy — 2026-09-26
 
 Existing functional, security and efficiency gates require new-Send isolation, Continue preservation, provider-workspace cleanup, complete current request/results, unchanged model/depth and truthful token subsets. Compare equivalent synthetic inputs/settings; report measured bytes separately from provider tokens. Provider cache hits and subscription savings cannot be inferred from prefix length. Existing browser/accessibility/user-validation evidence classes remain separate; formal release readiness is not_evaluated.
+
+## Chat beginning and end controls — 2026-09-26
+
+The user explicitly requested two transparent outlined circular arrow buttons to jump to the beginning and end of the chat. This is a scoped addition to existing S-02 navigation under UC-003/JOB-001; preserve Stop, drafts and ongoing work.
