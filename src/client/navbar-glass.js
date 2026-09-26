@@ -15,7 +15,7 @@ export function createNavbarGlass({ allowed = () => true } = {}) {
   const clear = () => { cancelAnimationFrame(frame); frame = 0; target.clearRect(0, 0, canvas.width, canvas.height); ctx.clearRect(0, 0, source.width, source.height); };
   const intersects = (a, b) => a.right > b.left && a.left < b.right && a.bottom > b.top && a.top < b.bottom;
   const paint = (element, strip) => {
-    if (element.hidden || element.matches('input,textarea,select,script,style,canvas,video,[aria-hidden="true"]')) return;
+    if (element.hidden || element.matches('script,style,canvas,video,[aria-hidden="true"]')) return;
     const box = element.getBoundingClientRect();
     if (!intersects(box, strip)) return;
     const style = getComputedStyle(element);
@@ -25,6 +25,17 @@ export function createNavbarGlass({ allowed = () => true } = {}) {
       ctx.fillStyle = style.backgroundColor; ctx.beginPath();
       ctx.roundRect(box.left-strip.left, box.top-strip.top, box.width, box.height, Math.min(parseFloat(style.borderRadius)||0,box.width/2,box.height/2)); ctx.fill();
     }
+    // Reconstruct control surfaces, but never read values, selected options or
+    // textarea text. Omitting their entire boxes left holes in Settings glass.
+    const borderWidth = parseFloat(style.borderTopWidth);
+    if (borderWidth > 0 && style.borderTopStyle === 'solid' &&
+        style.borderTopWidth === style.borderRightWidth && style.borderTopWidth === style.borderBottomWidth && style.borderTopWidth === style.borderLeftWidth) {
+      ctx.strokeStyle = style.borderTopColor; ctx.lineWidth = borderWidth;
+      ctx.beginPath(); ctx.roundRect(box.left-strip.left+borderWidth/2, box.top-strip.top+borderWidth/2,
+        Math.max(0,box.width-borderWidth), Math.max(0,box.height-borderWidth),
+        Math.max(0,Math.min(parseFloat(style.borderRadius)||0,box.width/2,box.height/2)-borderWidth/2)); ctx.stroke();
+    }
+    if (element.matches('input,textarea,select')) { ctx.restore(); return; }
     if (element instanceof HTMLImageElement && element.complete && element.naturalWidth) {
       const url = new URL(element.currentSrc || element.src, location.href);
       if (url.origin === location.origin || url.protocol === 'data:') {
@@ -87,7 +98,7 @@ export function createNavbarGlass({ allowed = () => true } = {}) {
     target.putImageData(output,0,0);
   };
   const schedule=()=>{ if(!frame) frame=requestAnimationFrame(()=>{try{render();}catch{clear();}}); };
-  window.addEventListener('scroll',schedule,{passive:true}); window.addEventListener('resize',schedule,{passive:true});
+  window.addEventListener('scroll',schedule,{passive:true,capture:true}); window.addEventListener('resize',schedule,{passive:true});
   document.addEventListener('visibilitychange',()=>{clear();if(!document.hidden)schedule();});
   reduced.addEventListener('change',schedule);contrast.addEventListener('change',schedule);
   const observer=new MutationObserver(()=>{clear();schedule();});
