@@ -44,7 +44,7 @@ export async function verifyActiveDiscussion(page, name, root) {
   assert.notEqual(await page.evaluate(() => document.activeElement.id), 'stop', 'Collapsing Send must not move focus to Stop');
   assert.equal(await page.evaluate(() => document.querySelector('#composer').contains(document.activeElement)), false, 'Focus leaves the hidden composer');
   const stopBox = await page.locator('#stop').boundingBox();
-  assert.equal(stopBox.height, 38, 'Desktop Stop matches the 38px consultant avatar');
+  assert.ok(Math.abs(stopBox.height - 38) < 0.01, 'Desktop Stop matches the 38px consultant avatar');
   assert.ok(stopBox.width > stopBox.height, 'P5 keeps its horizontal icon and label');
   assert.equal(await page.locator('#stop').evaluate(el => getComputedStyle(el).borderRadius), '7px');
   assert.equal(await page.locator('#stop').evaluate(el => getComputedStyle(el, '::before').height), '44px', 'Transparent hit area preserves touch size');
@@ -58,7 +58,7 @@ export async function verifyActiveDiscussion(page, name, root) {
   await page.screenshot({ path: join(root, 'output', 'playwright', `${name}-active-desktop.png`), fullPage: true });
   await page.setViewportSize({ width: 390, height: 844 });
   const mobileStop = await page.locator('#stop').boundingBox();
-  assert.equal(mobileStop.height, 32, 'Mobile Stop matches the 32px consultant avatar');
+  assert.ok(Math.abs(mobileStop.height - 32) < 0.01, 'Mobile Stop matches the 32px consultant avatar');
   assert.equal(await page.locator('#stop').evaluate(el => getComputedStyle(el).borderRadius), '7px');
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
   await page.screenshot({ path: join(root, 'output', 'playwright', `${name}-active-mobile.png`), fullPage: true });

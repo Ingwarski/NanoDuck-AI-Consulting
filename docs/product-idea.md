@@ -157,3 +157,7 @@ The owner accepted application-managed parallel consultants, dynamic Head-author
 ## Critic reliability and model usage — 2026-09-25
 
 The owner explicitly requests reliable completion of Critic review and a token usage counter for every used model. Preserve complete owner context, the chosen discussion depth and exact provider/model/effort. Count reported usage for the current conversation and all saved conversations, including retries; clearly identify unavailable historic or failed-call usage.
+
+## Режим читання — 2026-09-26
+
+Погоджена [зміна режиму читання](../forge/runs/reading-mode-20260926/scope.json) для JOB-001/JOB-004, UC-002/UC-003/UC-004, S-02: після завершення консультації введення згортається, без автоматичного перемикання розділу або прокручування. «Continue conversation» розгортає введення з фокусом; «Hide input» згортає його без втрати чернетки в пам’яті сторінки. «Read outcome» явно відкриває висновок. Stop і помилка відновлюють введення та чинні Continue/Retry. Відкрите введення займає звичайне місце у потоці документа. На широкому екрані статус, Stop і чотири розділи доступні у лівій вертикальній панелі з горизонтальними назвами; на вузькому — через компактний перемикач розділів та статус/Stop. Ця погоджена зміна замінює попередні вимоги щодо автоматичного розгортання після completion, верхніх вкладок та sticky composer, але не змінює оформлення P5, доступ або дані.

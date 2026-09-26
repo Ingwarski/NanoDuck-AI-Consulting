@@ -2,7 +2,7 @@ import { createNotificationAudio } from "/client/notification-audio.js";
 import { parseMarkdown } from "/client/markdown.js";
 import { normalizeRefreshState, refreshStateKey, serializeRefreshState } from "/client/refresh-state.js";
 
-const state = { session: null, csrf: null, page: "discussion", tab: "discussion", conversation: null, events: [], run: null, poll: null, recognition: null, voiceTimer: null, voiceMode: "ready", voiceTranscript: "", attachmentFiles: [], attachmentError: "", pendingSubmissions: new Map(), sending: false, stopping: false, runtimeInstructionHistory: [], documents: [], notificationSound: "off", conversations: [], selectedConversationIds: new Set(), criticSettings: null, criticProviders: null };
+const state = { composerCollapsed: false, readingStateKey: null, session: null, csrf: null, page: "discussion", tab: "discussion", conversation: null, events: [], run: null, poll: null, recognition: null, voiceTimer: null, voiceMode: "ready", voiceTranscript: "", attachmentFiles: [], attachmentError: "", pendingSubmissions: new Map(), sending: false, stopping: false, runtimeInstructionHistory: [], documents: [], notificationSound: "off", conversations: [], selectedConversationIds: new Set(), criticSettings: null, criticProviders: null };
 const logoutPendingKey = "nanoduck-logout-pending-v1";
 const activeRequests = new Set();
 let privacyLocked = false; let clientGeneration = 0; let initializing = true;
@@ -152,6 +152,7 @@ function clearPrivateClientContent() {
   clientGeneration++;
   for (const controller of activeRequests) controller.abort();
   activeRequests.clear(); stopPolling(); releaseVoice();
+  state.composerCollapsed = false; state.readingStateKey = null;
   state.conversation = null; state.events = []; state.run = null; usageRequest++; panelUsageSignature = undefined;
   state.attachmentFiles = []; state.attachmentError = ""; state.pendingSubmissions.clear();
   state.runtimeInstructionHistory = []; state.documents = []; state.conversations = [];
@@ -653,9 +654,17 @@ async function acceptMessage(event) {
 
 function renderRunControls() {
   const active = state.run?.status === "active";
+  const readingStateKey = `${state.conversation?.id ?? "new"}:${state.run?.id ?? "none"}:${state.run?.status ?? "idle"}`;
+  if (state.readingStateKey !== readingStateKey) {
+    state.readingStateKey = readingStateKey;
+    state.composerCollapsed = state.run?.status === "complete";
+  }
   const composer = $("#composer");
   const moveFocus = active && !composer.hidden && (composer.contains(document.activeElement) || document.activeElement === document.body);
-  composer.hidden = active || state.tab !== "discussion";
+  composer.hidden = active || state.composerCollapsed;
+  $("#reading-actions").hidden = active || !state.composerCollapsed;
+  $("#read-outcome").hidden = state.run?.status !== "complete" || state.tab === "outcome";
+  $("#expand-composer").setAttribute("aria-expanded", String(!composer.hidden));
   $(".topic").dataset.active = String(active);
   $("#stop").hidden = !active; $("#stop").disabled = state.stopping;
   if (moveFocus) $("#run-status").focus({ preventScroll: true });
@@ -771,18 +780,25 @@ async function loadUsage({ quiet = false } = {}) {
   }
 }
 document.querySelector(".tabs").addEventListener("keydown", event => {
-  if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+  if (!["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Home", "End"].includes(event.key)) return;
   const tabs = [...document.querySelectorAll("[data-tab]")]; const index = tabs.indexOf(event.target);
   if (index < 0) return;
   event.preventDefault();
-  const next = event.key === "Home" ? 0 : event.key === "End" ? tabs.length - 1 : (index + (event.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length;
+  const next = event.key === "Home" ? 0 : event.key === "End" ? tabs.length - 1 : (index + (["ArrowRight", "ArrowDown"].includes(event.key) ? 1 : -1) + tabs.length) % tabs.length;
   setTab(tabs[next].dataset.tab); tabs[next].focus();
 });
+const readingLayout = matchMedia("(min-width: 1100px)");
+const updateTabOrientation = () => $(".tabs").setAttribute("aria-orientation", readingLayout.matches ? "vertical" : "horizontal");
+readingLayout.addEventListener("change", updateTabOrientation); updateTabOrientation();
+$("#consultation-view").addEventListener("change", event => setTab(event.target.value));
+$("#expand-composer").addEventListener("click", () => { state.composerCollapsed = false; renderRunControls(); $("#message").focus(); });
+$("#collapse-composer").addEventListener("click", () => { renderRunControls(); state.composerCollapsed = true; renderRunControls(); $("#expand-composer").focus({ preventScroll: true }); });
+$("#read-outcome").addEventListener("click", () => { setTab("outcome"); $("#outcome").scrollIntoView({ block: "start" }); });
 let panelUsageSignature;
 $("#usage-scope").addEventListener("change", () => void loadUsage());
 $("#usage-refresh").addEventListener("click", () => void loadUsage());
 
-function setTab(tab) { state.tab = tab; document.querySelectorAll("[data-tab]").forEach(button => { button.setAttribute("aria-selected", String(button.dataset.tab === tab)); button.tabIndex = button.dataset.tab === tab ? 0 : -1; }); $("#thread").hidden = tab !== "discussion"; renderRunControls(); $("#outcome").hidden = tab !== "outcome"; $("#sources").hidden = tab !== "sources"; $("#usage").hidden = tab !== "usage"; if (tab === "usage") void loadUsage(); }
+function setTab(tab) { state.tab = tab; $("#consultation-view").value = tab; document.querySelectorAll("[data-tab]").forEach(button => { button.setAttribute("aria-selected", String(button.dataset.tab === tab)); button.tabIndex = button.dataset.tab === tab ? 0 : -1; }); $("#thread").hidden = tab !== "discussion"; renderRunControls(); $("#outcome").hidden = tab !== "outcome"; $("#sources").hidden = tab !== "sources"; $("#usage").hidden = tab !== "usage"; if (tab === "usage") void loadUsage(); }
 
 const recognitionConstructor = () => window.SpeechRecognition ?? window.webkitSpeechRecognition;
 const browserLanguage = () => {

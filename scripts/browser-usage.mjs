@@ -21,14 +21,12 @@ export async function verifyUsage(page, name, root) {
   await page.screenshot({ path: join(root, 'output', 'playwright', `${name}-usage-desktop.png`), fullPage: true });
   await page.setViewportSize({ width: 320, height: 844 });
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, 'Usage reflows at 320px');
-  assert.equal(await page.evaluate(() => document.querySelector('#usage-tab').getBoundingClientRect().right <= document.querySelector('.tabs').getBoundingClientRect().right), true, 'Every tab label remains visible');
+  assert.equal(await page.locator('#consultation-view').isVisible(), true, 'Mobile view picker is available');
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.screenshot({ path: join(root, 'output', 'playwright', `${name}-usage-mobile.png`), fullPage: true });
   await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
-  for (const label of ['Discussion', 'Outcome', 'Sources', 'Usage']) {
-    const box = await page.getByRole('tab', { name: label, exact: true }).boundingBox();
-    assert.ok(box && box.y >= 76 && box.y + box.height <= 844, `${label} remains visible while scrolling`);
-  }
+  const picker = await page.locator('#consultation-view').boundingBox();
+  assert.ok(picker && picker.y >= 76 && picker.y + picker.height <= 844, 'Mobile view picker remains visible while scrolling');
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
   assert.ok((await page.getByRole('tab', { name: 'Usage', exact: true }).boundingBox()).y >= 82);

@@ -50,7 +50,9 @@ export async function verifyLostAcceptanceRetry(page, name) {
     assert.equal(confirmed.events[0].attachments.length, 1);
     assert.equal(await page.locator('#thread .message[data-role="owner"]').count(), 1);
     assert.equal(await page.locator('#message').inputValue(), edited);
+    await page.locator('#expand-composer').click();
     await page.locator('#message').fill('');
     await page.locator('.attachment-draft button').click();
+    await page.locator('#collapse-composer').click();
   } finally { await page.unroute(routePattern); }
 }

@@ -1,0 +1,9 @@
+{
+  "event": "accepted_scoped_baseline_override",
+  "actor": "user",
+  "request": "імплементуй",
+  "accepted_proposal": "Fold input after completion, preserve draft and reading view, explicit Continue conversation and Read outcome actions; desktop side navigation and mobile view selector; expanded input in normal flow.",
+  "recorded_at": "2026-09-26T13:51:45.554986+00:00",
+  "baseline": "nanoduck-electric-a-v8-20260914",
+  "limits": "Only consultation reading layout; preserve P5 appearance, auth, Stop, data and providers. Frozen design evidence stays immutable."
+}

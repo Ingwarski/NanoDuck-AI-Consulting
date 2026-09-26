@@ -96,3 +96,7 @@ S-02/ST-09 supports concise individual assignments and out-of-order worker compl
 ## Critic reliability and model usage — 2026-09-25
 
 S-02 retains its existing discussion/record states and gains a Usage inspection panel alongside Discussion, Outcome and Sources. Panel states: loading, no recorded usage, reported/partial usage, and retryable load failure. A scope selector chooses this conversation or all saved conversations. Viewing counters never stops generation. Existing failure/continue states display the specific review or provider failure.
+
+## Режим читання — 2026-09-26
+
+Погоджена [зміна режиму читання](../forge/runs/reading-mode-20260926/scope.json) для JOB-001/JOB-004, UC-002/UC-003/UC-004, S-02: після завершення консультації введення згортається, без автоматичного перемикання розділу або прокручування. «Continue conversation» розгортає введення з фокусом; «Hide input» згортає його без втрати чернетки в пам’яті сторінки. «Read outcome» явно відкриває висновок. Stop і помилка відновлюють введення та чинні Continue/Retry. Відкрите введення займає звичайне місце у потоці документа. На широкому екрані статус, Stop і чотири розділи доступні у лівій вертикальній панелі з горизонтальними назвами; на вузькому — через компактний перемикач розділів та статус/Stop. Ця погоджена зміна замінює попередні вимоги щодо автоматичного розгортання після completion, верхніх вкладок та sticky composer, але не змінює оформлення P5, доступ або дані.

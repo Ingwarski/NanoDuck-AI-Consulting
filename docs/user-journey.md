@@ -41,3 +41,7 @@ J-03 (JOB-001, UC-002; FR-02.9–FR-02.15): the owner sees concise individual He
 ## Critic reliability and model usage — 2026-09-25
 
 J-02/J-03, UC-002/UC-003: multiple Critic defects become one complete correction assignment; a malformed review is repaired once, and a terminal failure explains the stage/cause, preserves work and offers Continue. J-06, UC-004: open Usage within Discussion, compare this conversation with all saved conversations, inspect reported counts and coverage, then return to Discussion without affecting the run.
+
+## Режим читання — 2026-09-26
+
+Погоджена [зміна режиму читання](../forge/runs/reading-mode-20260926/scope.json) для JOB-001/JOB-004, UC-002/UC-003/UC-004, S-02: після завершення консультації введення згортається, без автоматичного перемикання розділу або прокручування. «Continue conversation» розгортає введення з фокусом; «Hide input» згортає його без втрати чернетки в пам’яті сторінки. «Read outcome» явно відкриває висновок. Stop і помилка відновлюють введення та чинні Continue/Retry. Відкрите введення займає звичайне місце у потоці документа. На широкому екрані статус, Stop і чотири розділи доступні у лівій вертикальній панелі з горизонтальними назвами; на вузькому — через компактний перемикач розділів та статус/Stop. Ця погоджена зміна замінює попередні вимоги щодо автоматичного розгортання після completion, верхніх вкладок та sticky composer, але не змінює оформлення P5, доступ або дані.

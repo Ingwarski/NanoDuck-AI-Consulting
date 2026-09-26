@@ -66,3 +66,30 @@
 .markdown-table-scroll th{background:var(--raised);font-weight:750}
 .markdown-table-scroll tr:last-child td{border-bottom:0}
 .markdown-table-scroll th:last-child,.markdown-table-scroll td:last-child{border-right:0}
+
+/* Reading mode: navigation stays beside the transcript; input occupies normal flow. */
+.discussion-content{min-width:0}
+#discussion-page .composer{position:static;margin-top:24px}
+.reading-actions{position:sticky;bottom:12px;z-index:10;display:flex;justify-content:flex-end;gap:8px;padding:12px 0;margin-top:16px;pointer-events:none}
+.reading-actions button{pointer-events:auto;box-shadow:0 4px 16px #0005}
+.view-picker{display:none}
+#outcome{scroll-margin-top:160px}
+@media(min-width:1100px){
+ #discussion-page{display:grid;grid-template-columns:174px minmax(0,1fr);gap:30px;max-width:1116px;align-items:start}
+ .discussion-header{top:96px;padding:12px 0;align-self:start;border-right:1px solid var(--line);padding-right:16px}
+ .discussion-header .topic{flex-direction:column;gap:16px}
+ .discussion-header .eyebrow{display:none}
+ .discussion-header .status{font-size:13px;margin:0}
+ .discussion-header .tabs{flex-direction:column;gap:4px;border-bottom:0;margin-top:12px}
+ .discussion-header .tabs button{text-align:left;padding:10px 12px;border-radius:9px;min-height:44px}
+ .discussion-header .tabs button[aria-selected=true]{background:var(--raised);box-shadow:inset 3px 0 var(--blue-light)}
+}
+@media(max-width:1099px){
+ .discussion-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--line)}
+ .discussion-header .tabs,.discussion-header .eyebrow{display:none}
+ .discussion-header .topic{padding:0;gap:12px;align-items:center;min-width:0}
+ .discussion-header .status{font-size:12px;margin:0}
+ .view-picker{display:block;flex:0 0 130px;order:-1}
+ .view-picker select{min-height:44px;padding:8px}
+ .reading-actions button{font-size:13px;padding:8px 12px}
+}

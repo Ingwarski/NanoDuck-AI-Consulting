@@ -1,3 +1,4 @@
+import { verifyReadingMode } from './browser-reading-mode.mjs';
 import { verifyProgressRecovery } from './browser-progress-recovery.mjs';
 import { verifyUsage } from './browser-usage.mjs';
 import assert from 'node:assert/strict';
@@ -95,6 +96,23 @@ try {
       await page.locator('#consent-check').check();
       await page.locator('#consent-button').click();
       await page.locator('#app').waitFor({ state: 'visible' });
+      if (process.argv.includes('--reading-regression')) {
+        await verifyReadingMode(page, name, root);
+        await phase(`${name} active discussion`, () => verifyActiveDiscussion(page, name, root));
+        await page.locator('#new-conversation').click();
+        await page.locator('#message').waitFor({ state: 'visible' });
+        await phase(`${name} acceptance retry`, () => verifyLostAcceptanceRetry(page, name));
+        await phase(`${name} usage navigation`, () => verifyUsage(page, name, root));
+        assert.deepEqual(errors, []);
+        console.log(`${name}: reading and control regression passed.`);
+        await context.close(); continue;
+      }
+      if (process.argv.includes('--reading-only')) {
+        await verifyReadingMode(page, name, root);
+        assert.deepEqual(errors, []);
+        console.log(`${name}: reading mode passed.`);
+        await context.close(); continue;
+      }
       if (process.argv.includes('--usage-only')) {
         await mkdir(join(root, 'output', 'playwright'), { recursive: true });
         await page.locator('#new-conversation').click();
@@ -123,7 +141,7 @@ try {
       assert.match(await page.locator('#thread').innerText(), /Critic/);
       await phase(`${name} model usage`, () => verifyUsage(page, name, root));
       assert.equal(await page.locator('#thread .message[data-role="Buyer Demand Analyst"] .avatar').innerText(), 'BD', 'Dynamic consultant initials are visible and safe');
-      assert.equal(await page.locator('#composer').isVisible(), true, 'Completion restores composer');
+      assert.equal(await page.locator('#composer').isVisible(), false, 'Completion folds composer');
       await page.getByRole('tab', { name: 'Outcome', exact: true }).click();
       assert.match(await page.locator('#outcome').innerText(), /buyer/i);
       await page.reload();
@@ -143,7 +161,8 @@ try {
       await page.setViewportSize({ width: 390, height: 844 });
       await page.locator('#menu').click();
       await page.locator('#mobile-nav [data-nav="discussion"]').click();
-      await page.getByRole('tab', { name: 'Discussion', exact: true }).click();
+      await page.locator('#consultation-view').selectOption('discussion');
+      await page.locator('#expand-composer').click();
       await page.locator('#message').waitFor({ state: 'visible' });
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true, `${name} mobile overflow`);
       await page.locator('#voice').click();
