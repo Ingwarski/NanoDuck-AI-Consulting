@@ -95,3 +95,7 @@ Update `scripts/browser-active-discussion.mjs` to check desktop/mobile height, c
 ## Sticky view navigation follow-up — 2026-09-25
 
 Keep Discussion / Outcome / Sources / Usage available while scrolling. In `public/index.html`, wrap the existing `.topic` and `.tabs` in `.discussion-header`. In `public/styles.css`, make that wrapper sticky below the existing fixed main menu, with the canvas background and existing header stacking level; override the nested active `.topic` to static positioning so it cannot overlap the tabs. Preserve all tab handlers, keyboard navigation and P5 Stop geometry. Verify desktop/320px scrolling, panel switching and active Stop reachability using `scripts/browser-usage.mjs` and the active-discussion browser checks. Reconcile the affected SDD layout/design/architecture/verification/plan owners. This static presentation change needs a browser refresh; do not interrupt a live provider call to restart the server.
+
+## 2026-09-26: isolated requests and context/cache economy
+
+Apply the subsequent [context/cache isolation port](context-cache-isolation-port.md). It supersedes implicit accumulation of earlier owner messages across new Send actions. Continue/Retry preserves paused accepted work. The port includes exact module changes, source scoping, provider prefix/workspace behavior, stage usage diagnostics and measured verification limits.

@@ -97,12 +97,13 @@ export function createConsultationService({ store, provider: baseProvider }) {
     let phase = "initializing"; const startedAt = Date.now();
     const provider = { invoke: input => {
       phase = input.outputKind ?? "discussion";
-      return baseProvider.invoke({ ...input, onUsage: attempt => store.recordUsage(conversationId, attempt) });
+      return baseProvider.invoke({ ...input, contextScope: runState.id, onUsage: attempt => store.recordUsage(conversationId, attempt) });
     } };
     const current = () => store.events(conversationId).then(events => {
       // Recovery notices stay in the saved transcript, but never count as a
       // completed consultant step or become evidence on a resumed attempt.
-      const confirmed = events.filter(event => event.role !== "System");
+      const boundary = events.find(event => event.id === snapshot?.requestMessageId)?.sequence ?? 0;
+      const confirmed = events.filter(event => event.role !== "System" && event.sequence >= boundary);
       const ownerMessages = confirmed.filter(event => event.role === "owner");
       const researchEntries = [...new Map([snapshot?.publicResearch, ...(snapshot?.followupResearch ?? [])].filter(item => item?.query).map(item => [item.query, item])).values()];
       const researchContext = researchEntries.map(item => `Public research query: ${item.query}\n${item.body}\n${item.sources.map(source => `${source.title}: ${source.url}\nSupported claim: ${source.claim}`).join("\n\n")}`).join("\n\n");
@@ -344,7 +345,7 @@ export function createConsultationService({ store, provider: baseProvider }) {
         await store.appendAgentMessage(conversationId, runState.generation, { role: "System", body, sources: [] });
         await store.finishRun(conversationId, runState.generation, "failed");
       }
-    } finally { if (controllers.get(conversationId) === controller) controllers.delete(conversationId); }
+    } finally { try { await baseProvider.releaseScope?.(runState.id); } finally { if (controllers.get(conversationId) === controller) controllers.delete(conversationId); } }
   };
   return Object.freeze({
     async start(conversationId, runState) {

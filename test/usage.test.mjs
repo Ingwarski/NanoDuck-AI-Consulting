@@ -13,7 +13,7 @@ const tokens = { input: 100, output: 40, total: 140, cachedInput: 60, cacheWrite
 const attempt = (patch = {}) => ({ id: randomId(), provider: "codex", model: "gpt-6-sol", status: "completed", startedAt: "2026-09-25T12:00:00.000Z", finishedAt: "2026-09-25T12:01:00.000Z", usage: [{ model: "gpt-6-sol", tokens }], ...patch });
 
 test("provider categories include Claude cache input once and Codex reasoning only as an output subset", () => {
-  assert.deepEqual(codexTokens({ inputTokens: 100, outputTokens: 40, totalTokens: 140, cachedInputTokens: 60, reasoningOutputTokens: 30 }), tokens);
+  assert.deepEqual(codexTokens({ inputTokens: 100, outputTokens: 40, totalTokens: 140, cachedInputTokens: 60, reasoningOutputTokens: 30 }), { ...tokens, cacheWriteInput: null });
   const [claude] = claudeTokens(JSON.stringify({ modelUsage: { "claude-opus-5-5": { inputTokens: 2, outputTokens: 40, cacheReadInputTokens: 60, cacheCreationInputTokens: 38 } } }));
   assert.deepEqual(claude.tokens, { ...tokens, cacheWriteInput: 38, reasoningOutput: null });
   assert.deepEqual(claudeTokens("not JSON"), []);
@@ -60,4 +60,19 @@ test("encrypted usage survives restart and recovery, interrupts stale calls and 
   assert.equal((await restored.usageSummary()).attempts, 0);
   const corrupt = structuredClone(backup); corrupt.conversations[0].usage[0].usage[0].tokens.total = "private content";
   assert.equal(await restored.restoreRecovery(corrupt), undefined);
+});
+
+test("stage diagnostics contain only bounded metadata and stage totals do not duplicate overall counts", async () => {
+  const store = createMemoryStore(); const chat = await store.createConversation();
+  const first = attempt({ diagnostics: { stage: 'public_research', promptBytes: 1234, prefixBytes: 1000, webSearchCount: 3, prompt: 'must never persist' } });
+  await store.recordUsage(chat.id, first);
+  await store.recordUsage(chat.id, attempt({ diagnostics: { stage: 'head_final', promptBytes: 2345, prefixBytes: 1000 } }));
+  const summary = await store.usageSummary(chat.id);
+  assert.equal(summary.total, 280);
+  assert.equal(summary.stages.reduce((sum, stage) => sum + stage.total, 0), 280);
+  assert.equal(summary.stages.find(stage => stage.stage === 'public_research').attempts, 1);
+  assert.equal(JSON.stringify(store.snapshotState()).includes('must never persist'), false);
+  const normalized = normalizeUsageAttempt(first);
+  assert.equal(normalized.diagnostics.webSearchCount, 3);
+  assert.equal(normalizeUsageAttempt(attempt({ diagnostics: { stage: '<script>', promptBytes: -1 } })).diagnostics.stage, 'unavailable');
 });

@@ -84,7 +84,7 @@ test("accepted owner messages are idempotent and a stopped run fences later agen
   assert.equal(replay.replayed, true);
   assert.equal(replay.message.id, first.message.id);
   await store.saveSettings({ ...defaultSettings, specialistCount: "3", discussionDepth: "3" });
-  assert.deepEqual((await store.run(conversation.id)).snapshot, defaultSettings);
+  assert.deepEqual((await store.run(conversation.id)).snapshot, { ...defaultSettings, requestMessageId: first.message.id });
   assert.ok(await store.appendAgentMessage(conversation.id, first.run.generation, { role: "Head Consultant", body: "First view." }));
   const stopped = await store.stop(conversation.id);
   assert.equal(stopped.status, "stopped");

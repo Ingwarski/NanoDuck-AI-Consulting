@@ -64,3 +64,7 @@ For the existing navigation/fidelity/browser gates, verify all four view control
 ## Review-repair evaluation scope — 2026-09-26
 
 Existing functional, security and lifecycle gates apply to the architecture's review repairs: immutable linked correction attempts, immediate dependency scheduling, accepted saved instructions, reserved actor identities, secret rejection, end-to-end sources and Critic summaries, isolated bounded follow-up research, and reconnect/slow-usage behavior. Require negative tests for tampered lineage and sensitive transfer plus Stop/retry persistence tests. Browser recovery needs real-engine observations, not only simulated functions. No new gate or product scope is introduced; this owner defines evaluation requirements and runs no tests. Release readiness remains not_evaluated.
+
+## Isolated request and cache economy — 2026-09-26
+
+Existing functional, security and efficiency gates require new-Send isolation, Continue preservation, provider-workspace cleanup, complete current request/results, unchanged model/depth and truthful token subsets. Compare equivalent synthetic inputs/settings; report measured bytes separately from provider tokens. Provider cache hits and subscription savings cannot be inferred from prefix length. Existing browser/accessibility/user-validation evidence classes remain separate; formal release readiness is not_evaluated.

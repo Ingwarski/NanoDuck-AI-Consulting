@@ -56,6 +56,11 @@ export function validateLocalState(input) {
     const conversation = conversations.get(key);
     if (!conversation || !object(run) || !id(run.id) || run.conversationId !== key || !["active", "stopped", "failed", "complete", "deleted"].includes(run.status) || !Number.isSafeInteger(run.generation) || run.generation < 1 || !object(run.snapshot) || !date(run.createdAt) || !date(run.updatedAt)) fail();
     if (Boolean(conversation.deletedAt) !== (run.status === "deleted") || (run.status === "deleted" && Object.keys(run.snapshot).length)) fail();
+    if (run.snapshot.requestMessageId !== undefined) {
+      const accepted = messages.get(key)?.find(item => item.id === run.snapshot.requestMessageId);
+      if (!accepted || accepted.role !== "owner" || accepted.recipient) fail();
+      if (run.snapshot.parallelWork && JSON.stringify(run.snapshot.parallelWork.ownerMessageIds) !== JSON.stringify([accepted.id])) fail();
+    }
     if (run.snapshot.contractVersion === "parallel-v1" && run.snapshot.parallelWork && !validateParallelWork(run.snapshot.parallelWork, messages.get(key))) fail();
     if (run.snapshot.contractVersion && !["parallel-v1"].includes(run.snapshot.contractVersion)) fail();
     if (run.status === "active") active += 1;

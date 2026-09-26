@@ -201,3 +201,20 @@ test("Codex usage captures cumulative matching-turn counts once, including faile
     } finally { clearTimeout(timer); }
   }
 });
+
+test("request workspaces are stable within one request, distinct between requests and removed after release", async () => {
+  const { access } = await import('node:fs/promises');
+  const command = fileURLToPath(new URL('./fixtures/fake-codex.mjs', import.meta.url));
+  const provider = createCodexProvider({ readyForProvider: true, codexCommand: process.execPath, codexCommandArgs: [command] });
+  const invoke = async contextScope => {
+    const result = await provider.invoke({ contextScope, assignment: 'Report request workspace.', model: 'gpt-6-sol', effort: 'high', evidence: { owner: 'Synthetic test', discussion: '' }, research: false, runtimeInstructions: initialRuntimeInstructions });
+    assert.equal(result.ok, true); return JSON.parse(result.body).workspace;
+  };
+  try {
+    const [a, b] = await Promise.all([invoke('request-A'), invoke('request-A')]);
+    const c = await invoke('request-B');
+    assert.equal(a, b); assert.notEqual(a, c); await access(a); await access(c);
+    await provider.releaseScope('request-A'); await assert.rejects(access(a)); await access(c);
+    await provider.releaseScope('request-B'); await assert.rejects(access(c));
+  } finally { await provider.releaseScope('request-A'); await provider.releaseScope('request-B'); }
+});

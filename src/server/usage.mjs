@@ -10,7 +10,7 @@ export const emptyTokens = () => Object.fromEntries(tokenFields.map(key => [key,
 // Each Codex invocation owns one ephemeral thread. Its cumulative total includes
 // tool/reasoning continuations; summing repeated notifications would overcount.
 export function codexTokens(value) {
-  return { input: count(value?.inputTokens), output: count(value?.outputTokens), total: count(value?.totalTokens), cachedInput: count(value?.cachedInputTokens), cacheWriteInput: count(value?.cacheWriteInputTokens ?? 0), reasoningOutput: count(value?.reasoningOutputTokens) };
+  return { input: count(value?.inputTokens), output: count(value?.outputTokens), total: count(value?.totalTokens), cachedInput: count(value?.cachedInputTokens), cacheWriteInput: count(value?.cacheWriteInputTokens), reasoningOutput: count(value?.reasoningOutputTokens) };
 }
 export function claudeTokens(stdout) {
   let value; try { value = JSON.parse(stdout); } catch { return []; }
@@ -23,25 +23,30 @@ export function claudeTokens(stdout) {
   });
 }
 
+const normalizeDiagnostics = value => ({
+  stage: typeof value?.stage === "string" && /^[a-z_]{1,48}$/u.test(value.stage) ? value.stage : "unavailable",
+  promptBytes: count(value?.promptBytes), prefixBytes: count(value?.prefixBytes), webSearchCount: count(value?.webSearchCount)
+});
+
 export function normalizeUsageAttempt(value) {
   if (!object(value) || typeof value.id !== "string" || !/^[A-Za-z0-9_-]{32}$/u.test(value.id) || !["codex", "claude_code"].includes(value.provider) || !modelId(value.model) || !["running", "completed", "failed", "cancelled", "interrupted"].includes(value.status) || typeof value.startedAt !== "string" || !Number.isFinite(Date.parse(value.startedAt)) || (value.finishedAt !== null && (typeof value.finishedAt !== "string" || !Number.isFinite(Date.parse(value.finishedAt)))) || !Array.isArray(value.usage)) return undefined;
   if (value.usage.some(item => !object(item) || !modelId(item.model) || !object(item.tokens) || tokenFields.some(key => item.tokens[key] !== null && count(item.tokens[key]) === null)) || new Set(value.usage.map(item => item.model)).size !== value.usage.length) return undefined;
-  return { id: value.id, provider: value.provider, model: value.model, status: value.status, startedAt: value.startedAt, finishedAt: value.finishedAt, usage: value.usage.map(item => ({ model: item.model, tokens: Object.fromEntries(tokenFields.map(key => [key, item.tokens[key]])) })) };
+  return { id: value.id, provider: value.provider, model: value.model, ...(value.diagnostics ? { diagnostics: normalizeDiagnostics(value.diagnostics) } : {}), status: value.status, startedAt: value.startedAt, finishedAt: value.finishedAt, usage: value.usage.map(item => ({ model: item.model, tokens: Object.fromEntries(tokenFields.map(key => [key, item.tokens[key]])) })) };
 }
 
 // Only allowlisted numeric/model metadata crosses this callback. Usage storage
 // failures cannot discard an otherwise valid consultation answer.
-export async function beginUsage(onUsage, provider, model) {
-  const attempt = { id: randomId(), provider, model, status: "running", startedAt: new Date().toISOString(), finishedAt: null, usage: [] };
+export async function beginUsage(onUsage, provider, model, diagnostics = {}) {
+  const attempt = { id: randomId(), provider, model, diagnostics: normalizeDiagnostics(diagnostics), status: "running", startedAt: new Date().toISOString(), finishedAt: null, usage: [] };
   const emit = async () => {
     try { await onUsage?.(structuredClone(attempt)); }
     catch { process.stdout.write(`${JSON.stringify({ event: "nanoduck.usage.storage_failed", provider })}\n`); }
   };
   await emit();
-  return async (status, usage = []) => { attempt.status = status; attempt.finishedAt = new Date().toISOString(); attempt.usage = usage; await emit(); };
+  return async (status, usage = [], details = {}) => { attempt.diagnostics = normalizeDiagnostics({ ...attempt.diagnostics, ...details }); attempt.status = status; attempt.finishedAt = new Date().toISOString(); attempt.usage = usage; await emit(); };
 }
 
-export function summarizeUsage(entries) {
+export function summarizeUsage(entries, includeStages = true) {
   const models = new Map(); let attempts = 0; let incomplete = 0; let unavailable = 0; let startedAt = null;
   for (const entry of entries) for (const attempt of entry.usage ?? []) {
     attempts += 1;
@@ -61,5 +66,11 @@ export function summarizeUsage(entries) {
   }
   const rows = [...models.values()].sort((a, b) => `${a.provider}:${a.model}`.localeCompare(`${b.provider}:${b.model}`));
   const totals = rows.map(row => row.tokens.total.value).filter(value => value !== null);
-  return { attempts, incomplete, unavailable, startedAt, total: totals.length ? sum(totals) : null, models: rows, historyMayBeMissing: true };
+  const stages = new Map();
+  if (includeStages) for (const entry of entries) for (const attempt of entry.usage ?? []) {
+    const stage = attempt.diagnostics?.stage ?? "unavailable";
+    if (!stages.has(stage)) stages.set(stage, []);
+    stages.get(stage).push(attempt);
+  }
+  return { ...(includeStages ? { stages: [...stages].map(([stage, usage]) => ({ stage, ...summarizeUsage([{ usage }], false) })) } : {}), attempts, incomplete, unavailable, startedAt, total: totals.length ? sum(totals) : null, models: rows, historyMayBeMissing: true };
 }

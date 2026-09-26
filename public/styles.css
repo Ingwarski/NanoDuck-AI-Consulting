@@ -93,3 +93,5 @@
  .view-picker select{min-height:44px;padding:8px}
  .reading-actions button{font-size:13px;padding:8px 12px}
 }
+
+.usage-stages{margin:24px 0;border:1px solid var(--line);border-radius:10px;padding:14px}.usage-stages summary{cursor:pointer}.usage-stage{padding:12px 0;border-bottom:1px solid var(--line);overflow-wrap:anywhere}.usage-stage:last-child{border-bottom:0}

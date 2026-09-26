@@ -1,0 +1,36 @@
+{
+  "scope": "synthetic fixture only; no private conversations",
+  "model": "gpt-6-sol",
+  "effort": "high",
+  "research": false,
+  "baseline_revision": "19f1294",
+  "baseline_input": 9825,
+  "revised_inputs": [
+    6228,
+    6228
+  ],
+  "baseline_cached_input": 0,
+  "revised_cached_inputs": [
+    3072,
+    0
+  ],
+  "baseline_output": 61,
+  "revised_outputs": [
+    26,
+    25
+  ],
+  "revised_prompt_bytes": 5682,
+  "revised_prefix_bytes": 5369,
+  "input_reduction_percent": 36.61,
+  "limits": "Small non-randomized live comparison; not a production consultation, guaranteed cache hit or subscription cost benchmark. Original provider module from main used with unchanged fixture/model/effort; current token parsing shared.",
+  "checks": {
+    "unit_pass": 207,
+    "unit_skip": 2,
+    "unit_fail": 0,
+    "usage_browsers": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ]
+  }
+}

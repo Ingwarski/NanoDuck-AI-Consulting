@@ -171,7 +171,7 @@ export function createMemoryStore(initialState = undefined) {
       const message = { id: randomId(), role: "owner", body: input.body, sequence: stream.length + 1, createdAt: now(), sources: [], attachments: linked.map(publicAttachment) };
       linked.forEach(attachment => { attachment.messageId = message.id; });
       stream.push(message); messages.set(conversationId, stream);
-      const run = { id: randomId(), conversationId, status: "active", generation: (runs.get(conversationId)?.generation ?? 0) + 1, snapshot: structuredClone(snapshot), createdAt: now(), updatedAt: now() };
+      const run = { id: randomId(), conversationId, status: "active", generation: (runs.get(conversationId)?.generation ?? 0) + 1, snapshot: { ...structuredClone(snapshot), requestMessageId: message.id }, createdAt: now(), updatedAt: now() };
       runs.set(conversationId, run); conversation.updatedAt = now();
       const result = { message: publicMessage(message), run: { ...run }, replayed: false }; requests.set(requestKey, { messageId: message.id, runId: run.id }); return result;
     },
@@ -187,11 +187,13 @@ export function createMemoryStore(initialState = undefined) {
     async updateRunSnapshot(conversationId, generation, snapshot) {
       const run = runs.get(conversationId);
       if (!run || run.status !== "active" || run.generation !== generation) return undefined;
+      if (snapshot.requestMessageId !== run.snapshot.requestMessageId) return undefined;
       run.snapshot = Object.freeze({ ...snapshot }); run.updatedAt = now(); return { ...run };
     },
     async commitParallelWork(conversationId, generation, expectedRevision, work, additions = []) {
       const run = runs.get(conversationId); const conversation = conversations.get(conversationId);
       if (!run || run.status !== "active" || run.generation !== generation || run.snapshot?.contractVersion !== "parallel-v1" || !conversation || conversation.deletedAt) return undefined;
+      if (run.snapshot.requestMessageId && JSON.stringify(work.ownerMessageIds) !== JSON.stringify([run.snapshot.requestMessageId])) return undefined;
       const before = run.snapshot.parallelWork;
       if ((before?.revision ?? -1) !== expectedRevision || !Array.isArray(additions)) return undefined;
       const stream = messages.get(conversationId) ?? [];

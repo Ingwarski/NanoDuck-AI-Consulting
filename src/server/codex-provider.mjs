@@ -1,3 +1,4 @@
+import { buildProviderContext, consultationBaseInstructions } from "./provider-context.mjs";
 import { beginUsage, codexTokens } from "./usage.mjs";
 import { ensurePrivateDirectory, ensurePrivateFile } from "./private-files.mjs";
 import { spawnIsolatedProcess, signalProcessTree } from "./child-process.mjs";
@@ -7,7 +8,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { randomId } from "./crypto.mjs";
 import { createTurnDeadline, isTurnProgress } from "./turn-deadline.mjs";
-import { createRuntimePrompts, RuntimeInstructionError } from "./prompt-contracts.mjs";
+import { RuntimeInstructionError } from "./prompt-contracts.mjs";
 import { hasProhibitedLanguage, omitProhibitedLanguage, omitUnsafeExternalUrls, safeExternalUrl } from "./validation.mjs";
 
 const waitFor = (promise, milliseconds, label, signal = undefined) => new Promise((resolve, reject) => {
@@ -117,7 +118,7 @@ class AppServerConnection {
   }
 }
 
-async function startConnection(config, signal) {
+async function startConnection(config, signal, requestWorkspace) {
   if (signal?.aborted) throw new Error("cancelled");
   const directory = await mkdtemp(join(tmpdir(), "nanoduck-codex-"));
   ensurePrivateDirectory(directory);
@@ -130,11 +131,11 @@ async function startConnection(config, signal) {
     if (config.codexAuthPath || config.codexAuthBytes) ensurePrivateFile(authDestination);
     if (signal?.aborted) throw new Error("cancelled");
     const child = spawnIsolatedProcess(config.codexCommand, [...(config.codexCommandArgs ?? []), "app-server", "--stdio"], {
-      cwd: directory,
-      env: { PATH: process.env.PATH ?? "/usr/local/bin:/usr/bin:/bin", HOME: directory, TMPDIR: directory, TEMP: directory, TMP: directory, USERPROFILE: directory, ...(process.platform === "win32" ? { SystemRoot: process.env.SystemRoot, WINDIR: process.env.WINDIR } : {}), CODEX_HOME: codexHome, NO_COLOR: "1" },
+      cwd: requestWorkspace ?? directory,
+      env: { PATH: process.env.PATH ?? "/usr/local/bin:/usr/bin:/bin", HOME: requestWorkspace ?? directory, TMPDIR: directory, TEMP: directory, TMP: directory, USERPROFILE: requestWorkspace ?? directory, ...(process.platform === "win32" ? { SystemRoot: process.env.SystemRoot, WINDIR: process.env.WINDIR } : {}), CODEX_HOME: codexHome, NO_COLOR: "1" },
       stdio: ["pipe", "pipe", "ignore"]
     });
-    connection = new AppServerConnection(child, directory, () => rm(directory, { recursive: true, force: true }));
+    connection = new AppServerConnection(child, requestWorkspace ?? directory, () => rm(directory, { recursive: true, force: true }));
     await waitFor(connection.request("initialize", { clientInfo: { name: "nanoduck-consulting-group", title: "NanoDuck Consulting Group", version: "0.1.0" }, capabilities: { experimentalApi: true } }), 20_000, "app_server_timeout", signal);
     connection.notify("initialized", {}); return connection;
   } catch (error) {
@@ -207,6 +208,22 @@ async function supportedCatalog(connection) {
 }
 
 export function createCodexProvider(config, deadlineOptions = undefined) {
+  const requestWorkspaces = new Map();
+  const requestWorkspace = async scope => {
+    if (!scope) return undefined;
+    if (!/^[A-Za-z0-9_-]{1,128}$/u.test(scope)) throw new Error("invalid_run_state");
+    if (!requestWorkspaces.has(scope)) requestWorkspaces.set(scope, (async () => {
+      const directory = await mkdtemp(join(tmpdir(), "nanoduck-request-"));
+      ensurePrivateDirectory(directory); return directory;
+    })());
+    return requestWorkspaces.get(scope);
+  };
+  const releaseScope = async scope => {
+    const pending = requestWorkspaces.get(scope);
+    if (!pending) return;
+    requestWorkspaces.delete(scope);
+    await rm(await pending, { recursive: true, force: true });
+  };
   const inspect = async () => {
     if (!config.readyForProvider) return Object.freeze({ status: "unavailable", models: Object.freeze([]) });
     let connection;
@@ -224,21 +241,19 @@ export function createCodexProvider(config, deadlineOptions = undefined) {
       await connection?.close().catch(() => {});
     }
   };
-  const invoke = async ({ assignment, model, effort, evidence, research, outputKind = "discussion", maximumCharacters = undefined, runtimeInstructions, signal, onUsage }) => {
+  const invoke = async ({ assignment, model, effort, evidence, research, outputKind = "discussion", maximumCharacters = undefined, runtimeInstructions, signal, onUsage, contextScope }) => {
     if (!config.readyForProvider) return { ok: false, code: "provider_unavailable" };
     if (!runtimeInstructions) throw new RuntimeInstructionError("Provider invocation is missing its runtime-instructions contract.");
     let connection; let threadId; let unsubscribe = () => {}; let deadline;
     let startedAt; let lastProgressAt; let progressCount = 0;
-    let finishUsage; let expectedUsageTurn; let usageStatus = "failed"; const usageByTurn = new Map();
+    let webSearchCount = 0; let finishUsage; let expectedUsageTurn; let usageStatus = "failed"; const usageByTurn = new Map();
     try {
-      connection = await startConnection(config, signal);
+      connection = await startConnection(config, signal, await requestWorkspace(contextScope));
       if (signal?.aborted) throw new Error("cancelled");
-      const started = await connection.request("thread/start", { model, ephemeral: true, cwd: connection.workspace, sandbox: "read-only", approvalPolicy: "never", environments: [], config: { web_search: research ? "live" : "disabled", features: { shell_tool: false, unified_exec: false, view_image: false, shell_snapshot: false, apps: false, plugins: false, hooks: false, memories: false, browser_use: false, browser_use_external: false, browser_use_full_cdp_access: false, computer_use: false, image_generation: false, workspace_dependencies: false, code_mode: false, code_mode_host: false, multi_agent: false, multi_agent_v2: false, skill_search: false, tool_suggest: false, request_permissions_tool: false } } });
+      const started = await connection.request("thread/start", { model, baseInstructions: consultationBaseInstructions, ephemeral: true, cwd: connection.workspace, sandbox: "read-only", approvalPolicy: "never", environments: [], config: { web_search: research ? "live" : "disabled", features: { shell_tool: false, unified_exec: false, view_image: false, shell_snapshot: false, apps: false, plugins: false, hooks: false, memories: false, browser_use: false, browser_use_external: false, browser_use_full_cdp_access: false, computer_use: false, image_generation: false, workspace_dependencies: false, code_mode: false, code_mode_host: false, multi_agent: false, multi_agent_v2: false, skill_search: false, tool_suggest: false, request_permissions_tool: false } } });
       if (!record(started) || !record(started.thread) || typeof started.thread.id !== "string") return { ok: false, code: "provider_unavailable" };
       threadId = started.thread.id;
-      const prompts = createRuntimePrompts(runtimeInstructions);
-      const outputContract = prompts.outputContract({ outputKind, maximumCharacters });
-      const prompt = `${assignment}\n\nOwner question:\n${evidence.owner}\n\nPrior confirmed discussion:\n${evidence.discussion}\n\n${outputContract} ${prompts.providerPolicy(research)}`;
+      const { prompt, prefixBytes, promptBytes } = buildProviderContext({ assignment, model, effort, evidence, research, outputKind, runtimeInstructions, contextScope });
       let resolveTurn; const turnDone = new Promise(resolve => { resolveTurn = resolve; });
       let expectedTurnId;
       deadline = createTurnDeadline(deadlineOptions);
@@ -257,7 +272,7 @@ export function createCodexProvider(config, deadlineOptions = undefined) {
           if (body) completedBodies.set(params.turnId, body);
           if (params.item?.type === "webSearch" && typeof params.item.id === "string") {
             const searches = completedSearches.get(params.turnId) ?? new Set();
-            searches.add(params.item.id); completedSearches.set(params.turnId, searches);
+            searches.add(params.item.id); completedSearches.set(params.turnId, searches); webSearchCount = searches.size;
           }
         }
         if (notification.method !== "turn/completed") return;
@@ -267,7 +282,7 @@ export function createCodexProvider(config, deadlineOptions = undefined) {
         if (completed.id === expectedTurnId) resolveTurn(completed);
       });
       if (signal?.aborted) throw new Error("cancelled");
-      finishUsage = await beginUsage(onUsage, "codex", model);
+      finishUsage = await beginUsage(onUsage, "codex", model, { stage: outputKind, promptBytes, prefixBytes });
       const turn = await waitFor(connection.request("turn/start", { threadId, input: [{ type: "text", text: prompt, text_elements: [] }], model, approvalPolicy: "never", sandboxPolicy: { type: "readOnly", networkAccess: research }, environments: [], effort }), 20_000, "app_server_timeout", signal);
       const startedTurn = record(turn) && record(turn.turn) ? turn.turn : undefined;
       if (!record(startedTurn) || typeof startedTurn.id !== "string") throw new Error("provider_error");
@@ -286,6 +301,7 @@ export function createCodexProvider(config, deadlineOptions = undefined) {
       const resultBody = bodyFrom(resolvedTurn) ?? completedBodies.get(expectedTurnId);
       const completionSource = terminalTurn(startedTurn) ? "turn_start" : "notification";
       const searchIds = new Set([...(completedSearches.get(expectedTurnId) ?? []), ...(resolvedTurn.items ?? []).filter(item => item?.type === "webSearch" && typeof item.id === "string").map(item => item.id)]);
+      webSearchCount = searchIds.size;
       providerLog("nanoduck.provider.turn_completed", { outputKind, completionSource, durationMs: Date.now() - startedAt, webSearchCount: searchIds.size });
       unsubscribe();
       const output = typeof resultBody === "string" ? sourcesFrom(resultBody) : undefined;
@@ -300,11 +316,11 @@ export function createCodexProvider(config, deadlineOptions = undefined) {
       return { ok: false, code };
     } finally {
       deadline?.stop();
-      await finishUsage?.(signal?.aborted ? "cancelled" : usageStatus, usageByTurn.has(expectedUsageTurn) ? [{ model, tokens: usageByTurn.get(expectedUsageTurn) }] : []);
+      await finishUsage?.(signal?.aborted ? "cancelled" : usageStatus, usageByTurn.has(expectedUsageTurn) ? [{ model, tokens: usageByTurn.get(expectedUsageTurn) }] : [], { webSearchCount });
       unsubscribe();
       if (connection && threadId && !signal?.aborted) await connection.request("thread/unsubscribe", { threadId }, 1_000).catch(() => {});
       await connection?.close().catch(() => {});
     }
   };
-  return Object.freeze({ inspect, invoke, id: () => randomId() });
+  return Object.freeze({ inspect, invoke, releaseScope, id: () => randomId() });
 }

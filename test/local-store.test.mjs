@@ -65,7 +65,7 @@ test("complete state survives reopen, including pending attachments, run fencing
   const snapshot = { ...savedSettings, runtimeInstructions: await store.runtimeInstructions(), instructionDocuments: await store.instructionDocuments() };
   const accepted = await store.acceptMessage(conversation.id, input, snapshot);
   await store.appendAgentMessage(conversation.id, accepted.run.generation, { role: "head", body: "A confirmed synthetic handoff.", sources: [] });
-  await store.updateRunSnapshot(conversation.id, accepted.run.generation, { ...snapshot, confirmedCursor: 1 });
+  await store.updateRunSnapshot(conversation.id, accepted.run.generation, { ...accepted.run.snapshot, confirmedCursor: 1 });
   await store.close();
   store = await config.open();
   assert.deepEqual(await store.settings(), savedSettings);

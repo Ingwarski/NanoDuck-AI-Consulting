@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+let observedWorkspace;
 import { createInterface } from "node:readline";
 
 const send = value => process.stdout.write(`${JSON.stringify({ jsonrpc: "2.0", ...value })}\n`);
@@ -47,9 +48,9 @@ createInterface({ input: process.stdin, crlfDelay: Infinity }).on("line", line =
   if (request.method === "initialized" || request.id === undefined) return;
   if (request.method === "initialize") return send({ id: request.id, result: {} });
   if (request.method === "thread/start") {
-    threadModel = request.params.model;
+    threadModel = request.params.model; observedWorkspace = request.params.cwd;
     const config = request.params?.config;
-    const safe = request.params?.ephemeral === true && request.params?.cwd === process.env.HOME && request.params?.environments?.length === 0 && expectedFeatures.every(key => config?.features?.[key] === false);
+    const safe = request.params?.baseInstructions?.includes("consulting participant") && request.params?.ephemeral === true && request.params?.cwd === process.env.HOME && request.params?.environments?.length === 0 && expectedFeatures.every(key => config?.features?.[key] === false);
     return safe ? send({ id: request.id, result: { model: request.params.model, thread: { id: "isolated-thread", model: request.params.model } } }) : send({ id: request.id, error: { message: "unsafe_thread" } });
   }
   if (request.method === "account/read") return send({ id: request.id, result: { account: { type: "chatgpt" } } });
@@ -68,6 +69,7 @@ createInterface({ input: process.stdin, crlfDelay: Infinity }).on("line", line =
       for (let copy = 0; copy < 2; copy++) send({ method: "thread/tokenUsage/updated", params: { threadId: "isolated-thread", turnId: "turn-1", tokenUsage } });
       for (const [threadId, turnId] of [["wrong-thread", "turn-1"], ["isolated-thread", "wrong-turn"]]) send({ method: "thread/tokenUsage/updated", params: { threadId, turnId, tokenUsage: { total: { ...tokenUsage.total, totalTokens: 99999 }, last: tokenUsage.last } } });
     }
+    if (prompt.includes("Report request workspace.")) return send({ id: request.id, result: { turn: { id: "turn-1", status: "completed", items: [{ type: "agentMessage", text: JSON.stringify({ workspace: observedWorkspace }) }] } } });
     if (prompt.includes("Exercise progress deadline")) {
       send({ id: request.id, result: { turn: { id: "turn-1", status: "inProgress" } } });
       const interval = setInterval(() => send({ method: "item/reasoning/summaryTextDelta", params: { threadId: "isolated-thread", turnId: prompt.includes("wrong turn") ? "other-turn" : "turn-1", delta: "private-reasoning-must-not-be-logged" } }), 40);

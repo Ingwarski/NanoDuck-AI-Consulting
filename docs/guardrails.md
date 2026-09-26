@@ -43,3 +43,7 @@ This reconciliation defines FR-02.9–FR-02.15 and its downstream plan; it autho
 ## Critic reliability and model usage — 2026-09-25
 
 Keep usage counters inside authenticated private storage and existing recovery/deletion boundaries. Never infer absent usage as zero, reconstruct old usage from text length, treat cache discounts as subscription savings, or log private Critic content to explain errors. Exact model and effort remain owner choices. The current explicit request authorizes this scoped implementation; unrelated repositories remain out of scope.
+
+## Isolated request and cache economy — 2026-09-26
+
+Never silently replay another request, saved personal memory, or an earlier request source into a new Send. Preserve immutable accepted request binding through Continue/Retry. Keep per-invocation provider sessions ephemeral, file/memory tools disabled, public research limited to sanitized public queries. Do not reduce selected depth, switch models, truncate current owner input, estimate unavailable tokens, or promise cache/subscription savings to make metrics look better.

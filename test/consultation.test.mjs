@@ -83,7 +83,7 @@ test("Continue recovers a former run's committed roster without replacing confir
   assert.match(calls.find(call => call.outputKind === "auto_team").assignment, /Resume the already confirmed roster prefix exactly/u);
 });
 
-test("all roles see every owner message, the deliverable ledger and the untrimmed discussion", async () => {
+test("all roles see the current isolated request, its ledger and untrimmed current discussion", async () => {
   const fixture = await makeRun("First request: compare plans.", { specialistCount: "1", discussionDepth: "1" });
   const firstCalls = [];
   await runToStatus(fixture, fakeProvider(firstCalls, undefined, ["Strategy Consultant"]));
@@ -94,7 +94,7 @@ test("all roles see every owner message, the deliverable ledger and the untrimme
   await runToStatus({ ...fixture, run: accepted.run }, fakeProvider(calls, undefined, ["Risk Consultant"]));
   const position = calls.find(call => call.outputKind === "specialist_position");
   const critic = calls.find(call => call.outputKind === "critic_challenge");
-  assert.ok(position.evidence.owner.includes("First request: compare plans."));
+  assert.equal(position.evidence.owner.includes("First request: compare plans."), false);
   assert.ok(position.evidence.owner.includes(followup));
   assert.ok(critic.evidence.discussion.includes("Head's requested-output ledger"));
   assert.ok(critic.evidence.discussion.includes(followup));

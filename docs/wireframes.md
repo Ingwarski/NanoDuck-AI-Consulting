@@ -63,3 +63,7 @@ The owner requests Discussion, Outcome, Sources and Usage in the sticky menu. Gr
 ## Режим читання — 2026-09-26
 
 Погоджена [зміна режиму читання](../forge/runs/reading-mode-20260926/scope.json) для JOB-001/JOB-004, UC-002/UC-003/UC-004, S-02: після завершення консультації введення згортається, без автоматичного перемикання розділу або прокручування. «Continue conversation» розгортає введення з фокусом; «Hide input» згортає його без втрати чернетки в пам’яті сторінки. «Read outcome» явно відкриває висновок. Stop і помилка відновлюють введення та чинні Continue/Retry. Відкрите введення займає звичайне місце у потоці документа. На широкому екрані статус, Stop і чотири розділи доступні у лівій вертикальній панелі з горизонтальними назвами; на вузькому — через компактний перемикач розділів та статус/Stop. Ця погоджена зміна замінює попередні вимоги щодо автоматичного розгортання після completion, верхніх вкладок та sticky composer, але не змінює оформлення P5, доступ або дані.
+
+## Isolated request and cache economy — 2026-09-26
+
+S-02 Usage uses one expandable group before existing model cards, with readable text rows and natural wrapping at 320 CSS pixels. Composer has a short isolation hint. S-04 keeps the document editor and adds an explicit reference-only note for WORKING_CONTEXT.md. No change to navigation, Porcelain Stop or reading-mode layout.

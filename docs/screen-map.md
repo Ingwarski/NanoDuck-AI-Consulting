@@ -100,3 +100,7 @@ S-02 retains its existing discussion/record states and gains a Usage inspection 
 ## Режим читання — 2026-09-26
 
 Погоджена [зміна режиму читання](../forge/runs/reading-mode-20260926/scope.json) для JOB-001/JOB-004, UC-002/UC-003/UC-004, S-02: після завершення консультації введення згортається, без автоматичного перемикання розділу або прокручування. «Continue conversation» розгортає введення з фокусом; «Hide input» згортає його без втрати чернетки в пам’яті сторінки. «Read outcome» явно відкриває висновок. Stop і помилка відновлюють введення та чинні Continue/Retry. Відкрите введення займає звичайне місце у потоці документа. На широкому екрані статус, Stop і чотири розділи доступні у лівій вертикальній панелі з горизонтальними назвами; на вузькому — через компактний перемикач розділів та статус/Stop. Ця погоджена зміна замінює попередні вимоги щодо автоматичного розгортання після completion, верхніх вкладок та sticky composer, але не змінює оформлення P5, доступ або дані.
+
+## Isolated request and cache economy — 2026-09-26
+
+S-02 retains Discussion/Outcome/Sources/Usage and current reading/Stop behavior. Usage adds a native expandable Usage by task group with per-stage attempts and per-model input/cache-read/uncached-input/output. Missing historical stages are labelled unavailable. Composer explains Send isolation versus Continue. S-04 explains that WORKING_CONTEXT.md is reference-only.

@@ -211,7 +211,7 @@ for (const resolution of ["blocked_evidence", "resolved_objection_upheld"]) {
   });
 }
 
-test("a later owner correction reaches every new participant once, without replaying old agent chatter", async () => {
+test("a new owner send is isolated from the earlier request even in the same chat", async () => {
   const sample = await fixture({ specialistCount: "1" }); const calls = [];
   const provider = { async invoke(input) {
     calls.push(input);
@@ -225,10 +225,10 @@ test("a later owner correction reaches every new participant once, without repla
   await service.start(sample.id, accepted.run);
   await waitFor(async () => (await sample.store.run(sample.id)).status === "complete");
   for (const call of calls) {
-    assert.equal(call.evidence.owner.split("Should our fictional bakery test preorders?").length - 1, 1);
+    assert.equal(call.evidence.owner.split("Should our fictional bakery test preorders?").length - 1, 0);
     assert.equal(call.evidence.owner.split(correction).length - 1, 1);
-    if (call.outputKind === "head_plan") assert.match(call.evidence.discussion, /Consolidated advice/u);
-    else assert.equal(call.evidence.discussion.includes("Consolidated advice"), false);
+    assert.equal(call.evidence.discussion.includes("Consolidated advice"), false);
+    assert.equal(call.contextScope, accepted.run.id);
   }
 });
 

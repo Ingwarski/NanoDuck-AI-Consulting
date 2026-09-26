@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { buildProviderContext } from '../src/server/provider-context.mjs';
 import { createMemoryStore, defaultSettings } from '../src/server/store.mjs';
 import { runParallelConsultation } from '../src/server/consultation-parallel.mjs';
 import { activeOrders, parseHeadPlan, validateParallelTransition } from '../src/server/parallel-contract.mjs';
@@ -103,9 +104,12 @@ test('Critic requests isolated follow-up research; source metadata reaches revie
   } } });
   const researchCalls = calls.filter(input => input.outputKind === 'public_research');
   assert.equal(researchCalls.length, 2);
-  assert.ok(researchCalls.every(input => input.evidence.discussion === '' && !input.evidence.owner.includes('fictional') && !input.runtimeInstructions.documents));
+  assert.equal(researchCalls[0].evidence.discussion, '');
+  assert.match(researchCalls[1].evidence.discussion, /evidence-1/);
+  assert.ok(researchCalls.every(input => !input.evidence.owner.includes('fictional') && !input.runtimeInstructions.documents));
   assert.match(calls.find(input => input.outputKind === 'team_review').evidence.discussion, /evidence-3/);
-  assert.match(calls.find(input => input.outputKind === 'specialist_reply').assignment, /evidence-2/);
+  assert.match(calls.find(input => input.outputKind === 'specialist_reply').evidence.shared, /evidence-2/);
+  assert.match(buildProviderContext(calls.find(input => input.outputKind === 'specialist_reply')).prompt, /evidence-2/);
   const assessment = calls.find(input => input.outputKind === 'critic_order_assessment').evidence.discussion;
   for (const n of [1, 2, 3, 4]) assert.ok(assessment.includes(`evidence-${n}`));
   const final = (await sample.store.events(sample.conversationId)).at(-1);

@@ -34,7 +34,7 @@ Working language: English. Product content and source metadata: English and Ukra
 | New | Start a separate consultation from above the chat or Conversations; not a global menu destination. | Duplicate New navigation item |
 | Review states | Development-only prototype inspection, outside the normal preview and absent from the app. | A production menu or settings control |
 | App session | Owner access lasting 24 hours from sign-in under NFR-10.2, with explicit termination exceptions. | Confusing it with a consultation run or provider grant |
-| Stop / Continue | Deliberately interrupt current work / resume preserved accepted context. To add context, Stop first and then explicitly Send from the restored composer. | An active-run input queue; deleting history or restarting silently |
+| Stop / Continue | Deliberately interrupt current work / resume preserved accepted context. To start a new independent request in the same archive, Stop first and then Send from the restored composer. | An active-run input queue; deleting history or restarting silently |
 | Reconnect provider | Contextual recovery for an actual selected-provider grant failure through that provider’s official local sign-in. | A required integration setup panel |
 | Check connection | Refresh the selected provider’s actual availability after local sign-in while preserving unsaved Settings. | Creating an authorization grant, saving preferences or claiming a successful model response |
 | Floating navigation | Conventional persistent desktop navigation bar; mobile uses a hamburger button and menu. | Arbitrarily draggable toolbars |
@@ -57,3 +57,7 @@ Internal-only terms include run generation, process ownership, event cursor, mod
 ## Critic reliability and model usage — 2026-09-25
 
 **Usage attempt**: one application-dispatched provider inference attempt, including a retry. **Reported tokens**: provider-measured counts, never estimates from characters. **Unavailable usage**: a call/category for which no trustworthy count was returned. **Total input** includes cache reads/writes; cached input and reasoning output are breakdowns, not amounts to add again. **All saved conversations** excludes deleted conversations and unrelated applications.
+
+## Isolated request and cache economy — 2026-09-26
+
+An isolated request is one newly accepted owner message and only its resulting work/evidence, identified internally by immutable requestMessageId and run ID. A saved chat is an archive that may contain several isolated requests. Continue/Retry resumes accepted work; Send creates a fresh scope. Cached input is a reported subset of input, not memory access or an additional total.

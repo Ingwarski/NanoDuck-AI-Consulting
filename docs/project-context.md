@@ -42,3 +42,7 @@ FR-02.9–FR-02.15 define the accepted correction. Head authors roles and concis
 ## Critic reliability and model usage — 2026-09-25
 
 Scope source: the owner requests repairs for rejected multi-finding Critic reviews and a durable per-model usage counter. Existing mixed Codex/Claude subscriptions, complete chat-derived request context, private local storage and LAN HTTPS remain the operating context. Reported metrics are scoped to saved conversations, not the account-wide subscription allowance.
+
+## Isolated request and cache economy — 2026-09-26
+
+FR-02.12/FR-02.15 distinguish the saved archive from the active isolated request. Every Send is independent; Continue/Retry preserves paused accepted work. General role guidance remains usable, personal WORKING_CONTEXT.md does not enter model prompts. Provider caching is opportunistic; measured context reduction is independent of cache availability.

@@ -4,6 +4,9 @@ import { join } from 'node:path';
 export async function verifyUsage(page, name, root) {
   await page.getByRole('tab', { name: 'Usage', exact: true }).click();
   await page.waitForFunction(() => document.querySelector('#usage-content .usage-model'));
+  await page.locator('.usage-stages summary').click();
+  assert.match(await page.locator('.usage-stages').innerText(), /Head assignments/);
+  assert.match(await page.locator('.usage-stages').innerText(), /uncached input/);
   const current = await page.locator('.usage-total').innerText();
   assert.notEqual(current, 'Unavailable');
   assert.ok(Number(current.replace(/\D/gu, '')) > 0);

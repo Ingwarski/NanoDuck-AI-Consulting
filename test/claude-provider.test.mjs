@@ -4,7 +4,7 @@ import { join } from "node:path";
 import { tmpdir } from "node:os";
 import { access } from "node:fs/promises";
 import { createClaudeProvider } from "../src/server/claude-provider.mjs";
-import { createRuntimePrompts } from "../src/server/prompt-contracts.mjs";
+import { buildProviderContext } from "../src/server/provider-context.mjs";
 import { testRuntimeInstructions } from "./fixtures/runtime-instructions.mjs";
 
 const criticInput = Object.freeze({
@@ -37,8 +37,7 @@ test("Claude transports accepted multilingual context above 128 KiB intact throu
     evidence: { owner: "П".repeat(32_000), discussion: "У".repeat(80_000) },
     runtimeInstructions: { ...testRuntimeInstructions, documents: ["AGENTS.md", "CONSILIUM.md", "CONSULTING_PLAYBOOK.md", "WORKING_CONTEXT.md"].map(name => ({ name, revision: 1, markdown: "D".repeat(64 * 1024) })) }
   };
-  const prompts = createRuntimePrompts(input.runtimeInstructions);
-  const expected = `${input.assignment}\n\nOwner question:\n${input.evidence.owner}\n\nPrior confirmed discussion:\n${input.evidence.discussion}\n\n${prompts.outputContract(input)} ${prompts.providerPolicy(false)}`;
+  const expected = buildProviderContext(input).prompt;
   assert.ok(Buffer.byteLength(expected) > 128 * 1024);
   assert.equal((await provider.invoke(input)).ok, true);
   assert.equal(calls.length, 2);
@@ -72,8 +71,7 @@ test("the text-only retry cannot exceed the same context byte bound", async () =
       return { exitCode: 0, stdout: JSON.stringify({ subtype: "success", modelUsage: { "claude-opus-5": {} }, result: '<invoke name="Bash">pwd</invoke>' }), stderr: "" };
     }
   });
-  const prompts = createRuntimePrompts(criticInput.runtimeInstructions);
-  const empty = `${criticInput.assignment}\n\nOwner question:\n${criticInput.evidence.owner}\n\nPrior confirmed discussion:\n\n\n${prompts.outputContract(criticInput)} ${prompts.providerPolicy(false)}`;
+  const empty = buildProviderContext({ ...criticInput, evidence: { ...criticInput.evidence, discussion: "" } }).prompt;
   const discussion = "A".repeat(8 * 1024 * 1024 - Buffer.byteLength(empty) - 10);
   assert.deepEqual(await provider.invoke({ ...criticInput, evidence: { ...criticInput.evidence, discussion } }), { ok: false, code: "context_too_large" });
   assert.equal(completions, 1);

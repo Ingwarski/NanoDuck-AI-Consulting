@@ -1,3 +1,4 @@
+import { buildProviderContext } from "./provider-context.mjs";
 import { beginUsage, claudeTokens } from "./usage.mjs";
 import { ensurePrivateDirectory } from "./private-files.mjs";
 import { spawnIsolatedProcess, signalProcessTree } from "./child-process.mjs";
@@ -5,7 +6,6 @@ import { mkdtemp, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { hasProhibitedLanguage, omitProhibitedLanguage, omitUnsafeExternalUrls, safeExternalUrl } from "./validation.mjs";
-import { createRuntimePrompts } from "./prompt-contracts.mjs";
 import { containsInternalToolTrace } from "./output-safety.mjs";
 import { claudeEnvironment, claudeSafetyArgs } from "./claude-runtime.mjs";
 
@@ -166,10 +166,7 @@ export function createClaudeProvider(config, { run = runClaudeCommand } = {}) {
     async invoke(input) {
       if (!available || !safeModel(input.model) || !supportedEffort(input.effort) || typeof input.assignment !== "string") return { ok: false, code: available ? "incompatible" : "auth_required" };
       if (Buffer.byteLength(input.assignment, "utf8") > maxPromptBytes) return { ok: false, code: "context_too_large" };
-      const prompts = createRuntimePrompts(input.runtimeInstructions);
-      const outputContract = prompts.outputContract({ outputKind: input.outputKind, maximumCharacters: input.maximumCharacters });
-      const evidence = input.evidence ?? {};
-      const prompt = `${input.assignment}\n\nOwner question:\n${evidence.owner ?? ""}\n\nPrior confirmed discussion:\n${evidence.discussion ?? ""}\n\n${outputContract} ${prompts.providerPolicy(false)}`;
+      const { prompt, prefixBytes } = buildProviderContext({ ...input, research: false });
       if (Buffer.byteLength(prompt, "utf8") > maxPromptBytes) return { ok: false, code: "context_too_large" };
       const status = await authorization(input.signal);
       if (input.signal?.aborted) return { ok: false, code: "cancelled" };
@@ -177,7 +174,7 @@ export function createClaudeProvider(config, { run = runClaudeCommand } = {}) {
       const runOnce = async assignment => {
         if (Buffer.byteLength(assignment, "utf8") > maxPromptBytes) return { kind: "failure", code: "context_too_large" };
         const args = ["--print", "--input-format", "text", "--output-format", "json", "--no-session-persistence", "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}', "--tools", "", "--disable-slash-commands", "--permission-mode", "dontAsk", "--disallowedTools", blockedTools, "--max-turns", "1", "--system-prompt", textOnlySystemPrompt, "--model", input.model, "--effort", cliEffort(input.effort)];
-        const finishUsage = await beginUsage(input.onUsage, "claude_code", input.model);
+        const finishUsage = await beginUsage(input.onUsage, "claude_code", input.model, { stage: input.outputKind ?? "discussion", promptBytes: Buffer.byteLength(assignment), prefixBytes });
         const startedAt = Date.now();
         let result;
         try { result = await execute(args, input.signal, assignment); }

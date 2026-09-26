@@ -737,6 +737,21 @@ function renderUsage(usage) {
   panel.append(node("p", { class: "usage-total" }, tokenNumber(usage.total)), node("p", { class: "hint" }, "Reported tokens · input + output"));
   const note = usage.attempts ? `${usage.attempts} call attempts · ${usage.incomplete} running or interrupted · ${usage.unavailable} without complete usage. First recorded call: ${formatDate(usage.startedAt)}.` : "No model calls have been recorded in this view yet.";
   panel.append(node("p", { class: "usage-coverage" }, note), node("p", { class: "hint" }, "Calls made before tracking was added are not included. Missing counts are unavailable, never estimated. These are NanoDuck conversation totals, not your account’s subscription allowance."));
+  if (usage.stages?.length) {
+    const stages = node("details", { class: "usage-stages" }); stages.append(node("summary", {}, "Usage by task"));
+    const labels = { head_plan: "Head assignments", public_research: "Public research", research_query: "Research query planning", specialist_position: "Consultant answers", specialist_reply: "Consultant corrections", team_review: "Critic team review", critic_order_assessment: "Critic correction assessment", head_review: "Head continuation decision", head_final: "Final advice", unavailable: "Earlier calls — task unavailable" };
+    for (const stage of usage.stages) {
+      const item = node("div", { class: "usage-stage" });
+      item.append(node("strong", {}, labels[stage.stage] ?? stage.stage.replaceAll("_", " ")), node("p", { class: "hint" }, `${stage.attempts} call attempts · ${tokenNumber(stage.total)} reported tokens`));
+      for (const model of stage.models) {
+        const input = model.tokens.input; const cached = model.tokens.cachedInput;
+        const uncached = input.unavailable || cached.unavailable || input.value === null || cached.value === null ? null : Math.max(0, input.value - cached.value);
+        item.append(node("p", { class: "hint" }, `${model.model}: input ${tokenNumber(input.value)} · cache read ${tokenNumber(cached.value)} · uncached input ${tokenNumber(uncached)} · output ${tokenNumber(model.tokens.output.value)}`));
+      }
+      stages.append(item);
+    }
+    panel.append(stages);
+  }
   for (const model of usage.models) {
     const row = node("article", { class: "usage-model" });
     row.append(node("h3", {}, model.model), node("p", { class: "hint" }, `${model.provider === "claude_code" ? "Claude Code" : "Codex"} · ${model.calls} call attempts`));
