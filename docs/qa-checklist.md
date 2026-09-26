@@ -197,3 +197,8 @@ Extend scripts/browser-reading-mode.mjs to verify both jumps, Discussion selecti
 
 The explicit user correction replaces grouped navigation placement: the up arrow sits at the horizontal center near the viewport top, below global navigation; the down arrow sits at the horizontal center near the bottom safe area. Both remain fixed while scrolling, 44px transparent outlined circles, with existing accessible labels and reduced-motion behavior. They remain confined to the consultation page. No server/session changes.
 Browser verification checks horizontal center and top/bottom separation at 320, 390 and 768px in addition to both jump actions and existing desktop reading layout. Formal release readiness remains not_evaluated.
+
+## Chat boundary visibility — 2026-09-26
+
+Hide the up arrow when the visible content beginning is reached and hide the down arrow when its end is reached; restore each when scrolling away. Hide both when the content fits. Update on scroll, viewport resize, view changes and incoming content without moving the reading position. Preserve centered 44px transparent controls and reduced motion. Navigation follows the currently selected consultation view rather than switching it. No server/session changes.
+Browser verification checks hiding after each jump and reappearance at the opposite boundary, plus existing 320/390/768px reading reflow. Formal release readiness remains not_evaluated.

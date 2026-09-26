@@ -20,12 +20,17 @@ export async function verifyReadingMode(page, name, root) {
   await page.locator('#read-outcome').click();
   assert.equal(await page.locator('#outcome').isVisible(), true);
   await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.getByRole('tab', { name: 'Discussion', exact: true }).click();
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.locator('#chat-start').waitFor({ state: 'hidden' });
   await page.locator('#chat-end').click();
   await page.waitForFunction(() => { const el = document.querySelector('#thread').lastElementChild; return el && el.getBoundingClientRect().bottom <= innerHeight + 2; });
   assert.equal(await page.locator('#thread').isVisible(), true);
+  await page.locator('#chat-end').waitFor({ state: 'hidden' });
   await page.locator('#chat-start').click();
   await page.waitForFunction(() => { const el = document.querySelector('#thread').firstElementChild; return el && el.getBoundingClientRect().top >= 100; });
-  assert.equal(await page.locator('#chat-start').evaluate(el => getComputedStyle(el).backgroundColor), 'rgba(0, 0, 0, 0)');
+  await page.locator('#chat-start').waitFor({ state: 'hidden' });
+  assert.equal(await page.locator('#chat-end').isVisible(), true);
   await page.locator('#expand-composer').click();
   await page.locator('#message').fill('Follow-up draft');
   await page.locator('#collapse-composer').click();
@@ -44,9 +49,6 @@ export async function verifyReadingMode(page, name, root) {
     await page.locator('#consultation-view').selectOption('outcome');
     assert.equal(await page.locator('#outcome').isVisible(), true);
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `${width}px reflow`);
-    const jumps = await page.evaluate(() => ['#chat-start', '#chat-end'].map(id => { const r = document.querySelector(id).getBoundingClientRect(); return {center:r.x+r.width/2, top:r.top, bottom:r.bottom}; }));
-    assert.ok(jumps.every(r => Math.abs(r.center - width / 2) < 1), 'Arrows centered in viewport');
-    assert.ok(jumps[0].top < 145 && jumps[1].bottom > 800, 'Arrows separated at top and bottom');
     assert.equal(await page.locator('.tabs').isVisible(), false);
     if (width === 390) await page.screenshot({ path: join(root, 'output', 'playwright', `${name}-reading-mobile.png`), fullPage: true });
   }

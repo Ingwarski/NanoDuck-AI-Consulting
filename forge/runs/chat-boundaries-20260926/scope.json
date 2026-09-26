@@ -1,0 +1,5 @@
+{
+  "user_message": "when user reaches the bottom - bottom arrow must disappear. When top - top.",
+  "interpretation": "Hide each arrow at its corresponding visible-content boundary; reappear when scrolling away or content grows. Keep centered transparent appearance.",
+  "recorded_at": "2026-09-26T15:17:18.582328+00:00"
+}

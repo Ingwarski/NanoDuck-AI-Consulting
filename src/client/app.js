@@ -808,17 +808,31 @@ readingLayout.addEventListener("change", updateTabOrientation); updateTabOrienta
 $("#consultation-view").addEventListener("change", event => setTab(event.target.value));
 $("#expand-composer").addEventListener("click", () => { state.composerCollapsed = false; renderRunControls(); $("#message").focus(); });
 $("#collapse-composer").addEventListener("click", () => { renderRunControls(); state.composerCollapsed = true; renderRunControls(); $("#expand-composer").focus({ preventScroll: true }); });
+const chatScrollPanel = () => $(state.tab === "discussion" ? "#thread" : `#${state.tab}`);
+const chatTopOffset = () => matchMedia("(min-width:1100px)").matches ? 110 : 100 + $(".discussion-header").getBoundingClientRect().height;
+function updateChatArrows() {
+  const panel = chatScrollPanel();
+  const visible = !$("#discussion-page").hidden && panel && panel.getClientRects().length;
+  const bounds = visible ? panel.getBoundingClientRect() : null;
+  $("#chat-start").hidden = !bounds || scrollY <= 2 || bounds.top >= chatTopOffset() - 2;
+  $("#chat-end").hidden = !bounds || bounds.bottom <= innerHeight + 2 || scrollY + innerHeight >= document.documentElement.scrollHeight - 2;
+}
+let chatArrowFrame;
+function scheduleChatArrows() {
+  if (chatArrowFrame) return;
+  chatArrowFrame = requestAnimationFrame(() => { chatArrowFrame = undefined; updateChatArrows(); });
+}
+window.addEventListener("scroll", scheduleChatArrows, { passive: true });
+window.addEventListener("resize", scheduleChatArrows);
+new ResizeObserver(scheduleChatArrows).observe($(".discussion-content"));
+new MutationObserver(scheduleChatArrows).observe($("#discussion-page"), { subtree: true, childList: true });
 function jumpChat(end) {
-  setTab("discussion");
   requestAnimationFrame(() => {
-    const thread = $("#thread");
-    const target = (end ? thread.lastElementChild : thread.firstElementChild) ?? thread;
+    const panel = chatScrollPanel();
     const behavior = matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth";
-    if (end) target.scrollIntoView({ block: "end", behavior });
-    else {
-      const offset = matchMedia("(min-width:1100px)").matches ? 110 : 100 + $(".discussion-header").getBoundingClientRect().height;
-      window.scrollTo({ top: Math.max(0, scrollY + target.getBoundingClientRect().top - offset), behavior });
-    }
+    if (end) panel.scrollIntoView({ block: "end", behavior });
+    else window.scrollTo({ top: Math.max(0, scrollY + panel.getBoundingClientRect().top - chatTopOffset()), behavior });
+    scheduleChatArrows();
   });
 }
 $("#chat-start").addEventListener("click", () => jumpChat(false));
@@ -828,7 +842,7 @@ let panelUsageSignature;
 $("#usage-scope").addEventListener("change", () => void loadUsage());
 $("#usage-refresh").addEventListener("click", () => void loadUsage());
 
-function setTab(tab) { state.tab = tab; $("#consultation-view").value = tab; document.querySelectorAll("[data-tab]").forEach(button => { button.setAttribute("aria-selected", String(button.dataset.tab === tab)); button.tabIndex = button.dataset.tab === tab ? 0 : -1; }); $("#thread").hidden = tab !== "discussion"; renderRunControls(); $("#outcome").hidden = tab !== "outcome"; $("#sources").hidden = tab !== "sources"; $("#usage").hidden = tab !== "usage"; if (tab === "usage") void loadUsage(); }
+function setTab(tab) { scheduleChatArrows(); state.tab = tab; $("#consultation-view").value = tab; document.querySelectorAll("[data-tab]").forEach(button => { button.setAttribute("aria-selected", String(button.dataset.tab === tab)); button.tabIndex = button.dataset.tab === tab ? 0 : -1; }); $("#thread").hidden = tab !== "discussion"; renderRunControls(); $("#outcome").hidden = tab !== "outcome"; $("#sources").hidden = tab !== "sources"; $("#usage").hidden = tab !== "usage"; if (tab === "usage") void loadUsage(); }
 
 const recognitionConstructor = () => window.SpeechRecognition ?? window.webkitSpeechRecognition;
 const browserLanguage = () => {
