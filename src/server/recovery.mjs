@@ -12,7 +12,7 @@ const text = (value, maximum) => typeof value === "string" && value.trim().lengt
 const record = value => typeof value === "object" && value !== null && !Array.isArray(value);
 
 const source = value => {
-  if (!record(value) || !text(value.title, 280) || !text(value.claim, 1_000) || !date(value.retrievedAt)) return undefined;
+  if (!record(value) || !text(value.title, 16 * 1024 * 1024) || !text(value.claim, 16 * 1024 * 1024) || !date(value.retrievedAt)) return undefined;
   const url = safeExternalUrl(value.url);
   if (!url || (value.publishedAt !== undefined && !date(value.publishedAt))) return undefined;
   return Object.freeze({ url, title: value.title.trim(), claim: value.claim.trim(), retrievedAt: value.retrievedAt, ...(value.publishedAt ? { publishedAt: value.publishedAt } : {}) });

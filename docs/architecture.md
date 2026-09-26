@@ -188,3 +188,7 @@ The [authorized review repair](../forge/runs/review-fixes-20260926/scope.json) r
 - Browser progress uses one pending read and capped exponential reconnect delays (2-second healthy cadence; retry delay capped at 30 seconds), with a 15-second read timeout and accessible connection status. Authentication/permanent errors do not retry indefinitely. Stop/logout/conversation replacement fence pending work. Usage refresh coalesces requests for the same session/conversation/scope, preserving valid slow responses; scope changes invalidate old responses and errors/timeouts allow another refresh.
 
 These are implementation mechanisms under existing functional, data-integrity, privacy and continuity requirements. Synthetic/browser receipts are separate from actual provider, device, representative-user and release evidence.
+
+## Source metadata persistence repair — 2026-09-26
+
+Provider-normalized source titles and supported-claim text use the same 16 MiB per-field ceiling as stored message bodies, with existing whole-state and recovery-envelope ceilings retained. The old 280/1000-character recovery checks contradicted the adapters, which preserve complete text, causing completed answers to roll back. Preserve full metadata, URL/language checks and encryption. Categorize local_state_invalid and local_store_capacity_exceeded explicitly in safe failure diagnostics and user feedback; never log answer content. This repairs existing persistence/continuity requirements without changing provider permissions.

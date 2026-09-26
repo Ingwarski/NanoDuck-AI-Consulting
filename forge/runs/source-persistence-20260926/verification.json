@@ -1,0 +1,31 @@
+{
+  "recorded_at": "2026-09-26T13:27:49.387103+00:00",
+  "files": {
+    "src/server/recovery.mjs": "8c75b955aec826a4689a761a873f4c9751f432548458911bddba84988af7a925",
+    "src/server/consultation.mjs": "ebbe8a1a0ef7d8bc29e0246cc24d2df94128b428a65b617b457598c1df70e2c4",
+    "test/fixtures/fake-codex.mjs": "9f3aa013c9237602d4ee95884f9fbd1221d3ba3ce5022be5923722db08d24738",
+    "test/source-persistence.test.mjs": "7ff580a89068bb94afc423b8d474a56bb2ab0e16ad59d4c1bc988fdaeaf7bf15"
+  },
+  "tests": {
+    "command": "npm run check",
+    "passed": 200,
+    "skipped": 2,
+    "failed": 0
+  },
+  "regression": "Provider-normalized long source metadata completes a consultation and survives encrypted restart and backup/restore byte-for-byte.",
+  "runtime": {
+    "active_runs_before_restart": 0,
+    "encrypted_backup_created": true,
+    "https_health_localhost": "passed with local CA",
+    "https_health_lan": "passed with local CA",
+    "native_safari": "Retry changed paused controls to active Stop control",
+    "saved_results_before_and_after_resume": 4,
+    "resume_generation": 2,
+    "missing_step": "specialist_position"
+  },
+  "limitations": [
+    "Exact discarded historical answer and original exception were not retained; reproduced contract mismatch is confirmed, exact historical field is not proven.",
+    "Resumed consultation is active; completion not yet observed.",
+    "Windows/Linux and physical device evidence not claimed."
+  ]
+}

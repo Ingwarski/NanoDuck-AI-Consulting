@@ -6,6 +6,7 @@ let threadModel;
 const expectedFeatures = ["shell_tool", "unified_exec", "view_image", "shell_snapshot", "apps", "plugins", "hooks", "memories", "browser_use", "browser_use_external", "browser_use_full_cdp_access", "computer_use", "image_generation", "workspace_dependencies", "code_mode", "code_mode_host", "multi_agent", "multi_agent_v2", "skill_search", "tool_suggest", "request_permissions_tool"];
 const replyFor = prompt => {
   let answer = "A bounded answer.";
+  if (prompt.includes("Exercise long source persistence")) return `A complete answer with source context.\n<nanoduck-source>${JSON.stringify({ title: "Evidence title ".repeat(30), url: "https://example.com/long-evidence", claim: "A supported fact with necessary context. ".repeat(80) })}</nanoduck-source>`;
   if (prompt.includes("Return a Ukrainian relative-pronoun example")) return 'Уточніть, які умови потрібно виконати.\n<nanoduck-source>{"title":"Курси, які доступні","url":"https://example.com/courses","claim":"Вимоги, які підтверджує програма."}</nanoduck-source>';
   if (prompt.includes("In one coordinated plan") && /Synthetic \w+ browser decision/u.test(prompt)) return JSON.stringify({ assignments: [
     { role: "Buyer Demand Analyst", guidance: "Evaluate buyer need.", task: "Find a reversible buyer-demand test.", dependsOn: [] },

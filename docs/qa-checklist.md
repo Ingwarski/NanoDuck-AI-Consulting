@@ -172,3 +172,7 @@ These are scoped extensions of existing IDs; full indexed checks remain prepared
 ## Review-repair scoped execution evidence — 2026-09-26
 
 [Verification receipt](../forge/runs/review-fixes-20260926/verification.json) records isolated macOS/Node regressions: 199 passed, 2 Windows-only tests skipped, 0 failed; full Chromium/Firefox/WebKit verification and final focused recovery/Usage/source checks passed. It binds evaluated files and preserves evidence limits. No live provider call, private-session replay, runtime restart or sister-repository change occurred. These are scoped regression results for the preceding check extensions; they do not close every formal check or establish whole-product release readiness.
+
+## Source metadata regression — 2026-09-26
+
+Extend QA-R17/R51/R67 with provider output containing a title longer than 280 characters and a claim longer than 1000. Verify exact persistence through a complete consultation, encrypted restart and backup/restore without truncation. The isolated real-adapter/fake-provider regression passes; complete Node checks: 200 passed, 2 Windows-only tests skipped. Actual runtime health and checkpoint resume were observed separately; the discarded historical answer cannot be reconstructed or claimed recovered. Full private consultation completion remains unverified.
