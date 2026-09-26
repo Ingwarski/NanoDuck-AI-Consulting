@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
-import { access } from "node:fs/promises";
+import { access, readFile, stat } from "node:fs/promises";
 import { createClaudeProvider } from "../src/server/claude-provider.mjs";
 import { buildProviderContext } from "../src/server/provider-context.mjs";
 import { testRuntimeInstructions } from "./fixtures/runtime-instructions.mjs";
@@ -328,4 +328,24 @@ test("Claude preserves distinct claims from one source URL", async () => {
  const resultText="Two independently supported claims.\n"+["First supported fact.","Second supported fact."].map(claim=>`<nanoduck-source>${JSON.stringify({url:"https://example.com/shared",title:"Shared report",claim})}</nanoduck-source>`).join("\n");
  const provider=createClaudeProvider({claudeCommand:"claude",claudeOAuthToken:"managed-token"},{run:async input=>({exitCode:0,stderr:"",stdout:JSON.stringify(input.args.includes("auth")?{loggedIn:true,authMethod:"oauth_token",apiProvider:"firstParty"}:{subtype:"success",result:resultText,modelUsage:{"claude-opus-5":{}}})})});
  const result=await provider.invoke(criticInput);assert.equal(result.ok,true);assert.deepEqual(result.sources.map(s=>s.claim),["First supported fact.","Second supported fact."]);
+});
+
+test("Claude reuses only the accepted request workspace, keeps history disabled and cleans up", async () => {
+  const calls=[];
+  const provider=createClaudeProvider({claudeCommand:'claude',claudeOAuthToken:'managed-token'},{run:async input=>{
+    if(input.args.includes('auth')) return {exitCode:0,stdout:JSON.stringify({loggedIn:true,authMethod:'oauth_token',apiProvider:'firstParty'})};
+    const file=input.args[input.args.indexOf('--system-prompt-file')+1];
+    input.contextText=await readFile(file,'utf8'); input.contextFile=file;
+    if(process.platform!=='win32') assert.equal((await stat(file)).mode & 0o777,0o600);
+    calls.push(input);return {exitCode:0,stdout:JSON.stringify({subtype:'success',modelUsage:{'claude-opus-5':{}},result:'Evidence remains insufficient.'})};
+  }});
+  try {
+    await provider.invoke({...criticInput,contextScope:'request-a'});
+    await provider.invoke({...criticInput,contextScope:'request-a',assignment:'Assess the correction.'});
+    await provider.invoke({...criticInput,contextScope:'request-b'});
+    assert.equal(calls[0].contextText,calls[1].contextText);assert.match(calls[0].contextText,/Should we fund the expansion/);assert.doesNotMatch(calls[0].stdinText,/Should we fund the expansion/);assert.doesNotMatch(calls[0].args.join(' '),/Should we fund the expansion/);await assert.rejects(access(calls[0].contextFile));
+    assert.equal(calls[0].cwd,calls[1].cwd);assert.notEqual(calls[0].cwd,calls[2].cwd);
+    for(const call of calls) {assert.ok(call.args.includes('--no-session-persistence'));assert.equal(call.args.includes('--resume'),false);assert.equal(call.environment.CLAUDE_CODE_DISABLE_AUTO_MEMORY,'1');}
+    await access(calls[0].cwd);await provider.releaseScope('request-a');await assert.rejects(access(calls[0].cwd));await access(calls[2].cwd);
+  } finally {await provider.releaseScope('request-a');await provider.releaseScope('request-b');}
 });

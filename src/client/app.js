@@ -734,7 +734,7 @@ let usageFlight;
 const tokenNumber = value => value === null ? "Unavailable" : new Intl.NumberFormat().format(value);
 function renderUsage(usage) {
   const panel = clear($("#usage-content"));
-  panel.append(node("p", { class: "usage-total" }, tokenNumber(usage.total)), node("p", { class: "hint" }, "Reported tokens · input + output"));
+  panel.append(node("p", { class: "usage-total" }, tokenNumber(usage.total)), node("p", { class: "hint" }, usage.incomplete || usage.unavailable ? "Partial reported tokens · input + output · more usage may be unreported" : "Reported tokens · input + output"));
   const note = usage.attempts ? `${usage.attempts} call attempts · ${usage.incomplete} running or interrupted · ${usage.unavailable} without complete usage. First recorded call: ${formatDate(usage.startedAt)}.` : "No model calls have been recorded in this view yet.";
   panel.append(node("p", { class: "usage-coverage" }, note), node("p", { class: "hint" }, "Calls made before tracking was added are not included. Missing counts are unavailable, never estimated. These are NanoDuck conversation totals, not your account’s subscription allowance."));
   if (usage.stages?.length) {
@@ -757,7 +757,7 @@ function renderUsage(usage) {
     row.append(node("h3", {}, model.model), node("p", { class: "hint" }, `${model.provider === "claude_code" ? "Claude Code" : "Codex"} · ${model.calls} call attempts`));
     const metric = (label, field) => {
       const value = model.tokens[field]; const group = node("div");
-      group.append(node("dt", {}, label), node("dd", {}, tokenNumber(value.value)));
+      group.append(node("dt", {}, label), node("dd", {}, `${tokenNumber(value.value)}${value.value !== null && (value.unavailable || usage.incomplete) ? " (partial)" : ""}`));
       if (value.unavailable && value.value !== null) group.append(node("small", { class: "hint" }, `${value.unavailable} call(s) unreported`));
       return group;
     };
@@ -766,7 +766,25 @@ function renderUsage(usage) {
     const details = node("details"); details.append(node("summary", {}, "Cache and reasoning breakdown"));
     const breakdown = node("dl", { class: "usage-metrics" });
     breakdown.append(metric("Cache read", "cachedInput"), metric("Cache write", "cacheWriteInput"), metric("Reasoning output", "reasoningOutput"));
-    details.append(breakdown, node("p", { class: "hint" }, "These are included in input or output totals. They are not added again.")); row.append(details); panel.append(row);
+    details.append(breakdown, node("p", { class: "hint" }, "These are included in input or output totals. They are not added again."), node("p", { class: "hint" }, model.provider === "codex" ? "Codex cache write is the value reported by this route. A reported 0 does not establish that no cache was created. Cache read measures reported reuse." : "Claude input includes ordinary input, cache reads and cache creation once. Zero cache read means no reuse was reported. Reasoning is included in output when the provider does not report it separately.")); row.append(details); panel.append(row);
+  }
+  if (usage.callDetails?.length) {
+    const calls = node("details", { class: "usage-calls" }); calls.append(node("summary", {}, "All call attempts"));
+    for (const call of usage.callDetails) {
+      const article = node("article", { class: "usage-stage" });
+      article.append(node("strong", {}, `${call.model} · ${call.stage.replaceAll("_", " ")} · ${call.status}`), node("p", { class: "hint" }, `${formatDate(call.startedAt)}${call.finishedAt ? ` → ${formatDate(call.finishedAt)}` : " · awaiting final usage"}`));
+      if (!call.usage.length) article.append(node("p", {}, "Usage unavailable — this does not mean zero tokens."));
+      for (const item of call.usage) {
+        article.append(node("p", {}, item.model));
+        const metrics = node("dl", { class: "usage-metrics" });
+        for (const [label, field] of [["Input", "input"], ["Output", "output"], ["Total", "total"], ["Cache read", "cachedInput"], ["Cache write", "cacheWriteInput"], ["Reasoning output", "reasoningOutput"]]) {
+          const group = node("div"); group.append(node("dt", {}, label), node("dd", {}, tokenNumber(item.tokens[field]))); metrics.append(group);
+        }
+        article.append(metrics);
+      }
+      calls.append(article);
+    }
+    calls.append(node("p", { class: "hint" }, "Attempts include retries, failures and cancellations. Running or interrupted counts are partial. Missing provider metrics cannot be reconstructed; totals are not subscription charges.")); panel.append(calls);
   }
 }
 async function loadUsage({ quiet = false } = {}) {
@@ -784,7 +802,7 @@ async function loadUsage({ quiet = false } = {}) {
     if (requestId !== usageRequest || state.tab !== "usage" || conversationId !== state.conversation?.id || scope !== select.value) return;
     const signature = JSON.stringify(data.usage);
     if (panelUsageSignature !== signature || !$("#usage-content").childNodes.length) { renderUsage(data.usage); panelUsageSignature = signature; }
-    $("#usage-status").textContent = "Usage updates as provider calls finish.";
+    $("#usage-status").textContent = "Usage updates as providers report counts; some providers report only at completion.";
   } catch {
     if (requestId === usageRequest && !privacyLocked && state.session?.authenticated) $("#usage-status").textContent = "Usage could not refresh. Any shown counts may be out of date. Choose Refresh usage to try again.";
   } finally {

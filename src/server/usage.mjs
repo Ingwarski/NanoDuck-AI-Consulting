@@ -15,8 +15,8 @@ export function codexTokens(value) {
 export function claudeTokens(stdout) {
   let value; try { value = JSON.parse(stdout); } catch { return []; }
   // A crashed CLI can emit zeroed final usage; it does not prove a free call.
-  if (value?.subtype === "error_during_execution" || !object(value?.modelUsage)) return [];
-  return Object.entries(value.modelUsage).filter(([model, usage]) => modelId(model) && object(usage)).map(([model, usage]) => {
+  if (!object(value?.modelUsage)) return [];
+  return Object.entries(value.modelUsage).filter(([model, usage]) => modelId(model) && object(usage) && (value?.subtype !== "error_during_execution" || [usage.inputTokens, usage.outputTokens, usage.cacheReadInputTokens, usage.cacheCreationInputTokens].some(token => count(token) > 0))).map(([model, usage]) => {
     const cachedInput = count(usage.cacheReadInputTokens); const cacheWriteInput = count(usage.cacheCreationInputTokens);
     const input = sum([count(usage.inputTokens), cachedInput, cacheWriteInput]); const output = count(usage.outputTokens);
     return { model, tokens: { input, output, total: sum([input, output]), cachedInput, cacheWriteInput, reasoningOutput: null } };
@@ -42,12 +42,17 @@ export function normalizeUsageAttempt(value) {
 // failures cannot discard an otherwise valid consultation answer.
 export async function beginUsage(onUsage, provider, model, diagnostics = {}) {
   const attempt = { id: randomId(), provider, model, diagnostics: normalizeDiagnostics(diagnostics), status: "running", startedAt: new Date().toISOString(), finishedAt: null, usage: [] };
-  const emit = async () => {
-    try { await onUsage?.(structuredClone(attempt)); }
-    catch { process.stdout.write(`${JSON.stringify({ event: "nanoduck.usage.storage_failed", provider })}\n`); }
+  let pending = Promise.resolve();
+  const emit = () => {
+    const snapshot = structuredClone(attempt);
+    pending = pending.then(async () => {
+      try { await onUsage?.(snapshot); }
+      catch { process.stdout.write(`${JSON.stringify({ event: "nanoduck.usage.storage_failed", provider })}\n`); }
+    });
+    return pending;
   };
   await emit();
-  return async (status, usage = [], details = {}) => { attempt.diagnostics = normalizeDiagnostics({ ...attempt.diagnostics, ...details }); attempt.status = status; attempt.finishedAt = new Date().toISOString(); attempt.usage = usage; await emit(); };
+  return async (status, usage = [], details = {}) => { attempt.diagnostics = normalizeDiagnostics({ ...attempt.diagnostics, ...details }); attempt.status = status; attempt.finishedAt = status === "running" ? null : new Date().toISOString(); attempt.usage = usage; await emit(); };
 }
 
 export function summarizeUsage(entries, includeStages = true) {
@@ -70,11 +75,16 @@ export function summarizeUsage(entries, includeStages = true) {
   }
   const rows = [...models.values()].sort((a, b) => `${a.provider}:${a.model}`.localeCompare(`${b.provider}:${b.model}`));
   const totals = rows.map(row => row.tokens.total.value).filter(value => value !== null);
+  const callDetails = entries.flatMap(entry => (entry.usage ?? []).map(attempt => ({
+    id: attempt.id, provider: attempt.provider, model: attempt.model, status: attempt.status,
+    startedAt: attempt.startedAt, finishedAt: attempt.finishedAt,
+    stage: attempt.diagnostics?.stage ?? "unavailable", usage: attempt.usage
+  }))).sort((a, b) => a.startedAt.localeCompare(b.startedAt));
   const stages = new Map();
   if (includeStages) for (const entry of entries) for (const attempt of entry.usage ?? []) {
     const stage = attempt.diagnostics?.stage ?? "unavailable";
     if (!stages.has(stage)) stages.set(stage, []);
     stages.get(stage).push(attempt);
   }
-  return { ...(includeStages ? { stages: [...stages].map(([stage, usage]) => ({ stage, ...summarizeUsage([{ usage }], false) })) } : {}), attempts, incomplete, unavailable, startedAt, total: totals.length ? sum(totals) : null, models: rows, historyMayBeMissing: true };
+  return { ...(includeStages ? { callDetails, stages: [...stages].map(([stage, usage]) => ({ stage, ...summarizeUsage([{ usage }], false) })) } : {}), attempts, incomplete, unavailable, startedAt, total: totals.length ? sum(totals) : null, models: rows, historyMayBeMissing: true };
 }

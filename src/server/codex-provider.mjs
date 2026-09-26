@@ -247,7 +247,7 @@ export function createCodexProvider(config, deadlineOptions = undefined) {
     if (!runtimeInstructions) throw new RuntimeInstructionError("Provider invocation is missing its runtime-instructions contract.");
     let connection; let threadId; let unsubscribe = () => {}; let deadline;
     let startedAt; let lastProgressAt; let progressCount = 0;
-    let webSearchCount = 0; let finishUsage; let expectedUsageTurn; let usageStatus = "failed"; const usageByTurn = new Map(); const researchStepsByTurn = new Map();
+    let usageEmittedAt = 0; let webSearchCount = 0; let finishUsage; let expectedUsageTurn; let usageStatus = "failed"; const usageByTurn = new Map(); const researchStepsByTurn = new Map();
     try {
       connection = await startConnection(config, signal, await requestWorkspace(contextScope));
       if (signal?.aborted) throw new Error("cancelled");
@@ -274,7 +274,13 @@ export function createCodexProvider(config, deadlineOptions = undefined) {
       unsubscribe = connection.on(notification => {
         const params = notification.params;
         if (!record(params) || params.threadId !== threadId) return;
-        if (notification.method === "thread/tokenUsage/updated" && typeof params.turnId === "string" && record(params.tokenUsage?.total)) usageByTurn.set(params.turnId, codexTokens(params.tokenUsage.total));
+        if (notification.method === "thread/tokenUsage/updated" && typeof params.turnId === "string" && record(params.tokenUsage?.total)) {
+          usageByTurn.set(params.turnId, codexTokens(params.tokenUsage.total));
+          if (params.turnId === expectedUsageTurn && finishUsage && Date.now() - usageEmittedAt >= 1000) {
+            usageEmittedAt = Date.now();
+            void finishUsage("running", [{ model, tokens: usageByTurn.get(params.turnId) }]);
+          }
+        }
         if (isTurnProgress(notification, threadId, expectedTurnId)) {
           lastProgressAt = Date.now(); progressCount += 1; deadline.progress();
         }

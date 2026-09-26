@@ -81,3 +81,22 @@ test("research-step diagnostics keep only numeric snapshots and known action nam
  const value=normalizeUsageAttempt(attempt({diagnostics:{stage:"public_research",researchSteps:[{action:"search",elapsedMs:10,cumulativeInput:100,cumulativeCachedInput:60,repeatOf:null,query:"PRIVATE",url:"PRIVATE",fingerprint:"PRIVATE"},{action:"PRIVATE",elapsedMs:-1}]}}));
  assert.doesNotMatch(JSON.stringify(value),/PRIVATE/);assert.equal(value.diagnostics.researchSteps[0].cumulativeInput,100);assert.equal(value.diagnostics.researchSteps[1].action,"other");assert.equal(value.diagnostics.researchSteps[1].elapsedMs,null);
 });
+
+test("failed Claude results preserve positive native usage but crash-zero placeholders remain unknown", () => {
+ const parsed=claudeTokens(JSON.stringify({subtype:'error_during_execution',modelUsage:{'claude-opus-5-5':{inputTokens:2,outputTokens:10,cacheReadInputTokens:20,cacheCreationInputTokens:30},'zero-placeholder':{inputTokens:0,outputTokens:0,cacheReadInputTokens:0,cacheCreationInputTokens:0}}}));
+ assert.equal(parsed.length,1);assert.equal(parsed[0].tokens.total,62);
+});
+
+test("attempt breakdown preserves all models, statuses and unknown fields without double counting", async () => {
+ const store=createMemoryStore();const chat=await store.createConversation();
+ await store.recordUsage(chat.id,attempt({status:'failed',usage:[{model:'gpt-6-sol',tokens},{model:'another-reported-model',tokens:{...tokens,cachedInput:null}}]}));
+ await store.recordUsage(chat.id,attempt({status:'running',finishedAt:null,usage:[]}));
+ const summary=await store.usageSummary(chat.id);assert.equal(summary.total,280);assert.equal(summary.callDetails.length,2);assert.equal(summary.callDetails[0].usage.length,2);assert.equal(summary.incomplete,1);assert.equal(summary.unavailable,1);
+});
+
+test("running usage snapshots stay ordered and final usage cannot be overwritten by a delayed update", async () => {
+ const {beginUsage}=await import('../src/server/usage.mjs');const received=[];
+ const finish=await beginUsage(async value=>{if(value.usage.length&&value.status==='running') await new Promise(resolve=>setTimeout(resolve,15));received.push(value)},'codex','gpt-6-sol');
+ await Promise.all([finish('running',[{model:'gpt-6-sol',tokens:{...tokens,input:50}}]),finish('completed',[{model:'gpt-6-sol',tokens}])]);
+ assert.deepEqual(received.map(x=>x.status),['running','running','completed']);assert.equal(received[1].finishedAt,null);assert.equal(received[2].usage[0].tokens.input,100);assert.ok(received[2].finishedAt);
+});

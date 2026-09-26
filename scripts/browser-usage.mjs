@@ -47,5 +47,23 @@ export async function verifyUsage(page, name, root) {
   await page.reload();
   await page.locator('#usage').waitFor({ state: 'visible' });
   await page.waitForFunction(() => document.querySelector('#usage-content .usage-model'));
+  await page.locator('.usage-calls summary').click();
+  assert.match(await page.locator('.usage-calls').innerText(), /Attempts include retries/);
+  const usageResponse = await page.request.get(new URL('/api/usage', page.url()).href);
+  const payload = await usageResponse.json();
+  const sample = payload.usage ?? payload;
+  sample.incomplete = 1; sample.unavailable = 1;
+  sample.models[0].tokens.input.unavailable = 1;
+  sample.callDetails.push({id:'synthetic-unreported',model:'gpt-6-sol',provider:'codex',stage:'specialist_reply',status:'cancelled',startedAt:new Date().toISOString(),finishedAt:new Date().toISOString(),usage:[]});
+  await page.route('**/api/usage*', route => route.fulfill({status:200,json:payload}));
+  await page.locator('#usage-refresh').click();
+  await page.waitForFunction(() => document.querySelector('#usage-content').textContent.includes('Partial reported tokens'));
+  assert.match(await page.locator('#usage-content').innerText(), /partial/);
+  await page.locator('.usage-calls summary').click();
+  assert.match(await page.locator('.usage-calls').innerText(), /Usage unavailable — this does not mean zero tokens/);
+  await page.setViewportSize({width:320,height:844});
+  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),true,'All attempts reflow at 320px');
+  await page.unroute('**/api/usage*');
+  await page.setViewportSize({width:1280,height:900});
   await page.getByRole('tab', { name: 'Discussion', exact: true }).click();
 }

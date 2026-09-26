@@ -120,3 +120,7 @@ Hide the up arrow when the visible content beginning is reached and hide the dow
 ## U-12 research and evidence economy — 2026-09-26
 
 U-12 preserves S-02 navigation, message layout, Sources, Usage, Stop and current reading controls. Evidence references become normal links before display. No new screen or provider setting.
+
+## U-12 Critic cache and usage completeness — 2026-09-26
+
+U-12 follow-up: retain an isolated Claude working context within one accepted request without session history or tools. Verify actual provider cache reuse with public synthetic consecutive calls. Preserve every reported token count including retries and failed calls, label partial/unknown metrics and provider-specific cache semantics, expose per-attempt breakdowns without duplicating totals. Keep full owner input, model/effort, discussion depth and independent-Send isolation. Existing Usage layout and Electric A v8 remain; no prototype reuse. User explicitly authorizes implementation and validation.
