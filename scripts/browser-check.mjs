@@ -1,3 +1,4 @@
+import { verifyProgressRecovery } from './browser-progress-recovery.mjs';
 import { verifyUsage } from './browser-usage.mjs';
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
@@ -102,6 +103,7 @@ try {
         await page.locator('#send').click();
         await page.waitForFunction(() => document.querySelector('#run-status').textContent.toLowerCase().includes('complete'), undefined, { timeout: 30_000 });
         await verifyUsage(page, name, root);
+        await phase(`${name} progress recovery`, () => verifyProgressRecovery(page));
         await page.locator('[data-session-action]').click();
         await page.locator('#sign-in').waitFor({ state: 'visible' });
         assert.equal(await page.locator('#usage-content').textContent(), '', 'Logout clears private model counts');
@@ -115,6 +117,7 @@ try {
       await phase(`${name} provider connection recovery`, () => verifyProviderConnection(page, name));
       await phase(`${name} native audio`, () => verifyNotificationAudio(page, name));
       await phase(`${name} active discussion`, () => verifyActiveDiscussion(page, name, root));
+      await phase(`${name} progress recovery`, () => verifyProgressRecovery(page));
       await phase(`${name} acceptance retry`, () => verifyLostAcceptanceRetry(page, name));
       await page.waitForFunction(() => document.querySelector('#run-status').textContent.toLowerCase().includes('complete'), undefined, { timeout: 30_000 });
       assert.match(await page.locator('#thread').innerText(), /Critic/);

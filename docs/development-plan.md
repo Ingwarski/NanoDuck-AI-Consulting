@@ -357,3 +357,11 @@ Current correction unit: U-09 follow-up with U-03 provider and U-07 persistence 
 ## Sticky consultation views — 2026-09-25
 
 Explicit owner request authorizes the existing U-04/U-09 presentation follow-up: sticky topic/tab wrapper in public/index.html and public/styles.css, with scroll assertions in scripts/browser-usage.mjs. Preserve current provider calls and saved work; publish through static asset refresh without restarting an active consultation. Use the retained baseline plus the accepted sticky navigation override.
+
+## Review-repair implementation — 2026-09-26
+
+The [explicit fix request](../forge/runs/review-fixes-20260926/scope.json) authorizes a single U-09 repair unit with U-04/U-07 seams and U-08 verification. It repairs the reviewed implementation against existing FR-02.9–02.15, FR-03.5, FR-04.1–04.3, FR-05.6 and security/continuity requirements; no new design approval or product scope is implied.
+
+Implement together: (1) immutable linked Critic correction attempts; (2) readiness-driven worker scheduling; (3) saved specialist/role prompt rendering; (4) consistent actor metadata and owner-context identity; (5) sensitive-output validation; (6) source and Critic-summary propagation; (7) bounded checkpointed Head-mediated follow-up research; (8) reconnecting progress and coalesced Usage requests; (9) synthetic persistence/negative tests and real-engine UI verification; (10) a file-specific sister-repository repair prompt. Interfaces remain provider output → coordinator → validated encrypted store → authenticated API → browser. Optional lineage/research fields preserve old valid ledgers; never migrate private state by direct file editing.
+
+Use the review-repair extensions of QA-R06/R17/R51/R54/R61–R67 and existing functional/security/lifecycle/UI gates. Preserve Electric A v8, P5 Stop, sticky views, exact selected models, tool-free Claude and private storage. No frozen prototype code is promoted. Do not restart or replay an active consultation. Commit only this checkout's changes; sister-repository implementation needs its own authorization. Formal release readiness remains not_evaluated.

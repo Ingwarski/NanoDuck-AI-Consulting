@@ -1,7 +1,12 @@
 const object = value => value !== null && typeof value === "object" && !Array.isArray(value);
 const prose = value => typeof value === "string" && value.trim().length > 0 && !/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/u.test(value.trim());
-const name = value => prose(value) && value.length <= 100 && !/[<>\[\]{}\r\n]/u.test(value);
+const name = value => prose(value) && value.length <= 64 && !/[<>\[\]{}\r\n]/u.test(value);
 const id = value => typeof value === "string" && /^[A-Za-z0-9_-]{32}$/u.test(value);
+const reservedRoles = new Set(["owner", "system", "head consultant", "critic"]);
+export const activeOrders = work => {
+  const replaced = new Set(work.orders.flatMap(order => order.previousOrderIds ?? []));
+  return work.orders.filter(order => !replaced.has(order.id));
+};
 const states = new Set(["open", "blocked_evidence", "resolved_corrected", "resolved_objection_upheld"]);
 
 export function parseStructuredReply(body) {
@@ -14,7 +19,7 @@ export function parseHeadPlan(body, count, ids) {
   const value = parseStructuredReply(body);
   if (!object(value) || !Array.isArray(value.assignments) || value.assignments.length < 1 || value.assignments.length > 5 || (count !== "auto" && value.assignments.length !== Number(count))) throw new Error("provider_contract");
   const assignments = value.assignments.map((item, index) => {
-    if (!object(item) || !name(item.role) || !prose(item.guidance) || !prose(item.task) || !Array.isArray(item.dependsOn) || item.dependsOn.some(number => !Number.isInteger(number) || number < 1 || number > index)) throw new Error("provider_contract");
+    if (!object(item) || !name(item.role) || reservedRoles.has(item.role.trim().toLowerCase()) || !prose(item.guidance) || !prose(item.task) || !Array.isArray(item.dependsOn) || item.dependsOn.some(number => !Number.isInteger(number) || number < 1 || number > index)) throw new Error("provider_contract");
     return { id: ids[index], role: item.role.trim(), guidance: item.guidance.trim(), task: item.task, dependsOn: [...new Set(item.dependsOn)].map(number => ids[number - 1]) };
   });
   if (new Set(assignments.map(item => item.role.toLocaleLowerCase())).size !== assignments.length) throw new Error("provider_contract");
@@ -29,12 +34,13 @@ export function parseTeamReview(body, assignments) {
     if (!object(item) || !Number.isInteger(item.assignment) || item.assignment < 1 || item.assignment > assignments.length || !prose(item.issue) || !prose(item.correction)) throw new Error("provider_contract");
     return { assignmentId: assignments[item.assignment - 1].id, issue: item.issue.trim(), correction: item.correction.trim() };
   });
+  if (value.researchRequest != null && !prose(value.researchRequest)) throw new Error("provider_contract");
   const grouped = new Map();
   for (const finding of findings) {
     const items = grouped.get(finding.assignmentId) ?? [];
     items.push(finding); grouped.set(finding.assignmentId, items);
   }
-  return { summary: value.summary.trim(), findings: [...grouped].map(([assignmentId, items]) => items.length === 1 ? items[0] : {
+  return { summary: value.summary.trim(), researchRequest: value.researchRequest?.trim() || null, findings: [...grouped].map(([assignmentId, items]) => items.length === 1 ? items[0] : {
     assignmentId,
     issue: items.map((item, index) => `${index + 1}. ${item.issue}`).join("\n\n"),
     correction: items.map((item, index) => `${index + 1}. ${item.correction}`).join("\n\n")
@@ -68,7 +74,18 @@ export function validateParallelWork(work, stream = []) {
     if (!assignment || !object(result) || !match(result.messageId, assignment.role, "Critic") || byId.get(result.messageId).body !== result.body || !prose(result.body) || !Number.isSafeInteger(result.version) || result.version < 1) return false;
   }
   if (new Set(work.orders.map(item => item.id)).size !== work.orders.length) return false;
-  for (const order of work.orders) {
+  const replacedOrders = new Set();
+  for (const [index, order] of work.orders.entries()) {
+    if (!object(order)) return false;
+    if (order.directives !== undefined && (!Array.isArray(order.directives) || !order.directives.length || order.directives.some(item => !object(item) || !prose(item.issue) || !prose(item.correction)) || order.directives.map(item => item.issue).join("\n\n") !== order.issue || order.directives.map(item => item.correction).join("\n\n") !== order.correction)) return false;
+    if (order.previousOrderIds !== undefined) {
+      if (!Array.isArray(order.previousOrderIds) || new Set(order.previousOrderIds).size !== order.previousOrderIds.length) return false;
+      for (const previousId of order.previousOrderIds) {
+        const previous = work.orders.slice(0, index).find(item => item.id === previousId);
+        if (!previous || previous.assignmentId !== order.assignmentId || !["open", "blocked_evidence"].includes(previous.state) || !previous.assessmentMessageId || replacedOrders.has(previousId)) return false;
+        replacedOrders.add(previousId);
+      }
+    }
     const assignment = assignments.get(order.assignmentId);
     if (!id(order.id) || !assignment || !match(order.resultMessageId, assignment.role, "Critic") || !match(order.messageId, "Critic", assignment.role) || !prose(order.issue) || !prose(order.correction) || !states.has(order.state)) return false;
     if (order.responseMessageId != null && !match(order.responseMessageId, assignment.role, "Critic")) return false;
@@ -80,7 +97,7 @@ export function validateParallelWork(work, stream = []) {
     if (round.assessmentMessageId != null && !match(round.assessmentMessageId, "Critic", "Head Consultant")) return false;
   }
   if (work.finalMessageId != null && !match(work.finalMessageId, "Head Consultant", null)) return false;
-  if (work.finalMessageId && (work.rounds.length < 1 || work.assignments.some(item => !work.results[item.id]) || (work.consiliumReached && work.orders.some(item => ["open", "blocked_evidence"].includes(item.state))))) return false;
+  if (work.finalMessageId && (work.rounds.length < 1 || work.assignments.some(item => !work.results[item.id]) || (work.consiliumReached && activeOrders(work).some(item => ["open", "blocked_evidence"].includes(item.state))))) return false;
   return true;
 }
 
@@ -93,6 +110,8 @@ export function validateParallelTransition(before, after, additions, stream) {
   for (const old of before.orders) {
     const next = after.orders.find(item => item.id === old.id);
     if (!next || ["assignmentId", "resultMessageId", "messageId", "issue", "correction"].some(key => next[key] !== old[key])) return false;
+    if (JSON.stringify(old.directives) !== JSON.stringify(next.directives)) return false;
+    if (JSON.stringify(old.previousOrderIds ?? []) !== JSON.stringify(next.previousOrderIds ?? [])) return false;
     if (old.responseMessageId && next.responseMessageId !== old.responseMessageId) return false;
     if (old.assessmentMessageId && (next.assessmentMessageId !== old.assessmentMessageId || next.state !== old.state || next.assessmentReason !== old.assessmentReason)) return false;
     if (!old.responseMessageId && next.responseMessageId && !additions.some(message => message.id === next.responseMessageId && message.role === after.assignments.find(item => item.id === old.assignmentId).role)) return false;

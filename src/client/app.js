@@ -18,7 +18,7 @@ const request = async (path, options = {}) => {
   const headers = new Headers(options.headers);
   if (state.csrf && !["GET", "HEAD"].includes(options.method ?? "GET")) headers.set("x-csrf-token", state.csrf);
   if (options.body && typeof options.body !== "string" && !(options.body instanceof FormData) && !(options.body instanceof Blob)) { headers.set("content-type", "application/json"); options.body = JSON.stringify(options.body); }
-  const deadline = path === "/api/logout" || (privacyLocked && path === "/api/session") ? setTimeout(() => controller.abort(), 10_000) : undefined;
+  const deadline = options.timeoutMs || path === "/api/logout" || (privacyLocked && path === "/api/session") ? setTimeout(() => controller.abort(), options.timeoutMs ?? 10_000) : undefined;
   try {
     const response = await fetch(path, { ...options, headers, signal: controller.signal, credentials: "same-origin" });
     const data = response.status === 204 ? undefined : await response.json().catch(() => undefined);
@@ -265,7 +265,7 @@ function renderEvents() {
 }
 
 function renderOutcome() { const target = clear($("#outcome")); const ownerIndex = state.events.map(event => event.role).lastIndexOf("owner"); const outcome = state.events.slice(ownerIndex + 1).find(event => event.role === "Head Consultant" && !event.recipient); if (outcome) { const body = node("div", { class: "message-body outcome-body" }); renderMarkdown(body, outcome.body); target.append(body); } else target.append(node("div", { class: "empty" }, "Consolidated advice appears after every specialist's final position and the Critic's closing review.")); }
-function renderSources() { const target = clear($("#sources")); const sources = [...new Map(state.events.flatMap(event => event.sources ?? []).map(source => [source.url, source])).values()]; if (!sources.length) { target.append(node("div", { class: "empty" }, "Sources appear here when live research materially informs the discussion.")); return; } for (const source of sources) { const dates = [`Retrieved ${formatDate(source.retrievedAt)}`]; if (source.publishedAt) dates.push(`Published ${formatDate(source.publishedAt)}`); const card = node("article", { class: "source-card" }); card.append(node("a", { href: source.url, target: "_blank", rel: "noopener noreferrer" }, source.title), node("p", {}, source.claim), node("p", { class: "hint" }, dates.join(" · "))); target.append(card); } }
+function renderSources() { const target = clear($("#sources")); const sources = [...new Map(state.events.flatMap(event => event.sources ?? []).map(source => [JSON.stringify([source.url, source.claim]), source])).values()]; if (!sources.length) { target.append(node("div", { class: "empty" }, "Sources appear here when live research materially informs the discussion.")); return; } for (const source of sources) { const dates = [`Retrieved ${formatDate(source.retrievedAt)}`]; if (source.publishedAt) dates.push(`Published ${formatDate(source.publishedAt)}`); const card = node("article", { class: "source-card" }); card.append(node("a", { href: source.url, target: "_blank", rel: "noopener noreferrer" }, source.title), node("p", {}, source.claim), node("p", { class: "hint" }, dates.join(" · "))); target.append(card); } }
 
 async function loadConversation(conversationId, { preserveAttachmentDraft = false } = {}) {
   const { data } = await request(`/api/conversations/${encodeURIComponent(conversationId)}`); state.conversation = data.conversation; state.events = data.events; state.run = data.run; renderEvents(); await nav("discussion"); setTab("discussion"); startPolling();
@@ -673,21 +673,40 @@ async function continueRun() {
 let pollGeneration = 0;
 function startPolling() {
   stopPolling(); if (state.run?.status !== "active") return;
-  const generation = pollGeneration; const conversationId = state.conversation.id; let pending = false;
-  state.poll = setInterval(async () => {
-    if (pending) return; pending = true;
+  const generation = pollGeneration; const conversationId = state.conversation.id; let failures = 0;
+  const current = () => generation === pollGeneration && state.conversation?.id === conversationId && !privacyLocked && state.session?.authenticated;
+  const poll = async () => {
+    if (!current()) return;
     try {
-      const { data } = await request(`/api/conversations/${conversationId}`);
-      if (generation !== pollGeneration || state.conversation?.id !== conversationId) return;
+      const { data } = await request(`/api/conversations/${conversationId}`, { timeoutMs: 15_000 });
+      if (!current()) return;
+      failures = 0; $("#connection-status").hidden = true;
       const previous = state.events; state.conversation = data.conversation; state.events = data.events; state.run = data.run;
-      announceIncomingMessages(previous, state.events); renderEvents(); if (state.tab === "usage" && state.page === "discussion") void loadUsage({ quiet: true }); if (state.run?.status !== "active") stopPolling();
-    } catch { if (generation === pollGeneration) stopPolling(); }
-    finally { pending = false; }
-  }, 2_000);
+      announceIncomingMessages(previous, state.events); renderEvents();
+      if (state.tab === "usage" && state.page === "discussion") void loadUsage({ quiet: true });
+      if (state.run?.status !== "active") { stopPolling(); return; }
+    } catch (error) {
+      if (!current()) return;
+      const status = error.response?.status;
+      const notice = $("#connection-status"); notice.hidden = false;
+      if (status && status < 500 && ![408, 429].includes(status)) {
+        notice.textContent = "This conversation could not be refreshed. Reopen it from Conversations.";
+        return;
+      }
+      failures++;
+      notice.textContent = "Connection interrupted. Reconnecting automatically; saved messages are preserved.";
+    }
+    if (current()) state.poll = setTimeout(poll, Math.min(30_000, 2_000 * 2 ** Math.min(failures, 4)));
+  };
+  state.poll = setTimeout(poll, 2_000);
 }
-function stopPolling() { pollGeneration++; if (state.poll) clearInterval(state.poll); state.poll = null; }
+function stopPolling() {
+  pollGeneration++; if (state.poll) clearTimeout(state.poll); state.poll = null;
+  $("#connection-status").hidden = true;
+}
 
 let usageRequest = 0;
+let usageFlight;
 const tokenNumber = value => value === null ? "Unavailable" : new Intl.NumberFormat().format(value);
 function renderUsage(usage) {
   const panel = clear($("#usage-content"));
@@ -712,19 +731,28 @@ function renderUsage(usage) {
   }
 }
 async function loadUsage({ quiet = false } = {}) {
-  const requestId = ++usageRequest; const conversationId = state.conversation?.id;
+  const conversationId = state.conversation?.id;
   const select = $("#usage-scope"); select.options[0].disabled = !conversationId;
   if (!conversationId) select.value = "all";
   const scope = select.value;
+  const key = JSON.stringify([clientGeneration, conversationId, scope]);
+  if (usageFlight?.key === key && usageFlight.id === usageRequest) { usageFlight.refreshRequested = true; return; }
+  const requestId = ++usageRequest;
+  usageFlight = { key, id: requestId };
   if (!quiet) { clear($("#usage-content")); $("#usage-status").textContent = "Loading usage…"; }
   try {
-    const { data } = await request(`/api/usage${scope === "conversation" ? `?conversationId=${encodeURIComponent(conversationId)}` : ""}`);
+    const { data } = await request(`/api/usage${scope === "conversation" ? `?conversationId=${encodeURIComponent(conversationId)}` : ""}`, { timeoutMs: 15_000 });
     if (requestId !== usageRequest || state.tab !== "usage" || conversationId !== state.conversation?.id || scope !== select.value) return;
     const signature = JSON.stringify(data.usage);
     if (panelUsageSignature !== signature || !$("#usage-content").childNodes.length) { renderUsage(data.usage); panelUsageSignature = signature; }
     $("#usage-status").textContent = "Usage updates as provider calls finish.";
   } catch {
     if (requestId === usageRequest && !privacyLocked && state.session?.authenticated) $("#usage-status").textContent = "Usage could not refresh. Any shown counts may be out of date. Choose Refresh usage to try again.";
+  } finally {
+    if (usageFlight?.id === requestId) {
+      const refreshRequested = usageFlight.refreshRequested; usageFlight = undefined;
+      if (refreshRequested && requestId === usageRequest && state.tab === "usage" && conversationId === state.conversation?.id && scope === select.value && !privacyLocked && state.session?.authenticated) void loadUsage({ quiet: true });
+    }
   }
 }
 document.querySelector(".tabs").addEventListener("keydown", event => {

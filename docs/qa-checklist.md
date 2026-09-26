@@ -156,3 +156,19 @@ Extend QA-R64/QA-R67: multiple findings for one consultant preserve every issue/
 ## Sticky consultation views — 2026-09-25
 
 Extend existing S-02 and navigation/keyboard checks: scroll the Discussion/Usage view at desktop and 320px; all four tabs remain below the main menu and within the viewport, active Stop stays reachable, selected panel switching still works, and no horizontal page overflow occurs. Definition prepared; inspect the scoped browser receipt for actual execution evidence.
+
+## Review-repair checks — 2026-09-26
+
+Extend existing prepared checks under the retained baseline and shared S-02 desktop/mobile scope:
+
+- QA-R61/R63: a saved marker in Specialist Position/Reply and selected role guidance reaches the corresponding provider prompt. Accept a 64-character role, repair a longer/reserved name without changing Head's task, and keep generated owner-role legacy messages out of owner context. Propagate source metadata to dependent consultants, Critic, corrections, Head and visible history/export. Head must receive Critic summaries even with no findings.
+- QA-R62: hold an unrelated worker open after a dependency completes; its dependent starts immediately. Preserve cancellation and successful siblings.
+- QA-R64/R65/R67: across three rounds, preserve an unresolved first order, carry it with a different new defect into one linked second attempt, assess it explicitly and permit genuine resolution without altering the first assessment. Reject forged/cross-assignment links. Stop/restart between response and assessment; resume only missing work.
+- QA-R17/R51/R54: Critic's evidence request invokes Head query formation and one isolated public search for that round, including final-round rework. No private owner context or guidance reaches research. Reject unsafe queries and credential-like generated bodies before persistence/forwarding; ordinary phone numbers remain allowed. Persist unavailable research truthfully and retain every distinct validated source when Head cites only a subset.
+- QA-R06/R66/R67 and QA-H01/QA-H09: one transient poll failure shows a status and automatically recovers; slow usage reads exceeding the poll interval still render and do not overlap for the same scope. Scope replacement, Stop and logout fence stale responses. Exercise Chromium, Firefox and WebKit on isolated fixtures.
+
+These are scoped extensions of existing IDs; full indexed checks remain prepared/not_run pending all required evidence. Separately inspected automated results belong in the run receipt, not a whole-product pass. Release readiness: not_evaluated.
+
+## Review-repair scoped execution evidence — 2026-09-26
+
+[Verification receipt](../forge/runs/review-fixes-20260926/verification.json) records isolated macOS/Node regressions: 199 passed, 2 Windows-only tests skipped, 0 failed; full Chromium/Firefox/WebKit verification and final focused recovery/Usage/source checks passed. It binds evaluated files and preserves evidence limits. No live provider call, private-session replay, runtime restart or sister-repository change occurred. These are scoped regression results for the preceding check extensions; they do not close every formal check or establish whole-product release readiness.

@@ -1,5 +1,9 @@
 # Head-led consultation port brief
 
+## Latest review repairs — 2026-09-26
+
+Apply the complete [review-fixes port prompt](review-fixes-port.md) after the existing parallel/usage work below. It covers actionable linked Critic orders, summary/source propagation, saved instructions, actor metadata, sensitive output, dependency scheduling, follow-up research, reconnect and slow Usage handling. Its corrected order lifecycle supersedes earlier descriptions that permit only one reply to an unresolved order. Hosting, storage and authentication remain target-owned.
+
 ## 2026-09-25 — Critic reliability and per-model token usage
 
 Apply this scoped correction in the target repository. Its existing hosting, authentication, database, branding and provider grant mechanisms remain target-owned. Do not copy this repository's local setup or private state. This section supersedes the earlier instruction to retain Claude's nine-minute deadline. Do not replay a private consultation or change selected model/effort/depth to verify the patch.

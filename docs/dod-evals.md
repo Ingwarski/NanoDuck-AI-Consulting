@@ -60,3 +60,7 @@ Extend existing functional, persistence, product_security_requirements and brows
 ## Sticky consultation views — 2026-09-25
 
 For the existing navigation/fidelity/browser gates, verify all four view controls remain visible and reachable after scrolling in active and inactive discussion states, without changing Stop behavior. Keep functional, visual and representative-user evidence distinct.
+
+## Review-repair evaluation scope — 2026-09-26
+
+Existing functional, security and lifecycle gates apply to the architecture's review repairs: immutable linked correction attempts, immediate dependency scheduling, accepted saved instructions, reserved actor identities, secret rejection, end-to-end sources and Critic summaries, isolated bounded follow-up research, and reconnect/slow-usage behavior. Require negative tests for tampered lineage and sensitive transfer plus Stop/retry persistence tests. Browser recovery needs real-engine observations, not only simulated functions. No new gate or product scope is introduced; this owner defines evaluation requirements and runs no tests. Release readiness remains not_evaluated.
