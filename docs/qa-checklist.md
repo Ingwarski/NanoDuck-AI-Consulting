@@ -244,3 +244,9 @@ U-13 activity counts verified: 227 tests passed and 2 platform-specific skips. C
 User-authorized clear-glass top navigation: replace the opaque bar with low-opacity tint, restrained specular edges and saturation/contrast without blur. Preserve geometry, controls, focus indicators and Electric A v8 foundation. Local button tint and text shadow protect label legibility. Reduced-transparency and forced-color preferences receive opaque readable fallbacks. Verify actual navigation markup at narrow and wide widths in isolated browsers. No live-page reload, server restart, session change or consulting interruption.
 
 Clear-glass navbar verified in isolated Chromium, Firefox and WebKit fixtures using production markup/CSS at 320, 390, 768 and 1280px. Transparency/no-blur, reflow, keyboard focus and forced-color fallback passed; desktop screenshot inspected. Artifact checks pass. No active session or server was interrupted. [Evidence](../forge/runs/clear-glass-navbar-20260926/verification.json).
+
+## Glass edge refinement — 2026-09-26
+
+User-requested glass edge refinement: retain the clear navbar centre and add a polished outer lip plus a hollow curved inner bevel using masked pseudo-elements. The approximately 7px rim alone receives a slight optical filter; no frosted centre. Preserve geometry and click targets; decorative layers ignore pointer input. Hide both layers for reduced transparency and forced colors. Verify mask rendering, focus and mobile layouts in Chromium, Firefox and WebKit without touching the active browser session or restarting the server.
+
+Glass rim refinement verified with production markup/CSS in isolated Chromium, Firefox and WebKit at 320, 390, 768 and 1280px. Clear centre, reflow, focus and forced-color fallback passed; polished outer lip and inner bevel visually inspected. [Evidence](../forge/runs/glass-rim-20260926/verification.json). Active session untouched.

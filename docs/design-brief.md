@@ -195,3 +195,7 @@ U-13 activity counts follow-up: show five metrics in Usage: consultant assignmen
 ## Clear-glass navigation follow-up — 2026-09-26
 
 User-authorized clear-glass top navigation: replace the opaque bar with low-opacity tint, restrained specular edges and saturation/contrast without blur. Preserve geometry, controls, focus indicators and Electric A v8 foundation. Local button tint and text shadow protect label legibility. Reduced-transparency and forced-color preferences receive opaque readable fallbacks. Verify actual navigation markup at narrow and wide widths in isolated browsers. No live-page reload, server restart, session change or consulting interruption.
+
+## Glass edge refinement — 2026-09-26
+
+User-requested glass edge refinement: retain the clear navbar centre and add a polished outer lip plus a hollow curved inner bevel using masked pseudo-elements. The approximately 7px rim alone receives a slight optical filter; no frosted centre. Preserve geometry and click targets; decorative layers ignore pointer input. Hide both layers for reduced transparency and forced colors. Verify mask rendering, focus and mobile layouts in Chromium, Firefox and WebKit without touching the active browser session or restarting the server.

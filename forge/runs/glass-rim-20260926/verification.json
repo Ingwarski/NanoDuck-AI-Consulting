@@ -1,0 +1,23 @@
+{
+  "scope": "Glass rim refinement",
+  "engines": [
+    "chromium",
+    "firefox",
+    "webkit"
+  ],
+  "widths": [
+    320,
+    390,
+    768,
+    1280
+  ],
+  "checks": [
+    "clear navbar centre",
+    "responsive layout without overflow",
+    "keyboard focus",
+    "forced-color fallback"
+  ],
+  "visual_review": "Production navbar markup/CSS in isolated synthetic fixture; polished outer lip and inner bevel inspected in screenshot. Decorative bands use pointer-events none.",
+  "session_safety": "No server restart, live-tab reload or private-state mutation.",
+  "limitations": "CSS optical approximation, not physical ray-traced refraction. No formal accessibility certification."
+}
