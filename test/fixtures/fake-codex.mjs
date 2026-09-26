@@ -65,7 +65,13 @@ createInterface({ input: process.stdin, crlfDelay: Infinity }).on("line", line =
   if (request.method === "account/rateLimits/read") return send({ id: request.id, result: { rateLimits: { rateLimitReachedType: null } } });
   if (request.method === "turn/start") {
     const prompt = request.params?.input?.[0]?.text ?? "";
-    if (!prompt.includes("Without token usage")) {
+    if (prompt.includes("Exercise upstream usage")) {
+      for (const responseId of (prompt.includes("partial raw") ? ["response-1"] : ["response-1", "response-1", "response-2"])) {
+        const metadata = {input_tokens:50, output_tokens:20, total_tokens:70, input_tokens_details:{cached_tokens:30,...(prompt.includes("missing write") ? {} : {cache_write_tokens:prompt.includes("explicit zero") ? 0 : 10})},output_tokens_details:{reasoning_tokens:15},private_payload:"DO_NOT_STORE"};
+        for(const [threadId,turnId] of [["isolated-thread","turn-1"],["wrong-thread","turn-1"],["isolated-thread","wrong-turn"]]) send({method:"rawResponse/completed",params:{threadId,turnId,responseId,usageMetadata:{metadata}}});
+      }
+    }
+    if (!prompt.includes("Without token usage") && !prompt.includes("raw only")) {
       const tokenUsage = { total: { inputTokens: 100, outputTokens: 40, totalTokens: 140, cachedInputTokens: 60, reasoningOutputTokens: 30 }, last: { inputTokens: 10, outputTokens: 4, totalTokens: 14, cachedInputTokens: 6, reasoningOutputTokens: 3 } };
       for (let copy = 0; copy < 2; copy++) send({ method: "thread/tokenUsage/updated", params: { threadId: "isolated-thread", turnId: "turn-1", tokenUsage } });
       for (const [threadId, turnId] of [["wrong-thread", "turn-1"], ["isolated-thread", "wrong-turn"]]) send({ method: "thread/tokenUsage/updated", params: { threadId, turnId, tokenUsage: { total: { ...tokenUsage.total, totalTokens: 99999 }, last: tokenUsage.last } } });

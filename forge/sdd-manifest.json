@@ -65,13 +65,13 @@
       },
       "path": "docs/product-idea.md",
       "owner_skill": "to-product-idea",
-      "owner_invocation_id": "critic-cache-usage-20260926-product-idea",
+      "owner_invocation_id": "upstream-usage-20260926-product-idea",
       "declared_output_set": [
         "docs/product-idea.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "critic-cache-usage-20260926",
+      "source_version": "upstream-usage-20260926",
       "source_usage": {
         "docs/model-settings.md": "full",
         "forge/design/evidence/electric-v8-approval-20260914.json": "full",
@@ -86,7 +86,8 @@
         "forge/runs/context-cache-20260926/scope.json": "full",
         "forge/runs/chat-jumps-20260926/scope.json": "full",
         "forge/runs/research-economy-20260926/scope.json": "full",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "full"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "full",
+        "forge/runs/upstream-usage-20260926/scope.json": "full"
       },
       "source_hashes": {
         "docs/model-settings.md": "2d0b9fe9d045e289b228adfe2d27aa6c1d94632eef60c78df60091eb181c4628",
@@ -102,15 +103,16 @@
         "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
         "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
         "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a"
       },
       "dependencies": [],
-      "content_hash": "d4dd84b2273099d9fc92e5291b0dbbd3fb426d74f02e5c260cac9938cda5c863",
+      "content_hash": "60efe06eca4f3d843bd4672fe2a2b3b04a7e726f13566982443b27809d4ec9f9",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T16:23:08.638966+00:00",
+        "reviewed_at": "2026-09-26T16:40:09.634035+00:00",
         "executor": "Codex inline to-product-idea",
         "scope": "Owner-reconciled definition; implementation verification remains pending."
       },
@@ -2444,13 +2446,13 @@
       },
       "path": "docs/prd.md",
       "owner_skill": "to-sdd-prd",
-      "owner_invocation_id": "critic-cache-usage-20260926-prd",
+      "owner_invocation_id": "upstream-usage-20260926-prd",
       "declared_output_set": [
         "docs/prd.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "critic-cache-usage-20260926",
+      "source_version": "upstream-usage-20260926",
       "source_usage": {
         "docs/product-idea.md": "full",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "full",
@@ -2459,27 +2461,29 @@
         "forge/runs/context-cache-20260926/scope.json": "full",
         "forge/runs/chat-jumps-20260926/scope.json": "full",
         "forge/runs/research-economy-20260926/scope.json": "full",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "full"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "full",
+        "forge/runs/upstream-usage-20260926/scope.json": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "d4dd84b2273099d9fc92e5291b0dbbd3fb426d74f02e5c260cac9938cda5c863",
+        "docs/product-idea.md": "60efe06eca4f3d843bd4672fe2a2b3b04a7e726f13566982443b27809d4ec9f9",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
         "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
         "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
         "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a"
       },
       "dependencies": [
         "product-idea"
       ],
-      "content_hash": "7d6cc496de1c8d364772599f29cee1dfb617a8322ccce681c58af3146d556539",
+      "content_hash": "ea277a93cda7ba31d77fdd0c90b9789309823ec349b5279ae3a9cb03250dbc96",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T16:23:08.638966+00:00",
+        "reviewed_at": "2026-09-26T16:40:09.634035+00:00",
         "executor": "Codex inline to-sdd-prd",
         "scope": "Owner-reconciled definition; implementation verification remains pending."
       },
@@ -2488,14 +2492,14 @@
     "project-context": {
       "path": "docs/project-context.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "critic-cache-usage-20260926-project-context",
+      "owner_invocation_id": "upstream-usage-20260926-project-context",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "critic-cache-usage-20260926",
+      "source_version": "upstream-usage-20260926",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full",
@@ -2505,29 +2509,31 @@
         "forge/runs/context-cache-20260926/scope.json": "full",
         "forge/runs/chat-jumps-20260926/scope.json": "full",
         "forge/runs/research-economy-20260926/scope.json": "full",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "full"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "full",
+        "forge/runs/upstream-usage-20260926/scope.json": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "d4dd84b2273099d9fc92e5291b0dbbd3fb426d74f02e5c260cac9938cda5c863",
-        "docs/prd.md": "7d6cc496de1c8d364772599f29cee1dfb617a8322ccce681c58af3146d556539",
+        "docs/product-idea.md": "60efe06eca4f3d843bd4672fe2a2b3b04a7e726f13566982443b27809d4ec9f9",
+        "docs/prd.md": "ea277a93cda7ba31d77fdd0c90b9789309823ec349b5279ae3a9cb03250dbc96",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
         "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
         "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
         "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "e82a9697e89baa18d3e737e7e59d8bc05cc353be28357bbc24731fbba327fe6c",
+      "content_hash": "bc1e97dab0e3f3bd07773c6385acc75fd5080e50b51a713edee1719c524f4477",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T16:23:08.638966+00:00",
+        "reviewed_at": "2026-09-26T16:40:09.634035+00:00",
         "executor": "Codex inline to-project-context",
         "scope": "Owner-reconciled definition; implementation verification remains pending."
       },
@@ -2536,14 +2542,14 @@
     "canonical-terms": {
       "path": "docs/canonical-terms.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "critic-cache-usage-20260926-project-context",
+      "owner_invocation_id": "upstream-usage-20260926-project-context",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "critic-cache-usage-20260926",
+      "source_version": "upstream-usage-20260926",
       "source_usage": {
         "docs/product-idea.md": "full",
         "docs/prd.md": "full",
@@ -2553,29 +2559,31 @@
         "forge/runs/context-cache-20260926/scope.json": "full",
         "forge/runs/chat-jumps-20260926/scope.json": "full",
         "forge/runs/research-economy-20260926/scope.json": "full",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "full"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "full",
+        "forge/runs/upstream-usage-20260926/scope.json": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "d4dd84b2273099d9fc92e5291b0dbbd3fb426d74f02e5c260cac9938cda5c863",
-        "docs/prd.md": "7d6cc496de1c8d364772599f29cee1dfb617a8322ccce681c58af3146d556539",
+        "docs/product-idea.md": "60efe06eca4f3d843bd4672fe2a2b3b04a7e726f13566982443b27809d4ec9f9",
+        "docs/prd.md": "ea277a93cda7ba31d77fdd0c90b9789309823ec349b5279ae3a9cb03250dbc96",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
         "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
         "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
         "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a"
       },
       "dependencies": [
         "product-idea",
         "prd"
       ],
-      "content_hash": "713e78e74cb5d02b1a472b557f38a38237d0b40f43c09a4c27738dd9736354a8",
+      "content_hash": "fb471350af7a97660a3a280e05bc53f888ee12b09b5b65b05db02e73ea106391",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T16:23:08.638966+00:00",
+        "reviewed_at": "2026-09-26T16:40:09.634035+00:00",
         "executor": "Codex inline to-project-context",
         "scope": "Owner-reconciled definition; implementation verification remains pending."
       },
@@ -2584,13 +2592,13 @@
     "guardrails": {
       "path": "docs/guardrails.md",
       "owner_skill": "to-guardrails",
-      "owner_invocation_id": "critic-cache-usage-20260926-guardrails",
+      "owner_invocation_id": "upstream-usage-20260926-guardrails",
       "declared_output_set": [
         "docs/guardrails.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "critic-cache-usage-20260926",
+      "source_version": "upstream-usage-20260926",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2601,31 +2609,33 @@
         "forge/runs/context-cache-20260926/scope.json": "full",
         "forge/runs/chat-jumps-20260926/scope.json": "full",
         "forge/runs/research-economy-20260926/scope.json": "full",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "full"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "full",
+        "forge/runs/upstream-usage-20260926/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "7d6cc496de1c8d364772599f29cee1dfb617a8322ccce681c58af3146d556539",
-        "docs/project-context.md": "e82a9697e89baa18d3e737e7e59d8bc05cc353be28357bbc24731fbba327fe6c",
-        "docs/canonical-terms.md": "713e78e74cb5d02b1a472b557f38a38237d0b40f43c09a4c27738dd9736354a8",
+        "docs/prd.md": "ea277a93cda7ba31d77fdd0c90b9789309823ec349b5279ae3a9cb03250dbc96",
+        "docs/project-context.md": "bc1e97dab0e3f3bd07773c6385acc75fd5080e50b51a713edee1719c524f4477",
+        "docs/canonical-terms.md": "fb471350af7a97660a3a280e05bc53f888ee12b09b5b65b05db02e73ea106391",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
         "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
         "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
         "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a"
       },
       "dependencies": [
         "prd",
         "project-context",
         "canonical-terms"
       ],
-      "content_hash": "a22ae6d38d115d9dcdd7102157625e7ca807e5da8a788616cbaf9daa2ead49c8",
+      "content_hash": "98dd75f355f3ce068db16066d21ea2ef68b1b86a4c58623cc685c6a3b0cd3e71",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T16:23:08.638966+00:00",
+        "reviewed_at": "2026-09-26T16:40:09.634035+00:00",
         "executor": "Codex inline to-guardrails",
         "scope": "Owner-reconciled definition; implementation verification remains pending."
       },
@@ -2634,13 +2644,13 @@
     "user-journey": {
       "path": "docs/user-journey.md",
       "owner_skill": "to-user-journey",
-      "owner_invocation_id": "critic-cache-usage-20260926-user-journey",
+      "owner_invocation_id": "upstream-usage-20260926-user-journey",
       "declared_output_set": [
         "docs/user-journey.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "critic-cache-usage-20260926",
+      "source_version": "upstream-usage-20260926",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -2652,20 +2662,22 @@
         "forge/runs/context-cache-20260926/scope.json": "full",
         "forge/runs/chat-jumps-20260926/scope.json": "full",
         "forge/runs/research-economy-20260926/scope.json": "full",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "full"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "full",
+        "forge/runs/upstream-usage-20260926/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "7d6cc496de1c8d364772599f29cee1dfb617a8322ccce681c58af3146d556539",
-        "docs/project-context.md": "e82a9697e89baa18d3e737e7e59d8bc05cc353be28357bbc24731fbba327fe6c",
-        "docs/canonical-terms.md": "713e78e74cb5d02b1a472b557f38a38237d0b40f43c09a4c27738dd9736354a8",
-        "docs/guardrails.md": "a22ae6d38d115d9dcdd7102157625e7ca807e5da8a788616cbaf9daa2ead49c8",
+        "docs/prd.md": "ea277a93cda7ba31d77fdd0c90b9789309823ec349b5279ae3a9cb03250dbc96",
+        "docs/project-context.md": "bc1e97dab0e3f3bd07773c6385acc75fd5080e50b51a713edee1719c524f4477",
+        "docs/canonical-terms.md": "fb471350af7a97660a3a280e05bc53f888ee12b09b5b65b05db02e73ea106391",
+        "docs/guardrails.md": "98dd75f355f3ce068db16066d21ea2ef68b1b86a4c58623cc685c6a3b0cd3e71",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
         "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
         "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
         "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a"
       },
       "dependencies": [
         "prd",
@@ -2673,12 +2685,12 @@
         "canonical-terms",
         "guardrails"
       ],
-      "content_hash": "2e2483b80ce99d53abec15f99fd17f2f6cb98622b5d25c72c9a27c3bae18002c",
+      "content_hash": "1f8bf119438a5bf8a6f0adf0f01ea7ff4c67cc890e50c9e6218cc97e06bea104",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T16:23:08.638966+00:00",
+        "reviewed_at": "2026-09-26T16:40:09.634035+00:00",
         "executor": "Codex inline to-user-journey",
         "scope": "Owner-reconciled definition; implementation verification remains pending."
       },
@@ -3692,13 +3704,13 @@
       },
       "path": "docs/screen-map.md",
       "owner_skill": "to-screen-map",
-      "owner_invocation_id": "critic-cache-usage-20260926-screen-map",
+      "owner_invocation_id": "upstream-usage-20260926-screen-map",
       "declared_output_set": [
         "docs/screen-map.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "critic-cache-usage-20260926",
+      "source_version": "upstream-usage-20260926",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3713,14 +3725,15 @@
         "forge/runs/chat-center-20260926/scope.json": "full",
         "forge/runs/chat-boundaries-20260926/scope.json": "full",
         "forge/runs/research-economy-20260926/scope.json": "full",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "full"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "full",
+        "forge/runs/upstream-usage-20260926/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "7d6cc496de1c8d364772599f29cee1dfb617a8322ccce681c58af3146d556539",
-        "docs/project-context.md": "e82a9697e89baa18d3e737e7e59d8bc05cc353be28357bbc24731fbba327fe6c",
-        "docs/canonical-terms.md": "713e78e74cb5d02b1a472b557f38a38237d0b40f43c09a4c27738dd9736354a8",
-        "docs/guardrails.md": "a22ae6d38d115d9dcdd7102157625e7ca807e5da8a788616cbaf9daa2ead49c8",
-        "docs/user-journey.md": "2e2483b80ce99d53abec15f99fd17f2f6cb98622b5d25c72c9a27c3bae18002c",
+        "docs/prd.md": "ea277a93cda7ba31d77fdd0c90b9789309823ec349b5279ae3a9cb03250dbc96",
+        "docs/project-context.md": "bc1e97dab0e3f3bd07773c6385acc75fd5080e50b51a713edee1719c524f4477",
+        "docs/canonical-terms.md": "fb471350af7a97660a3a280e05bc53f888ee12b09b5b65b05db02e73ea106391",
+        "docs/guardrails.md": "98dd75f355f3ce068db16066d21ea2ef68b1b86a4c58623cc685c6a3b0cd3e71",
+        "docs/user-journey.md": "1f8bf119438a5bf8a6f0adf0f01ea7ff4c67cc890e50c9e6218cc97e06bea104",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -3729,7 +3742,8 @@
         "forge/runs/chat-center-20260926/scope.json": "c9df24147feca20d36881d6ee508be68a898cd32d241eec6cde54e9d473131cb",
         "forge/runs/chat-boundaries-20260926/scope.json": "08e4fb98611833bcc9314a492457e00925b488363408d7c8d07105186f5998d6",
         "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a"
       },
       "dependencies": [
         "prd",
@@ -3738,12 +3752,12 @@
         "guardrails",
         "user-journey"
       ],
-      "content_hash": "3c0b6173e3cde3c5d2343e6eab891931082be0b5bc96f431a7804230ff300c01",
+      "content_hash": "953b93c1c4b7f01d23e765d31def6dbfa15b1d12e705a405310b074442e91854",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T16:23:08.638966+00:00",
+        "reviewed_at": "2026-09-26T16:40:09.634035+00:00",
         "executor": "Codex inline to-screen-map",
         "scope": "Owner-reconciled definition; implementation verification remains pending."
       },
@@ -3752,13 +3766,13 @@
     "wireframes": {
       "path": "docs/wireframes.md",
       "owner_skill": "to-wireframes",
-      "owner_invocation_id": "critic-cache-usage-20260926-wireframes",
+      "owner_invocation_id": "upstream-usage-20260926-wireframes",
       "declared_output_set": [
         "docs/wireframes.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "critic-cache-usage-20260926",
+      "source_version": "upstream-usage-20260926",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3775,15 +3789,16 @@
         "forge/runs/chat-center-20260926/scope.json": "full",
         "forge/runs/chat-boundaries-20260926/scope.json": "full",
         "forge/runs/research-economy-20260926/scope.json": "full",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "full"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "full",
+        "forge/runs/upstream-usage-20260926/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "7d6cc496de1c8d364772599f29cee1dfb617a8322ccce681c58af3146d556539",
-        "docs/project-context.md": "e82a9697e89baa18d3e737e7e59d8bc05cc353be28357bbc24731fbba327fe6c",
-        "docs/canonical-terms.md": "713e78e74cb5d02b1a472b557f38a38237d0b40f43c09a4c27738dd9736354a8",
-        "docs/guardrails.md": "a22ae6d38d115d9dcdd7102157625e7ca807e5da8a788616cbaf9daa2ead49c8",
-        "docs/user-journey.md": "2e2483b80ce99d53abec15f99fd17f2f6cb98622b5d25c72c9a27c3bae18002c",
-        "docs/screen-map.md": "3c0b6173e3cde3c5d2343e6eab891931082be0b5bc96f431a7804230ff300c01",
+        "docs/prd.md": "ea277a93cda7ba31d77fdd0c90b9789309823ec349b5279ae3a9cb03250dbc96",
+        "docs/project-context.md": "bc1e97dab0e3f3bd07773c6385acc75fd5080e50b51a713edee1719c524f4477",
+        "docs/canonical-terms.md": "fb471350af7a97660a3a280e05bc53f888ee12b09b5b65b05db02e73ea106391",
+        "docs/guardrails.md": "98dd75f355f3ce068db16066d21ea2ef68b1b86a4c58623cc685c6a3b0cd3e71",
+        "docs/user-journey.md": "1f8bf119438a5bf8a6f0adf0f01ea7ff4c67cc890e50c9e6218cc97e06bea104",
+        "docs/screen-map.md": "953b93c1c4b7f01d23e765d31def6dbfa15b1d12e705a405310b074442e91854",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e",
@@ -3793,7 +3808,8 @@
         "forge/runs/chat-center-20260926/scope.json": "c9df24147feca20d36881d6ee508be68a898cd32d241eec6cde54e9d473131cb",
         "forge/runs/chat-boundaries-20260926/scope.json": "08e4fb98611833bcc9314a492457e00925b488363408d7c8d07105186f5998d6",
         "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a"
       },
       "dependencies": [
         "prd",
@@ -3803,12 +3819,12 @@
         "user-journey",
         "screen-map"
       ],
-      "content_hash": "f12297b7a05c5f3207e0c61ab9f38cebdd16c115d91b03f8c84e4d6d84e0df0b",
+      "content_hash": "260d88717f10ad17f7448caee2370e446a479eacadcf6d92209216be563cebff",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T16:23:08.638966+00:00",
+        "reviewed_at": "2026-09-26T16:40:09.634035+00:00",
         "executor": "Codex inline to-wireframes",
         "scope": "The owner requests Discussion, Outcome, Sources and Usage in the sticky menu. Group the existing status/Stop row and four view tabs in one sticky Discussion header below the main navigation. Preserve content order and access on narrow screens; the transcript and selected panel scroll underneath."
       },
@@ -3817,13 +3833,13 @@
     "design-brief": {
       "path": "docs/design-brief.md",
       "owner_skill": "to-design-brief",
-      "owner_invocation_id": "critic-cache-usage-20260926-design-brief",
+      "owner_invocation_id": "upstream-usage-20260926-design-brief",
       "declared_output_set": [
         "docs/design-brief.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "critic-cache-usage-20260926",
+      "source_version": "upstream-usage-20260926",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3843,16 +3859,17 @@
         "forge/runs/chat-center-20260926/scope.json": "full",
         "forge/runs/chat-boundaries-20260926/scope.json": "full",
         "forge/runs/research-economy-20260926/scope.json": "full",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "full"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "full",
+        "forge/runs/upstream-usage-20260926/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "7d6cc496de1c8d364772599f29cee1dfb617a8322ccce681c58af3146d556539",
-        "docs/project-context.md": "e82a9697e89baa18d3e737e7e59d8bc05cc353be28357bbc24731fbba327fe6c",
-        "docs/canonical-terms.md": "713e78e74cb5d02b1a472b557f38a38237d0b40f43c09a4c27738dd9736354a8",
-        "docs/guardrails.md": "a22ae6d38d115d9dcdd7102157625e7ca807e5da8a788616cbaf9daa2ead49c8",
-        "docs/user-journey.md": "2e2483b80ce99d53abec15f99fd17f2f6cb98622b5d25c72c9a27c3bae18002c",
-        "docs/screen-map.md": "3c0b6173e3cde3c5d2343e6eab891931082be0b5bc96f431a7804230ff300c01",
-        "docs/wireframes.md": "f12297b7a05c5f3207e0c61ab9f38cebdd16c115d91b03f8c84e4d6d84e0df0b",
+        "docs/prd.md": "ea277a93cda7ba31d77fdd0c90b9789309823ec349b5279ae3a9cb03250dbc96",
+        "docs/project-context.md": "bc1e97dab0e3f3bd07773c6385acc75fd5080e50b51a713edee1719c524f4477",
+        "docs/canonical-terms.md": "fb471350af7a97660a3a280e05bc53f888ee12b09b5b65b05db02e73ea106391",
+        "docs/guardrails.md": "98dd75f355f3ce068db16066d21ea2ef68b1b86a4c58623cc685c6a3b0cd3e71",
+        "docs/user-journey.md": "1f8bf119438a5bf8a6f0adf0f01ea7ff4c67cc890e50c9e6218cc97e06bea104",
+        "docs/screen-map.md": "953b93c1c4b7f01d23e765d31def6dbfa15b1d12e705a405310b074442e91854",
+        "docs/wireframes.md": "260d88717f10ad17f7448caee2370e446a479eacadcf6d92209216be563cebff",
         "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b",
         "forge/runs/porcelain-stop-20260924/scoped-override.json": "df8177ecc6e68c658ff5672b14e7def000ba241f9932639711885a4ba17afc74",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
@@ -3864,7 +3881,8 @@
         "forge/runs/chat-center-20260926/scope.json": "c9df24147feca20d36881d6ee508be68a898cd32d241eec6cde54e9d473131cb",
         "forge/runs/chat-boundaries-20260926/scope.json": "08e4fb98611833bcc9314a492457e00925b488363408d7c8d07105186f5998d6",
         "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a"
       },
       "dependencies": [
         "prd",
@@ -3875,12 +3893,12 @@
         "screen-map",
         "wireframes"
       ],
-      "content_hash": "d9f51c959d98be2a617f7cc5148fe8a9f9f471aca17f6c5c406aeefc95e198c9",
+      "content_hash": "88db6940cdad8ee056d277f5cf0c13f1ee0b131bb2ec2d926ffea546a9acd3c7",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T16:23:08.638966+00:00",
+        "reviewed_at": "2026-09-26T16:40:09.634035+00:00",
         "executor": "Codex inline to-design-brief",
         "scope": "Accepted [sticky-view navigation override](../forge/runs/sticky-view-nav-20260925/scope.json): retain Electric A v8 and P5 appearance, and pin the existing status/Stop row plus all four view tabs below the main menu. Use the canvas background and existing separators; no overlay obscures the tabs or Stop. The override is limited to positioning and persistent reachability."
       },
@@ -3959,13 +3977,13 @@
       },
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "critic-cache-usage-20260926-architecture",
+      "owner_invocation_id": "upstream-usage-20260926-architecture",
       "declared_output_set": [
         "docs/architecture.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "critic-cache-usage-20260926",
+      "source_version": "upstream-usage-20260926",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -3991,17 +4009,18 @@
         "forge/runs/chat-center-20260926/scope.json": "full",
         "forge/runs/chat-boundaries-20260926/scope.json": "full",
         "forge/runs/research-economy-20260926/scope.json": "full",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "full"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "full",
+        "forge/runs/upstream-usage-20260926/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "7d6cc496de1c8d364772599f29cee1dfb617a8322ccce681c58af3146d556539",
-        "docs/project-context.md": "e82a9697e89baa18d3e737e7e59d8bc05cc353be28357bbc24731fbba327fe6c",
-        "docs/canonical-terms.md": "713e78e74cb5d02b1a472b557f38a38237d0b40f43c09a4c27738dd9736354a8",
-        "docs/guardrails.md": "a22ae6d38d115d9dcdd7102157625e7ca807e5da8a788616cbaf9daa2ead49c8",
-        "docs/user-journey.md": "2e2483b80ce99d53abec15f99fd17f2f6cb98622b5d25c72c9a27c3bae18002c",
-        "docs/screen-map.md": "3c0b6173e3cde3c5d2343e6eab891931082be0b5bc96f431a7804230ff300c01",
-        "docs/wireframes.md": "f12297b7a05c5f3207e0c61ab9f38cebdd16c115d91b03f8c84e4d6d84e0df0b",
-        "docs/design-brief.md": "d9f51c959d98be2a617f7cc5148fe8a9f9f471aca17f6c5c406aeefc95e198c9",
+        "docs/prd.md": "ea277a93cda7ba31d77fdd0c90b9789309823ec349b5279ae3a9cb03250dbc96",
+        "docs/project-context.md": "bc1e97dab0e3f3bd07773c6385acc75fd5080e50b51a713edee1719c524f4477",
+        "docs/canonical-terms.md": "fb471350af7a97660a3a280e05bc53f888ee12b09b5b65b05db02e73ea106391",
+        "docs/guardrails.md": "98dd75f355f3ce068db16066d21ea2ef68b1b86a4c58623cc685c6a3b0cd3e71",
+        "docs/user-journey.md": "1f8bf119438a5bf8a6f0adf0f01ea7ff4c67cc890e50c9e6218cc97e06bea104",
+        "docs/screen-map.md": "953b93c1c4b7f01d23e765d31def6dbfa15b1d12e705a405310b074442e91854",
+        "docs/wireframes.md": "260d88717f10ad17f7448caee2370e446a479eacadcf6d92209216be563cebff",
+        "docs/design-brief.md": "88db6940cdad8ee056d277f5cf0c13f1ee0b131bb2ec2d926ffea546a9acd3c7",
         "docs/model-settings.md": "2d0b9fe9d045e289b228adfe2d27aa6c1d94632eef60c78df60091eb181c4628",
         "forge/runs/claude-signin-20260922/source-review.json": "ad878d853b9c6f30da817167e1db6dffaad9c2c2863354ad3331294d7b269def",
         "forge/runs/sound-media-playback-20260923/scope.json": "7a5aa70bf52fa77a4dea9e39e5a49453c6be40c5b1a347632f4da4f5294455a0",
@@ -4018,7 +4037,8 @@
         "forge/runs/chat-center-20260926/scope.json": "c9df24147feca20d36881d6ee508be68a898cd32d241eec6cde54e9d473131cb",
         "forge/runs/chat-boundaries-20260926/scope.json": "08e4fb98611833bcc9314a492457e00925b488363408d7c8d07105186f5998d6",
         "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a"
       },
       "dependencies": [
         "prd",
@@ -4030,12 +4050,12 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "5ca587f38cb8089b460e779c279dc71351e2d050d3d8c2f0c9bdf4afabca9870",
+      "content_hash": "2f54aed2660afce94f8b88769e09b3e097122d2d47046b2f29576744a9fa6bf4",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T16:23:08.638966+00:00",
+        "reviewed_at": "2026-09-26T16:40:09.634035+00:00",
         "executor": "Codex inline to-architecture",
         "scope": "Existing source persistence and recovery contract repair; retained upstream scope and approved baseline."
       },
@@ -4115,13 +4135,13 @@
       },
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "critic-cache-usage-20260926-dod-evals",
+      "owner_invocation_id": "upstream-usage-20260926-dod-evals",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "critic-cache-usage-20260926",
+      "source_version": "upstream-usage-20260926",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -4143,18 +4163,19 @@
         "forge/runs/chat-center-20260926/scope.json": "full",
         "forge/runs/chat-boundaries-20260926/scope.json": "full",
         "forge/runs/research-economy-20260926/scope.json": "full",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "full"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "full",
+        "forge/runs/upstream-usage-20260926/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "7d6cc496de1c8d364772599f29cee1dfb617a8322ccce681c58af3146d556539",
-        "docs/project-context.md": "e82a9697e89baa18d3e737e7e59d8bc05cc353be28357bbc24731fbba327fe6c",
-        "docs/canonical-terms.md": "713e78e74cb5d02b1a472b557f38a38237d0b40f43c09a4c27738dd9736354a8",
-        "docs/guardrails.md": "a22ae6d38d115d9dcdd7102157625e7ca807e5da8a788616cbaf9daa2ead49c8",
-        "docs/user-journey.md": "2e2483b80ce99d53abec15f99fd17f2f6cb98622b5d25c72c9a27c3bae18002c",
-        "docs/screen-map.md": "3c0b6173e3cde3c5d2343e6eab891931082be0b5bc96f431a7804230ff300c01",
-        "docs/wireframes.md": "f12297b7a05c5f3207e0c61ab9f38cebdd16c115d91b03f8c84e4d6d84e0df0b",
-        "docs/design-brief.md": "d9f51c959d98be2a617f7cc5148fe8a9f9f471aca17f6c5c406aeefc95e198c9",
-        "docs/architecture.md": "5ca587f38cb8089b460e779c279dc71351e2d050d3d8c2f0c9bdf4afabca9870",
+        "docs/prd.md": "ea277a93cda7ba31d77fdd0c90b9789309823ec349b5279ae3a9cb03250dbc96",
+        "docs/project-context.md": "bc1e97dab0e3f3bd07773c6385acc75fd5080e50b51a713edee1719c524f4477",
+        "docs/canonical-terms.md": "fb471350af7a97660a3a280e05bc53f888ee12b09b5b65b05db02e73ea106391",
+        "docs/guardrails.md": "98dd75f355f3ce068db16066d21ea2ef68b1b86a4c58623cc685c6a3b0cd3e71",
+        "docs/user-journey.md": "1f8bf119438a5bf8a6f0adf0f01ea7ff4c67cc890e50c9e6218cc97e06bea104",
+        "docs/screen-map.md": "953b93c1c4b7f01d23e765d31def6dbfa15b1d12e705a405310b074442e91854",
+        "docs/wireframes.md": "260d88717f10ad17f7448caee2370e446a479eacadcf6d92209216be563cebff",
+        "docs/design-brief.md": "88db6940cdad8ee056d277f5cf0c13f1ee0b131bb2ec2d926ffea546a9acd3c7",
+        "docs/architecture.md": "2f54aed2660afce94f8b88769e09b3e097122d2d47046b2f29576744a9fa6bf4",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e",
@@ -4166,7 +4187,8 @@
         "forge/runs/chat-center-20260926/scope.json": "c9df24147feca20d36881d6ee508be68a898cd32d241eec6cde54e9d473131cb",
         "forge/runs/chat-boundaries-20260926/scope.json": "08e4fb98611833bcc9314a492457e00925b488363408d7c8d07105186f5998d6",
         "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a"
       },
       "dependencies": [
         "prd",
@@ -4179,12 +4201,12 @@
         "design-brief",
         "architecture"
       ],
-      "content_hash": "a2d8ef94546df28a8a487ef5c5b318d0ac4f8f31b93c8dc93fab29c341d43eb0",
+      "content_hash": "58ab1b925dfd33e1af84f1e83a002e9089bf3901869f48800f7a0c40f455ccf5",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T16:23:08.638966+00:00",
+        "reviewed_at": "2026-09-26T16:40:09.634035+00:00",
         "executor": "Codex inline to-dod-evals",
         "scope": "Existing source persistence and recovery contract repair; retained upstream scope and approved baseline."
       },
@@ -6130,7 +6152,7 @@
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "critic-cache-usage-20260926",
+      "source_version": "upstream-usage-20260926",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -6156,19 +6178,21 @@
         "forge/runs/research-economy-20260926/scope.json": "full",
         "forge/runs/research-economy-20260926/verification.json": "full",
         "forge/runs/critic-cache-usage-20260926/scope.json": "full",
-        "forge/runs/critic-cache-usage-20260926/verification.json": "full"
+        "forge/runs/critic-cache-usage-20260926/verification.json": "full",
+        "forge/runs/upstream-usage-20260926/scope.json": "full",
+        "forge/runs/upstream-usage-20260926/verification.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "7d6cc496de1c8d364772599f29cee1dfb617a8322ccce681c58af3146d556539",
-        "docs/project-context.md": "e82a9697e89baa18d3e737e7e59d8bc05cc353be28357bbc24731fbba327fe6c",
-        "docs/canonical-terms.md": "713e78e74cb5d02b1a472b557f38a38237d0b40f43c09a4c27738dd9736354a8",
-        "docs/guardrails.md": "a22ae6d38d115d9dcdd7102157625e7ca807e5da8a788616cbaf9daa2ead49c8",
-        "docs/user-journey.md": "2e2483b80ce99d53abec15f99fd17f2f6cb98622b5d25c72c9a27c3bae18002c",
-        "docs/screen-map.md": "3c0b6173e3cde3c5d2343e6eab891931082be0b5bc96f431a7804230ff300c01",
-        "docs/wireframes.md": "f12297b7a05c5f3207e0c61ab9f38cebdd16c115d91b03f8c84e4d6d84e0df0b",
-        "docs/design-brief.md": "d9f51c959d98be2a617f7cc5148fe8a9f9f471aca17f6c5c406aeefc95e198c9",
-        "docs/architecture.md": "5ca587f38cb8089b460e779c279dc71351e2d050d3d8c2f0c9bdf4afabca9870",
-        "docs/dod-evals.md": "a2d8ef94546df28a8a487ef5c5b318d0ac4f8f31b93c8dc93fab29c341d43eb0",
+        "docs/prd.md": "ea277a93cda7ba31d77fdd0c90b9789309823ec349b5279ae3a9cb03250dbc96",
+        "docs/project-context.md": "bc1e97dab0e3f3bd07773c6385acc75fd5080e50b51a713edee1719c524f4477",
+        "docs/canonical-terms.md": "fb471350af7a97660a3a280e05bc53f888ee12b09b5b65b05db02e73ea106391",
+        "docs/guardrails.md": "98dd75f355f3ce068db16066d21ea2ef68b1b86a4c58623cc685c6a3b0cd3e71",
+        "docs/user-journey.md": "1f8bf119438a5bf8a6f0adf0f01ea7ff4c67cc890e50c9e6218cc97e06bea104",
+        "docs/screen-map.md": "953b93c1c4b7f01d23e765d31def6dbfa15b1d12e705a405310b074442e91854",
+        "docs/wireframes.md": "260d88717f10ad17f7448caee2370e446a479eacadcf6d92209216be563cebff",
+        "docs/design-brief.md": "88db6940cdad8ee056d277f5cf0c13f1ee0b131bb2ec2d926ffea546a9acd3c7",
+        "docs/architecture.md": "2f54aed2660afce94f8b88769e09b3e097122d2d47046b2f29576744a9fa6bf4",
+        "docs/dod-evals.md": "58ab1b925dfd33e1af84f1e83a002e9089bf3901869f48800f7a0c40f455ccf5",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/critic-usage-20260925/verification.json": "3bb9e18d641a3053af6a0206de3eb4b0859b9a096199b96eae3cd3b06a79df13",
@@ -6183,7 +6207,9 @@
         "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
         "forge/runs/research-economy-20260926/verification.json": "59b0b21c0d488353b459b752172658d347f67193a6cded3af8cb75c16acc3625",
         "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
-        "forge/runs/critic-cache-usage-20260926/verification.json": "b4ddc11dd37a3b557bda3c59faca0b59c6494d75044849b4b0dcd4d71517c77f"
+        "forge/runs/critic-cache-usage-20260926/verification.json": "b4ddc11dd37a3b557bda3c59faca0b59c6494d75044849b4b0dcd4d71517c77f",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
+        "forge/runs/upstream-usage-20260926/verification.json": "84864d07257cfdac94cc5e091a3c844094b8a3563f9067369c152f3edfd47acb"
       },
       "dependencies": [
         "prd",
@@ -6197,12 +6223,12 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "80bd049e36087a465c0c74a62dbf635ea105abd1aaa3c8701a56b873bad3df59",
+      "content_hash": "3aa375effa72b899543a5eb5973b04e634d5104c0b6ecfcbf57cba439bb0c512",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T16:23:13.938416+00:00",
+        "reviewed_at": "2026-09-26T16:45:53.591559+00:00",
         "executor": "Codex inline to-qa-checklist",
         "scope": "Existing source persistence and recovery contract repair; retained upstream scope and approved baseline."
       },
@@ -7437,7 +7463,7 @@
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "critic-cache-usage-20260926",
+      "source_version": "upstream-usage-20260926",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -7467,20 +7493,22 @@
         "forge/runs/research-economy-20260926/scope.json": "full",
         "forge/runs/research-economy-20260926/verification.json": "full",
         "forge/runs/critic-cache-usage-20260926/scope.json": "full",
-        "forge/runs/critic-cache-usage-20260926/verification.json": "full"
+        "forge/runs/critic-cache-usage-20260926/verification.json": "full",
+        "forge/runs/upstream-usage-20260926/scope.json": "full",
+        "forge/runs/upstream-usage-20260926/verification.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "7d6cc496de1c8d364772599f29cee1dfb617a8322ccce681c58af3146d556539",
-        "docs/project-context.md": "e82a9697e89baa18d3e737e7e59d8bc05cc353be28357bbc24731fbba327fe6c",
-        "docs/canonical-terms.md": "713e78e74cb5d02b1a472b557f38a38237d0b40f43c09a4c27738dd9736354a8",
-        "docs/guardrails.md": "a22ae6d38d115d9dcdd7102157625e7ca807e5da8a788616cbaf9daa2ead49c8",
-        "docs/user-journey.md": "2e2483b80ce99d53abec15f99fd17f2f6cb98622b5d25c72c9a27c3bae18002c",
-        "docs/screen-map.md": "3c0b6173e3cde3c5d2343e6eab891931082be0b5bc96f431a7804230ff300c01",
-        "docs/wireframes.md": "f12297b7a05c5f3207e0c61ab9f38cebdd16c115d91b03f8c84e4d6d84e0df0b",
-        "docs/design-brief.md": "d9f51c959d98be2a617f7cc5148fe8a9f9f471aca17f6c5c406aeefc95e198c9",
-        "docs/architecture.md": "5ca587f38cb8089b460e779c279dc71351e2d050d3d8c2f0c9bdf4afabca9870",
-        "docs/dod-evals.md": "a2d8ef94546df28a8a487ef5c5b318d0ac4f8f31b93c8dc93fab29c341d43eb0",
-        "docs/qa-checklist.md": "80bd049e36087a465c0c74a62dbf635ea105abd1aaa3c8701a56b873bad3df59",
+        "docs/prd.md": "ea277a93cda7ba31d77fdd0c90b9789309823ec349b5279ae3a9cb03250dbc96",
+        "docs/project-context.md": "bc1e97dab0e3f3bd07773c6385acc75fd5080e50b51a713edee1719c524f4477",
+        "docs/canonical-terms.md": "fb471350af7a97660a3a280e05bc53f888ee12b09b5b65b05db02e73ea106391",
+        "docs/guardrails.md": "98dd75f355f3ce068db16066d21ea2ef68b1b86a4c58623cc685c6a3b0cd3e71",
+        "docs/user-journey.md": "1f8bf119438a5bf8a6f0adf0f01ea7ff4c67cc890e50c9e6218cc97e06bea104",
+        "docs/screen-map.md": "953b93c1c4b7f01d23e765d31def6dbfa15b1d12e705a405310b074442e91854",
+        "docs/wireframes.md": "260d88717f10ad17f7448caee2370e446a479eacadcf6d92209216be563cebff",
+        "docs/design-brief.md": "88db6940cdad8ee056d277f5cf0c13f1ee0b131bb2ec2d926ffea546a9acd3c7",
+        "docs/architecture.md": "2f54aed2660afce94f8b88769e09b3e097122d2d47046b2f29576744a9fa6bf4",
+        "docs/dod-evals.md": "58ab1b925dfd33e1af84f1e83a002e9089bf3901869f48800f7a0c40f455ccf5",
+        "docs/qa-checklist.md": "3aa375effa72b899543a5eb5973b04e634d5104c0b6ecfcbf57cba439bb0c512",
         "docs/model-settings.md": "2d0b9fe9d045e289b228adfe2d27aa6c1d94632eef60c78df60091eb181c4628",
         "package.json": "094e408c16c3a8369b9f21a343bb562dc0cd20160e26b6c01f144bd83712a568",
         "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318",
@@ -7498,7 +7526,9 @@
         "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
         "forge/runs/research-economy-20260926/verification.json": "59b0b21c0d488353b459b752172658d347f67193a6cded3af8cb75c16acc3625",
         "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
-        "forge/runs/critic-cache-usage-20260926/verification.json": "b4ddc11dd37a3b557bda3c59faca0b59c6494d75044849b4b0dcd4d71517c77f"
+        "forge/runs/critic-cache-usage-20260926/verification.json": "b4ddc11dd37a3b557bda3c59faca0b59c6494d75044849b4b0dcd4d71517c77f",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
+        "forge/runs/upstream-usage-20260926/verification.json": "84864d07257cfdac94cc5e091a3c844094b8a3563f9067369c152f3edfd47acb"
       },
       "dependencies": [
         "prd",
@@ -7513,12 +7543,12 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "0451eb471d1f59536d378a44475f15f623654e92da95f604cfe3cadce74417fc",
+      "content_hash": "e9d6b52358876b3ad3292d1a30d038e76f6675f6863b36a810225391c3662845",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T16:23:13.938416+00:00",
+        "reviewed_at": "2026-09-26T16:45:53.591559+00:00",
         "executor": "Codex inline to-development-plan",
         "scope": "Existing source persistence and recovery contract repair; retained upstream scope and approved baseline."
       },
@@ -8052,8 +8082,8 @@
     "definition_status": "prepared",
     "release_readiness": "not_evaluated",
     "source_hashes": {
-      "docs/dod-evals.md": "a2d8ef94546df28a8a487ef5c5b318d0ac4f8f31b93c8dc93fab29c341d43eb0",
-      "docs/qa-checklist.md": "80bd049e36087a465c0c74a62dbf635ea105abd1aaa3c8701a56b873bad3df59"
+      "docs/dod-evals.md": "58ab1b925dfd33e1af84f1e83a002e9089bf3901869f48800f7a0c40f455ccf5",
+      "docs/qa-checklist.md": "3aa375effa72b899543a5eb5973b04e634d5104c0b6ecfcbf57cba439bb0c512"
     },
     "gates": [
       {
@@ -11083,22 +11113,22 @@
   },
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "0451eb471d1f59536d378a44475f15f623654e92da95f604cfe3cadce74417fc",
+    "development_plan_hash": "e9d6b52358876b3ad3292d1a30d038e76f6675f6863b36a810225391c3662845",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-24T13:00:20.203238+00:00",
     "product_scope_hash": "defc5e24f0dd91be42b984888b157137f4f1ed361459e70f42b832e18c957bd4",
-    "prompt_id": "critic-cache-usage-20260926",
-    "prompt_received_at": "2026-09-26T16:23:13.812261+00:00",
-    "released_at": "2026-09-26T16:23:13.812261+00:00",
+    "prompt_id": "upstream-usage-20260926",
+    "prompt_received_at": "2026-09-26T16:40:14.874891+00:00",
+    "released_at": "2026-09-26T16:40:14.874891+00:00",
     "reason": "User explicitly requested formation and implementation of the discussed research/evidence unit.",
     "prompt_receipt": {
-      "path": "forge/runs/critic-cache-usage-20260926/implementation-prompt.json",
-      "content_hash": "2d95221cb2f84e924114500538865a4aeb370aa77f13e429cdb751b0d708a296"
+      "path": "forge/runs/upstream-usage-20260926/implementation-prompt.json",
+      "content_hash": "b88c8f780d1cee48c2654c9e926356a81c4b33b44170646d5a225252b1ecf11c"
     }
   },
   "dispatches": {
     "product-idea": {
-      "invocation_id": "critic-cache-usage-20260926-product-idea",
+      "invocation_id": "upstream-usage-20260926-product-idea",
       "outputs": [
         "docs/product-idea.md"
       ],
@@ -11116,109 +11146,115 @@
         "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
         "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
         "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a"
       }
     },
     "prd": {
-      "invocation_id": "critic-cache-usage-20260926-prd",
+      "invocation_id": "upstream-usage-20260926-prd",
       "outputs": [
         "docs/prd.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "d4dd84b2273099d9fc92e5291b0dbbd3fb426d74f02e5c260cac9938cda5c863",
+        "docs/product-idea.md": "60efe06eca4f3d843bd4672fe2a2b3b04a7e726f13566982443b27809d4ec9f9",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
         "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
         "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
         "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a"
       }
     },
     "project-context": {
-      "invocation_id": "critic-cache-usage-20260926-project-context",
+      "invocation_id": "upstream-usage-20260926-project-context",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "d4dd84b2273099d9fc92e5291b0dbbd3fb426d74f02e5c260cac9938cda5c863",
-        "docs/prd.md": "7d6cc496de1c8d364772599f29cee1dfb617a8322ccce681c58af3146d556539",
+        "docs/product-idea.md": "60efe06eca4f3d843bd4672fe2a2b3b04a7e726f13566982443b27809d4ec9f9",
+        "docs/prd.md": "ea277a93cda7ba31d77fdd0c90b9789309823ec349b5279ae3a9cb03250dbc96",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
         "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
         "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
         "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a"
       }
     },
     "canonical-terms": {
-      "invocation_id": "critic-cache-usage-20260926-project-context",
+      "invocation_id": "upstream-usage-20260926-project-context",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "d4dd84b2273099d9fc92e5291b0dbbd3fb426d74f02e5c260cac9938cda5c863",
-        "docs/prd.md": "7d6cc496de1c8d364772599f29cee1dfb617a8322ccce681c58af3146d556539",
+        "docs/product-idea.md": "60efe06eca4f3d843bd4672fe2a2b3b04a7e726f13566982443b27809d4ec9f9",
+        "docs/prd.md": "ea277a93cda7ba31d77fdd0c90b9789309823ec349b5279ae3a9cb03250dbc96",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
         "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
         "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
         "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a"
       }
     },
     "guardrails": {
-      "invocation_id": "critic-cache-usage-20260926-guardrails",
+      "invocation_id": "upstream-usage-20260926-guardrails",
       "outputs": [
         "docs/guardrails.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "7d6cc496de1c8d364772599f29cee1dfb617a8322ccce681c58af3146d556539",
-        "docs/project-context.md": "e82a9697e89baa18d3e737e7e59d8bc05cc353be28357bbc24731fbba327fe6c",
-        "docs/canonical-terms.md": "713e78e74cb5d02b1a472b557f38a38237d0b40f43c09a4c27738dd9736354a8",
+        "docs/prd.md": "ea277a93cda7ba31d77fdd0c90b9789309823ec349b5279ae3a9cb03250dbc96",
+        "docs/project-context.md": "bc1e97dab0e3f3bd07773c6385acc75fd5080e50b51a713edee1719c524f4477",
+        "docs/canonical-terms.md": "fb471350af7a97660a3a280e05bc53f888ee12b09b5b65b05db02e73ea106391",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
         "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
         "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
         "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a"
       }
     },
     "user-journey": {
-      "invocation_id": "critic-cache-usage-20260926-user-journey",
+      "invocation_id": "upstream-usage-20260926-user-journey",
       "outputs": [
         "docs/user-journey.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "7d6cc496de1c8d364772599f29cee1dfb617a8322ccce681c58af3146d556539",
-        "docs/project-context.md": "e82a9697e89baa18d3e737e7e59d8bc05cc353be28357bbc24731fbba327fe6c",
-        "docs/canonical-terms.md": "713e78e74cb5d02b1a472b557f38a38237d0b40f43c09a4c27738dd9736354a8",
-        "docs/guardrails.md": "a22ae6d38d115d9dcdd7102157625e7ca807e5da8a788616cbaf9daa2ead49c8",
+        "docs/prd.md": "ea277a93cda7ba31d77fdd0c90b9789309823ec349b5279ae3a9cb03250dbc96",
+        "docs/project-context.md": "bc1e97dab0e3f3bd07773c6385acc75fd5080e50b51a713edee1719c524f4477",
+        "docs/canonical-terms.md": "fb471350af7a97660a3a280e05bc53f888ee12b09b5b65b05db02e73ea106391",
+        "docs/guardrails.md": "98dd75f355f3ce068db16066d21ea2ef68b1b86a4c58623cc685c6a3b0cd3e71",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
         "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
         "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
         "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a"
       }
     },
     "screen-map": {
-      "invocation_id": "critic-cache-usage-20260926-screen-map",
+      "invocation_id": "upstream-usage-20260926-screen-map",
       "outputs": [
         "docs/screen-map.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "7d6cc496de1c8d364772599f29cee1dfb617a8322ccce681c58af3146d556539",
-        "docs/project-context.md": "e82a9697e89baa18d3e737e7e59d8bc05cc353be28357bbc24731fbba327fe6c",
-        "docs/canonical-terms.md": "713e78e74cb5d02b1a472b557f38a38237d0b40f43c09a4c27738dd9736354a8",
-        "docs/guardrails.md": "a22ae6d38d115d9dcdd7102157625e7ca807e5da8a788616cbaf9daa2ead49c8",
-        "docs/user-journey.md": "2e2483b80ce99d53abec15f99fd17f2f6cb98622b5d25c72c9a27c3bae18002c",
+        "docs/prd.md": "ea277a93cda7ba31d77fdd0c90b9789309823ec349b5279ae3a9cb03250dbc96",
+        "docs/project-context.md": "bc1e97dab0e3f3bd07773c6385acc75fd5080e50b51a713edee1719c524f4477",
+        "docs/canonical-terms.md": "fb471350af7a97660a3a280e05bc53f888ee12b09b5b65b05db02e73ea106391",
+        "docs/guardrails.md": "98dd75f355f3ce068db16066d21ea2ef68b1b86a4c58623cc685c6a3b0cd3e71",
+        "docs/user-journey.md": "1f8bf119438a5bf8a6f0adf0f01ea7ff4c67cc890e50c9e6218cc97e06bea104",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -11227,21 +11263,22 @@
         "forge/runs/chat-center-20260926/scope.json": "c9df24147feca20d36881d6ee508be68a898cd32d241eec6cde54e9d473131cb",
         "forge/runs/chat-boundaries-20260926/scope.json": "08e4fb98611833bcc9314a492457e00925b488363408d7c8d07105186f5998d6",
         "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a"
       }
     },
     "wireframes": {
-      "invocation_id": "critic-cache-usage-20260926-wireframes",
+      "invocation_id": "upstream-usage-20260926-wireframes",
       "outputs": [
         "docs/wireframes.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "7d6cc496de1c8d364772599f29cee1dfb617a8322ccce681c58af3146d556539",
-        "docs/project-context.md": "e82a9697e89baa18d3e737e7e59d8bc05cc353be28357bbc24731fbba327fe6c",
-        "docs/canonical-terms.md": "713e78e74cb5d02b1a472b557f38a38237d0b40f43c09a4c27738dd9736354a8",
-        "docs/guardrails.md": "a22ae6d38d115d9dcdd7102157625e7ca807e5da8a788616cbaf9daa2ead49c8",
-        "docs/user-journey.md": "2e2483b80ce99d53abec15f99fd17f2f6cb98622b5d25c72c9a27c3bae18002c",
-        "docs/screen-map.md": "3c0b6173e3cde3c5d2343e6eab891931082be0b5bc96f431a7804230ff300c01",
+        "docs/prd.md": "ea277a93cda7ba31d77fdd0c90b9789309823ec349b5279ae3a9cb03250dbc96",
+        "docs/project-context.md": "bc1e97dab0e3f3bd07773c6385acc75fd5080e50b51a713edee1719c524f4477",
+        "docs/canonical-terms.md": "fb471350af7a97660a3a280e05bc53f888ee12b09b5b65b05db02e73ea106391",
+        "docs/guardrails.md": "98dd75f355f3ce068db16066d21ea2ef68b1b86a4c58623cc685c6a3b0cd3e71",
+        "docs/user-journey.md": "1f8bf119438a5bf8a6f0adf0f01ea7ff4c67cc890e50c9e6218cc97e06bea104",
+        "docs/screen-map.md": "953b93c1c4b7f01d23e765d31def6dbfa15b1d12e705a405310b074442e91854",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e",
@@ -11251,22 +11288,23 @@
         "forge/runs/chat-center-20260926/scope.json": "c9df24147feca20d36881d6ee508be68a898cd32d241eec6cde54e9d473131cb",
         "forge/runs/chat-boundaries-20260926/scope.json": "08e4fb98611833bcc9314a492457e00925b488363408d7c8d07105186f5998d6",
         "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a"
       }
     },
     "design-brief": {
-      "invocation_id": "critic-cache-usage-20260926-design-brief",
+      "invocation_id": "upstream-usage-20260926-design-brief",
       "outputs": [
         "docs/design-brief.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "7d6cc496de1c8d364772599f29cee1dfb617a8322ccce681c58af3146d556539",
-        "docs/project-context.md": "e82a9697e89baa18d3e737e7e59d8bc05cc353be28357bbc24731fbba327fe6c",
-        "docs/canonical-terms.md": "713e78e74cb5d02b1a472b557f38a38237d0b40f43c09a4c27738dd9736354a8",
-        "docs/guardrails.md": "a22ae6d38d115d9dcdd7102157625e7ca807e5da8a788616cbaf9daa2ead49c8",
-        "docs/user-journey.md": "2e2483b80ce99d53abec15f99fd17f2f6cb98622b5d25c72c9a27c3bae18002c",
-        "docs/screen-map.md": "3c0b6173e3cde3c5d2343e6eab891931082be0b5bc96f431a7804230ff300c01",
-        "docs/wireframes.md": "f12297b7a05c5f3207e0c61ab9f38cebdd16c115d91b03f8c84e4d6d84e0df0b",
+        "docs/prd.md": "ea277a93cda7ba31d77fdd0c90b9789309823ec349b5279ae3a9cb03250dbc96",
+        "docs/project-context.md": "bc1e97dab0e3f3bd07773c6385acc75fd5080e50b51a713edee1719c524f4477",
+        "docs/canonical-terms.md": "fb471350af7a97660a3a280e05bc53f888ee12b09b5b65b05db02e73ea106391",
+        "docs/guardrails.md": "98dd75f355f3ce068db16066d21ea2ef68b1b86a4c58623cc685c6a3b0cd3e71",
+        "docs/user-journey.md": "1f8bf119438a5bf8a6f0adf0f01ea7ff4c67cc890e50c9e6218cc97e06bea104",
+        "docs/screen-map.md": "953b93c1c4b7f01d23e765d31def6dbfa15b1d12e705a405310b074442e91854",
+        "docs/wireframes.md": "260d88717f10ad17f7448caee2370e446a479eacadcf6d92209216be563cebff",
         "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b",
         "forge/runs/porcelain-stop-20260924/scoped-override.json": "df8177ecc6e68c658ff5672b14e7def000ba241f9932639711885a4ba17afc74",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
@@ -11278,23 +11316,24 @@
         "forge/runs/chat-center-20260926/scope.json": "c9df24147feca20d36881d6ee508be68a898cd32d241eec6cde54e9d473131cb",
         "forge/runs/chat-boundaries-20260926/scope.json": "08e4fb98611833bcc9314a492457e00925b488363408d7c8d07105186f5998d6",
         "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a"
       }
     },
     "architecture": {
-      "invocation_id": "critic-cache-usage-20260926-architecture",
+      "invocation_id": "upstream-usage-20260926-architecture",
       "outputs": [
         "docs/architecture.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "7d6cc496de1c8d364772599f29cee1dfb617a8322ccce681c58af3146d556539",
-        "docs/project-context.md": "e82a9697e89baa18d3e737e7e59d8bc05cc353be28357bbc24731fbba327fe6c",
-        "docs/canonical-terms.md": "713e78e74cb5d02b1a472b557f38a38237d0b40f43c09a4c27738dd9736354a8",
-        "docs/guardrails.md": "a22ae6d38d115d9dcdd7102157625e7ca807e5da8a788616cbaf9daa2ead49c8",
-        "docs/user-journey.md": "2e2483b80ce99d53abec15f99fd17f2f6cb98622b5d25c72c9a27c3bae18002c",
-        "docs/screen-map.md": "3c0b6173e3cde3c5d2343e6eab891931082be0b5bc96f431a7804230ff300c01",
-        "docs/wireframes.md": "f12297b7a05c5f3207e0c61ab9f38cebdd16c115d91b03f8c84e4d6d84e0df0b",
-        "docs/design-brief.md": "d9f51c959d98be2a617f7cc5148fe8a9f9f471aca17f6c5c406aeefc95e198c9",
+        "docs/prd.md": "ea277a93cda7ba31d77fdd0c90b9789309823ec349b5279ae3a9cb03250dbc96",
+        "docs/project-context.md": "bc1e97dab0e3f3bd07773c6385acc75fd5080e50b51a713edee1719c524f4477",
+        "docs/canonical-terms.md": "fb471350af7a97660a3a280e05bc53f888ee12b09b5b65b05db02e73ea106391",
+        "docs/guardrails.md": "98dd75f355f3ce068db16066d21ea2ef68b1b86a4c58623cc685c6a3b0cd3e71",
+        "docs/user-journey.md": "1f8bf119438a5bf8a6f0adf0f01ea7ff4c67cc890e50c9e6218cc97e06bea104",
+        "docs/screen-map.md": "953b93c1c4b7f01d23e765d31def6dbfa15b1d12e705a405310b074442e91854",
+        "docs/wireframes.md": "260d88717f10ad17f7448caee2370e446a479eacadcf6d92209216be563cebff",
+        "docs/design-brief.md": "88db6940cdad8ee056d277f5cf0c13f1ee0b131bb2ec2d926ffea546a9acd3c7",
         "docs/model-settings.md": "2d0b9fe9d045e289b228adfe2d27aa6c1d94632eef60c78df60091eb181c4628",
         "forge/runs/claude-signin-20260922/source-review.json": "ad878d853b9c6f30da817167e1db6dffaad9c2c2863354ad3331294d7b269def",
         "forge/runs/sound-media-playback-20260923/scope.json": "7a5aa70bf52fa77a4dea9e39e5a49453c6be40c5b1a347632f4da4f5294455a0",
@@ -11311,24 +11350,25 @@
         "forge/runs/chat-center-20260926/scope.json": "c9df24147feca20d36881d6ee508be68a898cd32d241eec6cde54e9d473131cb",
         "forge/runs/chat-boundaries-20260926/scope.json": "08e4fb98611833bcc9314a492457e00925b488363408d7c8d07105186f5998d6",
         "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a"
       }
     },
     "dod-evals": {
-      "invocation_id": "critic-cache-usage-20260926-dod-evals",
+      "invocation_id": "upstream-usage-20260926-dod-evals",
       "outputs": [
         "docs/dod-evals.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "7d6cc496de1c8d364772599f29cee1dfb617a8322ccce681c58af3146d556539",
-        "docs/project-context.md": "e82a9697e89baa18d3e737e7e59d8bc05cc353be28357bbc24731fbba327fe6c",
-        "docs/canonical-terms.md": "713e78e74cb5d02b1a472b557f38a38237d0b40f43c09a4c27738dd9736354a8",
-        "docs/guardrails.md": "a22ae6d38d115d9dcdd7102157625e7ca807e5da8a788616cbaf9daa2ead49c8",
-        "docs/user-journey.md": "2e2483b80ce99d53abec15f99fd17f2f6cb98622b5d25c72c9a27c3bae18002c",
-        "docs/screen-map.md": "3c0b6173e3cde3c5d2343e6eab891931082be0b5bc96f431a7804230ff300c01",
-        "docs/wireframes.md": "f12297b7a05c5f3207e0c61ab9f38cebdd16c115d91b03f8c84e4d6d84e0df0b",
-        "docs/design-brief.md": "d9f51c959d98be2a617f7cc5148fe8a9f9f471aca17f6c5c406aeefc95e198c9",
-        "docs/architecture.md": "5ca587f38cb8089b460e779c279dc71351e2d050d3d8c2f0c9bdf4afabca9870",
+        "docs/prd.md": "ea277a93cda7ba31d77fdd0c90b9789309823ec349b5279ae3a9cb03250dbc96",
+        "docs/project-context.md": "bc1e97dab0e3f3bd07773c6385acc75fd5080e50b51a713edee1719c524f4477",
+        "docs/canonical-terms.md": "fb471350af7a97660a3a280e05bc53f888ee12b09b5b65b05db02e73ea106391",
+        "docs/guardrails.md": "98dd75f355f3ce068db16066d21ea2ef68b1b86a4c58623cc685c6a3b0cd3e71",
+        "docs/user-journey.md": "1f8bf119438a5bf8a6f0adf0f01ea7ff4c67cc890e50c9e6218cc97e06bea104",
+        "docs/screen-map.md": "953b93c1c4b7f01d23e765d31def6dbfa15b1d12e705a405310b074442e91854",
+        "docs/wireframes.md": "260d88717f10ad17f7448caee2370e446a479eacadcf6d92209216be563cebff",
+        "docs/design-brief.md": "88db6940cdad8ee056d277f5cf0c13f1ee0b131bb2ec2d926ffea546a9acd3c7",
+        "docs/architecture.md": "2f54aed2660afce94f8b88769e09b3e097122d2d47046b2f29576744a9fa6bf4",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e",
@@ -11340,7 +11380,8 @@
         "forge/runs/chat-center-20260926/scope.json": "c9df24147feca20d36881d6ee508be68a898cd32d241eec6cde54e9d473131cb",
         "forge/runs/chat-boundaries-20260926/scope.json": "08e4fb98611833bcc9314a492457e00925b488363408d7c8d07105186f5998d6",
         "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
-        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76"
+        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a"
       }
     },
     "qa-checklist": {
@@ -11349,16 +11390,16 @@
         "docs/qa-checklist.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "7d6cc496de1c8d364772599f29cee1dfb617a8322ccce681c58af3146d556539",
-        "docs/project-context.md": "e82a9697e89baa18d3e737e7e59d8bc05cc353be28357bbc24731fbba327fe6c",
-        "docs/canonical-terms.md": "713e78e74cb5d02b1a472b557f38a38237d0b40f43c09a4c27738dd9736354a8",
-        "docs/guardrails.md": "a22ae6d38d115d9dcdd7102157625e7ca807e5da8a788616cbaf9daa2ead49c8",
-        "docs/user-journey.md": "2e2483b80ce99d53abec15f99fd17f2f6cb98622b5d25c72c9a27c3bae18002c",
-        "docs/screen-map.md": "3c0b6173e3cde3c5d2343e6eab891931082be0b5bc96f431a7804230ff300c01",
-        "docs/wireframes.md": "f12297b7a05c5f3207e0c61ab9f38cebdd16c115d91b03f8c84e4d6d84e0df0b",
-        "docs/design-brief.md": "d9f51c959d98be2a617f7cc5148fe8a9f9f471aca17f6c5c406aeefc95e198c9",
-        "docs/architecture.md": "5ca587f38cb8089b460e779c279dc71351e2d050d3d8c2f0c9bdf4afabca9870",
-        "docs/dod-evals.md": "a2d8ef94546df28a8a487ef5c5b318d0ac4f8f31b93c8dc93fab29c341d43eb0",
+        "docs/prd.md": "ea277a93cda7ba31d77fdd0c90b9789309823ec349b5279ae3a9cb03250dbc96",
+        "docs/project-context.md": "bc1e97dab0e3f3bd07773c6385acc75fd5080e50b51a713edee1719c524f4477",
+        "docs/canonical-terms.md": "fb471350af7a97660a3a280e05bc53f888ee12b09b5b65b05db02e73ea106391",
+        "docs/guardrails.md": "98dd75f355f3ce068db16066d21ea2ef68b1b86a4c58623cc685c6a3b0cd3e71",
+        "docs/user-journey.md": "1f8bf119438a5bf8a6f0adf0f01ea7ff4c67cc890e50c9e6218cc97e06bea104",
+        "docs/screen-map.md": "953b93c1c4b7f01d23e765d31def6dbfa15b1d12e705a405310b074442e91854",
+        "docs/wireframes.md": "260d88717f10ad17f7448caee2370e446a479eacadcf6d92209216be563cebff",
+        "docs/design-brief.md": "88db6940cdad8ee056d277f5cf0c13f1ee0b131bb2ec2d926ffea546a9acd3c7",
+        "docs/architecture.md": "2f54aed2660afce94f8b88769e09b3e097122d2d47046b2f29576744a9fa6bf4",
+        "docs/dod-evals.md": "58ab1b925dfd33e1af84f1e83a002e9089bf3901869f48800f7a0c40f455ccf5",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/critic-usage-20260925/verification.json": "3bb9e18d641a3053af6a0206de3eb4b0859b9a096199b96eae3cd3b06a79df13",
@@ -11373,7 +11414,9 @@
         "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
         "forge/runs/research-economy-20260926/verification.json": "59b0b21c0d488353b459b752172658d347f67193a6cded3af8cb75c16acc3625",
         "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
-        "forge/runs/critic-cache-usage-20260926/verification.json": "b4ddc11dd37a3b557bda3c59faca0b59c6494d75044849b4b0dcd4d71517c77f"
+        "forge/runs/critic-cache-usage-20260926/verification.json": "b4ddc11dd37a3b557bda3c59faca0b59c6494d75044849b4b0dcd4d71517c77f",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
+        "forge/runs/upstream-usage-20260926/verification.json": "84864d07257cfdac94cc5e091a3c844094b8a3563f9067369c152f3edfd47acb"
       }
     },
     "development-plan": {
@@ -11382,17 +11425,17 @@
         "docs/development-plan.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "7d6cc496de1c8d364772599f29cee1dfb617a8322ccce681c58af3146d556539",
-        "docs/project-context.md": "e82a9697e89baa18d3e737e7e59d8bc05cc353be28357bbc24731fbba327fe6c",
-        "docs/canonical-terms.md": "713e78e74cb5d02b1a472b557f38a38237d0b40f43c09a4c27738dd9736354a8",
-        "docs/guardrails.md": "a22ae6d38d115d9dcdd7102157625e7ca807e5da8a788616cbaf9daa2ead49c8",
-        "docs/user-journey.md": "2e2483b80ce99d53abec15f99fd17f2f6cb98622b5d25c72c9a27c3bae18002c",
-        "docs/screen-map.md": "3c0b6173e3cde3c5d2343e6eab891931082be0b5bc96f431a7804230ff300c01",
-        "docs/wireframes.md": "f12297b7a05c5f3207e0c61ab9f38cebdd16c115d91b03f8c84e4d6d84e0df0b",
-        "docs/design-brief.md": "d9f51c959d98be2a617f7cc5148fe8a9f9f471aca17f6c5c406aeefc95e198c9",
-        "docs/architecture.md": "5ca587f38cb8089b460e779c279dc71351e2d050d3d8c2f0c9bdf4afabca9870",
-        "docs/dod-evals.md": "a2d8ef94546df28a8a487ef5c5b318d0ac4f8f31b93c8dc93fab29c341d43eb0",
-        "docs/qa-checklist.md": "80bd049e36087a465c0c74a62dbf635ea105abd1aaa3c8701a56b873bad3df59",
+        "docs/prd.md": "ea277a93cda7ba31d77fdd0c90b9789309823ec349b5279ae3a9cb03250dbc96",
+        "docs/project-context.md": "bc1e97dab0e3f3bd07773c6385acc75fd5080e50b51a713edee1719c524f4477",
+        "docs/canonical-terms.md": "fb471350af7a97660a3a280e05bc53f888ee12b09b5b65b05db02e73ea106391",
+        "docs/guardrails.md": "98dd75f355f3ce068db16066d21ea2ef68b1b86a4c58623cc685c6a3b0cd3e71",
+        "docs/user-journey.md": "1f8bf119438a5bf8a6f0adf0f01ea7ff4c67cc890e50c9e6218cc97e06bea104",
+        "docs/screen-map.md": "953b93c1c4b7f01d23e765d31def6dbfa15b1d12e705a405310b074442e91854",
+        "docs/wireframes.md": "260d88717f10ad17f7448caee2370e446a479eacadcf6d92209216be563cebff",
+        "docs/design-brief.md": "88db6940cdad8ee056d277f5cf0c13f1ee0b131bb2ec2d926ffea546a9acd3c7",
+        "docs/architecture.md": "2f54aed2660afce94f8b88769e09b3e097122d2d47046b2f29576744a9fa6bf4",
+        "docs/dod-evals.md": "58ab1b925dfd33e1af84f1e83a002e9089bf3901869f48800f7a0c40f455ccf5",
+        "docs/qa-checklist.md": "3aa375effa72b899543a5eb5973b04e634d5104c0b6ecfcbf57cba439bb0c512",
         "docs/model-settings.md": "2d0b9fe9d045e289b228adfe2d27aa6c1d94632eef60c78df60091eb181c4628",
         "package.json": "094e408c16c3a8369b9f21a343bb562dc0cd20160e26b6c01f144bd83712a568",
         "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318",
@@ -11410,7 +11453,9 @@
         "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
         "forge/runs/research-economy-20260926/verification.json": "59b0b21c0d488353b459b752172658d347f67193a6cded3af8cb75c16acc3625",
         "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
-        "forge/runs/critic-cache-usage-20260926/verification.json": "b4ddc11dd37a3b557bda3c59faca0b59c6494d75044849b4b0dcd4d71517c77f"
+        "forge/runs/critic-cache-usage-20260926/verification.json": "b4ddc11dd37a3b557bda3c59faca0b59c6494d75044849b4b0dcd4d71517c77f",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
+        "forge/runs/upstream-usage-20260926/verification.json": "84864d07257cfdac94cc5e091a3c844094b8a3563f9067369c152f3edfd47acb"
       }
     }
   },
@@ -48309,6 +48354,127 @@
       "artifact": "development-plan",
       "previous_content_hash": "892727cb2602a87129dc5520dbd597c6add23b5d3d5668dcfe7ed2e8de414feb",
       "recorded_at": "2026-09-26T16:23:13.938416+00:00"
+    },
+    {
+      "event": "critic_cache_usage_reconciliation",
+      "artifact": "product-idea",
+      "recorded_at": "2026-09-26T16:40:09.634035+00:00",
+      "previous_content_hash": "d4dd84b2273099d9fc92e5291b0dbbd3fb426d74f02e5c260cac9938cda5c863"
+    },
+    {
+      "event": "critic_cache_usage_reconciliation",
+      "artifact": "prd",
+      "recorded_at": "2026-09-26T16:40:09.634035+00:00",
+      "previous_content_hash": "7d6cc496de1c8d364772599f29cee1dfb617a8322ccce681c58af3146d556539"
+    },
+    {
+      "event": "critic_cache_usage_reconciliation",
+      "artifact": "project-context",
+      "recorded_at": "2026-09-26T16:40:09.634035+00:00",
+      "previous_content_hash": "e82a9697e89baa18d3e737e7e59d8bc05cc353be28357bbc24731fbba327fe6c"
+    },
+    {
+      "event": "critic_cache_usage_reconciliation",
+      "artifact": "canonical-terms",
+      "recorded_at": "2026-09-26T16:40:09.634035+00:00",
+      "previous_content_hash": "713e78e74cb5d02b1a472b557f38a38237d0b40f43c09a4c27738dd9736354a8"
+    },
+    {
+      "event": "critic_cache_usage_reconciliation",
+      "artifact": "guardrails",
+      "recorded_at": "2026-09-26T16:40:09.634035+00:00",
+      "previous_content_hash": "a22ae6d38d115d9dcdd7102157625e7ca807e5da8a788616cbaf9daa2ead49c8"
+    },
+    {
+      "event": "critic_cache_usage_reconciliation",
+      "artifact": "user-journey",
+      "recorded_at": "2026-09-26T16:40:09.634035+00:00",
+      "previous_content_hash": "2e2483b80ce99d53abec15f99fd17f2f6cb98622b5d25c72c9a27c3bae18002c"
+    },
+    {
+      "event": "critic_cache_usage_reconciliation",
+      "artifact": "screen-map",
+      "recorded_at": "2026-09-26T16:40:09.634035+00:00",
+      "previous_content_hash": "3c0b6173e3cde3c5d2343e6eab891931082be0b5bc96f431a7804230ff300c01"
+    },
+    {
+      "event": "critic_cache_usage_reconciliation",
+      "artifact": "wireframes",
+      "recorded_at": "2026-09-26T16:40:09.634035+00:00",
+      "previous_content_hash": "f12297b7a05c5f3207e0c61ab9f38cebdd16c115d91b03f8c84e4d6d84e0df0b"
+    },
+    {
+      "event": "critic_cache_usage_reconciliation",
+      "artifact": "design-brief",
+      "recorded_at": "2026-09-26T16:40:09.634035+00:00",
+      "previous_content_hash": "d9f51c959d98be2a617f7cc5148fe8a9f9f471aca17f6c5c406aeefc95e198c9"
+    },
+    {
+      "event": "critic_cache_usage_reconciliation",
+      "artifact": "architecture",
+      "recorded_at": "2026-09-26T16:40:09.634035+00:00",
+      "previous_content_hash": "5ca587f38cb8089b460e779c279dc71351e2d050d3d8c2f0c9bdf4afabca9870"
+    },
+    {
+      "event": "critic_cache_usage_reconciliation",
+      "artifact": "dod-evals",
+      "recorded_at": "2026-09-26T16:40:09.634035+00:00",
+      "previous_content_hash": "a2d8ef94546df28a8a487ef5c5b318d0ac4f8f31b93c8dc93fab29c341d43eb0"
+    },
+    {
+      "event": "critic_cache_usage_reconciliation",
+      "artifact": "qa-checklist",
+      "recorded_at": "2026-09-26T16:40:09.634035+00:00",
+      "previous_content_hash": "80bd049e36087a465c0c74a62dbf635ea105abd1aaa3c8701a56b873bad3df59"
+    },
+    {
+      "event": "critic_cache_usage_reconciliation",
+      "artifact": "development-plan",
+      "recorded_at": "2026-09-26T16:40:09.634035+00:00",
+      "previous_content_hash": "0451eb471d1f59536d378a44475f15f623654e92da95f604cfe3cadce74417fc"
+    },
+    {
+      "event": "prior_implementation_gate",
+      "recorded_at": "2026-09-26T16:40:14.874891+00:00",
+      "record": {
+        "state": "authorized_for_phase3",
+        "development_plan_hash": "0451eb471d1f59536d378a44475f15f623654e92da95f604cfe3cadce74417fc",
+        "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
+        "awaiting_at": "2026-09-24T13:00:20.203238+00:00",
+        "product_scope_hash": "defc5e24f0dd91be42b984888b157137f4f1ed361459e70f42b832e18c957bd4",
+        "prompt_id": "critic-cache-usage-20260926",
+        "prompt_received_at": "2026-09-26T16:23:13.812261+00:00",
+        "released_at": "2026-09-26T16:23:13.812261+00:00",
+        "reason": "User explicitly requested formation and implementation of the discussed research/evidence unit.",
+        "prompt_receipt": {
+          "path": "forge/runs/critic-cache-usage-20260926/implementation-prompt.json",
+          "content_hash": "2d95221cb2f84e924114500538865a4aeb370aa77f13e429cdb751b0d708a296"
+        }
+      }
+    },
+    {
+      "event": "upstream_usage_verification_reconciliation",
+      "artifact": "qa-checklist",
+      "previous_content_hash": "d58f095c9bf75eb502014c1f421a91083eea333f6e8d82c4ed3704845865e4f1",
+      "recorded_at": "2026-09-26T16:44:05.447452+00:00"
+    },
+    {
+      "event": "upstream_usage_verification_reconciliation",
+      "artifact": "development-plan",
+      "previous_content_hash": "9aafa21a44aa70dbbf49c759f74fc6a51b8d8bd328bae99e365ccfe5866ec505",
+      "recorded_at": "2026-09-26T16:44:05.447452+00:00"
+    },
+    {
+      "event": "upstream_usage_verification_reconciliation",
+      "artifact": "qa-checklist",
+      "previous_content_hash": "a01a54385f657f27cb056b92319cead1696f551fe84e6f8f5109399a38980649",
+      "recorded_at": "2026-09-26T16:45:53.591559+00:00"
+    },
+    {
+      "event": "upstream_usage_verification_reconciliation",
+      "artifact": "development-plan",
+      "previous_content_hash": "e9d6b52358876b3ad3292d1a30d038e76f6675f6863b36a810225391c3662845",
+      "recorded_at": "2026-09-26T16:45:53.591559+00:00"
     }
   ],
   "input_requests": [],

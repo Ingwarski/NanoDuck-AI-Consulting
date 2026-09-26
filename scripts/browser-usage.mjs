@@ -52,6 +52,7 @@ export async function verifyUsage(page, name, root) {
   const usageResponse = await page.request.get(new URL('/api/usage', page.url()).href);
   const payload = await usageResponse.json();
   const sample = payload.usage ?? payload;
+  sample.callDetails[0].usageSource = 'upstream_responses'; sample.callDetails[0].responseCount = 2;
   sample.incomplete = 1; sample.unavailable = 1;
   sample.models[0].tokens.input.unavailable = 1;
   sample.callDetails.push({id:'synthetic-unreported',model:'gpt-6-sol',provider:'codex',stage:'specialist_reply',status:'cancelled',startedAt:new Date().toISOString(),finishedAt:new Date().toISOString(),usage:[]});
@@ -60,6 +61,7 @@ export async function verifyUsage(page, name, root) {
   await page.waitForFunction(() => document.querySelector('#usage-content').textContent.includes('Partial reported tokens'));
   assert.match(await page.locator('#usage-content').innerText(), /partial/);
   await page.locator('.usage-calls summary').click();
+  assert.match(await page.locator('.usage-calls').innerText(), /Accounting: upstream response fields/);
   assert.match(await page.locator('.usage-calls').innerText(), /Usage unavailable — this does not mean zero tokens/);
   await page.setViewportSize({width:320,height:844});
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),true,'All attempts reflow at 320px');

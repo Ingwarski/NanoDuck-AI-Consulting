@@ -1,6 +1,6 @@
 import { sourceKey } from "./research-evidence.mjs";
 import { buildProviderContext, consultationBaseInstructions } from "./provider-context.mjs";
-import { beginUsage, codexTokens } from "./usage.mjs";
+import { beginUsage, codexTokens, codexResponseTokens, sumTokenUsage } from "./usage.mjs";
 import { ensurePrivateDirectory, ensurePrivateFile } from "./private-files.mjs";
 import { spawnIsolatedProcess, signalProcessTree } from "./child-process.mjs";
 import { copyFile, mkdir, mkdtemp, rm, writeFile } from "node:fs/promises";
@@ -247,11 +247,11 @@ export function createCodexProvider(config, deadlineOptions = undefined) {
     if (!runtimeInstructions) throw new RuntimeInstructionError("Provider invocation is missing its runtime-instructions contract.");
     let connection; let threadId; let unsubscribe = () => {}; let deadline;
     let startedAt; let lastProgressAt; let progressCount = 0;
-    let usageEmittedAt = 0; let webSearchCount = 0; let finishUsage; let expectedUsageTurn; let usageStatus = "failed"; const usageByTurn = new Map(); const researchStepsByTurn = new Map();
+    let usageEmittedAt = 0; let webSearchCount = 0; let finishUsage; let expectedUsageTurn; let usageStatus = "failed"; const usageByTurn = new Map(); const responseUsageByTurn = new Map(); const researchStepsByTurn = new Map();
     try {
       connection = await startConnection(config, signal, await requestWorkspace(contextScope));
       if (signal?.aborted) throw new Error("cancelled");
-      const started = await connection.request("thread/start", { model, baseInstructions: consultationBaseInstructions, ephemeral: true, cwd: connection.workspace, sandbox: "read-only", approvalPolicy: "never", environments: [], config: { web_search: research ? "live" : "disabled", features: { shell_tool: false, unified_exec: false, view_image: false, shell_snapshot: false, apps: false, plugins: false, hooks: false, memories: false, browser_use: false, browser_use_external: false, browser_use_full_cdp_access: false, computer_use: false, image_generation: false, workspace_dependencies: false, code_mode: false, code_mode_host: false, multi_agent: false, multi_agent_v2: false, skill_search: false, tool_suggest: false, request_permissions_tool: false } } });
+      const started = await connection.request("thread/start", { experimentalRawEvents: true, model, baseInstructions: consultationBaseInstructions, ephemeral: true, cwd: connection.workspace, sandbox: "read-only", approvalPolicy: "never", environments: [], config: { web_search: research ? "live" : "disabled", features: { shell_tool: false, unified_exec: false, view_image: false, shell_snapshot: false, apps: false, plugins: false, hooks: false, memories: false, browser_use: false, browser_use_external: false, browser_use_full_cdp_access: false, computer_use: false, image_generation: false, workspace_dependencies: false, code_mode: false, code_mode_host: false, multi_agent: false, multi_agent_v2: false, skill_search: false, tool_suggest: false, request_permissions_tool: false } } });
       if (!record(started) || !record(started.thread) || typeof started.thread.id !== "string") return { ok: false, code: "provider_unavailable" };
       threadId = started.thread.id;
       const { prompt, prefixBytes, promptBytes } = buildProviderContext({ assignment, model, effort, evidence, research, outputKind, runtimeInstructions, contextScope });
@@ -274,6 +274,14 @@ export function createCodexProvider(config, deadlineOptions = undefined) {
       unsubscribe = connection.on(notification => {
         const params = notification.params;
         if (!record(params) || params.threadId !== threadId) return;
+        if (notification.method === "rawResponse/completed" && typeof params.turnId === "string" && typeof params.responseId === "string") {
+          const tokens = codexResponseTokens(params.usageMetadata?.metadata);
+          if (tokens) {
+            const responses = responseUsageByTurn.get(params.turnId) ?? new Map();
+            if (!responses.has(params.responseId)) responses.set(params.responseId, tokens);
+            responseUsageByTurn.set(params.turnId, responses);
+          }
+        }
         if (notification.method === "thread/tokenUsage/updated" && typeof params.turnId === "string" && record(params.tokenUsage?.total)) {
           usageByTurn.set(params.turnId, codexTokens(params.tokenUsage.total));
           if (params.turnId === expectedUsageTurn && finishUsage && Date.now() - usageEmittedAt >= 1000) {
@@ -334,7 +342,14 @@ export function createCodexProvider(config, deadlineOptions = undefined) {
       return { ok: false, code };
     } finally {
       deadline?.stop();
-      await finishUsage?.(signal?.aborted ? "cancelled" : usageStatus, usageByTurn.has(expectedUsageTurn) ? [{ model, tokens: usageByTurn.get(expectedUsageTurn) }] : [], { webSearchCount: expectedUsageTurn ? researchStepsByTurn.get(expectedUsageTurn)?.size ?? 0 : null, ...(research ? { researchSteps: [...(researchStepsByTurn.get(expectedUsageTurn)?.values() ?? [])].map(({ fingerprint, ...step }) => step) } : {}) });
+      const normalized = usageByTurn.get(expectedUsageTurn);
+      const responses = [...(responseUsageByTurn.get(expectedUsageTurn)?.values() ?? [])];
+      const upstream = responses.length ? sumTokenUsage(responses) : undefined;
+      // Raw events describe individual responses; total/last notifications describe
+      // cumulative usage. Reconcile them, never add the two representations.
+      const verified = upstream && (!normalized || ["input", "output", "total"].every(field => upstream[field] === normalized[field]));
+      const tokens = verified ? upstream : normalized;
+      await finishUsage?.(signal?.aborted ? "cancelled" : usageStatus, tokens ? [{ model, tokens }] : [], { usageSource: verified ? "upstream_responses" : "codex_normalized", usageCoverage: verified ? (normalized ? "reconciled" : "partial") : "normalized", responseCount: responses.length, webSearchCount: expectedUsageTurn ? researchStepsByTurn.get(expectedUsageTurn)?.size ?? 0 : null, ...(research ? { researchSteps: [...(researchStepsByTurn.get(expectedUsageTurn)?.values() ?? [])].map(({ fingerprint, ...step }) => step) } : {}) });
       unsubscribe();
       if (connection && threadId && !signal?.aborted) await connection.request("thread/unsubscribe", { threadId }, 1_000).catch(() => {});
       await connection?.close().catch(() => {});

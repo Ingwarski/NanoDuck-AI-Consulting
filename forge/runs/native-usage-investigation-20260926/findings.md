@@ -19,3 +19,9 @@ Source: https://github.com/openai/codex/blob/rust-v0.155.1/codex-rs/codex-api/sr
 Official API documentation exposes usage.input_tokens_details.cache_write_tokens, but this app uses the ChatGPT subscription Codex route, not a metered API route: https://developers.openai.com/api/docs/guides/prompt-caching . API availability does not prove availability on the subscription transport.
 
 Input minus cached input is uncached input, not a measurement of cache writes. No fabricated counter, retrospective rewrite or paid-route switch was made. Exact input/output/reasoning/cache-read figures remain available; a definitive cache-write number requires upstream field-presence-aware telemetry or another supported subscription accounting source. No such source was established in this investigation.
+
+## Correction from deeper investigation
+
+The earlier conclusion about RawResponseCompleted was incomplete. Although its `usage` field is normalized, `usageMetadata.metadata` preserves the original upstream usage object. Enabling the pinned experimental thread option reveals that metadata. A subsequent real subscription probe explicitly included `input_tokens_details.cache_write_tokens: 0`, confirming provider-reported zero for that call. Original probes did not enable that event.
+
+The application now reads numeric upstream usage through this opt-in and records provenance without persisting raw events. Official Codex credit billing has no separate cache-write charge (https://learn.chatgpt.com/docs/pricing#token-rates); API-key accounting differs. This does not prove physical cache writes absent. The follow-up evidence is in ../upstream-usage-20260926/verification.json.

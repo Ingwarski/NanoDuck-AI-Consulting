@@ -735,7 +735,7 @@ const tokenNumber = value => value === null ? "Unavailable" : new Intl.NumberFor
 function renderUsage(usage) {
   const panel = clear($("#usage-content"));
   panel.append(node("p", { class: "usage-total" }, tokenNumber(usage.total)), node("p", { class: "hint" }, usage.incomplete || usage.unavailable ? "Partial reported tokens · input + output · more usage may be unreported" : "Reported tokens · input + output"));
-  const note = usage.attempts ? `${usage.attempts} call attempts · ${usage.incomplete} running or interrupted · ${usage.unavailable} without complete usage. First recorded call: ${formatDate(usage.startedAt)}.` : "No model calls have been recorded in this view yet.";
+  const note = usage.attempts ? `${usage.attempts} call attempts · ${usage.incomplete} running, interrupted or partial · ${usage.unavailable} without complete usage. First recorded call: ${formatDate(usage.startedAt)}.` : "No model calls have been recorded in this view yet.";
   panel.append(node("p", { class: "usage-coverage" }, note), node("p", { class: "hint" }, "Calls made before tracking was added are not included. Missing counts are unavailable, never estimated. These are NanoDuck conversation totals, not your account’s subscription allowance."));
   if (usage.stages?.length) {
     const stages = node("details", { class: "usage-stages" }); stages.append(node("summary", {}, "Usage by task"));
@@ -766,13 +766,14 @@ function renderUsage(usage) {
     const details = node("details"); details.append(node("summary", {}, "Cache and reasoning breakdown"));
     const breakdown = node("dl", { class: "usage-metrics" });
     breakdown.append(metric("Cache read", "cachedInput"), metric("Cache write", "cacheWriteInput"), metric("Reasoning output", "reasoningOutput"));
-    details.append(breakdown, node("p", { class: "hint" }, "These are included in input or output totals. They are not added again."), node("p", { class: "hint" }, model.provider === "codex" ? "Codex cache write is the value reported by this route. A reported 0 does not establish that no cache was created. Cache read measures reported reuse." : "Claude input includes ordinary input, cache reads and cache creation once. Zero cache read means no reuse was reported. Reasoning is included in output when the provider does not report it separately.")); row.append(details); panel.append(row);
+    details.append(breakdown, node("p", { class: "hint" }, "These are included in input or output totals. They are not added again."), node("p", { class: "hint" }, model.provider === "codex" ? "New Codex calls are checked against upstream response usage. Older calls retain normalized Codex counters. Verified zero means the provider reported zero, not that no cache was stored. Codex credit billing has no separate cache-write charge." : "Claude input includes ordinary input, cache reads and cache creation once. Zero cache read means no reuse was reported. Reasoning is included in output when the provider does not report it separately.")); row.append(details); panel.append(row);
   }
   if (usage.callDetails?.length) {
     const calls = node("details", { class: "usage-calls" }); calls.append(node("summary", {}, "All call attempts"));
     for (const call of usage.callDetails) {
       const article = node("article", { class: "usage-stage" });
       article.append(node("strong", {}, `${call.model} · ${call.stage.replaceAll("_", " ")} · ${call.status}`), node("p", { class: "hint" }, `${formatDate(call.startedAt)}${call.finishedAt ? ` → ${formatDate(call.finishedAt)}` : " · awaiting final usage"}`));
+      article.append(node("p", { class: "hint" }, call.usageSource === "upstream_responses" ? `Accounting: upstream response fields · ${call.responseCount} upstream response(s)${call.usageCoverage === "partial" ? " · partial coverage; cumulative totals unavailable" : ""}.` : call.provider === "claude_code" ? "Accounting: Claude Code per-model usage." : "Accounting: Codex normalized counters; upstream field presence was not verified."));
       if (!call.usage.length) article.append(node("p", {}, "Usage unavailable — this does not mean zero tokens."));
       for (const item of call.usage) {
         article.append(node("p", {}, item.model));

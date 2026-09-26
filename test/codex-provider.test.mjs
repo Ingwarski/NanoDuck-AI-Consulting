@@ -227,3 +227,17 @@ test("Codex preserves distinct claims from one source URL", async () => {
  const result=await provider.invoke({assignment:"Exercise distinct claims on one URL",model:"gpt-6-sol",effort:"high",evidence:{owner:"Synthetic",discussion:""},research:false,runtimeInstructions:initialRuntimeInstructions});
  assert.equal(result.ok,true);assert.deepEqual(result.sources.map(s=>s.claim),["First supported fact.","Second supported fact."]);
 });
+
+test('upstream response accounting preserves explicit cache writes, zero and missing fields without duplicate events or payloads',async()=>{
+ for(const [suffix,writes] of [['',20],[' explicit zero',0],[' missing write',null],[' partial raw',null]]){
+  const records=[];const provider=createCodexProvider({readyForProvider:true,codexCommand:process.execPath,codexCommandArgs:[fileURLToPath(new URL('./fixtures/fake-codex.mjs',import.meta.url))]});
+  const result=await provider.invoke({assignment:`Exercise upstream usage${suffix}`,model:'gpt-6-sol',effort:'high',evidence:{owner:'Synthetic public fixture',discussion:''},research:false,runtimeInstructions:initialRuntimeInstructions,onUsage:value=>records.push(value)});
+  assert.equal(result.ok,true);const final=records.at(-1);assert.equal(final.usage[0].tokens.total,140);assert.equal(final.usage[0].tokens.cacheWriteInput,writes);assert.equal(final.diagnostics.usageSource,suffix.includes('partial')?'codex_normalized':'upstream_responses');assert.equal(final.diagnostics.responseCount,suffix.includes('partial')?1:2);assert.doesNotMatch(JSON.stringify(records),/DO_NOT_STORE|response-1/);
+ }
+});
+
+test('raw usage survives a failed turn without cumulative counters and is explicitly partial',async()=>{
+ const {summarizeUsage}=await import('../src/server/usage.mjs');const records=[];const provider=createCodexProvider({readyForProvider:true,codexCommand:process.execPath,codexCommandArgs:[fileURLToPath(new URL('./fixtures/fake-codex.mjs',import.meta.url))]});
+ await provider.invoke({assignment:'Exercise upstream usage raw only partial raw Fail after a completed item',model:'gpt-6-sol',effort:'high',evidence:{owner:'Synthetic test',discussion:''},research:false,runtimeInstructions:initialRuntimeInstructions,onUsage:value=>records.push(value)});
+ const final=records.at(-1);assert.equal(final.status,'failed');assert.equal(final.usage[0].tokens.total,70);assert.equal(final.diagnostics.usageCoverage,'partial');const summary=summarizeUsage([{usage:[final]}]);assert.equal(summary.total,70);assert.equal(summary.incomplete,1);
+});

@@ -12,6 +12,16 @@ export const emptyTokens = () => Object.fromEntries(tokenFields.map(key => [key,
 export function codexTokens(value) {
   return { input: count(value?.inputTokens), output: count(value?.outputTokens), total: count(value?.totalTokens), cachedInput: count(value?.cachedInputTokens), cacheWriteInput: count(value?.cacheWriteInputTokens), reasoningOutput: count(value?.reasoningOutputTokens) };
 }
+// Read upstream JSON before the CLI's missing-field-to-zero conversion.
+export function codexResponseTokens(value) {
+  if (!object(value)) return undefined;
+  const input = count(value.input_tokens), output = count(value.output_tokens), total = count(value.total_tokens);
+  if (input === null || output === null || total === null) return undefined;
+  return { input, output, total, cachedInput: count(value.input_tokens_details?.cached_tokens), cacheWriteInput: count(value.input_tokens_details?.cache_write_tokens), reasoningOutput: count(value.output_tokens_details?.reasoning_tokens) };
+}
+export function sumTokenUsage(values) {
+  return Object.fromEntries(tokenFields.map(field => [field, sum(values.map(value => value[field]))]));
+}
 export function claudeTokens(stdout) {
   let value; try { value = JSON.parse(stdout); } catch { return []; }
   // A crashed CLI can emit zeroed final usage; it does not prove a free call.
@@ -24,6 +34,8 @@ export function claudeTokens(stdout) {
 }
 
 const normalizeDiagnostics = value => ({
+  ...(["upstream_responses", "codex_normalized"].includes(value?.usageSource) ? { usageSource: value.usageSource, responseCount: count(value.responseCount) } : {}),
+  ...(["reconciled", "partial", "normalized"].includes(value?.usageCoverage) ? { usageCoverage: value.usageCoverage } : {}),
   stage: typeof value?.stage === "string" && /^[a-z_]{1,48}$/u.test(value.stage) ? value.stage : "unavailable",
   promptBytes: count(value?.promptBytes), prefixBytes: count(value?.prefixBytes), webSearchCount: count(value?.webSearchCount),
   ...(Array.isArray(value?.researchSteps) ? { researchSteps: value.researchSteps.map(step => ({
@@ -59,7 +71,7 @@ export function summarizeUsage(entries, includeStages = true) {
   const models = new Map(); let attempts = 0; let incomplete = 0; let unavailable = 0; let startedAt = null;
   for (const entry of entries) for (const attempt of entry.usage ?? []) {
     attempts += 1;
-    if (["running", "interrupted"].includes(attempt.status)) incomplete += 1;
+    if ((["running", "interrupted"].includes(attempt.status) || attempt.diagnostics?.usageCoverage === "partial")) incomplete += 1;
     if (!startedAt || attempt.startedAt < startedAt) startedAt = attempt.startedAt;
     if (!attempt.usage.length || attempt.usage.some(item => item.tokens.total === null)) unavailable += 1;
     for (const item of attempt.usage.length ? attempt.usage : [{ model: attempt.model, tokens: emptyTokens() }]) {
@@ -78,7 +90,7 @@ export function summarizeUsage(entries, includeStages = true) {
   const callDetails = entries.flatMap(entry => (entry.usage ?? []).map(attempt => ({
     id: attempt.id, provider: attempt.provider, model: attempt.model, status: attempt.status,
     startedAt: attempt.startedAt, finishedAt: attempt.finishedAt,
-    stage: attempt.diagnostics?.stage ?? "unavailable", usage: attempt.usage
+    stage: attempt.diagnostics?.stage ?? "unavailable", usageSource: attempt.diagnostics?.usageSource ?? (attempt.provider === "claude_code" ? "claude_model_usage" : "codex_normalized"), responseCount: attempt.diagnostics?.responseCount ?? null, usageCoverage: attempt.diagnostics?.usageCoverage ?? "normalized", usage: attempt.usage
   }))).sort((a, b) => a.startedAt.localeCompare(b.startedAt));
   const stages = new Map();
   if (includeStages) for (const entry of entries) for (const attempt of entry.usage ?? []) {
