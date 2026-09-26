@@ -3668,7 +3668,7 @@
       },
       "path": "docs/screen-map.md",
       "owner_skill": "to-screen-map",
-      "owner_invocation_id": "chat-jumps-20260926-screen-map",
+      "owner_invocation_id": "chat-center-20260926-screen-map",
       "declared_output_set": [
         "docs/screen-map.md"
       ],
@@ -3685,7 +3685,8 @@
         "forge/runs/critic-usage-20260925/scope.json": "full",
         "forge/runs/reading-mode-20260926/scope.json": "full",
         "forge/runs/context-cache-20260926/scope.json": "full",
-        "forge/runs/chat-jumps-20260926/scope.json": "full"
+        "forge/runs/chat-jumps-20260926/scope.json": "full",
+        "forge/runs/chat-center-20260926/scope.json": "full"
       },
       "source_hashes": {
         "docs/prd.md": "eb08110309681fd39df1bb456727b5c83876eab5354f7117f1fec5a961be8463",
@@ -3697,7 +3698,8 @@
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
         "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
-        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853"
+        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
+        "forge/runs/chat-center-20260926/scope.json": "c9df24147feca20d36881d6ee508be68a898cd32d241eec6cde54e9d473131cb"
       },
       "dependencies": [
         "prd",
@@ -3706,12 +3708,12 @@
         "guardrails",
         "user-journey"
       ],
-      "content_hash": "64e9449bacc7c5513ae1c342dba28128560b01889cd29df1ac05bfbbcbad5482",
+      "content_hash": "a730c584f4f94ce5cf2f61ccb2827706fef3cf930297c3cbcc988c2a92a79a71",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-chat-jumps-scope",
-        "reviewed_at": "2026-09-26T15:11:41.309958+00:00",
+        "reviewed_at": "2026-09-26T15:14:27.258950+00:00",
         "executor": "Codex inline to-screen-map",
         "scope": "Owner-reconciled definition; implementation verification remains pending."
       },
@@ -3720,7 +3722,7 @@
     "wireframes": {
       "path": "docs/wireframes.md",
       "owner_skill": "to-wireframes",
-      "owner_invocation_id": "chat-jumps-20260926-wireframes",
+      "owner_invocation_id": "chat-center-20260926-wireframes",
       "declared_output_set": [
         "docs/wireframes.md"
       ],
@@ -3739,7 +3741,8 @@
         "forge/runs/sticky-view-nav-20260925/scope.json": "full",
         "forge/runs/reading-mode-20260926/scope.json": "full",
         "forge/runs/context-cache-20260926/scope.json": "full",
-        "forge/runs/chat-jumps-20260926/scope.json": "full"
+        "forge/runs/chat-jumps-20260926/scope.json": "full",
+        "forge/runs/chat-center-20260926/scope.json": "full"
       },
       "source_hashes": {
         "docs/prd.md": "eb08110309681fd39df1bb456727b5c83876eab5354f7117f1fec5a961be8463",
@@ -3747,13 +3750,14 @@
         "docs/canonical-terms.md": "3108ca63ad07edce08e91b704bd6c11d9445c1e80d88077a4e6112f3ea52bed8",
         "docs/guardrails.md": "f3240a6fc6e38bf82fee1c3e3e254d1afbf30c4950d1dca70a8bec0c48f03b69",
         "docs/user-journey.md": "5ff4add2f3d19559c5ad2492fe1e02f9bb0d63994f7dfa4548fa2e6218c09690",
-        "docs/screen-map.md": "64e9449bacc7c5513ae1c342dba28128560b01889cd29df1ac05bfbbcbad5482",
+        "docs/screen-map.md": "a730c584f4f94ce5cf2f61ccb2827706fef3cf930297c3cbcc988c2a92a79a71",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
         "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
-        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853"
+        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
+        "forge/runs/chat-center-20260926/scope.json": "c9df24147feca20d36881d6ee508be68a898cd32d241eec6cde54e9d473131cb"
       },
       "dependencies": [
         "prd",
@@ -3763,12 +3767,12 @@
         "user-journey",
         "screen-map"
       ],
-      "content_hash": "6914ed89d359cc1c9ddb095fb8252a374fbf3f5e72e5a57f793622f82de99d74",
+      "content_hash": "540b5d73b9ba388f2bba73f0f11359e102447d6cd585afe38d0839a07b29331f",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-chat-jumps-scope",
-        "reviewed_at": "2026-09-26T15:11:41.309958+00:00",
+        "reviewed_at": "2026-09-26T15:14:27.258950+00:00",
         "executor": "Codex inline to-wireframes",
         "scope": "The owner requests Discussion, Outcome, Sources and Usage in the sticky menu. Group the existing status/Stop row and four view tabs in one sticky Discussion header below the main navigation. Preserve content order and access on narrow screens; the transcript and selected panel scroll underneath."
       },
@@ -3777,7 +3781,7 @@
     "design-brief": {
       "path": "docs/design-brief.md",
       "owner_skill": "to-design-brief",
-      "owner_invocation_id": "chat-jumps-20260926-design-brief",
+      "owner_invocation_id": "chat-center-20260926-design-brief",
       "declared_output_set": [
         "docs/design-brief.md"
       ],
@@ -3799,7 +3803,8 @@
         "forge/runs/sticky-view-nav-20260925/scope.json": "full",
         "forge/runs/reading-mode-20260926/scope.json": "full",
         "forge/runs/context-cache-20260926/scope.json": "full",
-        "forge/runs/chat-jumps-20260926/scope.json": "full"
+        "forge/runs/chat-jumps-20260926/scope.json": "full",
+        "forge/runs/chat-center-20260926/scope.json": "full"
       },
       "source_hashes": {
         "docs/prd.md": "eb08110309681fd39df1bb456727b5c83876eab5354f7117f1fec5a961be8463",
@@ -3807,8 +3812,8 @@
         "docs/canonical-terms.md": "3108ca63ad07edce08e91b704bd6c11d9445c1e80d88077a4e6112f3ea52bed8",
         "docs/guardrails.md": "f3240a6fc6e38bf82fee1c3e3e254d1afbf30c4950d1dca70a8bec0c48f03b69",
         "docs/user-journey.md": "5ff4add2f3d19559c5ad2492fe1e02f9bb0d63994f7dfa4548fa2e6218c09690",
-        "docs/screen-map.md": "64e9449bacc7c5513ae1c342dba28128560b01889cd29df1ac05bfbbcbad5482",
-        "docs/wireframes.md": "6914ed89d359cc1c9ddb095fb8252a374fbf3f5e72e5a57f793622f82de99d74",
+        "docs/screen-map.md": "a730c584f4f94ce5cf2f61ccb2827706fef3cf930297c3cbcc988c2a92a79a71",
+        "docs/wireframes.md": "540b5d73b9ba388f2bba73f0f11359e102447d6cd585afe38d0839a07b29331f",
         "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b",
         "forge/runs/porcelain-stop-20260924/scoped-override.json": "df8177ecc6e68c658ff5672b14e7def000ba241f9932639711885a4ba17afc74",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
@@ -3816,7 +3821,8 @@
         "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
         "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
-        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853"
+        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
+        "forge/runs/chat-center-20260926/scope.json": "c9df24147feca20d36881d6ee508be68a898cd32d241eec6cde54e9d473131cb"
       },
       "dependencies": [
         "prd",
@@ -3827,12 +3833,12 @@
         "screen-map",
         "wireframes"
       ],
-      "content_hash": "de4ed2dcd32641553d8c0f083e7756cbbe436398a66edef792e3f34155c37414",
+      "content_hash": "671407effc56b983d63215912770def74ac11b74eed0d5e6be42340cd017d5da",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-chat-jumps-scope",
-        "reviewed_at": "2026-09-26T15:11:41.309958+00:00",
+        "reviewed_at": "2026-09-26T15:14:27.258950+00:00",
         "executor": "Codex inline to-design-brief",
         "scope": "Accepted [sticky-view navigation override](../forge/runs/sticky-view-nav-20260925/scope.json): retain Electric A v8 and P5 appearance, and pin the existing status/Stop row plus all four view tabs below the main menu. Use the canvas background and existing separators; no overlay obscures the tabs or Stop. The override is limited to positioning and persistent reachability."
       },
@@ -3911,7 +3917,7 @@
       },
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "chat-jumps-20260926-architecture",
+      "owner_invocation_id": "chat-center-20260926-architecture",
       "declared_output_set": [
         "docs/architecture.md"
       ],
@@ -3939,7 +3945,8 @@
         "forge/runs/source-persistence-20260926/scope.json": "full",
         "forge/runs/reading-mode-20260926/scope.json": "full",
         "forge/runs/context-cache-20260926/scope.json": "full",
-        "forge/runs/chat-jumps-20260926/scope.json": "full"
+        "forge/runs/chat-jumps-20260926/scope.json": "full",
+        "forge/runs/chat-center-20260926/scope.json": "full"
       },
       "source_hashes": {
         "docs/prd.md": "eb08110309681fd39df1bb456727b5c83876eab5354f7117f1fec5a961be8463",
@@ -3947,9 +3954,9 @@
         "docs/canonical-terms.md": "3108ca63ad07edce08e91b704bd6c11d9445c1e80d88077a4e6112f3ea52bed8",
         "docs/guardrails.md": "f3240a6fc6e38bf82fee1c3e3e254d1afbf30c4950d1dca70a8bec0c48f03b69",
         "docs/user-journey.md": "5ff4add2f3d19559c5ad2492fe1e02f9bb0d63994f7dfa4548fa2e6218c09690",
-        "docs/screen-map.md": "64e9449bacc7c5513ae1c342dba28128560b01889cd29df1ac05bfbbcbad5482",
-        "docs/wireframes.md": "6914ed89d359cc1c9ddb095fb8252a374fbf3f5e72e5a57f793622f82de99d74",
-        "docs/design-brief.md": "de4ed2dcd32641553d8c0f083e7756cbbe436398a66edef792e3f34155c37414",
+        "docs/screen-map.md": "a730c584f4f94ce5cf2f61ccb2827706fef3cf930297c3cbcc988c2a92a79a71",
+        "docs/wireframes.md": "540b5d73b9ba388f2bba73f0f11359e102447d6cd585afe38d0839a07b29331f",
+        "docs/design-brief.md": "671407effc56b983d63215912770def74ac11b74eed0d5e6be42340cd017d5da",
         "docs/model-settings.md": "2d0b9fe9d045e289b228adfe2d27aa6c1d94632eef60c78df60091eb181c4628",
         "forge/runs/claude-signin-20260922/source-review.json": "ad878d853b9c6f30da817167e1db6dffaad9c2c2863354ad3331294d7b269def",
         "forge/runs/sound-media-playback-20260923/scope.json": "7a5aa70bf52fa77a4dea9e39e5a49453c6be40c5b1a347632f4da4f5294455a0",
@@ -3962,7 +3969,8 @@
         "forge/runs/source-persistence-20260926/scope.json": "d0a6d9c8e2b513a16d634dea61dff1b76f260a9591cc8187ead7a3e2c3bf69aa",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
         "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
-        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853"
+        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
+        "forge/runs/chat-center-20260926/scope.json": "c9df24147feca20d36881d6ee508be68a898cd32d241eec6cde54e9d473131cb"
       },
       "dependencies": [
         "prd",
@@ -3974,12 +3982,12 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "7e5f534aa02b8427c2639e855121437683f8ebda1e798ba2d13716259d057f78",
+      "content_hash": "a6d233b6f2dc91333fe0a2c604a367a80b717a098dffcb747e9a0785fc1c3138",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-chat-jumps-scope",
-        "reviewed_at": "2026-09-26T15:11:41.309958+00:00",
+        "reviewed_at": "2026-09-26T15:14:27.258950+00:00",
         "executor": "Codex inline to-architecture",
         "scope": "Existing source persistence and recovery contract repair; retained upstream scope and approved baseline."
       },
@@ -4059,7 +4067,7 @@
       },
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "chat-jumps-20260926-dod-evals",
+      "owner_invocation_id": "chat-center-20260926-dod-evals",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
@@ -4083,7 +4091,8 @@
         "forge/runs/source-persistence-20260926/scope.json": "full",
         "forge/runs/reading-mode-20260926/scope.json": "full",
         "forge/runs/context-cache-20260926/scope.json": "full",
-        "forge/runs/chat-jumps-20260926/scope.json": "full"
+        "forge/runs/chat-jumps-20260926/scope.json": "full",
+        "forge/runs/chat-center-20260926/scope.json": "full"
       },
       "source_hashes": {
         "docs/prd.md": "eb08110309681fd39df1bb456727b5c83876eab5354f7117f1fec5a961be8463",
@@ -4091,10 +4100,10 @@
         "docs/canonical-terms.md": "3108ca63ad07edce08e91b704bd6c11d9445c1e80d88077a4e6112f3ea52bed8",
         "docs/guardrails.md": "f3240a6fc6e38bf82fee1c3e3e254d1afbf30c4950d1dca70a8bec0c48f03b69",
         "docs/user-journey.md": "5ff4add2f3d19559c5ad2492fe1e02f9bb0d63994f7dfa4548fa2e6218c09690",
-        "docs/screen-map.md": "64e9449bacc7c5513ae1c342dba28128560b01889cd29df1ac05bfbbcbad5482",
-        "docs/wireframes.md": "6914ed89d359cc1c9ddb095fb8252a374fbf3f5e72e5a57f793622f82de99d74",
-        "docs/design-brief.md": "de4ed2dcd32641553d8c0f083e7756cbbe436398a66edef792e3f34155c37414",
-        "docs/architecture.md": "7e5f534aa02b8427c2639e855121437683f8ebda1e798ba2d13716259d057f78",
+        "docs/screen-map.md": "a730c584f4f94ce5cf2f61ccb2827706fef3cf930297c3cbcc988c2a92a79a71",
+        "docs/wireframes.md": "540b5d73b9ba388f2bba73f0f11359e102447d6cd585afe38d0839a07b29331f",
+        "docs/design-brief.md": "671407effc56b983d63215912770def74ac11b74eed0d5e6be42340cd017d5da",
+        "docs/architecture.md": "a6d233b6f2dc91333fe0a2c604a367a80b717a098dffcb747e9a0785fc1c3138",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e",
@@ -4102,7 +4111,8 @@
         "forge/runs/source-persistence-20260926/scope.json": "d0a6d9c8e2b513a16d634dea61dff1b76f260a9591cc8187ead7a3e2c3bf69aa",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
         "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
-        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853"
+        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
+        "forge/runs/chat-center-20260926/scope.json": "c9df24147feca20d36881d6ee508be68a898cd32d241eec6cde54e9d473131cb"
       },
       "dependencies": [
         "prd",
@@ -4115,12 +4125,12 @@
         "design-brief",
         "architecture"
       ],
-      "content_hash": "8bd0b110dbaf2dac687962e58cee722f45f9bfacc90bc2be934a9ec792f823a5",
+      "content_hash": "5712879f1aecd7b5278d9eb4a17bfda0a7162c3e2bb2d88025f6f5033f5467ee",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-chat-jumps-scope",
-        "reviewed_at": "2026-09-26T15:11:41.309958+00:00",
+        "reviewed_at": "2026-09-26T15:14:27.258950+00:00",
         "executor": "Codex inline to-dod-evals",
         "scope": "Existing source persistence and recovery contract repair; retained upstream scope and approved baseline."
       },
@@ -6060,7 +6070,7 @@
       },
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "chat-jumps-20260926-qa-checklist",
+      "owner_invocation_id": "chat-center-20260926-qa-checklist",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
@@ -6086,7 +6096,8 @@
         "forge/runs/source-persistence-20260926/scope.json": "full",
         "forge/runs/reading-mode-20260926/scope.json": "full",
         "forge/runs/context-cache-20260926/scope.json": "full",
-        "forge/runs/chat-jumps-20260926/scope.json": "full"
+        "forge/runs/chat-jumps-20260926/scope.json": "full",
+        "forge/runs/chat-center-20260926/scope.json": "full"
       },
       "source_hashes": {
         "docs/prd.md": "eb08110309681fd39df1bb456727b5c83876eab5354f7117f1fec5a961be8463",
@@ -6094,11 +6105,11 @@
         "docs/canonical-terms.md": "3108ca63ad07edce08e91b704bd6c11d9445c1e80d88077a4e6112f3ea52bed8",
         "docs/guardrails.md": "f3240a6fc6e38bf82fee1c3e3e254d1afbf30c4950d1dca70a8bec0c48f03b69",
         "docs/user-journey.md": "5ff4add2f3d19559c5ad2492fe1e02f9bb0d63994f7dfa4548fa2e6218c09690",
-        "docs/screen-map.md": "64e9449bacc7c5513ae1c342dba28128560b01889cd29df1ac05bfbbcbad5482",
-        "docs/wireframes.md": "6914ed89d359cc1c9ddb095fb8252a374fbf3f5e72e5a57f793622f82de99d74",
-        "docs/design-brief.md": "de4ed2dcd32641553d8c0f083e7756cbbe436398a66edef792e3f34155c37414",
-        "docs/architecture.md": "7e5f534aa02b8427c2639e855121437683f8ebda1e798ba2d13716259d057f78",
-        "docs/dod-evals.md": "8bd0b110dbaf2dac687962e58cee722f45f9bfacc90bc2be934a9ec792f823a5",
+        "docs/screen-map.md": "a730c584f4f94ce5cf2f61ccb2827706fef3cf930297c3cbcc988c2a92a79a71",
+        "docs/wireframes.md": "540b5d73b9ba388f2bba73f0f11359e102447d6cd585afe38d0839a07b29331f",
+        "docs/design-brief.md": "671407effc56b983d63215912770def74ac11b74eed0d5e6be42340cd017d5da",
+        "docs/architecture.md": "a6d233b6f2dc91333fe0a2c604a367a80b717a098dffcb747e9a0785fc1c3138",
+        "docs/dod-evals.md": "5712879f1aecd7b5278d9eb4a17bfda0a7162c3e2bb2d88025f6f5033f5467ee",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/critic-usage-20260925/verification.json": "3bb9e18d641a3053af6a0206de3eb4b0859b9a096199b96eae3cd3b06a79df13",
@@ -6107,7 +6118,8 @@
         "forge/runs/source-persistence-20260926/scope.json": "d0a6d9c8e2b513a16d634dea61dff1b76f260a9591cc8187ead7a3e2c3bf69aa",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
         "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
-        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853"
+        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
+        "forge/runs/chat-center-20260926/scope.json": "c9df24147feca20d36881d6ee508be68a898cd32d241eec6cde54e9d473131cb"
       },
       "dependencies": [
         "prd",
@@ -6121,12 +6133,12 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "b916787cb8808025399f636e429e05e00afb979bfe6d3060a3170d55b3596678",
+      "content_hash": "69d51822df01bca0f8157a03c1a1b619d713aca96981691d464943f1f431293f",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-chat-jumps-scope",
-        "reviewed_at": "2026-09-26T15:11:41.309958+00:00",
+        "reviewed_at": "2026-09-26T15:14:27.258950+00:00",
         "executor": "Codex inline to-qa-checklist",
         "scope": "Existing source persistence and recovery contract repair; retained upstream scope and approved baseline."
       },
@@ -7355,7 +7367,7 @@
       },
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "chat-jumps-20260926-development-plan",
+      "owner_invocation_id": "chat-center-20260926-development-plan",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
@@ -7385,7 +7397,8 @@
         "forge/runs/source-persistence-20260926/scope.json": "full",
         "forge/runs/reading-mode-20260926/scope.json": "full",
         "forge/runs/context-cache-20260926/scope.json": "full",
-        "forge/runs/chat-jumps-20260926/scope.json": "full"
+        "forge/runs/chat-jumps-20260926/scope.json": "full",
+        "forge/runs/chat-center-20260926/scope.json": "full"
       },
       "source_hashes": {
         "docs/prd.md": "eb08110309681fd39df1bb456727b5c83876eab5354f7117f1fec5a961be8463",
@@ -7393,12 +7406,12 @@
         "docs/canonical-terms.md": "3108ca63ad07edce08e91b704bd6c11d9445c1e80d88077a4e6112f3ea52bed8",
         "docs/guardrails.md": "f3240a6fc6e38bf82fee1c3e3e254d1afbf30c4950d1dca70a8bec0c48f03b69",
         "docs/user-journey.md": "5ff4add2f3d19559c5ad2492fe1e02f9bb0d63994f7dfa4548fa2e6218c09690",
-        "docs/screen-map.md": "64e9449bacc7c5513ae1c342dba28128560b01889cd29df1ac05bfbbcbad5482",
-        "docs/wireframes.md": "6914ed89d359cc1c9ddb095fb8252a374fbf3f5e72e5a57f793622f82de99d74",
-        "docs/design-brief.md": "de4ed2dcd32641553d8c0f083e7756cbbe436398a66edef792e3f34155c37414",
-        "docs/architecture.md": "7e5f534aa02b8427c2639e855121437683f8ebda1e798ba2d13716259d057f78",
-        "docs/dod-evals.md": "8bd0b110dbaf2dac687962e58cee722f45f9bfacc90bc2be934a9ec792f823a5",
-        "docs/qa-checklist.md": "b916787cb8808025399f636e429e05e00afb979bfe6d3060a3170d55b3596678",
+        "docs/screen-map.md": "a730c584f4f94ce5cf2f61ccb2827706fef3cf930297c3cbcc988c2a92a79a71",
+        "docs/wireframes.md": "540b5d73b9ba388f2bba73f0f11359e102447d6cd585afe38d0839a07b29331f",
+        "docs/design-brief.md": "671407effc56b983d63215912770def74ac11b74eed0d5e6be42340cd017d5da",
+        "docs/architecture.md": "a6d233b6f2dc91333fe0a2c604a367a80b717a098dffcb747e9a0785fc1c3138",
+        "docs/dod-evals.md": "5712879f1aecd7b5278d9eb4a17bfda0a7162c3e2bb2d88025f6f5033f5467ee",
+        "docs/qa-checklist.md": "69d51822df01bca0f8157a03c1a1b619d713aca96981691d464943f1f431293f",
         "docs/model-settings.md": "2d0b9fe9d045e289b228adfe2d27aa6c1d94632eef60c78df60091eb181c4628",
         "package.json": "094e408c16c3a8369b9f21a343bb562dc0cd20160e26b6c01f144bd83712a568",
         "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318",
@@ -7410,7 +7423,8 @@
         "forge/runs/source-persistence-20260926/scope.json": "d0a6d9c8e2b513a16d634dea61dff1b76f260a9591cc8187ead7a3e2c3bf69aa",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
         "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
-        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853"
+        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
+        "forge/runs/chat-center-20260926/scope.json": "c9df24147feca20d36881d6ee508be68a898cd32d241eec6cde54e9d473131cb"
       },
       "dependencies": [
         "prd",
@@ -7425,12 +7439,12 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "cfab998d1283736d3149efa0f33b6f8bd106e0836a603cf20f339b4d3d5ea8dc",
+      "content_hash": "85869e8c1589a6248d1bf16722f3de888d01fc9ab37ee14440f4937ea742995b",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-chat-jumps-scope",
-        "reviewed_at": "2026-09-26T15:11:41.309958+00:00",
+        "reviewed_at": "2026-09-26T15:14:27.258950+00:00",
         "executor": "Codex inline to-development-plan",
         "scope": "Existing source persistence and recovery contract repair; retained upstream scope and approved baseline."
       },
@@ -7964,8 +7978,8 @@
     "definition_status": "prepared",
     "release_readiness": "not_evaluated",
     "source_hashes": {
-      "docs/dod-evals.md": "8bd0b110dbaf2dac687962e58cee722f45f9bfacc90bc2be934a9ec792f823a5",
-      "docs/qa-checklist.md": "b916787cb8808025399f636e429e05e00afb979bfe6d3060a3170d55b3596678"
+      "docs/dod-evals.md": "5712879f1aecd7b5278d9eb4a17bfda0a7162c3e2bb2d88025f6f5033f5467ee",
+      "docs/qa-checklist.md": "69d51822df01bca0f8157a03c1a1b619d713aca96981691d464943f1f431293f"
     },
     "gates": [
       {
@@ -10995,17 +11009,17 @@
   },
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "cfab998d1283736d3149efa0f33b6f8bd106e0836a603cf20f339b4d3d5ea8dc",
+    "development_plan_hash": "85869e8c1589a6248d1bf16722f3de888d01fc9ab37ee14440f4937ea742995b",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-09-24T13:00:20.203238+00:00",
     "product_scope_hash": "defc5e24f0dd91be42b984888b157137f4f1ed361459e70f42b832e18c957bd4",
-    "prompt_id": "chat-jumps-20260926",
-    "prompt_received_at": "2026-09-26T15:11:46.442538+00:00",
-    "released_at": "2026-09-26T15:11:46.442538+00:00",
-    "reason": "User explicitly requested chat beginning/end arrow implementation.",
+    "prompt_id": "chat-center-20260926",
+    "prompt_received_at": "2026-09-26T15:14:27.258950+00:00",
+    "released_at": "2026-09-26T15:14:57.944406+00:00",
+    "reason": "Explicit user correction to arrow placement.",
     "prompt_receipt": {
-      "path": "forge/runs/chat-jumps-20260926/implementation-prompt.json",
-      "content_hash": "bb0e0159eaa028b3f00274d7d33bfcd3b505beca530bf12a20cf4619bf44c890"
+      "path": "forge/runs/chat-center-20260926/implementation-prompt.json",
+      "content_hash": "d83415f29c1297532b7b7e784ae5f10d80d66ee2cb9c02cf823c58c81daa6e74"
     }
   },
   "dispatches": {
@@ -11109,7 +11123,7 @@
       }
     },
     "screen-map": {
-      "invocation_id": "chat-jumps-20260926-screen-map",
+      "invocation_id": "chat-center-20260926-screen-map",
       "outputs": [
         "docs/screen-map.md"
       ],
@@ -11123,11 +11137,12 @@
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
         "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
-        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853"
+        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
+        "forge/runs/chat-center-20260926/scope.json": "c9df24147feca20d36881d6ee508be68a898cd32d241eec6cde54e9d473131cb"
       }
     },
     "wireframes": {
-      "invocation_id": "chat-jumps-20260926-wireframes",
+      "invocation_id": "chat-center-20260926-wireframes",
       "outputs": [
         "docs/wireframes.md"
       ],
@@ -11137,17 +11152,18 @@
         "docs/canonical-terms.md": "3108ca63ad07edce08e91b704bd6c11d9445c1e80d88077a4e6112f3ea52bed8",
         "docs/guardrails.md": "f3240a6fc6e38bf82fee1c3e3e254d1afbf30c4950d1dca70a8bec0c48f03b69",
         "docs/user-journey.md": "5ff4add2f3d19559c5ad2492fe1e02f9bb0d63994f7dfa4548fa2e6218c09690",
-        "docs/screen-map.md": "64e9449bacc7c5513ae1c342dba28128560b01889cd29df1ac05bfbbcbad5482",
+        "docs/screen-map.md": "a730c584f4f94ce5cf2f61ccb2827706fef3cf930297c3cbcc988c2a92a79a71",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
         "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
-        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853"
+        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
+        "forge/runs/chat-center-20260926/scope.json": "c9df24147feca20d36881d6ee508be68a898cd32d241eec6cde54e9d473131cb"
       }
     },
     "design-brief": {
-      "invocation_id": "chat-jumps-20260926-design-brief",
+      "invocation_id": "chat-center-20260926-design-brief",
       "outputs": [
         "docs/design-brief.md"
       ],
@@ -11157,8 +11173,8 @@
         "docs/canonical-terms.md": "3108ca63ad07edce08e91b704bd6c11d9445c1e80d88077a4e6112f3ea52bed8",
         "docs/guardrails.md": "f3240a6fc6e38bf82fee1c3e3e254d1afbf30c4950d1dca70a8bec0c48f03b69",
         "docs/user-journey.md": "5ff4add2f3d19559c5ad2492fe1e02f9bb0d63994f7dfa4548fa2e6218c09690",
-        "docs/screen-map.md": "64e9449bacc7c5513ae1c342dba28128560b01889cd29df1ac05bfbbcbad5482",
-        "docs/wireframes.md": "6914ed89d359cc1c9ddb095fb8252a374fbf3f5e72e5a57f793622f82de99d74",
+        "docs/screen-map.md": "a730c584f4f94ce5cf2f61ccb2827706fef3cf930297c3cbcc988c2a92a79a71",
+        "docs/wireframes.md": "540b5d73b9ba388f2bba73f0f11359e102447d6cd585afe38d0839a07b29331f",
         "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b",
         "forge/runs/porcelain-stop-20260924/scoped-override.json": "df8177ecc6e68c658ff5672b14e7def000ba241f9932639711885a4ba17afc74",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
@@ -11166,11 +11182,12 @@
         "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
         "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
-        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853"
+        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
+        "forge/runs/chat-center-20260926/scope.json": "c9df24147feca20d36881d6ee508be68a898cd32d241eec6cde54e9d473131cb"
       }
     },
     "architecture": {
-      "invocation_id": "chat-jumps-20260926-architecture",
+      "invocation_id": "chat-center-20260926-architecture",
       "outputs": [
         "docs/architecture.md"
       ],
@@ -11180,9 +11197,9 @@
         "docs/canonical-terms.md": "3108ca63ad07edce08e91b704bd6c11d9445c1e80d88077a4e6112f3ea52bed8",
         "docs/guardrails.md": "f3240a6fc6e38bf82fee1c3e3e254d1afbf30c4950d1dca70a8bec0c48f03b69",
         "docs/user-journey.md": "5ff4add2f3d19559c5ad2492fe1e02f9bb0d63994f7dfa4548fa2e6218c09690",
-        "docs/screen-map.md": "64e9449bacc7c5513ae1c342dba28128560b01889cd29df1ac05bfbbcbad5482",
-        "docs/wireframes.md": "6914ed89d359cc1c9ddb095fb8252a374fbf3f5e72e5a57f793622f82de99d74",
-        "docs/design-brief.md": "de4ed2dcd32641553d8c0f083e7756cbbe436398a66edef792e3f34155c37414",
+        "docs/screen-map.md": "a730c584f4f94ce5cf2f61ccb2827706fef3cf930297c3cbcc988c2a92a79a71",
+        "docs/wireframes.md": "540b5d73b9ba388f2bba73f0f11359e102447d6cd585afe38d0839a07b29331f",
+        "docs/design-brief.md": "671407effc56b983d63215912770def74ac11b74eed0d5e6be42340cd017d5da",
         "docs/model-settings.md": "2d0b9fe9d045e289b228adfe2d27aa6c1d94632eef60c78df60091eb181c4628",
         "forge/runs/claude-signin-20260922/source-review.json": "ad878d853b9c6f30da817167e1db6dffaad9c2c2863354ad3331294d7b269def",
         "forge/runs/sound-media-playback-20260923/scope.json": "7a5aa70bf52fa77a4dea9e39e5a49453c6be40c5b1a347632f4da4f5294455a0",
@@ -11195,11 +11212,12 @@
         "forge/runs/source-persistence-20260926/scope.json": "d0a6d9c8e2b513a16d634dea61dff1b76f260a9591cc8187ead7a3e2c3bf69aa",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
         "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
-        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853"
+        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
+        "forge/runs/chat-center-20260926/scope.json": "c9df24147feca20d36881d6ee508be68a898cd32d241eec6cde54e9d473131cb"
       }
     },
     "dod-evals": {
-      "invocation_id": "chat-jumps-20260926-dod-evals",
+      "invocation_id": "chat-center-20260926-dod-evals",
       "outputs": [
         "docs/dod-evals.md"
       ],
@@ -11209,10 +11227,10 @@
         "docs/canonical-terms.md": "3108ca63ad07edce08e91b704bd6c11d9445c1e80d88077a4e6112f3ea52bed8",
         "docs/guardrails.md": "f3240a6fc6e38bf82fee1c3e3e254d1afbf30c4950d1dca70a8bec0c48f03b69",
         "docs/user-journey.md": "5ff4add2f3d19559c5ad2492fe1e02f9bb0d63994f7dfa4548fa2e6218c09690",
-        "docs/screen-map.md": "64e9449bacc7c5513ae1c342dba28128560b01889cd29df1ac05bfbbcbad5482",
-        "docs/wireframes.md": "6914ed89d359cc1c9ddb095fb8252a374fbf3f5e72e5a57f793622f82de99d74",
-        "docs/design-brief.md": "de4ed2dcd32641553d8c0f083e7756cbbe436398a66edef792e3f34155c37414",
-        "docs/architecture.md": "7e5f534aa02b8427c2639e855121437683f8ebda1e798ba2d13716259d057f78",
+        "docs/screen-map.md": "a730c584f4f94ce5cf2f61ccb2827706fef3cf930297c3cbcc988c2a92a79a71",
+        "docs/wireframes.md": "540b5d73b9ba388f2bba73f0f11359e102447d6cd585afe38d0839a07b29331f",
+        "docs/design-brief.md": "671407effc56b983d63215912770def74ac11b74eed0d5e6be42340cd017d5da",
+        "docs/architecture.md": "a6d233b6f2dc91333fe0a2c604a367a80b717a098dffcb747e9a0785fc1c3138",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e",
@@ -11220,11 +11238,12 @@
         "forge/runs/source-persistence-20260926/scope.json": "d0a6d9c8e2b513a16d634dea61dff1b76f260a9591cc8187ead7a3e2c3bf69aa",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
         "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
-        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853"
+        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
+        "forge/runs/chat-center-20260926/scope.json": "c9df24147feca20d36881d6ee508be68a898cd32d241eec6cde54e9d473131cb"
       }
     },
     "qa-checklist": {
-      "invocation_id": "chat-jumps-20260926-qa-checklist",
+      "invocation_id": "chat-center-20260926-qa-checklist",
       "outputs": [
         "docs/qa-checklist.md"
       ],
@@ -11234,11 +11253,11 @@
         "docs/canonical-terms.md": "3108ca63ad07edce08e91b704bd6c11d9445c1e80d88077a4e6112f3ea52bed8",
         "docs/guardrails.md": "f3240a6fc6e38bf82fee1c3e3e254d1afbf30c4950d1dca70a8bec0c48f03b69",
         "docs/user-journey.md": "5ff4add2f3d19559c5ad2492fe1e02f9bb0d63994f7dfa4548fa2e6218c09690",
-        "docs/screen-map.md": "64e9449bacc7c5513ae1c342dba28128560b01889cd29df1ac05bfbbcbad5482",
-        "docs/wireframes.md": "6914ed89d359cc1c9ddb095fb8252a374fbf3f5e72e5a57f793622f82de99d74",
-        "docs/design-brief.md": "de4ed2dcd32641553d8c0f083e7756cbbe436398a66edef792e3f34155c37414",
-        "docs/architecture.md": "7e5f534aa02b8427c2639e855121437683f8ebda1e798ba2d13716259d057f78",
-        "docs/dod-evals.md": "8bd0b110dbaf2dac687962e58cee722f45f9bfacc90bc2be934a9ec792f823a5",
+        "docs/screen-map.md": "a730c584f4f94ce5cf2f61ccb2827706fef3cf930297c3cbcc988c2a92a79a71",
+        "docs/wireframes.md": "540b5d73b9ba388f2bba73f0f11359e102447d6cd585afe38d0839a07b29331f",
+        "docs/design-brief.md": "671407effc56b983d63215912770def74ac11b74eed0d5e6be42340cd017d5da",
+        "docs/architecture.md": "a6d233b6f2dc91333fe0a2c604a367a80b717a098dffcb747e9a0785fc1c3138",
+        "docs/dod-evals.md": "5712879f1aecd7b5278d9eb4a17bfda0a7162c3e2bb2d88025f6f5033f5467ee",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/critic-usage-20260925/verification.json": "3bb9e18d641a3053af6a0206de3eb4b0859b9a096199b96eae3cd3b06a79df13",
@@ -11247,11 +11266,12 @@
         "forge/runs/source-persistence-20260926/scope.json": "d0a6d9c8e2b513a16d634dea61dff1b76f260a9591cc8187ead7a3e2c3bf69aa",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
         "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
-        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853"
+        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
+        "forge/runs/chat-center-20260926/scope.json": "c9df24147feca20d36881d6ee508be68a898cd32d241eec6cde54e9d473131cb"
       }
     },
     "development-plan": {
-      "invocation_id": "chat-jumps-20260926-development-plan",
+      "invocation_id": "chat-center-20260926-development-plan",
       "outputs": [
         "docs/development-plan.md"
       ],
@@ -11261,12 +11281,12 @@
         "docs/canonical-terms.md": "3108ca63ad07edce08e91b704bd6c11d9445c1e80d88077a4e6112f3ea52bed8",
         "docs/guardrails.md": "f3240a6fc6e38bf82fee1c3e3e254d1afbf30c4950d1dca70a8bec0c48f03b69",
         "docs/user-journey.md": "5ff4add2f3d19559c5ad2492fe1e02f9bb0d63994f7dfa4548fa2e6218c09690",
-        "docs/screen-map.md": "64e9449bacc7c5513ae1c342dba28128560b01889cd29df1ac05bfbbcbad5482",
-        "docs/wireframes.md": "6914ed89d359cc1c9ddb095fb8252a374fbf3f5e72e5a57f793622f82de99d74",
-        "docs/design-brief.md": "de4ed2dcd32641553d8c0f083e7756cbbe436398a66edef792e3f34155c37414",
-        "docs/architecture.md": "7e5f534aa02b8427c2639e855121437683f8ebda1e798ba2d13716259d057f78",
-        "docs/dod-evals.md": "8bd0b110dbaf2dac687962e58cee722f45f9bfacc90bc2be934a9ec792f823a5",
-        "docs/qa-checklist.md": "b916787cb8808025399f636e429e05e00afb979bfe6d3060a3170d55b3596678",
+        "docs/screen-map.md": "a730c584f4f94ce5cf2f61ccb2827706fef3cf930297c3cbcc988c2a92a79a71",
+        "docs/wireframes.md": "540b5d73b9ba388f2bba73f0f11359e102447d6cd585afe38d0839a07b29331f",
+        "docs/design-brief.md": "671407effc56b983d63215912770def74ac11b74eed0d5e6be42340cd017d5da",
+        "docs/architecture.md": "a6d233b6f2dc91333fe0a2c604a367a80b717a098dffcb747e9a0785fc1c3138",
+        "docs/dod-evals.md": "5712879f1aecd7b5278d9eb4a17bfda0a7162c3e2bb2d88025f6f5033f5467ee",
+        "docs/qa-checklist.md": "69d51822df01bca0f8157a03c1a1b619d713aca96981691d464943f1f431293f",
         "docs/model-settings.md": "2d0b9fe9d045e289b228adfe2d27aa6c1d94632eef60c78df60091eb181c4628",
         "package.json": "094e408c16c3a8369b9f21a343bb562dc0cd20160e26b6c01f144bd83712a568",
         "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318",
@@ -11278,7 +11298,8 @@
         "forge/runs/source-persistence-20260926/scope.json": "d0a6d9c8e2b513a16d634dea61dff1b76f260a9591cc8187ead7a3e2c3bf69aa",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
         "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
-        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853"
+        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
+        "forge/runs/chat-center-20260926/scope.json": "c9df24147feca20d36881d6ee508be68a898cd32d241eec6cde54e9d473131cb"
       }
     }
   },
@@ -37718,6 +37739,48 @@
           "content_hash": "6f6be146753323bde6de5d76358ef1148927f9eebc4767853e2b4b09f8e9a6b2"
         }
       }
+    },
+    {
+      "event": "chat_center_owner_reconciliation",
+      "artifact": "screen-map",
+      "previous_hash": "64e9449bacc7c5513ae1c342dba28128560b01889cd29df1ac05bfbbcbad5482",
+      "recorded_at": "2026-09-26T15:14:27.258950+00:00"
+    },
+    {
+      "event": "chat_center_owner_reconciliation",
+      "artifact": "wireframes",
+      "previous_hash": "6914ed89d359cc1c9ddb095fb8252a374fbf3f5e72e5a57f793622f82de99d74",
+      "recorded_at": "2026-09-26T15:14:27.258950+00:00"
+    },
+    {
+      "event": "chat_center_owner_reconciliation",
+      "artifact": "design-brief",
+      "previous_hash": "de4ed2dcd32641553d8c0f083e7756cbbe436398a66edef792e3f34155c37414",
+      "recorded_at": "2026-09-26T15:14:27.258950+00:00"
+    },
+    {
+      "event": "chat_center_owner_reconciliation",
+      "artifact": "architecture",
+      "previous_hash": "7e5f534aa02b8427c2639e855121437683f8ebda1e798ba2d13716259d057f78",
+      "recorded_at": "2026-09-26T15:14:27.258950+00:00"
+    },
+    {
+      "event": "chat_center_owner_reconciliation",
+      "artifact": "dod-evals",
+      "previous_hash": "8bd0b110dbaf2dac687962e58cee722f45f9bfacc90bc2be934a9ec792f823a5",
+      "recorded_at": "2026-09-26T15:14:27.258950+00:00"
+    },
+    {
+      "event": "chat_center_owner_reconciliation",
+      "artifact": "qa-checklist",
+      "previous_hash": "b916787cb8808025399f636e429e05e00afb979bfe6d3060a3170d55b3596678",
+      "recorded_at": "2026-09-26T15:14:27.258950+00:00"
+    },
+    {
+      "event": "chat_center_owner_reconciliation",
+      "artifact": "development-plan",
+      "previous_hash": "cfab998d1283736d3149efa0f33b6f8bd106e0836a603cf20f339b4d3d5ea8dc",
+      "recorded_at": "2026-09-26T15:14:27.258950+00:00"
     }
   ],
   "input_requests": [],

@@ -159,3 +159,7 @@ Retain nanoduck-electric-a-v8-20260914 and its frozen evidence. The authorized c
 ## Chat beginning and end controls — 2026-09-26
 
 The user explicitly requested two transparent outlined circular arrow buttons to jump to the beginning and end of the chat. This is a scoped addition to existing S-02 navigation under UC-003/JOB-001; preserve Stop, drafts and ongoing work. Reuse Electric A v8 colors. Two 44px circles, transparent fill including hover, 1.5px muted border, thin up/down arrow strokes, 8px gap. Place in sticky navigation away from Stop; wrap to a separate row on narrow screens. Existing focus outline remains.
+
+## Centered chat arrows — 2026-09-26
+
+The explicit user correction replaces grouped navigation placement: the up arrow sits at the horizontal center near the viewport top, below global navigation; the down arrow sits at the horizontal center near the bottom safe area. Both remain fixed while scrolling, 44px transparent outlined circles, with existing accessible labels and reduced-motion behavior. They remain confined to the consultation page. No server/session changes.

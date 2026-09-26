@@ -192,3 +192,8 @@ Additional coverage under existing QA-R03/QA-R11–QA-R16/QA-R36–QA-R39: seed 
 ## Chat beginning and end controls — 2026-09-26
 
 Extend scripts/browser-reading-mode.mjs to verify both jumps, Discussion selection, transparent fill and existing 320/390/768px reflow in Chromium/Firefox/WebKit. Executed browser checks passed in Chromium, Firefox and WebKit; reviewed the WebKit mobile screenshot. Full artifact/unit checks: 207 passed, 2 skipped. No claim of representative-user validation. Formal release readiness remains not_evaluated.
+
+## Centered chat arrows — 2026-09-26
+
+The explicit user correction replaces grouped navigation placement: the up arrow sits at the horizontal center near the viewport top, below global navigation; the down arrow sits at the horizontal center near the bottom safe area. Both remain fixed while scrolling, 44px transparent outlined circles, with existing accessible labels and reduced-motion behavior. They remain confined to the consultation page. No server/session changes.
+Browser verification checks horizontal center and top/bottom separation at 320, 390 and 768px in addition to both jump actions and existing desktop reading layout. Formal release readiness remains not_evaluated.

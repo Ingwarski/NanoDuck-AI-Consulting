@@ -1,0 +1,5 @@
+{
+  "user_message": "no, they need to be right in the middle of the page - top and bottom.",
+  "interpretation": "Up arrow fixed at horizontal viewport center below global navigation; down arrow fixed at horizontal viewport center near bottom safe area. Transparent circular buttons remain; replace grouped sidebar/header placement.",
+  "recorded_at": "2026-09-26T15:14:27.258950+00:00"
+}

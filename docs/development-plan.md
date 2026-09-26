@@ -385,3 +385,8 @@ Unit U-10: isolated request context and provider cache economy (full-stack). Sou
 ## Chat beginning and end controls — 2026-09-26
 
 U-11: chat beginning/end navigation, frontend only, authorized by explicit user request. Change public/index.html, public/styles.css and src/client/app.js; verify in scripts/browser-reading-mode.mjs across three engines. Preserve Electric A v8 with the requested circular transparent controls; no prototype promotion or backend changes. Acceptance: both ends reachable, no Stop activation, draft preserved, reduced-motion respected and mobile layout intact.
+
+## Centered chat arrows — 2026-09-26
+
+The explicit user correction replaces grouped navigation placement: the up arrow sits at the horizontal center near the viewport top, below global navigation; the down arrow sits at the horizontal center near the bottom safe area. Both remain fixed while scrolling, 44px transparent outlined circles, with existing accessible labels and reduced-motion behavior. They remain confined to the consultation page. No server/session changes.
+This is a placement correction to U-11, explicitly authorized by the current user message. Destinations: public/index.html and public/styles.css; browser-reading-mode.mjs verifies position. No prototype promotion.

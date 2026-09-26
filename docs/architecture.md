@@ -208,3 +208,7 @@ New runs persist immutable snapshot.requestMessageId; context selection and sour
 ## Chat beginning and end controls — 2026-09-26
 
 Client-only chat-start/chat-end listeners select Discussion, then scroll to its first/last message. Start accounts for the sticky header; end aligns the last message with the viewport bottom. Reduced motion uses immediate scrolling. No server mutation or restart is needed.
+
+## Centered chat arrows — 2026-09-26
+
+The explicit user correction replaces grouped navigation placement: the up arrow sits at the horizontal center near the viewport top, below global navigation; the down arrow sits at the horizontal center near the bottom safe area. Both remain fixed while scrolling, 44px transparent outlined circles, with existing accessible labels and reduced-motion behavior. They remain confined to the consultation page. No server/session changes.

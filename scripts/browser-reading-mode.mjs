@@ -44,6 +44,9 @@ export async function verifyReadingMode(page, name, root) {
     await page.locator('#consultation-view').selectOption('outcome');
     assert.equal(await page.locator('#outcome').isVisible(), true);
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `${width}px reflow`);
+    const jumps = await page.evaluate(() => ['#chat-start', '#chat-end'].map(id => { const r = document.querySelector(id).getBoundingClientRect(); return {center:r.x+r.width/2, top:r.top, bottom:r.bottom}; }));
+    assert.ok(jumps.every(r => Math.abs(r.center - width / 2) < 1), 'Arrows centered in viewport');
+    assert.ok(jumps[0].top < 145 && jumps[1].bottom > 800, 'Arrows separated at top and bottom');
     assert.equal(await page.locator('.tabs').isVisible(), false);
     if (width === 390) await page.screenshot({ path: join(root, 'output', 'playwright', `${name}-reading-mobile.png`), fullPage: true });
   }
