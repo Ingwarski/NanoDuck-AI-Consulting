@@ -101,7 +101,10 @@ export function createNavbarGlass({ allowed = () => true } = {}) {
   window.addEventListener('scroll',schedule,{passive:true,capture:true}); window.addEventListener('resize',schedule,{passive:true});
   document.addEventListener('visibilitychange',()=>{clear();if(!document.hidden)schedule();});
   reduced.addEventListener('change',schedule);contrast.addEventListener('change',schedule);
-  const observer=new MutationObserver(()=>{clear();schedule();});
+  // Keep the previous frame until its replacement is ready. Clearing on every
+  // mutation made unrelated status updates flash the glass off between frames.
+  // Privacy transitions still call clear() synchronously through the app.
+  const observer=new MutationObserver(()=>{if (!allowed()) clear(); else schedule();});
   for(const root of document.querySelectorAll('.workspace-actions,#main')) observer.observe(root,{subtree:true,childList:true,characterData:true,attributes:true});
   new ResizeObserver(schedule).observe(bar);
   document.fonts?.ready.then(schedule);schedule();

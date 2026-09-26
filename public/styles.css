@@ -119,3 +119,6 @@
 .navbar .desktop-nav button[aria-current=page]{background:rgba(24,57,99,.60)}
 @media(prefers-reduced-transparency:reduce){.navbar{background:var(--surface)}.navbar-lens,.navbar::before{display:none}}
 @media(forced-colors:active){.navbar{background:Canvas;border:1px solid CanvasText;box-shadow:none}.navbar-lens,.navbar::before{display:none}.navbar button{text-shadow:none}}
+
+/* Match Discussion: content must reach beneath the curved glass ends. */
+#conversations-page,#settings-page{max-width:1116px}

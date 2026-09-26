@@ -10,6 +10,10 @@ await page.screenshot({path:`output/playwright/${name}-refraction.png`});
 await page.locator('.stripe').first().evaluate(el=>el.style.background='#ff2200');await page.waitForTimeout(100);const second=await page.locator('.navbar-lens').evaluate(c=>Array.from(c.getContext('2d').getImageData(0,0,c.width,c.height).data));assert.notDeepEqual(first,second);
 await page.evaluate(()=>scrollTo(0,100));await page.waitForTimeout(100);const scrolled=await page.locator('.navbar-lens').evaluate(c=>Array.from(c.getContext('2d').getImageData(0,0,c.width,c.height).data));assert.notDeepEqual(second,scrolled);
 await page.locator('.brand').click();await page.setViewportSize({width:390,height:800});await page.waitForTimeout(100);assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+// Mutations must retain the current optical frame until the scheduled repaint.
+const beforeMutation=await page.locator('.navbar-lens').evaluate(c=>Array.from(c.getContext('2d').getImageData(0,0,c.width,c.height).data));
+const afterMutation=await page.evaluate(async()=>{document.querySelector('#main').setAttribute('data-status','updated');await Promise.resolve();const c=document.querySelector('.navbar-lens');return Array.from(c.getContext('2d').getImageData(0,0,c.width,c.height).data);});
+assert.deepEqual(afterMutation,beforeMutation,'mutation must not blank the lens between frames');
 // Settings surfaces must refract, while private values remain unsampled.
 await page.evaluate(()=>{scrollTo(0,0);const main=document.querySelector('#main');main.innerHTML='<section id="settings-page"><textarea style="position:fixed;left:30px;top:15px;width:320px;height:90px;background:rgb(210,30,50);border:2px solid white">Private original</textarea></section>';});
 await page.waitForTimeout(100);
