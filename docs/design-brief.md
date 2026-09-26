@@ -167,3 +167,7 @@ The explicit user correction replaces grouped navigation placement: the up arrow
 ## Chat boundary visibility — 2026-09-26
 
 Hide the up arrow when the visible content beginning is reached and hide the down arrow when its end is reached; restore each when scrolling away. Hide both when the content fits. Update on scroll, viewport resize, view changes and incoming content without moving the reading position. Preserve centered 44px transparent controls and reduced motion. Navigation follows the currently selected consultation view rather than switching it. No server/session changes.
+
+## U-12 research and evidence economy — 2026-09-26
+
+U-12 retains Electric A v8 and all existing UI. No new model setting, visual redesign or prototype promotion. Source references resolve to normal clickable links before appearing in chat, Sources and export; internal IDs stay out of ordinary visible results.

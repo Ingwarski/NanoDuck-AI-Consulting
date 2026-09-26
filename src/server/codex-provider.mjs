@@ -1,3 +1,4 @@
+import { sourceKey } from "./research-evidence.mjs";
 import { buildProviderContext, consultationBaseInstructions } from "./provider-context.mjs";
 import { beginUsage, codexTokens } from "./usage.mjs";
 import { ensurePrivateDirectory, ensurePrivateFile } from "./private-files.mjs";
@@ -178,7 +179,7 @@ function sourcesFrom(text) {
     if (source) sources.push(source);
   }
   const deduplicated = new Map();
-  for (const source of sources) if (!deduplicated.has(source.url)) deduplicated.set(source.url, source);
+  for (const source of sources) if (!deduplicated.has(sourceKey(source))) deduplicated.set(sourceKey(source), source);
   const filtered = omitUnsafeExternalUrls(body);
   const language = omitProhibitedLanguage(filtered.body);
   const failureReason = !language.body.trim() ? "empty_response" : !language.substantive ? (language.omittedCount ? "prohibited_language" : "no_usable_content") : undefined;
@@ -246,7 +247,7 @@ export function createCodexProvider(config, deadlineOptions = undefined) {
     if (!runtimeInstructions) throw new RuntimeInstructionError("Provider invocation is missing its runtime-instructions contract.");
     let connection; let threadId; let unsubscribe = () => {}; let deadline;
     let startedAt; let lastProgressAt; let progressCount = 0;
-    let webSearchCount = 0; let finishUsage; let expectedUsageTurn; let usageStatus = "failed"; const usageByTurn = new Map();
+    let webSearchCount = 0; let finishUsage; let expectedUsageTurn; let usageStatus = "failed"; const usageByTurn = new Map(); const researchStepsByTurn = new Map();
     try {
       connection = await startConnection(config, signal, await requestWorkspace(contextScope));
       if (signal?.aborted) throw new Error("cancelled");
@@ -260,6 +261,16 @@ export function createCodexProvider(config, deadlineOptions = undefined) {
       const completedTurns = new Map();
       const completedBodies = new Map();
       const completedSearches = new Map();
+      const recordSearch = (turnId, item) => {
+        const steps = researchStepsByTurn.get(turnId) ?? new Map();
+        if (steps.has(item.id)) return;
+        const action = ({ search: "search", open_page: "open_page", openPage: "open_page", find_in_page: "find_in_page", findInPage: "find_in_page" })[item.action?.type] ?? "other";
+        const fingerprint = action === "other" ? null : JSON.stringify(item.action);
+        const duplicate = fingerprint ? [...steps.values()].findIndex(step => step.fingerprint === fingerprint) : -1;
+        const usage = usageByTurn.get(turnId);
+        steps.set(item.id, { fingerprint, action, elapsedMs: startedAt ? Date.now() - startedAt : null, cumulativeInput: usage?.input ?? null, cumulativeCachedInput: usage?.cachedInput ?? null, repeatOf: duplicate < 0 ? null : duplicate + 1 });
+        researchStepsByTurn.set(turnId, steps);
+      };
       unsubscribe = connection.on(notification => {
         const params = notification.params;
         if (!record(params) || params.threadId !== threadId) return;
@@ -272,7 +283,7 @@ export function createCodexProvider(config, deadlineOptions = undefined) {
           if (body) completedBodies.set(params.turnId, body);
           if (params.item?.type === "webSearch" && typeof params.item.id === "string") {
             const searches = completedSearches.get(params.turnId) ?? new Set();
-            searches.add(params.item.id); completedSearches.set(params.turnId, searches); webSearchCount = searches.size;
+            recordSearch(params.turnId, params.item); searches.add(params.item.id); completedSearches.set(params.turnId, searches); webSearchCount = searches.size;
           }
         }
         if (notification.method !== "turn/completed") return;
@@ -301,6 +312,7 @@ export function createCodexProvider(config, deadlineOptions = undefined) {
       const resultBody = bodyFrom(resolvedTurn) ?? completedBodies.get(expectedTurnId);
       const completionSource = terminalTurn(startedTurn) ? "turn_start" : "notification";
       const searchIds = new Set([...(completedSearches.get(expectedTurnId) ?? []), ...(resolvedTurn.items ?? []).filter(item => item?.type === "webSearch" && typeof item.id === "string").map(item => item.id)]);
+      for (const item of resolvedTurn.items ?? []) if (item?.type === "webSearch" && typeof item.id === "string") recordSearch(expectedTurnId, item);
       webSearchCount = searchIds.size;
       providerLog("nanoduck.provider.turn_completed", { outputKind, completionSource, durationMs: Date.now() - startedAt, webSearchCount: searchIds.size });
       unsubscribe();
@@ -316,7 +328,7 @@ export function createCodexProvider(config, deadlineOptions = undefined) {
       return { ok: false, code };
     } finally {
       deadline?.stop();
-      await finishUsage?.(signal?.aborted ? "cancelled" : usageStatus, usageByTurn.has(expectedUsageTurn) ? [{ model, tokens: usageByTurn.get(expectedUsageTurn) }] : [], { webSearchCount });
+      await finishUsage?.(signal?.aborted ? "cancelled" : usageStatus, usageByTurn.has(expectedUsageTurn) ? [{ model, tokens: usageByTurn.get(expectedUsageTurn) }] : [], { webSearchCount: expectedUsageTurn ? researchStepsByTurn.get(expectedUsageTurn)?.size ?? 0 : null, ...(research ? { researchSteps: [...(researchStepsByTurn.get(expectedUsageTurn)?.values() ?? [])].map(({ fingerprint, ...step }) => step) } : {}) });
       unsubscribe();
       if (connection && threadId && !signal?.aborted) await connection.request("thread/unsubscribe", { threadId }, 1_000).catch(() => {});
       await connection?.close().catch(() => {});

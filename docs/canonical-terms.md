@@ -65,3 +65,7 @@ An isolated request is one newly accepted owner message and only its resulting w
 ## Chat beginning and end controls — 2026-09-26
 
 Chat beginning/end: explicit navigation to the first/last message in Discussion, without sending, stopping or resuming work.
+
+## U-12 research and evidence economy — 2026-09-26
+
+Evidence reference: stable request-scoped identifier for a source and supported claim, resolved to full source metadata before visible storage/export. Evidence gap: a specific Head-directed public fact to establish. Reuse: explicit Head choice of existing current-request evidence, never an inferred identical-query cache hit.

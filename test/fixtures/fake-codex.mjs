@@ -7,6 +7,7 @@ let threadModel;
 const expectedFeatures = ["shell_tool", "unified_exec", "view_image", "shell_snapshot", "apps", "plugins", "hooks", "memories", "browser_use", "browser_use_external", "browser_use_full_cdp_access", "computer_use", "image_generation", "workspace_dependencies", "code_mode", "code_mode_host", "multi_agent", "multi_agent_v2", "skill_search", "tool_suggest", "request_permissions_tool"];
 const replyFor = prompt => {
   let answer = "A bounded answer.";
+  if (prompt.includes("Exercise distinct claims on one URL")) return "Two independently supported claims.\n" + ["First supported fact.", "Second supported fact."].map(claim => `<nanoduck-source>${JSON.stringify({url:"https://example.com/shared",title:"Shared report",claim})}</nanoduck-source>`).join("\n");
   if (prompt.includes("Exercise long source persistence")) return `A complete answer with source context.\n<nanoduck-source>${JSON.stringify({ title: "Evidence title ".repeat(30), url: "https://example.com/long-evidence", claim: "A supported fact with necessary context. ".repeat(80) })}</nanoduck-source>`;
   if (prompt.includes("Return a Ukrainian relative-pronoun example")) return 'Уточніть, які умови потрібно виконати.\n<nanoduck-source>{"title":"Курси, які доступні","url":"https://example.com/courses","claim":"Вимоги, які підтверджує програма."}</nanoduck-source>';
   if (prompt.includes("In one coordinated plan") && /Synthetic \w+ browser decision/u.test(prompt)) return JSON.stringify({ assignments: [
@@ -81,7 +82,7 @@ createInterface({ input: process.stdin, crlfDelay: Infinity }).on("line", line =
     }
     if (prompt.includes("Report selected model and effort")) return send({ id: request.id, result: { turn: { id: "turn-1", status: "completed", items: [{ type: "agentMessage", text: JSON.stringify({ threadModel, turnModel: request.params.model, effort: request.params.effort }) }] } } });
     if (prompt.includes("Report completed research diagnostics")) {
-      const search = { type: "webSearch", id: "search-1", query: "synthetic-query-do-not-log" };
+      const search = { type: "webSearch", id: "search-1", query: "synthetic-query-do-not-log", action: { type: "search", query: "synthetic-query-do-not-log" } };
       send({ method: "item/completed", params: { threadId: "another-thread", turnId: "turn-1", item: { ...search, id: "wrong-thread" } } });
       send({ method: "item/completed", params: { threadId: "isolated-thread", turnId: "another-turn", item: { ...search, id: "wrong-turn" } } });
       for (let repeat = 0; repeat < 2; repeat += 1) send({ method: "item/completed", params: { threadId: "isolated-thread", turnId: "turn-1", item: search } });

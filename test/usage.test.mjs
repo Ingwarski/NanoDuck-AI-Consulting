@@ -76,3 +76,8 @@ test("stage diagnostics contain only bounded metadata and stage totals do not du
   assert.equal(normalized.diagnostics.webSearchCount, 3);
   assert.equal(normalizeUsageAttempt(attempt({ diagnostics: { stage: '<script>', promptBytes: -1 } })).diagnostics.stage, 'unavailable');
 });
+
+test("research-step diagnostics keep only numeric snapshots and known action names", () => {
+ const value=normalizeUsageAttempt(attempt({diagnostics:{stage:"public_research",researchSteps:[{action:"search",elapsedMs:10,cumulativeInput:100,cumulativeCachedInput:60,repeatOf:null,query:"PRIVATE",url:"PRIVATE",fingerprint:"PRIVATE"},{action:"PRIVATE",elapsedMs:-1}]}}));
+ assert.doesNotMatch(JSON.stringify(value),/PRIVATE/);assert.equal(value.diagnostics.researchSteps[0].cumulativeInput,100);assert.equal(value.diagnostics.researchSteps[1].action,"other");assert.equal(value.diagnostics.researchSteps[1].elapsedMs,null);
+});

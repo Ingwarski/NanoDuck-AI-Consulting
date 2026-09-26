@@ -362,3 +362,7 @@ FR-02.12 now binds each newly accepted run to exactly its submitted owner messag
 ## Chat beginning and end controls — 2026-09-26
 
 The user explicitly requested two transparent outlined circular arrow buttons to jump to the beginning and end of the chat. This is a scoped addition to existing S-02 navigation under UC-003/JOB-001; preserve Stop, drafts and ongoing work.
+
+## U-12 research and evidence economy — 2026-09-26
+
+U-12 research and evidence economy: preserve every distinct supported claim, full accepted owner input, exact models/effort and user-selected depth. Reuse evidence only inside the accepted request, including Continue/Retry. No cross-Send cache. Measure actual prompt construction and research stages before claiming savings. FR-02.15 and FR-04.1/FR-04.2 require research/recovery benchmark scenarios, preservation of multiple claims from one URL, persisted safe follow-up queries, shared evidence prefixes, validated stable references and Head-selected evidence recipients. Reuse requires Head judgment that the existing evidence answers the gap; a fresh-check request or inadequate evidence permits another search. Model/effort/search-mode experiments do not silently change production settings. Existing NFR-12.2/NFR-14.1 private-data and public-query controls apply.

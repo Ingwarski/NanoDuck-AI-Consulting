@@ -1,5 +1,6 @@
+import { evidenceLedger, compactEvidence, evidenceTable, resolveEvidenceReferences, researchBundle, researchRecords } from "./research-evidence.mjs";
 import { randomId } from "./crypto.mjs";
-import { activeOrders, parseHeadPlan, parseOrderAssessment, parseTeamReview } from "./parallel-contract.mjs";
+import { activeOrders, parseHeadPlan, parseOrderAssessment, parseTeamReview, parseResearchPlan } from "./parallel-contract.mjs";
 import { createRuntimePrompts, parseRuntimeInstructions, runtimeInstructionsFor } from "./prompt-contracts.mjs";
 import { containsInternalToolTrace } from "./output-safety.mjs";
 import { containsSecretLikeContent } from "./content-policy.mjs";
@@ -21,7 +22,6 @@ const languageFor = value => {
   return /[А-Яа-яІіЇїЄєҐґ]/u.test(value) ? "Ukrainian" : "English";
 };
 const present = value => typeof value === "string" && value.trim();
-const formattedResearch = item => item?.body ? `Verified public research:\n${evidenceRecord(item)}` : item?.status === "unavailable" ? "Public research was unavailable; do not claim it was completed." : "";
 const sourceRecord = sources => (sources ?? []).map(source => `${source.title}: ${source.url}\nSupported claim: ${source.claim}\nRetrieved: ${source.retrievedAt}${source.publishedAt ? `; published: ${source.publishedAt}` : ""}`).join("\n");
 const mergeSources = (...groups) => [...new Map(groups.flat().map(source => [JSON.stringify([source.url, source.claim]), source])).values()];
 const evidenceRecord = message => `${message?.body ?? "pending"}${message?.sources?.length ? `\nSources:\n${sourceRecord(message.sources)}` : ""}`;
@@ -72,13 +72,26 @@ export async function runParallelConsultation({ store, provider, conversationId,
     return !signal.aborted && run?.status === "active" && run.generation === generation;
   };
   const currentWork = async () => (await store.run(conversationId))?.snapshot.parallelWork;
-  const invoke = async ({ route, assignment, outputKind, discussion = "", sharedEvidence = "", research = false, instructions = fullInstructions, ownerText = owner }) => {
+  const invoke = async ({ route, assignment, outputKind, discussion = "", sharedEvidence = "", sharedSources = [], research = false, instructions = fullInstructions, ownerText = owner }) => {
     if (!await isCurrent()) throw new Error("cancelled");
     onProvider(route.provider, outputKind);
-    const input = { ...route, contextScope: runState.id, assignment, evidence: { owner: ownerText, shared: sharedEvidence, discussion }, outputKind, research, runtimeInstructions: instructions, signal };
+    const relatedSources = research ? [] : (await store.events(conversationId)).filter(event => event.sequence >= ownerEvents[0].sequence).flatMap(event => event.sources ?? []).filter(source => discussion.includes(source.url) || assignment.includes(source.url));
+    const ledger = evidenceLedger([...sharedSources, ...relatedSources]);
+    const shared = [compactEvidence(sharedEvidence, ledger), evidenceTable(ledger)].filter(Boolean).join("\n\n");
+    const input = { ...route, contextScope: runState.id, assignment: compactEvidence(assignment, ledger), evidence: { owner: ownerText, shared, discussion: compactEvidence(discussion, ledger) }, outputKind, research, runtimeInstructions: instructions, signal };
     let result = await provider.invoke(input);
-    if (!result.ok && ["language_policy", "output_policy"].includes(result.code) && await isCurrent()) result = await provider.invoke({ ...input, assignment: correctionPrompt(assignment) });
+    if (!result.ok && ["language_policy", "output_policy"].includes(result.code) && await isCurrent()) result = await provider.invoke({ ...input, assignment: correctionPrompt(input.assignment) });
     if (!result.ok) throw new Error(result.code ?? "provider_unavailable");
+    try {
+      const resolved = resolveEvidenceReferences(result.body, ledger);
+      result = { ...result, body: resolved.body, sources: mergeSources(result.sources ?? [], resolved.sources) };
+    } catch (error) {
+      if (error.message !== "evidence_reference" || !await isCurrent()) throw error;
+      result = await provider.invoke({ ...input, assignment: `${input.assignment}\nYour previous answer cited an unknown evidence ID. Regenerate using only the exact IDs in the supplied table, or explicitly state the evidence is unavailable. Do not invent references.` });
+      if (!result.ok) throw new Error(result.code ?? "provider_unavailable");
+      const resolved = resolveEvidenceReferences(result.body, ledger);
+      result = { ...result, body: resolved.body, sources: mergeSources(result.sources ?? [], resolved.sources) };
+    }
     if (containsSecretLikeContent(result.body) || (result.sources ?? []).some(source => containsSecretLikeContent(JSON.stringify(source)))) throw new Error("output_policy");
     if (containsInternalToolTrace(result.body)) throw new Error("provider_contract");
     if (!await isCurrent()) throw new Error("cancelled");
@@ -100,7 +113,7 @@ export async function runParallelConsultation({ store, provider, conversationId,
   let work = await currentWork();
   if (!work) {
     const count = snapshot.specialistCount ?? "2";
-    const planPrompt = `You are Head Consultant and the orchestrator. Read the complete ordered owner messages once. This request is independent: do not infer earlier messages or saved personal context. In one coordinated plan, choose ${count === "auto" ? "one to five" : `exactly ${count}`} distinct consultants. Role examples: ${initialGuidance}; these are guidance, not an allowlist. Create another precise role if the case needs it. Role names must be at most 64 characters and cannot be owner, System, Head Consultant or Critic (case-insensitive). Give each consultant one concise, distinct, Head-authored task tied to a concrete owner deliverable and a private role guidance paragraph. Do not repeat or paraphrase the full owner request in each task; the app supplies it separately. A dependency is allowed only when a consultant truly needs another consultant's completed result. Use 1-based earlier assignment numbers in dependsOn. If current public facts are necessary, set researchQuery to one minimal public query with no private details; otherwise null. Return only JSON: {"assignments":[{"role":"...","guidance":"...","task":"...","dependsOn":[]}],"researchQuery":null}. No advice to the owner. Write task and guidance in ${language}.`;
+    const planPrompt = `You are Head Consultant and the orchestrator. Read the complete ordered owner messages once. This request is independent: do not infer earlier messages or saved personal context. In one coordinated plan, choose ${count === "auto" ? "one to five" : `exactly ${count}`} distinct consultants. Role examples: ${initialGuidance}; these are guidance, not an allowlist. Create another precise role if the case needs it. Role names must be at most 64 characters and cannot be owner, System, Head Consultant or Critic (case-insensitive). Give each consultant one concise, distinct, Head-authored task tied to a concrete owner deliverable and a private role guidance paragraph. Do not repeat or paraphrase the full owner request in each task; the app supplies it separately. A dependency is allowed only when a consultant truly needs another consultant's completed result. Use 1-based earlier assignment numbers in dependsOn. If current public facts are necessary, set researchQuery to one focused public evidence gap, listing the required facts and when it is answered, with no private details; otherwise null. researchFor lists the 1-based assignments that need this evidence; omit it only when all need it. Return only JSON: {"assignments":[{"role":"...","guidance":"...","task":"...","dependsOn":[]}],"researchQuery":null,"researchFor":[1]}. No advice to the owner. Write task and guidance in ${language}.`;
     let result = await invoke({ route: settings.head, assignment: planPrompt, outputKind: "head_plan", discussion: "" });
     const ids = Array.from({ length: 5 }, () => randomId());
     let plan;
@@ -111,12 +124,12 @@ export async function runParallelConsultation({ store, provider, conversationId,
     }
     const tasks = plan.assignments.map(item => ({ id: randomId(), role: "Head Consultant", recipient: item.role, body: item.task, sources: [] }));
     const assignments = plan.assignments.map((item, index) => ({ ...item, taskMessageId: tasks[index].id }));
-    await commit(before => before ? undefined : { version: 1, ownerMessageIds: ownerEvents.map(item => item.id), assignments, researchQuery: plan.researchQuery, results: {}, orders: [], rounds: [] }, tasks);
+    await commit(before => before ? undefined : { version: 1, ownerMessageIds: ownerEvents.map(item => item.id), assignments, researchQuery: plan.researchQuery, researchFor: plan.researchFor, results: {}, orders: [], rounds: [] }, tasks);
     work = await currentWork();
   }
   if (JSON.stringify(work.ownerMessageIds) !== JSON.stringify(ownerEvents.map(item => item.id))) throw new Error("invalid_run_state");
 
-  const researchTopic = async rawQuery => {
+  const researchTopic = async (rawQuery, assignmentIds) => {
     if (!rawQuery || /^\[RESEARCH:\s*NONE\]$/iu.test(rawQuery.trim())) return { status: "none" };
     const query = publicQuery(rawQuery);
     if (!query) return { status: "unavailable", reason: "unsafe_query" };
@@ -124,20 +137,19 @@ export async function runParallelConsultation({ store, provider, conversationId,
     const savedResearch = [work.research, ...work.rounds.map(round => round.research)].filter(item => item?.status === "complete");
     const knownSources = mergeSources(...savedResearch.map(item => item.sources ?? []));
     try {
-      const result = await invoke({ route: settings.head, assignment: "Research only the specific public evidence gap in the query using live web search. First use the supplied public sources where they already answer it. Search only missing or outdated facts; prefer primary sources. Batch independent lookups where useful. Do not repeatedly open the same page or repeat equivalent queries without a concrete unresolved fact. Stop when the requested facts are supported, or explain the precise remaining evidence gap. Return a concise evidence digest with the actual findings, dates, direct URLs and necessary qualifications; no broad background essay. Do not infer private owner context.", outputKind: "public_research", research: true, instructions: publicInstructions, ownerText: query, discussion: sourceRecord(knownSources) });
-      return { status: "complete", query, body: result.body, sources: result.sources ?? [] };
+      const result = await invoke({ route: settings.head, assignment: "Research only the specific public evidence gap in the query using live web search. First use the supplied public sources where they already answer it. Search only missing or outdated facts; prefer primary sources. Batch independent lookups where useful. Do not repeatedly open the same page or repeat equivalent queries without a concrete unresolved fact. Stop when the requested facts are supported, or explain the precise remaining evidence gap. Return a concise evidence digest with the actual findings, dates, direct URLs and necessary qualifications; no broad background essay. Do not infer private owner context.", outputKind: "public_research", research: true, instructions: publicInstructions, ownerText: query, sharedEvidence: "Existing public evidence from this request; not a fresh check.", sharedSources: knownSources });
+      return { status: "complete", query, body: result.body, sources: result.sources ?? [], ...(assignmentIds ? { assignmentIds } : {}) };
     } catch (error) {
       if (error.message === "cancelled") throw error;
       return { status: "unavailable", reason: error.message };
     }
   };
   if (!work.research) {
-    const research = await researchTopic(work.researchQuery);
+    const research = await researchTopic(work.researchQuery, work.researchFor);
     await commit(before => before.research ? undefined : { ...before, research });
     work = await currentWork();
   }
-  const researchRecords = value => [value.research, ...value.rounds.map(round => round.research)].filter(Boolean);
-  let researchContext = researchRecords(work).map(formattedResearch).filter(Boolean).join("\n\n");
+  const evidenceFor = assignmentId => { const bundle = researchBundle(work, assignmentId); return { sharedEvidence: bundle.body, sharedSources: bundle.sources }; };
   const teamRecord = async value => compactRecord(value, await store.events(conversationId));
   const reviewRecord = async value => {
     const events = await store.events(conversationId);
@@ -153,7 +165,7 @@ export async function runParallelConsultation({ store, provider, conversationId,
       return `${dependency.role}: ${evidenceRecord(dependencyEvents.find(item => item.id === latest.results[id].messageId))}`;
     }).join("\n\n");
     const prompt = `${prompts.specialistPosition({ specialist: assignment.role, assignedBrief: assignment.task, language })}\nPrivate role guidance: ${assignment.guidance}\nAnswer this task directly with a useful decision, evidence, uncertainty and next action. Do not restate the owner's request. Write in ${language}.`;
-    const result = await invoke({ route: settings.consultant, assignment: prompt, outputKind: "specialist_position", sharedEvidence: researchContext, discussion: dependencies, instructions: consultantInstructions });
+    const result = await invoke({ route: settings.consultant, assignment: prompt, outputKind: "specialist_position", ...evidenceFor(assignment.id), discussion: dependencies, instructions: consultantInstructions });
     const message = { id: randomId(), role: assignment.role, recipient: "Critic", body: result.body, sources: result.sources ?? [] };
     await commit(before => before.results[assignment.id] ? undefined : { ...before, results: { ...before.results, [assignment.id]: { messageId: message.id, body: result.body, version: 1 } } }, [message]);
   };
@@ -186,11 +198,11 @@ export async function runParallelConsultation({ store, provider, conversationId,
     let round = work.rounds[number - 1];
     if (!round) {
       const reviewPrompt = `You are Critic reviewing the team together for substantive round ${number} of ${maximumDepth}. Compare the complete owner request and every Head assignment with the latest answer and evidence. Detect obvious nonsense, false certainty, circular repetition, omitted deliverables, unsupported claims and contradictions. Issue a direct correction order only for a material actual defect; do not manufacture one. Do not repeat an existing open order against the same result. If public evidence is missing, set researchRequest to the specific gap for Head to form a safe public query; otherwise null. A good answer needs no order. Return only JSON: {"summary":"brief team assessment","researchRequest":null,"findings":[{"assignment":1,"issue":"exact defect","correction":"specific required rework"}]}. The assignment number is 1-based. If no material defect, findings is []. Write text in ${language}.`;
-      const review = await invoke({ route: settings.critic, assignment: reviewPrompt, outputKind: "team_review", discussion: `${await teamRecord(work)}\n\nExisting Critic team assessments:\n${await reviewRecord(work)}\n\nCritic orders:\n${orderRecord(work)}\n\n${researchContext}`, instructions: criticInstructions });
+      const review = await invoke({ route: settings.critic, assignment: reviewPrompt, outputKind: "team_review", discussion: `${await teamRecord(work)}\n\nExisting Critic team assessments:\n${await reviewRecord(work)}\n\nCritic orders:\n${orderRecord(work)}`, ...evidenceFor(), instructions: criticInstructions });
       let parsed;
       try { parsed = parseTeamReview(review.body, work.assignments); }
       catch {
-        const repaired = await invoke({ route: settings.critic, assignment: `${reviewPrompt}\nRepair only the structure of your previous review below. Preserve every substantive issue and correction, including multiple findings for a consultant; do not perform another review.\nPrevious review:\n${review.body}`, outputKind: "team_review", instructions: criticInstructions });
+        const repaired = await invoke({ route: settings.critic, assignment: `${reviewPrompt}\nRepair only the structure of your previous review below. Preserve every substantive issue and correction, including multiple findings for a consultant; do not perform another review.\nPrevious review:\n${review.body}`, outputKind: "team_review", ...evidenceFor(), instructions: criticInstructions });
         try { parsed = parseTeamReview(repaired.body, work.assignments); }
         catch { throw new Error("team_review_contract"); }
       }
@@ -210,12 +222,34 @@ export async function runParallelConsultation({ store, provider, conversationId,
     }
 
     if (round.researchRequest && !round.research) {
-      const query = await invoke({ route: settings.head, outputKind: "research_query", assignment: "You are Head Consultant. Address the Critic's evidence gap. Return only a minimal public web query without private contacts, identifiers, credentials or business details; return [RESEARCH: NONE] if public research cannot help.", discussion: `Critic evidence request: ${round.researchRequest}\nAlready available public evidence:\n${researchContext}`, instructions: { ...fullInstructions, documents: [] } });
-      const research = await researchTopic(query.body);
-      await commit(before => ({ ...before, rounds: before.rounds.map(item => item.number === number ? { ...item, research } : item) }));
-      work = await currentWork(); round = work.rounds[number - 1];
+      if (!round.researchPlan) {
+        const assignment = `You are Head Consultant. Resolve the Critic's specific evidence gap. Review the available evidence and research record keys below. If a completed record already answers this gap and no fresh check is required, select its reuseRecord key with query:null and fresh:false. Otherwise write one focused minimal public query listing the facts needed and when the gap is answered, without private contacts, identifiers, credentials or business details. Do not search a gap already answered unless inadequate or a fresh check is required. researchFor lists 1-based assignments needing these findings. Return JSON {"query":null,"reuseRecord":null,"fresh":false,"researchFor":[]}. Both query and reuseRecord null means research cannot help.`;
+        const discussion = `Critic evidence request: ${round.researchRequest}\nAssignments:\n${work.assignments.map((item,index) => `${index+1}. ${item.role}: ${item.task}`).join("\n")}\nResearch records:\n${researchRecords(work).map(item => `${item.key}: ${item.status}; query: ${item.query ?? "none"}`).join("\n")}`;
+        const input = { route: settings.head, outputKind: "research_query", assignment, discussion, ...evidenceFor(), instructions: { ...fullInstructions, documents: [] } };
+        let query = await invoke(input); let plan;
+        const parse = body => {
+          const result = parseResearchPlan(body, work.assignments);
+          if (result.reuseRecord && !researchRecords(work).some(item => item.key === result.reuseRecord && item.status === "complete")) throw new Error("provider_contract");
+          return result;
+        };
+        try { plan = parse(query.body); } catch {
+          query = await invoke({ ...input, assignment: `${assignment}\nRepair the research plan structure or invalid record reference. Previous draft:\n${query.body}` }); plan = parse(query.body);
+        }
+        if (plan.query && !/^\[RESEARCH:\s*NONE\]$/iu.test(plan.query) && !publicQuery(plan.query)) {
+          await commit(before => ({ ...before, rounds: before.rounds.map(item => item.number === number ? { ...item, research: { status: "unavailable", reason: "unsafe_query" } } : item) }));
+        } else {
+          await commit(before => ({ ...before, rounds: before.rounds.map(item => item.number === number ? { ...item, researchPlan: plan } : item) }));
+        }
+        work = await currentWork(); round = work.rounds[number - 1];
+      }
+      if (!round.research) {
+        const plan = round.researchPlan;
+        const reused = plan.reuseRecord ? researchRecords(work).find(item => item.key === plan.reuseRecord && item.status === "complete") : undefined;
+        const research = reused ? { ...reused, reusedFrom: reused.reusedFrom ?? reused.key, assignmentIds: plan.assignmentIds } : await researchTopic(plan.query, plan.assignmentIds);
+        await commit(before => ({ ...before, rounds: before.rounds.map(item => item.number === number ? { ...item, research } : item) }));
+        work = await currentWork(); round = work.rounds[number - 1];
+      }
     }
-    researchContext = researchRecords(work).map(formattedResearch).filter(Boolean).join("\n\n");
 
     const respond = async orderId => {
       const latest = await currentWork();
@@ -224,7 +258,7 @@ export async function runParallelConsultation({ store, provider, conversationId,
       const assignment = latest.assignments.find(item => item.id === order.assignmentId);
       const answer = latest.results[assignment.id];
       const prompt = `${prompts.specialistReply({ specialist: assignment.role, language })}\nPrivate role guidance: ${assignment.guidance}\nOriginal Head task: ${assignment.task}\nThe Critic has ordered you to stop going in circles and rework a material defect. Defect: ${order.issue}\nRequired correction: ${order.correction}\nCorrect the answer materially, give a specific evidence-based objection if the Critic is wrong, or acknowledge the missing evidence. Do not repeat an unsupported answer. Write in ${language}.`;
-      const response = await invoke({ route: settings.consultant, assignment: prompt, outputKind: "specialist_reply", sharedEvidence: researchContext, discussion: `Your latest answer:\n${evidenceRecord((await store.events(conversationId)).find(item => item.id === answer.messageId))}`, instructions: consultantInstructions });
+      const response = await invoke({ route: settings.consultant, assignment: prompt, outputKind: "specialist_reply", ...evidenceFor(assignment.id), discussion: `Your latest answer:\n${evidenceRecord((await store.events(conversationId)).find(item => item.id === answer.messageId))}`, instructions: consultantInstructions });
       const message = { id: randomId(), role: assignment.role, recipient: "Critic", body: response.body, sources: response.sources ?? [] };
       await commit(before => {
         const old = before.orders.find(item => item.id === orderId);
@@ -250,7 +284,7 @@ export async function runParallelConsultation({ store, provider, conversationId,
         return `${assignment.role} order ${order.id}\nDefect: ${order.issue}\nRequired: ${order.correction}\nDefective answer: ${evidenceRecord(defective)}\nResponse: ${evidenceRecord(response)}`;
       }).join("\n\n");
       const assessmentPrompt = `You are Critic assessing your direct orders for round ${number}. For every order ID, decide whether the correction actually fixes the defect, a specific grounded objection shows the order was wrong, evidence is still unavailable, or the defect remains. A response alone never resolves an order. Repetition of the defective answer must remain open. Return only JSON: {"assessments":[{"orderId":"exact ID","state":"open|blocked_evidence|resolved_corrected|resolved_objection_upheld","reason":"specific evidence-based reason"}]}. Include every order once, no extras. Write reasons in ${language}.`;
-      let assessment = await invoke({ route: settings.critic, assignment: assessmentPrompt, outputKind: "critic_order_assessment", discussion: `${exchange}\n\n${researchContext}`, instructions: criticInstructions });
+      let assessment = await invoke({ route: settings.critic, assignment: assessmentPrompt, outputKind: "critic_order_assessment", discussion: `${exchange}`, ...evidenceFor(), instructions: criticInstructions });
       let parsed;
       const assess = body => {
         const items = parseOrderAssessment(body, orders);
@@ -263,7 +297,7 @@ export async function runParallelConsultation({ store, provider, conversationId,
       };
       try { parsed = assess(assessment.body); }
       catch {
-        assessment = await invoke({ route: settings.critic, assignment: `${assessmentPrompt}\n\nRepair the assessment structure and evidence reasoning. An identical repeated answer cannot be resolved_corrected. Previous draft:\n${assessment.body}`, outputKind: "critic_order_assessment", discussion: `${exchange}\n\n${researchContext}`, instructions: criticInstructions });
+        assessment = await invoke({ route: settings.critic, assignment: `${assessmentPrompt}\n\nRepair the assessment structure and evidence reasoning. An identical repeated answer cannot be resolved_corrected. Previous draft:\n${assessment.body}`, outputKind: "critic_order_assessment", discussion: `${exchange}`, ...evidenceFor(), instructions: criticInstructions });
         parsed = assess(assessment.body);
       }
       const body = parsed.map(item => `${work.assignments.find(assignment => assignment.id === orders.find(order => order.id === item.orderId).assignmentId).role}: ${item.state.replaceAll("_", " ")} — ${item.reason}`).join("\n\n");
@@ -293,8 +327,8 @@ export async function runParallelConsultation({ store, provider, conversationId,
   const unresolved = activeOrders(work).filter(item => ["open", "blocked_evidence"].includes(item.state));
   if (!work.finalMessageId) {
     const reviewStatus = unresolved.length ? "unresolved or unconfirmed" : "supported by the completed team review";
-    const conclusionPrompt = `${prompts.conclusion(language, reviewStatus)}\nUse the latest completed consultant answers and the actual Critic assessments below. There are no separate compulsory final speeches. Cover every distinct owner deliverable. If any order remains open or blocked, explicitly mark the conclusion provisional and name the missing correction or evidence. Do not claim that Critic resolved it. ${researchContext}`;
-    const result = await invoke({ route: settings.head, assignment: conclusionPrompt, outputKind: "head_final", discussion: `${await teamRecord(work)}\n\nCritic team assessments:\n${await reviewRecord(work)}\n\nCritic orders:\n${orderRecord(work)}` });
+    const conclusionPrompt = `${prompts.conclusion(language, reviewStatus)}\nUse the latest completed consultant answers and the actual Critic assessments below. There are no separate compulsory final speeches. Cover every distinct owner deliverable. If any order remains open or blocked, explicitly mark the conclusion provisional and name the missing correction or evidence. Do not claim that Critic resolved it.`;
+    const result = await invoke({ route: settings.head, assignment: conclusionPrompt, outputKind: "head_final", ...evidenceFor(), discussion: `${await teamRecord(work)}\n\nCritic team assessments:\n${await reviewRecord(work)}\n\nCritic orders:\n${orderRecord(work)}` });
     const text = result.body.replace(/^\s*(?:#{1,6}\s*|\*\*)?Consolidated advice(?:\*\*)?\s*:?\s*\n+/iu, "").trim();
     if (!text) throw new Error("provider_contract");
     const message = { id: randomId(), role: "Head Consultant", recipient: null, body: `## Consolidated advice\n\n${text}`, sources: mergeSources(result.sources ?? [], ...researchRecords(work).map(item => item.sources ?? []), ...(await store.events(conversationId)).filter(item => item.sequence >= ownerEvents[0].sequence).map(item => item.sources ?? [])) };

@@ -105,12 +105,12 @@ test('Critic requests isolated follow-up research; source metadata reaches revie
   const researchCalls = calls.filter(input => input.outputKind === 'public_research');
   assert.equal(researchCalls.length, 2);
   assert.equal(researchCalls[0].evidence.discussion, '');
-  assert.match(researchCalls[1].evidence.discussion, /evidence-1/);
+  assert.match(researchCalls[1].evidence.shared, /evidence-1/);
   assert.ok(researchCalls.every(input => !input.evidence.owner.includes('fictional') && !input.runtimeInstructions.documents));
-  assert.match(calls.find(input => input.outputKind === 'team_review').evidence.discussion, /evidence-3/);
+  assert.match(buildProviderContext(calls.find(input => input.outputKind === 'team_review')).prompt, /evidence-3/);
   assert.match(calls.find(input => input.outputKind === 'specialist_reply').evidence.shared, /evidence-2/);
   assert.match(buildProviderContext(calls.find(input => input.outputKind === 'specialist_reply')).prompt, /evidence-2/);
-  const assessment = calls.find(input => input.outputKind === 'critic_order_assessment').evidence.discussion;
+  const assessment = buildProviderContext(calls.find(input => input.outputKind === 'critic_order_assessment')).prompt;
   for (const n of [1, 2, 3, 4]) assert.ok(assessment.includes(`evidence-${n}`));
   const final = (await sample.store.events(sample.conversationId)).at(-1);
   assert.deepEqual(final.sources.map(item => item.url).sort(), [1, 2, 3, 4, 5].map(n => source(n).url).sort());

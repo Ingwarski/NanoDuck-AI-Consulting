@@ -80,3 +80,7 @@ The explicit user correction replaces grouped navigation placement: the up arrow
 ## Chat boundary visibility — 2026-09-26
 
 Hide the up arrow when the visible content beginning is reached and hide the down arrow when its end is reached; restore each when scrolling away. Hide both when the content fits. Update on scroll, viewport resize, view changes and incoming content without moving the reading position. Preserve centered 44px transparent controls and reduced motion. Navigation follows the currently selected consultation view rather than switching it. No server/session changes.
+
+## U-12 research and evidence economy — 2026-09-26
+
+U-12 research and evidence economy: preserve every distinct supported claim, full accepted owner input, exact models/effort and user-selected depth. Reuse evidence only inside the accepted request, including Continue/Retry. No cross-Send cache. Measure actual prompt construction and research stages before claiming savings. Require repeated-URL distinct-claim preservation, unknown-reference denial/recovery, no references from another request, immutable research checkpoint, cancellation recovery and full owner/context coverage. Benchmark equal settings and deliverable coverage; separate bytes, cached/uncached tokens and latency. No guaranteed subscription-cost saving. Formal release readiness remains not_evaluated.

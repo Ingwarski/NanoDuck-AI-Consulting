@@ -1,0 +1,456 @@
+{
+  "method": "current_shared_builder_two_consultants_fixed_one_round_same_guidance_and_settings",
+  "cases": [
+    {
+      "scenario": "clean",
+      "calls": 5,
+      "promptBytes": 86992,
+      "steps": [
+        {
+          "stage": "head_plan",
+          "promptBytes": 21503,
+          "prefixBytes": 19999,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "specialist_position",
+          "promptBytes": 15015,
+          "prefixBytes": 14140,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "specialist_position",
+          "promptBytes": 15021,
+          "prefixBytes": 14140,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "team_review",
+          "promptBytes": 12966,
+          "prefixBytes": 11441,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 418
+        },
+        {
+          "stage": "head_final",
+          "promptBytes": 22487,
+          "prefixBytes": 19999,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 460
+        }
+      ],
+      "researchCalls": 0,
+      "queryCalls": 0,
+      "tokenUsage": "unavailable_in_synthetic_provider"
+    },
+    {
+      "scenario": "targeted_rework",
+      "calls": 7,
+      "promptBytes": 115726,
+      "steps": [
+        {
+          "stage": "head_plan",
+          "promptBytes": 21503,
+          "prefixBytes": 19999,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "specialist_position",
+          "promptBytes": 15015,
+          "prefixBytes": 14140,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "specialist_position",
+          "promptBytes": 15021,
+          "prefixBytes": 14140,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "team_review",
+          "promptBytes": 12966,
+          "prefixBytes": 11441,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 418
+        },
+        {
+          "stage": "specialist_reply",
+          "promptBytes": 15818,
+          "prefixBytes": 14140,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 105
+        },
+        {
+          "stage": "critic_order_assessment",
+          "promptBytes": 12662,
+          "prefixBytes": 11441,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 390
+        },
+        {
+          "stage": "head_final",
+          "promptBytes": 22741,
+          "prefixBytes": 19999,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 714
+        }
+      ],
+      "researchCalls": 0,
+      "queryCalls": 0,
+      "tokenUsage": "unavailable_in_synthetic_provider"
+    },
+    {
+      "scenario": "long_request",
+      "calls": 5,
+      "promptBytes": 142197,
+      "steps": [
+        {
+          "stage": "head_plan",
+          "promptBytes": 32544,
+          "prefixBytes": 31040,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "specialist_position",
+          "promptBytes": 26056,
+          "prefixBytes": 25181,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "specialist_position",
+          "promptBytes": 26062,
+          "prefixBytes": 25181,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "team_review",
+          "promptBytes": 24007,
+          "prefixBytes": 22482,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 418
+        },
+        {
+          "stage": "head_final",
+          "promptBytes": 33528,
+          "prefixBytes": 31040,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 460
+        }
+      ],
+      "researchCalls": 0,
+      "queryCalls": 0,
+      "tokenUsage": "unavailable_in_synthetic_provider"
+    },
+    {
+      "scenario": "initial_research",
+      "calls": 6,
+      "promptBytes": 89411,
+      "steps": [
+        {
+          "stage": "head_plan",
+          "promptBytes": 21503,
+          "prefixBytes": 19999,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "public_research",
+          "promptBytes": 1397,
+          "prefixBytes": 537,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "specialist_position",
+          "promptBytes": 15284,
+          "prefixBytes": 14409,
+          "sharedEvidenceBytes": 242,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "specialist_position",
+          "promptBytes": 15290,
+          "prefixBytes": 14409,
+          "sharedEvidenceBytes": 242,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "team_review",
+          "promptBytes": 13208,
+          "prefixBytes": 11441,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 660
+        },
+        {
+          "stage": "head_final",
+          "promptBytes": 22729,
+          "prefixBytes": 19999,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 460
+        }
+      ],
+      "researchCalls": 1,
+      "queryCalls": 0,
+      "tokenUsage": "unavailable_in_synthetic_provider"
+    },
+    {
+      "scenario": "research_followup",
+      "calls": 7,
+      "promptBytes": 89843,
+      "steps": [
+        {
+          "stage": "head_plan",
+          "promptBytes": 21503,
+          "prefixBytes": 19999,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "specialist_position",
+          "promptBytes": 15015,
+          "prefixBytes": 14140,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "specialist_position",
+          "promptBytes": 15021,
+          "prefixBytes": 14140,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "team_review",
+          "promptBytes": 12966,
+          "prefixBytes": 11441,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 418
+        },
+        {
+          "stage": "research_query",
+          "promptBytes": 1203,
+          "prefixBytes": 638,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 98
+        },
+        {
+          "stage": "public_research",
+          "promptBytes": 1403,
+          "prefixBytes": 543,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "head_final",
+          "promptBytes": 22732,
+          "prefixBytes": 19999,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 463
+        }
+      ],
+      "researchCalls": 1,
+      "queryCalls": 1,
+      "tokenUsage": "unavailable_in_synthetic_provider"
+    },
+    {
+      "scenario": "repeated_gap",
+      "calls": 8,
+      "promptBytes": 92651,
+      "steps": [
+        {
+          "stage": "head_plan",
+          "promptBytes": 21503,
+          "prefixBytes": 19999,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "public_research",
+          "promptBytes": 1397,
+          "prefixBytes": 537,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "specialist_position",
+          "promptBytes": 15284,
+          "prefixBytes": 14409,
+          "sharedEvidenceBytes": 242,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "specialist_position",
+          "promptBytes": 15290,
+          "prefixBytes": 14409,
+          "sharedEvidenceBytes": 242,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "team_review",
+          "promptBytes": 13208,
+          "prefixBytes": 11441,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 660
+        },
+        {
+          "stage": "research_query",
+          "promptBytes": 1445,
+          "prefixBytes": 638,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 340
+        },
+        {
+          "stage": "public_research",
+          "promptBytes": 1548,
+          "prefixBytes": 576,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 112
+        },
+        {
+          "stage": "head_final",
+          "promptBytes": 22976,
+          "prefixBytes": 19999,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 463
+        }
+      ],
+      "researchCalls": 2,
+      "queryCalls": 1,
+      "tokenUsage": "unavailable_in_synthetic_provider"
+    },
+    {
+      "scenario": "research_recovery",
+      "calls": 9,
+      "promptBytes": 92449,
+      "steps": [
+        {
+          "stage": "head_plan",
+          "promptBytes": 21503,
+          "prefixBytes": 19999,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "specialist_position",
+          "promptBytes": 15015,
+          "prefixBytes": 14140,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "specialist_position",
+          "promptBytes": 15021,
+          "prefixBytes": 14140,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "team_review",
+          "promptBytes": 12966,
+          "prefixBytes": 11441,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 418
+        },
+        {
+          "stage": "research_query",
+          "promptBytes": 1203,
+          "prefixBytes": 638,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 98
+        },
+        {
+          "stage": "public_research",
+          "promptBytes": 1403,
+          "prefixBytes": 543,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "research_query",
+          "promptBytes": 1203,
+          "prefixBytes": 638,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 98
+        },
+        {
+          "stage": "public_research",
+          "promptBytes": 1403,
+          "prefixBytes": 543,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "head_final",
+          "promptBytes": 22732,
+          "prefixBytes": 19999,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 463
+        }
+      ],
+      "researchCalls": 2,
+      "queryCalls": 2,
+      "tokenUsage": "unavailable_in_synthetic_provider"
+    },
+    {
+      "scenario": "shared_evidence",
+      "calls": 6,
+      "promptBytes": 111075,
+      "steps": [
+        {
+          "stage": "head_plan",
+          "promptBytes": 21503,
+          "prefixBytes": 19999,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "public_research",
+          "promptBytes": 1397,
+          "prefixBytes": 537,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "specialist_position",
+          "promptBytes": 17931,
+          "prefixBytes": 17056,
+          "sharedEvidenceBytes": 2889,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "specialist_position",
+          "promptBytes": 17937,
+          "prefixBytes": 17056,
+          "sharedEvidenceBytes": 2889,
+          "discussionBytes": 0
+        },
+        {
+          "stage": "team_review",
+          "promptBytes": 21393,
+          "prefixBytes": 11441,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 8845
+        },
+        {
+          "stage": "head_final",
+          "promptBytes": 30914,
+          "prefixBytes": 19999,
+          "sharedEvidenceBytes": 0,
+          "discussionBytes": 5998
+        }
+      ],
+      "researchCalls": 1,
+      "queryCalls": 0,
+      "tokenUsage": "unavailable_in_synthetic_provider"
+    }
+  ]
+}

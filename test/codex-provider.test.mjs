@@ -68,17 +68,20 @@ test("research diagnostics count matching completed tool calls without logging q
   const command = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));
   const provider = createCodexProvider({ readyForProvider: true, codexCommand: process.execPath, codexCommandArgs: [command] });
   const originalWrite = process.stdout.write;
-  let logs = "";
+  let logs = ""; const attempts = [];
   process.stdout.write = function (chunk, ...args) {
     if (typeof chunk === "string" && chunk.startsWith('{"event":"nanoduck.provider.')) { logs += chunk; return true; }
     return originalWrite.call(this, chunk, ...args);
   };
   try {
-    const result = await provider.invoke({ assignment: "Report completed research diagnostics.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Check public rules dated 04.11.2026.", discussion: "" }, research: true, runtimeInstructions: initialRuntimeInstructions });
+    const result = await provider.invoke({ onUsage: attempt => attempts.push(attempt), assignment: "Report completed research diagnostics.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Check public rules dated 04.11.2026.", discussion: "" }, research: true, runtimeInstructions: initialRuntimeInstructions });
     assert.deepEqual(result, { ok: true, body: "A bounded answer.", sources: [] });
   } finally { process.stdout.write = originalWrite; }
   const completion = logs.trim().split("\n").map(line => JSON.parse(line)).find(item => item.event === "nanoduck.provider.turn_completed");
   assert.equal(completion.webSearchCount, 2);
+  const steps = attempts.at(-1).diagnostics.researchSteps;
+  assert.equal(steps.length, 2); assert.equal(steps[0].action, "search"); assert.equal(steps[1].repeatOf, 1);
+  assert.doesNotMatch(JSON.stringify(attempts), /synthetic-query-do-not-log|wrong-thread|wrong-turn|fingerprint/);
   assert.doesNotMatch(logs, /synthetic-query-do-not-log|public rules dated|wrong-thread|wrong-turn/u);
 });
 
@@ -217,4 +220,10 @@ test("request workspaces are stable within one request, distinct between request
     await provider.releaseScope('request-A'); await assert.rejects(access(a)); await access(c);
     await provider.releaseScope('request-B'); await assert.rejects(access(c));
   } finally { await provider.releaseScope('request-A'); await provider.releaseScope('request-B'); }
+});
+
+test("Codex preserves distinct claims from one source URL", async () => {
+ const provider=createCodexProvider({readyForProvider:true,codexCommand:process.execPath,codexCommandArgs:[fileURLToPath(new URL("./fixtures/fake-codex.mjs",import.meta.url))]});
+ const result=await provider.invoke({assignment:"Exercise distinct claims on one URL",model:"gpt-6-sol",effort:"high",evidence:{owner:"Synthetic",discussion:""},research:false,runtimeInstructions:initialRuntimeInstructions});
+ assert.equal(result.ok,true);assert.deepEqual(result.sources.map(s=>s.claim),["First supported fact.","Second supported fact."]);
 });

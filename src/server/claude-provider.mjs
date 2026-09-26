@@ -1,3 +1,4 @@
+import { sourceKey } from "./research-evidence.mjs";
 import { buildProviderContext } from "./provider-context.mjs";
 import { beginUsage, claudeTokens } from "./usage.mjs";
 import { ensurePrivateDirectory } from "./private-files.mjs";
@@ -28,7 +29,7 @@ const sourceRecord = (value, retrievedAt) => {
   if (!record(value)) return undefined;
   const url = safeExternalUrl(value.url); const title = cleanText(value.title, 280); const claim = cleanText(value.claim, 1_000);
   if (!url || !title || !claim || hasProhibitedLanguage(title) || hasProhibitedLanguage(claim)) return undefined;
-  return Object.freeze({ url, title, claim, retrievedAt });
+  return Object.freeze({ url, title, claim, retrievedAt, ...(typeof value.publishedAt === "string" && /^\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z)?$/u.test(value.publishedAt) && !Number.isNaN(Date.parse(value.publishedAt)) ? { publishedAt: value.publishedAt } : {}) });
 };
 
 const sourcesFrom = text => {
@@ -41,7 +42,7 @@ const sourcesFrom = text => {
     const source = sourceRecord({ title: match[1], url: match[2], claim: sentenceNear(body, match.index ?? 0) }, retrievedAt);
     if (source) sources.push(source);
   }
-  const unique = new Map(); for (const source of sources) if (!unique.has(source.url)) unique.set(source.url, source);
+  const unique = new Map(); for (const source of sources) if (!unique.has(sourceKey(source))) unique.set(sourceKey(source), source);
   const filtered = omitUnsafeExternalUrls(body);
   const language = omitProhibitedLanguage(filtered.body);
   const failureReason = !language.body.trim() ? "empty_response" : !language.substantive ? (language.omittedCount ? "prohibited_language" : "no_usable_content") : undefined;

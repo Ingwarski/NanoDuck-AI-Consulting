@@ -25,7 +25,11 @@ export function claudeTokens(stdout) {
 
 const normalizeDiagnostics = value => ({
   stage: typeof value?.stage === "string" && /^[a-z_]{1,48}$/u.test(value.stage) ? value.stage : "unavailable",
-  promptBytes: count(value?.promptBytes), prefixBytes: count(value?.prefixBytes), webSearchCount: count(value?.webSearchCount)
+  promptBytes: count(value?.promptBytes), prefixBytes: count(value?.prefixBytes), webSearchCount: count(value?.webSearchCount),
+  ...(Array.isArray(value?.researchSteps) ? { researchSteps: value.researchSteps.map(step => ({
+    action: ["search", "open_page", "find_in_page"].includes(step?.action) ? step.action : "other",
+    elapsedMs: count(step?.elapsedMs), cumulativeInput: count(step?.cumulativeInput), cumulativeCachedInput: count(step?.cumulativeCachedInput), repeatOf: count(step?.repeatOf)
+  })) } : {})
 });
 
 export function normalizeUsageAttempt(value) {

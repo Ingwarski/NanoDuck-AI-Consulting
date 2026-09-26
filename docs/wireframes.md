@@ -79,3 +79,7 @@ The explicit user correction replaces grouped navigation placement: the up arrow
 ## Chat boundary visibility — 2026-09-26
 
 Hide the up arrow when the visible content beginning is reached and hide the down arrow when its end is reached; restore each when scrolling away. Hide both when the content fits. Update on scroll, viewport resize, view changes and incoming content without moving the reading position. Preserve centered 44px transparent controls and reduced motion. Navigation follows the currently selected consultation view rather than switching it. No server/session changes.
+
+## U-12 research and evidence economy — 2026-09-26
+
+U-12 preserves S-02 navigation, message layout, Sources, Usage, Stop and current reading controls. Evidence references become normal links before display. No new screen or provider setting.

@@ -50,3 +50,7 @@ FR-02.12/FR-02.15 distinguish the saved archive from the active isolated request
 ## Chat beginning and end controls — 2026-09-26
 
 The user explicitly requested two transparent outlined circular arrow buttons to jump to the beginning and end of the chat. This is a scoped addition to existing S-02 navigation under UC-003/JOB-001; preserve Stop, drafts and ongoing work.
+
+## U-12 research and evidence economy — 2026-09-26
+
+U-12 research and evidence economy: preserve every distinct supported claim, full accepted owner input, exact models/effort and user-selected depth. Reuse evidence only inside the accepted request, including Continue/Retry. No cross-Send cache. Measure actual prompt construction and research stages before claiming savings.

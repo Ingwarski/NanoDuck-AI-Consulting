@@ -323,3 +323,9 @@ test("Claude records each internal retry and error usage before rejecting output
     assert.equal(finished.every(item => item.usage[0].tokens.total === 140), true);
   }
 });
+
+test("Claude preserves distinct claims from one source URL", async () => {
+ const resultText="Two independently supported claims.\n"+["First supported fact.","Second supported fact."].map(claim=>`<nanoduck-source>${JSON.stringify({url:"https://example.com/shared",title:"Shared report",claim})}</nanoduck-source>`).join("\n");
+ const provider=createClaudeProvider({claudeCommand:"claude",claudeOAuthToken:"managed-token"},{run:async input=>({exitCode:0,stderr:"",stdout:JSON.stringify(input.args.includes("auth")?{loggedIn:true,authMethod:"oauth_token",apiProvider:"firstParty"}:{subtype:"success",result:resultText,modelUsage:{"claude-opus-5":{}}})})});
+ const result=await provider.invoke(criticInput);assert.equal(result.ok,true);assert.deepEqual(result.sources.map(s=>s.claim),["First supported fact.","Second supported fact."]);
+});
