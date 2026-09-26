@@ -1,3 +1,4 @@
+import { createNavbarGlass } from "/client/navbar-glass.js";
 import { createNotificationAudio } from "/client/notification-audio.js";
 import { parseMarkdown } from "/client/markdown.js";
 import { normalizeRefreshState, refreshStateKey, serializeRefreshState } from "/client/refresh-state.js";
@@ -6,6 +7,7 @@ const state = { composerCollapsed: false, readingStateKey: null, session: null, 
 const logoutPendingKey = "nanoduck-logout-pending-v1";
 const activeRequests = new Set();
 let privacyLocked = false; let clientGeneration = 0; let initializing = true;
+const navbarGlass = createNavbarGlass({ allowed: () => !privacyLocked && Boolean(state.session?.authenticated) });
 const $ = selector => document.querySelector(selector);
 const roleInitials = { owner: "I", "Head Consultant": "HC", "Strategy Consultant": "SC", "Finance Consultant": "FC", "Operations Consultant": "OC", "Sales Consultant": "SL", "Marketing Consultant": "MC", "Product Consultant": "PC", "Spiritual Consultant": "SP", Psychotherapist: "PT", "Risk Consultant": "RC", Critic: "CR", System: "•" };
 const displayRole = role => role === "owner" ? "You" : role;
@@ -149,6 +151,7 @@ function updateSessionActions(busy = false) {
 }
 
 function clearPrivateClientContent() {
+  navbarGlass.clear();
   clientGeneration++;
   for (const controller of activeRequests) controller.abort();
   activeRequests.clear(); stopPolling(); releaseVoice();

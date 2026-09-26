@@ -1,0 +1,33 @@
+{
+  "scope": "Navbar background refraction",
+  "tests": {
+    "passed": 227,
+    "skipped": 2,
+    "failed": 0
+  },
+  "commands": [
+    "npm run check",
+    "node scripts/browser-check.mjs --usage-only",
+    "node scripts/browser-navbar-glass.mjs"
+  ],
+  "engines": [
+    "chromium",
+    "firefox",
+    "webkit"
+  ],
+  "optical_checks": [
+    "nonempty pixel surface",
+    "transparent centre",
+    "background mutation changes pixels",
+    "scroll changes pixels",
+    "click-through controls",
+    "mobile reflow",
+    "synchronous clearing"
+  ],
+  "visual_review": "Synthetic striped background with real text demonstrates curved-edge displacement; screenshot inspected.",
+  "limits": [
+    "Renderer samples visible app text, solid surfaces and same-origin images, not arbitrary CSS gradients or embedded video.",
+    "WebKit engine verified; no claim of native Apple compositor or physical ray tracing."
+  ],
+  "privacy": "No page pixels stored or transmitted; clearPrivateClientContent clears both canvases."
+}
