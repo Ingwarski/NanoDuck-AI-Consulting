@@ -19,3 +19,14 @@ test("escaped syntax and unsafe links remain inert text", () => {
   assert.equal(safeMarkdownHref("https://localhost/private"), undefined);
   assert.equal(safeMarkdownHref("https://example.com/public"), "https://example.com/public");
 });
+
+test("tables preserve alignment, inline formatting, escaped pipes and malformed trailing rows", () => {
+  const blocks = parseMarkdown("Before\n| Категорія | Стан | Відповідь |\n| :--- | :---: | ---: |\n| **Факт** | a\\|b | `code` |\n| extra | cells | remain | visible |\n\nAfter");
+  assert.deepEqual(blocks.map(block => block.type), ["paragraph", "table", "paragraph", "paragraph"]);
+  assert.deepEqual(blocks[1].alignments, ["left", "center", "right"]);
+  assert.equal(blocks[1].rows[0][0][0].type, "strong");
+  assert.equal(blocks[1].rows[0][1][0].value, "a|b");
+  assert.match(blocks[2].content[0].value, /extra.*visible/u);
+  assert.equal(parseMarkdown("A | B\n--- | ---\n1 | 2")[0].rows.length, 1);
+  assert.equal(parseMarkdown("A | B\n--- | wrong")[0].type, "paragraph");
+});

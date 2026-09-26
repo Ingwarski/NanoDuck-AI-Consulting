@@ -192,3 +192,7 @@ These are implementation mechanisms under existing functional, data-integrity, p
 ## Source metadata persistence repair — 2026-09-26
 
 Provider-normalized source titles and supported-claim text use the same 16 MiB per-field ceiling as stored message bodies, with existing whole-state and recovery-envelope ceilings retained. The old 280/1000-character recovery checks contradicted the adapters, which preserve complete text, causing completed answers to roll back. Preserve full metadata, URL/language checks and encryption. Categorize local_state_invalid and local_store_capacity_exceeded explicitly in safe failure diagnostics and user feedback; never log answer content. This repairs existing persistence/continuity requirements without changing provider permissions.
+
+## Таблиці в повідомленнях та RTF — 2026-09-26
+
+У межах UC-004/FR-06.2 текст зберігається як Markdown. Спільний `src/client/markdown.js` розпізнає таблиці з рядком роздільників, вирівнюванням і екранованими вертикальними рисками. Невідповідні за кількістю комірок рядки залишаються звичайним текстом без втрати даних. `src/client/app.js` створює семантичні table/thead/tbody/th/td через DOM, без виконання HTML. Контейнер має клавіатурний фокус і горизонтальне прокручування; текст комірок переноситься. `src/server/conversation-export.mjs` перетворює ту саму структуру на нативні RTF-комірки з межами, повторюваним заголовком, вирівнюванням та екрануванням Unicode/RTF. Ширина таблиці обмежена текстовою областю A4. Приватний стан, провайдери та формат збереження не змінюються.

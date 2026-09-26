@@ -57,3 +57,12 @@
 .discussion-header .topic[data-active="true"] { position: static; padding-top: 0; }
 .discussion-header .tabs { margin-bottom: 0; }
 @media (max-width: 700px) { .discussion-header { top: 86px; } }
+
+/* Shared Markdown tables remain contained on narrow screens. */
+.markdown-table-scroll{max-width:100%;overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:10px;overscroll-behavior-x:contain}
+.markdown-table-scroll:focus-visible{outline:3px solid var(--blue-light);outline-offset:3px}
+.markdown-table-scroll table{width:100%;border-collapse:collapse;line-height:1.5}
+.markdown-table-scroll th,.markdown-table-scroll td{min-width:150px;padding:12px 14px;vertical-align:top;border-bottom:1px solid var(--line);border-right:1px solid var(--line);overflow-wrap:anywhere;white-space:normal}
+.markdown-table-scroll th{background:var(--raised);font-weight:750}
+.markdown-table-scroll tr:last-child td{border-bottom:0}
+.markdown-table-scroll th:last-child,.markdown-table-scroll td:last-child{border-right:0}

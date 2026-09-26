@@ -1,6 +1,6 @@
 const forbiddenHostSuffixes = Object.freeze([".ru", ".by", ".su", ".xn--p1ai", ".xn--90ais"]);
-const protectEscapedMarkdown = value => value.replace(/\\([\\`*_[\]{}()#+\-.!])/gu, "\uE000$1");
-const unescapeMarkdown = value => value.replace(/\uE000(.)/gu, "$1").replace(/\\([\\`*_[\]{}()#+\-.!])/gu, "$1");
+const protectEscapedMarkdown = value => value.replace(/\\([\\`*_[\]{}()#+\-.!|])/gu, "\uE000$1");
+const unescapeMarkdown = value => value.replace(/\uE000(.)/gu, "$1").replace(/\\([\\`*_[\]{}()#+\-.!|])/gu, "$1");
 const text = value => Object.freeze({ type: "text", value: unescapeMarkdown(value) });
 const isForbiddenHost = hostname => hostname === "ru" || hostname === "by" || hostname === "su" || hostname === "xn--p1ai" || hostname === "xn--90ais" || forbiddenHostSuffixes.some(suffix => hostname.endsWith(suffix));
 
@@ -45,11 +45,44 @@ const unorderedLine = /^\s*[-+*]\s+(.+)$/u;
 const orderedLine = /^\s*\d+[.)]\s+(.+)$/u;
 const quoteLine = /^\s*>\s?(.*)$/u;
 
+// Split only unescaped pipes; escaped pipes remain literal inline content.
+const tableCells = line => {
+  const cells = []; let cell = ""; let separators = 0;
+  for (let i = 0; i < line.length; i += 1) {
+    if (line[i] === "\\" && i + 1 < line.length) { cell += line[i] + line[++i]; continue; }
+    if (line[i] === "|") { cells.push(cell.trim()); cell = ""; separators += 1; }
+    else cell += line[i];
+  }
+  cells.push(cell.trim());
+  if (!separators) return null;
+  if (cells[0] === "") cells.shift();
+  if (cells.at(-1) === "") cells.pop();
+  return cells;
+};
+const tableStart = (lines, index) => {
+  const headers = tableCells(lines[index] ?? "");
+  const delimiters = tableCells(lines[index + 1] ?? "");
+  if (!headers?.length || headers.length !== delimiters?.length || !delimiters.every(cell => /^:?-{3,}:?$/u.test(cell))) return null;
+  return { headers, alignments: delimiters.map(cell => cell.endsWith(":") ? cell.startsWith(":") ? "center" : "right" : "left") };
+};
+
 export function parseMarkdown(value) {
   const lines = String(value ?? "").replace(/\r\n?/gu, "\n").split("\n");
   const blocks = [];
   for (let index = 0; index < lines.length;) {
     if (!lines[index].trim()) { index += 1; continue; }
+    const table = tableStart(lines, index);
+    if (table) {
+      const rows = []; index += 2;
+      while (index < lines.length && lines[index].trim()) {
+        const cells = tableCells(lines[index]);
+        // Keep malformed rows as ordinary text rather than silently dropping cells.
+        if (!cells || cells.length !== table.headers.length) break;
+        rows.push(Object.freeze(cells.map(parseInline))); index += 1;
+      }
+      blocks.push(Object.freeze({ type: "table", headers: Object.freeze(table.headers.map(parseInline)), alignments: Object.freeze(table.alignments), rows: Object.freeze(rows) }));
+      continue;
+    }
     const heading = lines[index].match(headingLine);
     if (heading) {
       blocks.push(Object.freeze({ type: "heading", level: Math.min(4, heading[1].length + 2), content: parseInline(heading[2]) }));
@@ -74,7 +107,7 @@ export function parseMarkdown(value) {
       blocks.push(Object.freeze({ type: "quote", content: inlineLines(quote) })); continue;
     }
     const paragraph = [];
-    while (index < lines.length && lines[index].trim() && !headingLine.test(lines[index]) && !unorderedLine.test(lines[index]) && !orderedLine.test(lines[index]) && !quoteLine.test(lines[index])) {
+    while (index < lines.length && lines[index].trim() && !tableStart(lines, index) && !headingLine.test(lines[index]) && !unorderedLine.test(lines[index]) && !orderedLine.test(lines[index]) && !quoteLine.test(lines[index])) {
       paragraph.push(lines[index]); index += 1;
     }
     blocks.push(Object.freeze({ type: "paragraph", content: inlineLines(paragraph) }));

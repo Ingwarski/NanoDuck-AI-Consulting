@@ -42,6 +42,21 @@ const appendMarkdownTokens = (target, tokens) => { for (const token of tokens) {
 const renderMarkdown = (target, value) => {
   clear(target);
   for (const block of parseMarkdown(value)) {
+    if (block.type === "table") {
+      const wrapper = node("div", { class: "markdown-table-scroll", tabIndex: 0 });
+      wrapper.setAttribute("role", "region"); wrapper.setAttribute("aria-label", "Table; scroll horizontally if needed");
+      const table = node("table"); const head = node("thead"); const body = node("tbody");
+      for (const [rowIndex, cells] of [block.headers, ...block.rows].entries()) {
+        const row = node("tr");
+        for (const [column, tokens] of cells.entries()) {
+          const cell = node(rowIndex === 0 ? "th" : "td");
+          if (rowIndex === 0) cell.scope = "col";
+          cell.style.textAlign = block.alignments[column]; appendMarkdownTokens(cell, tokens); row.append(cell);
+        }
+        (rowIndex === 0 ? head : body).append(row);
+      }
+      table.append(head, body); wrapper.append(table); target.append(wrapper); continue;
+    }
     if (block.type === "list") { const list = node(block.ordered ? "ol" : "ul"); for (const item of block.items) { const entry = node("li"); appendMarkdownTokens(entry, item); list.append(entry); } target.append(list); continue; }
     const element = node(block.type === "heading" ? `h${block.level}` : block.type === "quote" ? "blockquote" : "p");
     appendMarkdownTokens(element, block.content); target.append(element);

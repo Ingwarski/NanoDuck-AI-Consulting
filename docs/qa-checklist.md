@@ -176,3 +176,7 @@ These are scoped extensions of existing IDs; full indexed checks remain prepared
 ## Source metadata regression — 2026-09-26
 
 Extend QA-R17/R51/R67 with provider output containing a title longer than 280 characters and a claim longer than 1000. Verify exact persistence through a complete consultation, encrypted restart and backup/restore without truncation. The isolated real-adapter/fake-provider regression passes; complete Node checks: 200 passed, 2 Windows-only tests skipped. Actual runtime health and checkpoint resume were observed separately; the discarded historical answer cannot be reconstructed or claimed recovered. Full private consultation completion remains unverified.
+
+## Перевірка таблиць — 2026-09-26
+
+Для чинних перевірок UC-004/FR-06.2: порівняти заголовки та комірки у чаті й RTF, український текст, виділення, посилання, екрановані риски, межі колонок і текст після таблиці. Некоректний рядок не повинен губитися; HTML і RTF-команди від користувача залишаються текстом. Перевірити Chromium/Firefox/WebKit при 320, 390 та 1280 CSS px: прокручується контейнер таблиці, а не сторінка; доступний клавіатурний фокус і заголовки колонок. Автоматичні перевірки: `test/markdown.test.mjs`, `test/markdown-table-export.test.mjs`, `scripts/browser-markdown-tables.mjs`. Відкриття експорту у Word, Pages та LibreOffice — окрема перевірка сумісності; її не замінює аналіз RTF-команд. Загальна готовність релізу залишається not_evaluated.

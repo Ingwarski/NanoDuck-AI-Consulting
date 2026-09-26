@@ -369,3 +369,7 @@ Use the review-repair extensions of QA-R06/R17/R51/R54/R61–R67 and existing fu
 ## Recurring-pause repair — 2026-09-26
 
 The explicit owner correction authorizes the U-07/U-09 source metadata persistence repair and safe runtime activation. Align recovery validation with accepted adapter output, add an adapter-to-encrypted-store regression, retain privacy and operational size boundaries, and report specific storage failures. Preserve saved answers; restart only without active runs and resume missing work through the authenticated application. Sister-port instructions record this additional storage-contract mismatch.
+
+## Реалізація таблиць — 2026-09-26
+
+Явний запит користувача «implement then 1-4» авторизує доповнення чинного експорту UC-004/FR-06.2: спільний Markdown-обробник → безпечний DOM → нативний RTF. Змінити `src/client/markdown.js`, `src/client/app.js`, `public/styles.css`, `src/server/conversation-export.mjs` як одну одиницю роботи; перевірки наведено в розділі «Перевірка таблиць» QA. Зберегти поточну основу Electric A v8, модель доступу та дані; не перезапускати активну консультацію заради перевірок. DOCX/PDF не входять у завдання. Перенесення коду з прототипів відсутнє.
