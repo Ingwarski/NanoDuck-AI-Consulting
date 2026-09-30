@@ -23,9 +23,11 @@ GPT-6.1 Sol (`gpt-6.1-sol`) is a further explicit Codex choice for Head/shared
 specialists and the Codex Critic. [OpenAI's model reference](https://developers.openai.com/api/docs/models/gpt-6.1-sol)
 lists `low`, `medium`, `high`, `xhigh` and `max` reasoning. The app accepts only
 the intersection of that set and the current authenticated Codex app-server
-catalog. The Codex `0.159.2` catalog inspected on 30 September 2026 did not
-advertise this model, so it remains visible but unavailable on that connection.
-The API model reference does not establish Codex subscription access. No saved
+catalog. The first Codex `0.159.2` catalog inspection on 30 September 2026 did not
+advertise this model. A later authenticated inspection at 15:17 UTC listed the
+exact model with all five efforts. Settings follows the current catalog, so the
+choice can now be selected on this connection. Neither the API reference nor
+catalog presence proves a completed model call or durable entitlement. No saved
 choice, default, billing route or active consultation changes automatically.
 
 The optional Claude Code Critic branch has no inferred saved preference. When
