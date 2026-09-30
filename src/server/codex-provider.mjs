@@ -28,7 +28,8 @@ const waitFor = (promise, milliseconds, label, signal = undefined) => new Promis
 const record = value => typeof value === "object" && value !== null && !Array.isArray(value);
 const allowedModelEfforts = new Map([
   ["gpt-6-astra", new Set(["xhigh", "ultra"])],
-  ["gpt-6-sol", new Set(["low", "medium", "high", "xhigh", "max", "ultra"])]
+  ["gpt-6-sol", new Set(["low", "medium", "high", "xhigh", "max", "ultra"])],
+  ["gpt-6.1-sol", new Set(["low", "medium", "high", "xhigh", "max"])]
 ]);
 const terminalTurn = value => record(value) && ["completed", "interrupted", "failed"].includes(value.status) ? value : undefined;
 const providerLog = (event, details) => process.stdout.write(`${JSON.stringify({ event, ...details })}\n`);

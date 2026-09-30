@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@anthropic-ai/claude-code": "2.1.280",
-    "@openai/codex": "0.155.1",
+    "@openai/codex": "0.159.2",
     "selfsigned": "5.5.0"
   },
   "license": "MIT"

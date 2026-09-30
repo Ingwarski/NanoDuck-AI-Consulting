@@ -65,7 +65,7 @@
       },
       "path": "docs/product-idea.md",
       "owner_skill": "to-product-idea",
-      "owner_invocation_id": "usage-activity-20260926-product-idea",
+      "owner_invocation_id": "gpt-6-1-sol-20260930-product-idea",
       "declared_output_set": [
         "docs/product-idea.md"
       ],
@@ -90,10 +90,11 @@
         "forge/runs/upstream-usage-20260926/scope.json": "full",
         "forge/runs/usage-dashboard-20260926/scope.json": "full",
         "forge/runs/usage-reasoning-20260926/scope.json": "full",
-        "forge/runs/usage-activity-20260926/scope.json": "full"
+        "forge/runs/usage-activity-20260926/scope.json": "full",
+        "forge/runs/gpt-6-1-sol-20260930/scope.json": "full"
       },
       "source_hashes": {
-        "docs/model-settings.md": "2d0b9fe9d045e289b228adfe2d27aa6c1d94632eef60c78df60091eb181c4628",
+        "docs/model-settings.md": "f6da88c8337dabc2624e94f8b51c8031c5e0e351dd99392bc294909c5ab944f2",
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2",
         "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b",
         "forge/runs/browser-research-claude-20260922/scope.json": "be36b8b0a9fb8470cbcf50a612765c82b4c53698d01c81108d172f8fd884342f",
@@ -110,17 +111,18 @@
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
         "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
-        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
+        "forge/runs/gpt-6-1-sol-20260930/scope.json": "fb82662f17f70537117703d4fcc7c91b98b005fa191176fd95b3cd0effb75c42"
       },
       "dependencies": [],
-      "content_hash": "65ec4a9fabd868d7daa9d884723dbbacbc1089bb0c47638fb120d5b970d078f8",
+      "content_hash": "206622c54bf10b94f6daef899a6e4d281b4d040f1ba9780f3c1b3e5868dde4d1",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T18:31:17.948890+00:00",
+        "reviewed_at": "2026-09-30T15:05:15.792248+00:00",
         "executor": "Codex inline to-product-idea",
-        "scope": "Owner-reconciled definition; implementation verification remains pending."
+        "scope": "Explicit additional exact Codex model; preserved default, subscription boundary and visual baseline."
       },
       "open_questions": []
     },
@@ -2452,7 +2454,7 @@
       },
       "path": "docs/prd.md",
       "owner_skill": "to-sdd-prd",
-      "owner_invocation_id": "usage-activity-20260926-prd",
+      "owner_invocation_id": "gpt-6-1-sol-20260930-prd",
       "declared_output_set": [
         "docs/prd.md"
       ],
@@ -2471,10 +2473,11 @@
         "forge/runs/upstream-usage-20260926/scope.json": "full",
         "forge/runs/usage-dashboard-20260926/scope.json": "full",
         "forge/runs/usage-reasoning-20260926/scope.json": "full",
-        "forge/runs/usage-activity-20260926/scope.json": "full"
+        "forge/runs/usage-activity-20260926/scope.json": "full",
+        "forge/runs/gpt-6-1-sol-20260930/scope.json": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "65ec4a9fabd868d7daa9d884723dbbacbc1089bb0c47638fb120d5b970d078f8",
+        "docs/product-idea.md": "206622c54bf10b94f6daef899a6e4d281b4d040f1ba9780f3c1b3e5868dde4d1",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -2485,26 +2488,27 @@
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
         "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
-        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
+        "forge/runs/gpt-6-1-sol-20260930/scope.json": "fb82662f17f70537117703d4fcc7c91b98b005fa191176fd95b3cd0effb75c42"
       },
       "dependencies": [
         "product-idea"
       ],
-      "content_hash": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+      "content_hash": "3e662b329090a4d9490236ec847cfbb4e603b00255a4b78a0b9a492167e0a8af",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T18:31:17.948890+00:00",
+        "reviewed_at": "2026-09-30T15:06:27.396817+00:00",
         "executor": "Codex inline to-sdd-prd",
-        "scope": "Owner-reconciled definition; implementation verification remains pending."
+        "scope": "FR-05.1 adds exact optional model without changing saved defaults or security boundaries."
       },
       "open_questions": []
     },
     "project-context": {
       "path": "docs/project-context.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "usage-activity-20260926-project-context",
+      "owner_invocation_id": "gpt-6-1-sol-20260930-context-bundle",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
@@ -2528,8 +2532,8 @@
         "forge/runs/usage-activity-20260926/scope.json": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "65ec4a9fabd868d7daa9d884723dbbacbc1089bb0c47638fb120d5b970d078f8",
-        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/product-idea.md": "206622c54bf10b94f6daef899a6e4d281b4d040f1ba9780f3c1b3e5868dde4d1",
+        "docs/prd.md": "3e662b329090a4d9490236ec847cfbb4e603b00255a4b78a0b9a492167e0a8af",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -2551,16 +2555,16 @@
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T18:31:17.948890+00:00",
+        "reviewed_at": "2026-09-30T15:07:20.358699+00:00",
         "executor": "Codex inline to-project-context",
-        "scope": "Owner-reconciled definition; implementation verification remains pending."
+        "scope": "No-change model-neutral context and terms review against updated product intent."
       },
       "open_questions": []
     },
     "canonical-terms": {
       "path": "docs/canonical-terms.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "usage-activity-20260926-project-context",
+      "owner_invocation_id": "gpt-6-1-sol-20260930-context-bundle",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
@@ -2584,8 +2588,8 @@
         "forge/runs/usage-activity-20260926/scope.json": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "65ec4a9fabd868d7daa9d884723dbbacbc1089bb0c47638fb120d5b970d078f8",
-        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/product-idea.md": "206622c54bf10b94f6daef899a6e4d281b4d040f1ba9780f3c1b3e5868dde4d1",
+        "docs/prd.md": "3e662b329090a4d9490236ec847cfbb4e603b00255a4b78a0b9a492167e0a8af",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -2607,16 +2611,16 @@
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T18:31:17.948890+00:00",
+        "reviewed_at": "2026-09-30T15:07:20.359084+00:00",
         "executor": "Codex inline to-project-context",
-        "scope": "Owner-reconciled definition; implementation verification remains pending."
+        "scope": "No-change model-neutral context and terms review against updated product intent."
       },
       "open_questions": []
     },
     "guardrails": {
       "path": "docs/guardrails.md",
       "owner_skill": "to-guardrails",
-      "owner_invocation_id": "usage-activity-20260926-guardrails",
+      "owner_invocation_id": "gpt-6-1-sol-20260930-guardrails",
       "declared_output_set": [
         "docs/guardrails.md"
       ],
@@ -2640,7 +2644,7 @@
         "forge/runs/usage-activity-20260926/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/prd.md": "3e662b329090a4d9490236ec847cfbb4e603b00255a4b78a0b9a492167e0a8af",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
@@ -2665,16 +2669,16 @@
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T18:31:17.948890+00:00",
+        "reviewed_at": "2026-09-30T15:08:23.326115+00:00",
         "executor": "Codex inline to-guardrails",
-        "scope": "Owner-reconciled definition; implementation verification remains pending."
+        "scope": "No-change review: additional catalog-gated model has no effect on this document's behavior or visual baseline."
       },
       "open_questions": []
     },
     "user-journey": {
       "path": "docs/user-journey.md",
       "owner_skill": "to-user-journey",
-      "owner_invocation_id": "usage-activity-20260926-user-journey",
+      "owner_invocation_id": "gpt-6-1-sol-20260930-user-journey",
       "declared_output_set": [
         "docs/user-journey.md"
       ],
@@ -2699,7 +2703,7 @@
         "forge/runs/usage-activity-20260926/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/prd.md": "3e662b329090a4d9490236ec847cfbb4e603b00255a4b78a0b9a492167e0a8af",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
@@ -2726,9 +2730,9 @@
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T18:31:17.948890+00:00",
+        "reviewed_at": "2026-09-30T15:08:23.757560+00:00",
         "executor": "Codex inline to-user-journey",
-        "scope": "Owner-reconciled definition; implementation verification remains pending."
+        "scope": "No-change review: additional catalog-gated model has no effect on this document's behavior or visual baseline."
       },
       "open_questions": []
     },
@@ -3740,7 +3744,7 @@
       },
       "path": "docs/screen-map.md",
       "owner_skill": "to-screen-map",
-      "owner_invocation_id": "usage-activity-20260926-screen-map",
+      "owner_invocation_id": "gpt-6-1-sol-20260930-screen-map",
       "declared_output_set": [
         "docs/screen-map.md"
       ],
@@ -3768,7 +3772,7 @@
         "forge/runs/usage-activity-20260926/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/prd.md": "3e662b329090a4d9490236ec847cfbb4e603b00255a4b78a0b9a492167e0a8af",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
@@ -3799,16 +3803,16 @@
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T18:31:17.948890+00:00",
+        "reviewed_at": "2026-09-30T15:08:24.204822+00:00",
         "executor": "Codex inline to-screen-map",
-        "scope": "Owner-reconciled definition; implementation verification remains pending."
+        "scope": "No-change review: additional catalog-gated model has no effect on this document's behavior or visual baseline."
       },
       "open_questions": []
     },
     "wireframes": {
       "path": "docs/wireframes.md",
       "owner_skill": "to-wireframes",
-      "owner_invocation_id": "usage-activity-20260926-wireframes",
+      "owner_invocation_id": "gpt-6-1-sol-20260930-wireframes",
       "declared_output_set": [
         "docs/wireframes.md"
       ],
@@ -3838,7 +3842,7 @@
         "forge/runs/usage-activity-20260926/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/prd.md": "3e662b329090a4d9490236ec847cfbb4e603b00255a4b78a0b9a492167e0a8af",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
@@ -3872,16 +3876,16 @@
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T18:31:17.948890+00:00",
+        "reviewed_at": "2026-09-30T15:08:24.731401+00:00",
         "executor": "Codex inline to-wireframes",
-        "scope": "The owner requests Discussion, Outcome, Sources and Usage in the sticky menu. Group the existing status/Stop row and four view tabs in one sticky Discussion header below the main navigation. Preserve content order and access on narrow screens; the transcript and selected panel scroll underneath."
+        "scope": "No-change review: additional catalog-gated model has no effect on this document's behavior or visual baseline."
       },
       "open_questions": []
     },
     "design-brief": {
       "path": "docs/design-brief.md",
       "owner_skill": "to-design-brief",
-      "owner_invocation_id": "navbar-refraction-20260926-design-brief",
+      "owner_invocation_id": "gpt-6-1-sol-20260930-design-brief",
       "declared_output_set": [
         "docs/design-brief.md"
       ],
@@ -3917,7 +3921,7 @@
         "forge/runs/navbar-refraction-20260926/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/prd.md": "3e662b329090a4d9490236ec847cfbb4e603b00255a4b78a0b9a492167e0a8af",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
@@ -3958,9 +3962,9 @@
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T19:42:44.433477+00:00",
+        "reviewed_at": "2026-09-30T15:08:25.237319+00:00",
         "executor": "Codex inline to-design-brief",
-        "scope": "Accepted [sticky-view navigation override](../forge/runs/sticky-view-nav-20260925/scope.json): retain Electric A v8 and P5 appearance, and pin the existing status/Stop row plus all four view tabs below the main menu. Use the canvas background and existing separators; no overlay obscures the tabs or Stop. The override is limited to positioning and persistent reachability."
+        "scope": "No-change review: additional catalog-gated model has no effect on this document's behavior or visual baseline."
       },
       "open_questions": []
     },
@@ -4037,7 +4041,7 @@
       },
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "navbar-refraction-20260926-architecture",
+      "owner_invocation_id": "gpt-6-1-sol-20260930-architecture",
       "declared_output_set": [
         "docs/architecture.md"
       ],
@@ -4076,10 +4080,11 @@
         "forge/runs/usage-activity-20260926/scope.json": "full",
         "forge/runs/clear-glass-navbar-20260926/scope.json": "full",
         "forge/runs/glass-rim-20260926/scope.json": "full",
-        "forge/runs/navbar-refraction-20260926/scope.json": "full"
+        "forge/runs/navbar-refraction-20260926/scope.json": "full",
+        "forge/runs/gpt-6-1-sol-20260930/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/prd.md": "3e662b329090a4d9490236ec847cfbb4e603b00255a4b78a0b9a492167e0a8af",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
@@ -4087,7 +4092,7 @@
         "docs/screen-map.md": "da5c0aea5e9fe16828c4bdbaadbb62ae022daa7ca22a19380ccf8a64f99fed12",
         "docs/wireframes.md": "f6c59c79b531b9598732acf7cbe7c0b81a99076f7d528aa605d6bf61f72c3f5b",
         "docs/design-brief.md": "8d7726747032cebc238db702cc1a9313a33f6fec09cd4a1c5ae1120787d2f9a1",
-        "docs/model-settings.md": "2d0b9fe9d045e289b228adfe2d27aa6c1d94632eef60c78df60091eb181c4628",
+        "docs/model-settings.md": "f6da88c8337dabc2624e94f8b51c8031c5e0e351dd99392bc294909c5ab944f2",
         "forge/runs/claude-signin-20260922/source-review.json": "ad878d853b9c6f30da817167e1db6dffaad9c2c2863354ad3331294d7b269def",
         "forge/runs/sound-media-playback-20260923/scope.json": "7a5aa70bf52fa77a4dea9e39e5a49453c6be40c5b1a347632f4da4f5294455a0",
         "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318",
@@ -4110,7 +4115,8 @@
         "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
         "forge/runs/clear-glass-navbar-20260926/scope.json": "1ecd5cba668f465c3e89a198ed8b9e62e9bcc4266e8b713f38d814cf3eb65a95",
         "forge/runs/glass-rim-20260926/scope.json": "dd29bb641922975a8af41782051645e3cf49d3f780df4e99684d84e49719cf8b",
-        "forge/runs/navbar-refraction-20260926/scope.json": "b80bb023523a4eaf95752f92b2cd42347a84b8a66e30f5537a0347e802910efd"
+        "forge/runs/navbar-refraction-20260926/scope.json": "b80bb023523a4eaf95752f92b2cd42347a84b8a66e30f5537a0347e802910efd",
+        "forge/runs/gpt-6-1-sol-20260930/scope.json": "fb82662f17f70537117703d4fcc7c91b98b005fa191176fd95b3cd0effb75c42"
       },
       "dependencies": [
         "prd",
@@ -4122,14 +4128,14 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "a95dd9cb36c12cd426d47a47d6a23cd0251461e15e30b1e0e01a7b9c463094e3",
+      "content_hash": "b04a07f332da9d3e30e7db57f8eae8a6ebd74000587e4a12cc8209fb481d88d1",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T19:42:44.433477+00:00",
+        "reviewed_at": "2026-09-30T15:09:22.900164+00:00",
         "executor": "Codex inline to-architecture",
-        "scope": "Existing source persistence and recovery contract repair; retained upstream scope and approved baseline."
+        "scope": "Exact catalog-gated GPT-6.1 Sol addition; subscription, security and approved visual baseline unchanged."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -4207,7 +4213,7 @@
       },
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "navbar-refraction-20260926-dod-evals",
+      "owner_invocation_id": "gpt-6-1-sol-20260930-dod-evals",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
@@ -4245,7 +4251,7 @@
         "forge/runs/navbar-refraction-20260926/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/prd.md": "3e662b329090a4d9490236ec847cfbb4e603b00255a4b78a0b9a492167e0a8af",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
@@ -4253,7 +4259,7 @@
         "docs/screen-map.md": "da5c0aea5e9fe16828c4bdbaadbb62ae022daa7ca22a19380ccf8a64f99fed12",
         "docs/wireframes.md": "f6c59c79b531b9598732acf7cbe7c0b81a99076f7d528aa605d6bf61f72c3f5b",
         "docs/design-brief.md": "8d7726747032cebc238db702cc1a9313a33f6fec09cd4a1c5ae1120787d2f9a1",
-        "docs/architecture.md": "a95dd9cb36c12cd426d47a47d6a23cd0251461e15e30b1e0e01a7b9c463094e3",
+        "docs/architecture.md": "b04a07f332da9d3e30e7db57f8eae8a6ebd74000587e4a12cc8209fb481d88d1",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e",
@@ -4290,9 +4296,9 @@
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T19:42:44.433477+00:00",
+        "reviewed_at": "2026-09-30T15:09:51.484074+00:00",
         "executor": "Codex inline to-dod-evals",
-        "scope": "Existing source persistence and recovery contract repair; retained upstream scope and approved baseline."
+        "scope": "No-change reusable gates review; exact model is already covered by the existing provider/settings gate."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -6230,7 +6236,7 @@
       },
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "usage-dashboard-verification-qa-checklist",
+      "owner_invocation_id": "gpt-6-1-sol-20260930-qa-checklist",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
@@ -6276,10 +6282,11 @@
         "forge/runs/glass-rim-20260926/scope.json": "full",
         "forge/runs/glass-rim-20260926/verification.json": "full",
         "forge/runs/navbar-refraction-20260926/scope.json": "full",
-        "forge/runs/navbar-refraction-20260926/verification.json": "full"
+        "forge/runs/navbar-refraction-20260926/verification.json": "full",
+        "forge/runs/gpt-6-1-sol-20260930/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/prd.md": "3e662b329090a4d9490236ec847cfbb4e603b00255a4b78a0b9a492167e0a8af",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
@@ -6287,7 +6294,7 @@
         "docs/screen-map.md": "da5c0aea5e9fe16828c4bdbaadbb62ae022daa7ca22a19380ccf8a64f99fed12",
         "docs/wireframes.md": "f6c59c79b531b9598732acf7cbe7c0b81a99076f7d528aa605d6bf61f72c3f5b",
         "docs/design-brief.md": "8d7726747032cebc238db702cc1a9313a33f6fec09cd4a1c5ae1120787d2f9a1",
-        "docs/architecture.md": "a95dd9cb36c12cd426d47a47d6a23cd0251461e15e30b1e0e01a7b9c463094e3",
+        "docs/architecture.md": "b04a07f332da9d3e30e7db57f8eae8a6ebd74000587e4a12cc8209fb481d88d1",
         "docs/dod-evals.md": "c31804e680531cad85e2441045ca859f3424886989f9be57e49c0fdb8afa42fe",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
@@ -6317,7 +6324,8 @@
         "forge/runs/glass-rim-20260926/scope.json": "dd29bb641922975a8af41782051645e3cf49d3f780df4e99684d84e49719cf8b",
         "forge/runs/glass-rim-20260926/verification.json": "1eaa88a6f0aca0b28ffba8ac51ae13b5cb1fb76f46c2a082ed14aa79688a5225",
         "forge/runs/navbar-refraction-20260926/scope.json": "b80bb023523a4eaf95752f92b2cd42347a84b8a66e30f5537a0347e802910efd",
-        "forge/runs/navbar-refraction-20260926/verification.json": "266314b430e9b090cda22eb38af6c69e85f4160f5424e43972fdb1d357a2b264"
+        "forge/runs/navbar-refraction-20260926/verification.json": "266314b430e9b090cda22eb38af6c69e85f4160f5424e43972fdb1d357a2b264",
+        "forge/runs/gpt-6-1-sol-20260930/scope.json": "fb82662f17f70537117703d4fcc7c91b98b005fa191176fd95b3cd0effb75c42"
       },
       "dependencies": [
         "prd",
@@ -6331,14 +6339,14 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "3a6a474a10d699cf9bdd90480a74e2f2f0a786949d79899fbdcb19ddcfe72acd",
+      "content_hash": "62e5b12472e49f72a83296577a09b4b60115261b58e9790214177501a8fff9da",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T19:44:47.873401+00:00",
+        "reviewed_at": "2026-09-30T15:10:33.721012+00:00",
         "executor": "Codex inline to-qa-checklist",
-        "scope": "Existing source persistence and recovery contract repair; retained upstream scope and approved baseline."
+        "scope": "QA-R20 exact GPT-6.1 Sol selection and unavailable-catalog coverage; formal execution remains not_run."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -7565,7 +7573,7 @@
       },
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "usage-dashboard-verification-development-plan",
+      "owner_invocation_id": "gpt-6-1-sol-20260930-development-plan",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
@@ -7615,10 +7623,11 @@
         "forge/runs/glass-rim-20260926/scope.json": "full",
         "forge/runs/glass-rim-20260926/verification.json": "full",
         "forge/runs/navbar-refraction-20260926/scope.json": "full",
-        "forge/runs/navbar-refraction-20260926/verification.json": "full"
+        "forge/runs/navbar-refraction-20260926/verification.json": "full",
+        "forge/runs/gpt-6-1-sol-20260930/scope.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/prd.md": "3e662b329090a4d9490236ec847cfbb4e603b00255a4b78a0b9a492167e0a8af",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
@@ -7626,11 +7635,11 @@
         "docs/screen-map.md": "da5c0aea5e9fe16828c4bdbaadbb62ae022daa7ca22a19380ccf8a64f99fed12",
         "docs/wireframes.md": "f6c59c79b531b9598732acf7cbe7c0b81a99076f7d528aa605d6bf61f72c3f5b",
         "docs/design-brief.md": "8d7726747032cebc238db702cc1a9313a33f6fec09cd4a1c5ae1120787d2f9a1",
-        "docs/architecture.md": "a95dd9cb36c12cd426d47a47d6a23cd0251461e15e30b1e0e01a7b9c463094e3",
+        "docs/architecture.md": "b04a07f332da9d3e30e7db57f8eae8a6ebd74000587e4a12cc8209fb481d88d1",
         "docs/dod-evals.md": "c31804e680531cad85e2441045ca859f3424886989f9be57e49c0fdb8afa42fe",
-        "docs/qa-checklist.md": "3a6a474a10d699cf9bdd90480a74e2f2f0a786949d79899fbdcb19ddcfe72acd",
-        "docs/model-settings.md": "2d0b9fe9d045e289b228adfe2d27aa6c1d94632eef60c78df60091eb181c4628",
-        "package.json": "094e408c16c3a8369b9f21a343bb562dc0cd20160e26b6c01f144bd83712a568",
+        "docs/qa-checklist.md": "62e5b12472e49f72a83296577a09b4b60115261b58e9790214177501a8fff9da",
+        "docs/model-settings.md": "f6da88c8337dabc2624e94f8b51c8031c5e0e351dd99392bc294909c5ab944f2",
+        "package.json": "d74c25d2b4d04b4fc3f2f51c333a2333b8f64efa62ed254220e967b5c3ca764c",
         "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/parallel-consultants-plan-20260924/repository-observation.json": "76930bc48e23a9d650e5b394b513a9cd895ccae11804942ffb69cff8c9f8094d",
@@ -7660,7 +7669,8 @@
         "forge/runs/glass-rim-20260926/scope.json": "dd29bb641922975a8af41782051645e3cf49d3f780df4e99684d84e49719cf8b",
         "forge/runs/glass-rim-20260926/verification.json": "1eaa88a6f0aca0b28ffba8ac51ae13b5cb1fb76f46c2a082ed14aa79688a5225",
         "forge/runs/navbar-refraction-20260926/scope.json": "b80bb023523a4eaf95752f92b2cd42347a84b8a66e30f5537a0347e802910efd",
-        "forge/runs/navbar-refraction-20260926/verification.json": "266314b430e9b090cda22eb38af6c69e85f4160f5424e43972fdb1d357a2b264"
+        "forge/runs/navbar-refraction-20260926/verification.json": "266314b430e9b090cda22eb38af6c69e85f4160f5424e43972fdb1d357a2b264",
+        "forge/runs/gpt-6-1-sol-20260930/scope.json": "fb82662f17f70537117703d4fcc7c91b98b005fa191176fd95b3cd0effb75c42"
       },
       "dependencies": [
         "prd",
@@ -7675,14 +7685,14 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "6dbc0d3a8b49904e585f13f25078d1e206c5890a8acc3fa91756597c7bc96122",
+      "content_hash": "7684f58e094ce02a41881c6a3ca9a61176ef011d61655ad889e099662f7af9ed",
       "validation": {
         "result": "passed",
         "working_language": "en",
         "kind": "accepted-research-economy-scope",
-        "reviewed_at": "2026-09-26T19:44:47.873401+00:00",
+        "reviewed_at": "2026-09-30T15:11:53.643219+00:00",
         "executor": "Codex inline to-development-plan",
-        "scope": "Existing source persistence and recovery contract repair; retained upstream scope and approved baseline."
+        "scope": "Additional explicit model in existing units; catalog absent on inspected account, formal QA still not_run."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
@@ -8215,7 +8225,7 @@
     "release_readiness": "not_evaluated",
     "source_hashes": {
       "docs/dod-evals.md": "c31804e680531cad85e2441045ca859f3424886989f9be57e49c0fdb8afa42fe",
-      "docs/qa-checklist.md": "3a6a474a10d699cf9bdd90480a74e2f2f0a786949d79899fbdcb19ddcfe72acd"
+      "docs/qa-checklist.md": "62e5b12472e49f72a83296577a09b4b60115261b58e9790214177501a8fff9da"
     },
     "gates": [
       {
@@ -11245,27 +11255,27 @@
   },
   "implementation_gate": {
     "state": "authorized_for_phase3",
-    "development_plan_hash": "6dbc0d3a8b49904e585f13f25078d1e206c5890a8acc3fa91756597c7bc96122",
+    "development_plan_hash": "7684f58e094ce02a41881c6a3ca9a61176ef011d61655ad889e099662f7af9ed",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
-    "awaiting_at": "2026-09-24T13:00:20.203238+00:00",
+    "awaiting_at": "2026-09-30T15:11:53.570858+00:00",
     "product_scope_hash": "defc5e24f0dd91be42b984888b157137f4f1ed361459e70f42b832e18c957bd4",
-    "prompt_id": "navbar-refraction-20260926",
-    "prompt_received_at": "2026-09-26T19:42:47.960260+00:00",
-    "released_at": "2026-09-26T19:42:47.960260+00:00",
-    "reason": "User explicitly requested implementation of the referenced liquid-glass effect.",
+    "prompt_id": "gpt-6-1-sol-20260930",
+    "prompt_received_at": "2026-09-30T15:14:19.826155+00:00",
+    "released_at": "2026-09-30T15:14:19.826155+00:00",
+    "reason": "User explicitly requested the additional Codex setting in this task; the exact request is bound to the reconciled plan without implying a later separate user message.",
     "prompt_receipt": {
-      "path": "forge/runs/navbar-refraction-20260926/implementation-prompt.json",
-      "content_hash": "44207762e5f5754a1ce3475229f835bfaf0627a96b6bbbc2ad81880e1f51d6fe"
+      "path": "forge/runs/gpt-6-1-sol-20260930/implementation-prompt.json",
+      "content_hash": "78acfe812f78b5cc83b988a32914f850034291de7e46d5953f1929d3240b39ba"
     }
   },
   "dispatches": {
     "product-idea": {
-      "invocation_id": "usage-activity-20260926-product-idea",
+      "invocation_id": "gpt-6-1-sol-20260930-product-idea",
       "outputs": [
         "docs/product-idea.md"
       ],
       "source_hashes": {
-        "docs/model-settings.md": "2d0b9fe9d045e289b228adfe2d27aa6c1d94632eef60c78df60091eb181c4628",
+        "docs/model-settings.md": "f6da88c8337dabc2624e94f8b51c8031c5e0e351dd99392bc294909c5ab944f2",
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2",
         "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b",
         "forge/runs/browser-research-claude-20260922/scope.json": "be36b8b0a9fb8470cbcf50a612765c82b4c53698d01c81108d172f8fd884342f",
@@ -11282,16 +11292,17 @@
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
         "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
-        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
+        "forge/runs/gpt-6-1-sol-20260930/scope.json": "fb82662f17f70537117703d4fcc7c91b98b005fa191176fd95b3cd0effb75c42"
       }
     },
     "prd": {
-      "invocation_id": "usage-activity-20260926-prd",
+      "invocation_id": "gpt-6-1-sol-20260930-prd",
       "outputs": [
         "docs/prd.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "65ec4a9fabd868d7daa9d884723dbbacbc1089bb0c47638fb120d5b970d078f8",
+        "docs/product-idea.md": "206622c54bf10b94f6daef899a6e4d281b4d040f1ba9780f3c1b3e5868dde4d1",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -11302,18 +11313,19 @@
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
         "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
-        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
+        "forge/runs/gpt-6-1-sol-20260930/scope.json": "fb82662f17f70537117703d4fcc7c91b98b005fa191176fd95b3cd0effb75c42"
       }
     },
     "project-context": {
-      "invocation_id": "usage-activity-20260926-project-context",
+      "invocation_id": "gpt-6-1-sol-20260930-context-bundle",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "65ec4a9fabd868d7daa9d884723dbbacbc1089bb0c47638fb120d5b970d078f8",
-        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/product-idea.md": "206622c54bf10b94f6daef899a6e4d281b4d040f1ba9780f3c1b3e5868dde4d1",
+        "docs/prd.md": "3e662b329090a4d9490236ec847cfbb4e603b00255a4b78a0b9a492167e0a8af",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -11328,14 +11340,14 @@
       }
     },
     "canonical-terms": {
-      "invocation_id": "usage-activity-20260926-project-context",
+      "invocation_id": "gpt-6-1-sol-20260930-context-bundle",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "65ec4a9fabd868d7daa9d884723dbbacbc1089bb0c47638fb120d5b970d078f8",
-        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/product-idea.md": "206622c54bf10b94f6daef899a6e4d281b4d040f1ba9780f3c1b3e5868dde4d1",
+        "docs/prd.md": "3e662b329090a4d9490236ec847cfbb4e603b00255a4b78a0b9a492167e0a8af",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -11350,12 +11362,12 @@
       }
     },
     "guardrails": {
-      "invocation_id": "usage-activity-20260926-guardrails",
+      "invocation_id": "gpt-6-1-sol-20260930-guardrails",
       "outputs": [
         "docs/guardrails.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/prd.md": "3e662b329090a4d9490236ec847cfbb4e603b00255a4b78a0b9a492167e0a8af",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
@@ -11372,12 +11384,12 @@
       }
     },
     "user-journey": {
-      "invocation_id": "usage-activity-20260926-user-journey",
+      "invocation_id": "gpt-6-1-sol-20260930-user-journey",
       "outputs": [
         "docs/user-journey.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/prd.md": "3e662b329090a4d9490236ec847cfbb4e603b00255a4b78a0b9a492167e0a8af",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
@@ -11395,12 +11407,12 @@
       }
     },
     "screen-map": {
-      "invocation_id": "usage-activity-20260926-screen-map",
+      "invocation_id": "gpt-6-1-sol-20260930-screen-map",
       "outputs": [
         "docs/screen-map.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/prd.md": "3e662b329090a4d9490236ec847cfbb4e603b00255a4b78a0b9a492167e0a8af",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
@@ -11421,12 +11433,12 @@
       }
     },
     "wireframes": {
-      "invocation_id": "usage-activity-20260926-wireframes",
+      "invocation_id": "gpt-6-1-sol-20260930-wireframes",
       "outputs": [
         "docs/wireframes.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/prd.md": "3e662b329090a4d9490236ec847cfbb4e603b00255a4b78a0b9a492167e0a8af",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
@@ -11449,12 +11461,12 @@
       }
     },
     "design-brief": {
-      "invocation_id": "navbar-refraction-20260926-design-brief",
+      "invocation_id": "gpt-6-1-sol-20260930-design-brief",
       "outputs": [
         "docs/design-brief.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/prd.md": "3e662b329090a4d9490236ec847cfbb4e603b00255a4b78a0b9a492167e0a8af",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
@@ -11483,12 +11495,12 @@
       }
     },
     "architecture": {
-      "invocation_id": "navbar-refraction-20260926-architecture",
+      "invocation_id": "gpt-6-1-sol-20260930-architecture",
       "outputs": [
         "docs/architecture.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/prd.md": "3e662b329090a4d9490236ec847cfbb4e603b00255a4b78a0b9a492167e0a8af",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
@@ -11496,7 +11508,7 @@
         "docs/screen-map.md": "da5c0aea5e9fe16828c4bdbaadbb62ae022daa7ca22a19380ccf8a64f99fed12",
         "docs/wireframes.md": "f6c59c79b531b9598732acf7cbe7c0b81a99076f7d528aa605d6bf61f72c3f5b",
         "docs/design-brief.md": "8d7726747032cebc238db702cc1a9313a33f6fec09cd4a1c5ae1120787d2f9a1",
-        "docs/model-settings.md": "2d0b9fe9d045e289b228adfe2d27aa6c1d94632eef60c78df60091eb181c4628",
+        "docs/model-settings.md": "f6da88c8337dabc2624e94f8b51c8031c5e0e351dd99392bc294909c5ab944f2",
         "forge/runs/claude-signin-20260922/source-review.json": "ad878d853b9c6f30da817167e1db6dffaad9c2c2863354ad3331294d7b269def",
         "forge/runs/sound-media-playback-20260923/scope.json": "7a5aa70bf52fa77a4dea9e39e5a49453c6be40c5b1a347632f4da4f5294455a0",
         "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318",
@@ -11519,16 +11531,17 @@
         "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
         "forge/runs/clear-glass-navbar-20260926/scope.json": "1ecd5cba668f465c3e89a198ed8b9e62e9bcc4266e8b713f38d814cf3eb65a95",
         "forge/runs/glass-rim-20260926/scope.json": "dd29bb641922975a8af41782051645e3cf49d3f780df4e99684d84e49719cf8b",
-        "forge/runs/navbar-refraction-20260926/scope.json": "b80bb023523a4eaf95752f92b2cd42347a84b8a66e30f5537a0347e802910efd"
+        "forge/runs/navbar-refraction-20260926/scope.json": "b80bb023523a4eaf95752f92b2cd42347a84b8a66e30f5537a0347e802910efd",
+        "forge/runs/gpt-6-1-sol-20260930/scope.json": "fb82662f17f70537117703d4fcc7c91b98b005fa191176fd95b3cd0effb75c42"
       }
     },
     "dod-evals": {
-      "invocation_id": "navbar-refraction-20260926-dod-evals",
+      "invocation_id": "gpt-6-1-sol-20260930-dod-evals",
       "outputs": [
         "docs/dod-evals.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/prd.md": "3e662b329090a4d9490236ec847cfbb4e603b00255a4b78a0b9a492167e0a8af",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
@@ -11536,7 +11549,7 @@
         "docs/screen-map.md": "da5c0aea5e9fe16828c4bdbaadbb62ae022daa7ca22a19380ccf8a64f99fed12",
         "docs/wireframes.md": "f6c59c79b531b9598732acf7cbe7c0b81a99076f7d528aa605d6bf61f72c3f5b",
         "docs/design-brief.md": "8d7726747032cebc238db702cc1a9313a33f6fec09cd4a1c5ae1120787d2f9a1",
-        "docs/architecture.md": "a95dd9cb36c12cd426d47a47d6a23cd0251461e15e30b1e0e01a7b9c463094e3",
+        "docs/architecture.md": "b04a07f332da9d3e30e7db57f8eae8a6ebd74000587e4a12cc8209fb481d88d1",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e",
@@ -11559,12 +11572,12 @@
       }
     },
     "qa-checklist": {
-      "invocation_id": "usage-dashboard-verification-qa-checklist",
+      "invocation_id": "gpt-6-1-sol-20260930-qa-checklist",
       "outputs": [
         "docs/qa-checklist.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/prd.md": "3e662b329090a4d9490236ec847cfbb4e603b00255a4b78a0b9a492167e0a8af",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
@@ -11572,7 +11585,7 @@
         "docs/screen-map.md": "da5c0aea5e9fe16828c4bdbaadbb62ae022daa7ca22a19380ccf8a64f99fed12",
         "docs/wireframes.md": "f6c59c79b531b9598732acf7cbe7c0b81a99076f7d528aa605d6bf61f72c3f5b",
         "docs/design-brief.md": "8d7726747032cebc238db702cc1a9313a33f6fec09cd4a1c5ae1120787d2f9a1",
-        "docs/architecture.md": "a95dd9cb36c12cd426d47a47d6a23cd0251461e15e30b1e0e01a7b9c463094e3",
+        "docs/architecture.md": "b04a07f332da9d3e30e7db57f8eae8a6ebd74000587e4a12cc8209fb481d88d1",
         "docs/dod-evals.md": "c31804e680531cad85e2441045ca859f3424886989f9be57e49c0fdb8afa42fe",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
@@ -11602,16 +11615,17 @@
         "forge/runs/glass-rim-20260926/scope.json": "dd29bb641922975a8af41782051645e3cf49d3f780df4e99684d84e49719cf8b",
         "forge/runs/glass-rim-20260926/verification.json": "1eaa88a6f0aca0b28ffba8ac51ae13b5cb1fb76f46c2a082ed14aa79688a5225",
         "forge/runs/navbar-refraction-20260926/scope.json": "b80bb023523a4eaf95752f92b2cd42347a84b8a66e30f5537a0347e802910efd",
-        "forge/runs/navbar-refraction-20260926/verification.json": "266314b430e9b090cda22eb38af6c69e85f4160f5424e43972fdb1d357a2b264"
+        "forge/runs/navbar-refraction-20260926/verification.json": "266314b430e9b090cda22eb38af6c69e85f4160f5424e43972fdb1d357a2b264",
+        "forge/runs/gpt-6-1-sol-20260930/scope.json": "fb82662f17f70537117703d4fcc7c91b98b005fa191176fd95b3cd0effb75c42"
       }
     },
     "development-plan": {
-      "invocation_id": "usage-dashboard-verification-development-plan",
+      "invocation_id": "gpt-6-1-sol-20260930-development-plan",
       "outputs": [
         "docs/development-plan.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "ab128ed29abfba1bfce98fb9811beca58ec6b66f3702c854d97ba09b34a8e9ec",
+        "docs/prd.md": "3e662b329090a4d9490236ec847cfbb4e603b00255a4b78a0b9a492167e0a8af",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
@@ -11619,11 +11633,11 @@
         "docs/screen-map.md": "da5c0aea5e9fe16828c4bdbaadbb62ae022daa7ca22a19380ccf8a64f99fed12",
         "docs/wireframes.md": "f6c59c79b531b9598732acf7cbe7c0b81a99076f7d528aa605d6bf61f72c3f5b",
         "docs/design-brief.md": "8d7726747032cebc238db702cc1a9313a33f6fec09cd4a1c5ae1120787d2f9a1",
-        "docs/architecture.md": "a95dd9cb36c12cd426d47a47d6a23cd0251461e15e30b1e0e01a7b9c463094e3",
+        "docs/architecture.md": "b04a07f332da9d3e30e7db57f8eae8a6ebd74000587e4a12cc8209fb481d88d1",
         "docs/dod-evals.md": "c31804e680531cad85e2441045ca859f3424886989f9be57e49c0fdb8afa42fe",
-        "docs/qa-checklist.md": "3a6a474a10d699cf9bdd90480a74e2f2f0a786949d79899fbdcb19ddcfe72acd",
-        "docs/model-settings.md": "2d0b9fe9d045e289b228adfe2d27aa6c1d94632eef60c78df60091eb181c4628",
-        "package.json": "094e408c16c3a8369b9f21a343bb562dc0cd20160e26b6c01f144bd83712a568",
+        "docs/qa-checklist.md": "62e5b12472e49f72a83296577a09b4b60115261b58e9790214177501a8fff9da",
+        "docs/model-settings.md": "f6da88c8337dabc2624e94f8b51c8031c5e0e351dd99392bc294909c5ab944f2",
+        "package.json": "d74c25d2b4d04b4fc3f2f51c333a2333b8f64efa62ed254220e967b5c3ca764c",
         "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/parallel-consultants-plan-20260924/repository-observation.json": "76930bc48e23a9d650e5b394b513a9cd895ccae11804942ffb69cff8c9f8094d",
@@ -11653,7 +11667,8 @@
         "forge/runs/glass-rim-20260926/scope.json": "dd29bb641922975a8af41782051645e3cf49d3f780df4e99684d84e49719cf8b",
         "forge/runs/glass-rim-20260926/verification.json": "1eaa88a6f0aca0b28ffba8ac51ae13b5cb1fb76f46c2a082ed14aa79688a5225",
         "forge/runs/navbar-refraction-20260926/scope.json": "b80bb023523a4eaf95752f92b2cd42347a84b8a66e30f5537a0347e802910efd",
-        "forge/runs/navbar-refraction-20260926/verification.json": "266314b430e9b090cda22eb38af6c69e85f4160f5424e43972fdb1d357a2b264"
+        "forge/runs/navbar-refraction-20260926/verification.json": "266314b430e9b090cda22eb38af6c69e85f4160f5424e43972fdb1d357a2b264",
+        "forge/runs/gpt-6-1-sol-20260930/scope.json": "fb82662f17f70537117703d4fcc7c91b98b005fa191176fd95b3cd0effb75c42"
       }
     }
   },

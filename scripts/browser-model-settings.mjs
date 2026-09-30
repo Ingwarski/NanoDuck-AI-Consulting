@@ -40,9 +40,11 @@ export async function verifyModelSettings(page, name) {
   const session = await (await page.request.get('/api/session')).json();
   const headers = { origin: new URL(page.url()).origin, 'x-csrf-token': session.csrfToken };
   const sol = original.catalog.find(model => model.id === 'gpt-6-sol');
+  const sol61 = original.catalog.find(model => model.id === 'gpt-6.1-sol');
   const astra = original.catalog.find(model => model.id === 'gpt-6-astra');
   // These capabilities belong to fake-codex.mjs, not to the operator's account.
   assert.deepEqual(sol?.efforts, ['low', 'medium', 'high', 'xhigh', 'max', 'ultra']);
+  assert.deepEqual(sol61?.efforts, ['low', 'medium', 'high', 'xhigh', 'max']);
   assert.ok(astra?.efforts.includes('xhigh'));
   let conversationUrl;
   let missingCatalogRoute;
@@ -51,6 +53,22 @@ export async function verifyModelSettings(page, name) {
   try {
     await openSettings(page);
     const initialChoices = await visibleChoices(page);
+    for (const role of ['head', 'critic']) {
+      await page.locator(`#${role}-model`).selectOption('gpt-6.1-sol');
+      assert.deepEqual(await effortChoices(page, role), sol61.efforts);
+      await page.locator(`#${role}-reasoning`).selectOption(role === 'head' ? 'medium' : 'max');
+    }
+    const newModelSaved = await saveSettings(page);
+    assert.equal(newModelSaved.headModel, 'gpt-6.1-sol');
+    assert.equal(newModelSaved.criticCodexModel, 'gpt-6.1-sol');
+    await reloadSettings(page);
+    assert.equal(await page.locator('#head-model').inputValue(), 'gpt-6.1-sol');
+    assert.equal(await page.locator('#critic-reasoning').inputValue(), 'max');
+    for (const role of ['head', 'critic']) {
+      await page.locator(`#${role}-model`).selectOption(initialChoices[`${role}-model`]);
+      await page.locator(`#${role}-reasoning`).selectOption(initialChoices[`${role}-reasoning`]);
+    }
+    await saveSettings(page);
     await page.locator('#head-model').selectOption('gpt-6-sol');
     assert.deepEqual(await effortChoices(page, 'head'), sol.efforts);
     await page.locator('#head-reasoning').selectOption('low');
@@ -168,8 +186,8 @@ export async function verifyModelSettings(page, name) {
     missingCatalogRoute = async route => {
       const response = await route.fetch();
       const data = await response.json();
-      data.catalog = data.catalog.filter(model => model.id !== 'gpt-6-sol');
-      data.criticProviders.codex.models = data.criticProviders.codex.models.filter(model => model.id !== 'gpt-6-sol');
+      data.catalog = data.catalog.filter(model => !['gpt-6-sol', 'gpt-6.1-sol'].includes(model.id));
+      data.criticProviders.codex.models = data.criticProviders.codex.models.filter(model => !['gpt-6-sol', 'gpt-6.1-sol'].includes(model.id));
       await route.fulfill({ response, json: data });
     };
     await page.route('**/api/settings', missingCatalogRoute);
@@ -183,6 +201,8 @@ export async function verifyModelSettings(page, name) {
       assert.equal(await page.locator(`#${role}-model option[value="gpt-6-sol"]`).evaluate(option => option.disabled), true,
         `${name} ${role} missing-catalog option: ${await page.locator(`#${role}-model`).evaluate(select => select.outerHTML)}`);
       assert.equal(await page.locator(`#${role}-model`).inputValue(), 'gpt-6-astra', `${name} unavailable Sol does not replace saved Astra`);
+      assert.equal(await page.locator(`#${role}-model option[value="gpt-6.1-sol"]`).count(), 1, `${name} unavailable GPT-6.1 Sol remains discoverable`);
+      assert.equal(await page.locator(`#${role}-model option[value="gpt-6.1-sol"]`).evaluate(option => option.disabled), true);
     }
     await page.unroute('**/api/settings', missingCatalogRoute); missingCatalogRoute = undefined;
     await openSettings(page);

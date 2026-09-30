@@ -17,7 +17,7 @@ test("Codex allows a progressing answer past its idle budget, but bounds silence
 test("Codex turns use an owned workspace and deny local tool channels", async () => {
   const command = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));
   const provider = createCodexProvider({ readyForProvider: true, codexCommand: process.execPath, codexCommandArgs: [command], codexAuthPath: undefined });
-  assert.deepEqual(await provider.inspect(), { status: "ready", models: [{ id: "gpt-6-astra", efforts: ["xhigh", "ultra"] }, { id: "gpt-6-sol", efforts: ["low", "medium", "high", "xhigh", "max", "ultra"] }] });
+  assert.deepEqual(await provider.inspect(), { status: "ready", models: [{ id: "gpt-6-astra", efforts: ["xhigh", "ultra"] }, { id: "gpt-6-sol", efforts: ["low", "medium", "high", "xhigh", "max", "ultra"] }, { id: "gpt-6.1-sol", efforts: ["low", "medium", "high", "xhigh", "max"] }] });
   const result = await provider.invoke({ assignment: "Give a practical answer.", model: "gpt-6-astra", effort: "xhigh", evidence: { owner: "Question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions, signal: new AbortController().signal });
   assert.deepEqual(result, { ok: true, body: "A bounded answer.", sources: [] });
 });
@@ -25,7 +25,8 @@ test("Codex turns use an owned workspace and deny local tool channels", async ()
 test("Codex lists only exact supported models and their reported efforts", async () => {
   const command = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));
   for (const [flags, models] of [
-    [["--without-sol"], [{ id: "gpt-6-astra", efforts: ["xhigh", "ultra"] }]],
+    [["--without-sol", "--without-sol-6-1"], [{ id: "gpt-6-astra", efforts: ["xhigh", "ultra"] }]],
+    [["--without-sol"], [{ id: "gpt-6-astra", efforts: ["xhigh", "ultra"] }, { id: "gpt-6.1-sol", efforts: ["low", "medium", "high", "xhigh", "max"] }]],
     [["--sol-only", "--limited-sol"], [{ id: "gpt-6-sol", efforts: ["medium"] }]]
   ]) {
     const provider = createCodexProvider({ readyForProvider: true, codexCommand: process.execPath, codexCommandArgs: [command, ...flags] });
@@ -41,6 +42,14 @@ test("Codex forwards the exact Sol model and selected effort without substitutin
   const result = await provider.invoke({ assignment: "Report selected model and effort.", model: "gpt-6-sol", effort: "medium", evidence: { owner: "Synthetic question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions });
   assert.equal(result.ok, true);
   assert.deepEqual(JSON.parse(result.body), { threadModel: "gpt-6-sol", turnModel: "gpt-6-sol", effort: "medium" });
+});
+
+test("Codex forwards GPT-6.1 Sol with the selected effort", async () => {
+  const command = fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url));
+  const provider = createCodexProvider({ readyForProvider: true, codexCommand: process.execPath, codexCommandArgs: [command] });
+  const result = await provider.invoke({ assignment: "Report selected model and effort.", model: "gpt-6.1-sol", effort: "max", evidence: { owner: "Synthetic question", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions });
+  assert.equal(result.ok, true);
+  assert.deepEqual(JSON.parse(result.body), { threadModel: "gpt-6.1-sol", turnModel: "gpt-6.1-sol", effort: "max" });
 });
 
 test("Codex local auth input exists only in the private app-server home", async () => {

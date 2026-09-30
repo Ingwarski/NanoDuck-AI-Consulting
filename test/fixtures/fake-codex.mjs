@@ -60,6 +60,7 @@ createInterface({ input: process.stdin, crlfDelay: Infinity }).on("line", line =
     const data = [entry("gpt-5.6-sol", ["low", "medium", "high", "xhigh", "max", "ultra"])];
     if (!process.argv.includes("--sol-only")) data.push(entry("gpt-6-astra", ["xhigh", "ultra"]));
     if (!process.argv.includes("--without-sol")) data.push(entry("gpt-6-sol", process.argv.includes("--limited-sol") ? ["medium", "unknown", "medium"] : ["low", "medium", "high", "xhigh", "max", "ultra"]));
+    if (!process.argv.includes("--without-sol-6-1") && !process.argv.includes("--sol-only")) data.push(entry("gpt-6.1-sol", ["low", "medium", "high", "xhigh", "max", "ultra"]));
     return send({ id: request.id, result: { data, nextCursor: null } });
   }
   if (request.method === "account/rateLimits/read") return send({ id: request.id, result: { rateLimits: { rateLimitReachedType: null } } });

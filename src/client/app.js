@@ -413,7 +413,7 @@ const replaceOptions = (select, options, selected) => {
 };
 const codexModelOptions = (selectedModel, selectedEffort) => {
   const available = state.criticProviders?.codex?.models ?? [];
-  const choices = new Map([["gpt-6-astra", "gpt-6-astra"], ["gpt-6-sol", "GPT-6 Sol"]]);
+  const choices = new Map([["gpt-6-astra", "gpt-6-astra"], ["gpt-6-sol", "GPT-6 Sol"], ["gpt-6.1-sol", "GPT-6.1 Sol"]]);
   if (selectedModel && !choices.has(selectedModel)) choices.set(selectedModel, selectedModel);
   return [...choices].map(([id, label]) => {
     const model = available.find(candidate => candidate.id === id && candidate.efforts?.length);

@@ -320,9 +320,15 @@ Run scoped provider/settings/privacy regressions and browser audio checks. Recor
 
 ## Additional GPT-6 Sol choice
 
-The [explicit additive request](../forge/runs/gpt-6-sol-20260922/scope.json) authorizes U-01/U-03/U-04 to add exact `gpt-6-sol` to Head/shared-specialist and Codex Critic Settings. Pin the authenticated catalog-compatible Codex `0.155.1` package; expose its reported `low`/`medium`/`high`/`xhigh`/`max`/`ultra` choices, preserving saved/default Astra/xhigh and optional Claude selections. Current model-specific catalog validation governs selectability; a missing exact model remains unavailable, and `gpt-5.6-sol` is never a substitute. No design, authentication, billing or private-data boundary changes.
+The [explicit additive request](../forge/runs/gpt-6-sol-20260922/scope.json) authorizes U-01/U-03/U-04 to add exact `gpt-6-sol` to Head/shared-specialist and Codex Critic Settings. The earlier addition pinned catalog-compatible Codex `0.155.1` and exposed its reported `low`/`medium`/`high`/`xhigh`/`max`/`ultra` choices, preserving saved/default Astra/xhigh and optional Claude selections. Current model-specific catalog validation governs selectability; a missing exact model remains unavailable, and `gpt-5.6-sol` is never a substitute. No design, authentication, billing or private-data boundary changes.
 
 Use QA-R20 and QA-R21 for independent selection, save/reload, unsupported model/effort rejection and accepted-run snapshot preservation, plus scoped provider regressions and real-browser Settings checks in U-08. The [catalog observation](../forge/runs/gpt-6-sol-20260922/catalog-observation.json) verifies capability discovery only, with zero model invocations. Catalog observation alone does not verify execution; runtime evidence is recorded separately. Formal checks remain `not_run`; release readiness remains `not_evaluated`. This existing-change request directly authorizes implementation of the additive option.
+
+## Additional GPT-6.1 Sol choice
+
+The [explicit request](../forge/runs/gpt-6-1-sol-20260930/scope.json) extends U-01/U-03/U-04/U-08 with exact `gpt-6.1-sol` for Head/shared specialists and Codex Critic. Pin Codex `0.159.2`, but expose this option as unavailable until the authenticated app-server catalog contains that exact ID. Intersect the catalog efforts with the official API reference’s `low`/`medium`/`high`/`xhigh`/`max` set; no `ultra`, alias substitution, API billing fallback or automatic preference migration. Preserve Astra/xhigh defaults, existing saved choices, accepted-run snapshots and Electric A v8.
+
+Use existing QA-R20/QA-R21 for independent selection, save/reload, unsupported effort rejection, unavailable-catalog behavior and exact model/effort forwarding; verify Settings in Chromium, Firefox and WebKit. The 30 September authenticated catalog inspection on `0.159.2` omitted this exact model, so it supports only the unavailable state, not an actual GPT-6.1 Sol model call. Keep formal QA execution `not_run` and release readiness `not_evaluated` until separately evaluated.
 
 ## Native Claude subscription sign-in repair
 

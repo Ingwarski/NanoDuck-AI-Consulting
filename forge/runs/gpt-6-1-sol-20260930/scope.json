@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "event": "explicit_existing_change_addition",
+  "role": "user",
+  "recorded_at": "2026-09-30",
+  "timestamp_basis": "Date supplied by the current task environment; original message transport timestamp unavailable.",
+  "message": "https://developers.openai.com/api/docs/models/gpt-6.1-sol?utm_source=chatgpt.com Add new settings for Codex.",
+  "scope": "Add exact gpt-6.1-sol as an explicit Head/shared-specialist and Codex Critic option. Preserve saved/default models and subscription-only routing; selectability and efforts depend on the authenticated Codex app-server catalog.",
+  "official_model_reference": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+  "official_api_efforts": ["low", "medium", "high", "xhigh", "max"],
+  "catalog_observation": "Authenticated Codex 0.159.2 inspection on 2026-09-30 reported Astra and gpt-6-sol, but not gpt-6.1-sol. This is catalog evidence only, not a model invocation or permanent availability claim.",
+  "preserved": ["Saved/default Astra/xhigh choices", "Existing Claude selections", "Private local data and subscription-only authorization", "Approved Electric A v8 visual baseline"],
+  "working_language": "en"
+}

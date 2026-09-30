@@ -132,6 +132,11 @@ try {
         continue;
       }
       await phase(`${name} independent model settings`, () => verifyModelSettings(page, name));
+      if (process.argv.includes('--model-settings-only')) {
+        assert.deepEqual(errors, [], `${name} uncaught browser errors`);
+        await context.close();
+        continue;
+      }
       await phase(`${name} provider connection recovery`, () => verifyProviderConnection(page, name));
       await phase(`${name} native audio`, () => verifyNotificationAudio(page, name));
       await phase(`${name} active discussion`, () => verifyActiveDiscussion(page, name, root));

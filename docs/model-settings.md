@@ -19,6 +19,15 @@ Show the requested model as unavailable if the current authenticated catalog
 omits it, and never invent an effort list or infer a completed model call from
 catalog presence.
 
+GPT-6.1 Sol (`gpt-6.1-sol`) is a further explicit Codex choice for Head/shared
+specialists and the Codex Critic. [OpenAI's model reference](https://developers.openai.com/api/docs/models/gpt-6.1-sol)
+lists `low`, `medium`, `high`, `xhigh` and `max` reasoning. The app accepts only
+the intersection of that set and the current authenticated Codex app-server
+catalog. The Codex `0.159.2` catalog inspected on 30 September 2026 did not
+advertise this model, so it remains visible but unavailable on that connection.
+The API model reference does not establish Codex subscription access. No saved
+choice, default, billing route or active consultation changes automatically.
+
 The optional Claude Code Critic branch has no inferred saved preference. When
 first selected, it offers Opus 5 (`claude-opus-5`) with High as its initial effort;
 available effort labels are Low, Medium, High, Extra and Max. At the isolated CLI
@@ -28,7 +37,7 @@ Existing Opus 5 / High and saved Codex selections remain unchanged; adding a mod
 never selects it automatically. Anthropic defaults Opus 5.5 to Medium, distinct
 from NanoDuck’s retained High initial preference. Successful Claude output must
 report exactly the selected model in `modelUsage`; missing, mixed or substituted
-model identities are rejected. Current packages are pinned to Codex `0.155.1`
+model identities are rejected. Current packages are pinned to Codex `0.159.2`
 and Claude Code `2.1.280`, the minimum documented version for Opus 5.5.
 
 Sources checked on 22 September 2026: [Anthropic release](https://www.anthropic.com/claude-opus-5-5)

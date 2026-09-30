@@ -141,6 +141,20 @@ test("Sol settings preserve defaults, validate each role and retain inactive Cri
   assert.equal(parseSettings({ ...defaultSettings, headReasoning: "low" }), undefined);
 });
 
+test("GPT-6.1 Sol settings require the exact catalog entry and supported effort", () => {
+  const efforts = ["low", "medium", "high", "xhigh", "max"];
+  const catalog = { codex: { models: [{ id: "gpt-6-astra", efforts: ["xhigh", "ultra"] }, { id: "gpt-6.1-sol", efforts }] } };
+  assert.deepEqual(parseSettings(defaultSettings, catalog), defaultSettings);
+  for (const effort of efforts) {
+    const selected = { ...defaultSettings, headModel: "gpt-6.1-sol", headReasoning: effort, criticCodexModel: "gpt-6.1-sol", criticCodexReasoning: effort, criticModel: "gpt-6.1-sol", criticReasoning: effort };
+    assert.deepEqual(parseSettings(selected, catalog), selected);
+    assert.equal(parseSettings(selected), undefined);
+    assert.equal(parseSettings(selected, { codex: { models: catalog.codex.models.slice(0, 1) } }), undefined);
+  }
+  assert.equal(parseSettings({ ...defaultSettings, headModel: "gpt-6.1-sol", headReasoning: "ultra" }, catalog), undefined);
+  assert.equal(parseSettings({ ...defaultSettings, criticCodexModel: "gpt-6.1-sol", criticCodexReasoning: "none" }, catalog), undefined);
+});
+
 test("settings and message validation reject unsupported model values and malformed ids", () => {
   assert.deepEqual(parseSettings({ ...defaultSettings, specialistCount: "1", discussionDepth: "1" }), { ...defaultSettings, specialistCount: "1", discussionDepth: "1" });
   assert.deepEqual(parseSettings({ ...defaultSettings, specialistCount: "auto", discussionDepth: "auto" }), { ...defaultSettings, specialistCount: "auto", discussionDepth: "auto" });
