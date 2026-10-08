@@ -33,6 +33,45 @@ const answer = input => {
   }
 };
 
+test("failed runs remain recoverable when their System notice exceeds storage capacity", async () => {
+  const sample = await fixture();
+  const calls = [];
+  let rejectNotice = true;
+  let failReview = true;
+  let released = 0;
+  let confirmedBeforeFailure;
+  let snapshotBeforeFailure;
+  const store = { ...sample.store, async appendAgentMessage(...args) {
+    if (rejectNotice && args[2].role === "System") throw new Error("local_store_capacity_exceeded");
+    return sample.store.appendAgentMessage(...args);
+  } };
+  const provider = {
+    async invoke(input) {
+      calls.push(input);
+      if (input.outputKind === "team_review" && failReview) {
+        confirmedBeforeFailure = await sample.store.events(sample.id);
+        snapshotBeforeFailure = (await sample.store.run(sample.id)).snapshot;
+        return { ok: false, code: "quota_blocked" };
+      }
+      return { ok: true, body: answer(input), sources: [] };
+    },
+    async releaseScope() { released += 1; }
+  };
+  const service = await start({ ...sample, store }, provider);
+  await waitFor(async () => (await sample.store.run(sample.id)).status === "failed" && released === 1);
+  assert.deepEqual(await sample.store.events(sample.id), confirmedBeforeFailure);
+  assert.deepEqual((await sample.store.run(sample.id)).snapshot, snapshotBeforeFailure);
+  assert.ok(confirmedBeforeFailure.some(event => event.role === "Head Consultant" && event.recipient));
+
+  rejectNotice = false;
+  failReview = false;
+  await new Promise(resolve => setImmediate(resolve));
+  assert.ok(await service.continue(sample.id));
+  await waitFor(async () => (await sample.store.run(sample.id)).status === "complete" && released === 2);
+  assert.equal(calls.filter(input => input.outputKind === "head_plan").length, 1);
+  assert.equal(calls.filter(input => input.outputKind === "specialist_position").length, 2);
+});
+
 test("Head creates unlisted roles; independent consultants overlap and faster results appear first", async () => {
   const sample = await fixture(); const calls = [];
   let releaseSlow;

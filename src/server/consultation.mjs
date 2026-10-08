@@ -351,8 +351,11 @@ export function createConsultationService({ store, provider: baseProvider }) {
         process.stdout.write(`${JSON.stringify({ event: "nanoduck.consultation.failed", provider: failedProvider, phase: safePhase, code, durationMs: Date.now() - startedAt })}\n`);
         const storageFailure = { local_state_invalid: "The application could not validate the completed response for storage. Confirmed answers remain saved; Retry resumes the missing step.", local_store_capacity_exceeded: "Local storage has reached its capacity. Export or remove older conversations before retrying; confirmed answers remain saved." }[error.message];
         const body = storageFailure ?? providerFailureMessage(error.message, failedProvider) ?? (["language_policy", "output_policy"].includes(error.message) ? "This agent returned no usable answer after disallowed content was withheld and one correction attempt. Your question is saved; Retry resumes this step." : "The consultation paused before a confirmed response. Your saved discussion remains available.");
-        await store.appendAgentMessage(conversationId, runState.generation, { role: "System", body, sources: [] });
-        await store.finishRun(conversationId, runState.generation, "failed");
+        try {
+          await store.appendAgentMessage(conversationId, runState.generation, { role: "System", body, sources: [] });
+        } finally {
+          await store.finishRun(conversationId, runState.generation, "failed");
+        }
       }
     } finally { try { await baseProvider.releaseScope?.(runState.id); } finally { if (controllers.get(conversationId) === controller) controllers.delete(conversationId); } }
   };
