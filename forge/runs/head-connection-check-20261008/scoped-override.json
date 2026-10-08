@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "event": "accepted_scoped_baseline_override",
+  "actor": "user",
+  "approved_at": "2026-10-08T14:30:36.236061+00:00",
+  "timestamp_basis": "Tool-recording time in this active task; original message transport timestamp unavailable.",
+  "prompt_id": "head-connection-check-20261008",
+  "request": "make Check connection button for **Head and specialists as well.**",
+  "baseline_id": "nanoduck-electric-a-v8-20260914",
+  "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
+  "tree_hash": "1de020dcfe48f3feb80db0e58ba911b821825b48730d32c72d9518ad512eb0d9",
+  "scope": "Add Check connection and contextual status in Head and specialists Settings fieldset, using existing authenticated provider inspection. Check Codex availability and exact currently selected model/reasoning catalog pair. Preserve Critic Claude reconnection behavior, unsaved preferences/documents, saved settings and active-run snapshots. Serialize shared capability refreshes, preserve privacy clearing, and perform no inference, billing fallback or server restart.",
+  "evidence_limit": "Explicit bounded Settings interaction correction. Catalog/auth inspection does not prove inference or entitlement. Existing first Codex sign-in discovery may require runtime restart. Frozen whole-design approval retained; no full-unit migration or product release claim."
+}

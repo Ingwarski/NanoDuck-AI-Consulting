@@ -1,0 +1,55 @@
+{
+  "invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-guardrails",
+  "node": "guardrails",
+  "invoked_at": "2026-10-08T14:46:57.482463+00:00",
+  "outputs": [
+    "docs/guardrails.md"
+  ],
+  "sources": {
+    "guardrails": {
+      "source_usage": {
+        "docs/prd.md": "full",
+        "docs/project-context.md": "full",
+        "docs/canonical-terms.md": "full",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "full",
+        "forge/runs/critic-usage-20260925/scope.json": "full",
+        "forge/runs/reading-mode-20260926/scope.json": "full",
+        "forge/runs/context-cache-20260926/scope.json": "full",
+        "forge/runs/chat-jumps-20260926/scope.json": "full",
+        "forge/runs/research-economy-20260926/scope.json": "full",
+        "forge/runs/critic-cache-usage-20260926/scope.json": "full",
+        "forge/runs/upstream-usage-20260926/scope.json": "full",
+        "forge/runs/usage-dashboard-20260926/scope.json": "full",
+        "forge/runs/usage-reasoning-20260926/scope.json": "full",
+        "forge/runs/usage-activity-20260926/scope.json": "full",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full",
+        "forge/runs/chat-arrow-position-20261008/scoped-override.json": "full",
+        "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "full",
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "full"
+      },
+      "source_hashes": {
+        "docs/prd.md": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4",
+        "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
+        "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
+        "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
+        "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
+        "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
+        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
+        "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
+        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
+        "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
+        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
+        "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
+        "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371"
+      },
+      "consumed_source_fragments": {}
+    }
+  },
+  "definition_review": "Prepared by the declared inline owner; no runtime execution inferred",
+  "before_checker_report": "forge/runs/head-connection-check-20261008/clarification/sdd-guardrails-before.json"
+}

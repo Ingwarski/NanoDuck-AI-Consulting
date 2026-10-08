@@ -160,7 +160,7 @@ function clearPrivateClientContent() {
   state.attachmentFiles = []; state.attachmentError = ""; state.pendingSubmissions.clear();
   state.runtimeInstructionHistory = []; state.documents = []; state.conversations = [];
   state.selectedConversationIds.clear(); state.criticSettings = null; state.criticProviders = null;
-  resetCriticConnectionCheck();
+  resetConnectionChecks();
   state.voiceTranscript = ""; state.voiceMode = "ready"; state.notificationSound = "off";
   soundPreferenceLoaded = false; notificationAudio.dispose();
   notificationAudio = createNotificationAudio({ onStatusChange: renderSoundStatus });
@@ -361,10 +361,29 @@ const criticProviderStatus = provider => {
   if (status === "provider_unavailable") return `${criticProviderName(provider)} could not be reached. Try checking the connection again.`;
   return `${criticProviderName(provider)} is unavailable on the computer running NanoDuck.`;
 };
-let criticConnectionGeneration = 0;
-const showCriticConnectionStatus = message => {
-  const status = $("#critic-connection-status");
+let connectionCheckGeneration = 0;
+let connectionCheckRole = null;
+const showConnectionStatus = (role, message) => {
+  const status = $(`#${role}-connection-status`);
   if (status) { status.textContent = message; status.hidden = !message; }
+};
+const showCriticConnectionStatus = message => {
+  showConnectionStatus("critic", message);
+};
+const headConnectionMessage = () => {
+  const capability = state.criticProviders?.codex;
+  if (capability?.status === "ready") {
+    const model = $("#head-model").value, effort = $("#head-reasoning").value;
+    const available = capability.models?.some(item => item.id === model && item.efforts?.includes(effort));
+    return available
+      ? `GPT (Codex) is connected. ${model} / ${effort} is listed for Head and specialists. This checks sign-in and the catalog, not a model response.`
+      : `GPT (Codex) is connected, but ${model} / ${effort} is unavailable in its current catalog. Your choices are unchanged.`;
+  }
+  if (capability?.status === "auth_required") return "GPT (Codex) needs subscription sign-in on the computer running NanoDuck. Sign in there, then check the connection again.";
+  if (capability?.status === "quota_blocked") return "GPT (Codex) has reached its current usage limit. Check the connection again after the limit resets.";
+  if (capability?.status === "incompatible") return "GPT (Codex) does not support the current configuration. Check its version and model settings, then check the connection again.";
+  if (capability?.status === "provider_unavailable") return "GPT (Codex) could not be reached. Try Check connection again.";
+  return "GPT (Codex) is unavailable on the computer running NanoDuck. Check its local configuration and restart NanoDuck if that setup changed after startup.";
 };
 const claudeConnectionMessage = () => {
   const status = state.criticProviders?.claude_code?.status;
@@ -375,35 +394,46 @@ const claudeConnectionMessage = () => {
   if (status === "provider_unavailable") return "Claude Code could not be reached. Try Check connection again.";
   return "Claude Code is unavailable on the computer running NanoDuck. Check the connection again.";
 };
-function resetCriticConnectionCheck() {
-  criticConnectionGeneration++;
-  const button = $("#check-critic-connection");
-  if (button) { button.disabled = false; button.textContent = "Check connection"; }
-  showCriticConnectionStatus("");
+function resetConnectionChecks() {
+  connectionCheckGeneration++; connectionCheckRole = null;
+  for (const role of ["head", "critic"]) {
+    const button = $(`#check-${role}-connection`);
+    if (button) { button.disabled = false; button.textContent = "Check connection"; }
+    showConnectionStatus(role, "");
+  }
 }
 const settingsCapabilities = data => data.criticProviders ?? { codex: { status: data.provider, models: data.catalog ?? [] }, claude_code: { status: "unavailable", models: [] } };
-async function checkCriticConnection() {
-  const button = $("#check-critic-connection");
-  if (button.disabled || !state.criticSettings || privacyLocked) return;
-  const generation = ++criticConnectionGeneration;
-  button.disabled = true; button.textContent = "Checking…"; showCriticConnectionStatus("Checking the Claude Code connection…");
+async function checkProviderConnection(role) {
+  const button = $(`#check-${role}-connection`);
+  if (connectionCheckRole || button.disabled || !state.criticSettings || privacyLocked) return;
+  const generation = ++connectionCheckGeneration;
+  connectionCheckRole = role;
+  for (const control of document.querySelectorAll("#check-head-connection, #check-critic-connection")) control.disabled = true;
+  button.textContent = "Checking…";
+  showConnectionStatus(role === "head" ? "critic" : "head", "");
+  showConnectionStatus(role, role === "head" ? "Checking the GPT (Codex) connection and selected configuration…" : "Checking the Claude Code connection…");
   try {
-    const { data } = await request("/api/settings");
-    if (generation !== criticConnectionGeneration || privacyLocked || !state.criticSettings) return;
+    const { data } = await request("/api/settings", { timeoutMs: 60_000 });
+    if (generation !== connectionCheckGeneration || privacyLocked || !state.criticSettings) return;
     // Read the controls after the request: edits made while checking are drafts
     // too. Refresh only capabilities, never the server's saved settings.
     const headModel = $("#head-model").value; const headReasoning = $("#head-reasoning").value;
     saveVisibleCriticSettings(); state.criticProviders = settingsCapabilities(data);
     renderHeadControls(headModel, headReasoning, true); renderCriticControls();
-    showCriticConnectionStatus(claudeConnectionMessage());
+    showConnectionStatus(role, role === "head" ? headConnectionMessage() : claudeConnectionMessage());
   } catch {
-    if (generation !== criticConnectionGeneration || privacyLocked || !state.criticSettings) return;
-    saveVisibleCriticSettings();
-    state.criticProviders = { ...state.criticProviders, claude_code: { status: "provider_unavailable", models: [] } };
-    renderCriticControls();
-    showCriticConnectionStatus("The connection check could not finish. Your choices are unchanged. Try Check connection again.");
+    if (generation !== connectionCheckGeneration || privacyLocked || !state.criticSettings) return;
+    if (role === "critic") {
+      saveVisibleCriticSettings();
+      state.criticProviders = { ...state.criticProviders, claude_code: { status: "provider_unavailable", models: [] } };
+      renderCriticControls();
+    }
+    showConnectionStatus(role, "The connection check could not finish. Your choices are unchanged. Try Check connection again.");
   } finally {
-    if (generation === criticConnectionGeneration) { button.disabled = false; button.textContent = "Check connection"; }
+    if (generation === connectionCheckGeneration) {
+      connectionCheckRole = null;
+      for (const control of document.querySelectorAll("#check-head-connection, #check-critic-connection")) { control.disabled = false; control.textContent = "Check connection"; }
+    }
   }
 }
 const replaceOptions = (select, options, selected) => {
@@ -432,16 +462,22 @@ function renderHeadControls(selectedModel = $("#head-model").value, selectedEffo
   replaceOptions($("#head-reasoning"), modelEffortOptions(current, selectedEffort, preserveEffort), selectedEffort);
   $("#head-reasoning").disabled = Boolean(current.disabled);
 }
+function appendConnectionControl(fieldset, role) {
+  const connection = node("div", { class: "sound-preview connection-check" });
+  const check = node("button", { id: `check-${role}-connection`, type: "button", class: "secondary" }, "Check connection");
+  check.setAttribute("aria-describedby", `${role}-connection-status`);
+  const status = node("p", { id: `${role}-connection-status`, class: "hint", role: "status", hidden: true });
+  check.addEventListener("click", () => void checkProviderConnection(role)); connection.append(check, status); fieldset.append(connection);
+}
+function ensureHeadConnectionControl() {
+  if (!$("#check-head-connection")) appendConnectionControl($("#head-model").closest("fieldset"), "head");
+}
 function ensureCriticProviderControl() {
   if ($("#critic-provider")) return;
   const fieldset = $("#critic-model").closest("fieldset"); const first = fieldset.querySelector("label");
   const label = node("label", {}, "Provider"); const select = node("select", { id: "critic-provider" });
   label.append(select); fieldset.insertBefore(label, first);
-  const connection = node("div", { class: "sound-preview" });
-  const check = node("button", { id: "check-critic-connection", type: "button", class: "secondary" }, "Check connection");
-  check.setAttribute("aria-describedby", "critic-connection-status");
-  const status = node("p", { id: "critic-connection-status", class: "hint", role: "status", hidden: true });
-  check.addEventListener("click", () => void checkCriticConnection()); connection.append(check, status); fieldset.append(connection);
+  appendConnectionControl(fieldset, "critic");
   select.addEventListener("change", () => {
     const next = select.value;
     if (next === "claude_code" && state.criticProviders?.claude_code?.status !== "ready") {
@@ -479,7 +515,7 @@ function renderCriticControls(preserveEffort = true) {
   if (unavailable) showCriticConnectionStatus(claudeConnectionMessage());
 }
 async function loadSettings() {
-  resetCriticConnectionCheck();
+  resetConnectionChecks();
   const [{ data: settingsData }, { data: instructionsData }, { data: documentData }] = await Promise.all([request("/api/settings"), request("/api/runtime-instructions"), request("/api/instruction-documents")]); const settings = settingsData.settings; const instructions = instructionsData.runtimeInstructions;
   state.criticProviders = settingsCapabilities(settingsData);
   renderHeadControls(settings.headModel, settings.headReasoning, true);
@@ -490,7 +526,7 @@ async function loadSettings() {
     criticClaudeModel: settings.criticClaudeModel === "claude-code-default" ? undefined : settings.criticClaudeModel,
     criticClaudeReasoning: ["default", "xhigh"].includes(settings.criticClaudeReasoning) ? undefined : settings.criticClaudeReasoning
   };
-  ensureCriticProviderControl(); replaceOptions($("#critic-provider"), [{ id: "codex", label: "GPT (Codex)" }, { id: "claude_code", label: "Claude Code" }], state.criticSettings.criticProvider); renderCriticControls();
+  ensureHeadConnectionControl(); ensureCriticProviderControl(); replaceOptions($("#critic-provider"), [{ id: "codex", label: "GPT (Codex)" }, { id: "claude_code", label: "Claude Code" }], state.criticSettings.criticProvider); renderCriticControls();
   $("#specialist-count").value = settings.specialistCount; $("#discussion-depth").value = settings.discussionDepth; $("#notification-sound").value = settings.notificationSound ?? "knock"; setNotificationPreference($("#notification-sound").value);
   $("#runtime-instructions").value = instructions.markdown;
   $("#runtime-instructions").dataset.revision = instructions.revision;
@@ -1093,7 +1129,9 @@ $("#settings-form").addEventListener("submit", async event => {
     state.criticSettings = { ...state.criticSettings, ...data.settings }; setNotificationPreference(data.settings.notificationSound); toast("Settings saved for future consultations.");
   } catch { toast("Settings were not saved. Check the selected provider and try again."); }
 });
-$("#head-model").addEventListener("change", () => renderHeadControls());
+const clearHeadConnectionResult = () => { if (connectionCheckRole !== "head") showConnectionStatus("head", ""); };
+$("#head-model").addEventListener("change", () => { clearHeadConnectionResult(); renderHeadControls(); });
+$("#head-reasoning").addEventListener("change", clearHeadConnectionResult);
 $("#critic-model").addEventListener("change", () => { saveVisibleCriticSettings(); renderCriticControls(false); });
 // Resume the shared audio output in a trusted gesture, before any network awaits.
 for (const type of ["click", "keydown"]) document.addEventListener(type, event => {

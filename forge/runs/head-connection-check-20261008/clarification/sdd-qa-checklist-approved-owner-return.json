@@ -1,0 +1,20 @@
+{
+  "invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-qa-checklist-approved",
+  "node": "qa-checklist-approved",
+  "returned_at": "2026-10-08T14:47:01.292761+00:00",
+  "outputs": {
+    "qa-checklist": {
+      "path": "docs/qa-checklist.md",
+      "content_hash": "f62041af559a57358ef90201f9cb44bef74750df855cbcae300e0e730db5285e",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "head-connection-prd-clarification",
+        "reviewed_at": "2026-10-08T14:47:01.260569+00:00",
+        "executor": "Codex inline to-qa-checklist",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      }
+    }
+  },
+  "evidence_limit": "Document definitions only; actual product checks belong to the root's separately inspected evidence."
+}

@@ -1,0 +1,20 @@
+{
+  "invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-prd",
+  "node": "prd",
+  "returned_at": "2026-10-08T14:46:56.643585+00:00",
+  "outputs": {
+    "prd": {
+      "path": "docs/prd.md",
+      "content_hash": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "head-connection-prd-clarification",
+        "reviewed_at": "2026-10-08T14:46:56.613226+00:00",
+        "executor": "Codex inline to-sdd-prd",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      }
+    }
+  },
+  "evidence_limit": "Document definitions only; actual product checks belong to the root's separately inspected evidence."
+}

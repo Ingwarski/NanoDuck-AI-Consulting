@@ -1,0 +1,20 @@
+{
+  "invocation_id": "head-connection-check-20261008-742062612927-dod-evals-approved",
+  "node": "dod-evals-approved",
+  "returned_at": "2026-10-08T14:36:53.091757+00:00",
+  "outputs": {
+    "dod-evals": {
+      "path": "docs/dod-evals.md",
+      "content_hash": "c31804e680531cad85e2441045ca859f3424886989f9be57e49c0fdb8afa42fe",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "head-connection-scoped-document-review",
+        "reviewed_at": "2026-10-08T14:36:53.060571+00:00",
+        "executor": "Codex inline to-dod-evals",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      }
+    }
+  },
+  "evidence_limit": "Document definitions only; actual product checks belong to the root's separately inspected evidence."
+}

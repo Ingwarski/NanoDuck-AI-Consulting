@@ -65,6 +65,13 @@ choices; it neither creates a grant nor proves a model call. See the official
 [CLI reference](https://code.claude.com/docs/en/cli-reference). No API-key billing fallback, automatic credits or
 Claude Fast Mode is permitted.
 
+Head and specialists has a separate Check connection button for the Codex
+account/catalog and its current exact model/reasoning selection. Critic retains
+its Claude reconnection check. Both preserve unsaved settings and document edits;
+their results describe inspected capabilities, not a completed model response.
+If NanoDuck started before Codex sign-in was configured, restart it after that
+local setup so the runtime can discover the new authorization.
+
 Specialist count and discussion depth are separate preferences. Count supports
 1, 2, 3, 5 and Auto, excluding Head and Critic. Auto selects one through five
 specialists. For the U-09 contract, fixed depth selects 1, 3 or 5 team review rounds; Auto lets Head close when useful, up to ten. Only consultants with material findings must reply, and Critic explicitly assesses correction fulfillment. Defaults remain two specialists and one review round. Existing accepted legacy runs retain their original exchange/depth semantics until terminal; repository implementation is present; live verification remains separate. Codex uses a 540,000 ms inactivity budget renewed only by matching-turn progress, with a 1,800,000 ms absolute ceiling. Claude uses a 1,800,000 ms absolute inference deadline, including silent Max reasoning. Subscription sign-in inspection retains its separate 20,000 ms deadline. Exact selected model and reasoning settings never change to work around a timeout.

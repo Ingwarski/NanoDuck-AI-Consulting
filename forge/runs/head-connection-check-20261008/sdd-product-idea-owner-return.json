@@ -1,0 +1,20 @@
+{
+  "invocation_id": "head-connection-check-20261008-742062612927-product-idea",
+  "node": "product-idea",
+  "returned_at": "2026-10-08T14:36:48.876592+00:00",
+  "outputs": {
+    "product-idea": {
+      "path": "docs/product-idea.md",
+      "content_hash": "318d8b15ad27acefa97c30d722150ce7ff4afd9286da931639644b0aa4b82d8f",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "head-connection-scoped-document-review",
+        "reviewed_at": "2026-10-08T14:36:48.846886+00:00",
+        "executor": "Codex inline to-product-idea",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      }
+    }
+  },
+  "evidence_limit": "Document definitions only; actual product checks belong to the root's separately inspected evidence."
+}

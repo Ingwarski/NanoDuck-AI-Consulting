@@ -295,6 +295,8 @@
 
 /* Clear controls share the navbar's optical palette; their centres remain sharp. */
 .liquid-glass-surface { isolation: isolate; }
+.connection-check { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; }
+.connection-check .hint { flex: 1 1 240px; min-width: 0; }
 .glass-lens {
   position: absolute;
   inset: 0;

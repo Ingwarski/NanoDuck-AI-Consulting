@@ -1,0 +1,31 @@
+{
+  "recorded_at": "2026-10-08T14:46:58.958154+00:00",
+  "kind": "compact_owner_metadata_delta",
+  "prior_git_commit": "36f9165142eba0931f6c0cc35a0eaad6aa6d921f",
+  "prior_manifest_path": "forge/sdd-manifest.json",
+  "prior_owner_return": {
+    "path": "forge/runs/head-connection-check-20261008/sdd-wireframes-owner-return.json",
+    "content_hash": "fe44c05525187a0be2834ae1fded1aeabe05fa863243099dc45b3d641b0ab7c6"
+  },
+  "artifacts": {
+    "wireframes": {
+      "owner_invocation_id": "head-connection-check-20261008-742062612927-wireframes",
+      "content_hash": "244be8f2d5c10983e45d46ca477beec7a46304a2580afb02f1ce788c713009d6",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "head-connection-scoped-document-review",
+        "reviewed_at": "2026-10-08T14:36:51.398858+00:00",
+        "executor": "Codex inline to-wireframes",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      },
+      "prior_dispatch_invocation_id": "head-connection-check-20261008-742062612927-wireframes",
+      "changed_source_hashes": {
+        "docs/prd.md": {
+          "before": "5b9afb24bcf0ed61495302d6e7bc615f5ff994b8cd6a6df3b41cc0f2143e4e6b",
+          "after": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4"
+        }
+      }
+    }
+  }
+}

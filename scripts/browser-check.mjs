@@ -102,6 +102,11 @@ try {
         assert.deepEqual(errors, [], `${name} uncaught browser errors`);
         await context.close(); continue;
       }
+      if (process.argv.includes('--provider-connection-only')) {
+        await phase(`${name} provider connection recovery`, () => verifyProviderConnection(page, name));
+        assert.deepEqual(errors, [], `${name} uncaught browser errors`);
+        await context.close(); continue;
+      }
       if (process.argv.includes('--reading-regression')) {
         await verifyReadingMode(page, name, root);
         await phase(`${name} active discussion`, () => verifyActiveDiscussion(page, name, root));
