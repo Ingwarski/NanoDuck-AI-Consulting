@@ -1,0 +1,1409 @@
+{
+  "recorded_at": "2026-10-08T13:18:20.770000+00:00",
+  "kind": "superseded_owner_metadata",
+  "artifacts": {
+    "development-plan": {
+      "traceability": {
+        "definitions": [
+          {
+            "id": "U-01",
+            "kind": "unit",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-01 — Verify the runtime and preserved provider capabilities"
+            }
+          },
+          {
+            "id": "U-02",
+            "kind": "unit",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-02 — Build the private application and durable data foundation"
+            }
+          },
+          {
+            "id": "U-03",
+            "kind": "unit",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-03 — Promote the approved presentation and connect Settings"
+            }
+          },
+          {
+            "id": "U-04",
+            "kind": "unit",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-04 — Implement real discussion, control and recovery"
+            }
+          },
+          {
+            "id": "U-05",
+            "kind": "unit",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-05 — Connect live research and inspectable sources"
+            }
+          },
+          {
+            "id": "U-06",
+            "kind": "unit",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-06 — Implement voice and safe attachments"
+            }
+          },
+          {
+            "id": "U-07",
+            "kind": "unit",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-07 — Finish record ownership, export, deletion and restore"
+            }
+          },
+          {
+            "id": "U-08",
+            "kind": "unit",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-08 — Verify the integrated app and prepare the scoped release"
+            }
+          },
+          {
+            "id": "U-09",
+            "kind": "unit",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          }
+        ],
+        "links": [
+          {
+            "from": "U-02",
+            "to": "FR-01.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "FR-01.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-02.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "FR-02.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-02.8",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-03.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-03.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-03.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-03.4",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-03.6",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-05",
+            "to": "FR-04.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-05",
+            "to": "FR-04.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-05",
+            "to": "FR-04.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "FR-05.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "FR-05.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "FR-05.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "FR-05.4",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "FR-05.5",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "FR-06.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "FR-06.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "FR-06.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "FR-07.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "FR-07.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "FR-07.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "FR-07.4",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "FR-07.5",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "FR-08.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "FR-08.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "FR-08.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "NFR-01.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "NFR-01.4",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "NFR-02.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "NFR-02.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "NFR-02.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "NFR-10.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "NFR-10.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "NFR-10.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "NFR-11.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "NFR-11.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "NFR-11.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-05",
+            "to": "NFR-12.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "NFR-12.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-05",
+            "to": "NFR-12.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "NFR-13.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "NFR-13.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-05",
+            "to": "NFR-14.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "NFR-14.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "NFR-14.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-08",
+            "to": "NFR-15.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "NFR-16.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "NFR-16.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "ST-01",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "ST-02",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "ST-03",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "ST-04",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-05",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-06",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-07",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-08",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-09",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-10",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-11",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-12",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-13",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-14",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-15",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-16",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-17",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "ST-18",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "ST-19",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "ST-20",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "ST-21",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "ST-22",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "ST-23",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "ST-24",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "ST-25",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "ST-26",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "ST-27",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "ST-28",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "ST-29",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "ST-30",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "ST-31",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "ST-32",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "ST-33",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-05",
+            "to": "ST-34",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-05",
+            "to": "ST-35",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-05",
+            "to": "ST-36",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-37",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-38",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "ST-39",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "ST-40",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "ST-41",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "ST-42",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "ST-43",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "ST-44",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "FR-05.6",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "FR-02.9",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "FR-02.10",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "FR-02.11",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "FR-02.12",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "FR-02.13",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "FR-02.14",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "FR-02.15",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "FR-02.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "FR-02.4",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "FR-02.5",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "FR-02.6",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "FR-02.7",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "FR-03.5",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "FR-05.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "NFR-01.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "NFR-01.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "ST-09",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "ST-11",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "ST-16",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "ST-21",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "ST-37",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          },
+          {
+            "from": "U-09",
+            "to": "ST-38",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+            }
+          }
+        ]
+      },
+      "security_coverage": {
+        "NFR-10.1": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-10.2": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-10.3": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-11.1": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-11.2": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-11.3": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-12.1": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-12.2": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-12.3": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-13.1": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-13.2": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-14.1": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-14.2": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-14.3": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-15.1": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-16.1": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-16.2": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        }
+      },
+      "path": "docs/development-plan.md",
+      "owner_skill": "to-development-plan",
+      "owner_invocation_id": "white-theme-20261008-development-plan",
+      "declared_output_set": [
+        "docs/development-plan.md"
+      ],
+      "status": "validated",
+      "mission_control_status": "Done",
+      "source_version": "navbar-refraction-20260926",
+      "source_usage": {
+        "docs/prd.md": "full",
+        "docs/project-context.md": "full",
+        "docs/canonical-terms.md": "full",
+        "docs/guardrails.md": "full",
+        "docs/user-journey.md": "full",
+        "docs/screen-map.md": "full",
+        "docs/wireframes.md": "full",
+        "docs/design-brief.md": "full",
+        "docs/architecture.md": "full",
+        "docs/dod-evals.md": "full",
+        "docs/qa-checklist.md": "full",
+        "docs/model-settings.md": "full",
+        "package.json": "full",
+        "forge/runs/claude-context-transport-20260923/scope.json": "full",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "full",
+        "forge/runs/parallel-consultants-plan-20260924/repository-observation.json": "full",
+        "forge/runs/critic-usage-20260925/scope.json": "full",
+        "forge/runs/sticky-view-nav-20260925/scope.json": "full",
+        "forge/runs/review-fixes-20260926/scope.json": "full",
+        "forge/runs/source-persistence-20260926/scope.json": "full",
+        "forge/runs/reading-mode-20260926/scope.json": "full",
+        "forge/runs/context-cache-20260926/scope.json": "full",
+        "forge/runs/chat-jumps-20260926/scope.json": "full",
+        "forge/runs/chat-center-20260926/scope.json": "full",
+        "forge/runs/chat-boundaries-20260926/scope.json": "full",
+        "forge/runs/research-economy-20260926/scope.json": "full",
+        "forge/runs/research-economy-20260926/verification.json": "full",
+        "forge/runs/critic-cache-usage-20260926/scope.json": "full",
+        "forge/runs/critic-cache-usage-20260926/verification.json": "full",
+        "forge/runs/upstream-usage-20260926/scope.json": "full",
+        "forge/runs/upstream-usage-20260926/verification.json": "full",
+        "forge/runs/usage-dashboard-20260926/scope.json": "full",
+        "forge/runs/usage-dashboard-20260926/verification.json": "full",
+        "forge/runs/usage-reasoning-20260926/scope.json": "full",
+        "forge/runs/usage-reasoning-20260926/verification.json": "full",
+        "forge/runs/usage-activity-20260926/scope.json": "full",
+        "forge/runs/usage-activity-20260926/verification.json": "full",
+        "forge/runs/clear-glass-navbar-20260926/scope.json": "full",
+        "forge/runs/clear-glass-navbar-20260926/verification.json": "full",
+        "forge/runs/glass-rim-20260926/scope.json": "full",
+        "forge/runs/glass-rim-20260926/verification.json": "full",
+        "forge/runs/navbar-refraction-20260926/scope.json": "full",
+        "forge/runs/navbar-refraction-20260926/verification.json": "full",
+        "forge/runs/gpt-6-1-sol-20260930/scope.json": "full",
+        "forge/runs/white-theme-20261008/scoped-override.json": "full"
+      },
+      "source_hashes": {
+        "docs/prd.md": "3521e84c7f751759f784fe75a80c5fb5de692ad0c6b240ad09cce3835c547814",
+        "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
+        "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
+        "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
+        "docs/user-journey.md": "f98fc89a61e7993d91562bb310cce2d3dbce198ec0a28debd9bab24d0fe3b8df",
+        "docs/screen-map.md": "7da958bfbdd8dbc363ff6e349f9fba7300b2a1c78f5daa135b5d411c07f0bb4c",
+        "docs/wireframes.md": "840109cdfa49aa6c60aa4defcb4161b25e57eb9a20c48a32543b15cfb8a19b9b",
+        "docs/design-brief.md": "99fb74b62c8396da762bd41ec2f4e009be13c0e6712bf30279c97a5dddf26d56",
+        "docs/architecture.md": "f0e5910094a9ee8b0ec57b4dad15f79a44d0a44f3ae64c55900678cc9ef78ebd",
+        "docs/dod-evals.md": "c31804e680531cad85e2441045ca859f3424886989f9be57e49c0fdb8afa42fe",
+        "docs/qa-checklist.md": "82cdb9ba553b2c7ca3599bb6c03162d8941c9c0c6d9a022875e6892056c3df21",
+        "docs/model-settings.md": "caa4571a344f32c74fea04822b0a2435ad86e2f40efa1215c3b4b8cc75275d7b",
+        "package.json": "d74c25d2b4d04b4fc3f2f51c333a2333b8f64efa62ed254220e967b5c3ca764c",
+        "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
+        "forge/runs/parallel-consultants-plan-20260924/repository-observation.json": "76930bc48e23a9d650e5b394b513a9cd895ccae11804942ffb69cff8c9f8094d",
+        "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
+        "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e",
+        "forge/runs/review-fixes-20260926/scope.json": "18c049356e8569c428ac0b5572dbfa8c2841ad1c4345683c0c49653c55dc78e2",
+        "forge/runs/source-persistence-20260926/scope.json": "d0a6d9c8e2b513a16d634dea61dff1b76f260a9591cc8187ead7a3e2c3bf69aa",
+        "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
+        "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
+        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
+        "forge/runs/chat-center-20260926/scope.json": "c9df24147feca20d36881d6ee508be68a898cd32d241eec6cde54e9d473131cb",
+        "forge/runs/chat-boundaries-20260926/scope.json": "08e4fb98611833bcc9314a492457e00925b488363408d7c8d07105186f5998d6",
+        "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
+        "forge/runs/research-economy-20260926/verification.json": "59b0b21c0d488353b459b752172658d347f67193a6cded3af8cb75c16acc3625",
+        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+        "forge/runs/critic-cache-usage-20260926/verification.json": "b4ddc11dd37a3b557bda3c59faca0b59c6494d75044849b4b0dcd4d71517c77f",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
+        "forge/runs/upstream-usage-20260926/verification.json": "84864d07257cfdac94cc5e091a3c844094b8a3563f9067369c152f3edfd47acb",
+        "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
+        "forge/runs/usage-dashboard-20260926/verification.json": "19051abd9a48836e3126b27196fce580d85376b37bdf11eb70498c5130e4ff25",
+        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+        "forge/runs/usage-reasoning-20260926/verification.json": "bea2d0246df65c85c4fd8134f2b5f6eba754767776d6816ef6d5c203556dc6d6",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
+        "forge/runs/usage-activity-20260926/verification.json": "c675305666e04d18abce7e7c47c44e49ac7522c8dd6e3c2c482ad38e996b6d4d",
+        "forge/runs/clear-glass-navbar-20260926/scope.json": "1ecd5cba668f465c3e89a198ed8b9e62e9bcc4266e8b713f38d814cf3eb65a95",
+        "forge/runs/clear-glass-navbar-20260926/verification.json": "1f33c347f79ba126ad5d06db972aa14b8a28c73bcd24a1009fdd63f6500f685a",
+        "forge/runs/glass-rim-20260926/scope.json": "dd29bb641922975a8af41782051645e3cf49d3f780df4e99684d84e49719cf8b",
+        "forge/runs/glass-rim-20260926/verification.json": "1eaa88a6f0aca0b28ffba8ac51ae13b5cb1fb76f46c2a082ed14aa79688a5225",
+        "forge/runs/navbar-refraction-20260926/scope.json": "b80bb023523a4eaf95752f92b2cd42347a84b8a66e30f5537a0347e802910efd",
+        "forge/runs/navbar-refraction-20260926/verification.json": "266314b430e9b090cda22eb38af6c69e85f4160f5424e43972fdb1d357a2b264",
+        "forge/runs/gpt-6-1-sol-20260930/scope.json": "fb82662f17f70537117703d4fcc7c91b98b005fa191176fd95b3cd0effb75c42",
+        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e"
+      },
+      "dependencies": [
+        "prd",
+        "project-context",
+        "canonical-terms",
+        "guardrails",
+        "user-journey",
+        "screen-map",
+        "wireframes",
+        "design-brief",
+        "architecture",
+        "dod-evals",
+        "qa-checklist"
+      ],
+      "content_hash": "e7f2b12abec6d1419b9b39f546a9033bdfcf29c5c29db891631b981d8e0cddf7",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "white-theme-scoped-reconciliation",
+        "reviewed_at": "2026-10-08T11:50:27.712076+00:00",
+        "executor": "Codex inline to-development-plan",
+        "scope": "Owner-reviewed accepted white appearance; preserves IDs/security/frozen baseline. No full-unit or release verification inferred."
+      },
+      "open_questions": [],
+      "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
+    }
+  },
+  "dispatches": {
+    "development-plan": {
+      "invocation_id": "white-theme-20261008-development-plan",
+      "outputs": [
+        "docs/development-plan.md"
+      ],
+      "source_hashes": {
+        "docs/prd.md": "3521e84c7f751759f784fe75a80c5fb5de692ad0c6b240ad09cce3835c547814",
+        "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
+        "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
+        "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
+        "docs/user-journey.md": "f98fc89a61e7993d91562bb310cce2d3dbce198ec0a28debd9bab24d0fe3b8df",
+        "docs/screen-map.md": "7da958bfbdd8dbc363ff6e349f9fba7300b2a1c78f5daa135b5d411c07f0bb4c",
+        "docs/wireframes.md": "840109cdfa49aa6c60aa4defcb4161b25e57eb9a20c48a32543b15cfb8a19b9b",
+        "docs/design-brief.md": "99fb74b62c8396da762bd41ec2f4e009be13c0e6712bf30279c97a5dddf26d56",
+        "docs/architecture.md": "f0e5910094a9ee8b0ec57b4dad15f79a44d0a44f3ae64c55900678cc9ef78ebd",
+        "docs/dod-evals.md": "c31804e680531cad85e2441045ca859f3424886989f9be57e49c0fdb8afa42fe",
+        "docs/qa-checklist.md": "82cdb9ba553b2c7ca3599bb6c03162d8941c9c0c6d9a022875e6892056c3df21",
+        "docs/model-settings.md": "caa4571a344f32c74fea04822b0a2435ad86e2f40efa1215c3b4b8cc75275d7b",
+        "package.json": "d74c25d2b4d04b4fc3f2f51c333a2333b8f64efa62ed254220e967b5c3ca764c",
+        "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
+        "forge/runs/parallel-consultants-plan-20260924/repository-observation.json": "76930bc48e23a9d650e5b394b513a9cd895ccae11804942ffb69cff8c9f8094d",
+        "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
+        "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e",
+        "forge/runs/review-fixes-20260926/scope.json": "18c049356e8569c428ac0b5572dbfa8c2841ad1c4345683c0c49653c55dc78e2",
+        "forge/runs/source-persistence-20260926/scope.json": "d0a6d9c8e2b513a16d634dea61dff1b76f260a9591cc8187ead7a3e2c3bf69aa",
+        "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
+        "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
+        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
+        "forge/runs/chat-center-20260926/scope.json": "c9df24147feca20d36881d6ee508be68a898cd32d241eec6cde54e9d473131cb",
+        "forge/runs/chat-boundaries-20260926/scope.json": "08e4fb98611833bcc9314a492457e00925b488363408d7c8d07105186f5998d6",
+        "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
+        "forge/runs/research-economy-20260926/verification.json": "59b0b21c0d488353b459b752172658d347f67193a6cded3af8cb75c16acc3625",
+        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+        "forge/runs/critic-cache-usage-20260926/verification.json": "b4ddc11dd37a3b557bda3c59faca0b59c6494d75044849b4b0dcd4d71517c77f",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
+        "forge/runs/upstream-usage-20260926/verification.json": "84864d07257cfdac94cc5e091a3c844094b8a3563f9067369c152f3edfd47acb",
+        "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
+        "forge/runs/usage-dashboard-20260926/verification.json": "19051abd9a48836e3126b27196fce580d85376b37bdf11eb70498c5130e4ff25",
+        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+        "forge/runs/usage-reasoning-20260926/verification.json": "bea2d0246df65c85c4fd8134f2b5f6eba754767776d6816ef6d5c203556dc6d6",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
+        "forge/runs/usage-activity-20260926/verification.json": "c675305666e04d18abce7e7c47c44e49ac7522c8dd6e3c2c482ad38e996b6d4d",
+        "forge/runs/clear-glass-navbar-20260926/scope.json": "1ecd5cba668f465c3e89a198ed8b9e62e9bcc4266e8b713f38d814cf3eb65a95",
+        "forge/runs/clear-glass-navbar-20260926/verification.json": "1f33c347f79ba126ad5d06db972aa14b8a28c73bcd24a1009fdd63f6500f685a",
+        "forge/runs/glass-rim-20260926/scope.json": "dd29bb641922975a8af41782051645e3cf49d3f780df4e99684d84e49719cf8b",
+        "forge/runs/glass-rim-20260926/verification.json": "1eaa88a6f0aca0b28ffba8ac51ae13b5cb1fb76f46c2a082ed14aa79688a5225",
+        "forge/runs/navbar-refraction-20260926/scope.json": "b80bb023523a4eaf95752f92b2cd42347a84b8a66e30f5537a0347e802910efd",
+        "forge/runs/navbar-refraction-20260926/verification.json": "266314b430e9b090cda22eb38af6c69e85f4160f5424e43972fdb1d357a2b264",
+        "forge/runs/gpt-6-1-sol-20260930/scope.json": "fb82662f17f70537117703d4fcc7c91b98b005fa191176fd95b3cd0effb75c42",
+        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e"
+      }
+    }
+  }
+}

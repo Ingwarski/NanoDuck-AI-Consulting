@@ -1,0 +1,88 @@
+{
+  "recorded_at": "2026-10-08T13:18:16.088276+00:00",
+  "kind": "superseded_owner_metadata",
+  "artifacts": {
+    "guardrails": {
+      "path": "docs/guardrails.md",
+      "owner_skill": "to-guardrails",
+      "owner_invocation_id": "white-theme-20261008-guardrails",
+      "declared_output_set": [
+        "docs/guardrails.md"
+      ],
+      "status": "validated",
+      "mission_control_status": "Done",
+      "source_version": "usage-activity-20260926",
+      "source_usage": {
+        "docs/prd.md": "full",
+        "docs/project-context.md": "full",
+        "docs/canonical-terms.md": "full",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "full",
+        "forge/runs/critic-usage-20260925/scope.json": "full",
+        "forge/runs/reading-mode-20260926/scope.json": "full",
+        "forge/runs/context-cache-20260926/scope.json": "full",
+        "forge/runs/chat-jumps-20260926/scope.json": "full",
+        "forge/runs/research-economy-20260926/scope.json": "full",
+        "forge/runs/critic-cache-usage-20260926/scope.json": "full",
+        "forge/runs/upstream-usage-20260926/scope.json": "full",
+        "forge/runs/usage-dashboard-20260926/scope.json": "full",
+        "forge/runs/usage-reasoning-20260926/scope.json": "full",
+        "forge/runs/usage-activity-20260926/scope.json": "full"
+      },
+      "source_hashes": {
+        "docs/prd.md": "3521e84c7f751759f784fe75a80c5fb5de692ad0c6b240ad09cce3835c547814",
+        "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
+        "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
+        "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
+        "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
+        "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
+        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
+        "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
+        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
+        "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
+        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
+      },
+      "dependencies": [
+        "prd",
+        "project-context",
+        "canonical-terms"
+      ],
+      "content_hash": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "white-theme-scoped-reconciliation",
+        "reviewed_at": "2026-10-08T11:50:21.579448+00:00",
+        "executor": "Codex inline to-guardrails",
+        "scope": "Owner-reviewed accepted white appearance; preserves IDs/security/frozen baseline. No full-unit or release verification inferred."
+      },
+      "open_questions": []
+    }
+  },
+  "dispatches": {
+    "guardrails": {
+      "invocation_id": "white-theme-20261008-guardrails",
+      "outputs": [
+        "docs/guardrails.md"
+      ],
+      "source_hashes": {
+        "docs/prd.md": "3521e84c7f751759f784fe75a80c5fb5de692ad0c6b240ad09cce3835c547814",
+        "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
+        "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
+        "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
+        "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
+        "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
+        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
+        "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
+        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
+        "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
+        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
+      }
+    }
+  }
+}

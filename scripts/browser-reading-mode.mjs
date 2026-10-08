@@ -17,7 +17,8 @@ export async function verifyReadingMode(page, name, root) {
   await page.waitForFunction(() => document.querySelector('#run-status').textContent.includes('complete'), undefined, { timeout: 30000 });
   assert.equal(await page.locator('[data-tab=sources]').getAttribute('aria-selected'), 'true', 'Completion does not switch the view');
   assert.equal(await page.locator('#composer').isVisible(), false);
-  await page.locator('#read-outcome').click();
+  assert.equal(await page.locator('#read-outcome').count(), 0, 'Redundant Read outcome action is removed');
+  await page.getByRole('tab', { name: 'Outcome', exact: true }).click();
   assert.equal(await page.locator('#outcome').isVisible(), true);
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.getByRole('tab', { name: 'Discussion', exact: true }).click();
@@ -36,7 +37,42 @@ export async function verifyReadingMode(page, name, root) {
   await page.locator('#collapse-composer').click();
   await page.locator('#expand-composer').click();
   assert.equal(await page.locator('#message').inputValue(), 'Follow-up draft');
-  assert.equal(await page.locator('#composer').evaluate(el => getComputedStyle(el).position), 'static');
+  assert.equal(await page.locator('#composer').evaluate(el => getComputedStyle(el).position), 'sticky');
+  for (const theme of ['light', 'dark']) {
+    await page.evaluate(theme => document.documentElement.dataset.theme = theme, theme);
+    assert.deepEqual(await page.locator('#composer').evaluate(el => {
+      const style = getComputedStyle(el);
+      return [style.backgroundColor, style.color, style.backdropFilter || style.webkitBackdropFilter];
+    }), ['rgba(255, 255, 255, 0.88)', 'rgb(25, 34, 48)', 'blur(16px) saturate(1.1)']);
+  }
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.locator('#chat-end').waitFor({ state: 'visible' });
+  const geometry = await page.evaluate(() => ({
+    arrow: document.querySelector('#chat-end').getBoundingClientRect().bottom,
+    prompt: document.querySelector('#composer').getBoundingClientRect().top,
+    promptBottom: document.querySelector('#composer').getBoundingClientRect().bottom,
+  }));
+  assert.ok(geometry.arrow < geometry.prompt, 'Bottom arrow stays above the prompt');
+  assert.ok(geometry.promptBottom <= 900 && geometry.promptBottom >= 880, 'Prompt is pinned near the viewport bottom');
+  await page.locator('#chat-end').click();
+  await page.waitForFunction(() => document.querySelector('#thread').getBoundingClientRect().bottom <= document.querySelector('#composer').getBoundingClientRect().top - 10);
+  await page.locator('#chat-end').waitFor({ state: 'hidden' });
+  await mkdir(join(root, 'output', 'playwright'), { recursive: true });
+  await page.screenshot({ path: join(root, 'output', 'playwright', `${name}-sticky-prompt-desktop.png`) });
+  // Model a shortened visual viewport separately from pinch zoom. This does
+  // not replace testing the physical keyboard on a phone or tablet.
+  await page.evaluate(() => {
+    Object.defineProperties(visualViewport, { height: { configurable: true, value: 480 }, offsetTop: { configurable: true, value: 0 }, scale: { configurable: true, value: 1 } });
+    visualViewport.dispatchEvent(new Event('resize'));
+  });
+  await page.waitForFunction(() => document.documentElement.style.getPropertyValue('--prompt-keyboard-inset') === '420px');
+  assert.ok(await page.locator('#composer').evaluate(el => el.getBoundingClientRect().bottom <= 480), 'Sticky prompt clears a simulated keyboard viewport');
+  await page.locator('#send').scrollIntoViewIfNeeded();
+  assert.ok(await page.locator('#send').evaluate(el => el.getBoundingClientRect().bottom <= document.querySelector('#composer').getBoundingClientRect().bottom), 'Send stays reachable in the short prompt');
+  await page.evaluate(() => { Object.defineProperty(visualViewport, 'scale', { configurable: true, value: 2 }); visualViewport.dispatchEvent(new Event('resize')); });
+  await page.waitForFunction(() => document.documentElement.style.getPropertyValue('--prompt-keyboard-inset') === '0px');
+  await page.evaluate(() => { for (const key of ['height', 'offsetTop', 'scale']) delete visualViewport[key]; visualViewport.dispatchEvent(new Event('resize')); });
+  assert.equal(await page.locator('#message').inputValue(), 'Follow-up draft', 'Viewport changes preserve the draft');
   await page.locator('#collapse-composer').click();
   await mkdir(join(root, 'output', 'playwright'), { recursive: true });
   await page.screenshot({ path: join(root, 'output', 'playwright', `${name}-reading-desktop.png`), fullPage: true });
@@ -50,6 +86,10 @@ export async function verifyReadingMode(page, name, root) {
     assert.equal(await page.locator('#outcome').isVisible(), true);
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `${width}px reflow`);
     assert.equal(await page.locator('.tabs').isVisible(), false);
+    await page.locator('#expand-composer').click();
+    assert.equal(await page.locator('#message').inputValue(), 'Follow-up draft');
+    if (width === 390) await page.screenshot({ path: join(root, 'output', 'playwright', `${name}-sticky-prompt-mobile.png`) });
+    await page.locator('#collapse-composer').click();
     if (width === 390) await page.screenshot({ path: join(root, 'output', 'playwright', `${name}-reading-mobile.png`), fullPage: true });
   }
   await page.setViewportSize({ width: 1280, height: 900 });
@@ -61,4 +101,7 @@ export async function verifyReadingMode(page, name, root) {
   await page.locator('#app').waitFor({ state: 'visible' });
   await page.locator('#expand-composer').waitFor({ state: 'visible' });
   assert.equal(await page.locator('#composer').isVisible(), false, 'Saved completed consultation opens in reading mode');
+  for (const selector of ['#chat-start', '#chat-end', '#expand-composer']) {
+    assert.equal(await page.locator(`${selector} .glass-lens`).count(), 1, `${selector} has its own glass lens`);
+  }
 }

@@ -463,3 +463,9 @@ The [explicit scoped request](../forge/runs/white-theme-20261008/scoped-override
 Paths: `public/index.html`, `public/styles.css`, `public/conversation-list.css`, `src/client/theme.js`, `src/client/navbar-glass.js`, `scripts/browser-theme.mjs` and its browser runner. Complete the menu switch, browser-local enum recovery/synchronization, white presentation/logo, glass repaint, scoped verification, defect fixes and evidence together. Appearance remains independent of private app state, consultant settings and accepted work.
 
 Verification uses the white-theme scope of QA-R21/QA-R33/QA-R35/QA-R40/QA-R41, QA-S01/QA-S02/QA-S03/QA-S04/QA-S07/QA-S09 and QA-H01/H03/H04/H06/H08. Keep scoped observations separate from full-check, full-unit and product-release claims. Preserve historical unit IDs, dependencies, receipts and completion limitations; full legacy unit-contract migration stays outside this appearance task.
+
+## Glass reading controls and sticky composer — 2026-10-08
+
+The [explicit owner request](../forge/runs/glass-chat-controls-20261008/scoped-override.json) authorizes a bounded U-03/U-11 presentation and reading-control follow-up. Paths: `public/index.html`, `public/styles.css`, `src/client/app.js`, `src/client/navbar-glass.js`, `scripts/browser-reading-mode.mjs` and the existing optical browser fixture. Deliver the revised controls, removed Read outcome action, sticky white matte composer in both themes, measured unobscured reading boundaries and renderer privacy clearing together.
+
+Use the current QA scope above; preserve drafts, selected view, completion collapse, active-run hiding, Stop/Retry and immutable accepted settings. Frozen Electric A v8 and historical receipts remain intact. Record scoped browser/optical evidence separately. Full legacy unit-contract migration and whole-product release evaluation remain outside this change.

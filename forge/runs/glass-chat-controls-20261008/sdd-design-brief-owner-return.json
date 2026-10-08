@@ -1,0 +1,20 @@
+{
+  "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-design-brief",
+  "node": "design-brief",
+  "returned_at": "2026-10-08T13:18:18.137445+00:00",
+  "outputs": {
+    "design-brief": {
+      "path": "docs/design-brief.md",
+      "content_hash": "3b0a8a5f8c0c6f2cb9da1c6d3dcc1b6e657b373a5d9106c4ac8b827020514a82",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "glass-controls-scoped-document-review",
+        "reviewed_at": "2026-10-08T13:18:18.108063+00:00",
+        "executor": "Codex inline to-design-brief",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      }
+    }
+  },
+  "evidence_limit": "Document definitions only; actual product checks belong to the root's separately inspected evidence."
+}

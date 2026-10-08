@@ -1,0 +1,24 @@
+chromium active discussion: started.
+chromium active discussion: passed.
+chromium acceptance retry: started.
+chromium acceptance retry: passed.
+chromium usage navigation: started.
+chromium usage navigation: passed.
+chromium: reading and control regression passed.
+chromium: closing fixture.
+firefox active discussion: started.
+firefox active discussion: passed.
+firefox acceptance retry: started.
+firefox acceptance retry: passed.
+firefox usage navigation: started.
+firefox usage navigation: passed.
+firefox: reading and control regression passed.
+firefox: closing fixture.
+webkit active discussion: started.
+webkit active discussion: passed.
+webkit acceptance retry: started.
+webkit acceptance retry: passed.
+webkit usage navigation: started.
+webkit usage navigation: passed.
+webkit: reading and control regression passed.
+webkit: closing fixture.

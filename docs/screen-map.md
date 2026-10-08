@@ -99,7 +99,7 @@ S-02 retains its existing discussion/record states and gains a Usage inspection 
 
 ## Режим читання — 2026-09-26
 
-Погоджена [зміна режиму читання](../forge/runs/reading-mode-20260926/scope.json) для JOB-001/JOB-004, UC-002/UC-003/UC-004, S-02: після завершення консультації введення згортається, без автоматичного перемикання розділу або прокручування. «Continue conversation» розгортає введення з фокусом; «Hide input» згортає його без втрати чернетки в пам’яті сторінки. «Read outcome» явно відкриває висновок. Stop і помилка відновлюють введення та чинні Continue/Retry. Відкрите введення займає звичайне місце у потоці документа. На широкому екрані статус, Stop і чотири розділи доступні у лівій вертикальній панелі з горизонтальними назвами; на вузькому — через компактний перемикач розділів та статус/Stop. Ця погоджена зміна замінює попередні вимоги щодо автоматичного розгортання після completion, верхніх вкладок та sticky composer, але не змінює оформлення P5, доступ або дані.
+Погоджена [зміна режиму читання](../forge/runs/reading-mode-20260926/scope.json) для JOB-001/JOB-004, UC-002/UC-003/UC-004, S-02: після завершення консультації введення згортається, без автоматичного перемикання розділу або прокручування. «Continue conversation» розгортає введення з фокусом; «Hide input» згортає його без втрати чернетки в пам’яті сторінки. Погоджена зміна від 8 жовтня 2026 року прибирає окрему кнопку «Read outcome»; висновок залишається доступним через чинні вкладки або компактний перемикач розділів. Stop і помилка відновлюють введення та чинні Continue/Retry. Погоджена зміна від 8 жовтня 2026 року закріплює відкрите поле введення біля нижнього краю видимої області; його біла матова скляна поверхня зберігається в обох темах. На широкому екрані статус, Stop і чотири розділи доступні у лівій вертикальній панелі з горизонтальними назвами; на вузькому — через компактний перемикач розділів та статус/Stop. Правила згортання після completion та поточної навігації зберігаються. Вимоги 26 вересня щодо звичайного потоку поля введення й кнопки «Read outcome» замінено погодженою зміною 8 жовтня 2026 року; оформлення P5, доступ і дані не змінюються.
 
 ## Isolated request and cache economy — 2026-09-26
 
@@ -144,3 +144,7 @@ U-13 activity counts follow-up: show five metrics in Usage: consultant assignmen
 ## White theme — 2026-10-08
 
 FR-08.1/FR-08.3 and J-07 add the appearance switch directly within desktop navigation and within S-09’s expanded mobile disclosure. ST-43/ST-44 retain their closed/open meanings. Dark and white are appearance variants of S-01–S-09 and their existing states, including signed-out and consent-pending entry; they add no route or state ID. Preserve the current surface, consultation and draft. Login/Logoff stays visible outside the mobile disclosure.
+
+## Glass reading controls and sticky composer — 2026-10-08
+
+This correction remains within S-02 and its existing draft, active, complete, stopped and failure states. Completion retains the selected consultation view and collapses input; Continue conversation reopens it. Remove the separate Read outcome action while preserving Outcome through existing tabs/select. The arrows operate on the current view. Their boundary states use the reading area above the visible composer or Continue conversation overlay. No new surface, state or route is added.

@@ -65,7 +65,7 @@
       },
       "path": "docs/product-idea.md",
       "owner_skill": "to-product-idea",
-      "owner_invocation_id": "white-theme-20261008-product-idea",
+      "owner_invocation_id": "glass-chat-controls-20261008-b72cd48cba57-product-idea",
       "declared_output_set": [
         "docs/product-idea.md"
       ],
@@ -92,7 +92,8 @@
         "forge/runs/usage-reasoning-20260926/scope.json": "full",
         "forge/runs/usage-activity-20260926/scope.json": "full",
         "forge/runs/gpt-6-1-sol-20260930/scope.json": "full",
-        "forge/runs/white-theme-20261008/scoped-override.json": "full"
+        "forge/runs/white-theme-20261008/scoped-override.json": "full",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full"
       },
       "source_hashes": {
         "docs/model-settings.md": "caa4571a344f32c74fea04822b0a2435ad86e2f40efa1215c3b4b8cc75275d7b",
@@ -114,19 +115,21 @@
         "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
         "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
         "forge/runs/gpt-6-1-sol-20260930/scope.json": "fb82662f17f70537117703d4fcc7c91b98b005fa191176fd95b3cd0effb75c42",
-        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e"
+        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d"
       },
       "dependencies": [],
-      "content_hash": "374f7b44390a87a1147335a333b6a438ae38389ea4a07b4cdff9b8472e278c77",
+      "content_hash": "f8ca34bbd71163f8cabe9ab2bd4806f34da28c3046c0b4e759489b80ce701c91",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "white-theme-scoped-reconciliation",
-        "reviewed_at": "2026-10-08T11:50:20.264774+00:00",
+        "kind": "glass-controls-scoped-document-review",
+        "reviewed_at": "2026-10-08T13:18:15.041996+00:00",
         "executor": "Codex inline to-product-idea",
-        "scope": "Owner-reviewed accepted white appearance; preserves IDs/security/frozen baseline. No full-unit or release verification inferred."
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
       },
-      "open_questions": []
+      "open_questions": [],
+      "consumed_source_fragments": {}
     },
     "prd": {
       "traceability": {
@@ -2456,7 +2459,7 @@
       },
       "path": "docs/prd.md",
       "owner_skill": "to-sdd-prd",
-      "owner_invocation_id": "white-theme-20261008-prd",
+      "owner_invocation_id": "glass-chat-controls-20261008-b72cd48cba57-prd",
       "declared_output_set": [
         "docs/prd.md"
       ],
@@ -2477,10 +2480,11 @@
         "forge/runs/usage-reasoning-20260926/scope.json": "full",
         "forge/runs/usage-activity-20260926/scope.json": "full",
         "forge/runs/gpt-6-1-sol-20260930/scope.json": "full",
-        "forge/runs/white-theme-20261008/scoped-override.json": "full"
+        "forge/runs/white-theme-20261008/scoped-override.json": "full",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "374f7b44390a87a1147335a333b6a438ae38389ea4a07b4cdff9b8472e278c77",
+        "docs/product-idea.md": "f8ca34bbd71163f8cabe9ab2bd4806f34da28c3046c0b4e759489b80ce701c91",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -2493,26 +2497,28 @@
         "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
         "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
         "forge/runs/gpt-6-1-sol-20260930/scope.json": "fb82662f17f70537117703d4fcc7c91b98b005fa191176fd95b3cd0effb75c42",
-        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e"
+        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d"
       },
       "dependencies": [
         "product-idea"
       ],
-      "content_hash": "3521e84c7f751759f784fe75a80c5fb5de692ad0c6b240ad09cce3835c547814",
+      "content_hash": "0e68dc529902dd30367e07f50dad7cf77a051f6d5943c33d3809f482515c1f7b",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "white-theme-scoped-reconciliation",
-        "reviewed_at": "2026-10-08T11:50:20.451334+00:00",
+        "kind": "glass-controls-scoped-document-review",
+        "reviewed_at": "2026-10-08T13:18:15.254151+00:00",
         "executor": "Codex inline to-sdd-prd",
-        "scope": "Owner-reviewed accepted white appearance; preserves IDs/security/frozen baseline. No full-unit or release verification inferred."
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
       },
-      "open_questions": []
+      "open_questions": [],
+      "consumed_source_fragments": {}
     },
     "project-context": {
       "path": "docs/project-context.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "white-theme-20261008-project-context",
+      "owner_invocation_id": "glass-chat-controls-20261008-b72cd48cba57-project-context-bundle",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
@@ -2533,11 +2539,12 @@
         "forge/runs/upstream-usage-20260926/scope.json": "full",
         "forge/runs/usage-dashboard-20260926/scope.json": "full",
         "forge/runs/usage-reasoning-20260926/scope.json": "full",
-        "forge/runs/usage-activity-20260926/scope.json": "full"
+        "forge/runs/usage-activity-20260926/scope.json": "full",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "374f7b44390a87a1147335a333b6a438ae38389ea4a07b4cdff9b8472e278c77",
-        "docs/prd.md": "3521e84c7f751759f784fe75a80c5fb5de692ad0c6b240ad09cce3835c547814",
+        "docs/product-idea.md": "f8ca34bbd71163f8cabe9ab2bd4806f34da28c3046c0b4e759489b80ce701c91",
+        "docs/prd.md": "0e68dc529902dd30367e07f50dad7cf77a051f6d5943c33d3809f482515c1f7b",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -2548,7 +2555,8 @@
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
         "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
-        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d"
       },
       "dependencies": [
         "product-idea",
@@ -2558,17 +2566,18 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "white-theme-scoped-reconciliation",
-        "reviewed_at": "2026-10-08T11:50:20.924848+00:00",
+        "kind": "glass-controls-scoped-document-review",
+        "reviewed_at": "2026-10-08T13:18:15.681003+00:00",
         "executor": "Codex inline to-project-context",
-        "scope": "Owner-reviewed accepted white appearance; preserves IDs/security/frozen baseline. No full-unit or release verification inferred."
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
       },
-      "open_questions": []
+      "open_questions": [],
+      "consumed_source_fragments": {}
     },
     "canonical-terms": {
       "path": "docs/canonical-terms.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "white-theme-20261008-project-context",
+      "owner_invocation_id": "glass-chat-controls-20261008-b72cd48cba57-project-context-bundle",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
@@ -2589,11 +2598,12 @@
         "forge/runs/upstream-usage-20260926/scope.json": "full",
         "forge/runs/usage-dashboard-20260926/scope.json": "full",
         "forge/runs/usage-reasoning-20260926/scope.json": "full",
-        "forge/runs/usage-activity-20260926/scope.json": "full"
+        "forge/runs/usage-activity-20260926/scope.json": "full",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "374f7b44390a87a1147335a333b6a438ae38389ea4a07b4cdff9b8472e278c77",
-        "docs/prd.md": "3521e84c7f751759f784fe75a80c5fb5de692ad0c6b240ad09cce3835c547814",
+        "docs/product-idea.md": "f8ca34bbd71163f8cabe9ab2bd4806f34da28c3046c0b4e759489b80ce701c91",
+        "docs/prd.md": "0e68dc529902dd30367e07f50dad7cf77a051f6d5943c33d3809f482515c1f7b",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -2604,7 +2614,8 @@
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
         "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
-        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d"
       },
       "dependencies": [
         "product-idea",
@@ -2614,17 +2625,18 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "white-theme-scoped-reconciliation",
-        "reviewed_at": "2026-10-08T11:50:20.925150+00:00",
+        "kind": "glass-controls-scoped-document-review",
+        "reviewed_at": "2026-10-08T13:18:15.681154+00:00",
         "executor": "Codex inline to-project-context",
-        "scope": "Owner-reviewed accepted white appearance; preserves IDs/security/frozen baseline. No full-unit or release verification inferred."
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
       },
-      "open_questions": []
+      "open_questions": [],
+      "consumed_source_fragments": {}
     },
     "guardrails": {
       "path": "docs/guardrails.md",
       "owner_skill": "to-guardrails",
-      "owner_invocation_id": "white-theme-20261008-guardrails",
+      "owner_invocation_id": "glass-chat-controls-20261008-b72cd48cba57-guardrails",
       "declared_output_set": [
         "docs/guardrails.md"
       ],
@@ -2645,10 +2657,11 @@
         "forge/runs/upstream-usage-20260926/scope.json": "full",
         "forge/runs/usage-dashboard-20260926/scope.json": "full",
         "forge/runs/usage-reasoning-20260926/scope.json": "full",
-        "forge/runs/usage-activity-20260926/scope.json": "full"
+        "forge/runs/usage-activity-20260926/scope.json": "full",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "3521e84c7f751759f784fe75a80c5fb5de692ad0c6b240ad09cce3835c547814",
+        "docs/prd.md": "0e68dc529902dd30367e07f50dad7cf77a051f6d5943c33d3809f482515c1f7b",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
@@ -2661,7 +2674,8 @@
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
         "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
-        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d"
       },
       "dependencies": [
         "prd",
@@ -2672,17 +2686,18 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "white-theme-scoped-reconciliation",
-        "reviewed_at": "2026-10-08T11:50:21.579448+00:00",
+        "kind": "glass-controls-scoped-document-review",
+        "reviewed_at": "2026-10-08T13:18:16.121359+00:00",
         "executor": "Codex inline to-guardrails",
-        "scope": "Owner-reviewed accepted white appearance; preserves IDs/security/frozen baseline. No full-unit or release verification inferred."
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
       },
-      "open_questions": []
+      "open_questions": [],
+      "consumed_source_fragments": {}
     },
     "user-journey": {
       "path": "docs/user-journey.md",
       "owner_skill": "to-user-journey",
-      "owner_invocation_id": "white-theme-20261008-user-journey",
+      "owner_invocation_id": "glass-chat-controls-20261008-b72cd48cba57-user-journey",
       "declared_output_set": [
         "docs/user-journey.md"
       ],
@@ -2705,10 +2720,11 @@
         "forge/runs/usage-dashboard-20260926/scope.json": "full",
         "forge/runs/usage-reasoning-20260926/scope.json": "full",
         "forge/runs/usage-activity-20260926/scope.json": "full",
-        "forge/runs/white-theme-20261008/scoped-override.json": "full"
+        "forge/runs/white-theme-20261008/scoped-override.json": "full",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "3521e84c7f751759f784fe75a80c5fb5de692ad0c6b240ad09cce3835c547814",
+        "docs/prd.md": "0e68dc529902dd30367e07f50dad7cf77a051f6d5943c33d3809f482515c1f7b",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
@@ -2723,7 +2739,8 @@
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
         "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
         "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
-        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e"
+        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d"
       },
       "dependencies": [
         "prd",
@@ -2731,16 +2748,17 @@
         "canonical-terms",
         "guardrails"
       ],
-      "content_hash": "f98fc89a61e7993d91562bb310cce2d3dbce198ec0a28debd9bab24d0fe3b8df",
+      "content_hash": "c59072492e4ca0eb46b0efd4bccf9b32b2e0a711c997d21bc1175dc9ea9ad5e9",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "white-theme-scoped-reconciliation",
-        "reviewed_at": "2026-10-08T11:50:22.189915+00:00",
+        "kind": "glass-controls-scoped-document-review",
+        "reviewed_at": "2026-10-08T13:18:16.582362+00:00",
         "executor": "Codex inline to-user-journey",
-        "scope": "Owner-reviewed accepted white appearance; preserves IDs/security/frozen baseline. No full-unit or release verification inferred."
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
       },
-      "open_questions": []
+      "open_questions": [],
+      "consumed_source_fragments": {}
     },
     "screen-map": {
       "traceability": {
@@ -3750,7 +3768,7 @@
       },
       "path": "docs/screen-map.md",
       "owner_skill": "to-screen-map",
-      "owner_invocation_id": "white-theme-20261008-screen-map",
+      "owner_invocation_id": "glass-chat-controls-20261008-b72cd48cba57-screen-map",
       "declared_output_set": [
         "docs/screen-map.md"
       ],
@@ -3776,14 +3794,15 @@
         "forge/runs/usage-dashboard-20260926/scope.json": "full",
         "forge/runs/usage-reasoning-20260926/scope.json": "full",
         "forge/runs/usage-activity-20260926/scope.json": "full",
-        "forge/runs/white-theme-20261008/scoped-override.json": "full"
+        "forge/runs/white-theme-20261008/scoped-override.json": "full",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "3521e84c7f751759f784fe75a80c5fb5de692ad0c6b240ad09cce3835c547814",
+        "docs/prd.md": "0e68dc529902dd30367e07f50dad7cf77a051f6d5943c33d3809f482515c1f7b",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
-        "docs/user-journey.md": "f98fc89a61e7993d91562bb310cce2d3dbce198ec0a28debd9bab24d0fe3b8df",
+        "docs/user-journey.md": "c59072492e4ca0eb46b0efd4bccf9b32b2e0a711c997d21bc1175dc9ea9ad5e9",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -3797,7 +3816,8 @@
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
         "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
         "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
-        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e"
+        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d"
       },
       "dependencies": [
         "prd",
@@ -3806,21 +3826,22 @@
         "guardrails",
         "user-journey"
       ],
-      "content_hash": "7da958bfbdd8dbc363ff6e349f9fba7300b2a1c78f5daa135b5d411c07f0bb4c",
+      "content_hash": "f9411130af8e831add03b119060e8dd078f5457898011f40c6dcaf176c81a588",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "white-theme-scoped-reconciliation",
-        "reviewed_at": "2026-10-08T11:50:22.770037+00:00",
+        "kind": "glass-controls-scoped-document-review",
+        "reviewed_at": "2026-10-08T13:18:17.070625+00:00",
         "executor": "Codex inline to-screen-map",
-        "scope": "Owner-reviewed accepted white appearance; preserves IDs/security/frozen baseline. No full-unit or release verification inferred."
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
       },
-      "open_questions": []
+      "open_questions": [],
+      "consumed_source_fragments": {}
     },
     "wireframes": {
       "path": "docs/wireframes.md",
       "owner_skill": "to-wireframes",
-      "owner_invocation_id": "white-theme-20261008-wireframes",
+      "owner_invocation_id": "glass-chat-controls-20261008-b72cd48cba57-wireframes",
       "declared_output_set": [
         "docs/wireframes.md"
       ],
@@ -3848,15 +3869,16 @@
         "forge/runs/usage-dashboard-20260926/scope.json": "full",
         "forge/runs/usage-reasoning-20260926/scope.json": "full",
         "forge/runs/usage-activity-20260926/scope.json": "full",
-        "forge/runs/white-theme-20261008/scoped-override.json": "full"
+        "forge/runs/white-theme-20261008/scoped-override.json": "full",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "3521e84c7f751759f784fe75a80c5fb5de692ad0c6b240ad09cce3835c547814",
+        "docs/prd.md": "0e68dc529902dd30367e07f50dad7cf77a051f6d5943c33d3809f482515c1f7b",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
-        "docs/user-journey.md": "f98fc89a61e7993d91562bb310cce2d3dbce198ec0a28debd9bab24d0fe3b8df",
-        "docs/screen-map.md": "7da958bfbdd8dbc363ff6e349f9fba7300b2a1c78f5daa135b5d411c07f0bb4c",
+        "docs/user-journey.md": "c59072492e4ca0eb46b0efd4bccf9b32b2e0a711c997d21bc1175dc9ea9ad5e9",
+        "docs/screen-map.md": "f9411130af8e831add03b119060e8dd078f5457898011f40c6dcaf176c81a588",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e",
@@ -3871,7 +3893,8 @@
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
         "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
         "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
-        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e"
+        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d"
       },
       "dependencies": [
         "prd",
@@ -3881,21 +3904,22 @@
         "user-journey",
         "screen-map"
       ],
-      "content_hash": "840109cdfa49aa6c60aa4defcb4161b25e57eb9a20c48a32543b15cfb8a19b9b",
+      "content_hash": "6a55b0d5863a64d8dbc680ff09fe1c22d42041bb7b1269aa201dc3ec4fc44d8f",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "white-theme-scoped-reconciliation",
-        "reviewed_at": "2026-10-08T11:50:23.446352+00:00",
+        "kind": "glass-controls-scoped-document-review",
+        "reviewed_at": "2026-10-08T13:18:17.587109+00:00",
         "executor": "Codex inline to-wireframes",
-        "scope": "Owner-reviewed accepted white appearance; preserves IDs/security/frozen baseline. No full-unit or release verification inferred."
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
       },
-      "open_questions": []
+      "open_questions": [],
+      "consumed_source_fragments": {}
     },
     "design-brief": {
       "path": "docs/design-brief.md",
       "owner_skill": "to-design-brief",
-      "owner_invocation_id": "white-theme-20261008-design-brief",
+      "owner_invocation_id": "glass-chat-controls-20261008-b72cd48cba57-design-brief",
       "declared_output_set": [
         "docs/design-brief.md"
       ],
@@ -3929,16 +3953,17 @@
         "forge/runs/clear-glass-navbar-20260926/scope.json": "full",
         "forge/runs/glass-rim-20260926/scope.json": "full",
         "forge/runs/navbar-refraction-20260926/scope.json": "full",
-        "forge/runs/white-theme-20261008/scoped-override.json": "full"
+        "forge/runs/white-theme-20261008/scoped-override.json": "full",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "3521e84c7f751759f784fe75a80c5fb5de692ad0c6b240ad09cce3835c547814",
+        "docs/prd.md": "0e68dc529902dd30367e07f50dad7cf77a051f6d5943c33d3809f482515c1f7b",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
-        "docs/user-journey.md": "f98fc89a61e7993d91562bb310cce2d3dbce198ec0a28debd9bab24d0fe3b8df",
-        "docs/screen-map.md": "7da958bfbdd8dbc363ff6e349f9fba7300b2a1c78f5daa135b5d411c07f0bb4c",
-        "docs/wireframes.md": "840109cdfa49aa6c60aa4defcb4161b25e57eb9a20c48a32543b15cfb8a19b9b",
+        "docs/user-journey.md": "c59072492e4ca0eb46b0efd4bccf9b32b2e0a711c997d21bc1175dc9ea9ad5e9",
+        "docs/screen-map.md": "f9411130af8e831add03b119060e8dd078f5457898011f40c6dcaf176c81a588",
+        "docs/wireframes.md": "6a55b0d5863a64d8dbc680ff09fe1c22d42041bb7b1269aa201dc3ec4fc44d8f",
         "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b",
         "forge/runs/porcelain-stop-20260924/scoped-override.json": "df8177ecc6e68c658ff5672b14e7def000ba241f9932639711885a4ba17afc74",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
@@ -3958,7 +3983,8 @@
         "forge/runs/clear-glass-navbar-20260926/scope.json": "1ecd5cba668f465c3e89a198ed8b9e62e9bcc4266e8b713f38d814cf3eb65a95",
         "forge/runs/glass-rim-20260926/scope.json": "dd29bb641922975a8af41782051645e3cf49d3f780df4e99684d84e49719cf8b",
         "forge/runs/navbar-refraction-20260926/scope.json": "b80bb023523a4eaf95752f92b2cd42347a84b8a66e30f5537a0347e802910efd",
-        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e"
+        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d"
       },
       "dependencies": [
         "prd",
@@ -3969,16 +3995,17 @@
         "screen-map",
         "wireframes"
       ],
-      "content_hash": "99fb74b62c8396da762bd41ec2f4e009be13c0e6712bf30279c97a5dddf26d56",
+      "content_hash": "3b0a8a5f8c0c6f2cb9da1c6d3dcc1b6e657b373a5d9106c4ac8b827020514a82",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "white-theme-scoped-reconciliation",
-        "reviewed_at": "2026-10-08T11:50:24.122541+00:00",
+        "kind": "glass-controls-scoped-document-review",
+        "reviewed_at": "2026-10-08T13:18:18.108063+00:00",
         "executor": "Codex inline to-design-brief",
-        "scope": "Owner-reviewed accepted white appearance; preserves IDs/security/frozen baseline. No full-unit or release verification inferred."
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
       },
-      "open_questions": []
+      "open_questions": [],
+      "consumed_source_fragments": {}
     },
     "architecture": {
       "security_coverage": {
@@ -4053,7 +4080,7 @@
       },
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "white-theme-20261008-architecture",
+      "owner_invocation_id": "glass-chat-controls-20261008-b72cd48cba57-architecture-approved",
       "declared_output_set": [
         "docs/architecture.md"
       ],
@@ -4094,17 +4121,18 @@
         "forge/runs/glass-rim-20260926/scope.json": "full",
         "forge/runs/navbar-refraction-20260926/scope.json": "full",
         "forge/runs/gpt-6-1-sol-20260930/scope.json": "full",
-        "forge/runs/white-theme-20261008/scoped-override.json": "full"
+        "forge/runs/white-theme-20261008/scoped-override.json": "full",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "3521e84c7f751759f784fe75a80c5fb5de692ad0c6b240ad09cce3835c547814",
+        "docs/prd.md": "0e68dc529902dd30367e07f50dad7cf77a051f6d5943c33d3809f482515c1f7b",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
-        "docs/user-journey.md": "f98fc89a61e7993d91562bb310cce2d3dbce198ec0a28debd9bab24d0fe3b8df",
-        "docs/screen-map.md": "7da958bfbdd8dbc363ff6e349f9fba7300b2a1c78f5daa135b5d411c07f0bb4c",
-        "docs/wireframes.md": "840109cdfa49aa6c60aa4defcb4161b25e57eb9a20c48a32543b15cfb8a19b9b",
-        "docs/design-brief.md": "99fb74b62c8396da762bd41ec2f4e009be13c0e6712bf30279c97a5dddf26d56",
+        "docs/user-journey.md": "c59072492e4ca0eb46b0efd4bccf9b32b2e0a711c997d21bc1175dc9ea9ad5e9",
+        "docs/screen-map.md": "f9411130af8e831add03b119060e8dd078f5457898011f40c6dcaf176c81a588",
+        "docs/wireframes.md": "6a55b0d5863a64d8dbc680ff09fe1c22d42041bb7b1269aa201dc3ec4fc44d8f",
+        "docs/design-brief.md": "3b0a8a5f8c0c6f2cb9da1c6d3dcc1b6e657b373a5d9106c4ac8b827020514a82",
         "docs/model-settings.md": "caa4571a344f32c74fea04822b0a2435ad86e2f40efa1215c3b4b8cc75275d7b",
         "forge/runs/claude-signin-20260922/source-review.json": "ad878d853b9c6f30da817167e1db6dffaad9c2c2863354ad3331294d7b269def",
         "forge/runs/sound-media-playback-20260923/scope.json": "7a5aa70bf52fa77a4dea9e39e5a49453c6be40c5b1a347632f4da4f5294455a0",
@@ -4130,7 +4158,8 @@
         "forge/runs/glass-rim-20260926/scope.json": "dd29bb641922975a8af41782051645e3cf49d3f780df4e99684d84e49719cf8b",
         "forge/runs/navbar-refraction-20260926/scope.json": "b80bb023523a4eaf95752f92b2cd42347a84b8a66e30f5537a0347e802910efd",
         "forge/runs/gpt-6-1-sol-20260930/scope.json": "fb82662f17f70537117703d4fcc7c91b98b005fa191176fd95b3cd0effb75c42",
-        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e"
+        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d"
       },
       "dependencies": [
         "prd",
@@ -4142,17 +4171,18 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "f0e5910094a9ee8b0ec57b4dad15f79a44d0a44f3ae64c55900678cc9ef78ebd",
+      "content_hash": "de94ca48ca6e4b2f93ff4f875725c790c91fac6a2f4a08e0e3d8648529f5c641",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "white-theme-scoped-reconciliation",
-        "reviewed_at": "2026-10-08T11:50:24.836201+00:00",
+        "kind": "glass-controls-scoped-document-review",
+        "reviewed_at": "2026-10-08T13:18:18.644204+00:00",
         "executor": "Codex inline to-architecture",
-        "scope": "Owner-reviewed accepted white appearance; preserves IDs/security/frozen baseline. No full-unit or release verification inferred."
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
       },
       "open_questions": [],
-      "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
+      "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
+      "consumed_source_fragments": {}
     },
     "dod-evals": {
       "security_coverage": {
@@ -4227,7 +4257,7 @@
       },
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "white-theme-20261008-dod-evals",
+      "owner_invocation_id": "glass-chat-controls-20261008-b72cd48cba57-dod-evals-approved",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
@@ -4262,18 +4292,19 @@
         "forge/runs/usage-activity-20260926/scope.json": "full",
         "forge/runs/clear-glass-navbar-20260926/scope.json": "full",
         "forge/runs/glass-rim-20260926/scope.json": "full",
-        "forge/runs/navbar-refraction-20260926/scope.json": "full"
+        "forge/runs/navbar-refraction-20260926/scope.json": "full",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "3521e84c7f751759f784fe75a80c5fb5de692ad0c6b240ad09cce3835c547814",
+        "docs/prd.md": "0e68dc529902dd30367e07f50dad7cf77a051f6d5943c33d3809f482515c1f7b",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
-        "docs/user-journey.md": "f98fc89a61e7993d91562bb310cce2d3dbce198ec0a28debd9bab24d0fe3b8df",
-        "docs/screen-map.md": "7da958bfbdd8dbc363ff6e349f9fba7300b2a1c78f5daa135b5d411c07f0bb4c",
-        "docs/wireframes.md": "840109cdfa49aa6c60aa4defcb4161b25e57eb9a20c48a32543b15cfb8a19b9b",
-        "docs/design-brief.md": "99fb74b62c8396da762bd41ec2f4e009be13c0e6712bf30279c97a5dddf26d56",
-        "docs/architecture.md": "f0e5910094a9ee8b0ec57b4dad15f79a44d0a44f3ae64c55900678cc9ef78ebd",
+        "docs/user-journey.md": "c59072492e4ca0eb46b0efd4bccf9b32b2e0a711c997d21bc1175dc9ea9ad5e9",
+        "docs/screen-map.md": "f9411130af8e831add03b119060e8dd078f5457898011f40c6dcaf176c81a588",
+        "docs/wireframes.md": "6a55b0d5863a64d8dbc680ff09fe1c22d42041bb7b1269aa201dc3ec4fc44d8f",
+        "docs/design-brief.md": "3b0a8a5f8c0c6f2cb9da1c6d3dcc1b6e657b373a5d9106c4ac8b827020514a82",
+        "docs/architecture.md": "de94ca48ca6e4b2f93ff4f875725c790c91fac6a2f4a08e0e3d8648529f5c641",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e",
@@ -4292,7 +4323,8 @@
         "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
         "forge/runs/clear-glass-navbar-20260926/scope.json": "1ecd5cba668f465c3e89a198ed8b9e62e9bcc4266e8b713f38d814cf3eb65a95",
         "forge/runs/glass-rim-20260926/scope.json": "dd29bb641922975a8af41782051645e3cf49d3f780df4e99684d84e49719cf8b",
-        "forge/runs/navbar-refraction-20260926/scope.json": "b80bb023523a4eaf95752f92b2cd42347a84b8a66e30f5537a0347e802910efd"
+        "forge/runs/navbar-refraction-20260926/scope.json": "b80bb023523a4eaf95752f92b2cd42347a84b8a66e30f5537a0347e802910efd",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d"
       },
       "dependencies": [
         "prd",
@@ -4309,13 +4341,14 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "white-theme-scoped-reconciliation",
-        "reviewed_at": "2026-10-08T11:50:25.580802+00:00",
+        "kind": "glass-controls-scoped-document-review",
+        "reviewed_at": "2026-10-08T13:18:19.202932+00:00",
         "executor": "Codex inline to-dod-evals",
-        "scope": "Owner-reviewed accepted white appearance; preserves IDs/security/frozen baseline. No full-unit or release verification inferred."
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
       },
       "open_questions": [],
-      "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
+      "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
+      "consumed_source_fragments": {}
     },
     "qa-checklist": {
       "traceability": {
@@ -6250,7 +6283,7 @@
       },
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "white-theme-20261008-qa-checklist",
+      "owner_invocation_id": "glass-chat-controls-20261008-b72cd48cba57-qa-checklist-approved",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
@@ -6298,18 +6331,19 @@
         "forge/runs/navbar-refraction-20260926/scope.json": "full",
         "forge/runs/navbar-refraction-20260926/verification.json": "full",
         "forge/runs/gpt-6-1-sol-20260930/scope.json": "full",
-        "forge/runs/white-theme-20261008/scoped-override.json": "full"
+        "forge/runs/white-theme-20261008/scoped-override.json": "full",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "3521e84c7f751759f784fe75a80c5fb5de692ad0c6b240ad09cce3835c547814",
+        "docs/prd.md": "0e68dc529902dd30367e07f50dad7cf77a051f6d5943c33d3809f482515c1f7b",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
-        "docs/user-journey.md": "f98fc89a61e7993d91562bb310cce2d3dbce198ec0a28debd9bab24d0fe3b8df",
-        "docs/screen-map.md": "7da958bfbdd8dbc363ff6e349f9fba7300b2a1c78f5daa135b5d411c07f0bb4c",
-        "docs/wireframes.md": "840109cdfa49aa6c60aa4defcb4161b25e57eb9a20c48a32543b15cfb8a19b9b",
-        "docs/design-brief.md": "99fb74b62c8396da762bd41ec2f4e009be13c0e6712bf30279c97a5dddf26d56",
-        "docs/architecture.md": "f0e5910094a9ee8b0ec57b4dad15f79a44d0a44f3ae64c55900678cc9ef78ebd",
+        "docs/user-journey.md": "c59072492e4ca0eb46b0efd4bccf9b32b2e0a711c997d21bc1175dc9ea9ad5e9",
+        "docs/screen-map.md": "f9411130af8e831add03b119060e8dd078f5457898011f40c6dcaf176c81a588",
+        "docs/wireframes.md": "6a55b0d5863a64d8dbc680ff09fe1c22d42041bb7b1269aa201dc3ec4fc44d8f",
+        "docs/design-brief.md": "3b0a8a5f8c0c6f2cb9da1c6d3dcc1b6e657b373a5d9106c4ac8b827020514a82",
+        "docs/architecture.md": "de94ca48ca6e4b2f93ff4f875725c790c91fac6a2f4a08e0e3d8648529f5c641",
         "docs/dod-evals.md": "c31804e680531cad85e2441045ca859f3424886989f9be57e49c0fdb8afa42fe",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
@@ -6341,7 +6375,8 @@
         "forge/runs/navbar-refraction-20260926/scope.json": "b80bb023523a4eaf95752f92b2cd42347a84b8a66e30f5537a0347e802910efd",
         "forge/runs/navbar-refraction-20260926/verification.json": "266314b430e9b090cda22eb38af6c69e85f4160f5424e43972fdb1d357a2b264",
         "forge/runs/gpt-6-1-sol-20260930/scope.json": "fb82662f17f70537117703d4fcc7c91b98b005fa191176fd95b3cd0effb75c42",
-        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e"
+        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d"
       },
       "dependencies": [
         "prd",
@@ -6355,17 +6390,18 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "82cdb9ba553b2c7ca3599bb6c03162d8941c9c0c6d9a022875e6892056c3df21",
+      "content_hash": "cd4662a809a9d748d912bdd79a5c841eff1c79ff5d406d64cb4b7a2cc2c9e992",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "white-theme-scoped-reconciliation",
-        "reviewed_at": "2026-10-08T11:50:26.378282+00:00",
+        "kind": "glass-controls-scoped-document-review",
+        "reviewed_at": "2026-10-08T13:18:19.809300+00:00",
         "executor": "Codex inline to-qa-checklist",
-        "scope": "Owner-reviewed accepted white appearance; preserves IDs/security/frozen baseline. No full-unit or release verification inferred."
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
       },
       "open_questions": [],
-      "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
+      "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
+      "consumed_source_fragments": {}
     },
     "development-plan": {
       "traceability": {
@@ -7589,7 +7625,7 @@
       },
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "white-theme-20261008-development-plan",
+      "owner_invocation_id": "glass-chat-controls-20261008-b72cd48cba57-development-plan",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
@@ -7641,20 +7677,21 @@
         "forge/runs/navbar-refraction-20260926/scope.json": "full",
         "forge/runs/navbar-refraction-20260926/verification.json": "full",
         "forge/runs/gpt-6-1-sol-20260930/scope.json": "full",
-        "forge/runs/white-theme-20261008/scoped-override.json": "full"
+        "forge/runs/white-theme-20261008/scoped-override.json": "full",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "3521e84c7f751759f784fe75a80c5fb5de692ad0c6b240ad09cce3835c547814",
+        "docs/prd.md": "0e68dc529902dd30367e07f50dad7cf77a051f6d5943c33d3809f482515c1f7b",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
-        "docs/user-journey.md": "f98fc89a61e7993d91562bb310cce2d3dbce198ec0a28debd9bab24d0fe3b8df",
-        "docs/screen-map.md": "7da958bfbdd8dbc363ff6e349f9fba7300b2a1c78f5daa135b5d411c07f0bb4c",
-        "docs/wireframes.md": "840109cdfa49aa6c60aa4defcb4161b25e57eb9a20c48a32543b15cfb8a19b9b",
-        "docs/design-brief.md": "99fb74b62c8396da762bd41ec2f4e009be13c0e6712bf30279c97a5dddf26d56",
-        "docs/architecture.md": "f0e5910094a9ee8b0ec57b4dad15f79a44d0a44f3ae64c55900678cc9ef78ebd",
+        "docs/user-journey.md": "c59072492e4ca0eb46b0efd4bccf9b32b2e0a711c997d21bc1175dc9ea9ad5e9",
+        "docs/screen-map.md": "f9411130af8e831add03b119060e8dd078f5457898011f40c6dcaf176c81a588",
+        "docs/wireframes.md": "6a55b0d5863a64d8dbc680ff09fe1c22d42041bb7b1269aa201dc3ec4fc44d8f",
+        "docs/design-brief.md": "3b0a8a5f8c0c6f2cb9da1c6d3dcc1b6e657b373a5d9106c4ac8b827020514a82",
+        "docs/architecture.md": "de94ca48ca6e4b2f93ff4f875725c790c91fac6a2f4a08e0e3d8648529f5c641",
         "docs/dod-evals.md": "c31804e680531cad85e2441045ca859f3424886989f9be57e49c0fdb8afa42fe",
-        "docs/qa-checklist.md": "82cdb9ba553b2c7ca3599bb6c03162d8941c9c0c6d9a022875e6892056c3df21",
+        "docs/qa-checklist.md": "cd4662a809a9d748d912bdd79a5c841eff1c79ff5d406d64cb4b7a2cc2c9e992",
         "docs/model-settings.md": "caa4571a344f32c74fea04822b0a2435ad86e2f40efa1215c3b4b8cc75275d7b",
         "package.json": "d74c25d2b4d04b4fc3f2f51c333a2333b8f64efa62ed254220e967b5c3ca764c",
         "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318",
@@ -7688,7 +7725,8 @@
         "forge/runs/navbar-refraction-20260926/scope.json": "b80bb023523a4eaf95752f92b2cd42347a84b8a66e30f5537a0347e802910efd",
         "forge/runs/navbar-refraction-20260926/verification.json": "266314b430e9b090cda22eb38af6c69e85f4160f5424e43972fdb1d357a2b264",
         "forge/runs/gpt-6-1-sol-20260930/scope.json": "fb82662f17f70537117703d4fcc7c91b98b005fa191176fd95b3cd0effb75c42",
-        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e"
+        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d"
       },
       "dependencies": [
         "prd",
@@ -7703,17 +7741,18 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "e7f2b12abec6d1419b9b39f546a9033bdfcf29c5c29db891631b981d8e0cddf7",
+      "content_hash": "80298e5b1ef244d5615f13c7a4d99c7b9d560135771e123b4c2ececfd317f244",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "white-theme-scoped-reconciliation",
-        "reviewed_at": "2026-10-08T11:50:27.712076+00:00",
+        "kind": "glass-controls-scoped-document-review",
+        "reviewed_at": "2026-10-08T13:18:20.813050+00:00",
         "executor": "Codex inline to-development-plan",
-        "scope": "Owner-reviewed accepted white appearance; preserves IDs/security/frozen baseline. No full-unit or release verification inferred."
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
       },
       "open_questions": [],
-      "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
+      "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
+      "consumed_source_fragments": {}
     }
   },
   "language": {
@@ -8239,6 +8278,11 @@
         "path": "forge/runs/white-theme-20261008/scoped-override.json",
         "content_hash": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e",
         "scope": "Optional white appearance and desktop/mobile switch. Preserve frozen Electric A v8, active work and public-enum-only browser persistence."
+      },
+      {
+        "path": "forge/runs/glass-chat-controls-20261008/scoped-override.json",
+        "content_hash": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
+        "scope": "Liquid-glass circular chat arrows and Continue conversation; remove Read outcome; sticky prompt rectangle with white matte glass in both themes. Preserve drafts, completion collapse, active-run hiding, Stop/Retry, selected view, authentication and private storage. Keep final content readable above bottom overlays."
       }
     ]
   },
@@ -8248,7 +8292,7 @@
     "release_readiness": "not_evaluated",
     "source_hashes": {
       "docs/dod-evals.md": "c31804e680531cad85e2441045ca859f3424886989f9be57e49c0fdb8afa42fe",
-      "docs/qa-checklist.md": "82cdb9ba553b2c7ca3599bb6c03162d8941c9c0c6d9a022875e6892056c3df21"
+      "docs/qa-checklist.md": "cd4662a809a9d748d912bdd79a5c841eff1c79ff5d406d64cb4b7a2cc2c9e992"
     },
     "gates": [
       {
@@ -11285,7 +11329,7 @@
     "prompt_id": "gpt-6-1-sol-20260930",
     "prompt_received_at": "2026-09-30T15:21:14.491878+00:00",
     "released_at": "2026-09-30T15:21:14.491878+00:00",
-    "reason": "Current unit metadata migration remains required. User explicitly authorizes this bounded appearance correction; full-unit/product execution is not certified.",
+    "reason": "Actual user request authorizes this bounded glass reading-control correction; full-unit handoff remains unvalidated pending the existing unit-contract migration.",
     "prompt_receipt": {
       "path": "forge/runs/gpt-6-1-sol-20260930/implementation-prompt.json",
       "content_hash": "c9978c187aa8943c091f335978f3e430f3ab9deca2c87e9f3703b36c48a45565"
@@ -11293,7 +11337,7 @@
   },
   "dispatches": {
     "product-idea": {
-      "invocation_id": "white-theme-20261008-product-idea",
+      "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-product-idea",
       "outputs": [
         "docs/product-idea.md"
       ],
@@ -11317,16 +11361,21 @@
         "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
         "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
         "forge/runs/gpt-6-1-sol-20260930/scope.json": "fb82662f17f70537117703d4fcc7c91b98b005fa191176fd95b3cd0effb75c42",
-        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e"
-      }
+        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d"
+      },
+      "consumed_source_fragments": {},
+      "invoked_at": "2026-10-08T13:18:15.002831+00:00",
+      "owner_skill": "to-product-idea",
+      "skill_hash": "9e04ea35a3f95cd68652399aeefa94e10b2390b679e41121e4479d06020d6acc"
     },
     "prd": {
-      "invocation_id": "white-theme-20261008-prd",
+      "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-prd",
       "outputs": [
         "docs/prd.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "374f7b44390a87a1147335a333b6a438ae38389ea4a07b4cdff9b8472e278c77",
+        "docs/product-idea.md": "f8ca34bbd71163f8cabe9ab2bd4806f34da28c3046c0b4e759489b80ce701c91",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -11339,18 +11388,23 @@
         "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
         "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
         "forge/runs/gpt-6-1-sol-20260930/scope.json": "fb82662f17f70537117703d4fcc7c91b98b005fa191176fd95b3cd0effb75c42",
-        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e"
-      }
+        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d"
+      },
+      "consumed_source_fragments": {},
+      "invoked_at": "2026-10-08T13:18:15.218075+00:00",
+      "owner_skill": "to-sdd-prd",
+      "skill_hash": "87276141bf44d3c3ec4d78cec8c192eb0bbb379e7f4065f117988981ebe43ec3"
     },
     "project-context": {
-      "invocation_id": "white-theme-20261008-project-context",
+      "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-project-context-bundle",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "374f7b44390a87a1147335a333b6a438ae38389ea4a07b4cdff9b8472e278c77",
-        "docs/prd.md": "3521e84c7f751759f784fe75a80c5fb5de692ad0c6b240ad09cce3835c547814",
+        "docs/product-idea.md": "f8ca34bbd71163f8cabe9ab2bd4806f34da28c3046c0b4e759489b80ce701c91",
+        "docs/prd.md": "0e68dc529902dd30367e07f50dad7cf77a051f6d5943c33d3809f482515c1f7b",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -11361,18 +11415,23 @@
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
         "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
-        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
-      }
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d"
+      },
+      "consumed_source_fragments": {},
+      "invoked_at": "2026-10-08T13:18:15.646397+00:00",
+      "owner_skill": "to-project-context",
+      "skill_hash": "0efe9ef7f537a30546f991fe56376adee6f62d6ab191096b34951c3a84ea69be"
     },
     "canonical-terms": {
-      "invocation_id": "white-theme-20261008-project-context",
+      "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-project-context-bundle",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "374f7b44390a87a1147335a333b6a438ae38389ea4a07b4cdff9b8472e278c77",
-        "docs/prd.md": "3521e84c7f751759f784fe75a80c5fb5de692ad0c6b240ad09cce3835c547814",
+        "docs/product-idea.md": "f8ca34bbd71163f8cabe9ab2bd4806f34da28c3046c0b4e759489b80ce701c91",
+        "docs/prd.md": "0e68dc529902dd30367e07f50dad7cf77a051f6d5943c33d3809f482515c1f7b",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -11383,16 +11442,21 @@
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
         "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
-        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
-      }
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d"
+      },
+      "consumed_source_fragments": {},
+      "invoked_at": "2026-10-08T13:18:15.646397+00:00",
+      "owner_skill": "to-project-context",
+      "skill_hash": "0efe9ef7f537a30546f991fe56376adee6f62d6ab191096b34951c3a84ea69be"
     },
     "guardrails": {
-      "invocation_id": "white-theme-20261008-guardrails",
+      "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-guardrails",
       "outputs": [
         "docs/guardrails.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "3521e84c7f751759f784fe75a80c5fb5de692ad0c6b240ad09cce3835c547814",
+        "docs/prd.md": "0e68dc529902dd30367e07f50dad7cf77a051f6d5943c33d3809f482515c1f7b",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
@@ -11405,16 +11469,21 @@
         "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
         "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
-        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f"
-      }
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d"
+      },
+      "consumed_source_fragments": {},
+      "invoked_at": "2026-10-08T13:18:16.088276+00:00",
+      "owner_skill": "to-guardrails",
+      "skill_hash": "3129ba126b1e419a1d9d75bc9bb32e9a38b59cc581c13c923501ea1b6ccf4be9"
     },
     "user-journey": {
-      "invocation_id": "white-theme-20261008-user-journey",
+      "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-user-journey",
       "outputs": [
         "docs/user-journey.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "3521e84c7f751759f784fe75a80c5fb5de692ad0c6b240ad09cce3835c547814",
+        "docs/prd.md": "0e68dc529902dd30367e07f50dad7cf77a051f6d5943c33d3809f482515c1f7b",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
@@ -11429,20 +11498,25 @@
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
         "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
         "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
-        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e"
-      }
+        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d"
+      },
+      "consumed_source_fragments": {},
+      "invoked_at": "2026-10-08T13:18:16.548546+00:00",
+      "owner_skill": "to-user-journey",
+      "skill_hash": "e5fff9bb0e34789d215dbcc931e8ff667b086e591aba8664089d4b086639794e"
     },
     "screen-map": {
-      "invocation_id": "white-theme-20261008-screen-map",
+      "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-screen-map",
       "outputs": [
         "docs/screen-map.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "3521e84c7f751759f784fe75a80c5fb5de692ad0c6b240ad09cce3835c547814",
+        "docs/prd.md": "0e68dc529902dd30367e07f50dad7cf77a051f6d5943c33d3809f482515c1f7b",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
-        "docs/user-journey.md": "f98fc89a61e7993d91562bb310cce2d3dbce198ec0a28debd9bab24d0fe3b8df",
+        "docs/user-journey.md": "c59072492e4ca0eb46b0efd4bccf9b32b2e0a711c997d21bc1175dc9ea9ad5e9",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -11456,21 +11530,26 @@
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
         "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
         "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
-        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e"
-      }
+        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d"
+      },
+      "consumed_source_fragments": {},
+      "invoked_at": "2026-10-08T13:18:17.035569+00:00",
+      "owner_skill": "to-screen-map",
+      "skill_hash": "32de05f47456c000b1dd88636b6d056748d41fcb6cd7786b0db813a3e35c87b6"
     },
     "wireframes": {
-      "invocation_id": "white-theme-20261008-wireframes",
+      "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-wireframes",
       "outputs": [
         "docs/wireframes.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "3521e84c7f751759f784fe75a80c5fb5de692ad0c6b240ad09cce3835c547814",
+        "docs/prd.md": "0e68dc529902dd30367e07f50dad7cf77a051f6d5943c33d3809f482515c1f7b",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
-        "docs/user-journey.md": "f98fc89a61e7993d91562bb310cce2d3dbce198ec0a28debd9bab24d0fe3b8df",
-        "docs/screen-map.md": "7da958bfbdd8dbc363ff6e349f9fba7300b2a1c78f5daa135b5d411c07f0bb4c",
+        "docs/user-journey.md": "c59072492e4ca0eb46b0efd4bccf9b32b2e0a711c997d21bc1175dc9ea9ad5e9",
+        "docs/screen-map.md": "f9411130af8e831add03b119060e8dd078f5457898011f40c6dcaf176c81a588",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e",
@@ -11485,22 +11564,27 @@
         "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
         "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
         "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
-        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e"
-      }
+        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d"
+      },
+      "consumed_source_fragments": {},
+      "invoked_at": "2026-10-08T13:18:17.552655+00:00",
+      "owner_skill": "to-wireframes",
+      "skill_hash": "d5b79d843feaa6a24e7654c4744bbab6aa16e43f498b32054ad08987543cebfd"
     },
     "design-brief": {
-      "invocation_id": "white-theme-20261008-design-brief",
+      "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-design-brief",
       "outputs": [
         "docs/design-brief.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "3521e84c7f751759f784fe75a80c5fb5de692ad0c6b240ad09cce3835c547814",
+        "docs/prd.md": "0e68dc529902dd30367e07f50dad7cf77a051f6d5943c33d3809f482515c1f7b",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
-        "docs/user-journey.md": "f98fc89a61e7993d91562bb310cce2d3dbce198ec0a28debd9bab24d0fe3b8df",
-        "docs/screen-map.md": "7da958bfbdd8dbc363ff6e349f9fba7300b2a1c78f5daa135b5d411c07f0bb4c",
-        "docs/wireframes.md": "840109cdfa49aa6c60aa4defcb4161b25e57eb9a20c48a32543b15cfb8a19b9b",
+        "docs/user-journey.md": "c59072492e4ca0eb46b0efd4bccf9b32b2e0a711c997d21bc1175dc9ea9ad5e9",
+        "docs/screen-map.md": "f9411130af8e831add03b119060e8dd078f5457898011f40c6dcaf176c81a588",
+        "docs/wireframes.md": "6a55b0d5863a64d8dbc680ff09fe1c22d42041bb7b1269aa201dc3ec4fc44d8f",
         "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b",
         "forge/runs/porcelain-stop-20260924/scoped-override.json": "df8177ecc6e68c658ff5672b14e7def000ba241f9932639711885a4ba17afc74",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
@@ -11520,23 +11604,28 @@
         "forge/runs/clear-glass-navbar-20260926/scope.json": "1ecd5cba668f465c3e89a198ed8b9e62e9bcc4266e8b713f38d814cf3eb65a95",
         "forge/runs/glass-rim-20260926/scope.json": "dd29bb641922975a8af41782051645e3cf49d3f780df4e99684d84e49719cf8b",
         "forge/runs/navbar-refraction-20260926/scope.json": "b80bb023523a4eaf95752f92b2cd42347a84b8a66e30f5537a0347e802910efd",
-        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e"
-      }
+        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d"
+      },
+      "consumed_source_fragments": {},
+      "invoked_at": "2026-10-08T13:18:18.073057+00:00",
+      "owner_skill": "to-design-brief",
+      "skill_hash": "9f2f287e5b8ad4bcda534efa0b4a2e772d0f51e5ce178493936b2e6b7713b8af"
     },
     "architecture": {
-      "invocation_id": "white-theme-20261008-architecture",
+      "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-architecture-approved",
       "outputs": [
         "docs/architecture.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "3521e84c7f751759f784fe75a80c5fb5de692ad0c6b240ad09cce3835c547814",
+        "docs/prd.md": "0e68dc529902dd30367e07f50dad7cf77a051f6d5943c33d3809f482515c1f7b",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
-        "docs/user-journey.md": "f98fc89a61e7993d91562bb310cce2d3dbce198ec0a28debd9bab24d0fe3b8df",
-        "docs/screen-map.md": "7da958bfbdd8dbc363ff6e349f9fba7300b2a1c78f5daa135b5d411c07f0bb4c",
-        "docs/wireframes.md": "840109cdfa49aa6c60aa4defcb4161b25e57eb9a20c48a32543b15cfb8a19b9b",
-        "docs/design-brief.md": "99fb74b62c8396da762bd41ec2f4e009be13c0e6712bf30279c97a5dddf26d56",
+        "docs/user-journey.md": "c59072492e4ca0eb46b0efd4bccf9b32b2e0a711c997d21bc1175dc9ea9ad5e9",
+        "docs/screen-map.md": "f9411130af8e831add03b119060e8dd078f5457898011f40c6dcaf176c81a588",
+        "docs/wireframes.md": "6a55b0d5863a64d8dbc680ff09fe1c22d42041bb7b1269aa201dc3ec4fc44d8f",
+        "docs/design-brief.md": "3b0a8a5f8c0c6f2cb9da1c6d3dcc1b6e657b373a5d9106c4ac8b827020514a82",
         "docs/model-settings.md": "caa4571a344f32c74fea04822b0a2435ad86e2f40efa1215c3b4b8cc75275d7b",
         "forge/runs/claude-signin-20260922/source-review.json": "ad878d853b9c6f30da817167e1db6dffaad9c2c2863354ad3331294d7b269def",
         "forge/runs/sound-media-playback-20260923/scope.json": "7a5aa70bf52fa77a4dea9e39e5a49453c6be40c5b1a347632f4da4f5294455a0",
@@ -11562,24 +11651,29 @@
         "forge/runs/glass-rim-20260926/scope.json": "dd29bb641922975a8af41782051645e3cf49d3f780df4e99684d84e49719cf8b",
         "forge/runs/navbar-refraction-20260926/scope.json": "b80bb023523a4eaf95752f92b2cd42347a84b8a66e30f5537a0347e802910efd",
         "forge/runs/gpt-6-1-sol-20260930/scope.json": "fb82662f17f70537117703d4fcc7c91b98b005fa191176fd95b3cd0effb75c42",
-        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e"
-      }
+        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d"
+      },
+      "consumed_source_fragments": {},
+      "invoked_at": "2026-10-08T13:18:18.608024+00:00",
+      "owner_skill": "to-architecture",
+      "skill_hash": "7856ccf9c3bd9cff49faca0af44759e0d60fc50b305b6cfdb67393d9f3a6a00f"
     },
     "dod-evals": {
-      "invocation_id": "white-theme-20261008-dod-evals",
+      "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-dod-evals-approved",
       "outputs": [
         "docs/dod-evals.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "3521e84c7f751759f784fe75a80c5fb5de692ad0c6b240ad09cce3835c547814",
+        "docs/prd.md": "0e68dc529902dd30367e07f50dad7cf77a051f6d5943c33d3809f482515c1f7b",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
-        "docs/user-journey.md": "f98fc89a61e7993d91562bb310cce2d3dbce198ec0a28debd9bab24d0fe3b8df",
-        "docs/screen-map.md": "7da958bfbdd8dbc363ff6e349f9fba7300b2a1c78f5daa135b5d411c07f0bb4c",
-        "docs/wireframes.md": "840109cdfa49aa6c60aa4defcb4161b25e57eb9a20c48a32543b15cfb8a19b9b",
-        "docs/design-brief.md": "99fb74b62c8396da762bd41ec2f4e009be13c0e6712bf30279c97a5dddf26d56",
-        "docs/architecture.md": "f0e5910094a9ee8b0ec57b4dad15f79a44d0a44f3ae64c55900678cc9ef78ebd",
+        "docs/user-journey.md": "c59072492e4ca0eb46b0efd4bccf9b32b2e0a711c997d21bc1175dc9ea9ad5e9",
+        "docs/screen-map.md": "f9411130af8e831add03b119060e8dd078f5457898011f40c6dcaf176c81a588",
+        "docs/wireframes.md": "6a55b0d5863a64d8dbc680ff09fe1c22d42041bb7b1269aa201dc3ec4fc44d8f",
+        "docs/design-brief.md": "3b0a8a5f8c0c6f2cb9da1c6d3dcc1b6e657b373a5d9106c4ac8b827020514a82",
+        "docs/architecture.md": "de94ca48ca6e4b2f93ff4f875725c790c91fac6a2f4a08e0e3d8648529f5c641",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e",
@@ -11598,24 +11692,29 @@
         "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
         "forge/runs/clear-glass-navbar-20260926/scope.json": "1ecd5cba668f465c3e89a198ed8b9e62e9bcc4266e8b713f38d814cf3eb65a95",
         "forge/runs/glass-rim-20260926/scope.json": "dd29bb641922975a8af41782051645e3cf49d3f780df4e99684d84e49719cf8b",
-        "forge/runs/navbar-refraction-20260926/scope.json": "b80bb023523a4eaf95752f92b2cd42347a84b8a66e30f5537a0347e802910efd"
-      }
+        "forge/runs/navbar-refraction-20260926/scope.json": "b80bb023523a4eaf95752f92b2cd42347a84b8a66e30f5537a0347e802910efd",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d"
+      },
+      "consumed_source_fragments": {},
+      "invoked_at": "2026-10-08T13:18:19.168275+00:00",
+      "owner_skill": "to-dod-evals",
+      "skill_hash": "238d61ce1f4157cb41e8ddf6946e6ee812c254151b3c27fbbc572fae7034c4e6"
     },
     "qa-checklist": {
-      "invocation_id": "white-theme-20261008-qa-checklist",
+      "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-qa-checklist-approved",
       "outputs": [
         "docs/qa-checklist.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "3521e84c7f751759f784fe75a80c5fb5de692ad0c6b240ad09cce3835c547814",
+        "docs/prd.md": "0e68dc529902dd30367e07f50dad7cf77a051f6d5943c33d3809f482515c1f7b",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
-        "docs/user-journey.md": "f98fc89a61e7993d91562bb310cce2d3dbce198ec0a28debd9bab24d0fe3b8df",
-        "docs/screen-map.md": "7da958bfbdd8dbc363ff6e349f9fba7300b2a1c78f5daa135b5d411c07f0bb4c",
-        "docs/wireframes.md": "840109cdfa49aa6c60aa4defcb4161b25e57eb9a20c48a32543b15cfb8a19b9b",
-        "docs/design-brief.md": "99fb74b62c8396da762bd41ec2f4e009be13c0e6712bf30279c97a5dddf26d56",
-        "docs/architecture.md": "f0e5910094a9ee8b0ec57b4dad15f79a44d0a44f3ae64c55900678cc9ef78ebd",
+        "docs/user-journey.md": "c59072492e4ca0eb46b0efd4bccf9b32b2e0a711c997d21bc1175dc9ea9ad5e9",
+        "docs/screen-map.md": "f9411130af8e831add03b119060e8dd078f5457898011f40c6dcaf176c81a588",
+        "docs/wireframes.md": "6a55b0d5863a64d8dbc680ff09fe1c22d42041bb7b1269aa201dc3ec4fc44d8f",
+        "docs/design-brief.md": "3b0a8a5f8c0c6f2cb9da1c6d3dcc1b6e657b373a5d9106c4ac8b827020514a82",
+        "docs/architecture.md": "de94ca48ca6e4b2f93ff4f875725c790c91fac6a2f4a08e0e3d8648529f5c641",
         "docs/dod-evals.md": "c31804e680531cad85e2441045ca859f3424886989f9be57e49c0fdb8afa42fe",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
@@ -11647,26 +11746,31 @@
         "forge/runs/navbar-refraction-20260926/scope.json": "b80bb023523a4eaf95752f92b2cd42347a84b8a66e30f5537a0347e802910efd",
         "forge/runs/navbar-refraction-20260926/verification.json": "266314b430e9b090cda22eb38af6c69e85f4160f5424e43972fdb1d357a2b264",
         "forge/runs/gpt-6-1-sol-20260930/scope.json": "fb82662f17f70537117703d4fcc7c91b98b005fa191176fd95b3cd0effb75c42",
-        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e"
-      }
+        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d"
+      },
+      "consumed_source_fragments": {},
+      "invoked_at": "2026-10-08T13:18:19.769378+00:00",
+      "owner_skill": "to-qa-checklist",
+      "skill_hash": "d26aee0c53d9d96fde6ee342489b63d994d16cf10a84e89a565a87b7b7bd13b1"
     },
     "development-plan": {
-      "invocation_id": "white-theme-20261008-development-plan",
+      "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-development-plan",
       "outputs": [
         "docs/development-plan.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "3521e84c7f751759f784fe75a80c5fb5de692ad0c6b240ad09cce3835c547814",
+        "docs/prd.md": "0e68dc529902dd30367e07f50dad7cf77a051f6d5943c33d3809f482515c1f7b",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
-        "docs/user-journey.md": "f98fc89a61e7993d91562bb310cce2d3dbce198ec0a28debd9bab24d0fe3b8df",
-        "docs/screen-map.md": "7da958bfbdd8dbc363ff6e349f9fba7300b2a1c78f5daa135b5d411c07f0bb4c",
-        "docs/wireframes.md": "840109cdfa49aa6c60aa4defcb4161b25e57eb9a20c48a32543b15cfb8a19b9b",
-        "docs/design-brief.md": "99fb74b62c8396da762bd41ec2f4e009be13c0e6712bf30279c97a5dddf26d56",
-        "docs/architecture.md": "f0e5910094a9ee8b0ec57b4dad15f79a44d0a44f3ae64c55900678cc9ef78ebd",
+        "docs/user-journey.md": "c59072492e4ca0eb46b0efd4bccf9b32b2e0a711c997d21bc1175dc9ea9ad5e9",
+        "docs/screen-map.md": "f9411130af8e831add03b119060e8dd078f5457898011f40c6dcaf176c81a588",
+        "docs/wireframes.md": "6a55b0d5863a64d8dbc680ff09fe1c22d42041bb7b1269aa201dc3ec4fc44d8f",
+        "docs/design-brief.md": "3b0a8a5f8c0c6f2cb9da1c6d3dcc1b6e657b373a5d9106c4ac8b827020514a82",
+        "docs/architecture.md": "de94ca48ca6e4b2f93ff4f875725c790c91fac6a2f4a08e0e3d8648529f5c641",
         "docs/dod-evals.md": "c31804e680531cad85e2441045ca859f3424886989f9be57e49c0fdb8afa42fe",
-        "docs/qa-checklist.md": "82cdb9ba553b2c7ca3599bb6c03162d8941c9c0c6d9a022875e6892056c3df21",
+        "docs/qa-checklist.md": "cd4662a809a9d748d912bdd79a5c841eff1c79ff5d406d64cb4b7a2cc2c9e992",
         "docs/model-settings.md": "caa4571a344f32c74fea04822b0a2435ad86e2f40efa1215c3b4b8cc75275d7b",
         "package.json": "d74c25d2b4d04b4fc3f2f51c333a2333b8f64efa62ed254220e967b5c3ca764c",
         "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318",
@@ -11700,8 +11804,13 @@
         "forge/runs/navbar-refraction-20260926/scope.json": "b80bb023523a4eaf95752f92b2cd42347a84b8a66e30f5537a0347e802910efd",
         "forge/runs/navbar-refraction-20260926/verification.json": "266314b430e9b090cda22eb38af6c69e85f4160f5424e43972fdb1d357a2b264",
         "forge/runs/gpt-6-1-sol-20260930/scope.json": "fb82662f17f70537117703d4fcc7c91b98b005fa191176fd95b3cd0effb75c42",
-        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e"
-      }
+        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e",
+        "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d"
+      },
+      "consumed_source_fragments": {},
+      "invoked_at": "2026-10-08T13:18:20.770000+00:00",
+      "owner_skill": "to-development-plan",
+      "skill_hash": "9ba73dec6c88af35ddd2d8d0ef35fc8d239548209f26172770f9ab4b350362ec"
     }
   },
   "prototype_candidate_history": [],
@@ -49327,6 +49436,126 @@
       "artifact": "development-plan",
       "previous_content_hash": "36cb91d058920882ed770ba6db343be602523b28270799a4f616aecc823108cd",
       "recorded_at": "2026-09-26T19:44:47.873401+00:00"
+    },
+    {
+      "event": "scoped_owner_reconciliation",
+      "node": "product-idea",
+      "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-product-idea",
+      "recorded_at": "2026-10-08T13:18:15.002831+00:00",
+      "superseded_metadata": {
+        "path": "forge/runs/glass-chat-controls-20261008/sdd-product-idea-superseded-metadata.json",
+        "content_hash": "d8052277f675a1621c9c855af630fffd8748ade9bc9975fba3f61babf7b9e109"
+      }
+    },
+    {
+      "event": "scoped_owner_reconciliation",
+      "node": "prd",
+      "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-prd",
+      "recorded_at": "2026-10-08T13:18:15.218075+00:00",
+      "superseded_metadata": {
+        "path": "forge/runs/glass-chat-controls-20261008/sdd-prd-superseded-metadata.json",
+        "content_hash": "02ab1b44253969289cc0ccb33e483abe9029172ad02181cc480a8aaa756fc81f"
+      }
+    },
+    {
+      "event": "scoped_owner_reconciliation",
+      "node": "project-context-bundle",
+      "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-project-context-bundle",
+      "recorded_at": "2026-10-08T13:18:15.646397+00:00",
+      "superseded_metadata": {
+        "path": "forge/runs/glass-chat-controls-20261008/sdd-project-context-bundle-superseded-metadata.json",
+        "content_hash": "d93cad6b59b7a96a2fe9e4bed102122e82cd72fd04c8a0e6ce901570b944fb81"
+      }
+    },
+    {
+      "event": "scoped_owner_reconciliation",
+      "node": "guardrails",
+      "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-guardrails",
+      "recorded_at": "2026-10-08T13:18:16.088276+00:00",
+      "superseded_metadata": {
+        "path": "forge/runs/glass-chat-controls-20261008/sdd-guardrails-superseded-metadata.json",
+        "content_hash": "70f96510b27cd457ec15f182a845b83d4c31dad39c75caa04b37a14ee14acb35"
+      }
+    },
+    {
+      "event": "scoped_owner_reconciliation",
+      "node": "user-journey",
+      "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-user-journey",
+      "recorded_at": "2026-10-08T13:18:16.548546+00:00",
+      "superseded_metadata": {
+        "path": "forge/runs/glass-chat-controls-20261008/sdd-user-journey-superseded-metadata.json",
+        "content_hash": "13dc8b2bef01d3adec2cf5ca14828ba17244b40e07d30d7c755c6fae53d85011"
+      }
+    },
+    {
+      "event": "scoped_owner_reconciliation",
+      "node": "screen-map",
+      "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-screen-map",
+      "recorded_at": "2026-10-08T13:18:17.035569+00:00",
+      "superseded_metadata": {
+        "path": "forge/runs/glass-chat-controls-20261008/sdd-screen-map-superseded-metadata.json",
+        "content_hash": "56f3b5019793b1e55929c748f2b7c544572548bc43da5628348513be5cb20ca3"
+      }
+    },
+    {
+      "event": "scoped_owner_reconciliation",
+      "node": "wireframes",
+      "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-wireframes",
+      "recorded_at": "2026-10-08T13:18:17.552655+00:00",
+      "superseded_metadata": {
+        "path": "forge/runs/glass-chat-controls-20261008/sdd-wireframes-superseded-metadata.json",
+        "content_hash": "47d5201ca5ad9554d4ad43cafa95e188ffa0a787458ab29644d690dd03403331"
+      }
+    },
+    {
+      "event": "scoped_owner_reconciliation",
+      "node": "design-brief",
+      "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-design-brief",
+      "recorded_at": "2026-10-08T13:18:18.073057+00:00",
+      "superseded_metadata": {
+        "path": "forge/runs/glass-chat-controls-20261008/sdd-design-brief-superseded-metadata.json",
+        "content_hash": "42e21e04d26cd7b37f375430a77be9eb3c8e68ad83969f5e5041fb17931c294a"
+      }
+    },
+    {
+      "event": "scoped_owner_reconciliation",
+      "node": "architecture-approved",
+      "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-architecture-approved",
+      "recorded_at": "2026-10-08T13:18:18.608024+00:00",
+      "superseded_metadata": {
+        "path": "forge/runs/glass-chat-controls-20261008/sdd-architecture-approved-superseded-metadata.json",
+        "content_hash": "1427afc3d4834bd3e0729674aaf47b0e2036e0e14b9e0aafbb2244f1638ba60a"
+      }
+    },
+    {
+      "event": "scoped_owner_reconciliation",
+      "node": "dod-evals-approved",
+      "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-dod-evals-approved",
+      "recorded_at": "2026-10-08T13:18:19.168275+00:00",
+      "superseded_metadata": {
+        "path": "forge/runs/glass-chat-controls-20261008/sdd-dod-evals-approved-superseded-metadata.json",
+        "content_hash": "1de9be4e74fe38be010780f21ea779799bad3da2a9778c5e880e531fc5fd3d8f"
+      }
+    },
+    {
+      "event": "scoped_owner_reconciliation",
+      "node": "qa-checklist-approved",
+      "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-qa-checklist-approved",
+      "recorded_at": "2026-10-08T13:18:19.769378+00:00",
+      "superseded_metadata": {
+        "path": "forge/runs/glass-chat-controls-20261008/sdd-qa-checklist-approved-superseded-metadata.json",
+        "content_hash": "25f75de0b2d80d413fdec15de4b1a38c979fd0f7383491a2984023655dbc8200"
+      }
+    },
+    {
+      "event": "scoped_owner_reconciliation",
+      "node": "development-plan",
+      "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-development-plan",
+      "recorded_at": "2026-10-08T13:18:20.770000+00:00",
+      "superseded_metadata": {
+        "path": "forge/runs/glass-chat-controls-20261008/sdd-development-plan-superseded-metadata.json",
+        "content_hash": "5b8bc275b8f2d0a8258b6e3d5e06ac834ae530978d4702ebaf08ab0e4465c5e5"
+      }
     }
   ],
   "input_requests": [],

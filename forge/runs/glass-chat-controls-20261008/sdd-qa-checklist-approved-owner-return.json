@@ -1,0 +1,20 @@
+{
+  "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-qa-checklist-approved",
+  "node": "qa-checklist-approved",
+  "returned_at": "2026-10-08T13:18:19.839656+00:00",
+  "outputs": {
+    "qa-checklist": {
+      "path": "docs/qa-checklist.md",
+      "content_hash": "cd4662a809a9d748d912bdd79a5c841eff1c79ff5d406d64cb4b7a2cc2c9e992",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "glass-controls-scoped-document-review",
+        "reviewed_at": "2026-10-08T13:18:19.809300+00:00",
+        "executor": "Codex inline to-qa-checklist",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      }
+    }
+  },
+  "evidence_limit": "Document definitions only; actual product checks belong to the root's separately inspected evidence."
+}

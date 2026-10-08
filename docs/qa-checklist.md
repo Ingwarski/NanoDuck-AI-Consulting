@@ -183,7 +183,7 @@ Extend QA-R17/R51/R67 with provider output containing a title longer than 280 ch
 
 ## Перевірка режиму читання — 2026-09-26
 
-Чинні перевірки S-02/UC-003/UC-004 доповнено: автоматичне згортання після complete; ручне відкриття/згортання із незмінною чернеткою та передбачуваним фокусом; незмінний вибраний розділ після completion; явний перехід у Outcome; normal-flow введення; ліва панель на 1280px та select на 320/390/768px без горизонтального переповнення; клавіші вгору/вниз для вертикальних вкладок; повторне відкриття завершеної консультації. `scripts/browser-check.mjs --reading-only` перевіряє справжній клієнт з ізольованими тестовими провайдерами. Реальний iPhone та користувацьке дослідження не перевірені; release_readiness: not_evaluated.
+Чинні перевірки S-02/UC-003/UC-004 доповнено: автоматичне згортання після complete; ручне відкриття/згортання із незмінною чернеткою та передбачуваним фокусом; незмінний вибраний розділ після completion; доступ до Outcome через чинні вкладки/select без окремої кнопки Read outcome; закріплене поле введення з білим матовим склом в обох темах; ліва панель на 1280px та select на 320/390/768px без горизонтального переповнення; клавіші вгору/вниз для вертикальних вкладок; повторне відкриття завершеної консультації. `scripts/browser-check.mjs --reading-only` перевіряє справжній клієнт з ізольованими тестовими провайдерами. Реальний iPhone та користувацьке дослідження не перевірені; release_readiness: not_evaluated.
 
 ## Isolated request and cache economy — 2026-09-26
 
@@ -271,3 +271,9 @@ Extend existing checks for the accepted scoped variance while retaining their fu
 | QA-H01/H03/H04/H06/H08 | Selected-state feedback, reversible switching, consistent navigation, recognizable choice and uncluttered reading. |
 
 Run the real shell through `scripts/browser-check.mjs --theme-only` and `scripts/browser-theme.mjs` with isolated synthetic records. Record engine, viewport, revision and actual observations separately. Scoped observations do not pass complete checks, physical-device coverage, representative-owner tasks or release gates; formal execution statuses remain unchanged.
+
+## Glass reading controls and sticky composer — 2026-10-08
+
+Extend existing QA-R13/QA-R14/QA-R15/QA-R35, QA-S02, QA-R40/QA-R41 and relevant QA-H03/H04/H08: verify removal of Read outcome; Outcome through existing tabs/select; completion collapse; explicit reopening/collapse with unchanged draft; hidden active input; Stop/Retry; sticky white matte composer in both themes; liquid-glass arrows and Continue conversation.
+
+Verify arrows do not overlap the composer or Continue conversation at narrow/wide widths and zoom. Each end jump leaves the corresponding content boundary visible below navigation and above the bottom overlay; arrow hiding/reappearance uses those same boundaries. Extend reading-mode and optical browser fixtures to cover every glass host, exclusion from sampling, unsampled input values, theme changes and synchronous privacy clearing. Preserve historical evidence; record new results separately without passing whole-product or representative-user gates. This owner prepares definitions and does not manufacture execution results.

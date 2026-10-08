@@ -3,7 +3,7 @@ const {chromium,firefox,webkit}=await import(pathToFileURL(`${process.cwd()}/nod
 for(const[name,engine]of Object.entries({chromium,firefox,webkit})){
 const browser=await engine.launch(),page=await browser.newPage({viewport:{width:1280,height:800}});
 await page.setContent(`<style>${css}#main{margin:0;width:100%;height:1600px;display:flex;align-items:stretch}.stripe{width:10%;min-width:0;overflow:hidden;height:1600px} .stripe p{margin-top:18px;font-size:25px}</style><header class="navbar"><button class="brand">NanoDuck</button><nav class="desktop-nav"><button>Discussion</button><button>Settings</button></nav></header><main id="main">${Array.from({length:10},(_,i)=>`<div class="stripe" style="background:${i%2?'#e5a728':'#167b80'}"><p>Live text ${i}</p></div>`).join('')}</main>`);
-await page.addScriptTag({content:js.replace('export function','function')+';window.lens=createNavbarGlass();'});await page.waitForTimeout(150);
+await page.addScriptTag({content:js.replaceAll('export function','function')+';window.lens=createNavbarGlass();'});await page.waitForTimeout(150);
 const first=await page.locator('.navbar-lens').evaluate(c=>Array.from(c.getContext('2d').getImageData(0,0,c.width,c.height).data));assert.ok(first.some((v,i)=>i%4===3&&v>0));
 assert.equal(await page.locator('.navbar-lens').evaluate(c=>c.getContext('2d').getImageData(Math.floor(c.width/2),Math.floor(c.height/2),1,1).data[3]),0);
 await page.screenshot({path:`output/playwright/${name}-refraction.png`});

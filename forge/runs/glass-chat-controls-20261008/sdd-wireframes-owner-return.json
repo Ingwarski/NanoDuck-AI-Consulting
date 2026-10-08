@@ -1,0 +1,20 @@
+{
+  "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-wireframes",
+  "node": "wireframes",
+  "returned_at": "2026-10-08T13:18:17.616775+00:00",
+  "outputs": {
+    "wireframes": {
+      "path": "docs/wireframes.md",
+      "content_hash": "6a55b0d5863a64d8dbc680ff09fe1c22d42041bb7b1269aa201dc3ec4fc44d8f",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "glass-controls-scoped-document-review",
+        "reviewed_at": "2026-10-08T13:18:17.587109+00:00",
+        "executor": "Codex inline to-wireframes",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      }
+    }
+  },
+  "evidence_limit": "Document definitions only; actual product checks belong to the root's separately inspected evidence."
+}

@@ -1,4 +1,4 @@
-import { createNavbarGlass } from "/client/navbar-glass.js";
+import { createLiquidGlass } from "/client/navbar-glass.js";
 import { createNotificationAudio } from "/client/notification-audio.js";
 import { parseMarkdown } from "/client/markdown.js";
 import { normalizeRefreshState, refreshStateKey, serializeRefreshState } from "/client/refresh-state.js";
@@ -7,7 +7,7 @@ const state = { composerCollapsed: false, readingStateKey: null, session: null, 
 const logoutPendingKey = "nanoduck-logout-pending-v1";
 const activeRequests = new Set();
 let privacyLocked = false; let clientGeneration = 0; let initializing = true;
-const navbarGlass = createNavbarGlass({ allowed: () => !privacyLocked && Boolean(state.session?.authenticated) });
+const liquidGlass = createLiquidGlass({ allowed: () => !privacyLocked && Boolean(state.session?.authenticated) });
 const $ = selector => document.querySelector(selector);
 const roleInitials = { owner: "I", "Head Consultant": "HC", "Strategy Consultant": "SC", "Finance Consultant": "FC", "Operations Consultant": "OC", "Sales Consultant": "SL", "Marketing Consultant": "MC", "Product Consultant": "PC", "Spiritual Consultant": "SP", Psychotherapist: "PT", "Risk Consultant": "RC", Critic: "CR", System: "•" };
 const displayRole = role => role === "owner" ? "You" : role;
@@ -151,7 +151,7 @@ function updateSessionActions(busy = false) {
 }
 
 function clearPrivateClientContent() {
-  navbarGlass.clear();
+  liquidGlass.clear();
   clientGeneration++;
   for (const controller of activeRequests) controller.abort();
   activeRequests.clear(); stopPolling(); releaseVoice();
@@ -666,11 +666,11 @@ function renderRunControls() {
   const moveFocus = active && !composer.hidden && (composer.contains(document.activeElement) || document.activeElement === document.body);
   composer.hidden = active || state.composerCollapsed;
   $("#reading-actions").hidden = active || !state.composerCollapsed;
-  $("#read-outcome").hidden = state.run?.status !== "complete" || state.tab === "outcome";
   $("#expand-composer").setAttribute("aria-expanded", String(!composer.hidden));
   $(".topic").dataset.active = String(active);
   $("#stop").hidden = !active; $("#stop").disabled = state.stopping;
   if (moveFocus) $("#run-status").focus({ preventScroll: true });
+  scheduleChatArrows();
 }
 async function stop() {
   if (!state.conversation || state.run?.status !== "active" || state.stopping) return;
@@ -919,12 +919,41 @@ $("#expand-composer").addEventListener("click", () => { state.composerCollapsed 
 $("#collapse-composer").addEventListener("click", () => { renderRunControls(); state.composerCollapsed = true; renderRunControls(); $("#expand-composer").focus({ preventScroll: true }); });
 const chatScrollPanel = () => $(state.tab === "discussion" ? "#thread" : `#${state.tab}`);
 const chatTopOffset = () => matchMedia("(min-width:1100px)").matches ? 110 : 100 + $(".discussion-header").getBoundingClientRect().height;
+function chatViewport() {
+  const viewport = window.visualViewport;
+  // Pinch zoom must not move the prompt as if an on-screen keyboard opened.
+  const keyboardViewport = viewport && Math.abs(viewport.scale - 1) < .01;
+  return { bottom: keyboardViewport ? Math.min(innerHeight, viewport.offsetTop + viewport.height) : innerHeight, height: keyboardViewport ? viewport.height : innerHeight };
+}
+function chatContentBottom() {
+  let bottom = chatViewport().bottom;
+  for (const selector of ["#composer", "#reading-actions"]) {
+    const overlay = $(selector);
+    if (overlay.hidden || !overlay.getClientRects().length) continue;
+    const bounds = overlay.getBoundingClientRect();
+    if (bounds.bottom > 0 && bounds.top < bottom) bottom = Math.min(bottom, bounds.top - 12);
+  }
+  return bottom;
+}
 function updateChatArrows() {
+  const viewport = chatViewport();
+  const root = document.documentElement;
+  const properties = {
+    "--prompt-keyboard-inset": `${Math.max(0, innerHeight - viewport.bottom)}px`,
+    "--prompt-viewport-height": `${viewport.height}px`,
+  };
+  for (const [name, value] of Object.entries(properties)) if (root.style.getPropertyValue(name) !== value) root.style.setProperty(name, value);
+  const bottom = chatContentBottom();
+  const clearance = `${Math.max(0, innerHeight - bottom)}px`;
+  if (root.style.getPropertyValue("--chat-bottom-clearance") !== clearance) {
+    root.style.setProperty("--chat-bottom-clearance", clearance);
+    liquidGlass.refresh();
+  }
   const panel = chatScrollPanel();
   const visible = !$("#discussion-page").hidden && panel && panel.getClientRects().length;
   const bounds = visible ? panel.getBoundingClientRect() : null;
   $("#chat-start").hidden = !bounds || scrollY <= 2 || bounds.top >= chatTopOffset() - 2;
-  $("#chat-end").hidden = !bounds || bounds.bottom <= innerHeight + 2 || scrollY + innerHeight >= document.documentElement.scrollHeight - 2;
+  $("#chat-end").hidden = !bounds || bounds.bottom <= bottom + 2 || scrollY + innerHeight >= document.documentElement.scrollHeight - 2;
 }
 let chatArrowFrame;
 function scheduleChatArrows() {
@@ -933,20 +962,22 @@ function scheduleChatArrows() {
 }
 window.addEventListener("scroll", scheduleChatArrows, { passive: true });
 window.addEventListener("resize", scheduleChatArrows);
-new ResizeObserver(scheduleChatArrows).observe($(".discussion-content"));
+window.visualViewport?.addEventListener("resize", scheduleChatArrows);
+window.visualViewport?.addEventListener("scroll", scheduleChatArrows);
+const chatLayoutObserver = new ResizeObserver(scheduleChatArrows);
+for (const selector of [".discussion-content", "#composer", "#reading-actions"]) chatLayoutObserver.observe($(selector));
 new MutationObserver(scheduleChatArrows).observe($("#discussion-page"), { subtree: true, childList: true });
 function jumpChat(end) {
   requestAnimationFrame(() => {
     const panel = chatScrollPanel();
     const behavior = matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth";
-    if (end) panel.scrollIntoView({ block: "end", behavior });
+    if (end) window.scrollTo({ top: Math.max(0, scrollY + panel.getBoundingClientRect().bottom - chatContentBottom()), behavior });
     else window.scrollTo({ top: Math.max(0, scrollY + panel.getBoundingClientRect().top - chatTopOffset()), behavior });
     scheduleChatArrows();
   });
 }
 $("#chat-start").addEventListener("click", () => jumpChat(false));
 $("#chat-end").addEventListener("click", () => jumpChat(true));
-$("#read-outcome").addEventListener("click", () => { setTab("outcome"); $("#outcome").scrollIntoView({ block: "start" }); });
 let panelUsageSignature;
 $("#usage-scope").addEventListener("change", () => void loadUsage());
 $("#usage-refresh").addEventListener("click", () => void loadUsage());

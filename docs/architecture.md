@@ -199,7 +199,7 @@ Provider-normalized source titles and supported-claim text use the same 16 MiB p
 
 ## Реалізація режиму читання — 2026-09-26
 
-Клієнт відокремлює composerCollapsed від стану виконання. Зміна conversation/run/status задає початкове згортання для complete; повторний render не скасовує ручне розгортання. Чернетка залишається у незміненому textarea; зміна розділу доступна через спільний setTab для вкладок і select. CSS використовує дві колонки від 1100px та мобільний select нижче цього порога. Введення у звичайному потоці не перекриває фінал тексту. Серверні контракти, збереження та безпекові межі не змінюються. Погоджений режим читання замінює попередню вимогу автоматично відновлювати composer після completion.
+Клієнт відокремлює composerCollapsed від стану виконання. Зміна conversation/run/status задає початкове згортання для complete; повторний render не скасовує ручне розгортання. Чернетка залишається у незміненому textarea; зміна розділу доступна через спільний setTab для вкладок і select. CSS використовує дві колонки від 1100px та мобільний select нижче цього порога. Погоджена зміна від 8 жовтня 2026 року закріплює відкрите поле введення внизу; клієнт враховує висоту видимого поля або кнопки Continue conversation, щоб останній текст залишався доступним над ними. Серверні контракти, збереження та безпекові межі не змінюються. Погоджений режим читання замінює попередню вимогу автоматично відновлювати composer після completion.
 
 ## Isolated request and cache economy — 2026-09-26
 
@@ -260,3 +260,9 @@ The browser shell owns appearance independently of authentication and accepted-r
 Both menu buttons synchronize `aria-checked`. Same-origin storage events synchronize other tabs, including reset to dark after clearing the key. Select the existing logo/favicon variant for the active theme. The glass observer rerenders on root theme changes while preserving privacy clearing and forced-colour/reduced-transparency fallbacks.
 
 The key contains only a public appearance enum, with no conversation, draft, identity, session, credentials, provider choice or private preference. It is independent of the encrypted server store. Theme changes cause no API mutation, inference, consultation restart or accepted-snapshot change. Existing security enforcement remains unchanged.
+
+## Glass reading controls and sticky composer — 2026-10-08
+
+Extend the local renderer from navigation to `#chat-start`, `#chat-end` and `#expand-composer`. Each host retains native controls and disposable local pixels. Exclude all glass hosts from scene sampling to prevent recursive capture; never sample input values. Retain synchronous clearing for every host on privacy lock, logout and visibility transitions, and existing reduced-transparency/forced-colour fallbacks.
+
+The client measures the visible composer or Continue conversation overlay and uses the remaining reading region for arrow placement, bottom-boundary visibility and end jumps. Recompute after collapse/expansion, run/view changes, content updates and viewport changes. Preserve drafts, selected view and accepted work. The composer’s white matte surface applies in both themes. No server contract, private storage, provider call or session behavior changes.

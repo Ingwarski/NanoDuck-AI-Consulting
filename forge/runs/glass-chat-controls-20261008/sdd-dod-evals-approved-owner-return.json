@@ -1,0 +1,20 @@
+{
+  "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-dod-evals-approved",
+  "node": "dod-evals-approved",
+  "returned_at": "2026-10-08T13:18:19.232496+00:00",
+  "outputs": {
+    "dod-evals": {
+      "path": "docs/dod-evals.md",
+      "content_hash": "c31804e680531cad85e2441045ca859f3424886989f9be57e49c0fdb8afa42fe",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "glass-controls-scoped-document-review",
+        "reviewed_at": "2026-10-08T13:18:19.202932+00:00",
+        "executor": "Codex inline to-dod-evals",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      }
+    }
+  },
+  "evidence_limit": "Document definitions only; actual product checks belong to the root's separately inspected evidence."
+}

@@ -174,7 +174,7 @@ try {
       await page.locator('#menu').click();
       await page.locator('#mobile-nav [data-nav="discussion"]').click();
       await page.locator('#consultation-view').selectOption('discussion');
-      await page.locator('#expand-composer').click();
+      if (await page.locator('#expand-composer').isVisible()) await page.locator('#expand-composer').click();
       await page.locator('#message').waitFor({ state: 'visible' });
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true, `${name} mobile overflow`);
       await page.locator('#voice').click();
