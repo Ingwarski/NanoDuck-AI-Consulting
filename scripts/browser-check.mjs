@@ -1,4 +1,5 @@
 import { verifyReadingMode } from './browser-reading-mode.mjs';
+import { verifyTheme } from './browser-theme.mjs';
 import { verifyProgressRecovery } from './browser-progress-recovery.mjs';
 import { verifyUsage } from './browser-usage.mjs';
 import assert from 'node:assert/strict';
@@ -96,6 +97,11 @@ try {
       await page.locator('#consent-check').check();
       await page.locator('#consent-button').click();
       await page.locator('#app').waitFor({ state: 'visible' });
+      if (process.argv.includes('--theme-only')) {
+        await phase(`${name} white theme`, () => verifyTheme(page, name, root));
+        assert.deepEqual(errors, [], `${name} uncaught browser errors`);
+        await context.close(); continue;
+      }
       if (process.argv.includes('--reading-regression')) {
         await verifyReadingMode(page, name, root);
         await phase(`${name} active discussion`, () => verifyActiveDiscussion(page, name, root));
@@ -131,6 +137,7 @@ try {
         await context.close();
         continue;
       }
+      if (!process.argv.includes('--model-settings-only')) await phase(`${name} white theme`, () => verifyTheme(page, name, root));
       await phase(`${name} independent model settings`, () => verifyModelSettings(page, name));
       if (process.argv.includes('--model-settings-only')) {
         assert.deepEqual(errors, [], `${name} uncaught browser errors`);

@@ -106,6 +106,7 @@ export function createNavbarGlass({ allowed = () => true } = {}) {
   // Privacy transitions still call clear() synchronously through the app.
   const observer=new MutationObserver(()=>{if (!allowed()) clear(); else schedule();});
   for(const root of document.querySelectorAll('.workspace-actions,#main')) observer.observe(root,{subtree:true,childList:true,characterData:true,attributes:true});
+  observer.observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
   new ResizeObserver(schedule).observe(bar);
   document.fonts?.ready.then(schedule);schedule();
   return { clear, refresh:schedule };

@@ -252,3 +252,11 @@ User-requested glass edge refinement: retain the clear navbar centre and add a p
 ## Navbar refraction renderer — 2026-09-26
 
 User-authorized liquid-glass renderer replaces the rejected metallic bevel. A local canvas paints only the narrow strip from visible application text, solid surfaces and same-origin images, then displaces pixels along a rounded-rectangle optical edge. The centre remains native and clear; controls remain native and sharp. No external capture service, third-party runtime, stored pixels or transmitted content. Ignore inputs and hidden elements. Clear pixels synchronously on privacy lock/logout and on visibility changes; stop rendering for reduced transparency or forced colors. Update on scroll, resize and observed content changes, not a perpetual loop. CSS gradients and arbitrary embedded media are not part of the sampling contract; the application text/solid surface layout is. Verify actual pixel deformation and privacy clearing in all engines, not merely CSS parsing.
+
+## White theme — 2026-10-08
+
+The browser shell owns appearance independently of authentication and accepted-run settings. `src/client/theme.js` runs before styles paint, validates only `dark`/`light` from browser-local key `nanoduck-color-theme-v1`, and applies root `data-theme` and the matching colour scheme. Missing, cleared, invalid or unreadable storage uses dark; write failure leaves the current page’s switch functional.
+
+Both menu buttons synchronize `aria-checked`. Same-origin storage events synchronize other tabs, including reset to dark after clearing the key. Select the existing logo/favicon variant for the active theme. The glass observer rerenders on root theme changes while preserving privacy clearing and forced-colour/reduced-transparency fallbacks.
+
+The key contains only a public appearance enum, with no conversation, draft, identity, session, credentials, provider choice or private preference. It is independent of the encrypted server store. Theme changes cause no API mutation, inference, consultation restart or accepted-snapshot change. Existing security enforcement remains unchanged.

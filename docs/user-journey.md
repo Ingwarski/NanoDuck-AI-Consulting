@@ -77,3 +77,7 @@ U-13 reasoning attribution follow-up: Usage model rows and call timeline show th
 ## U-13 activity counts follow-up — 2026-09-26
 
 U-13 activity counts follow-up: show five metrics in Usage: consultant assignments excluding Head/Critic, issued review rounds, issued correction orders, research provider-call attempts including retries, and reported search/open/find web actions. Read team counts from saved parallel ledgers and research counts from usage telemetry. Scope follows the selected conversation/all view. Aggregate known values and mark partial coverage; missing older data is never zero. Preserve privacy and active consultations.
+
+## White theme — 2026-10-08
+
+J-07 / UC-005 / JOB-003 additionally lets the owner choose White theme directly from navigation, including before signing in. The appearance changes immediately, its visible state confirms the choice, and switching again restores dark. Returning to that browser restores the choice when storage is available; a storage restriction preserves the current page’s working switch. Continue reading or consulting without losing a draft, leaving the current surface or altering accepted work. Trace: FR-08.1/FR-08.3.

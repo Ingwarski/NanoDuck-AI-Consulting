@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "event": "accepted_scoped_baseline_override",
+  "actor": "user",
+  "approved_at": "2026-10-08T11:42:22+00:00",
+  "timestamp_basis": "Tool-recording time in this active task; original message transport timestamp unavailable.",
+  "prompt_id": "white-theme-20261008",
+  "request": "add white theme with a switch in the menu.",
+  "baseline_id": "nanoduck-electric-a-v8-20260914",
+  "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
+  "tree_hash": "1de020dcfe48f3feb80db0e58ba911b821825b48730d32c72d9518ad512eb0d9",
+  "scope": "Add an optional white appearance and a White theme switch in desktop navigation and the mobile menu. Preserve the initial dark appearance, Electric geometry, original logo variants, P5 Stop and liquid-glass edge refraction. Store only the public dark/light enum per browser; switch immediately without affecting conversations, drafts, provider settings or active consultation snapshots.",
+  "evidence_limit": "Explicit scope and visual-variance authority only. Frozen candidates and original approval remain unchanged; this is not whole-product completion, accessibility certification or successful live provider execution. Existing unit-contract metadata migration remains a separate validation limitation."
+}

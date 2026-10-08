@@ -256,3 +256,18 @@ Glass rim refinement verified with production markup/CSS in isolated Chromium, F
 User-authorized liquid-glass renderer replaces the rejected metallic bevel. A local canvas paints only the narrow strip from visible application text, solid surfaces and same-origin images, then displaces pixels along a rounded-rectangle optical edge. The centre remains native and clear; controls remain native and sharp. No external capture service, third-party runtime, stored pixels or transmitted content. Ignore inputs and hidden elements. Clear pixels synchronously on privacy lock/logout and on visibility changes; stop rendering for reduced transparency or forced colors. Update on scroll, resize and observed content changes, not a perpetual loop. CSS gradients and arbitrary embedded media are not part of the sampling contract; the application text/solid surface layout is. Verify actual pixel deformation and privacy clearing in all engines, not merely CSS parsing.
 
 Navbar refraction verified: 227 tests passed, two platform-specific skips; integrated Usage flow and dedicated optical fixture pass in Chromium, Firefox and WebKit. Pixel output changes with content and scroll, centre remains transparent, controls clickable, mobile layout intact, and explicit privacy clearing removes pixels synchronously. [Evidence](../forge/runs/navbar-refraction-20260926/verification.json).
+
+## White theme — 2026-10-08
+
+Extend existing checks for the accepted scoped variance while retaining their full original criteria and IDs.
+
+| Existing check | Additional appearance scope |
+|---|---|
+| QA-R33 / QA-S09 | Reach White theme in desktop navigation and the open mobile menu; retain visible Login/Logoff with the disclosure closed. Verify name, switch role, selected state, keyboard activation and focus. |
+| QA-R35 | Dark default; immediate switching; valid saved choice before paint on reload; missing/invalid/cleared values; blocked storage; cross-tab synchronization; correct logo/favicon and both menu states. |
+| QA-R21 | Appearance changes preserve the same accepted run and immutable settings snapshot, plus an unsent draft. |
+| QA-R40 / QA-R41 | Readable text, roles, links, controls, focus and P5 Stop in both modes; 320px reflow, 200% text sizing, forced colours and reduced-transparency fallbacks. |
+| QA-S01/QA-S02/QA-S03/QA-S04/QA-S07 | Representative signed-out/consent, discussion, history, Settings, Usage and outcome appearances retain hierarchy and usable controls. |
+| QA-H01/H03/H04/H06/H08 | Selected-state feedback, reversible switching, consistent navigation, recognizable choice and uncluttered reading. |
+
+Run the real shell through `scripts/browser-check.mjs --theme-only` and `scripts/browser-theme.mjs` with isolated synthetic records. Record engine, viewport, revision and actual observations separately. Scoped observations do not pass complete checks, physical-device coverage, representative-owner tasks or release gates; formal execution statuses remain unchanged.

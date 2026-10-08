@@ -140,3 +140,7 @@ U-13 reasoning attribution follow-up: Usage model rows and call timeline show th
 ## U-13 activity counts follow-up — 2026-09-26
 
 U-13 activity counts follow-up: show five metrics in Usage: consultant assignments excluding Head/Critic, issued review rounds, issued correction orders, research provider-call attempts including retries, and reported search/open/find web actions. Read team counts from saved parallel ledgers and research counts from usage telemetry. Scope follows the selected conversation/all view. Aggregate known values and mark partial coverage; missing older data is never zero. Preserve privacy and active consultations.
+
+## White theme — 2026-10-08
+
+FR-08.1/FR-08.3 and J-07 add the appearance switch directly within desktop navigation and within S-09’s expanded mobile disclosure. ST-43/ST-44 retain their closed/open meanings. Dark and white are appearance variants of S-01–S-09 and their existing states, including signed-out and consent-pending entry; they add no route or state ID. Preserve the current surface, consultation and draft. Login/Logoff stays visible outside the mobile disclosure.

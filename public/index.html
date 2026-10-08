@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
   <meta name="referrer" content="no-referrer">
+  <script src="/client/theme.js"></script>
   <link rel="icon" href="/nanoduck.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/conversation-list.css">
@@ -20,6 +21,7 @@
     </button>
     <nav class="desktop-nav" aria-label="Main navigation">
       <button data-nav="discussion">Discussion</button><button data-nav="conversations">Conversations</button><button data-nav="settings">Settings</button>
+      <button type="button" class="theme-toggle" data-theme-toggle role="switch" aria-checked="false"><svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><span>White theme</span><span class="theme-track" aria-hidden="true"></span></button>
     </nav>
     <div class="navbar-actions">
       <button data-session-action class="session-action" disabled>Login</button>
@@ -27,6 +29,7 @@
     </div>
     <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden>
       <button data-nav="discussion">Discussion</button><button data-nav="conversations">Conversations</button><button data-nav="settings">Settings</button>
+      <button type="button" class="theme-toggle" data-theme-toggle role="switch" aria-checked="false"><svg class="theme-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg><span>White theme</span><span class="theme-track" aria-hidden="true"></span></button>
     </nav>
   </header>
   <div class="workspace-actions"><span id="workspace-title">Private consulting</span><button id="new-conversation" class="new-action">+ New</button></div>

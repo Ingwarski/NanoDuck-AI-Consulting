@@ -20,7 +20,7 @@
 .conversation-select-all input {
   inline-size: 18px;
   block-size: 18px;
-  accent-color: #3979e8;
+  accent-color: var(--conversation-accent, #3979e8);
 }
 
 .conversation-row {
@@ -33,7 +33,7 @@
 .conversation-summary { min-width: 0; cursor: pointer; }
 
 .conversation-summary:focus-visible {
-  outline: 3px solid #3979e8;
+  outline: 3px solid var(--conversation-focus, #3979e8);
   outline-offset: 6px;
   border-radius: 8px;
 }
