@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "event": "accepted_scoped_baseline_override",
+  "actor": "user",
+  "recorded_at": "2026-10-08T12:51:39.818410+00:00",
+  "timestamp_basis": "Tool-recording time; original message transport timestamp unavailable.",
+  "requests": [
+    "fix logo on white theme. it has to transparent, just like on black.",
+    "and menu boxes in the menu bar as well."
+  ],
+  "baseline_id": "nanoduck-electric-a-v8-20260914",
+  "scope": "White-theme logo and menu-bar buttons have transparent backgrounds, including hover and selected page. Current-page text uses a small underline; the switch track keeps its semantic checked state. Preserve dark appearance, button targets, mobile disclosure and glass renderer.",
+  "source_hashes": {
+    "public/styles.css": "fa203830bd2f5841521413d8cd514e4f039abaedd29b10b58b2dd76b64143cc3"
+  },
+  "verification": {
+    "theme_flow": "Passed in Chromium, Firefox and WebKit with isolated synthetic records.",
+    "final_public_header": "Transparent normal and hovered logo/navigation/session buttons verified in Chromium, Firefox and WebKit on the running app through separate anonymous browser profiles; 390px mobile bar and menu disclosure verified.",
+    "static_checks": "check-artifacts and git diff --check passed."
+  },
+  "limits": "No real private conversation or provider inference accessed. Existing SDD unit-metadata migration remains outside this visual correction."
+}

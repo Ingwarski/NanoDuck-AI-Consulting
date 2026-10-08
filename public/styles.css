@@ -113,9 +113,9 @@
   --glass-top-line: #ffffffcc;
   --glass-bottom-line: #7f93ac2b;
   --glass-label-shadow: 0 1px 2px #ffffffb3;
-  --glass-control: rgba(255, 255, 255, .76);
-  --glass-hover: rgba(225, 235, 250, .88);
-  --glass-selected: rgba(219, 232, 251, .92);
+  --glass-control: transparent;
+  --glass-hover: transparent;
+  --glass-selected: transparent;
   --conversation-accent: var(--blue);
   --conversation-focus: var(--blue-light);
   --switch-track: #7c8799;
@@ -239,6 +239,10 @@
 .navbar .desktop-nav button,.navbar .menu{background:var(--glass-control)}
 .navbar .desktop-nav button:hover,.navbar .menu:hover,.navbar .brand:hover{background:var(--glass-hover)}
 .navbar .desktop-nav button[aria-current=page]{background:var(--glass-selected)}
+:root[data-theme="light"] .navbar .desktop-nav button[aria-current=page]{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:7px}
+:root[data-theme="light"] .navbar .desktop-nav button:hover,:root[data-theme="light"] .navbar .menu:hover{color:var(--blue-light)}
+:root[data-theme="light"] .navbar .session-action{background:transparent;border-color:transparent;color:var(--blue-light)}
+:root[data-theme="light"] .navbar .session-action:hover{background:transparent;border-color:transparent;color:var(--blue-hover)}
 @media(prefers-reduced-transparency:reduce){.navbar{background:var(--surface)}.navbar-lens,.navbar::before{display:none}}
 @media(forced-colors:active){.navbar{background:Canvas;border:1px solid CanvasText;box-shadow:none}.navbar-lens,.navbar::before{display:none}.navbar button{text-shadow:none}}
 
@@ -263,8 +267,6 @@
 .theme-toggle[aria-checked="true"] .theme-track::before { transform: translateX(12px); }
 .mobile-nav .theme-toggle { justify-content: flex-start; width: 100%; padding: 10px 15px; font-size: 16px; border-top: 1px solid var(--line); border-radius: 0 0 10px 10px; }
 .mobile-nav .theme-toggle .theme-track { margin-left: auto; }
-:root[data-theme="light"] .navbar .brand { background: rgba(255,255,255,.92); }
-:root[data-theme="light"] .navbar .brand:hover { background: var(--raised); }
 :root[data-theme="light"] .sign-in-form input {
   min-height: 46px;
   padding: 9px 12px;
