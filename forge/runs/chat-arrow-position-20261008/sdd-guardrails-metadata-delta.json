@@ -1,0 +1,27 @@
+{
+  "recorded_at": "2026-10-08T13:50:39.938753+00:00",
+  "kind": "compact_owner_metadata_delta",
+  "prior_git_commit": "6d6478bba379bc47d7b39fce9bb52b43cd0c16cc",
+  "prior_manifest_path": "forge/sdd-manifest.json",
+  "artifacts": {
+    "guardrails": {
+      "owner_invocation_id": "glass-chat-controls-20261008-b72cd48cba57-guardrails",
+      "content_hash": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "glass-controls-scoped-document-review",
+        "reviewed_at": "2026-10-08T13:18:16.121359+00:00",
+        "executor": "Codex inline to-guardrails",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      },
+      "prior_dispatch_invocation_id": "glass-chat-controls-20261008-b72cd48cba57-guardrails",
+      "changed_source_hashes": {
+        "docs/prd.md": {
+          "before": "0e68dc529902dd30367e07f50dad7cf77a051f6d5943c33d3809f482515c1f7b",
+          "after": "0eee53c36dfac2a04f10a6f4fa08f97382b01852ba4bfe3b4626b7739900bbc3"
+        }
+      }
+    }
+  }
+}

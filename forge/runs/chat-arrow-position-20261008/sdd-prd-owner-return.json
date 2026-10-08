@@ -1,0 +1,20 @@
+{
+  "invocation_id": "chat-arrow-position-20261008-8c51b7b0934b-prd",
+  "node": "prd",
+  "returned_at": "2026-10-08T13:50:39.083800+00:00",
+  "outputs": {
+    "prd": {
+      "path": "docs/prd.md",
+      "content_hash": "0eee53c36dfac2a04f10a6f4fa08f97382b01852ba4bfe3b4626b7739900bbc3",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "arrow-position-scoped-document-review",
+        "reviewed_at": "2026-10-08T13:50:39.052444+00:00",
+        "executor": "Codex inline to-sdd-prd",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      }
+    }
+  },
+  "evidence_limit": "Document definitions only; actual product checks belong to the root's separately inspected evidence."
+}

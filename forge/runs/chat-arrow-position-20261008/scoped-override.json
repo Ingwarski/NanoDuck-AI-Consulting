@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "event": "accepted_scoped_baseline_override",
+  "actor": "user",
+  "approved_at": "2026-10-08T13:45:34.892459+00:00",
+  "timestamp_basis": "Tool-recording time in this active task; original message transport timestamp unavailable.",
+  "prompt_id": "chat-arrow-position-20261008",
+  "request": "why is the down button raised on the page? move it back where it was before.",
+  "baseline_id": "nanoduck-electric-a-v8-20260914",
+  "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
+  "tree_hash": "1de020dcfe48f3feb80db0e58ba911b821825b48730d32c72d9518ad512eb0d9",
+  "scope": "Restore the down arrow to its original fixed bottom-center position, 16px plus safe-area inset above the viewport bottom. Remove composer-height positioning. Preserve liquid glass, sticky prompt, readable-area end jumps and boundary hiding. This explicit placement correction supersedes earlier automatic clearance requirements for the down arrow.",
+  "evidence_limit": "Bounded user-authorized position correction only; no new whole-product approval or full-unit migration."
+}

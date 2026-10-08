@@ -52,7 +52,8 @@ export async function verifyReadingMode(page, name, root) {
     prompt: document.querySelector('#composer').getBoundingClientRect().top,
     promptBottom: document.querySelector('#composer').getBoundingClientRect().bottom,
   }));
-  assert.ok(geometry.arrow < geometry.prompt, 'Bottom arrow stays above the prompt');
+  assert.equal(geometry.arrow, 884, 'Bottom arrow stays 16px above the viewport bottom, independent of the prompt');
+  assert.equal(await page.locator('#chat-end').evaluate(el => getComputedStyle(el).color), 'rgb(25, 34, 48)', 'Down arrow remains legible over the white prompt');
   assert.ok(geometry.promptBottom <= 900 && geometry.promptBottom >= 880, 'Prompt is pinned near the viewport bottom');
   await page.locator('#chat-end').click();
   await page.waitForFunction(() => document.querySelector('#thread').getBoundingClientRect().bottom <= document.querySelector('#composer').getBoundingClientRect().top - 10);
@@ -82,6 +83,15 @@ export async function verifyReadingMode(page, name, root) {
     await page.setViewportSize({ width, height: 844 });
     await page.locator('#consultation-view').selectOption('discussion');
     assert.equal(await page.locator('#thread').isVisible(), true);
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await page.locator('#chat-end').waitFor({ state: 'visible' });
+    const controls = await page.evaluate(() => {
+      const arrow = document.querySelector('#chat-end').getBoundingClientRect();
+      const action = document.querySelector('#expand-composer').getBoundingClientRect();
+      return { bottom: arrow.bottom, separate: arrow.right <= action.left || arrow.left >= action.right || arrow.bottom <= action.top || arrow.top >= action.bottom };
+    });
+    assert.equal(controls.bottom, 828, `${width}px arrow retains its fixed bottom position`);
+    assert.ok(controls.separate, `${width}px Continue conversation stays clear of the restored down arrow`);
     await page.locator('#consultation-view').selectOption('outcome');
     assert.equal(await page.locator('#outcome').isVisible(), true);
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, `${width}px reflow`);

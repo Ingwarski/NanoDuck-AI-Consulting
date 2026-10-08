@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-08T13:52:32.810194+00:00",
+  "executor": "Codex with synthetic Playwright fixtures and independent read-only review",
+  "implementation_hashes": {
+    "public/styles.css": "a8148aa524c65cf5735e46a4612f2e02ec60635aa5247e69e96459935434394f",
+    "src/client/app.js": "64d160962cc27ca2f480e5a2a40232377e6b5b58b3a4440cc00b7f95b55533e6",
+    "scripts/browser-reading-mode.mjs": "ac0386299e342ac1037bedfd1fbe8953c085f3e7931ea328fbeea06a1ade512b"
+  },
+  "result": "passed",
+  "commands": [
+    "node scripts/browser-check.mjs --reading-only",
+    "npm run check",
+    "git diff --check"
+  ],
+  "browser_engines": [
+    "chromium",
+    "firefox",
+    "webkit"
+  ],
+  "checks": [
+    "Down arrow stays centered 16px above viewport bottom with composer open or closed",
+    "Continue conversation does not overlap the arrow at 320px/390px/768px",
+    "Arrow remains legible over white matte prompt",
+    "End jump, hide-at-boundary, liquid-glass host, draft, collapse and simulated keyboard checks remain passing"
+  ],
+  "tests": {
+    "passed": 230,
+    "skipped": 2,
+    "failed": 0
+  },
+  "server": "No restart or interaction with live consultation",
+  "sdd": "Owner reconciliation passed through approved QA; existing legacy unit-metadata migration_required retained",
+  "review": "No actionable new bugs found"
+}

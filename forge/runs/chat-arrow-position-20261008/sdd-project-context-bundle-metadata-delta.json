@@ -1,0 +1,54 @@
+{
+  "recorded_at": "2026-10-08T13:50:39.476337+00:00",
+  "kind": "compact_owner_metadata_delta",
+  "prior_git_commit": "6d6478bba379bc47d7b39fce9bb52b43cd0c16cc",
+  "prior_manifest_path": "forge/sdd-manifest.json",
+  "artifacts": {
+    "project-context": {
+      "owner_invocation_id": "glass-chat-controls-20261008-b72cd48cba57-project-context-bundle",
+      "content_hash": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "glass-controls-scoped-document-review",
+        "reviewed_at": "2026-10-08T13:18:15.681003+00:00",
+        "executor": "Codex inline to-project-context",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      },
+      "prior_dispatch_invocation_id": "glass-chat-controls-20261008-b72cd48cba57-project-context-bundle",
+      "changed_source_hashes": {
+        "docs/product-idea.md": {
+          "before": "f8ca34bbd71163f8cabe9ab2bd4806f34da28c3046c0b4e759489b80ce701c91",
+          "after": "46cb9eb7bd90b27fe34073ebfcc20b27b233804fe49e18a20c52be4c75b6be7f"
+        },
+        "docs/prd.md": {
+          "before": "0e68dc529902dd30367e07f50dad7cf77a051f6d5943c33d3809f482515c1f7b",
+          "after": "0eee53c36dfac2a04f10a6f4fa08f97382b01852ba4bfe3b4626b7739900bbc3"
+        }
+      }
+    },
+    "canonical-terms": {
+      "owner_invocation_id": "glass-chat-controls-20261008-b72cd48cba57-project-context-bundle",
+      "content_hash": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "glass-controls-scoped-document-review",
+        "reviewed_at": "2026-10-08T13:18:15.681154+00:00",
+        "executor": "Codex inline to-project-context",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      },
+      "prior_dispatch_invocation_id": "glass-chat-controls-20261008-b72cd48cba57-project-context-bundle",
+      "changed_source_hashes": {
+        "docs/product-idea.md": {
+          "before": "f8ca34bbd71163f8cabe9ab2bd4806f34da28c3046c0b4e759489b80ce701c91",
+          "after": "46cb9eb7bd90b27fe34073ebfcc20b27b233804fe49e18a20c52be4c75b6be7f"
+        },
+        "docs/prd.md": {
+          "before": "0e68dc529902dd30367e07f50dad7cf77a051f6d5943c33d3809f482515c1f7b",
+          "after": "0eee53c36dfac2a04f10a6f4fa08f97382b01852ba4bfe3b4626b7739900bbc3"
+        }
+      }
+    }
+  }
+}

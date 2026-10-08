@@ -1,0 +1,74 @@
+{
+  "result": "scoped_documents_reconciled_with_existing_unit_migration_limitation",
+  "recorded_at": "2026-10-08T13:50:45.455128+00:00",
+  "reports": [
+    {
+      "node": "product-idea",
+      "before": "passed",
+      "after": "passed"
+    },
+    {
+      "node": "prd",
+      "before": "passed",
+      "after": "passed"
+    },
+    {
+      "node": "project-context-bundle",
+      "before": "passed",
+      "after": "passed"
+    },
+    {
+      "node": "guardrails",
+      "before": "passed",
+      "after": "passed"
+    },
+    {
+      "node": "user-journey",
+      "before": "passed",
+      "after": "passed"
+    },
+    {
+      "node": "screen-map",
+      "before": "passed",
+      "after": "passed"
+    },
+    {
+      "node": "wireframes",
+      "before": "passed",
+      "after": "passed"
+    },
+    {
+      "node": "design-brief",
+      "before": "passed",
+      "after": "passed"
+    },
+    {
+      "node": "architecture-approved",
+      "before": "passed",
+      "after": "passed"
+    },
+    {
+      "node": "dod-evals-approved",
+      "before": "passed",
+      "after": "passed"
+    },
+    {
+      "node": "qa-checklist-approved",
+      "before": "passed",
+      "after": "passed"
+    },
+    {
+      "node": "development-plan",
+      "before": "passed",
+      "after": "migration_required"
+    }
+  ],
+  "scope_receipt": {
+    "path": "forge/runs/chat-arrow-position-20261008/scoped-override.json",
+    "content_hash": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a"
+  },
+  "legacy_unit_migration": "Not performed. The actual development-plan after report remains migration_required.",
+  "runtime_execution": "Not run or reconstructed by this helper",
+  "frozen_baseline": "Preserved",
+  "prior_git_commit": "6d6478bba379bc47d7b39fce9bb52b43cd0c16cc"
+}

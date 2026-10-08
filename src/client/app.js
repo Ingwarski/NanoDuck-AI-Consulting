@@ -944,11 +944,6 @@ function updateChatArrows() {
   };
   for (const [name, value] of Object.entries(properties)) if (root.style.getPropertyValue(name) !== value) root.style.setProperty(name, value);
   const bottom = chatContentBottom();
-  const clearance = `${Math.max(0, innerHeight - bottom)}px`;
-  if (root.style.getPropertyValue("--chat-bottom-clearance") !== clearance) {
-    root.style.setProperty("--chat-bottom-clearance", clearance);
-    liquidGlass.refresh();
-  }
   const panel = chatScrollPanel();
   const visible = !$("#discussion-page").hidden && panel && panel.getClientRects().length;
   const bounds = visible ? panel.getBoundingClientRect() : null;
