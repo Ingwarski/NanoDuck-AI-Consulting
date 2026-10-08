@@ -1,0 +1,20 @@
+{
+  "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-prd",
+  "node": "prd",
+  "returned_at": "2026-10-08T18:20:39.787651+00:00",
+  "outputs": {
+    "prd": {
+      "path": "docs/prd.md",
+      "content_hash": "0c478e89ae78ae4e6bb2b1c02559957bac7dd5f78992406aae5da06dd76c920a",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "dark-matte-prompt-scoped-document-review",
+        "reviewed_at": "2026-10-08T18:20:39.756544+00:00",
+        "executor": "Codex inline to-sdd-prd",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      }
+    }
+  },
+  "evidence_limit": "Document definitions only; actual product checks belong to the root's separately inspected evidence."
+}

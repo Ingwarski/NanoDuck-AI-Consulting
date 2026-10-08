@@ -335,32 +335,29 @@
   color: var(--blue-light);
 }
 
-/* The white matte prompt is deliberate in both page themes. */
+/* Matte input follows the page theme; clear glass remains on reading controls. */
 #discussion-page #composer {
-  --canvas: #ffffff;
-  --surface: #f5f7fb;
-  --raised: #eaf0f8;
-  --line: #c5cdd9;
-  --ink: #192230;
-  --muted: #596577;
-  --blue-light: #245bb0;
-  --control-line: #7c8799;
-  --accent-line: #8ca6ca;
-  --focus-wash: #245bb029;
-  --composer-shadow: 0 8px 30px #19223026, inset 0 1px 0 #ffffffcc;
-  color-scheme: light;
+  --composer-matte: #0b0c10;
+  --composer-opaque: #0b0c10;
+  --composer-shadow: 0 8px 30px #0009, inset 0 1px 0 #ffffff0a;
+  color-scheme: inherit;
   position: sticky;
   bottom: calc(max(12px, env(safe-area-inset-bottom, 0px)) + var(--prompt-keyboard-inset, 0px));
   max-height: max(44px, calc(var(--prompt-viewport-height, 100dvh) - 208px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - max(12px, env(safe-area-inset-bottom, 0px))));
   overflow: auto;
   overscroll-behavior: contain;
   isolation: isolate;
-  background: rgba(255, 255, 255, .88);
+  background: var(--composer-matte);
   color: var(--ink);
   border-color: var(--control-line);
   box-shadow: var(--composer-shadow);
   -webkit-backdrop-filter: blur(16px) saturate(110%);
   backdrop-filter: blur(16px) saturate(110%);
+}
+:root[data-theme="light"] #discussion-page #composer {
+  --composer-matte: rgba(255, 255, 255, .88);
+  --composer-opaque: #ffffff;
+  --composer-shadow: 0 8px 30px #19223026, inset 0 1px 0 #ffffffcc;
 }
 #discussion-page #composer:focus-within {
   border-color: var(--blue-light);
@@ -393,7 +390,7 @@
 .navbar.liquid-glass-fallback::before,
 .chat-jumps button.liquid-glass-fallback::before,
 #expand-composer.liquid-glass-fallback::before { display: none; }
-#discussion-page #composer.liquid-glass-fallback { background: #ffffff; -webkit-backdrop-filter: none; backdrop-filter: none; }
+#discussion-page #composer.liquid-glass-fallback { background: var(--composer-opaque); -webkit-backdrop-filter: none; backdrop-filter: none; }
 @media (prefers-reduced-transparency: reduce) {
   .glass-lens,
   .chat-jumps button.liquid-glass-surface::before,
@@ -406,7 +403,7 @@
   }
   .chat-jumps button.liquid-glass-surface:hover,
   #expand-composer.liquid-glass-surface:hover { background: var(--surface); }
-  #discussion-page #composer { background: #ffffff; -webkit-backdrop-filter: none; backdrop-filter: none; }
+  #discussion-page #composer { background: var(--composer-opaque); -webkit-backdrop-filter: none; backdrop-filter: none; }
 }
 @media (forced-colors: active) {
   .glass-lens,

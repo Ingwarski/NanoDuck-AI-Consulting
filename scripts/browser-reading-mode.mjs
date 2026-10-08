@@ -40,12 +40,21 @@ export async function verifyReadingMode(page, name, root) {
   await page.locator('#expand-composer').click();
   assert.equal(await page.locator('#message').inputValue(), 'Follow-up draft');
   assert.equal(await page.locator('#composer').evaluate(el => getComputedStyle(el).position), 'sticky');
-  for (const theme of ['light', 'dark']) {
+  await mkdir(join(root, 'output', 'playwright'), { recursive: true });
+  for (const [theme, background, ink] of [
+    ['light', 'rgba(255, 255, 255, 0.88)', 'rgb(25, 34, 48)'],
+    ['dark', 'rgb(11, 12, 16)', 'rgb(245, 245, 247)'],
+  ]) {
     await page.evaluate(theme => document.documentElement.dataset.theme = theme, theme);
     assert.deepEqual(await page.locator('#composer').evaluate(el => {
       const style = getComputedStyle(el);
       return [style.backgroundColor, style.color, style.backdropFilter || style.webkitBackdropFilter];
-    }), ['rgba(255, 255, 255, 0.88)', 'rgb(25, 34, 48)', 'blur(16px) saturate(1.1)']);
+    }), [background, ink, 'blur(16px) saturate(1.1)']);
+    assert.equal(await page.locator('#message').evaluate(el => getComputedStyle(el).color), ink, `${theme} input follows its matte surface`);
+    await page.locator('#composer').evaluate(el => el.classList.add('liquid-glass-fallback'));
+    assert.equal(await page.locator('#composer').evaluate(el => getComputedStyle(el).backgroundColor), theme === 'dark' ? 'rgb(11, 12, 16)' : 'rgb(255, 255, 255)', `${theme} opaque fallback follows the theme`);
+    await page.locator('#composer').evaluate(el => el.classList.remove('liquid-glass-fallback'));
+    await page.screenshot({ path: join(root, 'output', 'playwright', `${name}-matte-prompt-${theme}.png`) });
   }
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.locator('#chat-end').waitFor({ state: 'visible' });

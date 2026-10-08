@@ -1,0 +1,54 @@
+{
+  "recorded_at": "2026-10-08T18:20:40.171369+00:00",
+  "kind": "compact_owner_metadata_delta",
+  "prior_git_commit": "c5b228e55f98f377b1d42a0009602df51a7babdb",
+  "prior_manifest_path": "forge/sdd-manifest.json",
+  "artifacts": {
+    "project-context": {
+      "owner_invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-project-context-bundle",
+      "content_hash": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "head-connection-prd-clarification",
+        "reviewed_at": "2026-10-08T14:46:57.062832+00:00",
+        "executor": "Codex inline to-project-context",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      },
+      "prior_dispatch_invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-project-context-bundle",
+      "changed_source_hashes": {
+        "docs/product-idea.md": {
+          "before": "318d8b15ad27acefa97c30d722150ce7ff4afd9286da931639644b0aa4b82d8f",
+          "after": "865898f0c5af6711d3f6efe3e90e57161de5d7366eba4214a3427ca97d1f2e89"
+        },
+        "docs/prd.md": {
+          "before": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4",
+          "after": "0c478e89ae78ae4e6bb2b1c02559957bac7dd5f78992406aae5da06dd76c920a"
+        }
+      }
+    },
+    "canonical-terms": {
+      "owner_invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-project-context-bundle",
+      "content_hash": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "head-connection-prd-clarification",
+        "reviewed_at": "2026-10-08T14:46:57.062973+00:00",
+        "executor": "Codex inline to-project-context",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      },
+      "prior_dispatch_invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-project-context-bundle",
+      "changed_source_hashes": {
+        "docs/product-idea.md": {
+          "before": "318d8b15ad27acefa97c30d722150ce7ff4afd9286da931639644b0aa4b82d8f",
+          "after": "865898f0c5af6711d3f6efe3e90e57161de5d7366eba4214a3427ca97d1f2e89"
+        },
+        "docs/prd.md": {
+          "before": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4",
+          "after": "0c478e89ae78ae4e6bb2b1c02559957bac7dd5f78992406aae5da06dd76c920a"
+        }
+      }
+    }
+  }
+}

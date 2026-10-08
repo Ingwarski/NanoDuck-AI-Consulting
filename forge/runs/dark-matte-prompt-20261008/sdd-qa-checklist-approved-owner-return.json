@@ -1,0 +1,20 @@
+{
+  "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-qa-checklist-approved",
+  "node": "qa-checklist-approved",
+  "returned_at": "2026-10-08T18:20:44.667417+00:00",
+  "outputs": {
+    "qa-checklist": {
+      "path": "docs/qa-checklist.md",
+      "content_hash": "62b059fc6e7e29e3c2bbfbbecaeaf8499aec5655224179d783fa1ceb9c1773c5",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "dark-matte-prompt-scoped-document-review",
+        "reviewed_at": "2026-10-08T18:20:44.635713+00:00",
+        "executor": "Codex inline to-qa-checklist",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      }
+    }
+  },
+  "evidence_limit": "Document definitions only; actual product checks belong to the root's separately inspected evidence."
+}

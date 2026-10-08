@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "event": "dark_theme_matte_prompt_verification",
+  "recorded_at": "2026-10-08T18:17:42.297146+00:00",
+  "request": "make prompt in the black theme blacked matt background.",
+  "scope": "Composer colors only; dark matte surface opaque to prevent conversation text showing through. White matte surface and all existing geometry/behavior retained.",
+  "verification": {
+    "command": "node scripts/browser-check.mjs --reading-only",
+    "result": "passed",
+    "engines": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ],
+    "evidence": "forge/runs/dark-matte-prompt-20261008/browsers.log",
+    "coverage": [
+      "Dark and light composer surface/text colors",
+      "Theme-aware opaque renderer fallback",
+      "Draft preservation on collapse and reopen",
+      "Sticky composer and simulated short keyboard viewport",
+      "Centered arrow clearance, jumps and boundary hiding",
+      "Completed-conversation reading state",
+      "Forced-color glass fallback"
+    ],
+    "visual_review": "Inspected WebKit desktop screenshots for both themes with synthetic conversation content; dark surface is matte black with readable text and controls.",
+    "source_hashes": {
+      "public/styles.css": "f7e0580575a7592ac1d07a4975ed892c573b731e60e6837ec0f252ea95060553",
+      "scripts/browser-reading-mode.mjs": "688268698e39b71dd4228ad8c143bb9c7e490b618182fc49c11a78dc28ec0acc"
+    }
+  },
+  "runtime": {
+    "local_https_stylesheet": "Current server serves updated dark and light composer CSS.",
+    "restart": "Not performed; no active user session modified."
+  },
+  "limits": "Disposable browser fixtures use synthetic records/providers. No physical-device, native Safari, provider-model or whole-product release claim.",
+  "artifact_validation": {
+    "command": "node scripts/check-artifacts.mjs",
+    "result": "passed",
+    "markdown_files": 32,
+    "javascript_syntax_checks": 109,
+    "active_candidates": 3,
+    "versioned_entry_pages": 3,
+    "scope": "Links, public paths, static HTML references and JavaScript syntax."
+  },
+  "sdd": {
+    "summary": "forge/runs/dark-matte-prompt-20261008/sdd-reconciliation-summary.json",
+    "scoped_documents": "Reconciled in owner order; color-only correction.",
+    "frozen_baseline": "Preserved and hash checked.",
+    "retained_limitation": "Development-plan after check remains migration_required for pre-existing full-unit metadata. No full-unit or whole-product release claim."
+  },
+  "review": "Independent read-only CSS and browser-fixture review found no actionable introduced issues."
+}

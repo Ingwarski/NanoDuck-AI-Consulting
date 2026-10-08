@@ -1,0 +1,35 @@
+{
+  "recorded_at": "2026-10-08T18:20:42.128816+00:00",
+  "kind": "compact_owner_metadata_delta",
+  "prior_git_commit": "c5b228e55f98f377b1d42a0009602df51a7babdb",
+  "prior_manifest_path": "forge/sdd-manifest.json",
+  "artifacts": {
+    "wireframes": {
+      "owner_invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-wireframes",
+      "content_hash": "244be8f2d5c10983e45d46ca477beec7a46304a2580afb02f1ce788c713009d6",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "head-connection-prd-clarification",
+        "reviewed_at": "2026-10-08T14:46:58.992849+00:00",
+        "executor": "Codex inline to-wireframes",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      },
+      "prior_dispatch_invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-wireframes",
+      "changed_source_hashes": {
+        "docs/prd.md": {
+          "before": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4",
+          "after": "0c478e89ae78ae4e6bb2b1c02559957bac7dd5f78992406aae5da06dd76c920a"
+        },
+        "docs/user-journey.md": {
+          "before": "e37e4813947b0347b4240e7be81c69b94d47b156732c2542cefd32bc0cbb398b",
+          "after": "579addc67c6a87024f79c968141c35202e0fe168fbd8e28e62b66b06ef5158ca"
+        },
+        "docs/screen-map.md": {
+          "before": "f9411130af8e831add03b119060e8dd078f5457898011f40c6dcaf176c81a588",
+          "after": "82a982d74a08c36369a297e01d077b05dfaa94cc58d773b73ecf0d2a55e734f7"
+        }
+      }
+    }
+  }
+}

@@ -65,7 +65,7 @@
       },
       "path": "docs/product-idea.md",
       "owner_skill": "to-product-idea",
-      "owner_invocation_id": "head-connection-check-20261008-742062612927-product-idea",
+      "owner_invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-product-idea",
       "declared_output_set": [
         "docs/product-idea.md"
       ],
@@ -96,7 +96,8 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "full",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "full",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "full"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "full",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "full"
       },
       "source_hashes": {
         "docs/model-settings.md": "aef42b6f74eabcdcc32835f6ef7d52099bdcaa5fab2112a184e500dd95338989",
@@ -122,15 +123,16 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3"
       },
       "dependencies": [],
-      "content_hash": "318d8b15ad27acefa97c30d722150ce7ff4afd9286da931639644b0aa4b82d8f",
+      "content_hash": "865898f0c5af6711d3f6efe3e90e57161de5d7366eba4214a3427ca97d1f2e89",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "head-connection-scoped-document-review",
-        "reviewed_at": "2026-10-08T14:36:48.846886+00:00",
+        "kind": "dark-matte-prompt-scoped-document-review",
+        "reviewed_at": "2026-10-08T18:20:39.535716+00:00",
         "executor": "Codex inline to-product-idea",
         "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
       },
@@ -2465,7 +2467,7 @@
       },
       "path": "docs/prd.md",
       "owner_skill": "to-sdd-prd",
-      "owner_invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-prd",
+      "owner_invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-prd",
       "declared_output_set": [
         "docs/prd.md"
       ],
@@ -2490,10 +2492,11 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "full",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "full",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "full"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "full",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "318d8b15ad27acefa97c30d722150ce7ff4afd9286da931639644b0aa4b82d8f",
+        "docs/product-idea.md": "865898f0c5af6711d3f6efe3e90e57161de5d7366eba4214a3427ca97d1f2e89",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -2510,17 +2513,18 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3"
       },
       "dependencies": [
         "product-idea"
       ],
-      "content_hash": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4",
+      "content_hash": "0c478e89ae78ae4e6bb2b1c02559957bac7dd5f78992406aae5da06dd76c920a",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "head-connection-prd-clarification",
-        "reviewed_at": "2026-10-08T14:46:56.613226+00:00",
+        "kind": "dark-matte-prompt-scoped-document-review",
+        "reviewed_at": "2026-10-08T18:20:39.756544+00:00",
         "executor": "Codex inline to-sdd-prd",
         "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
       },
@@ -2530,7 +2534,7 @@
     "project-context": {
       "path": "docs/project-context.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-project-context-bundle",
+      "owner_invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-project-context-bundle",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
@@ -2555,11 +2559,12 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "full",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "full",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "full"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "full",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "318d8b15ad27acefa97c30d722150ce7ff4afd9286da931639644b0aa4b82d8f",
-        "docs/prd.md": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4",
+        "docs/product-idea.md": "865898f0c5af6711d3f6efe3e90e57161de5d7366eba4214a3427ca97d1f2e89",
+        "docs/prd.md": "0c478e89ae78ae4e6bb2b1c02559957bac7dd5f78992406aae5da06dd76c920a",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -2574,7 +2579,8 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3"
       },
       "dependencies": [
         "product-idea",
@@ -2584,8 +2590,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "head-connection-prd-clarification",
-        "reviewed_at": "2026-10-08T14:46:57.062832+00:00",
+        "kind": "dark-matte-prompt-scoped-document-review",
+        "reviewed_at": "2026-10-08T18:20:40.207678+00:00",
         "executor": "Codex inline to-project-context",
         "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
       },
@@ -2595,7 +2601,7 @@
     "canonical-terms": {
       "path": "docs/canonical-terms.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-project-context-bundle",
+      "owner_invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-project-context-bundle",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
@@ -2620,11 +2626,12 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "full",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "full",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "full"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "full",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "full"
       },
       "source_hashes": {
-        "docs/product-idea.md": "318d8b15ad27acefa97c30d722150ce7ff4afd9286da931639644b0aa4b82d8f",
-        "docs/prd.md": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4",
+        "docs/product-idea.md": "865898f0c5af6711d3f6efe3e90e57161de5d7366eba4214a3427ca97d1f2e89",
+        "docs/prd.md": "0c478e89ae78ae4e6bb2b1c02559957bac7dd5f78992406aae5da06dd76c920a",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -2639,7 +2646,8 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3"
       },
       "dependencies": [
         "product-idea",
@@ -2649,8 +2657,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "head-connection-prd-clarification",
-        "reviewed_at": "2026-10-08T14:46:57.062973+00:00",
+        "kind": "dark-matte-prompt-scoped-document-review",
+        "reviewed_at": "2026-10-08T18:20:40.207875+00:00",
         "executor": "Codex inline to-project-context",
         "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
       },
@@ -2660,7 +2668,7 @@
     "guardrails": {
       "path": "docs/guardrails.md",
       "owner_skill": "to-guardrails",
-      "owner_invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-guardrails",
+      "owner_invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-guardrails",
       "declared_output_set": [
         "docs/guardrails.md"
       ],
@@ -2685,10 +2693,11 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "full",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "full",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "full"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "full",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4",
+        "docs/prd.md": "0c478e89ae78ae4e6bb2b1c02559957bac7dd5f78992406aae5da06dd76c920a",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
@@ -2705,7 +2714,8 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3"
       },
       "dependencies": [
         "prd",
@@ -2716,8 +2726,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "head-connection-prd-clarification",
-        "reviewed_at": "2026-10-08T14:46:57.518869+00:00",
+        "kind": "dark-matte-prompt-scoped-document-review",
+        "reviewed_at": "2026-10-08T18:20:40.674421+00:00",
         "executor": "Codex inline to-guardrails",
         "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
       },
@@ -2727,7 +2737,7 @@
     "user-journey": {
       "path": "docs/user-journey.md",
       "owner_skill": "to-user-journey",
-      "owner_invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-user-journey",
+      "owner_invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-user-journey",
       "declared_output_set": [
         "docs/user-journey.md"
       ],
@@ -2754,10 +2764,11 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "full",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "full",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "full"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "full",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4",
+        "docs/prd.md": "0c478e89ae78ae4e6bb2b1c02559957bac7dd5f78992406aae5da06dd76c920a",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
@@ -2776,7 +2787,8 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3"
       },
       "dependencies": [
         "prd",
@@ -2784,12 +2796,12 @@
         "canonical-terms",
         "guardrails"
       ],
-      "content_hash": "e37e4813947b0347b4240e7be81c69b94d47b156732c2542cefd32bc0cbb398b",
+      "content_hash": "579addc67c6a87024f79c968141c35202e0fe168fbd8e28e62b66b06ef5158ca",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "head-connection-prd-clarification",
-        "reviewed_at": "2026-10-08T14:46:58.011102+00:00",
+        "kind": "dark-matte-prompt-scoped-document-review",
+        "reviewed_at": "2026-10-08T18:20:41.137750+00:00",
         "executor": "Codex inline to-user-journey",
         "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
       },
@@ -3804,7 +3816,7 @@
       },
       "path": "docs/screen-map.md",
       "owner_skill": "to-screen-map",
-      "owner_invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-screen-map",
+      "owner_invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-screen-map",
       "declared_output_set": [
         "docs/screen-map.md"
       ],
@@ -3834,14 +3846,15 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "full",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "full",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "full"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "full",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4",
+        "docs/prd.md": "0c478e89ae78ae4e6bb2b1c02559957bac7dd5f78992406aae5da06dd76c920a",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
-        "docs/user-journey.md": "e37e4813947b0347b4240e7be81c69b94d47b156732c2542cefd32bc0cbb398b",
+        "docs/user-journey.md": "579addc67c6a87024f79c968141c35202e0fe168fbd8e28e62b66b06ef5158ca",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -3859,7 +3872,8 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3"
       },
       "dependencies": [
         "prd",
@@ -3868,12 +3882,12 @@
         "guardrails",
         "user-journey"
       ],
-      "content_hash": "f9411130af8e831add03b119060e8dd078f5457898011f40c6dcaf176c81a588",
+      "content_hash": "82a982d74a08c36369a297e01d077b05dfaa94cc58d773b73ecf0d2a55e734f7",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "head-connection-prd-clarification",
-        "reviewed_at": "2026-10-08T14:46:58.469248+00:00",
+        "kind": "dark-matte-prompt-scoped-document-review",
+        "reviewed_at": "2026-10-08T18:20:41.614099+00:00",
         "executor": "Codex inline to-screen-map",
         "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
       },
@@ -3883,7 +3897,7 @@
     "wireframes": {
       "path": "docs/wireframes.md",
       "owner_skill": "to-wireframes",
-      "owner_invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-wireframes",
+      "owner_invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-wireframes",
       "declared_output_set": [
         "docs/wireframes.md"
       ],
@@ -3915,15 +3929,16 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "full",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "full",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "full"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "full",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4",
+        "docs/prd.md": "0c478e89ae78ae4e6bb2b1c02559957bac7dd5f78992406aae5da06dd76c920a",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
-        "docs/user-journey.md": "e37e4813947b0347b4240e7be81c69b94d47b156732c2542cefd32bc0cbb398b",
-        "docs/screen-map.md": "f9411130af8e831add03b119060e8dd078f5457898011f40c6dcaf176c81a588",
+        "docs/user-journey.md": "579addc67c6a87024f79c968141c35202e0fe168fbd8e28e62b66b06ef5158ca",
+        "docs/screen-map.md": "82a982d74a08c36369a297e01d077b05dfaa94cc58d773b73ecf0d2a55e734f7",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e",
@@ -3942,7 +3957,8 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3"
       },
       "dependencies": [
         "prd",
@@ -3952,12 +3968,12 @@
         "user-journey",
         "screen-map"
       ],
-      "content_hash": "244be8f2d5c10983e45d46ca477beec7a46304a2580afb02f1ce788c713009d6",
+      "content_hash": "43c13ee9d6c113f165870a6c51e7cd9e43f519c25aebb7dac849ec076c325f84",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "head-connection-prd-clarification",
-        "reviewed_at": "2026-10-08T14:46:58.992849+00:00",
+        "kind": "dark-matte-prompt-scoped-document-review",
+        "reviewed_at": "2026-10-08T18:20:42.165381+00:00",
         "executor": "Codex inline to-wireframes",
         "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
       },
@@ -3967,7 +3983,7 @@
     "design-brief": {
       "path": "docs/design-brief.md",
       "owner_skill": "to-design-brief",
-      "owner_invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-design-brief",
+      "owner_invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-design-brief",
       "declared_output_set": [
         "docs/design-brief.md"
       ],
@@ -4005,16 +4021,17 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "full",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "full",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "full"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "full",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4",
+        "docs/prd.md": "0c478e89ae78ae4e6bb2b1c02559957bac7dd5f78992406aae5da06dd76c920a",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
-        "docs/user-journey.md": "e37e4813947b0347b4240e7be81c69b94d47b156732c2542cefd32bc0cbb398b",
-        "docs/screen-map.md": "f9411130af8e831add03b119060e8dd078f5457898011f40c6dcaf176c81a588",
-        "docs/wireframes.md": "244be8f2d5c10983e45d46ca477beec7a46304a2580afb02f1ce788c713009d6",
+        "docs/user-journey.md": "579addc67c6a87024f79c968141c35202e0fe168fbd8e28e62b66b06ef5158ca",
+        "docs/screen-map.md": "82a982d74a08c36369a297e01d077b05dfaa94cc58d773b73ecf0d2a55e734f7",
+        "docs/wireframes.md": "43c13ee9d6c113f165870a6c51e7cd9e43f519c25aebb7dac849ec076c325f84",
         "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b",
         "forge/runs/porcelain-stop-20260924/scoped-override.json": "df8177ecc6e68c658ff5672b14e7def000ba241f9932639711885a4ba17afc74",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
@@ -4038,7 +4055,8 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3"
       },
       "dependencies": [
         "prd",
@@ -4049,12 +4067,12 @@
         "screen-map",
         "wireframes"
       ],
-      "content_hash": "926e6d199fba7f27dd4a3f8c8b4876d2ff0c6c06cbe9d0b48dd252bf07a1b7f8",
+      "content_hash": "15f959501a3f60acdce4e33e156ece22639fbc4887e94a137ab543abdf97db9b",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "head-connection-prd-clarification",
-        "reviewed_at": "2026-10-08T14:46:59.527310+00:00",
+        "kind": "dark-matte-prompt-scoped-document-review",
+        "reviewed_at": "2026-10-08T18:20:42.753632+00:00",
         "executor": "Codex inline to-design-brief",
         "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
       },
@@ -4134,7 +4152,7 @@
       },
       "path": "docs/architecture.md",
       "owner_skill": "to-architecture",
-      "owner_invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-architecture-approved",
+      "owner_invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-architecture-approved",
       "declared_output_set": [
         "docs/architecture.md"
       ],
@@ -4179,17 +4197,18 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "full",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "full",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "full"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "full",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4",
+        "docs/prd.md": "0c478e89ae78ae4e6bb2b1c02559957bac7dd5f78992406aae5da06dd76c920a",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
-        "docs/user-journey.md": "e37e4813947b0347b4240e7be81c69b94d47b156732c2542cefd32bc0cbb398b",
-        "docs/screen-map.md": "f9411130af8e831add03b119060e8dd078f5457898011f40c6dcaf176c81a588",
-        "docs/wireframes.md": "244be8f2d5c10983e45d46ca477beec7a46304a2580afb02f1ce788c713009d6",
-        "docs/design-brief.md": "926e6d199fba7f27dd4a3f8c8b4876d2ff0c6c06cbe9d0b48dd252bf07a1b7f8",
+        "docs/user-journey.md": "579addc67c6a87024f79c968141c35202e0fe168fbd8e28e62b66b06ef5158ca",
+        "docs/screen-map.md": "82a982d74a08c36369a297e01d077b05dfaa94cc58d773b73ecf0d2a55e734f7",
+        "docs/wireframes.md": "43c13ee9d6c113f165870a6c51e7cd9e43f519c25aebb7dac849ec076c325f84",
+        "docs/design-brief.md": "15f959501a3f60acdce4e33e156ece22639fbc4887e94a137ab543abdf97db9b",
         "docs/model-settings.md": "aef42b6f74eabcdcc32835f6ef7d52099bdcaa5fab2112a184e500dd95338989",
         "forge/runs/claude-signin-20260922/source-review.json": "ad878d853b9c6f30da817167e1db6dffaad9c2c2863354ad3331294d7b269def",
         "forge/runs/sound-media-playback-20260923/scope.json": "7a5aa70bf52fa77a4dea9e39e5a49453c6be40c5b1a347632f4da4f5294455a0",
@@ -4219,7 +4238,8 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3"
       },
       "dependencies": [
         "prd",
@@ -4231,12 +4251,12 @@
         "wireframes",
         "design-brief"
       ],
-      "content_hash": "8254e2e348bb85b9a6b4064d6de7bb95260a199eadfa6632b5e9add6a4bd30ff",
+      "content_hash": "a2d9bde17f758bf8b5fa80819f6e0fc6bb254cee45741d8f872dd7e6a48a23d1",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "head-connection-prd-clarification",
-        "reviewed_at": "2026-10-08T14:47:00.079692+00:00",
+        "kind": "dark-matte-prompt-scoped-document-review",
+        "reviewed_at": "2026-10-08T18:20:43.351303+00:00",
         "executor": "Codex inline to-architecture",
         "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
       },
@@ -4317,7 +4337,7 @@
       },
       "path": "docs/dod-evals.md",
       "owner_skill": "to-dod-evals",
-      "owner_invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-dod-evals-approved",
+      "owner_invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-dod-evals-approved",
       "declared_output_set": [
         "docs/dod-evals.md"
       ],
@@ -4356,18 +4376,19 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "full",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "full",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "full"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "full",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4",
+        "docs/prd.md": "0c478e89ae78ae4e6bb2b1c02559957bac7dd5f78992406aae5da06dd76c920a",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
-        "docs/user-journey.md": "e37e4813947b0347b4240e7be81c69b94d47b156732c2542cefd32bc0cbb398b",
-        "docs/screen-map.md": "f9411130af8e831add03b119060e8dd078f5457898011f40c6dcaf176c81a588",
-        "docs/wireframes.md": "244be8f2d5c10983e45d46ca477beec7a46304a2580afb02f1ce788c713009d6",
-        "docs/design-brief.md": "926e6d199fba7f27dd4a3f8c8b4876d2ff0c6c06cbe9d0b48dd252bf07a1b7f8",
-        "docs/architecture.md": "8254e2e348bb85b9a6b4064d6de7bb95260a199eadfa6632b5e9add6a4bd30ff",
+        "docs/user-journey.md": "579addc67c6a87024f79c968141c35202e0fe168fbd8e28e62b66b06ef5158ca",
+        "docs/screen-map.md": "82a982d74a08c36369a297e01d077b05dfaa94cc58d773b73ecf0d2a55e734f7",
+        "docs/wireframes.md": "43c13ee9d6c113f165870a6c51e7cd9e43f519c25aebb7dac849ec076c325f84",
+        "docs/design-brief.md": "15f959501a3f60acdce4e33e156ece22639fbc4887e94a137ab543abdf97db9b",
+        "docs/architecture.md": "a2d9bde17f758bf8b5fa80819f6e0fc6bb254cee45741d8f872dd7e6a48a23d1",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e",
@@ -4390,7 +4411,8 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3"
       },
       "dependencies": [
         "prd",
@@ -4407,8 +4429,8 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "head-connection-prd-clarification",
-        "reviewed_at": "2026-10-08T14:47:00.660069+00:00",
+        "kind": "dark-matte-prompt-scoped-document-review",
+        "reviewed_at": "2026-10-08T18:20:43.987657+00:00",
         "executor": "Codex inline to-dod-evals",
         "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
       },
@@ -6349,7 +6371,7 @@
       },
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-qa-checklist-approved",
+      "owner_invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-qa-checklist-approved",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
@@ -6401,18 +6423,19 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "full",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "full",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "full"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "full",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4",
+        "docs/prd.md": "0c478e89ae78ae4e6bb2b1c02559957bac7dd5f78992406aae5da06dd76c920a",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
-        "docs/user-journey.md": "e37e4813947b0347b4240e7be81c69b94d47b156732c2542cefd32bc0cbb398b",
-        "docs/screen-map.md": "f9411130af8e831add03b119060e8dd078f5457898011f40c6dcaf176c81a588",
-        "docs/wireframes.md": "244be8f2d5c10983e45d46ca477beec7a46304a2580afb02f1ce788c713009d6",
-        "docs/design-brief.md": "926e6d199fba7f27dd4a3f8c8b4876d2ff0c6c06cbe9d0b48dd252bf07a1b7f8",
-        "docs/architecture.md": "8254e2e348bb85b9a6b4064d6de7bb95260a199eadfa6632b5e9add6a4bd30ff",
+        "docs/user-journey.md": "579addc67c6a87024f79c968141c35202e0fe168fbd8e28e62b66b06ef5158ca",
+        "docs/screen-map.md": "82a982d74a08c36369a297e01d077b05dfaa94cc58d773b73ecf0d2a55e734f7",
+        "docs/wireframes.md": "43c13ee9d6c113f165870a6c51e7cd9e43f519c25aebb7dac849ec076c325f84",
+        "docs/design-brief.md": "15f959501a3f60acdce4e33e156ece22639fbc4887e94a137ab543abdf97db9b",
+        "docs/architecture.md": "a2d9bde17f758bf8b5fa80819f6e0fc6bb254cee45741d8f872dd7e6a48a23d1",
         "docs/dod-evals.md": "c31804e680531cad85e2441045ca859f3424886989f9be57e49c0fdb8afa42fe",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
@@ -6448,7 +6471,8 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3"
       },
       "dependencies": [
         "prd",
@@ -6462,12 +6486,12 @@
         "architecture",
         "dod-evals"
       ],
-      "content_hash": "f62041af559a57358ef90201f9cb44bef74750df855cbcae300e0e730db5285e",
+      "content_hash": "62b059fc6e7e29e3c2bbfbbecaeaf8499aec5655224179d783fa1ceb9c1773c5",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "head-connection-prd-clarification",
-        "reviewed_at": "2026-10-08T14:47:01.260569+00:00",
+        "kind": "dark-matte-prompt-scoped-document-review",
+        "reviewed_at": "2026-10-08T18:20:44.635713+00:00",
         "executor": "Codex inline to-qa-checklist",
         "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
       },
@@ -7697,7 +7721,7 @@
       },
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-development-plan",
+      "owner_invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-development-plan",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
@@ -7753,20 +7777,21 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "full",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "full",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "full"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "full",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "full"
       },
       "source_hashes": {
-        "docs/prd.md": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4",
+        "docs/prd.md": "0c478e89ae78ae4e6bb2b1c02559957bac7dd5f78992406aae5da06dd76c920a",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
-        "docs/user-journey.md": "e37e4813947b0347b4240e7be81c69b94d47b156732c2542cefd32bc0cbb398b",
-        "docs/screen-map.md": "f9411130af8e831add03b119060e8dd078f5457898011f40c6dcaf176c81a588",
-        "docs/wireframes.md": "244be8f2d5c10983e45d46ca477beec7a46304a2580afb02f1ce788c713009d6",
-        "docs/design-brief.md": "926e6d199fba7f27dd4a3f8c8b4876d2ff0c6c06cbe9d0b48dd252bf07a1b7f8",
-        "docs/architecture.md": "8254e2e348bb85b9a6b4064d6de7bb95260a199eadfa6632b5e9add6a4bd30ff",
+        "docs/user-journey.md": "579addc67c6a87024f79c968141c35202e0fe168fbd8e28e62b66b06ef5158ca",
+        "docs/screen-map.md": "82a982d74a08c36369a297e01d077b05dfaa94cc58d773b73ecf0d2a55e734f7",
+        "docs/wireframes.md": "43c13ee9d6c113f165870a6c51e7cd9e43f519c25aebb7dac849ec076c325f84",
+        "docs/design-brief.md": "15f959501a3f60acdce4e33e156ece22639fbc4887e94a137ab543abdf97db9b",
+        "docs/architecture.md": "a2d9bde17f758bf8b5fa80819f6e0fc6bb254cee45741d8f872dd7e6a48a23d1",
         "docs/dod-evals.md": "c31804e680531cad85e2441045ca859f3424886989f9be57e49c0fdb8afa42fe",
-        "docs/qa-checklist.md": "f62041af559a57358ef90201f9cb44bef74750df855cbcae300e0e730db5285e",
+        "docs/qa-checklist.md": "62b059fc6e7e29e3c2bbfbbecaeaf8499aec5655224179d783fa1ceb9c1773c5",
         "docs/model-settings.md": "aef42b6f74eabcdcc32835f6ef7d52099bdcaa5fab2112a184e500dd95338989",
         "package.json": "d74c25d2b4d04b4fc3f2f51c333a2333b8f64efa62ed254220e967b5c3ca764c",
         "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318",
@@ -7804,7 +7829,8 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3"
       },
       "dependencies": [
         "prd",
@@ -7819,12 +7845,12 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "f8ccce6e544aa53424181e477795d110bd4b680114ffc320bdca6e6b72bc9714",
+      "content_hash": "59106bb01bd0df2d4f5290134abb1668e4c188eb0f267e3072d9d2dd24dda9b0",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "head-connection-prd-clarification",
-        "reviewed_at": "2026-10-08T14:47:02.242588+00:00",
+        "kind": "dark-matte-prompt-scoped-document-review",
+        "reviewed_at": "2026-10-08T18:20:45.673528+00:00",
         "executor": "Codex inline to-development-plan",
         "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
       },
@@ -8376,6 +8402,11 @@
         "path": "forge/runs/head-connection-check-20261008/scoped-override.json",
         "content_hash": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371",
         "scope": "Add Check connection and contextual status in Head and specialists Settings fieldset, using existing authenticated provider inspection. Check Codex availability and exact currently selected model/reasoning catalog pair. Preserve Critic Claude reconnection behavior, unsaved preferences/documents, saved settings and active-run snapshots. Serialize shared capability refreshes, preserve privacy clearing, and perform no inference, billing fallback or server restart."
+      },
+      {
+        "path": "forge/runs/dark-matte-prompt-20261008/scoped-override.json",
+        "content_hash": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3",
+        "scope": "Matte black composer in the dark theme with readable light text and controls. Retain matte white in the white theme. Preserve sticky geometry, keyboard clearance, draft preservation, reading controls and theme-aware opaque/system-color accessibility fallbacks."
       }
     ]
   },
@@ -8385,7 +8416,7 @@
     "release_readiness": "not_evaluated",
     "source_hashes": {
       "docs/dod-evals.md": "c31804e680531cad85e2441045ca859f3424886989f9be57e49c0fdb8afa42fe",
-      "docs/qa-checklist.md": "f62041af559a57358ef90201f9cb44bef74750df855cbcae300e0e730db5285e"
+      "docs/qa-checklist.md": "62b059fc6e7e29e3c2bbfbbecaeaf8499aec5655224179d783fa1ceb9c1773c5"
     },
     "gates": [
       {
@@ -11422,7 +11453,7 @@
     "prompt_id": "gpt-6-1-sol-20260930",
     "prompt_received_at": "2026-09-30T15:21:14.491878+00:00",
     "released_at": "2026-09-30T15:21:14.491878+00:00",
-    "reason": "Scope unchanged. PRD clarification limits unknown transport-failure feedback to Head; full-unit handoff remains unvalidated pending the existing unit-contract migration.",
+    "reason": "The actual user request authorizes the dark-theme matte black composer correction; full-unit handoff remains unvalidated pending the existing unit-contract migration.",
     "prompt_receipt": {
       "path": "forge/runs/gpt-6-1-sol-20260930/implementation-prompt.json",
       "content_hash": "c9978c187aa8943c091f335978f3e430f3ab9deca2c87e9f3703b36c48a45565"
@@ -11430,7 +11461,7 @@
   },
   "dispatches": {
     "product-idea": {
-      "invocation_id": "head-connection-check-20261008-742062612927-product-idea",
+      "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-product-idea",
       "outputs": [
         "docs/product-idea.md"
       ],
@@ -11458,20 +11489,21 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3"
       },
       "consumed_source_fragments": {},
-      "invoked_at": "2026-10-08T14:36:48.806873+00:00",
+      "invoked_at": "2026-10-08T18:20:39.492828+00:00",
       "owner_skill": "to-product-idea",
       "skill_hash": "9e04ea35a3f95cd68652399aeefa94e10b2390b679e41121e4479d06020d6acc"
     },
     "prd": {
-      "invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-prd",
+      "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-prd",
       "outputs": [
         "docs/prd.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "318d8b15ad27acefa97c30d722150ce7ff4afd9286da931639644b0aa4b82d8f",
+        "docs/product-idea.md": "865898f0c5af6711d3f6efe3e90e57161de5d7366eba4214a3427ca97d1f2e89",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -11488,22 +11520,23 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3"
       },
       "consumed_source_fragments": {},
-      "invoked_at": "2026-10-08T14:46:56.575751+00:00",
+      "invoked_at": "2026-10-08T18:20:39.721304+00:00",
       "owner_skill": "to-sdd-prd",
       "skill_hash": "87276141bf44d3c3ec4d78cec8c192eb0bbb379e7f4065f117988981ebe43ec3"
     },
     "project-context": {
-      "invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-project-context-bundle",
+      "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-project-context-bundle",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "318d8b15ad27acefa97c30d722150ce7ff4afd9286da931639644b0aa4b82d8f",
-        "docs/prd.md": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4",
+        "docs/product-idea.md": "865898f0c5af6711d3f6efe3e90e57161de5d7366eba4214a3427ca97d1f2e89",
+        "docs/prd.md": "0c478e89ae78ae4e6bb2b1c02559957bac7dd5f78992406aae5da06dd76c920a",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -11518,22 +11551,23 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3"
       },
       "consumed_source_fragments": {},
-      "invoked_at": "2026-10-08T14:46:57.026919+00:00",
+      "invoked_at": "2026-10-08T18:20:40.171369+00:00",
       "owner_skill": "to-project-context",
       "skill_hash": "0efe9ef7f537a30546f991fe56376adee6f62d6ab191096b34951c3a84ea69be"
     },
     "canonical-terms": {
-      "invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-project-context-bundle",
+      "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-project-context-bundle",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "source_hashes": {
-        "docs/product-idea.md": "318d8b15ad27acefa97c30d722150ce7ff4afd9286da931639644b0aa4b82d8f",
-        "docs/prd.md": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4",
+        "docs/product-idea.md": "865898f0c5af6711d3f6efe3e90e57161de5d7366eba4214a3427ca97d1f2e89",
+        "docs/prd.md": "0c478e89ae78ae4e6bb2b1c02559957bac7dd5f78992406aae5da06dd76c920a",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -11548,20 +11582,21 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3"
       },
       "consumed_source_fragments": {},
-      "invoked_at": "2026-10-08T14:46:57.026919+00:00",
+      "invoked_at": "2026-10-08T18:20:40.171369+00:00",
       "owner_skill": "to-project-context",
       "skill_hash": "0efe9ef7f537a30546f991fe56376adee6f62d6ab191096b34951c3a84ea69be"
     },
     "guardrails": {
-      "invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-guardrails",
+      "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-guardrails",
       "outputs": [
         "docs/guardrails.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4",
+        "docs/prd.md": "0c478e89ae78ae4e6bb2b1c02559957bac7dd5f78992406aae5da06dd76c920a",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
@@ -11578,20 +11613,21 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3"
       },
       "consumed_source_fragments": {},
-      "invoked_at": "2026-10-08T14:46:57.482463+00:00",
+      "invoked_at": "2026-10-08T18:20:40.639623+00:00",
       "owner_skill": "to-guardrails",
       "skill_hash": "3129ba126b1e419a1d9d75bc9bb32e9a38b59cc581c13c923501ea1b6ccf4be9"
     },
     "user-journey": {
-      "invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-user-journey",
+      "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-user-journey",
       "outputs": [
         "docs/user-journey.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4",
+        "docs/prd.md": "0c478e89ae78ae4e6bb2b1c02559957bac7dd5f78992406aae5da06dd76c920a",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
@@ -11610,24 +11646,25 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3"
       },
       "consumed_source_fragments": {},
-      "invoked_at": "2026-10-08T14:46:57.976959+00:00",
+      "invoked_at": "2026-10-08T18:20:41.102302+00:00",
       "owner_skill": "to-user-journey",
       "skill_hash": "e5fff9bb0e34789d215dbcc931e8ff667b086e591aba8664089d4b086639794e"
     },
     "screen-map": {
-      "invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-screen-map",
+      "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-screen-map",
       "outputs": [
         "docs/screen-map.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4",
+        "docs/prd.md": "0c478e89ae78ae4e6bb2b1c02559957bac7dd5f78992406aae5da06dd76c920a",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
-        "docs/user-journey.md": "e37e4813947b0347b4240e7be81c69b94d47b156732c2542cefd32bc0cbb398b",
+        "docs/user-journey.md": "579addc67c6a87024f79c968141c35202e0fe168fbd8e28e62b66b06ef5158ca",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
@@ -11645,25 +11682,26 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3"
       },
       "consumed_source_fragments": {},
-      "invoked_at": "2026-10-08T14:46:58.435017+00:00",
+      "invoked_at": "2026-10-08T18:20:41.576966+00:00",
       "owner_skill": "to-screen-map",
       "skill_hash": "32de05f47456c000b1dd88636b6d056748d41fcb6cd7786b0db813a3e35c87b6"
     },
     "wireframes": {
-      "invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-wireframes",
+      "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-wireframes",
       "outputs": [
         "docs/wireframes.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4",
+        "docs/prd.md": "0c478e89ae78ae4e6bb2b1c02559957bac7dd5f78992406aae5da06dd76c920a",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
-        "docs/user-journey.md": "e37e4813947b0347b4240e7be81c69b94d47b156732c2542cefd32bc0cbb398b",
-        "docs/screen-map.md": "f9411130af8e831add03b119060e8dd078f5457898011f40c6dcaf176c81a588",
+        "docs/user-journey.md": "579addc67c6a87024f79c968141c35202e0fe168fbd8e28e62b66b06ef5158ca",
+        "docs/screen-map.md": "82a982d74a08c36369a297e01d077b05dfaa94cc58d773b73ecf0d2a55e734f7",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e",
@@ -11682,26 +11720,27 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3"
       },
       "consumed_source_fragments": {},
-      "invoked_at": "2026-10-08T14:46:58.958154+00:00",
+      "invoked_at": "2026-10-08T18:20:42.128816+00:00",
       "owner_skill": "to-wireframes",
       "skill_hash": "d5b79d843feaa6a24e7654c4744bbab6aa16e43f498b32054ad08987543cebfd"
     },
     "design-brief": {
-      "invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-design-brief",
+      "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-design-brief",
       "outputs": [
         "docs/design-brief.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4",
+        "docs/prd.md": "0c478e89ae78ae4e6bb2b1c02559957bac7dd5f78992406aae5da06dd76c920a",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
-        "docs/user-journey.md": "e37e4813947b0347b4240e7be81c69b94d47b156732c2542cefd32bc0cbb398b",
-        "docs/screen-map.md": "f9411130af8e831add03b119060e8dd078f5457898011f40c6dcaf176c81a588",
-        "docs/wireframes.md": "244be8f2d5c10983e45d46ca477beec7a46304a2580afb02f1ce788c713009d6",
+        "docs/user-journey.md": "579addc67c6a87024f79c968141c35202e0fe168fbd8e28e62b66b06ef5158ca",
+        "docs/screen-map.md": "82a982d74a08c36369a297e01d077b05dfaa94cc58d773b73ecf0d2a55e734f7",
+        "docs/wireframes.md": "43c13ee9d6c113f165870a6c51e7cd9e43f519c25aebb7dac849ec076c325f84",
         "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b",
         "forge/runs/porcelain-stop-20260924/scoped-override.json": "df8177ecc6e68c658ff5672b14e7def000ba241f9932639711885a4ba17afc74",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
@@ -11725,27 +11764,28 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3"
       },
       "consumed_source_fragments": {},
-      "invoked_at": "2026-10-08T14:46:59.489774+00:00",
+      "invoked_at": "2026-10-08T18:20:42.715958+00:00",
       "owner_skill": "to-design-brief",
       "skill_hash": "9f2f287e5b8ad4bcda534efa0b4a2e772d0f51e5ce178493936b2e6b7713b8af"
     },
     "architecture": {
-      "invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-architecture-approved",
+      "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-architecture-approved",
       "outputs": [
         "docs/architecture.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4",
+        "docs/prd.md": "0c478e89ae78ae4e6bb2b1c02559957bac7dd5f78992406aae5da06dd76c920a",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
-        "docs/user-journey.md": "e37e4813947b0347b4240e7be81c69b94d47b156732c2542cefd32bc0cbb398b",
-        "docs/screen-map.md": "f9411130af8e831add03b119060e8dd078f5457898011f40c6dcaf176c81a588",
-        "docs/wireframes.md": "244be8f2d5c10983e45d46ca477beec7a46304a2580afb02f1ce788c713009d6",
-        "docs/design-brief.md": "926e6d199fba7f27dd4a3f8c8b4876d2ff0c6c06cbe9d0b48dd252bf07a1b7f8",
+        "docs/user-journey.md": "579addc67c6a87024f79c968141c35202e0fe168fbd8e28e62b66b06ef5158ca",
+        "docs/screen-map.md": "82a982d74a08c36369a297e01d077b05dfaa94cc58d773b73ecf0d2a55e734f7",
+        "docs/wireframes.md": "43c13ee9d6c113f165870a6c51e7cd9e43f519c25aebb7dac849ec076c325f84",
+        "docs/design-brief.md": "15f959501a3f60acdce4e33e156ece22639fbc4887e94a137ab543abdf97db9b",
         "docs/model-settings.md": "aef42b6f74eabcdcc32835f6ef7d52099bdcaa5fab2112a184e500dd95338989",
         "forge/runs/claude-signin-20260922/source-review.json": "ad878d853b9c6f30da817167e1db6dffaad9c2c2863354ad3331294d7b269def",
         "forge/runs/sound-media-playback-20260923/scope.json": "7a5aa70bf52fa77a4dea9e39e5a49453c6be40c5b1a347632f4da4f5294455a0",
@@ -11775,28 +11815,29 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3"
       },
       "consumed_source_fragments": {},
-      "invoked_at": "2026-10-08T14:47:00.042322+00:00",
+      "invoked_at": "2026-10-08T18:20:43.312941+00:00",
       "owner_skill": "to-architecture",
       "skill_hash": "7856ccf9c3bd9cff49faca0af44759e0d60fc50b305b6cfdb67393d9f3a6a00f"
     },
     "dod-evals": {
-      "invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-dod-evals-approved",
+      "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-dod-evals-approved",
       "outputs": [
         "docs/dod-evals.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4",
+        "docs/prd.md": "0c478e89ae78ae4e6bb2b1c02559957bac7dd5f78992406aae5da06dd76c920a",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
-        "docs/user-journey.md": "e37e4813947b0347b4240e7be81c69b94d47b156732c2542cefd32bc0cbb398b",
-        "docs/screen-map.md": "f9411130af8e831add03b119060e8dd078f5457898011f40c6dcaf176c81a588",
-        "docs/wireframes.md": "244be8f2d5c10983e45d46ca477beec7a46304a2580afb02f1ce788c713009d6",
-        "docs/design-brief.md": "926e6d199fba7f27dd4a3f8c8b4876d2ff0c6c06cbe9d0b48dd252bf07a1b7f8",
-        "docs/architecture.md": "8254e2e348bb85b9a6b4064d6de7bb95260a199eadfa6632b5e9add6a4bd30ff",
+        "docs/user-journey.md": "579addc67c6a87024f79c968141c35202e0fe168fbd8e28e62b66b06ef5158ca",
+        "docs/screen-map.md": "82a982d74a08c36369a297e01d077b05dfaa94cc58d773b73ecf0d2a55e734f7",
+        "docs/wireframes.md": "43c13ee9d6c113f165870a6c51e7cd9e43f519c25aebb7dac849ec076c325f84",
+        "docs/design-brief.md": "15f959501a3f60acdce4e33e156ece22639fbc4887e94a137ab543abdf97db9b",
+        "docs/architecture.md": "a2d9bde17f758bf8b5fa80819f6e0fc6bb254cee45741d8f872dd7e6a48a23d1",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
         "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e",
@@ -11819,28 +11860,29 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3"
       },
       "consumed_source_fragments": {},
-      "invoked_at": "2026-10-08T14:47:00.620330+00:00",
+      "invoked_at": "2026-10-08T18:20:43.951575+00:00",
       "owner_skill": "to-dod-evals",
       "skill_hash": "238d61ce1f4157cb41e8ddf6946e6ee812c254151b3c27fbbc572fae7034c4e6"
     },
     "qa-checklist": {
-      "invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-qa-checklist-approved",
+      "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-qa-checklist-approved",
       "outputs": [
         "docs/qa-checklist.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4",
+        "docs/prd.md": "0c478e89ae78ae4e6bb2b1c02559957bac7dd5f78992406aae5da06dd76c920a",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
-        "docs/user-journey.md": "e37e4813947b0347b4240e7be81c69b94d47b156732c2542cefd32bc0cbb398b",
-        "docs/screen-map.md": "f9411130af8e831add03b119060e8dd078f5457898011f40c6dcaf176c81a588",
-        "docs/wireframes.md": "244be8f2d5c10983e45d46ca477beec7a46304a2580afb02f1ce788c713009d6",
-        "docs/design-brief.md": "926e6d199fba7f27dd4a3f8c8b4876d2ff0c6c06cbe9d0b48dd252bf07a1b7f8",
-        "docs/architecture.md": "8254e2e348bb85b9a6b4064d6de7bb95260a199eadfa6632b5e9add6a4bd30ff",
+        "docs/user-journey.md": "579addc67c6a87024f79c968141c35202e0fe168fbd8e28e62b66b06ef5158ca",
+        "docs/screen-map.md": "82a982d74a08c36369a297e01d077b05dfaa94cc58d773b73ecf0d2a55e734f7",
+        "docs/wireframes.md": "43c13ee9d6c113f165870a6c51e7cd9e43f519c25aebb7dac849ec076c325f84",
+        "docs/design-brief.md": "15f959501a3f60acdce4e33e156ece22639fbc4887e94a137ab543abdf97db9b",
+        "docs/architecture.md": "a2d9bde17f758bf8b5fa80819f6e0fc6bb254cee45741d8f872dd7e6a48a23d1",
         "docs/dod-evals.md": "c31804e680531cad85e2441045ca859f3424886989f9be57e49c0fdb8afa42fe",
         "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
         "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
@@ -11876,30 +11918,31 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3"
       },
       "consumed_source_fragments": {},
-      "invoked_at": "2026-10-08T14:47:01.220029+00:00",
+      "invoked_at": "2026-10-08T18:20:44.593260+00:00",
       "owner_skill": "to-qa-checklist",
       "skill_hash": "d26aee0c53d9d96fde6ee342489b63d994d16cf10a84e89a565a87b7b7bd13b1"
     },
     "development-plan": {
-      "invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-development-plan",
+      "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-development-plan",
       "outputs": [
         "docs/development-plan.md"
       ],
       "source_hashes": {
-        "docs/prd.md": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4",
+        "docs/prd.md": "0c478e89ae78ae4e6bb2b1c02559957bac7dd5f78992406aae5da06dd76c920a",
         "docs/project-context.md": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
         "docs/canonical-terms.md": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
         "docs/guardrails.md": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
-        "docs/user-journey.md": "e37e4813947b0347b4240e7be81c69b94d47b156732c2542cefd32bc0cbb398b",
-        "docs/screen-map.md": "f9411130af8e831add03b119060e8dd078f5457898011f40c6dcaf176c81a588",
-        "docs/wireframes.md": "244be8f2d5c10983e45d46ca477beec7a46304a2580afb02f1ce788c713009d6",
-        "docs/design-brief.md": "926e6d199fba7f27dd4a3f8c8b4876d2ff0c6c06cbe9d0b48dd252bf07a1b7f8",
-        "docs/architecture.md": "8254e2e348bb85b9a6b4064d6de7bb95260a199eadfa6632b5e9add6a4bd30ff",
+        "docs/user-journey.md": "579addc67c6a87024f79c968141c35202e0fe168fbd8e28e62b66b06ef5158ca",
+        "docs/screen-map.md": "82a982d74a08c36369a297e01d077b05dfaa94cc58d773b73ecf0d2a55e734f7",
+        "docs/wireframes.md": "43c13ee9d6c113f165870a6c51e7cd9e43f519c25aebb7dac849ec076c325f84",
+        "docs/design-brief.md": "15f959501a3f60acdce4e33e156ece22639fbc4887e94a137ab543abdf97db9b",
+        "docs/architecture.md": "a2d9bde17f758bf8b5fa80819f6e0fc6bb254cee45741d8f872dd7e6a48a23d1",
         "docs/dod-evals.md": "c31804e680531cad85e2441045ca859f3424886989f9be57e49c0fdb8afa42fe",
-        "docs/qa-checklist.md": "f62041af559a57358ef90201f9cb44bef74750df855cbcae300e0e730db5285e",
+        "docs/qa-checklist.md": "62b059fc6e7e29e3c2bbfbbecaeaf8499aec5655224179d783fa1ceb9c1773c5",
         "docs/model-settings.md": "aef42b6f74eabcdcc32835f6ef7d52099bdcaa5fab2112a184e500dd95338989",
         "package.json": "d74c25d2b4d04b4fc3f2f51c333a2333b8f64efa62ed254220e967b5c3ca764c",
         "forge/runs/claude-context-transport-20260923/scope.json": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318",
@@ -11937,10 +11980,11 @@
         "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
         "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
         "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
-        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371"
+        "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371",
+        "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3"
       },
       "consumed_source_fragments": {},
-      "invoked_at": "2026-10-08T14:47:02.204519+00:00",
+      "invoked_at": "2026-10-08T18:20:45.633824+00:00",
       "owner_skill": "to-development-plan",
       "skill_hash": "9ba73dec6c88af35ddd2d8d0ef35fc8d239548209f26172770f9ab4b350362ec"
     }
@@ -50157,6 +50201,126 @@
       "superseded_metadata": {
         "path": "forge/runs/head-connection-check-20261008/clarification/sdd-development-plan-metadata-delta.json",
         "content_hash": "cd22380c2fd2fbc089b1662b51031bfed97307b4e65aa62aa43e9e8166af641c"
+      }
+    },
+    {
+      "event": "scoped_owner_reconciliation",
+      "node": "product-idea",
+      "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-product-idea",
+      "recorded_at": "2026-10-08T18:20:39.492828+00:00",
+      "superseded_metadata": {
+        "path": "forge/runs/dark-matte-prompt-20261008/sdd-product-idea-metadata-delta.json",
+        "content_hash": "473e2588b3b19bc46c94118b72b1846838b7252ad838e5191772b3a1963eb26c"
+      }
+    },
+    {
+      "event": "scoped_owner_reconciliation",
+      "node": "prd",
+      "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-prd",
+      "recorded_at": "2026-10-08T18:20:39.721304+00:00",
+      "superseded_metadata": {
+        "path": "forge/runs/dark-matte-prompt-20261008/sdd-prd-metadata-delta.json",
+        "content_hash": "f4ef0287c3054bc90867193c8de60e97dd90dbb61bda0a1b6c7db4b09abad44b"
+      }
+    },
+    {
+      "event": "scoped_owner_reconciliation",
+      "node": "project-context-bundle",
+      "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-project-context-bundle",
+      "recorded_at": "2026-10-08T18:20:40.171369+00:00",
+      "superseded_metadata": {
+        "path": "forge/runs/dark-matte-prompt-20261008/sdd-project-context-bundle-metadata-delta.json",
+        "content_hash": "6c68e3cc8745ce0ba967a2a4e07b675ffb32a84d00891afc62d774d79caddc48"
+      }
+    },
+    {
+      "event": "scoped_owner_reconciliation",
+      "node": "guardrails",
+      "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-guardrails",
+      "recorded_at": "2026-10-08T18:20:40.639623+00:00",
+      "superseded_metadata": {
+        "path": "forge/runs/dark-matte-prompt-20261008/sdd-guardrails-metadata-delta.json",
+        "content_hash": "6cb3ea6dc41e8424dfd2ee30ccee06f6eacb26ee1d0b75882ea5c55c8226c276"
+      }
+    },
+    {
+      "event": "scoped_owner_reconciliation",
+      "node": "user-journey",
+      "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-user-journey",
+      "recorded_at": "2026-10-08T18:20:41.102302+00:00",
+      "superseded_metadata": {
+        "path": "forge/runs/dark-matte-prompt-20261008/sdd-user-journey-metadata-delta.json",
+        "content_hash": "223e9dbeb3a66867dd70b8fe3abf5c76c91255e59c019d581935e2385aeddf9a"
+      }
+    },
+    {
+      "event": "scoped_owner_reconciliation",
+      "node": "screen-map",
+      "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-screen-map",
+      "recorded_at": "2026-10-08T18:20:41.576966+00:00",
+      "superseded_metadata": {
+        "path": "forge/runs/dark-matte-prompt-20261008/sdd-screen-map-metadata-delta.json",
+        "content_hash": "6043555a989718a033e1f607be1128dacafc61ac634c7728d6051dbbdb68d0cd"
+      }
+    },
+    {
+      "event": "scoped_owner_reconciliation",
+      "node": "wireframes",
+      "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-wireframes",
+      "recorded_at": "2026-10-08T18:20:42.128816+00:00",
+      "superseded_metadata": {
+        "path": "forge/runs/dark-matte-prompt-20261008/sdd-wireframes-metadata-delta.json",
+        "content_hash": "85183e4636f9b1d255c689813ff1ffa1ec7ad268b374fd55473a9db2aa18f0fb"
+      }
+    },
+    {
+      "event": "scoped_owner_reconciliation",
+      "node": "design-brief",
+      "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-design-brief",
+      "recorded_at": "2026-10-08T18:20:42.715958+00:00",
+      "superseded_metadata": {
+        "path": "forge/runs/dark-matte-prompt-20261008/sdd-design-brief-metadata-delta.json",
+        "content_hash": "766fd3a73c6173b669f9186faa16690c7f79aca2f105fb409ab3a49367ca77a6"
+      }
+    },
+    {
+      "event": "scoped_owner_reconciliation",
+      "node": "architecture-approved",
+      "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-architecture-approved",
+      "recorded_at": "2026-10-08T18:20:43.312941+00:00",
+      "superseded_metadata": {
+        "path": "forge/runs/dark-matte-prompt-20261008/sdd-architecture-approved-metadata-delta.json",
+        "content_hash": "456d7c970cea06c2390fdf0f776b5e9d03af34c870e7783cdc1e134797e19cf7"
+      }
+    },
+    {
+      "event": "scoped_owner_reconciliation",
+      "node": "dod-evals-approved",
+      "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-dod-evals-approved",
+      "recorded_at": "2026-10-08T18:20:43.951575+00:00",
+      "superseded_metadata": {
+        "path": "forge/runs/dark-matte-prompt-20261008/sdd-dod-evals-approved-metadata-delta.json",
+        "content_hash": "bc812f4a40a0c823362bf800175255d30f38c4b80d7a87e629b772223795b146"
+      }
+    },
+    {
+      "event": "scoped_owner_reconciliation",
+      "node": "qa-checklist-approved",
+      "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-qa-checklist-approved",
+      "recorded_at": "2026-10-08T18:20:44.593260+00:00",
+      "superseded_metadata": {
+        "path": "forge/runs/dark-matte-prompt-20261008/sdd-qa-checklist-approved-metadata-delta.json",
+        "content_hash": "4c269592a91e695a039a7187ccab1b614c6cb1007f4ace837772756c3eb36c77"
+      }
+    },
+    {
+      "event": "scoped_owner_reconciliation",
+      "node": "development-plan",
+      "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-development-plan",
+      "recorded_at": "2026-10-08T18:20:45.633824+00:00",
+      "superseded_metadata": {
+        "path": "forge/runs/dark-matte-prompt-20261008/sdd-development-plan-metadata-delta.json",
+        "content_hash": "0575d379ba8cdb00c4b5865117ed7d999c7feb3baa54d9ff973d00d36c17c1cf"
       }
     }
   ],
