@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "event": "user_requested_copy_correction",
+  "recorded_at": "2026-10-08T17:11:14.755686+00:00",
+  "request": "make it say:\nChatGPT signed in.\nClaude signed it.",
+  "display_copy": {
+    "head": "ChatGPT signed in.",
+    "critic": "Claude signed in."
+  },
+  "normalization": "Corrected the obvious it/in typo consistently with the requested sign-in confirmation.",
+  "scope": "Successful connection-check wording only; retain unavailable model/effort qualifications and all inspection/privacy/draft-preservation behavior.",
+  "verification": {
+    "command": "node scripts/browser-check.mjs --provider-connection-only",
+    "result": "passed",
+    "engines": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ],
+    "evidence": "forge/runs/signin-copy-20261008/browsers.log",
+    "source_hashes": {
+      "src/client/app.js": "aa51d56cc61eedf536bef7911acf9922e3503a23ceadb6f673855e53f8e2ba31",
+      "scripts/browser-provider-connection.mjs": "cc1e98aeb71d3aa3971ed8d40b90a54f0c5934010f54a55f995ec85c4910e5ca"
+    }
+  },
+  "sdd": "Independent source review confirmed existing behavior definitions do not mandate previous exact wording. Core documents and frozen visual baseline unchanged.",
+  "server": "No restart or live-session interaction."
+}

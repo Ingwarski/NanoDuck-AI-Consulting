@@ -376,8 +376,8 @@ const headConnectionMessage = () => {
     const model = $("#head-model").value, effort = $("#head-reasoning").value;
     const available = capability.models?.some(item => item.id === model && item.efforts?.includes(effort));
     return available
-      ? `GPT (Codex) is connected. ${model} / ${effort} is listed for Head and specialists. This checks sign-in and the catalog, not a model response.`
-      : `GPT (Codex) is connected, but ${model} / ${effort} is unavailable in its current catalog. Your choices are unchanged.`;
+      ? "ChatGPT signed in."
+      : `ChatGPT signed in. ${model} / ${effort} is unavailable in its current catalog. Your choices are unchanged.`;
   }
   if (capability?.status === "auth_required") return "GPT (Codex) needs subscription sign-in on the computer running NanoDuck. Sign in there, then check the connection again.";
   if (capability?.status === "quota_blocked") return "GPT (Codex) has reached its current usage limit. Check the connection again after the limit resets.";
@@ -387,7 +387,7 @@ const headConnectionMessage = () => {
 };
 const claudeConnectionMessage = () => {
   const status = state.criticProviders?.claude_code?.status;
-  if (status === "ready") return "Claude Code is connected. You can select it for the Critic.";
+  if (status === "ready") return "Claude signed in.";
   if (status === "auth_required") return "Claude Code needs subscription sign-in. On the computer running NanoDuck, run npm run claude:login, then check the connection again.";
   if (status === "quota_blocked") return "Claude Code has reached its current usage limit. Check the connection again after the limit resets.";
   if (status === "incompatible") return "Claude Code does not support the current configuration. Check its version and model settings, then check the connection again.";

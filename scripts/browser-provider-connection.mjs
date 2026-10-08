@@ -75,7 +75,7 @@ export async function verifyProviderConnection(page, name) {
     await page.locator('#managed-document-markdown').fill(`${await page.locator('#managed-document-markdown').inputValue()}\n\nSynthetic unsaved connection-check guidance.`);
     const draft = await choices(page);
     const headStates = [
-      ['ready', /catalog|sign.in/iu],
+      ['ready', /^ChatGPT signed in\.$/u],
       ['auth_required', /sign.in/iu],
       ['unavailable', /unavailable on the computer/u],
       ['provider_unavailable', /could not be reached/u],
@@ -89,7 +89,7 @@ export async function verifyProviderConnection(page, name) {
       assert.match(explanation, message, `${name} Head reports ${next}`);
       assert.doesNotMatch(explanation, /Claude|claude:login/u, `${name} Head check identifies Codex`);
       if (next !== 'auth_required') assert.doesNotMatch(explanation, /needs.*sign.in/iu, `${name} ${next} does not demand authentication`);
-      if (next === 'ready') { assert.match(explanation, /gpt-6-sol/u); assert.match(explanation, /low/u); }
+      if (next === 'ready') assert.equal(explanation, 'ChatGPT signed in.');
       assert.equal(await page.locator('#head-model option[value="gpt-6-sol"]').evaluate(option => option.disabled), next !== 'ready');
       assert.equal(await page.locator('#head-reasoning').isDisabled(), next !== 'ready');
       assert.deepEqual(await choices(page), draft, `${name} Head ${next} preserves every unsaved choice and document`);
@@ -138,8 +138,7 @@ export async function verifyProviderConnection(page, name) {
     assert.match(await page.locator('#head-connection-status').textContent(), /Checking/u, 'Head model and effort changes do not clear Checking feedback');
     release(); await page.waitForFunction(() => ['head', 'critic'].every(role => !document.querySelector(`#check-${role}-connection`).disabled));
     assert.deepEqual(await choices(page), headPendingDraft, 'Head completion preserves edits made during its check');
-    assert.match(await page.locator('#head-connection-status').textContent(), /gpt-6\.1-sol/u, 'Head completion evaluates the current unsaved model');
-    assert.match(await page.locator('#head-connection-status').textContent(), /max/u, 'Head completion evaluates the current unsaved effort');
+    assert.equal(await page.locator('#head-connection-status').textContent(), 'ChatGPT signed in.', 'Available current Head selection has the requested sign-in message');
 
     failRequest = true; await checkConnection(page, 'head');
     assert.match(await page.locator('#head-connection-status').textContent(), /could not finish/u);
@@ -188,7 +187,7 @@ export async function verifyProviderConnection(page, name) {
     const editedDuringCheck = await choices(page);
     release(); await page.waitForFunction(() => !document.querySelector('#check-critic-connection').disabled);
     assert.deepEqual(await choices(page), editedDuringCheck);
-    assert.match(await page.locator('#critic-connection-status').textContent(), /is connected/u);
+    assert.equal(await page.locator('#critic-connection-status').textContent(), 'Claude signed in.');
     await page.locator('#critic-provider').selectOption('claude_code');
     await page.locator('#critic-model').selectOption('claude-opus-5-5');
     await page.locator('#critic-reasoning').selectOption('extra');

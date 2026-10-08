@@ -1,0 +1,9 @@
+chromium provider connection recovery: started.
+chromium provider connection recovery: passed.
+chromium: closing fixture.
+firefox provider connection recovery: started.
+firefox provider connection recovery: passed.
+firefox: closing fixture.
+webkit provider connection recovery: started.
+webkit provider connection recovery: passed.
+webkit: closing fixture.
