@@ -943,12 +943,23 @@ function updateChatArrows() {
     "--prompt-viewport-height": `${viewport.height}px`,
   };
   for (const [name, value] of Object.entries(properties)) if (root.style.getPropertyValue(name) !== value) root.style.setProperty(name, value);
+  const composer = $("#composer");
+  const promptBounds = !$("#discussion-page").hidden && !composer.hidden && composer.getClientRects().length ? composer.getBoundingClientRect() : null;
+  const clearance = promptBounds && promptBounds.bottom > 0 && promptBounds.top < viewport.bottom ? Math.max(0, innerHeight - promptBounds.top) : 0;
+  const promptClearance = `${clearance}px`;
+  if (root.style.getPropertyValue("--chat-prompt-clearance") !== promptClearance) {
+    root.style.setProperty("--chat-prompt-clearance", promptClearance);
+    liquidGlass.refresh();
+  }
   const bottom = chatContentBottom();
   const panel = chatScrollPanel();
   const visible = !$("#discussion-page").hidden && panel && panel.getClientRects().length;
   const bounds = visible ? panel.getBoundingClientRect() : null;
   $("#chat-start").hidden = !bounds || scrollY <= 2 || bounds.top >= chatTopOffset() - 2;
   $("#chat-end").hidden = !bounds || bounds.bottom <= bottom + 2 || scrollY + innerHeight >= document.documentElement.scrollHeight - 2;
+  if (clearance && !$("#chat-start").hidden && !$("#chat-end").hidden && $("#chat-start").getBoundingClientRect().bottom + 8 > $("#chat-end").getBoundingClientRect().top) {
+    $("#chat-start").hidden = true;
+  }
 }
 let chatArrowFrame;
 function scheduleChatArrows() {

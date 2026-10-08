@@ -13,6 +13,7 @@ export async function verifyReadingMode(page, name, root) {
   await page.locator('#message').fill('Synthetic reading mode: assess a fictional bakery pilot.');
   await page.locator('#send').click();
   await page.locator('#stop').waitFor({ state: 'visible' });
+  await page.waitForFunction(() => document.documentElement.style.getPropertyValue('--chat-prompt-clearance') === '0px');
   await page.getByRole('tab', { name: 'Sources', exact: true }).click();
   await page.waitForFunction(() => document.querySelector('#run-status').textContent.includes('complete'), undefined, { timeout: 30000 });
   assert.equal(await page.locator('[data-tab=sources]').getAttribute('aria-selected'), 'true', 'Completion does not switch the view');
@@ -28,6 +29,7 @@ export async function verifyReadingMode(page, name, root) {
   await page.waitForFunction(() => { const el = document.querySelector('#thread').lastElementChild; return el && el.getBoundingClientRect().bottom <= innerHeight + 2; });
   assert.equal(await page.locator('#thread').isVisible(), true);
   await page.locator('#chat-end').waitFor({ state: 'hidden' });
+  assert.equal(await page.evaluate(() => document.documentElement.style.getPropertyValue('--chat-prompt-clearance')), '0px', 'Collapsed prompt removes its arrow offset');
   await page.locator('#chat-start').click();
   await page.waitForFunction(() => { const el = document.querySelector('#thread').firstElementChild; return el && el.getBoundingClientRect().top >= 100; });
   await page.locator('#chat-start').waitFor({ state: 'hidden' });
@@ -52,8 +54,8 @@ export async function verifyReadingMode(page, name, root) {
     prompt: document.querySelector('#composer').getBoundingClientRect().top,
     promptBottom: document.querySelector('#composer').getBoundingClientRect().bottom,
   }));
-  assert.equal(geometry.arrow, 884, 'Bottom arrow stays 16px above the viewport bottom, independent of the prompt');
-  assert.equal(await page.locator('#chat-end').evaluate(el => getComputedStyle(el).color), 'rgb(25, 34, 48)', 'Down arrow remains legible over the white prompt');
+  assert.equal(geometry.arrow, geometry.prompt - 16, 'Down arrow rises 16px above the open prompt');
+  assert.ok(await page.locator('#chat-end').evaluate(el => getComputedStyle(el).color === getComputedStyle(document.documentElement).color), 'Raised arrow uses the page theme rather than the white prompt ink');
   assert.ok(geometry.promptBottom <= 900 && geometry.promptBottom >= 880, 'Prompt is pinned near the viewport bottom');
   await page.locator('#chat-end').click();
   await page.waitForFunction(() => document.querySelector('#thread').getBoundingClientRect().bottom <= document.querySelector('#composer').getBoundingClientRect().top - 10);
@@ -68,8 +70,20 @@ export async function verifyReadingMode(page, name, root) {
   });
   await page.waitForFunction(() => document.documentElement.style.getPropertyValue('--prompt-keyboard-inset') === '420px');
   assert.ok(await page.locator('#composer').evaluate(el => el.getBoundingClientRect().bottom <= 480), 'Sticky prompt clears a simulated keyboard viewport');
+  assert.ok(await page.evaluate(() => {
+    const start = document.querySelector('#chat-start'), end = document.querySelector('#chat-end');
+    return start.hidden || end.hidden || start.getBoundingClientRect().bottom + 8 <= end.getBoundingClientRect().top;
+  }), 'Visible arrows remain separate above the prompt in a short viewport');
   await page.locator('#send').scrollIntoViewIfNeeded();
   assert.ok(await page.locator('#send').evaluate(el => el.getBoundingClientRect().bottom <= document.querySelector('#composer').getBoundingClientRect().bottom), 'Send stays reachable in the short prompt');
+  await page.evaluate(() => { Object.defineProperty(visualViewport, 'height', { configurable: true, value: 240 }); visualViewport.dispatchEvent(new Event('resize')); });
+  await page.waitForFunction(() => document.documentElement.style.getPropertyValue('--prompt-keyboard-inset') === '660px');
+  await page.evaluate(() => window.scrollTo(0, Math.max(0, (document.documentElement.scrollHeight - innerHeight) / 2)));
+  await page.locator('#chat-end').waitFor({ state: 'visible' });
+  await page.locator('#chat-start').waitFor({ state: 'hidden' });
+  assert.equal(await page.locator('#chat-end').isVisible(), true, 'Down arrow remains available when only one circle fits above the prompt');
+  await page.evaluate(() => { Object.defineProperty(visualViewport, 'height', { configurable: true, value: 480 }); visualViewport.dispatchEvent(new Event('resize')); });
+  await page.locator('#chat-start').waitFor({ state: 'visible' });
   await page.evaluate(() => { Object.defineProperty(visualViewport, 'scale', { configurable: true, value: 2 }); visualViewport.dispatchEvent(new Event('resize')); });
   await page.waitForFunction(() => document.documentElement.style.getPropertyValue('--prompt-keyboard-inset') === '0px');
   await page.evaluate(() => { for (const key of ['height', 'offsetTop', 'scale']) delete visualViewport[key]; visualViewport.dispatchEvent(new Event('resize')); });

@@ -219,7 +219,7 @@
 .usage-stages{margin:24px 0;border:1px solid var(--line);border-radius:10px;padding:14px}.usage-stages summary{cursor:pointer}.usage-stage{padding:12px 0;border-bottom:1px solid var(--line);overflow-wrap:anywhere}.usage-stage:last-child{border-bottom:0}
 
 .chat-jumps{position:fixed;inset:0;z-index:15;pointer-events:none}.chat-jumps button{pointer-events:auto;position:fixed;left:50%;transform:translateX(-50%);display:grid;place-items:center;width:44px;height:44px;min-width:44px;padding:10px;border:1.5px solid var(--muted);border-radius:50%;background:transparent;color:var(--ink)}.chat-jumps button:hover{background:transparent;border-color:var(--blue-light);color:var(--blue-light)}.chat-jumps svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-#chat-start{top:calc(96px + env(safe-area-inset-top, 0px))}#chat-end{bottom:calc(16px + env(safe-area-inset-bottom, 0px))}
+#chat-start{top:calc(96px + env(safe-area-inset-top, 0px))}#chat-end{bottom:calc(16px + env(safe-area-inset-bottom, 0px) + var(--chat-prompt-clearance, 0px))}
 
 /* U-13: provider totals and account-wide allowance retain separate scopes. */
 .usage-providers{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,24rem),1fr));gap:1rem;margin:1.2rem 0}
@@ -315,13 +315,6 @@
   backdrop-filter: none;
 }
 #expand-composer.liquid-glass-surface { position: relative; min-height: 44px; }
-:where(#discussion-page:has(#composer:not([hidden]))) #chat-end {
-  --ink: #192230;
-  --blue-light: #245bb0;
-  --surface: #ffffff;
-  --glass-line: rgba(64, 81, 108, .25);
-  --glass-label-shadow: 0 1px 2px #ffffffb3;
-}
 .chat-jumps button.liquid-glass-surface::before,
 #expand-composer.liquid-glass-surface::before {
   content: "";
@@ -356,7 +349,7 @@
   color-scheme: light;
   position: sticky;
   bottom: calc(max(12px, env(safe-area-inset-bottom, 0px)) + var(--prompt-keyboard-inset, 0px));
-  max-height: max(44px, calc(var(--prompt-viewport-height, 100dvh) - 156px - max(12px, env(safe-area-inset-bottom, 0px))));
+  max-height: max(44px, calc(var(--prompt-viewport-height, 100dvh) - 208px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - max(12px, env(safe-area-inset-bottom, 0px))));
   overflow: auto;
   overscroll-behavior: contain;
   isolation: isolate;
@@ -380,9 +373,6 @@
 @media (max-width: 700px) {
   .reading-actions { padding-left: calc(50% + 30px); }
   #expand-composer { max-width: 100%; }
-  #discussion-page #composer {
-    max-height: max(44px, calc(var(--prompt-viewport-height, 100dvh) - 146px - max(12px, env(safe-area-inset-bottom, 0px))));
-  }
 }
 /* Renderer failures keep each affected control opaque and usable. */
 .navbar.liquid-glass-fallback,

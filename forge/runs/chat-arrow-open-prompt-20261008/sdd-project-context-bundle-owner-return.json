@@ -1,0 +1,32 @@
+{
+  "invocation_id": "chat-arrow-open-prompt-20261008-d0a388ad7b72-project-context-bundle",
+  "node": "project-context-bundle",
+  "returned_at": "2026-10-08T14:02:14.055994+00:00",
+  "outputs": {
+    "project-context": {
+      "path": "docs/project-context.md",
+      "content_hash": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "arrow-open-prompt-scoped-document-review",
+        "reviewed_at": "2026-10-08T14:02:14.026766+00:00",
+        "executor": "Codex inline to-project-context",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      }
+    },
+    "canonical-terms": {
+      "path": "docs/canonical-terms.md",
+      "content_hash": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "arrow-open-prompt-scoped-document-review",
+        "reviewed_at": "2026-10-08T14:02:14.026908+00:00",
+        "executor": "Codex inline to-project-context",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      }
+    }
+  },
+  "evidence_limit": "Document definitions only; actual product checks belong to the root's separately inspected evidence."
+}
