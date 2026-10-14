@@ -1,0 +1,9 @@
+chromium local network entry: started.
+chromium: manual and cross-site app entry and private API denial passed; metadata modeled for the disposable TLS fixture.
+chromium local network entry: passed.
+firefox local network entry: started.
+firefox: manual and cross-site app entry and private API denial passed; metadata reported by the browser.
+firefox local network entry: passed.
+webkit local network entry: started.
+webkit: manual and cross-site app entry and private API denial passed; metadata reported by the browser.
+webkit local network entry: passed.

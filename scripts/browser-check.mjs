@@ -1,4 +1,5 @@
 import { verifyReadingMode } from './browser-reading-mode.mjs';
+import { verifyLocalEntry } from './browser-local-entry.mjs';
 import { verifyTheme } from './browser-theme.mjs';
 import { verifyProgressRecovery } from './browser-progress-recovery.mjs';
 import { verifyUsage } from './browser-usage.mjs';
@@ -92,6 +93,11 @@ try {
       assert.equal((await context.request.get(`${origin}/api/usage`)).status(), 401, 'Usage is private before sign-in');
       await page.goto(origin);
       await page.locator('#sign-in').waitFor({ state: 'visible' });
+      if (process.argv.includes('--local-entry-only')) {
+        await phase(`${name} local network entry`, () => verifyLocalEntry(page, name, origin));
+        assert.deepEqual(errors, [], `${name} uncaught browser errors`);
+        await context.close(); continue;
+      }
       await page.getByLabel('Workspace password', { exact: true }).fill(password);
       await page.locator('#local-sign-in').click();
       await page.locator('#consent-check').check();

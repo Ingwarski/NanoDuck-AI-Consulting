@@ -15,6 +15,13 @@ import { jpeg, png, webp, withImageMetadata } from "./fixtures/images.mjs";
 test("HTTPS rejects DNS rebinding and anonymous cross-origin login while password sessions revoke cleanly", async t => {
   const { origin, fetch, environment } = await startLocalRuntime(t);
   const body = JSON.stringify({ password: testPassword });
+  const navigation = { "sec-fetch-site": "cross-site", "sec-fetch-mode": "navigate", "sec-fetch-dest": "document" };
+  for (const path of ["/", "/?from=link", "/index.html"]) {
+    const entry = await fetch(`${origin}${path}`, { headers: navigation });
+    assert.equal(entry.status, 200);
+    assert.match(await entry.text(), /id="sign-in"/u);
+  }
+  for (const headers of [{ ...navigation, origin: "https://attacker.example" }, { ...navigation, "sec-fetch-dest": "iframe" }, { "sec-fetch-site": "cross-site" }]) assert.equal((await fetch(`${origin}/`, { headers })).status, 403);
   assert.equal((await fetch(`${origin}/healthz`, { tlsServername: "localhost", headers: { host: "attacker.example:3000" } })).status, 403);
   for (const headers of [{}, { origin: "https://attacker.example" }, { origin, "sec-fetch-site": "cross-site" }]) {
     assert.equal((await fetch(`${origin}/api/auth/local`, { method: "POST", headers, body })).status, 403);
@@ -29,6 +36,7 @@ test("HTTPS rejects DNS rebinding and anonymous cross-origin login while passwor
   assert.equal((await fetch(`${origin}/api/consent`, { method: "POST", headers: { cookie, origin } })).status, 403);
   const headers = { cookie, origin, "x-csrf-token": session.csrfToken };
   assert.equal((await fetch(`${origin}/api/consent`, { method: "POST", headers })).status, 200);
+  for (const path of ["/api/session", "/api/conversations", "/styles.css", "/client/app.js"]) assert.equal((await fetch(`${origin}${path}`, { headers: { ...navigation, cookie } })).status, 403, path);
   assert.equal((await fetch(`${origin}/api/logout`, { method: "POST", headers })).status, 204);
   assert.equal((await (await fetch(`${origin}/api/session`, { headers: { cookie } })).json()).authenticated, false);
   await assert.rejects(setupWorkspace({ environment, password: testPassword, resetPassword: true }), /Stop NanoDuck/u);

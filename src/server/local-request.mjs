@@ -31,7 +31,12 @@ export function localRequestAllowed(request, config) {
   if (!target.startsWith("/") || target.startsWith("//")) return false;
   const origin = request.headers.origin;
   if (origin !== undefined && origin !== expected) return false;
-  if (request.headers["sec-fetch-site"] === "cross-site") return false;
+  // Opening the public app shell is safe; cross-site API/subresource access is not.
+  const shellNavigation = request.method === "GET"
+    && ["/", "/index.html"].includes(target.split("?", 1)[0])
+    && request.headers["sec-fetch-mode"] === "navigate"
+    && request.headers["sec-fetch-dest"] === "document";
+  if (request.headers["sec-fetch-site"] === "cross-site" && !shellNavigation) return false;
   if (!["GET", "HEAD", "OPTIONS"].includes(request.method) && origin !== expected) return false;
   return true;
 }

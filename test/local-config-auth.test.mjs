@@ -79,6 +79,21 @@ test("TLS local-network boundary pins exact hosts and per-request origins, inclu
   assert.equal(privateAddress("::ffff:192.168.1.80"), true); assert.equal(privateAddress("127.0.0.1"), true);
 });
 
+test("public app navigation from another site preserves local and private-route boundaries", () => {
+  const config = { port: 3000, allowedHosts: ["192.168.1.42:3000"] };
+  const headers = { host: config.allowedHosts[0], "sec-fetch-site": "cross-site", "sec-fetch-mode": "navigate", "sec-fetch-dest": "document" };
+  const incoming = request(config, { method: "GET", url: "/", headers });
+  for (const url of ["/", "/?from=link", "/index.html", "/index.html?from=link"]) assert.equal(localRequestAllowed({ ...incoming, url }, config), true, url);
+  for (const url of ["/api/session", "/api/conversations", "/api/conversations?from=link", "/styles.css", "/client/app.js", "//attacker.example/"]) assert.equal(localRequestAllowed({ ...incoming, url }, config), false, url);
+  for (const method of ["POST", "PUT", "DELETE", "HEAD", "OPTIONS"]) assert.equal(localRequestAllowed({ ...incoming, method }, config), false, method);
+  for (const changes of [
+    { "sec-fetch-mode": undefined }, { "sec-fetch-mode": "cors" },
+    { "sec-fetch-dest": undefined }, { "sec-fetch-dest": "iframe" }, { "sec-fetch-dest": "image" },
+    { origin: "https://attacker.example" }, { origin: "null" }, { host: "attacker.example:3000" },
+  ]) assert.equal(localRequestAllowed({ ...incoming, headers: { ...headers, ...changes } }, config), false);
+  for (const socket of [{ encrypted: false, remoteAddress: "192.168.1.80" }, { encrypted: true, remoteAddress: "8.8.8.8" }]) assert.equal(localRequestAllowed({ ...incoming, socket }, config), false);
+});
+
 test("password sessions require consent and CSRF, keep fixed expiry, and revoke on logoff", async t => {
   const { environment } = await isolated(t); const config = loadConfig(environment); const store = createMemoryStore(); const auth = createAuth({ config, store }); const incoming = request(config);
   assert.equal(await auth.localSignIn(incoming, "wrong-password-value"), undefined);
