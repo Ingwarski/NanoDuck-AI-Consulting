@@ -1,5 +1,24 @@
 # Port isolated requests and context/cache economy
 
+## Handoff status · 17 October 2026
+
+This preserves the September 26 request-isolation handoff and measured source
+results. Later [research/accounting](research-evidence-economy-port.md) and
+[Usage](usage-dashboard-port.md) refinements take precedence for stable Claude
+context transport, upstream accounting provenance and final dashboard behavior.
+The [combined prompt](combined-updates-after-review-port.md) includes their
+cumulative specification. Original branch references, counts and model experiments
+are dated evidence, not current branch publication, entitlement or guaranteed savings.
+
+The 17 October update changes documentation only. Apply this brief within
+separately authorized work in one target under its current instructions,
+requirements, approved design and hosting/storage boundaries. It grants no new
+deployment, restart, provider-call or spending authority. Target verification must
+be recorded independently. New live probes need explicit authorization and an
+included-allowance check; extra credits, API billing and resets require their own
+explicit approval. The [evidence index](verification.md) distinguishes existing
+scoped results from original formal checks and release gates.
+
 Apply these changes only to the destination repository. Preserve its hosting, database, authentication and provider transport. Do not copy local paths, private storage, credentials, personal conversations or frozen design evidence from another repository.
 
 ## Required behavior

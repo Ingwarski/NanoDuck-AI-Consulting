@@ -1,0 +1,136 @@
+{
+  "recorded_at": "2026-10-17T12:13:45.622410+00:00",
+  "scope": "Documentation reconciliation and narrow root project-instruction setup only",
+  "status": "documentation-validated",
+  "base_commit": "48af7c8a83228e55b1504a1d618bb7ed05eb44e8",
+  "branch": "codex/sdd-reconciliation-20261017",
+  "canonical_repository": "Ingwarski/NanoDuck-AI-Consulting",
+  "implementation_changed": false,
+  "runtime_exercised": false,
+  "changed_groups": [
+    "Root AGENTS execution policy installation preserving existing policy",
+    "All13 canonical SDD documents reconciled through declared domain owners",
+    "README, current verification index and8dated portable handoff headers",
+    "Owner-reviewed version1 unit contract, exact QA/plan projections, source bindings and retained legacy migration records"
+  ],
+  "working_language": "en",
+  "product_locales": [
+    "en",
+    "uk"
+  ],
+  "approved_baseline": {
+    "id": "nanoduck-electric-a-v8-20260914",
+    "integrity": "passed current checker rehash",
+    "canonical_approved_section": "byte-identical",
+    "frozen_sources_and_original_receipts": "unchanged"
+  },
+  "unit_contract": {
+    "version": 1,
+    "order": [
+      "U-14",
+      "U-15"
+    ],
+    "runs": {
+      "U-14": {
+        "status": "pending"
+      },
+      "U-15": {
+        "status": "pending"
+      }
+    },
+    "legacy_map": "forge/runs/sdd-reconciliation-20261017/plan-migration.json",
+    "legacy_scope_count": 13,
+    "original_U09_duty_count": 10,
+    "completion_inferred": false
+  },
+  "formal_qa": {
+    "total": 91,
+    "original_real_consumer_checks": 90,
+    "bounded_component_checks": 1,
+    "definitions": "prepared",
+    "execution": "not_run",
+    "required_gates": 6,
+    "release_readiness": "not_evaluated",
+    "required_clauses_and_states": 111,
+    "security_obligations": 17
+  },
+  "checks": [
+    {
+      "command": "sdd_check.py --project . --audit",
+      "interpreter": "Maintained Python3.12.14",
+      "exit_code": 0,
+      "result": "passed",
+      "evidence": "forge/runs/sdd-reconciliation-20261017/final-audit.json"
+    },
+    {
+      "command": "sdd_check.py --project . --after development-plan",
+      "exit_code": 0,
+      "result": "passed",
+      "evidence": "forge/runs/sdd-reconciliation-20261017/consistency/development-plan-after.json"
+    },
+    {
+      "command": "node scripts/check-artifacts.mjs",
+      "exit_code": 0,
+      "result": "Passed:32Markdown files,110JavaScript syntax checks,3active candidates and3total versioned entry pages;links,public paths and static HTML references. Runtime flows require browser review."
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "passed"
+    },
+    {
+      "command": "sdd_check.py --project . --before implementation",
+      "exit_code": 1,
+      "result": "expected blocked",
+      "only_issue": "implementation_not_authorized",
+      "evidence": "forge/runs/sdd-reconciliation-20261017/implementation-boundary-check.json"
+    }
+  ],
+  "owner_consistency_after_reports": [
+    "forge/runs/sdd-reconciliation-20261017/consistency/architecture-after.json",
+    "forge/runs/sdd-reconciliation-20261017/consistency/design-brief-after.json",
+    "forge/runs/sdd-reconciliation-20261017/consistency/development-plan-after.json",
+    "forge/runs/sdd-reconciliation-20261017/consistency/dod-evals-after.json",
+    "forge/runs/sdd-reconciliation-20261017/consistency/guardrails-after.json",
+    "forge/runs/sdd-reconciliation-20261017/consistency/prd-after.json",
+    "forge/runs/sdd-reconciliation-20261017/consistency/product-idea-after.json",
+    "forge/runs/sdd-reconciliation-20261017/consistency/project-context-bundle-after.json",
+    "forge/runs/sdd-reconciliation-20261017/consistency/qa-checklist-after.json",
+    "forge/runs/sdd-reconciliation-20261017/consistency/screen-map-after.json",
+    "forge/runs/sdd-reconciliation-20261017/consistency/user-journey-after.json",
+    "forge/runs/sdd-reconciliation-20261017/consistency/wireframes-after.json"
+  ],
+  "toolchain": {
+    "algorithm": "sdd-toolchain-sha256-v1",
+    "checker_sha256": "06ba030effe15fbdfe7df1058039125603e867c8843aabc8418158f43cca69b8",
+    "skillset_sha256": "0d78f7fba56c492a845d1cd8ba51d3a5b5330c5466bccbbced65212cba742789",
+    "source_file_count": 40
+  },
+  "preservation_evidence": "forge/runs/sdd-reconciliation-20261017/preservation-checks.json",
+  "independent_review": "forge/runs/sdd-reconciliation-20261017/independent-review.json",
+  "instruction_setup": "forge/runs/sdd-reconciliation-20261017/instruction-setup.json",
+  "implementation_gate": {
+    "state": "awaiting_implementation_prompt",
+    "development_plan_hash": "3d5544fd74655a931c424c8ea802c4e350fa8c9d8a0486bd85473d9a6703822a",
+    "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
+    "later_explicit_prompt_required": true
+  },
+  "known_future_work": [
+    "U14 corrects packaged WORKING_CONTEXT guidance by exact-default migration while preserving owner edits and immutable accepted snapshots.",
+    "U14/U15 implement and execute canonical acceptance only after the separate implementation prompt; unavailable required external/device/user evidence stays a named gap."
+  ],
+  "limitations": [
+    "The checker validates declared metadata, integrity, ownership, dependencies and evidence bindings; it does not prove runtime behavior, security, research authenticity or host enforcement.",
+    "No product tests, browser sessions, provider calls, physical devices, native readers, assistive technology or representative-user tasks were exercised in this documentation run.",
+    "Current explicit instruction reads, reference resolution and byte-idempotent setup were verified; fresh-session automatic host loading, continuation/recovery and Claude Code compatibility were not exercised.",
+    "Historical reports and scoped results retain their original source/time/scope and are not inferred as current unit or release acceptance."
+  ],
+  "resources": {
+    "browsers": [],
+    "profiles": [],
+    "servers": [],
+    "provider_calls": [],
+    "profile_cleanup_required": false
+  },
+  "included_usage": "Live ordinary included allowance verified at start, delegation and milestones; no extra spending, API route or reset authorized or initiated."
+}

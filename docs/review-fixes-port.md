@@ -1,5 +1,23 @@
 # Sister-repository prompt: consultation review repairs (26 September 2026)
 
+## Handoff status · 17 October 2026
+
+This preserves the September 26 repair scope. Its branch-publication caution
+describes the authoring-time observation, not a new check of that branch or either
+sister repository. Recorded source implementation and scoped verification are
+indexed in [verification.md](verification.md). Apply the
+[combined follow-up](combined-updates-after-review-port.md) after this repair
+baseline where the target lacks later behaviors; reconcile current source
+contracts with target-specific architecture.
+
+The 17 October update changes documentation only. This handoff grants no new
+checkout, deployment, restart, provider-call or spending authority. Use it within
+separately authorized target work under that repository's instructions,
+requirements and approved design. Preserve historical receipts; target test and
+activation claims require target evidence. New live probes need explicit
+authorization and an included-allowance check; extra credits, API billing and resets
+require their own explicit approval.
+
 Use the following prompt in each sister repository separately. This document is an implementation specification, not permission to change another checkout from the source repository. It requires no private consultation history.
 
 ---

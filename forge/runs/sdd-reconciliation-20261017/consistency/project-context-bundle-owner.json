@@ -1,0 +1,37 @@
+{
+  "invocation_id": "sdd-reconciliation-20261017-consistency-project-context-bundle",
+  "outputs": [
+    "docs/project-context.md",
+    "docs/canonical-terms.md"
+  ],
+  "source_usage": {
+    "docs/model-settings.md": "full",
+    "docs/prd.md": "full",
+    "docs/product-idea.md": "full",
+    "forge/design/evidence/electric-v8-approval-20260914.json": "full",
+    "forge/runs/sdd-reconciliation-20261017/project-context-bundle-owner.json": "full",
+    "forge/runs/sdd-reconciliation-20261017/scope.json": "full",
+    "src/client/app.js": "full",
+    "src/server/codex-provider.mjs": "full"
+  },
+  "consumed_hashes": {
+    "docs/model-settings.md": "aef42b6f74eabcdcc32835f6ef7d52099bdcaa5fab2112a184e500dd95338989",
+    "docs/prd.md": "79a015d132b6eb65a288e2f80fd86fd5a5d5a9b7e81fbb41dd3faa1e4530e56f",
+    "docs/product-idea.md": "3090712b248cae4f5aa6649c301c37fdb0ef7e69eae2cb53517b7f44daf5d056",
+    "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2",
+    "forge/runs/sdd-reconciliation-20261017/project-context-bundle-owner.json": "86debe0fdee79ad7f202e563ab82eb2ef46e5a836f322885bcf7215edf9c6fca",
+    "forge/runs/sdd-reconciliation-20261017/scope.json": "82eeb2e3fa2559e055ab04aa135ad90ca90f776562377069d6415d18c78ab37f",
+    "src/client/app.js": "aa51d56cc61eedf536bef7911acf9922e3503a23ceadb6f673855e53f8e2ba31",
+    "src/server/codex-provider.mjs": "e62f3036c14ae24e5ee0f8ec3a9acc123ed814258cff0d70bf642961c031744d"
+  },
+  "output_hashes": {
+    "docs/project-context.md": "837ddd8ebb87c7a2b4dbfc8b236f136aef93f69e690a50e3b2b61d155f7b9ff6",
+    "docs/canonical-terms.md": "5d14a5d99c33f744ef4a741f5dcf4a03d1a83c5883978a3eecfa33c728f5fa4f"
+  },
+  "executor": "Codex lead acting inline as to-project-context",
+  "validation": "Applied current product/PRD source deltas without changing local/LAN users, permissions, models or locales. Upstream accounting provenance now explicitly permits reconciled or partial coverage, grounded in inspected codex-provider and client display branches. Coverage and provenance are distinct. No downstream decision imported. Final delta review uses the retained first-pass owner review and current source identities; document validation only.",
+  "prior_owner_return": "forge/runs/sdd-reconciliation-20261017/project-context-bundle-owner.json",
+  "unchanged_source_review": "First-pass owner consumption/provenance retained; integrity rechecked. Current source changes are the explicit completion/depth/accounting/appearance corrections reviewed in this return.",
+  "ownership_released": true,
+  "cleanup": "No browsers, servers, profiles or provider calls created."
+}

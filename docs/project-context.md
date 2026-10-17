@@ -1,6 +1,6 @@
 # Project context
 
-22 September 2026 · Source references: [product idea](product-idea.md), [PRD](prd.md). This bundle clarifies those sources; it does not replace them.
+17 October 2026 · Reconciled context; source references: [product idea](product-idea.md), [PRD](prd.md). This bundle clarifies those sources; it does not replace them.
 
 ## Language and vocabulary
 
@@ -18,7 +18,7 @@ The application runs on macOS, Linux and Windows computers. Browsers on that com
 
 Private records and keys remain on the computer running the application. First-run local setup and per-device connection trust are operational steps; ordinary daily consultation should not repeat them. The browser is the UI, with no browser extension required. The optional Claude Critic can reuse the server user’s native Claude Code subscription sign-in; the provider CLI owns that credential store, and NanoDuck Settings only rechecks connection status. A separately configured subscription token remains supported. Neither app login nor a successful status refresh creates provider authorization or proves a model response.
 
-Preserve Codex `gpt-6-astra` / `xhigh` for Head/specialists and Critic, independent specialist-count and user-selected review-depth controls, and the subscription constraints in the PRD. Head orchestrates: it inventories requested outputs, chooses actual roles, gives distinct verbatim tasks, directs follow-up and closes after the selected fixed rounds, or earlier in Auto when useful. The server executes and protects that route; it does not choose specialists or substitute task wording. GPT-6 Sol (`gpt-6-sol`) is an additional explicit option for both Codex roles, preserving saved/default Astra/xhigh selections. Supported model/effort choices require the current authenticated catalog; an absent exact model remains unavailable, and existing records or catalog presence are not fresh execution proof. Opus 5.5 is an optional explicit Critic choice alongside the retained Opus 5 / High branch; neither replaces the saved Codex choice. Public research uses a minimized isolated query: a private phone number elsewhere or digits in a public article URL do not disable it.
+Preserve Codex `gpt-6-astra` / `xhigh` for Head/specialists and Critic, independent specialist-count and user-selected review-depth controls, and the subscription constraints in the PRD. Head orchestrates: it inventories requested outputs, chooses actual roles, gives distinct verbatim tasks, directs follow-up and closes after the selected fixed rounds, or earlier in Auto when useful. The server executes and protects that route; it does not choose specialists or substitute task wording. GPT-6 Sol (`gpt-6-sol`) and GPT-6.1 Sol (`gpt-6.1-sol`) are additional explicit options for both Codex roles, preserving saved/default Astra/xhigh selections. Exact supported effort sets and dated catalog observations remain in [model settings](model-settings.md). Supported model/effort choices require the current authenticated catalog; an absent exact model remains unavailable, and existing records or catalog presence are not fresh execution proof. Opus 5.5 is an optional explicit Critic choice alongside the retained Opus 5 / High branch; neither replaces the saved Codex choice. Public research uses a minimized isolated query: a private phone number elsewhere or digits in a public article URL do not disable it.
 
 ## Scope and ownership
 
@@ -29,7 +29,7 @@ Source code is public. Conversation content, attachments, identity data and gran
 ## Assumptions, risks and open questions
 
 - Floating navigation means a conventional bar that stays available while scrolling; arbitrary dragging is not required. This is a reversible interpretation of the correction.
-- The owner has requested a combined dark layout from Ember and Cobalt, with Electric selected after three agent-colour palettes using the same fictional task and interaction coverage; the latest request adds the NanoDuck name, SVG mark and slightly warmer Head yellow. Normal sign-in lasts 24 hours under the PRD session rule. The owner approved Electric A v8 on 22 September 2026 and authorized Phase 3 implementation.
+- The owner has requested a combined dark layout from Ember and Cobalt, with Electric selected after three agent-colour palettes using the same fictional task and interaction coverage; the latest request adds the NanoDuck name, SVG mark and slightly warmer Head yellow. Normal sign-in lasts 24 hours under the PRD session rule. Electric A v8 was approved on 13 September UTC (14 September Kyiv); that visual receipt explicitly grants no implementation authority. The 22 September local-refactor request is a separate historical authorization.
 - Each supported operating system and browser needs actual verification. Desktop browser observations do not prove Wi-Fi access, mobile speech recognition, encrypted local recovery or provider execution. Missing results remain explicit evidence limits.
 - High-stakes decision support and voice/privacy flows need representative-owner validation before release. The present work is expert design/review, not user research.
 
@@ -37,7 +37,7 @@ No material intent question blocks the scoped local refactor. Architecture owns 
 
 ## Parallel consultation context
 
-FR-02.9–FR-02.15 define the accepted correction. Head authors roles and concise tasks; application-managed workers execute independent work concurrently. The role library supplies optional expertise, not a fixed roster. Chat is the sole authoritative record; per-agent context is complete for owner intent and selective for work dependencies. Critic-order resolution is explicit and private bookkeeping is separate from business messages. Fixed depth is user-controlled; Auto permits Head-directed closure. This revised plan is awaiting a separate implementation prompt; earlier repair authorizations do not authorize the new unit.
+FR-02.9–FR-02.15 define the accepted correction. Head authors roles and concise tasks; application-managed workers execute independent work concurrently. The role library supplies optional expertise, not a fixed roster. Chat is the sole authoritative record; per-agent context is complete for owner intent and selective for work dependencies. Critic-order resolution is explicit and private bookkeeping is separate from business messages. Fixed depth is user-controlled; Auto permits Head-directed closure. Scoped parallel implementation already exists, with dated observations indexed in [verification](verification.md). This 17 October reconciliation changes documentation only; a future changed plan requires its own later implementation prompt. Neither statement certifies full runtime acceptance.
 
 ## Critic reliability and model usage — 2026-09-25
 
@@ -57,11 +57,11 @@ U-12 research and evidence economy: preserve every distinct supported claim, ful
 
 ## U-12 Critic cache and usage completeness — 2026-09-26
 
-U-12 follow-up: retain an isolated Claude working context within one accepted request without session history or tools. Verify actual provider cache reuse with public synthetic consecutive calls. Preserve every reported token count including retries and failed calls, label partial/unknown metrics and provider-specific cache semantics, expose per-attempt breakdowns without duplicating totals. Keep full owner input, model/effort, discussion depth and independent-Send isolation. Existing Usage layout and Electric A v8 remain; no prototype reuse. User explicitly authorizes implementation and validation.
+Within one accepted request, an isolated Claude working context may support provider cache reuse without history or tools. Reported base totals and optional cache metrics have separate coverage; missing historical data remains unknown. This is operating context, not current permission for a live inference experiment.
 
 ## U-12 upstream usage verification — 2026-09-26
 
-U-12 upstream accounting follow-up: opt into the pinned Codex experimental raw completion event, extract only numeric usage from upstream metadata, deduplicate by response within the expected turn and reconcile against cumulative totals. Preserve explicit zero versus missing field; never infer writes from uncached input. Store numeric accounting provenance only, never raw responses, attribution IDs, output or hidden reasoning. Display upstream-verified versus legacy normalized counters in existing Usage. Preserve exact models, private context, authentication and live runs. Experimental telemetry failure must not interrupt consulting. Verify real coordinator Critic cache reuse with synthetic data and document historical limits. User explicitly authorizes this investigation and implementation.
+Pinned Codex telemetry can expose upstream numeric completion usage. It is experimental and provider-specific; no raw responses, hidden reasoning or private attribution identifiers belong in the application record. Neither telemetry availability nor token totals establish subscription deductions.
 
 ## U-13 actionable usage dashboard — 2026-09-26
 
@@ -69,8 +69,12 @@ U-13 extends authenticated Usage only. Native provider telemetry is authoritativ
 
 ## U-13 reasoning attribution follow-up — 2026-09-26
 
-U-13 reasoning attribution follow-up: Usage model rows and call timeline show the selected reasoning effort. Aggregate by provider, model and effort so different configurations never collapse together. New adapters record actual requested effort. Older calls may recover the value only from a matching immutable single-request snapshot with a known stage, provider and model; otherwise show unknown. Preserve counters, request isolation and privacy. The user authorizes this change and a read-only comparison of saved high/medium runs, not an unqualified quality claim.
+Provider, exact model and selected reasoning effort identify distinct usage configurations. Older attempts may lack enough immutable attribution to recover the effort; that uncertainty remains explicit.
 
 ## U-13 activity counts follow-up — 2026-09-26
 
-U-13 activity counts follow-up: show five metrics in Usage: consultant assignments excluding Head/Critic, issued review rounds, issued correction orders, research provider-call attempts including retries, and reported search/open/find web actions. Read team counts from saved parallel ledgers and research counts from usage telemetry. Scope follows the selected conversation/all view. Aggregate known values and mark partial coverage; missing older data is never zero. Preserve privacy and active consultations.
+Usage includes consultant assignments excluding Head/Critic, issued review rounds, correction orders, research-call attempts and reported web actions. Counts are scoped to saved application work, while native account allowance covers other clients too. Historical gaps stay partial.
+
+## Current documentation authority
+
+The [17 October scope](../forge/runs/sdd-reconciliation-20261017/scope.json) authorizes document reconciliation and narrow project instruction setup. Coding execution policy belongs to [AGENTS.md](../AGENTS.md); this context supplies product constraints, not a competing continuation policy. The frozen visual receipt, dated implementation requests and current formal acceptance state are separate records.

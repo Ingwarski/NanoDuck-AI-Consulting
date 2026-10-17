@@ -2,9 +2,9 @@
 
 ## Source references and execution status
 
-Current PRD, context/terms, guardrails, journey, screen map, wireframes, design brief and architecture/DoD supply the definitions below. **Formal checks prepared; indexed executions remain not_run. Release readiness: not_evaluated.** Frozen visual observations have only their recorded scope; authoring this checklist does not execute the formal suite. Visual binding: `nanoduck-electric-a-v8-20260914`, the exact target/tree and permitted variance in the design brief. Runtime prerequisites and parameters named in architecture must be supplied before implementation execution. A prepared check does not imply those prerequisites already exist.
+The current [PRD](prd.md), [context](project-context.md), [terms](canonical-terms.md), [guardrails](guardrails.md), [journey](user-journey.md), [screen map](screen-map.md), [wireframes](wireframes.md), [design brief](design-brief.md), [architecture](architecture.md) and [DoD](dod-evals.md) supply these definitions. Exact provider selections remain in [model settings](model-settings.md). The [17 October scope](../forge/runs/sdd-reconciliation-20261017/scope.json) authorizes documentation reconciliation only; dated implementation requests below are historical and grant no new runtime authority. **All 90 original formal checks and the additional bounded QA-C01 are prepared; all 91 indexed executions remain not_run. Release readiness: not_evaluated.** Frozen visual observations have only their recorded scope; authoring this checklist does not execute the formal suite. Visual binding: `nanoduck-electric-a-v8-20260914`, the exact target/tree and permitted variance in the design brief. Runtime prerequisites and parameters named in architecture must be supplied before implementation execution. A prepared check does not imply those prerequisites already exist.
 
-All checks are required/applicable unless an explicit exception is recorded. User group: the sole owner. Default viewport coverage: 320/390/430/768/1280/1440 CSS px; supported-browser release checks use Safari/Chrome/Firefox/Edge. Each check identifies its narrower scope. Findings, severity, release effect, recommendation, executor and actual evidence are unassessed until a run is recorded. Every failure uses the wireframe recovery sequence.
+All 91 current checks are required/applicable; none is excluded or advisory. The six existing DoD gates remain required. QA defines acceptance below; the development-plan owner separately allocates checks to units. Component acceptance never discharges the original full integration/release obligations. User group: the sole owner. Default viewport coverage: 320/390/430/768/1280/1440 CSS px; supported-browser release checks use Safari/Chrome/Firefox/Edge. Each check identifies its narrower scope. Findings, severity, release effect, recommendation, executor and actual evidence are unassessed until a run is recorded. Every failure uses the wireframe recovery sequence.
 
 ## Product acceptance
 
@@ -23,7 +23,7 @@ All checks are required/applicable unless an explicit exception is recorded. Use
 | QA-R11 | FR-03.1; UC-002 | Exercise the referenced use-case path and verify: Full submitted business messages appear in canonical order with role, recipient where relevant and time; routine protocol paragraphs are omitted. During work, a labelled thought-bubble state and reachable Stop appear without an oversized conversation title; screen readers receive only newly arrived messages. The completed final synthesis creates the concise history/export title. | `product_functional_requirements` · implementation |
 | QA-R12 | FR-03.2; UC-002 | Exercise the referenced use-case path and verify: The first substantive request sets English/Ukrainian session language; explicit supported changes win and role names remain English. Russian/Belarusian owner input and source metadata are rejected. Valid Ukrainian containing `які` and English descriptors such as “Russian” pass owner input, both provider adapters and source-title/claim validation; distinctive prohibited words/letters and forbidden hosts still fail. Supply mixed generated prose to both providers: only the guilty sentence is replaced by an omission marker, useful English/Ukrainian advice remains and the run continues without a System error. Supply an unsuitable link: omit only the URL and do not add it as a source. A wholly unusable answer gets one same-role/task replacement attempt; neither the omitted text nor URL reaches the record or logs. | `product_functional_requirements` · implementation |
 | QA-R13 | FR-03.3; UC-003 | Exercise the referenced use-case path and verify: While a run is active, the composer is hidden and no second context submission is silently queued. Stop, explicitly Send new context, and verify it enters the same record without rewriting confirmed messages; Continue instead resumes the preserved accepted context. | `product_functional_requirements` · implementation |
-| QA-R14 | FR-03.4; UC-003 | Exercise the referenced use-case path and verify: At 320/390/430/768/1280/1440 CSS px, verify the unavailable composer is hidden during active work and a labelled P5 Porcelain Stop matches the actual consultant avatar height (38px desktop, 32px mobile) and 7px radius, with a 44px-high effective hit area, and stays reachable in the upper-right Discussion header while scrolling and on Outcome/Sources, separated from New and the former Send/reading positions. Keyboard focus is visible; Send does not auto-focus Stop. A pending/refused Stop shows truthful feedback without making input available prematurely; confirmed Stop prevents late visible results. Stop, failure and completion restore the composer and any unsent page-memory draft. Check touch/keyboard and forced-colors behavior; device observation is separate from automated layout assertions. | `product_functional_requirements` · implementation |
+| QA-R14 | FR-03.4; UC-003 | Exercise the referenced use-case path and verify: At 320/390/430/768/1280/1440 CSS px, verify the unavailable composer is hidden during active work and a labelled P5 Porcelain Stop matches the actual consultant avatar height (38px desktop, 32px mobile) and 7px radius, with a 44px-high effective hit area, and stays reachable in the desktop left consultation rail or narrow-screen status/Stop group while scrolling and across Discussion/Outcome/Sources/Usage, separated from New and the former Send/reading positions. Keyboard focus is visible; Send does not auto-focus Stop. A pending/refused Stop shows truthful feedback without making input available prematurely; confirmed Stop prevents late visible results. Stop and failure restore the composer with its unsent page-memory draft; completion collapses input without changing the selected view or reading position, and Continue conversation deliberately reopens the same draft. Check touch/keyboard and forced-colors behavior; device observation is separate from automated layout assertions. | `product_functional_requirements` · implementation |
 | QA-R15 | FR-03.5; UC-003 | Stop/Continue and Retry use durable assignment/directive checkpoints, exact accepted settings and context; successful siblings are not invoked again. Fail a correction assessment and a worker independently, resume only missing work, and prevent stale results or System notices satisfying readiness. | `product_functional_requirements` · implementation |
 | QA-R16 | FR-03.6; UC-003 | Exercise the referenced use-case path and verify: New consultation creates a separate record while enforcing only one active consultation; start it above the chat and from Conversations, with no New item in either global menu. | `product_functional_requirements` · implementation |
 | QA-R17 | FR-04.1; UC-007 | Exercise the referenced use-case path and verify: Current claims can trigger live public research without a keyword. Include a private contact in the full owner request and a public article URL with a long numeric ID; Head can still form a minimal safe public query. Inspect the actual web-enabled provider prompt: it contains only that validated query, no private discussion, contact, attachment, private guidance or credential. A query containing a real phone/email, secret or unsafe URL is withheld and reported as unavailable without fabricating research. Confirm the first recipient-bound Head assignment is visible before a deliberately delayed public search resolves. A timed-out or failed search records an evidence limitation, leaves confirmed tasks intact and lets the consultation continue without claiming a fresh check; cancellation still stops it. Confirm direct URLs/claims from more than eight valid sources survive and reach the final context. Record a real completed public search/open action separately from fixtures. | `product_functional_requirements` · implementation |
@@ -58,10 +58,10 @@ All checks are required/applicable unless an explicit exception is recorded. Use
 | QA-R45 | NFR-10.3; UC-001, UC-002, UC-003, UC-004, UC-005, UC-006 | Exercise the referenced use-case path and verify: Attempt each private read/mutation anonymously, as a non-owner and with forged object/field identifiers; no protected content or state changes. | `product_security_requirements` · implementation |
 | QA-R46 | NFR-11.1; UC-002, UC-004, UC-005, UC-006, UC-007 | Exercise the referenced use-case path and verify: allowed Markdown emphasis, lists, quotations, inline code and approved HTTPS links render as content. Submit executable markup, unsafe URLs, malformed envelopes, prohibited Russian/Belarusian language and injection strings through text/files/provider output; they remain inert, are rejected at owner/source boundaries, or are omitted from generated prose while safe surrounding advice remains. | `product_security_requirements` · implementation |
 | QA-R47 | NFR-11.2; UC-002, UC-003, UC-005, UC-006, UC-007 | Exercise the referenced use-case path and verify: Repeat acceptance, race Stop with late responses and exceed declared resource limits; accepted history stays atomic and bounded. | `product_security_requirements` · implementation |
-| QA-R48 | NFR-11.3; UC-001, UC-002, UC-003, UC-004, UC-005, UC-006 | Deny unexpected Host values, unapproved certificate SAN names, missing or mismatched Origin, and missing/incorrect CSRF tokens on mutations. Use each valid local browser address to verify exact per-request HTTPS origin matching. Cookies are Secure, HttpOnly and SameSite=Strict. Forged forwarded headers confer no trust. | `product_security_requirements` · implementation |
+| QA-R48 | NFR-11.3; UC-001, UC-002, UC-003, UC-004, UC-005, UC-006 | Deny unexpected Host values, unapproved certificate SAN names, missing or mismatched Origin, and missing/incorrect CSRF tokens on mutations. Use each valid local browser address to verify exact per-request HTTPS origin matching. Cookies are Secure, HttpOnly and SameSite=Strict. Forged forwarded headers confer no trust. Separately verify the architecture’s public-shell exception: cross-site top-level GET navigation to `/` or `/index.html` may reach only the public shell after TLS/private-peer/pinned-Host and supplied-Origin validation; cross-site private API/subresource requests remain denied and every mutation still requires exact Origin and applicable session/CSRF. | `product_security_requirements` · implementation |
 | QA-R49 | NFR-12.1; UC-007 | Exercise the referenced use-case path and verify: Fetch public, private/metadata, redirecting and prohibited `.ru`/`.by`/`.su` or Cyrillic-equivalent targets; only permitted English/Ukrainian public evidence is returned, with no secret disclosure. | `product_security_requirements` · implementation |
 | QA-R50 | NFR-12.2; UC-002, UC-004, UC-006 | Exercise the referenced use-case path and verify: Upload supported JPEG/PNG/WebP fixtures, including progressive JPEG and WebP animation, and exercise client-MIME mismatch, wrong signature, declared-length overrun, truncation, missing required image-data/terminal elements, invalid/zero dimensions, PNG CRC/type-depth/indexed-palette errors, malformed JPEG segments/scans, malformed WebP nested chunks, over-8-MiB files and more than four message attachments. Reject unsupported formats, including PDF, SVG, video, audio and archives, and unsupported JPEG deferred-height DNL. Only structurally accepted bounded originals persist as encrypted opaque blobs; owner-only retrieval uses the identified fixed type, attachment disposition and nosniff. Verify no pixel decompression, metadata interpretation, rendering or malware scan occurs and do not infer complete decoder validity from structural acceptance. Every rejection retains the typed draft and exposes no server path. Browser voice creates no NanoDuck upload. | `product_security_requirements` · implementation |
-| QA-R51 | NFR-12.3; UC-002, UC-005, UC-007 | Exercise the referenced use-case path and verify: Inject requests for secrets, tools, paid fallback and external messages; no permission or provider boundary expands. For Claude Critic, assert a command-level denial of known tools, no direct research flag, and a text-only role prompt containing the current owner question and prior confirmed discussion. Cover native-home/config and isolated-token modes: no user/project customizations, built-in or MCP tools, session transcripts or private credential/error disclosure. Verify failed fresh subscription status or a reported provider-route mismatch starts no inference; failed CLI completion or an exact-model mismatch cannot commit output. Administrator policy remains part of the trusted host, not a claimed isolation boundary. Keep native credential storage intact on success, error and cancellation while removing temporary working data. Return a CLI `result` containing `<invoke name="Bash">…</invoke>`; verify one natural-language retry and that neither attempt can enter events, sources or the browser. | `product_security_requirements` · implementation |
+| QA-R51 | NFR-12.3; UC-002, UC-005, UC-007 | Exercise the referenced use-case path and verify: Inject requests for secrets, tools, paid fallback and external messages; no permission or provider boundary expands. For Claude Critic, assert a command-level denial of known tools, no direct research flag, and a text-only role prompt containing the complete current accepted owner request and its necessary confirmed current-request discussion, with earlier Send requests excluded. Cover native-home/config and isolated-token modes: no user/project customizations, built-in or MCP tools, session transcripts or private credential/error disclosure. Verify failed fresh subscription status or a reported provider-route mismatch starts no inference; failed CLI completion or an exact-model mismatch cannot commit output. Administrator policy remains part of the trusted host, not a claimed isolation boundary. Keep native credential storage intact on success, error and cancellation while removing temporary working data. Return a CLI `result` containing `<invoke name="Bash">…</invoke>`; verify one natural-language retry and that neither attempt can enter events, sources or the browser. | `product_security_requirements` · implementation |
 | QA-R52 | NFR-13.1; UC-001, UC-004, UC-005 | Inspect SQLite and its sidecars without the separate data key: settings, instructions and versions, conversations, sources, attachments, pending uploads, sessions, request IDs and run snapshots reveal no plaintext. Alter ciphertext or use a wrong key and verify refusal without replacement. Check private POSIX file modes or current-user Windows ACLs, and that the ownership database contains no application data. | `product_security_requirements` · implementation |
 | QA-R53 | NFR-13.2; UC-001, UC-002, UC-004, UC-005, UC-006, UC-007 | Trust the generated public local CA certificate on each test device, then verify hostname/SAN, expiration and HTTPS behavior. Untrusted, expired or wrong-name certificates cannot count as safe successful transfer. Renew the leaf certificate for current local addresses without changing password or data keys. External provider/research TLS validation remains enabled and rejects invalid certificates. | `product_security_requirements` · implementation |
 | QA-R54 | NFR-14.1; UC-002, UC-004, UC-006, UC-007 | Exercise the referenced use-case path and verify: Inspect provider/search requests, URLs, caches and logs with marked private fixtures; only authorized minimized content leaves the boundary. | `product_security_requirements` · implementation |
@@ -117,27 +117,35 @@ Not conducted. The owner approved the design without a recorded representative-u
 
 ## UX/UI checks and evidence requirements
 
-The checks mapped to NFR-02.1, NFR-02.2 and NFR-02.3 must be checked against their actual source IDs, not assumed from ordinal numbers. For the selected Electric revision inspect the NanoDuck Consulting Group name, supplied outline-duck SVG in navigation/sign-in/favicon, light outline on dark surfaces and original charcoal-outline export, full mobile wordmark and its accessible navigation label. Inspect HappyPro blue controls/large heading, raspberry Critic, the warmer Head yellow and distinct Spiritual Consultant/Psychotherapist role tokens. Check every gradient stop against its actual heading surface, white Send text against blue, readable small blue accents, avatar initials and forced-colors fallback. Retain checks for an icon-only SVG microphone with accessible name, `You` role header and `I` avatar for owner entries, New placement, agent identity without colour alone and Ember message/tab formatting. For all UI runs include 320px reflow, 200% text resizing, visible/unobscured focus, native select labels/states, dialog/menu keyboard behavior, primary touch targets, color contrast, reduced motion, forced colors and long English/Ukrainian content. Record device/browser and separate assistive-technology limitations. Do not infer WCAG conformance from screenshots.
+The checks mapped to NFR-02.1, NFR-02.2 and NFR-02.3 must be checked against their actual source IDs, not assumed from ordinal numbers. For the selected Electric revision inspect the NanoDuck Consulting Group name, supplied outline-duck SVG in navigation/sign-in/favicon, light outline on dark surfaces and original charcoal-outline export, the full mobile wordmark where space permits and the accepted mark-only variant below 381px with its accessible product/navigation label. Inspect HappyPro blue controls/large heading, raspberry Critic, the warmer Head yellow and distinct Spiritual Consultant/Psychotherapist role tokens. Check every gradient stop against its actual heading surface, white Send text against blue, readable small blue accents, avatar initials and forced-colors fallback. Retain checks for an icon-only SVG microphone with accessible name, `You` role header and `I` avatar for owner entries, New placement, agent identity without colour alone and Ember message/tab formatting. For all UI runs include 320px reflow, 200% text resizing, visible/unobscured focus, native select labels/states, dialog/menu keyboard behavior, primary touch targets, color contrast, reduced motion, forced colors and long English/Ukrainian content. Record device/browser and separate assistive-technology limitations. Do not infer WCAG conformance from screenshots.
 
 Each run records check ID, candidate/version or implementation revision, source/target hashes, executor, time, fixture/state/route/viewport, evidence kind/path/hash, result and findings with P0–P3 severity and blocking/advisory rationale. Baseline fidelity requires the approved Electric A v8 target and permitted variance in the design brief. Security evidence must come from the actual trusted boundary, not hidden/disabled controls.
 
+## Acceptance scope and evidence freshness
+
+The original 90 checks retain their complete criteria, current accepted source corrections and all dated extensions in this document. Their implementation acceptance requires the actual named local consumers and the external/provider/device/user observations their task demands. Controlled captures can supplement them where explicitly specified, but cannot replace a required real provider, trusted device, operating system, native reader, assistive technology or representative-owner observation. Prototype runs under `phase: both` are separate records and never pass implementation acceptance. The new QA-C01 is a bounded controlled contribution, not a substitute for any original check, requirement or state.
+
+Before execution, record the actual evaluated revision, current plan hash, approved baseline/target, required source/configuration/test hashes, executor, timezone-aware execution time, environment and fixture/boundary scope. Each result needs readable hash-bound evidence and observed expected/denied outcomes; leave evidence/findings empty until performed. A later shared-source or baseline change makes affected results stale. Retain their old bindings and rerun affected checks against the final integrated revision; never add current hashes/timestamps to an old result. Full integration/release checks additionally record `execution_mode: real_consumers` and evidence of kind `integration`; security, visual, heuristic and representative-user evidence keep their own required classes. Findings use the PRD severity/release-effect definition, explicit open/closed state, source, applicability and rationale. Open blocking findings or missing/failed/stale/deferred required evidence cannot pass.
+
+The claim-specific `required_source_paths` below name code, configuration, rendering inputs and verification consumers actually relevant to each check. They are a minimum declared inventory, not a completeness proof. The plan separately inventories the complete integrated unit; execution hashes must also cover that owner/prerequisite inventory. These paths are repository-relative regular files, not user data. A task's manual device/account/user prerequisites are evidence needs, not invented source files. Canonical acceptance remains QA-owned; no unit owner or execution order is allocated here.
+
 ## Execution evidence and history
 
-All 83 indexed checks are prepared and not_run for this local refactor. The preserved v8 browser and visual receipts describe only their exact fictional candidate pages. They do not establish local password entry, operating-system compatibility, Wi-Fi access, provider behavior, durable storage or any current implementation gate. Each new execution must bind the actual implementation revision and source hashes.
+All 90 original formal checks remain prepared/not_run; QA-C01 adds one separately bounded prepared/not_run check. No current check or gate was executed by this reconciliation. Dated paragraphs below explicitly retain historical scoped results, not current formal passes; their original evidence remains at the cited receipts and must not be rebound to the revised plan or new unit times. The preserved v8 browser and visual receipts describe only their exact fictional candidate pages. They do not establish local password entry, operating-system compatibility, Wi-Fi access, provider behavior, durable storage or any current implementation gate. Each new execution must bind the actual implementation revision and source hashes.
 
 ## Evidence limits, release readiness and open questions
 
-Release readiness: not_evaluated. Actual local setup, authentication, TLS trust, provider execution, persistence, security, recovery and cross-device operation need recorded execution. Representative-owner and assistive-technology observations remain required and missing until performed. No design approval, automated fixture, screenshot or document reconciliation substitutes for those results. The current user request authorizes this local refactor; validation evidence determines which release claims can be made.
+Release readiness: not_evaluated. Actual local setup, authentication, TLS trust, provider execution, persistence, security, recovery and cross-device operation need recorded execution. Representative-owner and assistive-technology observations remain required and missing until performed. No design approval, automated fixture, screenshot or document reconciliation substitutes for those results. The current request authorizes documentation reconciliation only. A revised plan requires a later explicit implementation prompt; any future execution and release claim needs its own actual scope and fresh evidence.
 
 ## Parallel consultation acceptance
 
-All following checks: Definition Status **prepared**; Execution Status **not_run**; no evidence or findings claimed. Shared scope: JOB-001/JOB-002, UC-002/UC-003/UC-005 as applicable; S-02/ST-09–ST-17, S-04/ST-21–ST-24, S-07/ST-37–ST-38; authenticated owner, existing baseline/P5, English/Ukrainian, supported desktop/mobile viewports. Functional evidence is isolated synthetic provider/store input/output capture; real browser/provider/user observations remain separately required. New behaviors do not inherit old passing results.
+All following checks: Definition Status **prepared**; Execution Status **not_run**; no evidence or findings claimed. Shared scope: JOB-001/JOB-002, UC-002/UC-003/UC-005 as applicable; S-02/ST-09–ST-17, S-04/ST-21–ST-24, S-07/ST-37–ST-38; authenticated owner, existing baseline/P5, English/Ukrainian, supported desktop/mobile viewports. Controlled provider/store input/output capture supplies bounded regression evidence; full acceptance additionally uses the actual local consumers and every real browser/provider/user observation required by each task. Original full checks cannot inherit a component or fixture pass. New behaviors do not inherit old passing results.
 
 | Check | Clauses | Task and expected result | Gate |
 |---|---|---|---|
 | QA-R61 | FR-02.9, FR-02.10 | Create an unlisted specialist and adapt a library role; verify Head authored each distinct task, only its own role guidance reaches each consultant, the compact index omits unused details, and private role text is absent from chat/export. One planning call yields separate visible assignments. Long/unusual valid wording is delivered unchanged; no generic fallback or role allowlist refusal. | product_functional_requirements |
 | QA-R62 | FR-02.11 | Hold two independent synthetic workers simultaneously and complete them out of order; each result commits once and appears immediately. A dependent task waits for its declared result, while unrelated work continues. Exercise provider queue/failure without silent model/effort changes or hidden serialization. | product_functional_requirements |
-| QA-R63 | FR-02.12 | Capture synthetic provider inputs: all exact ordered owner messages/corrections occur once, own task/guidance and referenced evidence are present, unrelated role prose/System events/obsolete drafts are absent. Critic sees all current results. Stop, send a correction, and verify a new boundary plus Head-directed affected work; preserve original messages and image capability disclosure. | product_functional_requirements |
+| QA-R63 | FR-02.12 | Capture inputs at the actual provider-adapter boundary using marked controlled scenarios: the complete newly accepted owner message occurs exactly once, with its own task/guidance and current-request referenced evidence. Earlier requests, corrections accepted through an earlier Send, results, sources, saved personal memory, unrelated role prose, System events and obsolete drafts are absent even in the same saved chat. Critic receives all current assignments/results. Stop and Continue/Retry preserve that immutable accepted request and completed work. A subsequent explicit Send, including a correction, establishes an independent new boundary and never implicitly imports earlier context. Retain every original archive message unchanged and the image-capability disclosure; validate actual selected-provider behavior separately from controlled captures. | product_functional_requirements |
 | QA-R64 | FR-02.13 | Persist a Critic order against a specific result. A repeated answer, unsupported objection and self-declared completion leave it unresolved. Batch independent corrections into a joint resolution assessment; a substantive fix needs a matching Critic assessment before resolution; a supported objection is explicitly upheld; missing evidence is blocked, not passed. Reject stale/wrong-recipient resolution and preserve status across restart, Stop and retry. Escalate repeated noncompliance to Head without an automatic inference loop. | product_functional_requirements |
 | QA-R65 | FR-02.14, FR-05.3, NFR-01.3 | For depths 1/3/5, count exactly that many team assessments on a successful run even when round one is adequate; subsequent assessment can be concise, with no invented flaw or mandatory unaffected replies. Auto closes by Head decision within ten. Final-round correction gets focused resolution only; no extra full round. Unresolved or evidence-blocked orders yield provisional advice and never false consensus. | product_functional_requirements |
 | QA-R66 | FR-02.15 | Compare baseline and revised synthetic consultations with identical model/effort/team/depth and deliverable rubric, including clean work, targeted rework and long corrected requests. Report call counts, context bytes and actual token categories where available; inspect duplicate removal and complete results. Treat savings as unverified if usage is missing and never claim subscriber quota savings from API pricing. | product_functional_requirements |
@@ -151,11 +159,11 @@ Extend QA-R64/QA-R67: multiple findings for one consultant preserve every issue/
 
 ## Scoped execution evidence — 2026-09-25
 
-[Verification receipt](../forge/runs/critic-usage-20260925/verification.json) binds the evaluated implementation files, commands, synthetic screenshots and live provider probes. Executed by Codex on macOS / Node 24.16.0: 189 tests passed, 2 skipped, 0 failed; full Chromium/Firefox/WebKit suite and final focused Usage suite passed. Short Codex Astra and Claude Opus 5.5 Max subscription calls returned reported model usage. CA-verified localhost and LAN health passed after restart; the five saved consultant answers remain stopped and intact. These are passing scoped regressions for QA-R22/R64/R66/R67 and related privacy/browser controls, not completion of every indexed check. Historical usage, the original full private consultation, real thirty-minute duration, physical iPhone audio, Windows/Linux, representative-user validation and whole-product release remain outside this evidence. Release Readiness: not_evaluated.
+**Retained historical scoped result, not a current formal pass.** [Verification receipt](../forge/runs/critic-usage-20260925/verification.json) binds the evaluated implementation files, commands, synthetic screenshots and live provider probes. Executed by Codex on macOS / Node 24.16.0: 189 tests passed, 2 skipped, 0 failed; full Chromium/Firefox/WebKit suite and final focused Usage suite passed. Short Codex Astra and Claude Opus 5.5 Max subscription calls returned reported model usage. CA-verified localhost and LAN health passed after restart; the five saved consultant answers remain stopped and intact. These are passing scoped regressions for QA-R22/R64/R66/R67 and related privacy/browser controls, not completion of every indexed check. Historical usage, the original full private consultation, real thirty-minute duration, physical iPhone audio, Windows/Linux, representative-user validation and whole-product release remain outside this evidence. Release Readiness: not_evaluated.
 
 ## Sticky consultation views — 2026-09-25
 
-Extend existing S-02 and navigation/keyboard checks: scroll the Discussion/Usage view at desktop and 320px; all four tabs remain below the main menu and within the viewport, active Stop stays reachable, selected panel switching still works, and no horizontal page overflow occurs. Definition prepared; inspect the scoped browser receipt for actual execution evidence.
+Extend existing S-02 and navigation/keyboard checks: scroll Discussion/Usage at desktop and 320px; all four views remain reachable through the accepted desktop left rail or narrow-screen picker/status group, active P5 Stop remains reachable, selected-panel switching still works, and no horizontal page overflow occurs. The earlier horizontal sticky-tab arrangement is historical. Definition prepared; inspect the scoped browser receipt for actual execution evidence.
 
 ## Review-repair checks — 2026-09-26
 
@@ -171,91 +179,89 @@ These are scoped extensions of existing IDs; full indexed checks remain prepared
 
 ## Review-repair scoped execution evidence — 2026-09-26
 
-[Verification receipt](../forge/runs/review-fixes-20260926/verification.json) records isolated macOS/Node regressions: 199 passed, 2 Windows-only tests skipped, 0 failed; full Chromium/Firefox/WebKit verification and final focused recovery/Usage/source checks passed. It binds evaluated files and preserves evidence limits. No live provider call, private-session replay, runtime restart or sister-repository change occurred. These are scoped regression results for the preceding check extensions; they do not close every formal check or establish whole-product release readiness.
+**Retained historical scoped result, not a current formal pass.** [Verification receipt](../forge/runs/review-fixes-20260926/verification.json) records isolated macOS/Node regressions: 199 passed, 2 Windows-only tests skipped, 0 failed; full Chromium/Firefox/WebKit verification and final focused recovery/Usage/source checks passed. It binds evaluated files and preserves evidence limits. No live provider call, private-session replay, runtime restart or sister-repository change occurred. These are scoped regression results for the preceding check extensions; they do not close every formal check or establish whole-product release readiness.
 
 ## Source metadata regression — 2026-09-26
 
-Extend QA-R17/R51/R67 with provider output containing a title longer than 280 characters and a claim longer than 1000. Verify exact persistence through a complete consultation, encrypted restart and backup/restore without truncation. The isolated real-adapter/fake-provider regression passes; complete Node checks: 200 passed, 2 Windows-only tests skipped. Actual runtime health and checkpoint resume were observed separately; the discarded historical answer cannot be reconstructed or claimed recovered. Full private consultation completion remains unverified.
+Extend QA-R17/R51/R67 with provider output containing a title longer than 280 characters and a claim longer than 1000. Verify exact persistence through a complete consultation, encrypted restart and backup/restore without truncation. **Retained historical scoped result, not a current formal pass:** the isolated real-adapter/fake-provider regression passed; complete Node checks: 200 passed, 2 Windows-only tests skipped. Actual runtime health and checkpoint resume were observed separately; the discarded historical answer cannot be reconstructed or claimed recovered. Full private consultation completion remains unverified.
 
-## Перевірка таблиць — 2026-09-26
+## Table checks — 2026-09-26
 
-Для чинних перевірок UC-004/FR-06.2: порівняти заголовки та комірки у чаті й RTF, український текст, виділення, посилання, екрановані риски, межі колонок і текст після таблиці. Некоректний рядок не повинен губитися; HTML і RTF-команди від користувача залишаються текстом. Перевірити Chromium/Firefox/WebKit при 320, 390 та 1280 CSS px: прокручується контейнер таблиці, а не сторінка; доступний клавіатурний фокус і заголовки колонок. Автоматичні перевірки: `test/markdown.test.mjs`, `test/markdown-table-export.test.mjs`, `scripts/browser-markdown-tables.mjs`. Відкриття експорту у Word, Pages та LibreOffice — окрема перевірка сумісності; її не замінює аналіз RTF-команд. Загальна готовність релізу залишається not_evaluated.
+For existing QA-R26/QA-R40/QA-R41/QA-R46 and QA-S02/QA-S08 under UC-004/FR-06.2, compare chat and RTF headers/cells, Ukrainian text, emphasis, links, escaped pipes, column boundaries and following text. A malformed row loses no content; supplied HTML/RTF control text remains inert. In Chromium/Firefox/WebKit at 320, 390 and 1280 CSS px, verify that only the table container scrolls horizontally, with keyboard focus and semantic column headers. Relevant automated surfaces are `test/markdown.test.mjs`, `test/markdown-table-export.test.mjs` and `scripts/browser-markdown-tables.mjs`. Opening the export in Word, Pages and LibreOffice is separate compatibility evidence; parsing RTF controls cannot replace it. These checks remain prepared/not_run; release readiness stays not_evaluated.
 
-## Перевірка режиму читання — 2026-09-26
+## Reading-mode checks — 2026-09-26
 
-Чинні перевірки S-02/UC-003/UC-004 доповнено: автоматичне згортання після complete; ручне відкриття/згортання із незмінною чернеткою та передбачуваним фокусом; незмінний вибраний розділ після completion; доступ до Outcome через чинні вкладки/select без окремої кнопки Read outcome; закріплене поле введення з чорним матовим склом у темній темі та білим у світлій, з читабельними текстом і контролами; ліва панель на 1280px та select на 320/390/768px без горизонтального переповнення; клавіші вгору/вниз для вертикальних вкладок; повторне відкриття завершеної консультації. `scripts/browser-check.mjs --reading-only` перевіряє справжній клієнт з ізольованими тестовими провайдерами. Реальний iPhone та користувацьке дослідження не перевірені; release_readiness: not_evaluated.
+Extend QA-R13/QA-R14/QA-R15/QA-R35/QA-R40/QA-R41 and QA-S02 under UC-003/UC-004: verify automatic completion collapse; manual opening/collapse with the same page-memory draft and predictable focus; unchanged selected view and reading position on completion; Outcome through existing rail/picker without Read outcome; sticky open input with readable theme-matched matte surfaces; left rail at 1280px and compact picker at 320/390/768px without horizontal overflow; arrow-key movement through vertical tabs; and reopening a completed record. `scripts/browser-check.mjs --reading-only` exercises the actual client with isolated controlled providers. Record that boundary explicitly; actual iPhone and representative-user observations are separate and remain missing. Checks prepared/not_run; release readiness not_evaluated.
 
 ## Isolated request and cache economy — 2026-09-26
 
-Additional coverage under existing QA-R03/QA-R11–QA-R16/QA-R36–QA-R39: seed previous owner/answer/source markers, Send again in the same chat, verify markers never enter any participant input or new final sources; Stop/Continue keeps the new accepted ID; rebind attempts fail. test/context-economy.test.mjs checks complete final/Critic input and reduced Head control input. test/codex-provider.test.mjs checks shared same-request cwd, separate request cwd, cleanup and disabled tools. test/usage.test.mjs checks stage totals/allowlisted metadata and unknown cache writes. Executed on this working branch: npm run check, 207 passed/2 skipped; browser --usage-only passed Chromium/Firefox/WebKit including 320px, keyboard, retry and reload. Live synthetic GPT-6 Sol/high: original provider 9,825 input tokens; revised provider 6,228 on each of two equivalent calls. Cache reads 0 baseline, 3,072 then 0 revised: no stable hit-rate guarantee. Not a production-workload or subscription-cost benchmark; no representative-user test. Release readiness not_evaluated.
+Additional coverage under existing QA-R03/QA-R11–QA-R16/QA-R36–QA-R39: seed previous owner/answer/source markers, Send again in the same chat, verify markers never enter any participant input or new final sources; Stop/Continue keeps the new accepted ID; rebind attempts fail. test/context-economy.test.mjs checks complete final/Critic input and reduced Head control input. test/codex-provider.test.mjs checks shared same-request cwd, separate request cwd, cleanup and disabled tools. test/usage.test.mjs checks stage totals/allowlisted metadata and unknown cache writes. **Retained historical scoped result from 26 September, not rerun for this plan:** npm run check, 207 passed/2 skipped; browser --usage-only passed Chromium/Firefox/WebKit including 320px, keyboard, retry and reload. Live synthetic GPT-6 Sol/high: original provider 9,825 input tokens; revised provider 6,228 on each of two equivalent calls. Cache reads 0 baseline, 3,072 then 0 revised: no stable hit-rate guarantee. Not a production-workload or subscription-cost benchmark; no representative-user test. Release readiness not_evaluated.
 
 ## Chat beginning and end controls — 2026-09-26
 
-Extend scripts/browser-reading-mode.mjs to verify both jumps, Discussion selection, transparent fill and existing 320/390/768px reflow in Chromium/Firefox/WebKit. Executed browser checks passed in Chromium, Firefox and WebKit; reviewed the WebKit mobile screenshot. Full artifact/unit checks: 207 passed, 2 skipped. No claim of representative-user validation. Formal release readiness remains not_evaluated.
+Extend QA-R14/QA-R35/QA-R40/QA-R41, QA-S02 and QA-H03/QA-H04/QA-H08: use both existing beginning/end controls in the selected consultation view, retaining the draft, reduced-motion behavior and safe separation from Stop. Use `scripts/browser-reading-mode.mjs` at 320/390/768px and desktop in Chromium/Firefox/WebKit. The historical plain-transparent finish is superseded by current liquid glass. Retained historical scoped record: browser checks passed in three engines, a WebKit mobile capture was reviewed, and artifact/unit checks reported 207 passed/2 skipped. This record is not a current formal check pass or representative-user validation; release readiness remains not_evaluated.
 
 ## Centered chat arrows — 2026-09-26
 
-The explicit user correction replaces grouped navigation placement: the up arrow sits at the horizontal center near the viewport top, below global navigation; the down arrow sits at the horizontal center near the bottom safe area. Both remain fixed while scrolling, 44px transparent outlined circles, with existing accessible labels and reduced-motion behavior. They remain confined to the consultation page. No server/session changes.
-Browser verification checks horizontal center and top/bottom separation at 320, 390 and 768px in addition to both jump actions and existing desktop reading layout. Formal release readiness remains not_evaluated.
+For the same existing checks, observe horizontal centering, up-arrow separation below global navigation and down-arrow separation above the safe area at 320/390/768px and desktop. Preserve 44px circular geometry, accessible names, reduced motion and consultation-only visibility. Use the current glass treatment and open-prompt clearance from the design brief; older plain-transparent styling is historical. Record actual observations separately; full checks remain not_run.
 
 ## Chat boundary visibility — 2026-09-26
 
-Hide the up arrow when the visible content beginning is reached and hide the down arrow when its end is reached; restore each when scrolling away. Hide both when the content fits. Update on scroll, viewport resize, view changes and incoming content without moving the reading position. Preserve centered 44px transparent controls and reduced motion. Navigation follows the currently selected consultation view rather than switching it. No server/session changes.
-Browser verification checks hiding after each jump and reappearance at the opposite boundary, plus existing 320/390/768px reading reflow. Formal release readiness remains not_evaluated.
+For the same existing checks, reach both content boundaries and verify the corresponding arrow hides and returns after scrolling away; both hide when content fits. Repeat after viewport/view/content changes without changing the selected view or reading position. Verify the final text remains readable above current bottom controls and that jump/hiding calculations use the same readable boundaries. Current glass/open-composer treatment remains authoritative. Full checks remain prepared/not_run.
 
 ## U-12 research and evidence economy — 2026-09-26
 
 U-12 verification: provider same-URL/multiple-claim extraction; evidence-reference stability and resolution; Head-selected reuse versus explicit fresh search; targeted delivery; query checkpoint through Stop/Continue; malformed routing/references; request isolation; current shared prompt measurements and initial/follow-up/repeated-gap scenarios. Run full artifact/unit checks and existing three-engine reading/Usage flows. Compare focused and combined synthetic public research with identical model/effort, recording limitations. Checks are prepared; execution evidence is recorded separately. Formal release readiness not_evaluated.
 
-Executed U-12 scoped regressions: 214 passed, 2 platform-specific skips, 0 failed. Chromium, Firefox and WebKit reading/control/Usage regressions passed. Encrypted store close/reopen proves query checkpoint recovery; malformed/foreign references, same-URL claims and request isolation are covered. [Evidence](../forge/runs/research-economy-20260926/verification.json) and adjacent measurement reports separate synthetic bytes from native provider tokens. Small cases incur metadata overhead; the evidence-heavy fixture saves 11.9% bytes. One uncontrolled live sample favored combined research; no automatic splitting enabled. Whole-product release readiness remains not_evaluated.
+**Retained historical scoped result, not a current formal pass:** 214 passed, 2 platform-specific skips, 0 failed. Chromium, Firefox and WebKit reading/control/Usage regressions passed. Encrypted store close/reopen proves query checkpoint recovery; malformed/foreign references, same-URL claims and request isolation are covered. [Evidence](../forge/runs/research-economy-20260926/verification.json) and adjacent measurement reports separate synthetic bytes from native provider tokens. Small cases incur metadata overhead; the evidence-heavy fixture saves 11.9% bytes. One uncontrolled live sample favored combined research; no automatic splitting enabled. Whole-product release readiness remains not_evaluated.
 
 ## U-12 Critic cache and usage completeness — 2026-09-26
 
-U-12 follow-up: retain an isolated Claude working context within one accepted request without session history or tools. Verify actual provider cache reuse with public synthetic consecutive calls. Preserve every reported token count including retries and failed calls, label partial/unknown metrics and provider-specific cache semantics, expose per-attempt breakdowns without duplicating totals. Keep full owner input, model/effort, discussion depth and independent-Send isolation. Existing Usage layout and Electric A v8 remain; no prototype reuse. User explicitly authorizes implementation and validation.
+Extend QA-R06/QA-R51/QA-R54/QA-R66/QA-R67 and QA-S02: observe request-isolated Claude context with file tools and persistent provider history disabled, complete current owner input, exact model/effort/depth, independent Send isolation and temporary-data cleanup. Compare public synthetic consecutive calls only under separately authorized provider scope. Inspect every reported input/output/cache/reasoning category, retries and failed attempts; unknown/partial values remain explicit and totals never double count subsets. Actual provider cache reuse needs its own dated provider evidence.
 
-Executed U-12 scoped regressions: 218 passed, 2 platform-specific skips, 0 failed. Chromium, Firefox and WebKit reading/control/Usage regressions passed. Scoped workspace reuse/isolation, private context transport and cleanup, positive failure usage and ordered progressive callbacks are covered. [Evidence](../forge/runs/critic-cache-usage-20260926/verification.json) and adjacent measurement reports separate synthetic bytes from native provider tokens. Stable-directory-only probe had no hits. Separating stable context from changing assignment produced 8,722 cache-read tokens of 9,197 input tokens on the second live Opus 5.5/high call, with 473 cache-write tokens. Provider cache expiry/routing remain uncontrolled. Whole-product release readiness remains not_evaluated.
+**Retained historical scoped result, not a current formal pass:** 218 tests passed/2 platform-specific skips; Chromium/Firefox/WebKit reading/control/Usage regressions passed. [Evidence](../forge/runs/critic-cache-usage-20260926/verification.json) retains workspace/transport/cleanup and usage observations. Stable-directory-only probing had no hits; separating stable context from assignment reported 8,722 cache-read tokens of 9,197 input and 473 cache-write tokens on the second Opus 5.5/high call. Provider expiry/routing were uncontrolled. No current authorization, guaranteed cache hit or whole-product readiness follows.
 
 ## U-12 upstream usage verification — 2026-09-26
 
-U-12 upstream accounting follow-up: opt into the pinned Codex experimental raw completion event, extract only numeric usage from upstream metadata, deduplicate by response within the expected turn and reconcile against cumulative totals. Preserve explicit zero versus missing field; never infer writes from uncached input. Store numeric accounting provenance only, never raw responses, attribution IDs, output or hidden reasoning. Display upstream-verified versus legacy normalized counters in existing Usage. Preserve exact models, private context, authentication and live runs. Experimental telemetry failure must not interrupt consulting. Verify real coordinator Critic cache reuse with synthetic data and document historical limits. User explicitly authorizes this investigation and implementation.
+Extend QA-R51/QA-R54/QA-R58/QA-R66 and QA-S02: inspect expected-turn numeric telemetry allowlisting and response deduplication. Reconcile upstream response totals against cumulative normalized totals when both exist; when cumulative totals are unavailable, retain the allowlisted upstream response counts with explicit partial coverage instead of discarding them or inventing reconciliation. Test explicit zero, absent fields, positive writes, wrong-turn/repeated events and partial coverage; missing writes cannot be derived from uncached input. Inspect persisted records/UI to exclude raw responses, private IDs and hidden reasoning. Verify optional telemetry failure preserves consultation and existing recovery.
 
-U-12 upstream usage verification executed: 220 passed, 2 platform-specific skips, 0 failed on the final full check. Chromium, Firefox and WebKit Usage tests passed including accounting provenance. Native Sol/high probe reconciles 4,941 input plus 37 output to 4,978 total and an explicitly supplied upstream cache-write zero. Positive-write, zero, missing-field, deduplication, wrong-turn and partial-coverage fixtures pass. See [verification](../forge/runs/upstream-usage-20260926/verification.json). This proves provider-reported accounting, not physical cache storage or subscription charges. One earlier unchanged review fixture failed output_policy and passed targeted/full reruns; its cause remains unconfirmed. Formal release readiness not_evaluated.
+**Retained historical scoped result, not a current formal pass:** 220 tests passed/2 skips and three-engine Usage checks passed. The [receipt](../forge/runs/upstream-usage-20260926/verification.json) reports a Sol/high probe with 4,941 input, 37 output, 4,978 total and explicit upstream cache-write zero, plus relevant fixtures. It proves reported accounting within that dated scope, not physical cache storage or subscription charges. One earlier unchanged review fixture failed output_policy before targeted/full reruns passed; its cause remains unconfirmed.
 
 ## U-13 actionable usage dashboard — 2026-09-26
 
-U-13 checks: aggregate providers/requests/participants and repeat union; timestamp durations; malformed/missing account windows; authenticated endpoint; refresh privacy; legacy attempts; live running/partial status; narrow/wide browser rendering. Execution evidence follows implementation.
+U-13 checks: aggregate providers/requests/participants and repeat union; timestamp durations; malformed/missing account windows; authenticated endpoint; refresh privacy; legacy attempts; live running/partial status; narrow/wide browser rendering. Fresh execution evidence is required; none is created by this reconciliation.
 
-U-13 verification completed: 224 tests passed, 2 platform-specific checks skipped; Chromium, Firefox and WebKit Usage flows passed including request filtering, account meters, partial values, retry/reload and 320px reflow. Native Codex read-only account telemetry returned a valid window without inference. Earlier browser iteration exposed and fixed missing ARIA attributes. See [evidence](../forge/runs/usage-dashboard-20260926/verification.json). No representative-user study or exact subscription-charge verification is claimed.
+**Retained historical scoped result, not a current formal pass:** 224 tests passed, 2 platform-specific checks skipped; Chromium, Firefox and WebKit Usage flows passed including request filtering, account meters, partial values, retry/reload and 320px reflow. Native Codex read-only account telemetry returned a valid window without inference. Earlier browser iteration exposed and fixed missing ARIA attributes. See [evidence](../forge/runs/usage-dashboard-20260926/verification.json). No representative-user study or exact subscription-charge verification is claimed.
 
 ## U-13 reasoning attribution follow-up — 2026-09-26
 
-U-13 reasoning attribution follow-up: Usage model rows and call timeline show the selected reasoning effort. Aggregate by provider, model and effort so different configurations never collapse together. New adapters record actual requested effort. Older calls may recover the value only from a matching immutable single-request snapshot with a known stage, provider and model; otherwise show unknown. Preserve counters, request isolation and privacy. The user authorizes this change and a read-only comparison of saved high/medium runs, not an unqualified quality claim.
+Extend QA-R20/QA-R21/QA-R23/QA-R66 and QA-S02: compare provider/model/effort groups and attempt labels, including mixed efforts for one model. For historical attempts, accept recovered effort only from a matching immutable request snapshot with known stage/provider/model; otherwise show unknown. Preserve counters, request isolation and selected settings; observational usage differences do not establish advice quality.
 
-U-13 reasoning attribution verified: 226 tests passed, 2 platform-specific skips; Chromium, Firefox and WebKit show reasoning beside models. Mixed-effort grouping and conservative historical recovery tests pass. Read-only inspection confirmed the two saved configurations without copying private content. See [evidence](../forge/runs/usage-reasoning-20260926/verification.json).
+**Retained historical scoped result, not a current formal pass:** 226 tests passed/2 skips and Chromium/Firefox/WebKit displayed reasoning beside models. [Evidence](../forge/runs/usage-reasoning-20260926/verification.json) records conservative attribution and a read-only saved-configuration observation, without importing private content.
 
 ## U-13 activity counts follow-up — 2026-09-26
 
-U-13 activity counts follow-up: show five metrics in Usage: consultant assignments excluding Head/Critic, issued review rounds, issued correction orders, research provider-call attempts including retries, and reported search/open/find web actions. Read team counts from saved parallel ledgers and research counts from usage telemetry. Scope follows the selected conversation/all view. Aggregate known values and mark partial coverage; missing older data is never zero. Preserve privacy and active consultations.
+Extend QA-R23/QA-R54/QA-R66 and QA-S02: inspect consultant assignments excluding Head/Critic, issued team reviews, issued correction orders, research-call attempts including retries, and reported search/open/find operations for current-conversation and all-saved scopes. Compare known counts with saved ledgers/allowlisted telemetry; mark missing historical coverage partial, omit deleted records, and keep account-wide allowance distinct.
 
-U-13 activity counts verified: 227 tests passed and 2 platform-specific skips. Chromium, Firefox and WebKit verify all five labels, scoped display and 320px reflow. Saved-ledger counts match read-only usage summaries. [Evidence](../forge/runs/usage-activity-20260926/verification.json). Unknown historical telemetry remains partial or unavailable.
+**Retained historical scoped result, not a current formal pass:** 227 tests passed/2 skips; Chromium/Firefox/WebKit checked all five labels, scopes and 320px reflow. [Evidence](../forge/runs/usage-activity-20260926/verification.json) records read-only ledger/summary agreement. Unknown older telemetry remains partial or unavailable.
 
 ## Clear-glass navigation follow-up — 2026-09-26
 
-User-authorized clear-glass top navigation: replace the opaque bar with low-opacity tint, restrained specular edges and saturation/contrast without blur. Preserve geometry, controls, focus indicators and Electric A v8 foundation. Local button tint and text shadow protect label legibility. Reduced-transparency and forced-color preferences receive opaque readable fallbacks. Verify actual navigation markup at narrow and wide widths in isolated browsers. No live-page reload, server restart, session change or consulting interruption.
+For QA-R35/QA-R40/QA-R41/QA-R55, QA-S09 and relevant H checks, verify current native control sharpness, contrast, hit targets, focus, reduced-transparency and forced-color fallbacks. The earlier tint-only treatment is historical and cannot pass current curved-edge refraction.
 
-Clear-glass navbar verified in isolated Chromium, Firefox and WebKit fixtures using production markup/CSS at 320, 390, 768 and 1280px. Transparency/no-blur, reflow, keyboard focus and forced-color fallback passed; desktop screenshot inspected. Artifact checks pass. No active session or server was interrupted. [Evidence](../forge/runs/clear-glass-navbar-20260926/verification.json).
+**Retained historical scoped result:** [the earlier receipt](../forge/runs/clear-glass-navbar-20260926/verification.json) reports Chromium/Firefox/WebKit production-markup fixtures at 320/390/768/1280px for transparency/no-blur/reflow/focus/fallback and a desktop capture. No active session/server was interrupted. That superseded appearance observation is not current fidelity acceptance.
 
 ## Glass edge refinement — 2026-09-26
 
-User-requested glass edge refinement: retain the clear navbar centre and add a polished outer lip plus a hollow curved inner bevel using masked pseudo-elements. The approximately 7px rim alone receives a slight optical filter; no frosted centre. Preserve geometry and click targets; decorative layers ignore pointer input. Hide both layers for reduced transparency and forced colors. Verify mask rendering, focus and mobile layouts in Chromium, Firefox and WebKit without touching the active browser session or restarting the server.
+For the same existing checks, do not use the rejected metallic/masked bevel as current optical acceptance. Retain geometry, clickable native controls and readable accessibility fallbacks, then evaluate the accepted refraction below.
 
-Glass rim refinement verified with production markup/CSS in isolated Chromium, Firefox and WebKit at 320, 390, 768 and 1280px. Clear centre, reflow, focus and forced-color fallback passed; polished outer lip and inner bevel visually inspected. [Evidence](../forge/runs/glass-rim-20260926/verification.json). Active session untouched.
+**Retained historical scoped result:** [the rim receipt](../forge/runs/glass-rim-20260926/verification.json) reports isolated Chromium/Firefox/WebKit at 320/390/768/1280px, with clear centre, reflow/focus/fallback and a visually inspected lip/bevel. It remains evidence of that dated superseded treatment, not a current check pass.
 
 ## Navbar refraction renderer — 2026-09-26
 
-User-authorized liquid-glass renderer replaces the rejected metallic bevel. A local canvas paints only the narrow strip from visible application text, solid surfaces and same-origin images, then displaces pixels along a rounded-rectangle optical edge. The centre remains native and clear; controls remain native and sharp. No external capture service, third-party runtime, stored pixels or transmitted content. Ignore inputs and hidden elements. Clear pixels synchronously on privacy lock/logout and on visibility changes; stop rendering for reduced transparency or forced colors. Update on scroll, resize and observed content changes, not a perpetual loop. CSS gradients and arbitrary embedded media are not part of the sampling contract; the application text/solid surface layout is. Verify actual pixel deformation and privacy clearing in all engines, not merely CSS parsing.
+Extend QA-R35/QA-R40/QA-R41/QA-R54/QA-R55, QA-S02/QA-S09 and relevant H checks: inspect actual curved-edge pixel displacement of visible app text, solid surfaces and same-origin images in each supported engine. The centre stays clear and native controls stay sharp/clickable. Observe changes with content/scroll/resize, every glass host, readable forced-color/reduced-transparency fallbacks and no perpetual idle repaint. Use marked input/hidden content to verify exclusion from sampling; inspect synchronous clearing on privacy lock, Logoff and visibility changes, no recursive glass sampling, stored pixels, external capture or transmitted content. CSS parsing or a border highlight is insufficient.
 
-Navbar refraction verified: 227 tests passed, two platform-specific skips; integrated Usage flow and dedicated optical fixture pass in Chromium, Firefox and WebKit. Pixel output changes with content and scroll, centre remains transparent, controls clickable, mobile layout intact, and explicit privacy clearing removes pixels synchronously. [Evidence](../forge/runs/navbar-refraction-20260926/verification.json).
+**Retained historical scoped result, not a current formal pass:** 227 tests passed/2 skips; integrated Usage and optical fixtures passed Chromium/Firefox/WebKit. [Evidence](../forge/runs/navbar-refraction-20260926/verification.json) reports changing pixels, transparent centre, clickable controls, mobile layout and synchronous privacy clearing.
 
 ## White theme — 2026-10-08
 
@@ -276,4 +282,574 @@ Run the real shell through `scripts/browser-check.mjs --theme-only` and `scripts
 
 Extend existing QA-R13/QA-R14/QA-R15/QA-R35, QA-S02, QA-R40/QA-R41 and relevant QA-H03/H04/H08: verify removal of Read outcome; Outcome through existing tabs/select; completion collapse; explicit reopening/collapse with unchanged draft; hidden active input; Stop/Retry; sticky opaque black matte composer with readable light text/controls in dark theme and white matte composer with readable dark text/controls in white theme, including opaque/system-colour fallbacks; liquid-glass arrows and Continue conversation.
 
-At narrow/wide widths and zoom, verify the down arrow stays horizontally centered at its original 16 CSS pixels plus bottom safe-area anchor with collapsed or hidden input, including active work and visible Continue conversation. Only a visibly open composer lifts the arrow above that prompt. Verify opening/collapsing restores the corresponding position, Continue conversation never lifts it, and responsive row space/label wrapping keep the action separately clickable. Each end jump leaves the corresponding content boundary visible below navigation and above the bottom overlay; arrow hiding/reappearance uses those same boundaries. Extend reading-mode and optical browser fixtures to cover every glass host, exclusion from sampling, unsampled input values, theme changes and synchronous privacy clearing. Preserve historical evidence; record new results separately without passing whole-product or representative-user gates. This owner prepares definitions and does not manufacture execution results.
+At narrow/wide widths and zoom, verify the down arrow stays horizontally centered at its original 16 CSS pixels plus bottom safe-area anchor with collapsed or hidden input, including active work and visible Continue conversation. Only a visibly open composer lifts the arrow above that prompt. Verify opening/collapsing restores the corresponding position, Continue conversation never lifts it, and responsive row space/label wrapping keep the action separately clickable. Each end jump leaves the corresponding content boundary visible below navigation and above the bottom overlay; arrow hiding/reappearance uses those same boundaries. Use reading-mode and optical browser observations to cover every glass host, exclusion from sampling, unsampled input values, theme changes and synchronous privacy clearing. Preserve historical evidence; record new results separately without passing whole-product or representative-user gates. This owner prepares definitions and does not manufacture execution results.
+
+## Controlled integration regression
+
+QA-C01 · Required/applicable · `product_functional_requirements` · phase `implementation` · Definition Status: prepared · Execution Status: not_run. Owner group: the existing owner represented by isolated synthetic fixtures. Trace: JOB-001/JOB-002/JOB-003/JOB-004; UC-002/UC-003/UC-004/UC-005; J-02/J-03/J-05/J-06/J-07; S-02/S-03/S-04/S-06/S-07/S-08 at their applicable draft/active/stopped/retry/complete/record states. Baseline: `nanoduck-electric-a-v8-20260914`, current immutable target and permitted variance. Viewports: 320/390/768/1280 CSS px with current desktop rail/narrow picker and theme/glass/matte controls.
+
+**Bounded task:** follow one accepted-request lifecycle through the actual local browser, protected HTTPS API, coordinator, encrypted store, Sources/Usage and export/recovery consumers. Use a temporary synthetic workspace and controlled provider/research/recognition/account boundaries, with no owner data or inference. Preserve and report exactly which calls/data are controlled; local encryption/transactions/HTTP/client rendering remain real. Use existing meaningful seams in `test/http.test.mjs`, `test/parallel-consultation.test.mjs`, `test/context-economy.test.mjs`, `test/local-store.test.mjs`, `test/recovery-cli.test.mjs`, `test/research-evidence.test.mjs`, `test/usage.test.mjs` and the existing browser scripts below; passing an isolated mock function alone does not satisfy the lifecycle.
+
+1. Establish the synthetic authenticated session/consent, save compatible future preferences and send a complete marked request. Observe one accepted message and the exact accepted settings/instruction snapshot. Have controlled Head output two distinct independent assignments, hold both ready workers, then commit their results out of order. The real application exposes each successful result once and retains the declared task/context boundaries.
+2. Issue a controlled Critic order against a specific current result. A repeated answer remains unresolved; a matching current assessment resolves only its addressed correction. Stop between response and assessment, preserve the successful prefix/directive/snapshot, restart the isolated runtime/store, and Continue/Retry only missing work. Reject late/duplicate results without losing accepted work. Changing saved future settings cannot alter this accepted snapshot.
+3. Reopen that protected record, inspect resolved current-request sources and numeric partial/unknown Usage, download the escaped complete RTF, then explicitly Send a new marked independent request in the same archive. Prior request/result/source markers never reach its participant input or final sources; Continue/Retry retains the new accepted ID. Original archive messages remain unchanged. Exercise draft collapse/reopen and current-view reading controls through actual DOM actions without an accidental Send/Stop.
+4. Confirm a synthetic record deletion, and restore an isolated encrypted backup using its separated fixture keys. The deleted record remains deleted, an unrelated accepted record remains readable, and accepted surviving content/export/source references match the canonical stored record. No real owner workspace is opened or migrated.
+
+**Pass predicate and evidence:** all four stages complete with one coherent current source revision, preserved IDs/settings/work and observed expected/denied transitions. Record actual executor/time, current plan/baseline/source hashes, controlled-boundary inventory, state/viewport captures, HTTP/store/event/provider-input comparisons and command results. Existing executable surfaces are `npm run check`, `node scripts/browser-check.mjs`, `node scripts/browser-check.mjs --reading-only`, `node scripts/browser-check.mjs --usage-only` and the relevant recovery/context tests; inspect their actual coverage and supply missing scenario observations rather than assuming a command name proves this task. These procedures are prepared, not executed here.
+
+**Supported contribution only:** FR-02.1, FR-02.11, FR-02.12, FR-02.13, FR-03.4, FR-03.5, FR-05.2, FR-06.1, FR-06.2, FR-06.3, NFR-01.1 and NFR-01.2 at the controlled local lifecycle boundary. This check does not claim all 111 requirement/state obligations, real model quality or concurrency capacity, live research freshness/cache reuse/entitlement, physical recognition/audio, trusted LAN/OS portability, native-reader rendering, complete accessibility/heuristic coverage, representative-user success or release readiness. All original full checks and six gates remain required/not_run.
+
+## Acceptance definitions
+
+This check-ID map is canonical. Every original full check stays required and uses real-consumer integration/release evidence. QA-C01 is separately bounded component evidence. The plan owner assigns acceptance owners and prerequisites without changing these definitions; the orchestrator mirrors this exact object at `verification.checks[*].acceptance`, referenced by `verification.acceptance_ref`.
+
+```json
+{
+  "QA-C01": {
+    "required": true,
+    "level": "unit",
+    "evidence_mode": "component",
+    "required_source_paths": ["instructions/AGENTS.md", "instructions/CONSILIUM.md", "instructions/CONSULTING_PLAYBOOK.md", "instructions/RUNTIME_PROMPTS.md", "package-lock.json", "package.json", "public/conversation-list.css", "public/index.html", "public/nanoduck-original.svg", "public/nanoduck.svg", "public/styles.css", "scripts/browser-active-discussion.mjs", "scripts/browser-check.mjs", "scripts/browser-logoff.mjs", "scripts/browser-progress-recovery.mjs", "scripts/browser-reading-mode.mjs", "scripts/browser-send-retry.mjs", "scripts/browser-theme.mjs", "scripts/browser-usage.mjs", "scripts/check-artifacts.mjs", "scripts/test.mjs", "src/client/app.js", "src/client/markdown.js", "src/client/navbar-glass.js", "src/client/theme.js", "src/server/account-usage.mjs", "src/server/attachments.mjs", "src/server/auth.mjs", "src/server/child-process.mjs", "src/server/claude-provider.mjs", "src/server/claude-runtime.mjs", "src/server/codex-provider.mjs", "src/server/config.mjs", "src/server/configuration-recovery.mjs", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/content-policy.mjs", "src/server/conversation-export.mjs", "src/server/crypto.mjs", "src/server/forbidden-environment.mjs", "src/server/image-structure.mjs", "src/server/index.mjs", "src/server/instruction-bootstrap.mjs", "src/server/instruction-documents.mjs", "src/server/local-request.mjs", "src/server/local-setup.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/output-safety.mjs", "src/server/parallel-contract.mjs", "src/server/password.mjs", "src/server/private-files.mjs", "src/server/prompt-contracts.mjs", "src/server/provider-context.mjs", "src/server/providers.mjs", "src/server/read-regular-file.mjs", "src/server/recovery-cli.mjs", "src/server/recovery.mjs", "src/server/research-evidence.mjs", "src/server/setup.mjs", "src/server/start.mjs", "src/server/store.mjs", "src/server/turn-deadline.mjs", "src/server/usage.mjs", "src/server/validation.mjs", "test/context-economy.test.mjs", "test/conversation-export.test.mjs", "test/fixtures/fake-codex.mjs", "test/fixtures/local-runtime.mjs", "test/fixtures/runtime-instructions.mjs", "test/http.test.mjs", "test/local-store.test.mjs", "test/parallel-consultation.test.mjs", "test/recovery-cli.test.mjs", "test/research-evidence.test.mjs", "test/review-fixes.test.mjs", "test/usage.test.mjs"]
+  },
+  "QA-H01": {
+    "required": true,
+    "level": "release",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/conversation-list.css", "public/index.html", "public/nanoduck-original.svg", "public/nanoduck.svg", "public/styles.css", "scripts/browser-check.mjs", "scripts/browser-reading-mode.mjs", "scripts/browser-theme.mjs", "src/client/app.js", "src/client/markdown.js", "src/client/navbar-glass.js", "src/client/notification-audio.js", "src/client/refresh-state.js", "src/client/theme.js"]
+  },
+  "QA-H02": {
+    "required": true,
+    "level": "release",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/conversation-list.css", "public/index.html", "public/nanoduck-original.svg", "public/nanoduck.svg", "public/styles.css", "scripts/browser-check.mjs", "scripts/browser-reading-mode.mjs", "scripts/browser-theme.mjs", "src/client/app.js", "src/client/markdown.js", "src/client/navbar-glass.js", "src/client/notification-audio.js", "src/client/refresh-state.js", "src/client/theme.js"]
+  },
+  "QA-H03": {
+    "required": true,
+    "level": "release",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/conversation-list.css", "public/index.html", "public/nanoduck-original.svg", "public/nanoduck.svg", "public/styles.css", "scripts/browser-check.mjs", "scripts/browser-reading-mode.mjs", "scripts/browser-theme.mjs", "src/client/app.js", "src/client/markdown.js", "src/client/navbar-glass.js", "src/client/notification-audio.js", "src/client/refresh-state.js", "src/client/theme.js"]
+  },
+  "QA-H04": {
+    "required": true,
+    "level": "release",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/conversation-list.css", "public/index.html", "public/nanoduck-original.svg", "public/nanoduck.svg", "public/styles.css", "scripts/browser-check.mjs", "scripts/browser-reading-mode.mjs", "scripts/browser-theme.mjs", "src/client/app.js", "src/client/markdown.js", "src/client/navbar-glass.js", "src/client/notification-audio.js", "src/client/refresh-state.js", "src/client/theme.js"]
+  },
+  "QA-H05": {
+    "required": true,
+    "level": "release",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/conversation-list.css", "public/index.html", "public/nanoduck-original.svg", "public/nanoduck.svg", "public/styles.css", "scripts/browser-check.mjs", "scripts/browser-reading-mode.mjs", "scripts/browser-theme.mjs", "src/client/app.js", "src/client/markdown.js", "src/client/navbar-glass.js", "src/client/notification-audio.js", "src/client/refresh-state.js", "src/client/theme.js"]
+  },
+  "QA-H06": {
+    "required": true,
+    "level": "release",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/conversation-list.css", "public/index.html", "public/nanoduck-original.svg", "public/nanoduck.svg", "public/styles.css", "scripts/browser-check.mjs", "scripts/browser-reading-mode.mjs", "scripts/browser-theme.mjs", "src/client/app.js", "src/client/markdown.js", "src/client/navbar-glass.js", "src/client/notification-audio.js", "src/client/refresh-state.js", "src/client/theme.js"]
+  },
+  "QA-H07": {
+    "required": true,
+    "level": "release",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/conversation-list.css", "public/index.html", "public/nanoduck-original.svg", "public/nanoduck.svg", "public/styles.css", "scripts/browser-check.mjs", "scripts/browser-reading-mode.mjs", "scripts/browser-theme.mjs", "src/client/app.js", "src/client/markdown.js", "src/client/navbar-glass.js", "src/client/notification-audio.js", "src/client/refresh-state.js", "src/client/theme.js"]
+  },
+  "QA-H08": {
+    "required": true,
+    "level": "release",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/conversation-list.css", "public/index.html", "public/nanoduck-original.svg", "public/nanoduck.svg", "public/styles.css", "scripts/browser-check.mjs", "scripts/browser-reading-mode.mjs", "scripts/browser-theme.mjs", "src/client/app.js", "src/client/markdown.js", "src/client/navbar-glass.js", "src/client/notification-audio.js", "src/client/refresh-state.js", "src/client/theme.js"]
+  },
+  "QA-H09": {
+    "required": true,
+    "level": "release",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/conversation-list.css", "public/index.html", "public/nanoduck-original.svg", "public/nanoduck.svg", "public/styles.css", "scripts/browser-check.mjs", "scripts/browser-reading-mode.mjs", "scripts/browser-theme.mjs", "src/client/app.js", "src/client/markdown.js", "src/client/navbar-glass.js", "src/client/notification-audio.js", "src/client/refresh-state.js", "src/client/theme.js"]
+  },
+  "QA-H10": {
+    "required": true,
+    "level": "release",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/conversation-list.css", "public/index.html", "public/nanoduck-original.svg", "public/nanoduck.svg", "public/styles.css", "scripts/browser-check.mjs", "scripts/browser-reading-mode.mjs", "scripts/browser-theme.mjs", "src/client/app.js", "src/client/markdown.js", "src/client/navbar-glass.js", "src/client/notification-audio.js", "src/client/refresh-state.js", "src/client/theme.js"]
+  },
+  "QA-R01": {
+    "required": true,
+    "level": "release",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["README.md", "package-lock.json", "package.json", "public/index.html", "public/styles.css", "scripts/browser-local-entry.mjs", "src/client/app.js", "src/server/auth.mjs", "src/server/config.mjs", "src/server/crypto.mjs", "src/server/index.mjs", "src/server/local-request.mjs", "src/server/local-setup.mjs", "src/server/password.mjs", "src/server/private-files.mjs", "src/server/read-regular-file.mjs", "src/server/setup.mjs", "src/server/start.mjs", "test/http.test.mjs", "test/local-config-auth.test.mjs"]
+  },
+  "QA-R02": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-check.mjs", "src/client/app.js", "src/server/auth.mjs", "src/server/index.mjs", "src/server/local-request.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/store.mjs", "test/http.test.mjs"]
+  },
+  "QA-R03": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-send-retry.mjs", "src/client/app.js", "src/server/auth.mjs", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/index.mjs", "src/server/local-request.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/parallel-contract.mjs", "src/server/store.mjs", "test/http.test.mjs"]
+  },
+  "QA-R04": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "src/client/app.js", "src/server/attachments.mjs", "src/server/auth.mjs", "src/server/image-structure.mjs", "src/server/index.mjs", "src/server/local-request.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/store.mjs", "src/server/validation.mjs", "test/fixtures/images.mjs", "test/http.test.mjs", "test/image-structure.test.mjs"]
+  },
+  "QA-R05": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["instructions/AGENTS.md", "instructions/CONSILIUM.md", "instructions/CONSULTING_PLAYBOOK.md", "instructions/RUNTIME_PROMPTS.md", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/parallel-contract.mjs", "src/server/prompt-contracts.mjs", "src/server/provider-context.mjs", "src/server/store.mjs", "test/parallel-consultation.test.mjs", "test/prompt-contracts.test.mjs"]
+  },
+  "QA-R06": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["instructions/AGENTS.md", "instructions/CONSILIUM.md", "instructions/CONSULTING_PLAYBOOK.md", "instructions/RUNTIME_PROMPTS.md", "src/server/child-process.mjs", "src/server/claude-provider.mjs", "src/server/claude-runtime.mjs", "src/server/codex-provider.mjs", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/forbidden-environment.mjs", "src/server/parallel-contract.mjs", "src/server/prompt-contracts.mjs", "src/server/provider-context.mjs", "src/server/providers.mjs", "src/server/store.mjs", "src/server/turn-deadline.mjs", "test/claude-process.test.mjs", "test/claude-provider.test.mjs", "test/codex-provider.test.mjs", "test/context-economy.test.mjs", "test/parallel-consultation.test.mjs", "test/turn-deadline.test.mjs"]
+  },
+  "QA-R07": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["instructions/AGENTS.md", "instructions/CONSILIUM.md", "instructions/CONSULTING_PLAYBOOK.md", "instructions/RUNTIME_PROMPTS.md", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/parallel-contract.mjs", "src/server/prompt-contracts.mjs", "src/server/provider-context.mjs", "src/server/store.mjs", "test/parallel-consultation.test.mjs", "test/review-fixes.test.mjs"]
+  },
+  "QA-R08": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["src/client/app.js", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/parallel-contract.mjs", "src/server/store.mjs", "test/parallel-consultation.test.mjs", "test/review-fixes.test.mjs"]
+  },
+  "QA-R09": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "src/client/app.js", "src/client/markdown.js", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/conversation-export.mjs", "src/server/conversation-title.mjs", "src/server/parallel-contract.mjs", "src/server/research-evidence.mjs", "test/conversation-export.test.mjs", "test/conversation-title.test.mjs", "test/parallel-consultation.test.mjs"]
+  },
+  "QA-R10": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "src/client/app.js", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/prompt-contracts.mjs", "test/consultation.test.mjs", "test/prompt-contracts.test.mjs"]
+  },
+  "QA-R11": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-active-discussion.mjs", "src/client/app.js", "src/client/notification-audio.js", "src/server/conversation-title.mjs", "src/server/store.mjs", "test/conversation-title.test.mjs"]
+  },
+  "QA-R12": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "src/client/app.js", "src/client/markdown.js", "src/server/claude-provider.mjs", "src/server/codex-provider.mjs", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/content-policy.mjs", "src/server/output-safety.mjs", "src/server/parallel-contract.mjs", "src/server/research-evidence.mjs", "src/server/validation.mjs", "test/claude-provider.test.mjs", "test/codex-provider.test.mjs", "test/core.test.mjs", "test/markdown.test.mjs"]
+  },
+  "QA-R13": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-active-discussion.mjs", "scripts/browser-reading-mode.mjs", "src/client/app.js", "src/server/auth.mjs", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/index.mjs", "src/server/local-request.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/parallel-contract.mjs", "src/server/provider-context.mjs", "src/server/store.mjs", "test/context-economy.test.mjs"]
+  },
+  "QA-R14": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-active-discussion.mjs", "scripts/browser-reading-mode.mjs", "src/client/app.js", "src/client/navbar-glass.js", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/store.mjs"]
+  },
+  "QA-R15": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-progress-recovery.mjs", "scripts/browser-send-retry.mjs", "src/client/app.js", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/parallel-contract.mjs", "src/server/store.mjs", "test/parallel-consultation.test.mjs", "test/review-fixes.test.mjs"]
+  },
+  "QA-R16": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-check.mjs", "src/client/app.js", "src/server/auth.mjs", "src/server/index.mjs", "src/server/local-request.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/store.mjs", "test/consultation.test.mjs", "test/http.test.mjs"]
+  },
+  "QA-R17": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["instructions/AGENTS.md", "instructions/CONSILIUM.md", "instructions/CONSULTING_PLAYBOOK.md", "instructions/RUNTIME_PROMPTS.md", "src/server/codex-provider.mjs", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/content-policy.mjs", "src/server/output-safety.mjs", "src/server/parallel-contract.mjs", "src/server/prompt-contracts.mjs", "src/server/provider-context.mjs", "src/server/research-evidence.mjs", "src/server/store.mjs", "test/codex-provider.test.mjs", "test/research-evidence.test.mjs", "test/review-fixes.test.mjs"]
+  },
+  "QA-R18": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "src/client/app.js", "src/client/markdown.js", "src/server/codex-provider.mjs", "src/server/content-policy.mjs", "src/server/conversation-export.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/output-safety.mjs", "src/server/research-evidence.mjs", "src/server/store.mjs", "test/claude-provider.test.mjs", "test/codex-provider.test.mjs", "test/research-evidence.test.mjs", "test/source-persistence.test.mjs"]
+  },
+  "QA-R19": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["src/server/claude-provider.mjs", "src/server/codex-provider.mjs", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/content-policy.mjs", "src/server/output-safety.mjs", "src/server/parallel-contract.mjs", "src/server/prompt-contracts.mjs", "src/server/research-evidence.mjs", "test/claude-provider.test.mjs", "test/review-fixes.test.mjs"]
+  },
+  "QA-R20": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["docs/model-settings.md", "package-lock.json", "package.json", "public/index.html", "public/styles.css", "scripts/browser-model-settings.mjs", "src/client/app.js", "src/server/child-process.mjs", "src/server/claude-provider.mjs", "src/server/claude-runtime.mjs", "src/server/codex-provider.mjs", "src/server/forbidden-environment.mjs", "src/server/instruction-bootstrap.mjs", "src/server/instruction-documents.mjs", "src/server/prompt-contracts.mjs", "src/server/providers.mjs", "src/server/store.mjs", "src/server/turn-deadline.mjs", "test/claude-process.test.mjs", "test/claude-provider.test.mjs", "test/codex-provider.test.mjs", "test/core.test.mjs", "test/http.test.mjs", "test/turn-deadline.test.mjs"]
+  },
+  "QA-R21": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-model-settings.mjs", "scripts/browser-theme.mjs", "src/client/app.js", "src/client/notification-audio.js", "src/client/theme.js", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/instruction-bootstrap.mjs", "src/server/instruction-documents.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/parallel-contract.mjs", "src/server/prompt-contracts.mjs", "src/server/providers.mjs", "src/server/store.mjs", "test/http.test.mjs", "test/prompt-contracts.test.mjs"]
+  },
+  "QA-R22": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/sounds/table-taps-250ms-v5.wav", "public/styles.css", "scripts/browser-active-discussion.mjs", "scripts/browser-notification-audio.mjs", "src/client/app.js", "src/client/notification-audio.js", "src/server/claude-provider.mjs", "src/server/index.mjs", "src/server/store.mjs", "src/server/turn-deadline.mjs", "test/notification-audio.test.mjs", "test/parallel-consultation.test.mjs", "test/turn-deadline.test.mjs"]
+  },
+  "QA-R23": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-usage.mjs", "src/client/app.js", "src/server/account-usage.mjs", "src/server/auth.mjs", "src/server/index.mjs", "src/server/local-request.mjs", "src/server/store.mjs", "src/server/usage.mjs", "test/account-usage.test.mjs", "test/usage.test.mjs"]
+  },
+  "QA-R24": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-provider-connection.mjs", "scripts/claude-login.mjs", "src/client/app.js", "src/server/child-process.mjs", "src/server/claude-provider.mjs", "src/server/claude-runtime.mjs", "src/server/codex-provider.mjs", "src/server/forbidden-environment.mjs", "src/server/instruction-bootstrap.mjs", "src/server/instruction-documents.mjs", "src/server/prompt-contracts.mjs", "src/server/providers.mjs", "src/server/store.mjs", "src/server/turn-deadline.mjs", "test/claude-process.test.mjs", "test/claude-provider.test.mjs", "test/codex-provider.test.mjs", "test/http.test.mjs", "test/preflight.test.mjs", "test/turn-deadline.test.mjs"]
+  },
+  "QA-R25": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-check.mjs", "src/client/app.js", "src/client/refresh-state.js", "src/server/attachments.mjs", "src/server/auth.mjs", "src/server/index.mjs", "src/server/local-request.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/research-evidence.mjs", "src/server/store.mjs", "test/local-store.test.mjs", "test/refresh-state.test.mjs"]
+  },
+  "QA-R26": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-markdown-tables.mjs", "src/client/app.js", "src/client/markdown.js", "src/server/auth.mjs", "src/server/conversation-export.mjs", "src/server/index.mjs", "src/server/local-request.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/store.mjs", "test/conversation-export.test.mjs", "test/markdown-table-export.test.mjs"]
+  },
+  "QA-R27": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "src/client/app.js", "src/server/attachments.mjs", "src/server/auth.mjs", "src/server/index.mjs", "src/server/local-request.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/store.mjs", "src/server/usage.mjs", "test/http.test.mjs", "test/local-store.test.mjs"]
+  },
+  "QA-R28": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-active-discussion.mjs", "scripts/browser-check.mjs", "src/client/app.js"]
+  },
+  "QA-R29": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-active-discussion.mjs", "scripts/browser-check.mjs", "src/client/app.js"]
+  },
+  "QA-R30": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-active-discussion.mjs", "scripts/browser-check.mjs", "src/client/app.js"]
+  },
+  "QA-R31": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-active-discussion.mjs", "scripts/browser-check.mjs", "src/client/app.js"]
+  },
+  "QA-R32": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-active-discussion.mjs", "scripts/browser-check.mjs", "src/client/app.js"]
+  },
+  "QA-R33": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/conversation-list.css", "public/index.html", "public/nanoduck-original.svg", "public/nanoduck.svg", "public/styles.css", "scripts/browser-local-entry.mjs", "scripts/browser-logoff.mjs", "scripts/browser-theme.mjs", "src/client/app.js", "src/client/navbar-glass.js", "src/client/theme.js", "src/server/auth.mjs", "src/server/index.mjs", "src/server/local-request.mjs"]
+  },
+  "QA-R34": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-check.mjs", "scripts/browser-model-settings.mjs", "src/client/app.js"]
+  },
+  "QA-R35": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/conversation-list.css", "public/index.html", "public/nanoduck-original.svg", "public/nanoduck.svg", "public/styles.css", "scripts/browser-navbar-glass.mjs", "scripts/browser-reading-mode.mjs", "scripts/browser-theme.mjs", "src/client/app.js", "src/client/markdown.js", "src/client/navbar-glass.js", "src/client/theme.js"]
+  },
+  "QA-R36": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-progress-recovery.mjs", "src/client/app.js", "src/client/refresh-state.js", "src/server/child-process.mjs", "src/server/claude-provider.mjs", "src/server/claude-runtime.mjs", "src/server/codex-provider.mjs", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/forbidden-environment.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/parallel-contract.mjs", "src/server/providers.mjs", "src/server/store.mjs", "src/server/turn-deadline.mjs", "test/codex-provider.test.mjs", "test/local-store.test.mjs", "test/refresh-state.test.mjs"]
+  },
+  "QA-R37": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/crypto.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/parallel-contract.mjs", "src/server/store.mjs", "test/fixtures/local-store-owner.mjs", "test/local-store.test.mjs", "test/parallel-consultation.test.mjs"]
+  },
+  "QA-R38": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/parallel-contract.mjs", "src/server/store.mjs", "src/server/turn-deadline.mjs", "test/parallel-consultation.test.mjs", "test/turn-deadline.test.mjs"]
+  },
+  "QA-R39": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-active-discussion.mjs", "scripts/browser-progress-recovery.mjs", "src/client/app.js", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/parallel-contract.mjs", "src/server/providers.mjs", "src/server/store.mjs"]
+  },
+  "QA-R40": {
+    "required": true,
+    "level": "release",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["forge/design/candidates/a/v8/app.js", "forge/design/candidates/a/v8/index.html", "forge/design/candidates/a/v8/styles.css", "public/conversation-list.css", "public/index.html", "public/nanoduck-original.svg", "public/nanoduck.svg", "public/styles.css", "scripts/browser-check.mjs", "scripts/browser-markdown-tables.mjs", "scripts/browser-reading-mode.mjs", "src/client/app.js", "src/client/markdown.js", "src/client/navbar-glass.js", "src/client/refresh-state.js", "src/client/theme.js"]
+  },
+  "QA-R41": {
+    "required": true,
+    "level": "release",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["forge/design/candidates/a/v8/app.js", "forge/design/candidates/a/v8/index.html", "forge/design/candidates/a/v8/styles.css", "public/conversation-list.css", "public/index.html", "public/nanoduck-original.svg", "public/nanoduck.svg", "public/styles.css", "scripts/browser-check.mjs", "scripts/browser-markdown-tables.mjs", "scripts/browser-reading-mode.mjs", "src/client/app.js", "src/client/markdown.js", "src/client/navbar-glass.js", "src/client/refresh-state.js", "src/client/theme.js"]
+  },
+  "QA-R42": {
+    "required": true,
+    "level": "release",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["README.md", "package-lock.json", "package.json", "public/conversation-list.css", "public/index.html", "public/nanoduck-original.svg", "public/nanoduck.svg", "public/styles.css", "scripts/browser-check.mjs", "scripts/browser-local-entry.mjs", "src/client/app.js", "src/client/navbar-glass.js", "src/client/theme.js", "src/server/auth.mjs", "src/server/config.mjs", "src/server/crypto.mjs", "src/server/index.mjs", "src/server/local-request.mjs", "src/server/local-setup.mjs", "src/server/password.mjs", "src/server/private-files.mjs", "src/server/read-regular-file.mjs", "src/server/setup.mjs", "src/server/start.mjs"]
+  },
+  "QA-R43": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["scripts/browser-local-entry.mjs", "src/server/auth.mjs", "src/server/config.mjs", "src/server/crypto.mjs", "src/server/index.mjs", "src/server/local-request.mjs", "src/server/local-setup.mjs", "src/server/password.mjs", "src/server/private-files.mjs", "src/server/read-regular-file.mjs", "src/server/setup.mjs", "src/server/start.mjs", "src/server/store.mjs", "test/http.test.mjs", "test/local-config-auth.test.mjs"]
+  },
+  "QA-R44": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["scripts/browser-logoff.mjs", "src/client/app.js", "src/server/auth.mjs", "src/server/index.mjs", "src/server/local-request.mjs", "src/server/local-setup.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/password.mjs", "src/server/store.mjs", "test/http.test.mjs", "test/local-config-auth.test.mjs"]
+  },
+  "QA-R45": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["src/client/markdown.js", "src/server/account-usage.mjs", "src/server/attachments.mjs", "src/server/auth.mjs", "src/server/consultation.mjs", "src/server/conversation-export.mjs", "src/server/image-structure.mjs", "src/server/index.mjs", "src/server/instruction-bootstrap.mjs", "src/server/instruction-documents.mjs", "src/server/local-request.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/prompt-contracts.mjs", "src/server/providers.mjs", "src/server/store.mjs", "src/server/usage.mjs", "src/server/validation.mjs", "test/http.test.mjs", "test/local-config-auth.test.mjs"]
+  },
+  "QA-R46": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "src/client/app.js", "src/client/markdown.js", "src/server/attachments.mjs", "src/server/auth.mjs", "src/server/codex-provider.mjs", "src/server/content-policy.mjs", "src/server/conversation-export.mjs", "src/server/image-structure.mjs", "src/server/index.mjs", "src/server/instruction-bootstrap.mjs", "src/server/instruction-documents.mjs", "src/server/local-request.mjs", "src/server/output-safety.mjs", "src/server/prompt-contracts.mjs", "src/server/providers.mjs", "src/server/research-evidence.mjs", "src/server/store.mjs", "src/server/validation.mjs", "test/core.test.mjs", "test/http.test.mjs", "test/markdown-table-export.test.mjs", "test/markdown.test.mjs", "test/prompt-contracts.test.mjs"]
+  },
+  "QA-R47": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["src/server/attachments.mjs", "src/server/auth.mjs", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/image-structure.mjs", "src/server/index.mjs", "src/server/local-request.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/parallel-contract.mjs", "src/server/store.mjs", "src/server/turn-deadline.mjs", "src/server/validation.mjs", "test/http.test.mjs", "test/local-store.test.mjs", "test/parallel-consultation.test.mjs"]
+  },
+  "QA-R48": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["scripts/browser-local-entry.mjs", "src/server/auth.mjs", "src/server/config.mjs", "src/server/index.mjs", "src/server/local-request.mjs", "src/server/local-setup.mjs", "test/http.test.mjs", "test/local-config-auth.test.mjs"]
+  },
+  "QA-R49": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["src/server/codex-provider.mjs", "src/server/consultation-parallel.mjs", "src/server/content-policy.mjs", "src/server/output-safety.mjs", "src/server/providers.mjs", "src/server/research-evidence.mjs", "test/codex-provider.test.mjs", "test/core.test.mjs", "test/research-evidence.test.mjs"]
+  },
+  "QA-R50": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "src/client/app.js", "src/server/attachments.mjs", "src/server/auth.mjs", "src/server/image-structure.mjs", "src/server/index.mjs", "src/server/local-request.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/store.mjs", "src/server/validation.mjs", "test/fixtures/images.mjs", "test/http.test.mjs", "test/image-structure.test.mjs"]
+  },
+  "QA-R51": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["instructions/AGENTS.md", "instructions/CONSILIUM.md", "instructions/CONSULTING_PLAYBOOK.md", "instructions/RUNTIME_PROMPTS.md", "src/server/child-process.mjs", "src/server/claude-provider.mjs", "src/server/claude-runtime.mjs", "src/server/codex-provider.mjs", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/forbidden-environment.mjs", "src/server/parallel-contract.mjs", "src/server/prompt-contracts.mjs", "src/server/provider-context.mjs", "src/server/providers.mjs", "src/server/turn-deadline.mjs", "test/claude-process.test.mjs", "test/claude-provider.test.mjs", "test/codex-provider.test.mjs", "test/review-fixes.test.mjs", "test/turn-deadline.test.mjs"]
+  },
+  "QA-R52": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["src/server/config.mjs", "src/server/crypto.mjs", "src/server/instruction-bootstrap.mjs", "src/server/instruction-documents.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/private-files.mjs", "src/server/prompt-contracts.mjs", "src/server/providers.mjs", "src/server/store.mjs", "test/local-config-auth.test.mjs", "test/local-store.test.mjs", "test/private-files.test.mjs"]
+  },
+  "QA-R53": {
+    "required": true,
+    "level": "release",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["package-lock.json", "package.json", "scripts/browser-local-entry.mjs", "src/server/auth.mjs", "src/server/claude-provider.mjs", "src/server/codex-provider.mjs", "src/server/config.mjs", "src/server/crypto.mjs", "src/server/index.mjs", "src/server/local-request.mjs", "src/server/local-setup.mjs", "src/server/password.mjs", "src/server/private-files.mjs", "src/server/providers.mjs", "src/server/read-regular-file.mjs", "src/server/setup.mjs", "src/server/start.mjs", "test/http.test.mjs", "test/local-config-auth.test.mjs"]
+  },
+  "QA-R54": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["instructions/AGENTS.md", "instructions/CONSILIUM.md", "instructions/CONSULTING_PLAYBOOK.md", "instructions/RUNTIME_PROMPTS.md", "public/index.html", "public/styles.css", "src/client/app.js", "src/server/account-usage.mjs", "src/server/auth.mjs", "src/server/child-process.mjs", "src/server/claude-provider.mjs", "src/server/claude-runtime.mjs", "src/server/codex-provider.mjs", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/content-policy.mjs", "src/server/forbidden-environment.mjs", "src/server/index.mjs", "src/server/local-request.mjs", "src/server/output-safety.mjs", "src/server/parallel-contract.mjs", "src/server/prompt-contracts.mjs", "src/server/provider-context.mjs", "src/server/providers.mjs", "src/server/research-evidence.mjs", "src/server/turn-deadline.mjs", "src/server/usage.mjs", "test/claude-provider.test.mjs", "test/codex-provider.test.mjs", "test/context-economy.test.mjs", "test/review-fixes.test.mjs", "test/usage.test.mjs"]
+  },
+  "QA-R55": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-logoff.mjs", "scripts/browser-navbar-glass.mjs", "scripts/browser-reading-mode.mjs", "src/client/app.js", "src/client/navbar-glass.js", "src/client/refresh-state.js", "src/server/auth.mjs", "src/server/index.mjs", "src/server/local-request.mjs", "test/refresh-state.test.mjs"]
+  },
+  "QA-R56": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["src/server/attachments.mjs", "src/server/configuration-recovery.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/private-files.mjs", "src/server/recovery-cli.mjs", "src/server/recovery.mjs", "src/server/store.mjs", "src/server/usage.mjs", "test/local-store.test.mjs", "test/recovery-cli.test.mjs", "test/usage.test.mjs"]
+  },
+  "QA-R57": {
+    "required": true,
+    "level": "release",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": [".github/dependabot.yml", ".github/workflows/ci.yml", ".github/workflows/runtime-checks.yml", ".github/workflows/security.yml", "README.md", "package-lock.json", "package.json", "scripts/check-artifacts.mjs", "src/server/auth.mjs", "src/server/config.mjs", "src/server/configuration-recovery.mjs", "src/server/crypto.mjs", "src/server/index.mjs", "src/server/local-request.mjs", "src/server/local-setup.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/password.mjs", "src/server/private-files.mjs", "src/server/read-regular-file.mjs", "src/server/recovery-cli.mjs", "src/server/recovery.mjs", "src/server/setup.mjs", "src/server/start.mjs", "src/server/store.mjs", "test/http.test.mjs", "test/local-config-auth.test.mjs", "test/private-files.test.mjs", "test/project-consolidation.test.mjs", "test/recovery-cli.test.mjs"]
+  },
+  "QA-R58": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["src/server/account-usage.mjs", "src/server/auth.mjs", "src/server/child-process.mjs", "src/server/claude-provider.mjs", "src/server/claude-runtime.mjs", "src/server/codex-provider.mjs", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/forbidden-environment.mjs", "src/server/index.mjs", "src/server/local-request.mjs", "src/server/local-state.mjs", "src/server/parallel-contract.mjs", "src/server/providers.mjs", "src/server/turn-deadline.mjs", "src/server/usage.mjs", "src/server/validation.mjs", "test/core.test.mjs", "test/http.test.mjs", "test/usage.test.mjs"]
+  },
+  "QA-R59": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "src/client/app.js", "src/server/auth.mjs", "src/server/child-process.mjs", "src/server/claude-provider.mjs", "src/server/claude-runtime.mjs", "src/server/codex-provider.mjs", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/content-policy.mjs", "src/server/forbidden-environment.mjs", "src/server/index.mjs", "src/server/local-request.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/output-safety.mjs", "src/server/parallel-contract.mjs", "src/server/providers.mjs", "src/server/research-evidence.mjs", "src/server/store.mjs", "src/server/turn-deadline.mjs", "test/claude-process.test.mjs", "test/claude-provider.test.mjs", "test/codex-provider.test.mjs", "test/http.test.mjs", "test/local-store.test.mjs", "test/review-fixes.test.mjs", "test/turn-deadline.test.mjs"]
+  },
+  "QA-R60": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["instructions/AGENTS.md", "instructions/CONSILIUM.md", "instructions/CONSULTING_PLAYBOOK.md", "instructions/RUNTIME_PROMPTS.md", "instructions/WORKING_CONTEXT.md", "public/index.html", "public/styles.css", "scripts/browser-model-settings.mjs", "src/client/app.js", "src/server/auth.mjs", "src/server/index.mjs", "src/server/instruction-bootstrap.mjs", "src/server/instruction-documents.mjs", "src/server/local-request.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/prompt-contracts.mjs", "src/server/provider-context.mjs", "src/server/providers.mjs", "src/server/store.mjs", "test/http.test.mjs", "test/local-store.test.mjs", "test/prompt-contracts.test.mjs"]
+  },
+  "QA-R61": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["instructions/AGENTS.md", "instructions/CONSILIUM.md", "instructions/CONSULTING_PLAYBOOK.md", "instructions/RUNTIME_PROMPTS.md", "public/index.html", "public/styles.css", "src/client/app.js", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/conversation-export.mjs", "src/server/parallel-contract.mjs", "src/server/prompt-contracts.mjs", "src/server/provider-context.mjs", "src/server/store.mjs", "test/parallel-consultation.test.mjs", "test/prompt-contracts.test.mjs", "test/review-fixes.test.mjs"]
+  },
+  "QA-R62": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["scripts/browser-active-discussion.mjs", "src/server/child-process.mjs", "src/server/claude-provider.mjs", "src/server/claude-runtime.mjs", "src/server/codex-provider.mjs", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/forbidden-environment.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/parallel-contract.mjs", "src/server/providers.mjs", "src/server/store.mjs", "src/server/turn-deadline.mjs", "test/claude-provider.test.mjs", "test/codex-provider.test.mjs", "test/parallel-consultation.test.mjs", "test/review-fixes.test.mjs"]
+  },
+  "QA-R63": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["instructions/AGENTS.md", "instructions/CONSILIUM.md", "instructions/CONSULTING_PLAYBOOK.md", "instructions/RUNTIME_PROMPTS.md", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/parallel-contract.mjs", "src/server/prompt-contracts.mjs", "src/server/provider-context.mjs", "src/server/research-evidence.mjs", "src/server/store.mjs", "test/context-economy.test.mjs", "test/parallel-consultation.test.mjs", "test/review-fixes.test.mjs"]
+  },
+  "QA-R64": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["instructions/AGENTS.md", "instructions/CONSILIUM.md", "instructions/CONSULTING_PLAYBOOK.md", "instructions/RUNTIME_PROMPTS.md", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/parallel-contract.mjs", "src/server/prompt-contracts.mjs", "src/server/provider-context.mjs", "src/server/store.mjs", "test/local-store.test.mjs", "test/parallel-consultation.test.mjs", "test/review-fixes.test.mjs"]
+  },
+  "QA-R65": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["src/client/app.js", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/parallel-contract.mjs", "src/server/prompt-contracts.mjs", "src/server/store.mjs", "test/parallel-consultation.test.mjs", "test/review-fixes.test.mjs"]
+  },
+  "QA-R66": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["instructions/AGENTS.md", "instructions/CONSILIUM.md", "instructions/CONSULTING_PLAYBOOK.md", "instructions/RUNTIME_PROMPTS.md", "public/index.html", "public/styles.css", "scripts/benchmark-critic-cache.mjs", "scripts/benchmark-research.mjs", "scripts/browser-usage.mjs", "scripts/measure-consultation-workload.mjs", "src/client/app.js", "src/server/account-usage.mjs", "src/server/child-process.mjs", "src/server/claude-provider.mjs", "src/server/claude-runtime.mjs", "src/server/codex-provider.mjs", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/content-policy.mjs", "src/server/forbidden-environment.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/output-safety.mjs", "src/server/parallel-contract.mjs", "src/server/prompt-contracts.mjs", "src/server/provider-context.mjs", "src/server/providers.mjs", "src/server/research-evidence.mjs", "src/server/store.mjs", "src/server/turn-deadline.mjs", "src/server/usage.mjs", "test/account-usage.test.mjs", "test/context-economy.test.mjs", "test/usage.test.mjs"]
+  },
+  "QA-R67": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["src/server/configuration-recovery.mjs", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/parallel-contract.mjs", "src/server/private-files.mjs", "src/server/recovery-cli.mjs", "src/server/recovery.mjs", "src/server/research-evidence.mjs", "src/server/store.mjs", "test/local-store.test.mjs", "test/parallel-consultation.test.mjs", "test/recovery-cli.test.mjs", "test/review-fixes.test.mjs"]
+  },
+  "QA-S01": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-local-entry.mjs", "scripts/browser-logoff.mjs", "src/client/app.js", "src/server/auth.mjs", "src/server/index.mjs", "src/server/local-request.mjs", "src/server/local-setup.mjs"]
+  },
+  "QA-S02": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/conversation-list.css", "public/index.html", "public/nanoduck-original.svg", "public/nanoduck.svg", "public/styles.css", "scripts/browser-active-discussion.mjs", "scripts/browser-progress-recovery.mjs", "scripts/browser-reading-mode.mjs", "scripts/browser-usage.mjs", "src/client/app.js", "src/client/navbar-glass.js", "src/client/theme.js", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/parallel-contract.mjs", "src/server/store.mjs", "src/server/usage.mjs"]
+  },
+  "QA-S03": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/conversation-list.css", "public/index.html", "public/styles.css", "scripts/browser-check.mjs", "src/client/app.js", "src/client/refresh-state.js", "src/server/index.mjs", "src/server/store.mjs"]
+  },
+  "QA-S04": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-model-settings.mjs", "scripts/browser-provider-connection.mjs", "src/client/app.js", "src/server/auth.mjs", "src/server/index.mjs", "src/server/instruction-bootstrap.mjs", "src/server/instruction-documents.mjs", "src/server/local-request.mjs", "src/server/prompt-contracts.mjs", "src/server/providers.mjs", "src/server/store.mjs"]
+  },
+  "QA-S05": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-active-discussion.mjs", "scripts/browser-check.mjs", "src/client/app.js"]
+  },
+  "QA-S06": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-check.mjs", "src/client/app.js", "src/server/auth.mjs", "src/server/index.mjs", "src/server/local-request.mjs", "src/server/research-evidence.mjs", "src/server/store.mjs", "test/research-evidence.test.mjs"]
+  },
+  "QA-S07": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-check.mjs", "scripts/browser-reading-mode.mjs", "src/client/app.js", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/parallel-contract.mjs", "src/server/store.mjs"]
+  },
+  "QA-S08": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-check.mjs", "scripts/browser-markdown-tables.mjs", "src/client/app.js", "src/client/markdown.js", "src/server/auth.mjs", "src/server/conversation-export.mjs", "src/server/index.mjs", "src/server/local-request.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/recovery.mjs", "src/server/store.mjs"]
+  },
+  "QA-S09": {
+    "required": true,
+    "level": "integration",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/conversation-list.css", "public/index.html", "public/nanoduck-original.svg", "public/nanoduck.svg", "public/styles.css", "scripts/browser-local-entry.mjs", "scripts/browser-logoff.mjs", "scripts/browser-theme.mjs", "src/client/app.js", "src/client/navbar-glass.js", "src/client/theme.js", "src/server/auth.mjs"]
+  },
+  "QA-U01": {
+    "required": true,
+    "level": "release",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-check.mjs", "src/client/app.js"]
+  },
+  "QA-U02": {
+    "required": true,
+    "level": "release",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-check.mjs", "src/client/app.js", "src/server/codex-provider.mjs", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/content-policy.mjs", "src/server/output-safety.mjs", "src/server/parallel-contract.mjs", "src/server/provider-context.mjs", "src/server/research-evidence.mjs"]
+  },
+  "QA-U03": {
+    "required": true,
+    "level": "release",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-model-settings.mjs", "src/client/app.js", "src/server/consultation.mjs", "src/server/instruction-bootstrap.mjs", "src/server/instruction-documents.mjs", "src/server/prompt-contracts.mjs", "src/server/providers.mjs", "src/server/store.mjs"]
+  },
+  "QA-U04": {
+    "required": true,
+    "level": "release",
+    "evidence_mode": "real_consumers",
+    "required_source_paths": ["public/index.html", "public/styles.css", "scripts/browser-reading-mode.mjs", "scripts/browser-send-retry.mjs", "src/client/app.js", "src/client/markdown.js", "src/server/configuration-recovery.mjs", "src/server/consultation-parallel.mjs", "src/server/consultation.mjs", "src/server/conversation-export.mjs", "src/server/local-state.mjs", "src/server/local-store.mjs", "src/server/parallel-contract.mjs", "src/server/private-files.mjs", "src/server/recovery-cli.mjs", "src/server/recovery.mjs", "src/server/store.mjs", "test/recovery-cli.test.mjs"]
+  }
+}
+```

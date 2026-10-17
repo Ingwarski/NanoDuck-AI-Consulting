@@ -1,0 +1,1556 @@
+{
+  "legacy_archive": "forge/runs/sdd-reconciliation-20261017/legacy-development-plan.md.txt",
+  "legacy_archive_hash": "59106bb01bd0df2d4f5290134abb1668e4c188eb0f267e3072d9d2dd24dda9b0",
+  "prior_bindings_hash": "a3122431491fa297179b7a8cafb25051d218ca34bb83434dc1bc3fb4a4113a2e",
+  "preserved_legacy_typed_links": [
+    {
+      "from": "U-02",
+      "to": "FR-01.1",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-02",
+      "to": "FR-01.2",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-04",
+      "to": "FR-02.1",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-06",
+      "to": "FR-02.2",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-04",
+      "to": "FR-02.8",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-04",
+      "to": "FR-03.1",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-04",
+      "to": "FR-03.2",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-04",
+      "to": "FR-03.3",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-04",
+      "to": "FR-03.4",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-04",
+      "to": "FR-03.6",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-05",
+      "to": "FR-04.1",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-05",
+      "to": "FR-04.2",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-05",
+      "to": "FR-04.3",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-03",
+      "to": "FR-05.1",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-03",
+      "to": "FR-05.2",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-03",
+      "to": "FR-05.3",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-03",
+      "to": "FR-05.4",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-03",
+      "to": "FR-05.5",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-07",
+      "to": "FR-06.1",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-07",
+      "to": "FR-06.2",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-07",
+      "to": "FR-06.3",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-06",
+      "to": "FR-07.1",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-06",
+      "to": "FR-07.2",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-06",
+      "to": "FR-07.3",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-06",
+      "to": "FR-07.4",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-06",
+      "to": "FR-07.5",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-03",
+      "to": "FR-08.1",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-03",
+      "to": "FR-08.2",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-03",
+      "to": "FR-08.3",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-04",
+      "to": "NFR-01.1",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-04",
+      "to": "NFR-01.4",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-03",
+      "to": "NFR-02.1",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-03",
+      "to": "NFR-02.2",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-03",
+      "to": "NFR-02.3",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-02",
+      "to": "NFR-10.1",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-02",
+      "to": "NFR-10.2",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-02",
+      "to": "NFR-10.3",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-02",
+      "to": "NFR-11.1",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-04",
+      "to": "NFR-11.2",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-02",
+      "to": "NFR-11.3",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-05",
+      "to": "NFR-12.1",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-06",
+      "to": "NFR-12.2",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-05",
+      "to": "NFR-12.3",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-02",
+      "to": "NFR-13.1",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-02",
+      "to": "NFR-13.2",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-05",
+      "to": "NFR-14.1",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-06",
+      "to": "NFR-14.2",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-07",
+      "to": "NFR-14.3",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-08",
+      "to": "NFR-15.1",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-02",
+      "to": "NFR-16.1",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-04",
+      "to": "NFR-16.2",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-02",
+      "to": "ST-01",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-02",
+      "to": "ST-02",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-02",
+      "to": "ST-03",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-02",
+      "to": "ST-04",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-04",
+      "to": "ST-05",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-04",
+      "to": "ST-06",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-04",
+      "to": "ST-07",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-04",
+      "to": "ST-08",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-04",
+      "to": "ST-09",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-04",
+      "to": "ST-10",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-04",
+      "to": "ST-11",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-04",
+      "to": "ST-12",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-04",
+      "to": "ST-13",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-04",
+      "to": "ST-14",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-04",
+      "to": "ST-15",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-04",
+      "to": "ST-16",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-04",
+      "to": "ST-17",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-07",
+      "to": "ST-18",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-07",
+      "to": "ST-19",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-07",
+      "to": "ST-20",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-03",
+      "to": "ST-21",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-03",
+      "to": "ST-22",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-03",
+      "to": "ST-23",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-03",
+      "to": "ST-24",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-03",
+      "to": "ST-25",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-06",
+      "to": "ST-26",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-06",
+      "to": "ST-27",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-06",
+      "to": "ST-28",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-06",
+      "to": "ST-29",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-06",
+      "to": "ST-30",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-06",
+      "to": "ST-31",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-06",
+      "to": "ST-32",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-06",
+      "to": "ST-33",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-05",
+      "to": "ST-34",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-05",
+      "to": "ST-35",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-05",
+      "to": "ST-36",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-04",
+      "to": "ST-37",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-04",
+      "to": "ST-38",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-07",
+      "to": "ST-39",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-07",
+      "to": "ST-40",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-07",
+      "to": "ST-41",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-07",
+      "to": "ST-42",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-03",
+      "to": "ST-43",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-03",
+      "to": "ST-44",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Surface and state coverage"
+      }
+    },
+    {
+      "from": "U-03",
+      "to": "FR-05.6",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "## Clause coverage"
+      }
+    },
+    {
+      "from": "U-09",
+      "to": "FR-02.9",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+      }
+    },
+    {
+      "from": "U-09",
+      "to": "FR-02.10",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+      }
+    },
+    {
+      "from": "U-09",
+      "to": "FR-02.11",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+      }
+    },
+    {
+      "from": "U-09",
+      "to": "FR-02.12",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+      }
+    },
+    {
+      "from": "U-09",
+      "to": "FR-02.13",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+      }
+    },
+    {
+      "from": "U-09",
+      "to": "FR-02.14",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+      }
+    },
+    {
+      "from": "U-09",
+      "to": "FR-02.15",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+      }
+    },
+    {
+      "from": "U-09",
+      "to": "FR-02.3",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+      }
+    },
+    {
+      "from": "U-09",
+      "to": "FR-02.4",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+      }
+    },
+    {
+      "from": "U-09",
+      "to": "FR-02.5",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+      }
+    },
+    {
+      "from": "U-09",
+      "to": "FR-02.6",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+      }
+    },
+    {
+      "from": "U-09",
+      "to": "FR-02.7",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+      }
+    },
+    {
+      "from": "U-09",
+      "to": "FR-03.5",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+      }
+    },
+    {
+      "from": "U-09",
+      "to": "FR-05.3",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+      }
+    },
+    {
+      "from": "U-09",
+      "to": "NFR-01.2",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+      }
+    },
+    {
+      "from": "U-09",
+      "to": "NFR-01.3",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+      }
+    },
+    {
+      "from": "U-09",
+      "to": "ST-09",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+      }
+    },
+    {
+      "from": "U-09",
+      "to": "ST-11",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+      }
+    },
+    {
+      "from": "U-09",
+      "to": "ST-16",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+      }
+    },
+    {
+      "from": "U-09",
+      "to": "ST-21",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+      }
+    },
+    {
+      "from": "U-09",
+      "to": "ST-37",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+      }
+    },
+    {
+      "from": "U-09",
+      "to": "ST-38",
+      "relation": "implements",
+      "definition_ref": {
+        "path": "docs/development-plan.md",
+        "heading": "### U-09 — Parallel Head-led consultation and verified Critic orders"
+      }
+    }
+  ],
+  "legacy_to_current": [
+    {
+      "legacy_unit_id": "U-01",
+      "legacy_scope": "Runtime, cross-platform setup and exact subscription capabilities",
+      "legacy_typed_obligation_ids": [],
+      "appendix_current_trace_seed_ids": [],
+      "legacy_verification_text": [
+        "QA-R20–QA-R24, QA-R28–QA-R32, QA-R38–QA-R39, QA-R43–QA-R44, QA-R49–QA-R50, QA-R52–QA-R53, QA-R56–QA-R58. Capability observations are prerequisites, not complete passes for these checks. Tests remain not_run. Evidence lives under `forge/runs/U-01/{run_id}/` and records actual revision, sources, executor, time and scope."
+      ],
+      "implementation_owner": "U-14",
+      "full_acceptance_owner": "U-15",
+      "current_related_full_check_ids": [],
+      "prerequisite_for_full_acceptance": [
+        "U-14",
+        "QA-C01"
+      ],
+      "reason": "Shared existing application consumers and forward acceptance dependencies are integrated before full verification; exact legacy scope/allocations/receipts remain archived."
+    },
+    {
+      "legacy_unit_id": "U-02",
+      "legacy_scope": "Private HTTPS/password/session and encrypted durable foundation",
+      "legacy_typed_obligation_ids": [
+        "FR-01.1",
+        "FR-01.2",
+        "NFR-10.1",
+        "NFR-10.2",
+        "NFR-10.3",
+        "NFR-11.1",
+        "NFR-11.3",
+        "NFR-13.1",
+        "NFR-13.2",
+        "NFR-16.1",
+        "ST-01",
+        "ST-02",
+        "ST-03",
+        "ST-04"
+      ],
+      "appendix_current_trace_seed_ids": [],
+      "legacy_verification_text": [
+        "QA-R01–QA-R02, QA-R43–QA-R46, QA-R48, QA-R52–QA-R55, QA-R58–QA-R59; QA-S01/QA-S04; QA-H01–QA-H10; shared visual checks. U-08 completes integrated session/security evidence. Tests remain not_run. Evidence lives under `forge/runs/U-02/{run_id}/` and records actual revision, sources, executor, time and scope."
+      ],
+      "implementation_owner": "U-14",
+      "full_acceptance_owner": "U-15",
+      "current_related_full_check_ids": [
+        "QA-R01",
+        "QA-R02",
+        "QA-R43",
+        "QA-R44",
+        "QA-R45",
+        "QA-R46",
+        "QA-R48",
+        "QA-R52",
+        "QA-R53",
+        "QA-R58",
+        "QA-S01"
+      ],
+      "prerequisite_for_full_acceptance": [
+        "U-14",
+        "QA-C01"
+      ],
+      "reason": "Shared existing application consumers and forward acceptance dependencies are integrated before full verification; exact legacy scope/allocations/receipts remain archived."
+    },
+    {
+      "legacy_unit_id": "U-03",
+      "legacy_scope": "Retained presentation, Settings, instructions, theme and sound",
+      "legacy_typed_obligation_ids": [
+        "FR-05.1",
+        "FR-05.2",
+        "FR-05.3",
+        "FR-05.4",
+        "FR-05.5",
+        "FR-05.6",
+        "FR-08.1",
+        "FR-08.2",
+        "FR-08.3",
+        "NFR-02.1",
+        "NFR-02.2",
+        "NFR-02.3",
+        "ST-21",
+        "ST-22",
+        "ST-23",
+        "ST-24",
+        "ST-25",
+        "ST-43",
+        "ST-44"
+      ],
+      "appendix_current_trace_seed_ids": [],
+      "legacy_verification_text": [
+        "QA-R20, QA-R21, QA-R22, QA-R23, QA-R24, QA-R60, QA-R33, QA-R34, QA-R35, QA-R40, QA-R41, QA-R42; QA-R45–QA-R48, QA-R51, QA-R55; QA-S01–QA-S09; QA-H01–QA-H10; QA-U03. Tests remain not_run. Evidence lives under `forge/runs/U-03/{run_id}/` and records actual revision, sources, executor, time and scope."
+      ],
+      "implementation_owner": "U-14",
+      "full_acceptance_owner": "U-15",
+      "current_related_full_check_ids": [
+        "QA-R20",
+        "QA-R21",
+        "QA-R22",
+        "QA-R23",
+        "QA-R24",
+        "QA-R33",
+        "QA-R34",
+        "QA-R35",
+        "QA-R40",
+        "QA-R41",
+        "QA-R42",
+        "QA-R60",
+        "QA-R65",
+        "QA-S04",
+        "QA-S09"
+      ],
+      "prerequisite_for_full_acceptance": [
+        "U-14",
+        "QA-C01"
+      ],
+      "reason": "Shared existing application consumers and forward acceptance dependencies are integrated before full verification; exact legacy scope/allocations/receipts remain archived."
+    },
+    {
+      "legacy_unit_id": "U-04",
+      "legacy_scope": "Canonical accepted work, discussion, Stop/Continue/Retry and recovery",
+      "legacy_typed_obligation_ids": [
+        "FR-02.1",
+        "FR-02.8",
+        "FR-03.1",
+        "FR-03.2",
+        "FR-03.3",
+        "FR-03.4",
+        "FR-03.6",
+        "NFR-01.1",
+        "NFR-01.4",
+        "NFR-11.2",
+        "NFR-16.2",
+        "ST-05",
+        "ST-06",
+        "ST-07",
+        "ST-08",
+        "ST-09",
+        "ST-10",
+        "ST-11",
+        "ST-12",
+        "ST-13",
+        "ST-14",
+        "ST-15",
+        "ST-16",
+        "ST-17",
+        "ST-37",
+        "ST-38"
+      ],
+      "appendix_current_trace_seed_ids": [],
+      "legacy_verification_text": [
+        "QA-R03, QA-R05, QA-R06, QA-R07, QA-R08, QA-R09, QA-R10, QA-R11, QA-R12, QA-R13, QA-R14, QA-R15, QA-R16, QA-R36, QA-R37, QA-R38, QA-R39, QA-R47, QA-R59; QA-R45–QA-R47, QA-R51, QA-R58–QA-R59; QA-S02/QA-S07; QA-H01–QA-H10; QA-U02/QA-U04. Tests remain not_run. Evidence lives under `forge/runs/U-04/{run_id}/` and records actual revision, sources, executor, time and scope."
+      ],
+      "implementation_owner": "U-14",
+      "full_acceptance_owner": "U-15",
+      "current_related_full_check_ids": [
+        "QA-R03",
+        "QA-R10",
+        "QA-R11",
+        "QA-R12",
+        "QA-R13",
+        "QA-R14",
+        "QA-R16",
+        "QA-R36",
+        "QA-R39",
+        "QA-R47",
+        "QA-R59",
+        "QA-S02",
+        "QA-S07"
+      ],
+      "prerequisite_for_full_acceptance": [
+        "U-14",
+        "QA-C01"
+      ],
+      "reason": "Shared existing application consumers and forward acceptance dependencies are integrated before full verification; exact legacy scope/allocations/receipts remain archived."
+    },
+    {
+      "legacy_unit_id": "U-05",
+      "legacy_scope": "Isolated public research and inspectable complete source records",
+      "legacy_typed_obligation_ids": [
+        "FR-04.1",
+        "FR-04.2",
+        "FR-04.3",
+        "NFR-12.1",
+        "NFR-12.3",
+        "NFR-14.1",
+        "ST-34",
+        "ST-35",
+        "ST-36"
+      ],
+      "appendix_current_trace_seed_ids": [],
+      "legacy_verification_text": [
+        "QA-R17, QA-R18, QA-R19, QA-R49, QA-R51, QA-R54; QA-R46, QA-R49, QA-R51, QA-R53–QA-R54, QA-R59; QA-S06 plus QA-S02/QA-S07 recovery; QA-H01–QA-H10; QA-U02. Tests remain not_run. Evidence lives under `forge/runs/U-05/{run_id}/` and records actual revision, sources, executor, time and scope."
+      ],
+      "implementation_owner": "U-14",
+      "full_acceptance_owner": "U-15",
+      "current_related_full_check_ids": [
+        "QA-R17",
+        "QA-R18",
+        "QA-R19",
+        "QA-R49",
+        "QA-R51",
+        "QA-R54",
+        "QA-S06"
+      ],
+      "prerequisite_for_full_acceptance": [
+        "U-14",
+        "QA-C01"
+      ],
+      "reason": "Shared existing application consumers and forward acceptance dependencies are integrated before full verification; exact legacy scope/allocations/receipts remain archived."
+    },
+    {
+      "legacy_unit_id": "U-06",
+      "legacy_scope": "Browser-supported voice and bounded protected raster attachments",
+      "legacy_typed_obligation_ids": [
+        "FR-02.2",
+        "FR-07.1",
+        "FR-07.2",
+        "FR-07.3",
+        "FR-07.4",
+        "FR-07.5",
+        "NFR-12.2",
+        "NFR-14.2",
+        "ST-26",
+        "ST-27",
+        "ST-28",
+        "ST-29",
+        "ST-30",
+        "ST-31",
+        "ST-32",
+        "ST-33"
+      ],
+      "appendix_current_trace_seed_ids": [],
+      "legacy_verification_text": [
+        "QA-R04, QA-R28, QA-R29, QA-R30, QA-R31, QA-R32, QA-R50, QA-R55; QA-R40–QA-R42, QA-R45–QA-R47, QA-R50, QA-R53–QA-R55, QA-R59; QA-S05 and QA-S02; QA-H01–QA-H10; QA-U01. Tests remain not_run. Evidence lives under `forge/runs/U-06/{run_id}/` and records actual revision, sources, executor, time and scope."
+      ],
+      "implementation_owner": "U-14",
+      "full_acceptance_owner": "U-15",
+      "current_related_full_check_ids": [
+        "QA-R04",
+        "QA-R28",
+        "QA-R29",
+        "QA-R30",
+        "QA-R31",
+        "QA-R32",
+        "QA-R50",
+        "QA-R55",
+        "QA-S05"
+      ],
+      "prerequisite_for_full_acceptance": [
+        "U-14",
+        "QA-C01"
+      ],
+      "reason": "Shared existing application consumers and forward acceptance dependencies are integrated before full verification; exact legacy scope/allocations/receipts remain archived."
+    },
+    {
+      "legacy_unit_id": "U-07",
+      "legacy_scope": "Owned history, rich-text export, deletion-aware backup/restore",
+      "legacy_typed_obligation_ids": [
+        "FR-06.1",
+        "FR-06.2",
+        "FR-06.3",
+        "NFR-14.3",
+        "ST-18",
+        "ST-19",
+        "ST-20",
+        "ST-39",
+        "ST-40",
+        "ST-41",
+        "ST-42"
+      ],
+      "appendix_current_trace_seed_ids": [],
+      "legacy_verification_text": [
+        "QA-R25, QA-R26, QA-R27, QA-R56; QA-R45–QA-R46, QA-R52–QA-R56, QA-R59; QA-S03/QA-S06/QA-S07/QA-S08; QA-H01–QA-H10; QA-U04. Tests remain not_run. Evidence lives under `forge/runs/U-07/{run_id}/` and records actual revision, sources, executor, time and scope."
+      ],
+      "implementation_owner": "U-14",
+      "full_acceptance_owner": "U-15",
+      "current_related_full_check_ids": [
+        "QA-R25",
+        "QA-R26",
+        "QA-R27",
+        "QA-R56",
+        "QA-S03",
+        "QA-S08"
+      ],
+      "prerequisite_for_full_acceptance": [
+        "U-14",
+        "QA-C01"
+      ],
+      "reason": "Shared existing application consumers and forward acceptance dependencies are integrated before full verification; exact legacy scope/allocations/receipts remain archived."
+    },
+    {
+      "legacy_unit_id": "U-08",
+      "legacy_scope": "Full integrated app, operational evidence and release preparation",
+      "legacy_typed_obligation_ids": [
+        "NFR-15.1"
+      ],
+      "appendix_current_trace_seed_ids": [],
+      "legacy_verification_text": [
+        "QA-R01–QA-R67, QA-S01–QA-S09, QA-H01–QA-H10, QA-U01–QA-U04; all six DoD gates. Tests remain not_run. Evidence lives under `forge/runs/U-08/{run_id}/` and records actual revision, sources, executor, time and scope."
+      ],
+      "implementation_owner": "U-14",
+      "full_acceptance_owner": "U-15",
+      "current_related_full_check_ids": [
+        "QA-R57"
+      ],
+      "prerequisite_for_full_acceptance": [
+        "U-14",
+        "QA-C01"
+      ],
+      "reason": "Shared existing application consumers and forward acceptance dependencies are integrated before full verification; exact legacy scope/allocations/receipts remain archived."
+    },
+    {
+      "legacy_unit_id": "U-09",
+      "legacy_scope": "All ten Head-led parallel consultation and Critic lifecycle duties",
+      "legacy_typed_obligation_ids": [
+        "FR-02.10",
+        "FR-02.11",
+        "FR-02.12",
+        "FR-02.13",
+        "FR-02.14",
+        "FR-02.15",
+        "FR-02.3",
+        "FR-02.4",
+        "FR-02.5",
+        "FR-02.6",
+        "FR-02.7",
+        "FR-02.9",
+        "FR-03.5",
+        "FR-05.3",
+        "NFR-01.2",
+        "NFR-01.3",
+        "ST-09",
+        "ST-11",
+        "ST-16",
+        "ST-21",
+        "ST-37",
+        "ST-38"
+      ],
+      "appendix_current_trace_seed_ids": [],
+      "legacy_verification_text": [
+        "QA-R05–QA-R09, QA-R15, QA-R20–QA-R22, QA-R36–QA-R39, QA-R45/QA-R47/QA-R51/QA-R54/QA-R56/QA-R58, QA-R61–QA-R67, QA-S02/QA-S04/QA-S07, QA-H01–QA-H10 and QA-U02/QA-U04. Apply all six existing gates as scoped; `approved_visual_baseline_fidelity`, `heuristic_usability_review` and `representative_user_task_validation` remain distinct. Extend `test/consultation.test.mjs`, `test/prompt-contracts.test.mjs`, `test/local-store.test.mjs`, provider/HTTP/export regressions and existing `scripts/browser-active-discussion.mjs`/`scripts/browser-check.mjs`; extract focused lifecycle/context tests where meaningful. Planned evidence: `forge/runs/U-09/{run_id}/` with exact revision, synthetic fixtures, executor, environment, real usage availability and limitations. All new checks are prepared/not_run; no live-provider, visual or user-validation success is claimed."
+      ],
+      "implementation_owner": "U-14",
+      "full_acceptance_owner": "U-15",
+      "current_related_full_check_ids": [
+        "QA-R05",
+        "QA-R06",
+        "QA-R07",
+        "QA-R08",
+        "QA-R09",
+        "QA-R15",
+        "QA-R22",
+        "QA-R37",
+        "QA-R38",
+        "QA-R61",
+        "QA-R62",
+        "QA-R63",
+        "QA-R64",
+        "QA-R65",
+        "QA-R66",
+        "QA-R67",
+        "QA-S02",
+        "QA-S04",
+        "QA-S07"
+      ],
+      "prerequisite_for_full_acceptance": [
+        "U-14",
+        "QA-C01"
+      ],
+      "reason": "Shared existing application consumers and forward acceptance dependencies are integrated before full verification; exact legacy scope/allocations/receipts remain archived."
+    },
+    {
+      "legacy_unit_id": "U-10",
+      "legacy_scope": "Independent Send, accepted-request context/cache economy and telemetry",
+      "legacy_typed_obligation_ids": [],
+      "appendix_current_trace_seed_ids": [
+        "FR-02.12",
+        "FR-02.15"
+      ],
+      "legacy_verification_text": [],
+      "implementation_owner": "U-14",
+      "full_acceptance_owner": "U-15",
+      "current_related_full_check_ids": [
+        "QA-R63",
+        "QA-R66"
+      ],
+      "prerequisite_for_full_acceptance": [
+        "U-14",
+        "QA-C01"
+      ],
+      "reason": "Shared existing application consumers and forward acceptance dependencies are integrated before full verification; exact legacy scope/allocations/receipts remain archived."
+    },
+    {
+      "legacy_unit_id": "U-11",
+      "legacy_scope": "Centered beginning/end controls, boundaries and current reading behavior",
+      "legacy_typed_obligation_ids": [],
+      "appendix_current_trace_seed_ids": [
+        "FR-03.4",
+        "FR-08.3",
+        "NFR-02.1",
+        "NFR-02.2",
+        "ST-05",
+        "ST-06",
+        "ST-07",
+        "ST-08",
+        "ST-09",
+        "ST-10",
+        "ST-11",
+        "ST-12",
+        "ST-13",
+        "ST-14",
+        "ST-15",
+        "ST-16",
+        "ST-17"
+      ],
+      "legacy_verification_text": [],
+      "implementation_owner": "U-14",
+      "full_acceptance_owner": "U-15",
+      "current_related_full_check_ids": [
+        "QA-R14",
+        "QA-R35",
+        "QA-R40",
+        "QA-R41",
+        "QA-S02"
+      ],
+      "prerequisite_for_full_acceptance": [
+        "U-14",
+        "QA-C01"
+      ],
+      "reason": "Shared existing application consumers and forward acceptance dependencies are integrated before full verification; exact legacy scope/allocations/receipts remain archived."
+    },
+    {
+      "legacy_unit_id": "U-12",
+      "legacy_scope": "Distinct evidence claims/references, research checkpoints, cache/usage completeness",
+      "legacy_typed_obligation_ids": [],
+      "appendix_current_trace_seed_ids": [
+        "FR-02.12",
+        "FR-02.15",
+        "FR-04.1",
+        "FR-04.2"
+      ],
+      "legacy_verification_text": [],
+      "implementation_owner": "U-14",
+      "full_acceptance_owner": "U-15",
+      "current_related_full_check_ids": [
+        "QA-R17",
+        "QA-R18",
+        "QA-R63",
+        "QA-R66"
+      ],
+      "prerequisite_for_full_acceptance": [
+        "U-14",
+        "QA-C01"
+      ],
+      "reason": "Shared existing application consumers and forward acceptance dependencies are integrated before full verification; exact legacy scope/allocations/receipts remain archived."
+    },
+    {
+      "legacy_unit_id": "U-13",
+      "legacy_scope": "Provider/request/participant/activity usage, reasoning attribution and account allowance",
+      "legacy_typed_obligation_ids": [],
+      "appendix_current_trace_seed_ids": [
+        "FR-02.15",
+        "FR-05.4",
+        "NFR-14.1"
+      ],
+      "legacy_verification_text": [],
+      "implementation_owner": "U-14",
+      "full_acceptance_owner": "U-15",
+      "current_related_full_check_ids": [
+        "QA-R23",
+        "QA-R54",
+        "QA-R66"
+      ],
+      "prerequisite_for_full_acceptance": [
+        "U-14",
+        "QA-C01"
+      ],
+      "reason": "Shared existing application consumers and forward acceptance dependencies are integrated before full verification; exact legacy scope/allocations/receipts remain archived."
+    }
+  ],
+  "active_order": [
+    "U-14",
+    "U-15"
+  ],
+  "notes": [
+    "U-10..U-13 were appendix scopes, not fabricated historical typed unit records.",
+    "All original legacy verification prose/allocations/receipts stay in exact archive and prior bindings.",
+    "Current canonical QA maps full acceptance to U-15; C01 remains bounded to twelve clauses."
+  ]
+}

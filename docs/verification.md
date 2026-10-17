@@ -1,5 +1,70 @@
 # Verification
 
+## Evidence status as of 17 October 2026
+
+This reconciliation changes documentation only. The index below points to existing
+scoped implementation and verification records inspected in the public source
+tree; their product tests, browser sessions, provider probes and device observations
+were not repeated for this update. Each result applies to its recorded source,
+environment, date and scope. Current requirements and presentation are defined by
+the [PRD](prd.md), [architecture](architecture.md) and canonical
+[design brief](design-brief.md); current unit authority and execution records belong
+to the [development plan](development-plan.md) and
+[manifest](../forge/sdd-manifest.json).
+
+The original formal QA index contains 90 checks: 67 product checks, nine screen
+checks, ten heuristic checks and four representative-user checks. Their recorded
+executions remain `not_run`, with definitions `prepared`; the six release gates
+remain `not_evaluated`. Passing scoped regressions below do not complete every
+criterion of those original checks. Reconciliation adds the bounded controlled
+QA-C01 check, also `prepared` and `not_run`, for 91 current checks. U-14 owns QA-C01;
+U-15 owns all original 90 full checks. Both units remain pending, and component
+evidence cannot replace their required real-consumer acceptance.
+
+| Recorded date | Existing scoped evidence | What the record supports and its limits |
+|---|---|---|
+| 24 September | [U-09 implementation](../forge/runs/u09-implementation-20260924/verification.json) and [workload comparison](../forge/runs/u09-implementation-20260924/workload-comparison.json) | Parallel Head-led assignments, Critic-order checkpoints and recovery passed synthetic and three-engine checks. Prompt bytes and calls are fixture measurements; no live-provider consultation, physical-device or complete formal acceptance is established. The planning-only report at the end of this document predates this implementation. |
+| 25 September | [Critic reliability and usage](../forge/runs/critic-usage-20260925/verification.json) and [sticky views](../forge/runs/sticky-view-nav-20260925/verification.json) | Recorded scoped regression/browser results and bounded exact-model usage probes. These do not establish a complete private consultation, every model's continuing entitlement or physical-device audio. |
+| 26 September | [Review repairs](../forge/runs/review-fixes-20260926/verification.json) and [source persistence](../forge/runs/source-persistence-20260926/verification.json) | Linked Critic corrections, dependency scheduling, source propagation, browser recovery and long metadata persistence have recorded scoped results. The persistence record distinguishes the reproduced defect from an unobserved historical response and does not claim the resumed consultation completed. |
+| 26 September | [Markdown/RTF tables](../forge/runs/markdown-tables-20260926/verification.json) and [reading mode](../forge/runs/reading-mode-20260926/verification.json) | Synthetic renderer, export and browser-flow results cover their recorded revisions. Individual Word/Pages/LibreOffice applications, physical devices and representative-user outcomes were not all observed. Later October reading-control changes supersede the earlier normal-flow composer and separate Read outcome action. |
+| 26 September | [Request isolation/context economy](../forge/runs/context-cache-20260926/verification.json) | Independent Send scopes, Continue/Retry preservation and context measurements have scoped evidence. The small live comparison does not establish a production-wide saving or guaranteed cache hit. |
+| 26 September | [Research/evidence economy](../forge/runs/research-economy-20260926/verification.json), [Critic cache/usage](../forge/runs/critic-cache-usage-20260926/verification.json) and [upstream accounting](../forge/runs/upstream-usage-20260926/verification.json) | Recorded regressions and bounded public synthetic probes distinguish prompt bytes, provider-reported tokens and cache semantics. They do not measure exact subscription deductions or establish current provider access. |
+| 26 September | [Usage dashboard](../forge/runs/usage-dashboard-20260926/verification.json), [reasoning attribution](../forge/runs/usage-reasoning-20260926/verification.json) and [activity counts](../forge/runs/usage-activity-20260926/verification.json) | Authenticated accounting views, conservative historical attribution, independent account-window reads and scoped activity counts have recorded tests. Missing historical telemetry stays unknown; observed saved-run differences are not a causal quality benchmark. |
+| 26 September | [Final navbar refraction](../forge/runs/navbar-refraction-20260926/verification.json) | Recorded three-engine optical, interaction and privacy-clearing checks support the canvas renderer at that revision. Earlier clear-glass and rim/bevel reports describe superseded treatments; arbitrary-media fidelity and native Apple compositor behavior are not established. |
+| 30 September | [GPT-6.1 Sol catalog observation](../forge/runs/gpt-6-1-sol-20260930/catalog-observation.json) | A dated authenticated catalog observation supports exact model/effort availability on that connection. It is not a completed GPT-6.1 Sol call or a current entitlement guarantee. Preserve the exact choices in [model settings](model-settings.md). |
+| 8 October | [White theme](../forge/runs/white-theme-20261008/verification.json), [glass reading controls](../forge/runs/glass-chat-controls-20261008/verification.json), [bottom-arrow position](../forge/runs/chat-arrow-position-20261008/verification.json), [open-composer refinement](../forge/runs/chat-arrow-open-prompt-20261008/verification.json) and [matte dark composer](../forge/runs/dark-matte-prompt-20261008/verification.json) | Recorded isolated-browser checks cover appearance, reading controls, privacy clearing and drafts. Apply the later open-composer and dark-matte refinements when interpreting earlier receipts. Physical keyboard/notch behavior and whole-product acceptance remain separate. |
+| 8 October | [Head connection check](../forge/runs/head-connection-check-20261008/verification.json) and [sign-in wording](../forge/runs/signin-copy-20261008/verification.json) | Scoped checks cover inspection feedback and preservation of unsaved Settings. Connection status is distinct from successful model inference. |
+| 14 October | [Local-network entry](../forge/runs/local-network-entry-20261014/verification.json) and [phone confirmation](../forge/runs/local-network-entry-20261014/phone-confirmation.json) | Automated/HTTP evidence covers the narrow public-shell navigation exception and continued private-route denial. The owner confirmed the public login page opened on a physical iPhone. Authenticated mobile consultation/provider behavior is outside that observation. The first rejected phone request was not captured, so its cause remains unproven. The later confirmation records diagnostic cleanup and a normal-server health check. |
+
+The October presentation receipts preserve the then-existing development-plan
+`migration_required` limitation. Original checker passes and hashes remain dated
+toolchain evidence; document reconciliation or unit-metadata migration cannot
+retroactively supply product acceptance. Consult the current plan/manifest reports
+for the outcome of the present reconciliation.
+
+The [17 October reconciliation record](../forge/runs/sdd-reconciliation-20261017/verification.json)
+separately records document checks, unit-contract migration, preserved baseline
+and historical evidence, instruction setup, independent review and limitations.
+Its [fresh SDD audit](../forge/runs/sdd-reconciliation-20261017/final-audit.json)
+validates the declared documentation and metadata; it does not run product tests
+or establish runtime, security or release acceptance. The revised plan awaits a
+separate later implementation prompt.
+
+Native-browser behavior, physical audio and microphone use, complete authenticated
+cross-device tasks, exact selected-provider execution, representative-owner tasks,
+assistive-technology observations and release decisions retain their individual
+evidence requirements. A public login-page observation closes only that named
+entry observation.
+
+## Historical reports
+
+The reports below retain their original wording, counts, source commits and
+observations. Words such as “current,” “now,” “unverified” and “not implemented”
+refer to each report's original scope/date. In particular, the original 83-check
+counts and U-09 planning pause are historical records, not the current formal
+index or a new implementation gate. Later evidence is indexed above without
+rewriting these reports or their receipts.
+
 ## Safari sound and long Claude context repair · 23 September 2026
 
 The [sound runtime receipt](../forge/runs/sound-media-playback-20260923/runtime-verification.json) binds the replacement of Web Audio with one persistent native media element. The accepted Knock recording and generated Chime/Ripple remain unchanged. A finite silent gesture primer authorizes that same element; Preview restores the saved source, and Off, disposal and Logoff cancel playback and release sources. In the affected native Safari tab, the former AudioContext was running despite the owner's report that Preview and incoming sounds were silent. The replacement Preview completed with zero AudioContexts, one unmuted media element, volume 0.85 and ready status. The owner has not yet confirmed physical audibility; browser completion is not proof of speaker output.

@@ -1,5 +1,22 @@
 # Implementation prompt: P5 Porcelain Stop
 
+## Handoff status · 17 October 2026
+
+This preserves the September 2026 P5 handoff and source commits. Its upper-right
+placement describes that approved revision. Later local reading/navigation changes
+use a desktop side rail and compact narrow-screen view picker; the current
+[design brief](design-brief.md) records those refinements. Retain P5 geometry,
+accessibility and cancellation while reconciling placement with the target's
+approved design. Local design approval does not transfer to another repository.
+
+The 17 October update changes documentation only. Apply the preserved prompt within
+separately authorized work in one target under its current instructions,
+requirements and hosting/storage boundaries. It grants no new deployment, restart,
+provider-call or spending authority. Source tests are dated evidence, not target
+verification. New live probes need explicit authorization and an included-allowance
+check; extra credits, API billing and resets require their own explicit approval.
+See the [evidence index](verification.md) for existing local observations and limits.
+
 Apply this prompt separately in Neo and the GoDaddy-hosted sister repository. Reference implementation: `Ingwarski/NanoDuck-AI-Consulting`, commit `77062cd`. This prompt is self-contained; no consultation history or design proposal file is needed.
 
 ## Task

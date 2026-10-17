@@ -1,5 +1,26 @@
 # Combined sister-repository update after review-fixes-port
 
+## Handoff status · 17 October 2026
+
+Include this status with the preserved prompt when using it. The range
+`0198d84..2c50cd6` and “final implementation” wording below describe the cumulative
+September 26 source snapshot, not the latest source head or either target's current
+state. October appearance, reading-control, connection-check and local-network
+changes have separate records in the [evidence index](verification.md) and are not
+automatically included in this port. Current local product/design documents
+explain later source behavior; each target retains its own requirements, approved
+visual scope and hosting/storage design.
+
+The 17 October update changes documentation only. Apply this reusable prompt within
+separately authorized work in one target. Source counts, probes, commits and
+limitations remain dated evidence, not target passes or current provider
+entitlement. Verify target instructions and parity before choosing missing work.
+Deployment, runtime restart and new live probes retain separate authorization
+boundaries. Check included allowance before substantial work or a new authorized
+live probe; extra credits, API billing and resets require their own explicit
+approval. Preserve original receipts and distinguish target implementation,
+activation and formal acceptance.
+
 Copy the prompt below into each sister repository's own chat. This is one self-contained implementation prompt; the embedded specifications do not require copying other prompt files.
 
 ---

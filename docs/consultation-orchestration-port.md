@@ -1,5 +1,27 @@
 # Head-led consultation port brief
 
+## Handoff status · 17 October 2026
+
+The cumulative handoff preserves September 24–26 observations, commits and
+instructions. Its preimplementation-plan language describes the original planning
+snapshot; U-09 and subsequent scoped repairs have existing implementation records
+indexed in [verification.md](verification.md). The latest review-repair section
+below takes precedence over older protocol details. Subsequent
+[request isolation](context-cache-isolation-port.md),
+[research/accounting](research-evidence-economy-port.md),
+[Usage](usage-dashboard-port.md) and [combined follow-up](combined-updates-after-review-port.md)
+briefs supersede corresponding intermediate details. Current local product and
+visual contracts remain in the PRD and design brief; each target retains its own
+architecture and approved design.
+
+The 17 October update changes documentation only. A stored handoff grants no new
+checkout, deployment, restart, provider-call or spending authority. Apply it within
+separately authorized target work and verify parity there. Historical source
+tests/probes do not become target passes. New live probes need explicit
+authorization and an included-allowance check; extra credits, API billing and resets
+require their own explicit approval. Preserve original receipts and report target
+implementation, activation and formal acceptance separately.
+
 ## Latest review repairs — 2026-09-26
 
 Apply the complete [review-fixes port prompt](review-fixes-port.md) after the existing parallel/usage work below. It covers actionable linked Critic orders, summary/source propagation, saved instructions, actor metadata, sensitive output, dependency scheduling, follow-up research, reconnect and slow Usage handling. Its corrected order lifecycle supersedes earlier descriptions that permit only one reply to an unresolved order. Hosting, storage and authentication remain target-owned.

@@ -1,5 +1,26 @@
 # Port U-12: research execution and request-scoped evidence economy
 
+## Handoff status · 17 October 2026
+
+This preserves the September 26 U-12 handoff and successive accounting refinements.
+Later upstream-usage sections take precedence over intermediate normalized-cache
+wording. Codex `0.155.1` protocol observations below are version-specific; recheck
+the target's installed protocol before adapting them.
+[Usage dashboard](usage-dashboard-port.md) and the
+[combined follow-up](combined-updates-after-review-port.md) provide the subsequent
+display/attribution contract. Source measurements remain dated samples, not current
+provider access, repeatable cache-hit rates or subscription savings.
+
+The 17 October update changes documentation only. Apply this handoff within
+separately authorized target work under current instructions, requirements,
+approved design and hosting/storage boundaries. It grants no new deployment,
+restart, provider-call or spending authority. Instructions below to verify a live
+call apply only after explicit probe authorization and an included-allowance check;
+extra credits, API billing and resets require their own explicit approval.
+Otherwise record the live seam as untested and continue independent authorized
+work. The [evidence index](verification.md) keeps existing scoped results separate
+from target verification and formal release acceptance.
+
 Implement this unit in the target sister repository only. Verify its Git root, remote, current branch, instructions and architecture first. Map the files below to equivalent modules; preserve the target's hosting, authentication, storage and provider configuration. Do not copy local runtime data or alter another repository. Reconcile affected SDD documents through their owners and checker. Use a branch, verify, and follow the target's publication authorization.
 
 ## Required behavior

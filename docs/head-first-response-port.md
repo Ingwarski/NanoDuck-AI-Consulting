@@ -1,5 +1,24 @@
 # Prompt for the two hosted sister repositories: show Head's first assignment before research
 
+## Handoff status · 17 October 2026
+
+This preserves a September 2026 handoff. The source commit `c595090` and target
+observations below describe that investigation; recheck each target before use.
+The later parallel protocol in [consultation-orchestration-port.md](consultation-orchestration-port.md),
+then the [review repairs](review-fixes-port.md) and
+[combined follow-up](combined-updates-after-review-port.md), supersede the earlier
+sequential mechanisms where applicable. Preserve the historical incident and source
+references when mapping the remaining behavior.
+
+The 17 October update changes documentation only. Use this brief within separately
+authorized work in one target under its current instructions, requirements,
+approved design and hosting/storage boundaries. It grants no new deployment,
+restart, provider-call or spending authority. Source results are dated source
+evidence; target parity requires target evidence. New live probes need explicit
+authorization and an included-allowance check; extra credits, API billing and resets
+require their own explicit approval. See the [evidence index](verification.md) for
+recorded local scope and limits.
+
 Use this prompt **independently** in `Ingwarski/NanoDuck-AI-Consulting-Group-Neo` and `Ingwarski/NanoDuck-AI-Consulting-Group`. The local reference is `Ingwarski/NanoDuck-AI-Consulting` at commit `c595090`. Do not edit the local reference or the other sister while working on one target. Verify `git rev-parse --show-toplevel`, `git remote get-url origin`, `git status --short`, and that target's `AGENTS.md` first. Preserve every pre-existing uncommitted change; do not reset or overwrite work already in progress. The Neo checkout contains an independent nested local repository that must remain untouched. The GoDaddy checkout had extensive uncommitted work when this prompt was written; recheck its current state rather than assuming it is clean.
 
 ## Failure and desired behavior

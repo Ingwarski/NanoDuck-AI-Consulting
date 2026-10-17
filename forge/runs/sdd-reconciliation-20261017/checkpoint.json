@@ -1,0 +1,79 @@
+{
+  "recorded_at": "2026-10-17T12:13:45.622410+00:00",
+  "scope": "Documentation reconciliation only; no active implementation unit",
+  "branch": "codex/sdd-reconciliation-20261017",
+  "base_commit": "48af7c8a83228e55b1504a1d618bb7ed05eb44e8",
+  "instruction_basis": {
+    "path": "AGENTS.md",
+    "revision": 2,
+    "sha256": "9e9de3772e818710fd36a0b9861b80fd14f2a219553ee219d3431c68fcf5deea",
+    "loading": "Current explicit reads; automatic fresh-session compatibility unverified"
+  },
+  "completed_owner_nodes": [
+    "product-idea",
+    "prd",
+    "project-context-bundle",
+    "guardrails",
+    "user-journey",
+    "screen-map",
+    "wireframes",
+    "design-brief",
+    "architecture",
+    "dod-evals",
+    "qa-checklist",
+    "development-plan"
+  ],
+  "active_owner": null,
+  "pending_consistency_corrections": [],
+  "remaining": [
+    "Inspect and stage exact documentation-only diff",
+    "Commit and push documentation branch only"
+  ],
+  "task_owned_runtime_resources": {
+    "browsers": [],
+    "profiles": [],
+    "servers": [],
+    "provider_calls": []
+  },
+  "included_usage": "Live account check allows ordinary included usage; no extra credits, separately billed API or reset authorized",
+  "changed_tracked_paths": [
+    "AGENTS.md",
+    "README.md",
+    "docs/architecture.md",
+    "docs/canonical-terms.md",
+    "docs/combined-updates-after-review-port.md",
+    "docs/consultation-orchestration-port.md",
+    "docs/context-cache-isolation-port.md",
+    "docs/design-brief.md",
+    "docs/development-plan.md",
+    "docs/dod-evals.md",
+    "docs/guardrails.md",
+    "docs/head-first-response-port.md",
+    "docs/porcelain-stop-port.md",
+    "docs/prd.md",
+    "docs/product-idea.md",
+    "docs/project-context.md",
+    "docs/qa-checklist.md",
+    "docs/research-evidence-economy-port.md",
+    "docs/review-fixes-port.md",
+    "docs/screen-map.md",
+    "docs/usage-dashboard-port.md",
+    "docs/user-journey.md",
+    "docs/verification.md",
+    "docs/wireframes.md",
+    "forge/sdd-manifest.json"
+  ],
+  "evidence_limit": "Document validation and source observations only; no original formal QA execution or unit completion inferred.",
+  "implementation_gate": "awaiting-implementation-prompt",
+  "unit_statuses": {
+    "U-14": {
+      "status": "pending"
+    },
+    "U-15": {
+      "status": "pending"
+    }
+  },
+  "verification_record": "forge/runs/sdd-reconciliation-20261017/verification.json",
+  "independent_review": "no actionable findings; read-only worker",
+  "handoff_state": "documentation-validated; Git checkpoint pending"
+}

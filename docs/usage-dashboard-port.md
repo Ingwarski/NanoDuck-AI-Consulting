@@ -1,5 +1,25 @@
 # Port U-13: actionable usage dashboard
 
+## Handoff status · 17 October 2026
+
+This preserves the September 26 Usage handoff, including later reasoning and
+activity-count refinements. Read those refinements with the original steps;
+missing historical fields remain unknown. Native account telemetry and protocol
+details are source-version observations: check the target's actual supported
+adapter. The [combined prompt](combined-updates-after-review-port.md) includes this
+cumulative specification; the [evidence index](verification.md) links existing
+implementation results. Neither establishes current sister-repository parity or
+exact subscription deductions.
+
+The 17 October update changes documentation only. Apply this brief within
+separately authorized work in one target under current instructions, requirements,
+approved design and hosting/storage boundaries. It grants no new deployment,
+restart, inference-call or spending authority. Keep read-only allowance inspection
+separate from inference. New live inference probes need explicit authorization and
+an included-allowance check; extra credits, API billing and resets require their
+own explicit approval. Record target checks and activation separately from dated
+source evidence and formal release acceptance.
+
 Apply only to the target sister repository. Preserve its hosting, authentication,
 provider choices, SDD owners and private storage. Do not copy local grants or
 conversations. This unit changes accounting visibility, not model prompts or

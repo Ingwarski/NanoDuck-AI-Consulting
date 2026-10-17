@@ -195,4 +195,22 @@ own licenses.
 
 ## Token usage
 
-Open **Discussion → Usage** to inspect reported input, output and total tokens for each Codex/Claude model, for the current conversation or all saved conversations. Cache and reasoning breakdowns are included when the provider reports them. Retries and failed calls count when usage is available. Unknown and pre-tracking history are not estimated; these totals do not represent your account-wide subscription allowance. Usage is encrypted with the private workspace, included in recovery backups and removed with deleted conversations.
+Open **Usage** within Discussion to inspect the current conversation or all saved
+conversations. Separate Codex and Claude summaries show reported input, cache
+reads, uncached input and output, with cache creation and reasoning breakdowns
+where supplied. Model rows include the selected reasoning effort when known.
+Explore request, participant and task groups, repeat work, and the timed call
+timeline. Activity counts cover consultant assignments, review rounds, correction
+orders, research calls and reported web actions.
+
+Account allowance is displayed separately from conversation token totals. Codex
+can refresh native account windows without an inference call; unavailable or stale
+readings are labelled. The Claude panel links to its official usage page when
+percentage windows are unavailable through the supported local interface.
+
+Retries and failed calls count when usage is reported. Missing historical counts,
+attribution and optional metrics stay unknown or partial. Token totals do not
+establish exact subscription deductions, charges or physical cache storage. Usage
+is encrypted with the private workspace, included in recovery backups and removed
+with deleted conversations. See the [dated evidence index](docs/verification.md)
+for the scope and limits of existing verification.

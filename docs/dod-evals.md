@@ -6,7 +6,7 @@ Current PRD, context/terms, guardrails, journey, screen map, wireframes, design 
 
 ## Definition of done model
 
-Acceptance means an observable requirement holds at its declared seam. Completion additionally requires current source/baseline binding, appropriate evidence, no open blocking findings, protected data and exact authorized scope. A design candidate can pass a local simulation check while application behavior remains unverified. Local implementation checks are evidence only for their named seam.
+Acceptance means an observable requirement holds at its declared seam. Completion additionally requires current source/baseline binding, appropriate evidence, no open blocking findings, protected data and exact authorized scope. A design candidate can pass a local simulation check while application behavior remains unverified. Local implementation checks are evidence only for their named seam. A bounded controlled contribution is not acceptance of the whole requirement/state. Every required product clause and state retains required real-consumer integration/release acceptance, allocated by the plan; component/mocked evidence cannot discharge it. Required failed, missing, stale or deferred evidence keeps the corresponding unit/release claim incomplete.
 
 ## Gate table
 
@@ -39,7 +39,7 @@ Use the exact [PRD canonical severity and release-effect definition](prd.md#cano
 
 ## PR, merge and completion rules
 
-Commit/push reviewed artifacts to the already authorized public repository only after public-content and local checks. The existing artifact checker is limited to links/path hygiene/syntax; it does not prove the gates above. No extra publication or merge policy is invented. Architecture and this DoD are reconciled with the approved design and authorized local refactor; QA and plan reconciliation follow before a release decision.
+[AGENTS.md](../AGENTS.md) owns coding execution, continuation, Git delivery and pause behavior; [guardrails](guardrails.md) owns repository/publication authority and private-content restrictions. The artifact checker proves only its link/path/syntax scope. A merge, push, scoped fixture pass or document validation cannot satisfy the six gates. This definition is reconciled against the retained baseline and current architecture; concrete QA and plan allocation follow without new production authority.
 
 ## Out of scope and open questions
 
@@ -59,7 +59,7 @@ Extend existing functional, persistence, product_security_requirements and brows
 
 ## Sticky consultation views — 2026-09-25
 
-For the existing navigation/fidelity/browser gates, verify all four view controls remain visible and reachable after scrolling in active and inactive discussion states, without changing Stop behavior. Keep functional, visual and representative-user evidence distinct.
+Current fidelity, functional and usability evidence must show that all four consultation views and status/Stop remain reachable under the accepted desktop rail/narrow-picker layout. Earlier horizontal sticky treatments are historical; current design and wireframes supply the visual/structural criterion.
 
 ## Review-repair evaluation scope — 2026-09-26
 
@@ -71,15 +71,15 @@ Existing functional, security and efficiency gates require new-Send isolation, C
 
 ## Chat beginning and end controls — 2026-09-26
 
-The user explicitly requested two transparent outlined circular arrow buttons to jump to the beginning and end of the chat. This is a scoped addition to existing S-02 navigation under UC-003/JOB-001; preserve Stop, drafts and ongoing work.
+Navigation/fidelity/accessibility evidence must cover beginning/end controls without sending, stopping, changing the selected view or losing draft/accepted work.
 
 ## Centered chat arrows — 2026-09-26
 
-The explicit user correction replaces grouped navigation placement: the up arrow sits at the horizontal center near the viewport top, below global navigation; the down arrow sits at the horizontal center near the bottom safe area. Both remain fixed while scrolling, 44px transparent outlined circles, with existing accessible labels and reduced-motion behavior. They remain confined to the consultation page. No server/session changes.
+Verify the current approved centered controls across supported viewports, keyboard/reduced-motion states and the open/collapsed composer variants. Read appearance and placement from the design brief rather than treating older transparent-only styling as current.
 
 ## Chat boundary visibility — 2026-09-26
 
-Hide the up arrow when the visible content beginning is reached and hide the down arrow when its end is reached; restore each when scrolling away. Hide both when the content fits. Update on scroll, viewport resize, view changes and incoming content without moving the reading position. Preserve centered 44px transparent controls and reduced motion. Navigation follows the currently selected consultation view rather than switching it. No server/session changes.
+Observe correct beginning/end hiding and readable last content under incoming messages, panel changes, viewport changes and visible bottom controls. Control-state/visual evidence remains distinct from representative-owner task validation.
 
 ## U-12 research and evidence economy — 2026-09-26
 
@@ -87,11 +87,11 @@ U-12 research and evidence economy: preserve every distinct supported claim, ful
 
 ## U-12 Critic cache and usage completeness — 2026-09-26
 
-U-12 follow-up: retain an isolated Claude working context within one accepted request without session history or tools. Verify actual provider cache reuse with public synthetic consecutive calls. Preserve every reported token count including retries and failed calls, label partial/unknown metrics and provider-specific cache semantics, expose per-attempt breakdowns without duplicating totals. Keep full owner input, model/effort, discussion depth and independent-Send isolation. Existing Usage layout and Electric A v8 remain; no prototype reuse. User explicitly authorizes implementation and validation.
+Require actual provider evidence before a cache-reuse claim, and controlled negative evidence for zero/missing/partial categories, retries and failed calls. Report all base totals once; preserve exact context/model/effort/depth. A historical synthetic count cannot establish current subscription savings or a completed provider invocation.
 
 ## U-12 upstream usage verification — 2026-09-26
 
-U-12 upstream accounting follow-up: opt into the pinned Codex experimental raw completion event, extract only numeric usage from upstream metadata, deduplicate by response within the expected turn and reconcile against cumulative totals. Preserve explicit zero versus missing field; never infer writes from uncached input. Store numeric accounting provenance only, never raw responses, attribution IDs, output or hidden reasoning. Display upstream-verified versus legacy normalized counters in existing Usage. Preserve exact models, private context, authentication and live runs. Experimental telemetry failure must not interrupt consulting. Verify real coordinator Critic cache reuse with synthetic data and document historical limits. User explicitly authorizes this investigation and implementation.
+Require numeric accounting provenance and expected-turn deduplication/reconciliation evidence, explicit zero versus absent fields, and proof that optional telemetry failure cannot interrupt work. Verify no raw private payload or hidden reasoning persists. Uncached input cannot stand in for a reported cache-write count.
 
 ## U-13 actionable usage dashboard — 2026-09-26
 
@@ -99,20 +99,26 @@ U-13 verification requires attribution persistence, no double counting, null-ver
 
 ## U-13 reasoning attribution follow-up — 2026-09-26
 
-U-13 reasoning attribution follow-up: Usage model rows and call timeline show the selected reasoning effort. Aggregate by provider, model and effort so different configurations never collapse together. New adapters record actual requested effort. Older calls may recover the value only from a matching immutable single-request snapshot with a known stage, provider and model; otherwise show unknown. Preserve counters, request isolation and privacy. The user authorizes this change and a read-only comparison of saved high/medium runs, not an unqualified quality claim.
+Require distinct provider/model/effort groups and timeline labels, validated immutable historical attribution or explicit unknown values, without changing user settings. A usage difference alone cannot prove a quality difference.
 
 ## U-13 activity counts follow-up — 2026-09-26
 
-U-13 activity counts follow-up: show five metrics in Usage: consultant assignments excluding Head/Critic, issued review rounds, issued correction orders, research provider-call attempts including retries, and reported search/open/find web actions. Read team counts from saved parallel ledgers and research counts from usage telemetry. Scope follows the selected conversation/all view. Aggregate known values and mark partial coverage; missing older data is never zero. Preserve privacy and active consultations.
+Require correctly scoped counts for consultants, team review rounds, correction orders, research attempts and reported web actions, including partial historical coverage. Keep application counters distinct from native account-wide allowance and preserve privacy.
 
 ## Clear-glass navigation follow-up — 2026-09-26
 
-User-authorized clear-glass top navigation: replace the opaque bar with low-opacity tint, restrained specular edges and saturation/contrast without blur. Preserve geometry, controls, focus indicators and Electric A v8 foundation. Local button tint and text shadow protect label legibility. Reduced-transparency and forced-color preferences receive opaque readable fallbacks. Verify actual navigation markup at narrow and wide widths in isolated browsers. No live-page reload, server restart, session change or consulting interruption.
+The earlier plain-transparency treatment is superseded by the approved refraction mechanism. Current acceptance requires the design brief’s optical effect and readable native controls, plus privacy, forced-color and reduced-transparency evidence.
 
 ## Glass edge refinement — 2026-09-26
 
-User-requested glass edge refinement: retain the clear navbar centre and add a polished outer lip plus a hollow curved inner bevel using masked pseudo-elements. The approximately 7px rim alone receives a slight optical filter; no frosted centre. Preserve geometry and click targets; decorative layers ignore pointer input. Hide both layers for reduced transparency and forced colors. Verify mask rendering, focus and mobile layouts in Chromium, Firefox and WebKit without touching the active browser session or restarting the server.
+The earlier metallic/masked-bevel treatment is superseded. It cannot satisfy current liquid-glass fidelity. Evaluate the retained canvas refraction, cross-surface stability and privacy-clearing contract instead.
 
 ## Navbar refraction renderer — 2026-09-26
 
 User-authorized liquid-glass renderer replaces the rejected metallic bevel. A local canvas paints only the narrow strip from visible application text, solid surfaces and same-origin images, then displaces pixels along a rounded-rectangle optical edge. The centre remains native and clear; controls remain native and sharp. No external capture service, third-party runtime, stored pixels or transmitted content. Ignore inputs and hidden elements. Clear pixels synchronously on privacy lock/logout and on visibility changes; stop rendering for reduced transparency or forced colors. Update on scroll, resize and observed content changes, not a perpetual loop. CSS gradients and arbitrary embedded media are not part of the sampling contract; the application text/solid surface layout is. Verify actual pixel deformation and privacy clearing in all engines, not merely CSS parsing.
+
+## Unit evidence freshness and integration ownership
+
+QA owns canonical per-check acceptance levels, evidence modes and required source paths. The plan owns construction/acceptance dependencies and exactly one acceptance owner per applicable check. A required check in a required gate stays required; no pending integration obligation can disappear into component coverage. Controlled checks must state which external boundaries are fixtures and which local consumers are exercised.
+
+An executed unit check binds the current plan hash, baseline, actual source/configuration/test inventory, executor and time within its real unit run. Real-consumer integration/release also requires inspected integration evidence and the separately required visual, heuristic or representative-user evidence class. Matching old file hashes alone does not create a new execution. Changed shared files invalidate affected evidence; retained older records remain historical and cannot receive new timestamps or source bindings. After a correction, required affected evidence must be rerun against the integrated final revision. No unit run or gate is executed by this documentation reconciliation.

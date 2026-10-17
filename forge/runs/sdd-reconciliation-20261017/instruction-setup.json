@@ -1,0 +1,40 @@
+{
+  "recorded_at": "2026-10-17T11:34:39.861011+00:00",
+  "managed_revision": 2,
+  "root_policy": "AGENTS.md",
+  "root_policy_sha256": "9e9de3772e818710fd36a0b9861b80fd14f2a219553ee219d3431c68fcf5deea",
+  "source_template": "to-sdd-pipeline/assets/project-AGENTS.md",
+  "source_template_sha256": "b2c3fecc815b24aafd10e4c5c374446179106a131137aead176a588b5ae10ee7",
+  "adaptation": "Preserved product rules and exact user spending/profile-cleanup rules; managed section references the stricter spending policy instead of duplicating it.",
+  "loading_evidence": "Explicit current-session read of root/global policy and delegation of restrictions. No fresh-session automatic loading, continuation/recovery or Claude compatibility verified.",
+  "host_configuration": "No global or managed settings changed; no speculative Claude wrapper.",
+  "checker_enforcement": false,
+  "byte_budget_observation": {
+    "global_plus_root_bytes": 19775,
+    "documented_default_limit_bytes": 32768,
+    "configured_effective_limit_verified": false
+  },
+  "original_root_policy_sha256": "53657209771c4a6909aa71172f1bbb0a2bf4d19fcdb451cc6399f43dec1c0f05",
+  "host_observation": {
+    "codex_cli_version": "0.163.0-alpha.10.2",
+    "desktop_version": "26.1013.31256",
+    "desktop_build": "20586",
+    "basis": "Read-only installed metadata, not a model/session compatibility probe."
+  },
+  "effective_source_identities": {
+    "global_AGENTS_sha256": "4f5c87affeef99bf8ca3d55e5507f724b36956c266bcf487c99102f6c59fb218",
+    "root_AGENTS_sha256": "9e9de3772e818710fd36a0b9861b80fd14f2a219553ee219d3431c68fcf5deea"
+  },
+  "reference_resolution": {
+    "docs/guardrails.md": true,
+    "docs/development-plan.md": true,
+    "docs/qa-checklist.md": true,
+    "docs/dod-evals.md": true
+  },
+  "repeat_setup": {
+    "method": "Exact reviewed managed-section reapplication to preserved prefix/suffix",
+    "byte_identical": true,
+    "managed_begin_count": 1,
+    "managed_end_count": 1
+  }
+}

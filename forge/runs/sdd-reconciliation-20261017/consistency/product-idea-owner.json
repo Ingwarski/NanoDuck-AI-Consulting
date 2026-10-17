@@ -1,0 +1,49 @@
+{
+  "invocation_id": "sdd-reconciliation-20261017-consistency-product-idea",
+  "outputs": [
+    "docs/product-idea.md"
+  ],
+  "source_usage": {
+    "docs/model-settings.md": "full",
+    "forge/design/evidence/electric-v8-approval-20260914.json": "full",
+    "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "full",
+    "forge/runs/chat-arrow-position-20261008/scoped-override.json": "full",
+    "forge/runs/critic-cache-usage-20260926/implementation-prompt.json": "full",
+    "forge/runs/critic-cache-usage-20260926/scope.json": "full",
+    "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "full",
+    "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full",
+    "forge/runs/parallel-consultants-plan-20260924/scope.json": "full",
+    "forge/runs/reading-mode-20260926/scope.json": "full",
+    "forge/runs/sdd-reconciliation-20261017/product-idea-owner.json": "full",
+    "forge/runs/sdd-reconciliation-20261017/scope.json": "full",
+    "forge/runs/upstream-usage-20260926/implementation-prompt.json": "full",
+    "forge/runs/upstream-usage-20260926/scope.json": "full",
+    "forge/runs/white-theme-20261008/scoped-override.json": "full"
+  },
+  "consumed_hashes": {
+    "docs/model-settings.md": "aef42b6f74eabcdcc32835f6ef7d52099bdcaa5fab2112a184e500dd95338989",
+    "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2",
+    "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
+    "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
+    "forge/runs/critic-cache-usage-20260926/implementation-prompt.json": "2d95221cb2f84e924114500538865a4aeb370aa77f13e429cdb751b0d708a296",
+    "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+    "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3",
+    "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
+    "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
+    "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
+    "forge/runs/sdd-reconciliation-20261017/product-idea-owner.json": "5ced7b921739580c6213efb1ef11857d99d224113affa3711049409425da0fc3",
+    "forge/runs/sdd-reconciliation-20261017/scope.json": "82eeb2e3fa2559e055ab04aa135ad90ca90f776562377069d6415d18c78ab37f",
+    "forge/runs/upstream-usage-20260926/implementation-prompt.json": "b88c8f780d1cee48c2654c9e926356a81c4b33b44170646d5a225252b1ecf11c",
+    "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
+    "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e"
+  },
+  "output_hashes": {
+    "docs/product-idea.md": "3090712b248cae4f5aa6649c301c37fdb0ef7e69eae2cb53517b7f44daf5d056"
+  },
+  "executor": "Codex lead acting inline as to-product-idea",
+  "validation": "Main workflow now states Stop/failure restoration and completion collapse consistently with the accepted reading correction; U13 authority is dated historical scope, not a new implementation grant. Reviewed preserved JOBs, full-request isolation, roles/depth/models and scope; no product decision changed. Final delta review uses the retained first-pass owner review and current source identities; document validation only.",
+  "prior_owner_return": "forge/runs/sdd-reconciliation-20261017/product-idea-owner.json",
+  "unchanged_source_review": "First-pass owner consumption/provenance retained; integrity rechecked. Current source changes are the explicit completion/depth/accounting/appearance corrections reviewed in this return.",
+  "ownership_released": true,
+  "cleanup": "No browsers, servers, profiles or provider calls created."
+}

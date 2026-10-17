@@ -9,7 +9,7 @@ Working language: English. Product content and source metadata: English and Ukra
 | Settings | Literal navigation label for models, reasoning, specialist count, discussion depth, optional incoming-message sound, editable runtime instructions and account actions. | Your space; Preferences as the destination name |
 | Thinking indicator | A quiet visible thought bubble and text that the team is preparing the next confirmed message. It is active-run feedback, not a claim about a named agent or hidden chain of thought. | A decorative loader with no textual state; a progress claim that names an unverified agent |
 | Conversation title | A deterministic, concise decision-question label created in the stored record only after successful final synthesis; it never occupies the active discussion header. | A clipped first message or a generated title model turn |
-| Policy replacement | One bounded invocation of the same role and task after its generated draft violates English/Ukrainian or prohibited-source policy. The rejected draft is neither stored nor shown. | Treating the first blocked draft as a successful response or immediate terminal consultation failure |
+| Policy replacement | One bounded same-role/task invocation when fragment filtering leaves no usable generated answer, or output is an internal tool transcript. Guilty fragments are omitted before storage/display while usable advice continues. | Treating the first blocked draft as a successful response or immediate terminal consultation failure |
 | Runtime instructions | One owner-visible Markdown behavioral contract encrypted in the private app database for future model prompts. The server validates fixed headings/placeholders, retains encrypted saved versions, snapshots exact Markdown and revision at acceptance, and renders it only through the runtime prompt-contract module. First-run setup validates reusable public defaults or a supplied private initial document; the saved encrypted document is authoritative afterward. | A browser-only prompt, user-submitted instruction or a way to weaken server-enforced topology/security controls |
 | Head Consultant | AI orchestrator that creates/reuses specialist roles, authors each individual task/dependency, handles findings and synthesizes reviewed results. Fixed review depth is user-selected; Head controls Auto closure. | A fictional human partner, a passive task receiver, or a server-chosen generic task |
 | Consultant / specialist | Separate AI context with a relevant assignment. | Several role labels on one completion |
@@ -49,7 +49,7 @@ Internal-only terms include run generation, process ownership, event cursor, mod
 |---|---|---|
 | Role library | Reusable role guidance and a compact index for Head | Not an allowed-name list; new roles remain consultation-private |
 | Assignment | Exact Head-authored task, recipient and declared dependencies | Task visible; internal role guidance hidden |
-| Context boundary | Last accepted owner-message ID plus run/context revision | Internal, not a second user-facing document |
+| Context boundary | One immutable accepted request-message ID plus its run/context revision | Internal, not a second user-facing document |
 | Critic order | Specific defect and required correction linked to a result and recipient | A response is not a resolution |
 | Resolution assessment | Critic’s decision on a referenced correction or supported objection | Blocked/unresolved is never passed |
 | Worker | Application-managed separate model invocation executing Head’s work | No native subagent feature or extra AI orchestrator |
@@ -72,11 +72,11 @@ Evidence reference: stable request-scoped identifier for a source and supported 
 
 ## U-12 Critic cache and usage completeness — 2026-09-26
 
-U-12 follow-up: retain an isolated Claude working context within one accepted request without session history or tools. Verify actual provider cache reuse with public synthetic consecutive calls. Preserve every reported token count including retries and failed calls, label partial/unknown metrics and provider-specific cache semantics, expose per-attempt breakdowns without duplicating totals. Keep full owner input, model/effort, discussion depth and independent-Send isolation. Existing Usage layout and Electric A v8 remain; no prototype reuse. User explicitly authorizes implementation and validation.
+**Cache read**: provider-reported input reused from its cache. **Cache creation/write**: provider-reported cache construction; it is not equivalent to all uncached input. **Partial coverage**: some attempts or categories lack trustworthy telemetry. These terms confer no tool or history access.
 
 ## U-12 upstream usage verification — 2026-09-26
 
-U-12 upstream accounting follow-up: opt into the pinned Codex experimental raw completion event, extract only numeric usage from upstream metadata, deduplicate by response within the expected turn and reconcile against cumulative totals. Preserve explicit zero versus missing field; never infer writes from uncached input. Store numeric accounting provenance only, never raw responses, attribution IDs, output or hidden reasoning. Display upstream-verified versus legacy normalized counters in existing Usage. Preserve exact models, private context, authentication and live runs. Experimental telemetry failure must not interrupt consulting. Verify real coordinator Critic cache reuse with synthetic data and document historical limits. User explicitly authorizes this investigation and implementation.
+**Upstream-verified usage**: numeric response fields from the expected provider turn. Provenance is separate from coverage: counts are reconciled when cumulative totals agree, or explicitly partial when cumulative totals are unavailable. **Legacy normalized usage**: retained older accounting with its stated provenance. **Missing** differs from an explicit zero; subtracting cache reads from input cannot identify cache writes.
 
 ## U-13 actionable usage dashboard — 2026-09-26
 
@@ -84,8 +84,8 @@ U-13: uncached input is input minus reported cache reads; it includes Claude cac
 
 ## U-13 reasoning attribution follow-up — 2026-09-26
 
-U-13 reasoning attribution follow-up: Usage model rows and call timeline show the selected reasoning effort. Aggregate by provider, model and effort so different configurations never collapse together. New adapters record actual requested effort. Older calls may recover the value only from a matching immutable single-request snapshot with a known stage, provider and model; otherwise show unknown. Preserve counters, request isolation and privacy. The user authorizes this change and a read-only comparison of saved high/medium runs, not an unqualified quality claim.
+**Reasoning effort**: the exact selected provider effort, shown with provider/model in usage groups and attempt timelines. **Unknown historical effort**: insufficient immutable snapshot/stage/model evidence to recover it; never a guessed default.
 
 ## U-13 activity counts follow-up — 2026-09-26
 
-U-13 activity counts follow-up: show five metrics in Usage: consultant assignments excluding Head/Critic, issued review rounds, issued correction orders, research provider-call attempts including retries, and reported search/open/find web actions. Read team counts from saved parallel ledgers and research counts from usage telemetry. Scope follows the selected conversation/all view. Aggregate known values and mark partial coverage; missing older data is never zero. Preserve privacy and active consultations.
+**Consultant count** excludes Head/Critic. **Review rounds** counts issued team reviews, **correction orders** counts issued targeted orders, **research calls** counts provider attempts including retries, and **web actions** counts reported search/open/find operations. Known counts can be summed only within their declared scope; older missing values remain partial.
