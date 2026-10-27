@@ -21,13 +21,13 @@ import { verifyModelSettings } from './browser-model-settings.mjs';
 import { verifyProviderConnection } from './browser-provider-connection.mjs';
 import { recordNotificationPlayback, verifyActiveDiscussion, verifySavedSoundOff } from './browser-active-discussion.mjs';
 
-async function phase(name, action) {
+async function phase(name, action, timeoutMs = 60_000) {
   console.log(`${name}: started.`);
   let timer;
   try {
     await Promise.race([
       action(),
-      new Promise((_, reject) => { timer = setTimeout(() => reject(new Error(`${name} exceeded 60 seconds`)), 60_000); })
+      new Promise((_, reject) => { timer = setTimeout(() => reject(new Error(`${name} exceeded ${timeoutMs / 1_000} seconds`)), timeoutMs); })
     ]);
     console.log(`${name}: passed.`);
   } finally { clearTimeout(timer); }
@@ -149,7 +149,9 @@ try {
         continue;
       }
       if (!process.argv.includes('--model-settings-only')) await phase(`${name} white theme`, () => verifyTheme(page, name, root));
-      await phase(`${name} independent model settings`, () => verifyModelSettings(page, name));
+      // This matrix repeats real catalog inspections and protected settings saves.
+      // Windows ACL helpers can take its aggregate past 60s; action waits stay bounded.
+      await phase(`${name} independent model settings`, () => verifyModelSettings(page, name), 120_000);
       if (process.argv.includes('--model-settings-only')) {
         assert.deepEqual(errors, [], `${name} uncaught browser errors`);
         await context.close();

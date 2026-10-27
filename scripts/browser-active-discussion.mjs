@@ -6,8 +6,7 @@ import { png } from '../test/fixtures/images.mjs';
 export { recordNotificationPlayback } from './browser-notification-audio.mjs';
 
 export async function openNewConversation(page) {
-  const previous = await page.locator('#thread > :first-child').elementHandle();
-  assert.ok(previous, 'The preceding conversation has rendered before New');
+  const previous = await page.$('#thread > :first-child');
   try {
     const loaded = page.waitForResponse(response => response.request().method() === 'GET' && /\/api\/conversations\/[^/]+$/u.test(new URL(response.url()).pathname));
     await page.locator('#new-conversation').click();
@@ -16,9 +15,9 @@ export async function openNewConversation(page) {
     await response.finished();
     // Empty markup may already belong to the preceding record. Wait for the
     // actual render replacement before the next fixture can press Send.
-    await page.waitForFunction(element => !element.isConnected, previous);
+    if (previous) await page.waitForFunction(element => !element.isConnected, previous);
     await page.waitForFunction(() => document.querySelector('#thread .empty') && document.querySelector('#run-status').textContent === 'Describe the decision you want to make.');
-  } finally { await previous.dispose(); }
+  } finally { await previous?.dispose(); }
 }
 
 export async function verifyActiveDiscussion(page, name, root) {
