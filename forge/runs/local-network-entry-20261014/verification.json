@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "event": "local_network_public_entry_fix",
+  "recorded_at": "2026-10-14T16:23:29.244779+00:00",
+  "problem": "The request policy rejected a cross-site top-level GET of the public app shell before local password entry. A manually typed iPhone denial is not yet attributed because a fresh phone request has not been observed.",
+  "change": "Allow only GET / and /index.html, including query strings, with navigate/document metadata. Preserve TLS, private peer and exact pinned Host checks, provided-Origin validation, cross-site private API/subresource/frame denial and exact mutation Origin/CSRF/session controls.",
+  "unit_http": {
+    "command": "node --test test/local-config-auth.test.mjs test/http.test.mjs",
+    "result": "passed",
+    "tests": 13,
+    "failures": 0,
+    "evidence": "forge/runs/local-network-entry-20261014/tests.log"
+  },
+  "browsers": {
+    "command": "node scripts/browser-check.mjs --local-entry-only",
+    "result": "passed",
+    "engines": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ],
+    "evidence": "forge/runs/local-network-entry-20261014/browsers.log",
+    "metadata": "Firefox/WebKit reported cross-site navigation metadata; Chromium metadata was explicitly modeled in the disposable TLS fixture. No physical iPhone claim."
+  },
+  "browser_cleanup": {
+    "result": "verified_complete",
+    "task_chromium_profiles": 3,
+    "profiles_gone": 3,
+    "tracked_browser_processes": 5,
+    "remaining_browser_processes": 0,
+    "mechanism": "Exact task profiles captured from private browser launch logs; browsers closed gracefully and removed their profiles. Verified disappearance using actual user temp directory and checked task process exit. No unrelated profiles/processes were removed."
+  },
+  "live_http": {
+    "tls": "Verified against existing local CA; no trust/configuration changes.",
+    "direct_public_entry": 200,
+    "cross_site_public_document_entry": 200,
+    "cross_site_private_api": 403,
+    "anonymous_private_api": 401
+  },
+  "artifact_validation": {
+    "command": "node scripts/check-artifacts.mjs",
+    "result": "passed",
+    "markdown_files": 32,
+    "javascript_syntax_checks": 110
+  },
+  "sdd": {
+    "assessment": "Existing implementation correction under UC-001, FR-01.1, NFR-11.3 and current architecture local request boundary. No product actors, private permissions, design, provider/model choices, storage or document authority changed; no SDD content/manifest rewrite needed.",
+    "reviewed_sources": [
+      "docs/product-idea.md",
+      "docs/prd.md",
+      "docs/architecture.md",
+      "docs/qa-checklist.md"
+    ],
+    "release": "No full-unit or whole-product release claim."
+  },
+  "diagnostics": "Temporary sanitized local request diagnostics remain outside the source tree while awaiting the phone reproduction. No cookies, passwords, private payloads, raw hosts or raw peer addresses are recorded.",
+  "source_hashes": {
+    "src/server/local-request.mjs": "a33f62e799c09cbb32ca826bae0924732c25e5ee74b1a53123bd4bbf2f8ecbf7",
+    "test/local-config-auth.test.mjs": "ab45104a750e37c33f3956361c7e840219a8c224f0bada37321887e3750464f2",
+    "test/http.test.mjs": "34496720bf70a272bc527e424970b747811c2fafe9f5277226502c1a80cd35ee",
+    "scripts/browser-local-entry.mjs": "2821d3324226190a8ec06578ecad447a24aebab768477bd6b003b26e7c7cf8ea",
+    "scripts/browser-check.mjs": "3b25348dcac098bcbf41fec84d9e2088787382edf08d4329c69db07433d61672"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-development-plan",
+  "node": "development-plan",
+  "returned_at": "2026-10-08T18:20:45.704772+00:00",
+  "outputs": {
+    "development-plan": {
+      "path": "docs/development-plan.md",
+      "content_hash": "59106bb01bd0df2d4f5290134abb1668e4c188eb0f267e3072d9d2dd24dda9b0",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "dark-matte-prompt-scoped-document-review",
+        "reviewed_at": "2026-10-08T18:20:45.673528+00:00",
+        "executor": "Codex inline to-development-plan",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      }
+    }
+  },
+  "evidence_limit": "Document definitions only; actual product checks belong to the root's separately inspected evidence."
+}

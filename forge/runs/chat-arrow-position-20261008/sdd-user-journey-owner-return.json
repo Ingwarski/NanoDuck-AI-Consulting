@@ -1,0 +1,20 @@
+{
+  "invocation_id": "chat-arrow-position-20261008-8c51b7b0934b-user-journey",
+  "node": "user-journey",
+  "returned_at": "2026-10-08T13:50:40.510216+00:00",
+  "outputs": {
+    "user-journey": {
+      "path": "docs/user-journey.md",
+      "content_hash": "c59072492e4ca0eb46b0efd4bccf9b32b2e0a711c997d21bc1175dc9ea9ad5e9",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "arrow-position-scoped-document-review",
+        "reviewed_at": "2026-10-08T13:50:40.480891+00:00",
+        "executor": "Codex inline to-user-journey",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      }
+    }
+  },
+  "evidence_limit": "Document definitions only; actual product checks belong to the root's separately inspected evidence."
+}

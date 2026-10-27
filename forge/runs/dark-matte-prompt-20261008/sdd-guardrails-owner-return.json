@@ -1,0 +1,20 @@
+{
+  "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-guardrails",
+  "node": "guardrails",
+  "returned_at": "2026-10-08T18:20:40.705353+00:00",
+  "outputs": {
+    "guardrails": {
+      "path": "docs/guardrails.md",
+      "content_hash": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "dark-matte-prompt-scoped-document-review",
+        "reviewed_at": "2026-10-08T18:20:40.674421+00:00",
+        "executor": "Codex inline to-guardrails",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      }
+    }
+  },
+  "evidence_limit": "Document definitions only; actual product checks belong to the root's separately inspected evidence."
+}

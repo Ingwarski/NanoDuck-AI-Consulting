@@ -1,0 +1,173 @@
+# Verification
+
+## Evidence status as of 17 October 2026
+
+This reconciliation changes documentation only. The index below points to existing
+scoped implementation and verification records inspected in the public source
+tree; their product tests, browser sessions, provider probes and device observations
+were not repeated for this update. Each result applies to its recorded source,
+environment, date and scope. Current requirements and presentation are defined by
+the [PRD](prd.md), [architecture](architecture.md) and canonical
+[design brief](design-brief.md); current unit authority and execution records belong
+to the [development plan](development-plan.md) and
+[manifest](../forge/sdd-manifest.json).
+
+The original formal QA index contains 90 checks: 67 product checks, nine screen
+checks, ten heuristic checks and four representative-user checks. Their recorded
+executions remain `not_run`, with definitions `prepared`; the six release gates
+remain `not_evaluated`. Passing scoped regressions below do not complete every
+criterion of those original checks. Reconciliation adds the bounded controlled
+QA-C01 check, also `prepared` and `not_run`, for 91 current checks. U-14 owns QA-C01;
+U-15 owns all original 90 full checks. Both units remain pending, and component
+evidence cannot replace their required real-consumer acceptance.
+
+| Recorded date | Existing scoped evidence | What the record supports and its limits |
+|---|---|---|
+| 24 September | [U-09 implementation](../forge/runs/u09-implementation-20260924/verification.json) and [workload comparison](../forge/runs/u09-implementation-20260924/workload-comparison.json) | Parallel Head-led assignments, Critic-order checkpoints and recovery passed synthetic and three-engine checks. Prompt bytes and calls are fixture measurements; no live-provider consultation, physical-device or complete formal acceptance is established. The planning-only report at the end of this document predates this implementation. |
+| 25 September | [Critic reliability and usage](../forge/runs/critic-usage-20260925/verification.json) and [sticky views](../forge/runs/sticky-view-nav-20260925/verification.json) | Recorded scoped regression/browser results and bounded exact-model usage probes. These do not establish a complete private consultation, every model's continuing entitlement or physical-device audio. |
+| 26 September | [Review repairs](../forge/runs/review-fixes-20260926/verification.json) and [source persistence](../forge/runs/source-persistence-20260926/verification.json) | Linked Critic corrections, dependency scheduling, source propagation, browser recovery and long metadata persistence have recorded scoped results. The persistence record distinguishes the reproduced defect from an unobserved historical response and does not claim the resumed consultation completed. |
+| 26 September | [Markdown/RTF tables](../forge/runs/markdown-tables-20260926/verification.json) and [reading mode](../forge/runs/reading-mode-20260926/verification.json) | Synthetic renderer, export and browser-flow results cover their recorded revisions. Individual Word/Pages/LibreOffice applications, physical devices and representative-user outcomes were not all observed. Later October reading-control changes supersede the earlier normal-flow composer and separate Read outcome action. |
+| 26 September | [Request isolation/context economy](../forge/runs/context-cache-20260926/verification.json) | Independent Send scopes, Continue/Retry preservation and context measurements have scoped evidence. The small live comparison does not establish a production-wide saving or guaranteed cache hit. |
+| 26 September | [Research/evidence economy](../forge/runs/research-economy-20260926/verification.json), [Critic cache/usage](../forge/runs/critic-cache-usage-20260926/verification.json) and [upstream accounting](../forge/runs/upstream-usage-20260926/verification.json) | Recorded regressions and bounded public synthetic probes distinguish prompt bytes, provider-reported tokens and cache semantics. They do not measure exact subscription deductions or establish current provider access. |
+| 26 September | [Usage dashboard](../forge/runs/usage-dashboard-20260926/verification.json), [reasoning attribution](../forge/runs/usage-reasoning-20260926/verification.json) and [activity counts](../forge/runs/usage-activity-20260926/verification.json) | Authenticated accounting views, conservative historical attribution, independent account-window reads and scoped activity counts have recorded tests. Missing historical telemetry stays unknown; observed saved-run differences are not a causal quality benchmark. |
+| 26 September | [Final navbar refraction](../forge/runs/navbar-refraction-20260926/verification.json) | Recorded three-engine optical, interaction and privacy-clearing checks support the canvas renderer at that revision. Earlier clear-glass and rim/bevel reports describe superseded treatments; arbitrary-media fidelity and native Apple compositor behavior are not established. |
+| 30 September | [GPT-6.1 Sol catalog observation](../forge/runs/gpt-6-1-sol-20260930/catalog-observation.json) | A dated authenticated catalog observation supports exact model/effort availability on that connection. It is not a completed GPT-6.1 Sol call or a current entitlement guarantee. Preserve the exact choices in [model settings](model-settings.md). |
+| 8 October | [White theme](../forge/runs/white-theme-20261008/verification.json), [glass reading controls](../forge/runs/glass-chat-controls-20261008/verification.json), [bottom-arrow position](../forge/runs/chat-arrow-position-20261008/verification.json), [open-composer refinement](../forge/runs/chat-arrow-open-prompt-20261008/verification.json) and [matte dark composer](../forge/runs/dark-matte-prompt-20261008/verification.json) | Recorded isolated-browser checks cover appearance, reading controls, privacy clearing and drafts. Apply the later open-composer and dark-matte refinements when interpreting earlier receipts. Physical keyboard/notch behavior and whole-product acceptance remain separate. |
+| 8 October | [Head connection check](../forge/runs/head-connection-check-20261008/verification.json) and [sign-in wording](../forge/runs/signin-copy-20261008/verification.json) | Scoped checks cover inspection feedback and preservation of unsaved Settings. Connection status is distinct from successful model inference. |
+| 14 October | [Local-network entry](../forge/runs/local-network-entry-20261014/verification.json) and [phone confirmation](../forge/runs/local-network-entry-20261014/phone-confirmation.json) | Automated/HTTP evidence covers the narrow public-shell navigation exception and continued private-route denial. The owner confirmed the public login page opened on a physical iPhone. Authenticated mobile consultation/provider behavior is outside that observation. The first rejected phone request was not captured, so its cause remains unproven. The later confirmation records diagnostic cleanup and a normal-server health check. |
+
+The October presentation receipts preserve the then-existing development-plan
+`migration_required` limitation. Original checker passes and hashes remain dated
+toolchain evidence; document reconciliation or unit-metadata migration cannot
+retroactively supply product acceptance. Consult the current plan/manifest reports
+for the outcome of the present reconciliation.
+
+The [17 October reconciliation record](../forge/runs/sdd-reconciliation-20261017/verification.json)
+separately records document checks, unit-contract migration, preserved baseline
+and historical evidence, instruction setup, independent review and limitations.
+Its [fresh SDD audit](../forge/runs/sdd-reconciliation-20261017/final-audit.json)
+validates the declared documentation and metadata; it does not run product tests
+or establish runtime, security or release acceptance. The revised plan awaits a
+separate later implementation prompt.
+
+Native-browser behavior, physical audio and microphone use, complete authenticated
+cross-device tasks, exact selected-provider execution, representative-owner tasks,
+assistive-technology observations and release decisions retain their individual
+evidence requirements. A public login-page observation closes only that named
+entry observation.
+
+## Historical reports
+
+The reports below retain their original wording, counts, source commits and
+observations. Words such as “current,” “now,” “unverified” and “not implemented”
+refer to each report's original scope/date. In particular, the original 83-check
+counts and U-09 planning pause are historical records, not the current formal
+index or a new implementation gate. Later evidence is indexed above without
+rewriting these reports or their receipts.
+
+## Safari sound and long Claude context repair · 23 September 2026
+
+The [sound runtime receipt](../forge/runs/sound-media-playback-20260923/runtime-verification.json) binds the replacement of Web Audio with one persistent native media element. The accepted Knock recording and generated Chime/Ripple remain unchanged. A finite silent gesture primer authorizes that same element; Preview restores the saved source, and Off, disposal and Logoff cancel playback and release sources. In the affected native Safari tab, the former AudioContext was running despite the owner's report that Preview and incoming sounds were silent. The replacement Preview completed with zero AudioContexts, one unmuted media element, volume 0.85 and ready status. The owner has not yet confirmed physical audibility; browser completion is not proof of speaker output.
+
+All integrated browser suites passed in Chromium, Firefox, WebKit and installed Chrome with isolated synthetic records. Delayed tests now wait inside the page and capture expired transient activation at the actual native play call, avoiding Playwright evaluation's implicit activation. Checks cover a cold held sound asset, repeated playback on one element, saved/unsaved sound separation, incoming notifications, duplicate suppression, explicit denial recovery, Off and Logoff cancellation. Physical iPhone/iPad audibility and background behavior remain unverified.
+
+The [Claude context runtime receipt](../forge/runs/claude-context-transport-20260923/runtime-verification.json) records the separate cause of the misleading model-unavailable message: a valid long discussion exceeded the adapter's former 128 KiB guard before any Claude invocation. Complete UTF-8 input now travels through stdin under a 1 MiB bound covering current accepted context limits; no dynamic consultation prompt appears in process arguments. A genuinely oversized request receives a distinct size message. Exact models, reasoning choices, subscription authentication, tool restrictions, cancellation and saved discussion are preserved.
+
+A real public synthetic adapter request sent 145,669 bytes through stdin using the existing native subscription and exact `claude-opus-5-5` / `high`. Claude Code 2.1.280 returned that exact model and the expected response. The probe made one inference and transmitted no private application conversation. Focused regressions verify complete multilingual bytes and EOF, pipe failures, blocked-writer cancellation, initial/retry size bounds and truthful error classification.
+
+Node 24.16.0 passed 210 of 212 tests with zero failures and two Windows-only skips. SDD owner checks, implementation gate and audit passed; all 83 formal QA checks remain `not_run` and six release gates remain `not_evaluated`. The page refresh for sound occurred only after the earlier consultation had failed and the composer had no unsent text or images; the saved discussion and sign-in survived. The later server update also verified zero active consultations and unchanged conversation, message, attachment, run, request, settings, instruction and workspace-configuration content. HTTPS health and current sound bytes passed with the existing CA verified on loopback and the private LAN interface from the same computer. The repair submitted neither Retry nor a new message, and changed no saved settings or provider credentials. A later read-only metadata check found the discussion already resumed: 14 new confirmed Critic responses using exact Opus 5.5 / high and no new System failure since the update. The task was still active, so this establishes successful recovery of the Critic route, not a completed consultation outcome.
+
+The [cross-platform CI run](https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35790335367) passed all eight jobs at `d760c658b2feede2f34dc1f330cbb93d602912c0`: Linux, macOS and Windows on Node 22/24; Chromium, Firefox and WebKit on Linux; installed Edge on Windows. The receipts preserve earlier failed attempts, browser-fixture synchronization changes and the unchanged successful retries. Runtime and test hashes match that verified revision; the following receipt update changes documentation only. No further restart or interaction with the active consultation was performed.
+
+## Claude native subscription sign-in repair · 22 September 2026
+
+The [scoped runtime receipt](../forge/runs/claude-signin-20260922/runtime-verification.json) binds this correction. NanoDuck now recognizes ordinary native Claude Code subscription login, while retaining explicit isolated-token mode. Fresh first-party subscription checks precede every model invocation; API/Console/third-party routes and unexpected returned model identities fail closed. Native credential discovery preserves the CLI-owned home/config identity. Restricted startup suppresses user/project customizations; administrator policy remains a trusted-host assumption, not an isolation guarantee.
+
+The owner completed the official `npm run claude:login` flow. One real application-adapter invocation requested `claude-opus-5-5` / `medium` and returned that exact model identity with the expected public synthetic response. No private application conversation/store was used by that probe; temporary command directories were removed. This is native subscription execution evidence on macOS, not an entitlement guarantee for other models, accounts or platforms.
+
+Node 24.16.0 passed 202 of 204 tests with zero failures and two Windows-only skips. Full browser suites passed in Chromium, Firefox, WebKit and installed Chrome. New fixtures cover status-specific failures, recovery through Check connection, failed requests, independent provider drafts, edits made during a pending check and zero unintended settings saves. These isolated fixtures use synthetic Claude capability responses; the real adapter check above supplies separate provider evidence.
+
+The local server was restarted with zero active consultations. A successful restart comparison preserved conversation, message, attachment, run, request, settings and instruction content; HTTPS health and current client bytes passed on loopback and the private LAN interface with the existing CA verified. In the actual local Safari session, Check connection displayed “Claude Code is connected,” the Critic accepted Claude Code, and its model menu offered Opus 5 and Opus 5.5. The original selection was restored without saving. No physical mobile-device test is claimed. SDD owner checks, implementation gate and audit passed; all 83 formal QA checks remain `not_run` and six release gates remain `not_evaluated`.
+
+The [cross-platform CI run](https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35780853227) passed all eight jobs at `101bbe831ab981b8443fe8176462d60682ac40bd`: Linux, macOS and Windows on Node 22/24; Chromium, Firefox and WebKit on Linux; installed Edge on Windows. Runtime/test hashes still match that verified revision; this receipt update changes documentation only.
+
+## Additional GPT-6 Sol choice · 22 September 2026
+
+The [scoped runtime receipt](../forge/runs/gpt-6-sol-20260922/runtime-verification.json) binds the source snapshot for exact `gpt-6-sol` in Head/shared-specialist and Codex Critic Settings. Codex `0.155.1` exposes that model with `low`, `medium`, `high`, `xhigh`, `max` and `ultra`; the older package did not report it. Existing Astra/xhigh defaults and saved preferences remain intact. Unit checks cover exact model/effort validation, rejection when the model is missing, independent provider preferences and exact adapter parameters. Node 24.16.0 passed 198 of 200 tests with zero failures and two Windows-only skips. SDD owner checks, implementation gate and audit passed; the 83 formal QA checks remain `not_run` and six release gates remain `not_evaluated`.
+
+A bounded real invocation through `createCodexProvider(loadConfig()).invoke` requested `gpt-6-sol` / `medium` using the existing subscription. The protocol returned exact `gpt-6-sol`, and the synthetic public response matched the expected answer. This was one model invocation with research disabled and zero web actions; no private conversation or application store was accessed. Temporary authorization workspaces were removed.
+
+Full browser checks passed in Chromium, installed Chrome, Firefox and WebKit. They cover independent Head/Critic selection, six model-specific efforts, repeated saves without reload, switching Critic between Codex and a synthetic Claude catalog while preserving both choices, accepted-run snapshot preservation, and disabled missing-catalog models and saved efforts. Missing saved efforts remain visibly selected until the owner chooses a supported alternative; loading Settings never substitutes one. The provider-switch and repeated-save checks also protect two corrected settings bugs. The receipt records browser results, fixture synchronization changes and CI status. Claude switching uses synthetic capability evidence and does not establish real Claude availability or execution.
+
+The [cross-platform CI run](https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35771823926) passed all eight jobs at `ad63943894e2e97df6ef82a4e9a28b4e25b675ea`: Linux, macOS and Windows on Node 22/24; Chromium, Firefox and WebKit on Linux; installed Edge on Windows. All runtime and test hashes still match that verified revision; the following documentation receipt changes no runtime behavior.
+
+The local server was restarted with no active consultation. An in-memory comparison confirmed unchanged conversations, messages, attachments, runs, settings and instruction content. HTTPS health and current application assets passed with the existing CA verified on loopback and the private LAN interface from the same computer. Native desktop Safari could not be rechecked because the Mac was locked; automated WebKit evidence is recorded separately. No physical mobile-device check or saved model change is claimed.
+
+## Browser audio, live research and Opus 5.5 correction · 22 September 2026
+
+The [scoped runtime receipt](../forge/runs/browser-research-claude-20260922/runtime-verification.json) binds the tested source snapshot. Node 24.16.0 (`npm run check`) and Node 22.23.2 (`node scripts/test.mjs`) each passed 195 of 197 tests, with zero failures and two Windows-only skips. The artifact checker and SDD audit passed. The 83 formal QA definitions remain not_run and six release gates remain not_evaluated.
+
+Integrated application checks passed in Chromium, installed Chrome, Firefox and WebKit using isolated synthetic records. Native AudioContext checks cover a gesture-resumed output context, completed zero-buffer priming despite a delayed sound download, decoded Knock/Chime/Ripple playback after transient activation expires, unsaved Preview isolation, suspension/recovery, Off and disposal. The existing application checks also passed for incoming-message detection, duplicate suppression, visible blocked recovery, composer/Stop, retained drafts/images, retry, history and Logoff. The Knock v5 file is unchanged.
+
+Actual Safari 27.0 opened the local application and reported its Settings preview. A separate public-audio-only fixture in that native browser completed one trusted-click prime followed seven seconds later by Knock playback. After the owner unlocked the Mac, the final audio revision passed that native test again, the temporary fixture was closed, and the restarted local app opened the retained completed consultation with its input controls available. This is bounded desktop evidence: physical iPhone/iPad speaker audibility, silent-switch/background behavior and the owner's unspecified second Safari symptom remain unverified. Desktop engines do not establish those results.
+
+The research regression reproduces the false classification of valid calendar deadlines as contact numbers and verifies that all eligible consultant invocations retain live research and the unchanged question. Actual phone numbers, email, invalid date-like numbers and other sensitive-context controls remain protected. Separately, a public-only real Codex `gpt-6-astra` / `xhigh` app-server protocol probe observed two completed web actions: search and page open against an official Node.js source. It used the existing subscription, production tool restrictions and an isolated temporary workspace; it did not transmit the owner's consultation or write application records. It verifies working search capability through the app-server protocol, not a complete adapter invocation or a rerun of the earlier completed consultation. Coordinator and adapter regressions use synthetic fixtures.
+
+Claude Code 2.1.280, exact Opus 5/5.5 model IDs, all five efforts, returned-model identity checks and explicit text-only tool restrictions passed focused tests. CLI/package and official model documentation were inspected. No Claude subscription token is configured in the running server, so real Claude authorization, per-model entitlement and execution remain unverified; saved Codex choices were preserved.
+
+The local server was restarted only after confirming no active consultation. An in-memory comparison confirmed unchanged conversation, message, run, settings and instruction content. HTTPS health and current asset bytes passed on loopback and a private LAN interface with the existing CA verified. This same-computer LAN request does not replace a second physical device test. No password, trust store or provider credential was changed. The final [cross-platform CI run](https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35768691897) passed all eight jobs at `5f1a51e4df84f81ce7ff8a0c8d7ab4508f1f11d0`: Linux, macOS and Windows on Node 22/24; Chromium, Firefox and WebKit on Linux; installed Edge on Windows. Follow-up changes provision a native virtual audio output on the Linux runner, allow less than 0.01 CSS pixel rounding for square Stop geometry, and require a trusted natural audio ended event before any stop request instead of equating render-clock deltas with buffer duration. Actual audio playback remains required. The application runtime matches the original source snapshot; the receipt records the changed verification hashes and earlier failed attempts.
+
+## Composer and incoming sound correction · 22 September 2026
+
+The [scoped runtime receipt](../forge/runs/composer-sound-20260922/runtime-verification.json) binds the original runtime/test snapshot and the final CI verification to this correction. On macOS, Node 24.16.0 (`npm run check`) and Node 22.23.2 (`node scripts/test.mjs`) each passed 173 of 175 tests, with zero failures and two Windows-only skips. The artifact checker passed 23 Markdown files, 77 JavaScript syntax checks and three retained candidates.
+
+Integrated application checks passed in installed Chrome, Chromium, Firefox, WebKit. These are real automated browser runs with isolated synthetic application records. They cover the hidden active composer, a square Stop separated from Send and reachable across consultation tabs and scrolling, Stop/Continue with draft and image preservation, restoration after failure/completion, and rejection of a stale active polling response after Stop. Existing consultation, retry, refresh, history and Logoff privacy regressions also passed. The final [cross-platform CI run](https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35763059239) passed all eight jobs at `be15b9f062fb141c1732c493f1f20854e5a747e8`: Linux, macOS and Windows on Node 22/24; Chromium/Firefox/WebKit on Linux; and installed Edge on Windows. The harness waits for New to load its empty record before sending another fixture, bounds its test phases and reports intercepted-request failures. Application runtime bytes match the originally tested correction; the receipt records the changed test hashes and the earlier inconclusive Edge stall.
+
+Sound checks verified saved preferences on entry without Settings, silence for saved Off and duplicate/history/owner/System events, and delayed native media playback on one reused player. Browser autoplay denial was explicitly simulated to verify visible recovery; Enable sound then used real playback. The exact accepted Knock v5 recording remains unchanged. Native media playback and decoding do not establish physical iPhone/iPad audibility, device mute behavior or background delivery; those and native Safari remain unverified.
+
+The already-running local server returned matching current public assets over HTTPS validated against its existing local CA. It was not restarted, and this check read no private conversation, changed no private state and made no real provider call. Browser refresh and listening on the owner's device remain separate observations.
+
+The SDD audit and implementation gate passed for the reconciled scoped override. All 83 formal QA checks remain prepared/not_run and six release gates remain not_evaluated; this evidence does not replace their complete manual, device or representative-user criteria. Earlier cross-platform results below remain dated evidence for their identified revision.
+
+## Earlier local application refactor
+
+The local application passed the [cross-platform application checks](https://github.com/Ingwarski/NanoDuck-AI-Consulting/actions/runs/35731160632) at runtime commit `34966f398944e1daebed7d185f25a2b00538b6eb`. All six Linux, macOS and Windows jobs passed on Node 22 and 24. Platform-specific skips are recorded explicitly:
+
+| CI operating system | Node | Passed / total | Skipped |
+|---|---|---|---|
+| Linux | 22 | 166 / 168 | 2 |
+| Linux | 24 | 166 / 168 | 2 |
+| macOS | 22 | 166 / 168 | 2 |
+| macOS | 24 | 166 / 168 | 2 |
+| Windows | 22 | 159 / 164 | 5 |
+| Windows | 24 | 159 / 164 | 5 |
+
+The artifact checker passed 23 Markdown files, 73 JavaScript syntax checks, three active candidates, links and static references. Local macOS Node 22.23.2 and 24.16.0 runs each reported 168 tests: 166 passed, zero failed and two Windows-only skips. The [runtime receipt](../forge/runs/local-refactor-20260922/runtime-verification.json) binds the exact source snapshot and detailed results; job counts differ because platform-specific subtests apply on different systems.
+
+Integrated automated flows passed in Chromium, Firefox and WebKit on Linux, installed Edge on Windows, and installed Chrome locally. They exercised local password, per-session consent, a complete synthetic consultant/Critic discussion, lost-response retry while editing a draft with an attached image, Outcome, reload, saved history, Settings save, explicit unavailable usage, no unused-provider warning, 390px layout without overflow, the voice dialog/typing fallback and connected/offline Logoff. Offline Logoff immediately cleared private content, blocked delayed responses, kept reload locked until confirmed revocation and prevented browser Back from revealing private content. Incomplete session responses and unexpected logout responses did not clear the lock. These use the actual application with synthetic provider subprocesses and establish neither real provider behavior nor microphone recognition.
+
+Tests also covered bounded PNG/JPEG/WebP container validation with real encoder samples, progressive JPEG and animated WebP; encrypted persistence, private permissions and single-process ownership; and offline backup/restore with absent TLS files, preserved deletion decisions and active-process refusal. Structural acceptance does not establish full pixel-decoder validity or malware safety. HTTPS login through an actual private LAN interface used a client on the same physical computer. Node HTTPS clients verified the exact generated CA; automated browser profiles ignored certificate errors, and no trust store was changed.
+
+The security and CodeQL runs linked in the receipt passed, and the observed open code-scanning, dependency and secret-alert counts were zero. These are scoped automated findings, not a complete security-assurance claim.
+
+The [SDD audit](../forge/runs/local-refactor-20260922/sdd-audit.json) and implementation gate pass for 13 current documents, 60 requirements, 17 security clauses, nine surfaces and 44 states. All 83 formal QA checks remain prepared/not_run and six release gates remain not_evaluated: automated results support relevant checks without satisfying every required observation. Frozen Electric A v8 remains limited visual evidence.
+
+Native Safari, separate physical Wi-Fi devices, physical mobile/microphone use, per-device certificate trust installation, real provider entitlement/consultations, representative-owner tasks and assistive-technology observations remain unverified. Browser engines and emulated viewport sizes do not replace those results.
+
+## Codex progress deadline repair — 24 September 2026
+
+The local incident log identified `provider_timeout` in public research and a specialist position. The former fixed 540,000 ms wall-clock cutoff was mapped to the generic route-unavailable message. Earlier diagnostics did not retain activity counts, so continued progress at those historic cutoffs cannot be established.
+
+`npm run check` passed artifact/syntax checks and 166 tests, with two existing tests skipped and zero failures. New adapter tests use shortened injectable deadlines to prove that matching-turn progress survives the inactivity window, wrong-turn progress does not, and endless matching activity still reaches the independent absolute ceiling. Timer-disposal tests cover cleanup; coordinator tests cover distinct timeout feedback, exact model/effort preservation and Retry without repeated Head tasks or lost confirmed messages. These are synthetic duration tests, not a real thirty-minute provider run.
+
+`node scripts/browser-check.mjs --engine=webkit` passed its isolated authenticated browser suite, including saved settings, active Stop, consultation, acceptance retry, outcome, history and recovery. A separate content-free live subscription call through the production Codex adapter with `gpt-6-sol` / `max` completed successfully in approximately six seconds. This establishes current route connectivity, not completion of the owner's failed consultation. No private owner prompt was submitted by the probe.
+
+After confirming zero active consultations, the local server was gracefully restarted with the corrected adapter. Its HTTPS health endpoint returned HTTP 200 using the workspace CA for certificate verification. Existing conversation records, saved settings and provider grants were preserved. The failed conversation remains available for explicit Retry. SDD owner checks and the implementation gate passed; the approved visual baseline was unchanged. Other operating systems and physical phone browsers were not rerun for this backend correction.
+
+## P5 Porcelain Stop — 24 September 2026
+
+The isolated WebKit and Chromium browser suites passed with the P5 face: 38 px desktop and 32 px mobile height, shared 7 px avatar corners, and a 44 px transparent hit area. Cancellation passed when clicking 3 px above the visible face. Existing active-run scroll visibility, late-poll fencing and draft restoration checks also passed. Desktop and mobile screenshots were visually inspected. This verifies automated WebKit and Chromium with synthetic providers, not physical Safari/iPhone interaction. The artifact checker passed; SDD owners reconciled the scoped correction while preserving frozen Electric A v8 evidence.
+
+## Parallel consultation planning — 24 September 2026
+
+U-09 in the development plan is prepared, not implemented. All 13 SDD owner documents were reconciled; the pipeline checker audit passed with no issues or warnings. Seven new checks (QA-R61–QA-R67) cover dynamic roles/tasks, parallel execution, nonduplicated context, Critic-order resolution, selected depth, efficiency evidence and recovery. Their execution status is not_run; earlier sequential-consultation results do not verify these changes. The artifact checker and diff whitespace checks passed. No production source, runtime instructions, private state or running server was changed. The revised plan awaits a separate implementation prompt; frozen Electric A v8 and P5 evidence remain intact.

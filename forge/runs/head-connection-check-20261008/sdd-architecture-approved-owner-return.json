@@ -1,0 +1,20 @@
+{
+  "invocation_id": "head-connection-check-20261008-742062612927-architecture-approved",
+  "node": "architecture-approved",
+  "returned_at": "2026-10-08T14:36:52.512021+00:00",
+  "outputs": {
+    "architecture": {
+      "path": "docs/architecture.md",
+      "content_hash": "8254e2e348bb85b9a6b4064d6de7bb95260a199eadfa6632b5e9add6a4bd30ff",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "head-connection-scoped-document-review",
+        "reviewed_at": "2026-10-08T14:36:52.480846+00:00",
+        "executor": "Codex inline to-architecture",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      }
+    }
+  },
+  "evidence_limit": "Document definitions only; actual product checks belong to the root's separately inspected evidence."
+}

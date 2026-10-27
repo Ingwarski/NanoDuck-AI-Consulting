@@ -1,0 +1,39 @@
+{
+  "recorded_at": "2026-10-08T13:50:43.099199+00:00",
+  "kind": "compact_owner_metadata_delta",
+  "prior_git_commit": "6d6478bba379bc47d7b39fce9bb52b43cd0c16cc",
+  "prior_manifest_path": "forge/sdd-manifest.json",
+  "artifacts": {
+    "dod-evals": {
+      "owner_invocation_id": "glass-chat-controls-20261008-b72cd48cba57-dod-evals-approved",
+      "content_hash": "c31804e680531cad85e2441045ca859f3424886989f9be57e49c0fdb8afa42fe",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "glass-controls-scoped-document-review",
+        "reviewed_at": "2026-10-08T13:18:19.202932+00:00",
+        "executor": "Codex inline to-dod-evals",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      },
+      "prior_dispatch_invocation_id": "glass-chat-controls-20261008-b72cd48cba57-dod-evals-approved",
+      "changed_source_hashes": {
+        "docs/prd.md": {
+          "before": "0e68dc529902dd30367e07f50dad7cf77a051f6d5943c33d3809f482515c1f7b",
+          "after": "0eee53c36dfac2a04f10a6f4fa08f97382b01852ba4bfe3b4626b7739900bbc3"
+        },
+        "docs/wireframes.md": {
+          "before": "6a55b0d5863a64d8dbc680ff09fe1c22d42041bb7b1269aa201dc3ec4fc44d8f",
+          "after": "9efccc68fcc34ec0d95793b836c2779f4a8e78cb5bf66b90d9828a5a8095a9b7"
+        },
+        "docs/design-brief.md": {
+          "before": "3b0a8a5f8c0c6f2cb9da1c6d3dcc1b6e657b373a5d9106c4ac8b827020514a82",
+          "after": "a91cc3e8069cbce099b0ebf7b03f514800b3e3181151118cf5f01578145e473e"
+        },
+        "docs/architecture.md": {
+          "before": "de94ca48ca6e4b2f93ff4f875725c790c91fac6a2f4a08e0e3d8648529f5c641",
+          "after": "585a51e2316f49678f6df498a8f547e1b83a2988e7fd12f26c362d6d887d550a"
+        }
+      }
+    }
+  }
+}

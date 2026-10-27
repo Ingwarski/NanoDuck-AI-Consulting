@@ -1,0 +1,7 @@
+# Preserve source and frozen SDD hashes across macOS, Linux and Windows checkouts.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.wav binary

@@ -1,0 +1,31 @@
+{
+  "recorded_at": "2026-10-08T14:46:57.976959+00:00",
+  "kind": "compact_owner_metadata_delta",
+  "prior_git_commit": "36f9165142eba0931f6c0cc35a0eaad6aa6d921f",
+  "prior_manifest_path": "forge/sdd-manifest.json",
+  "prior_owner_return": {
+    "path": "forge/runs/head-connection-check-20261008/sdd-user-journey-owner-return.json",
+    "content_hash": "6432ed9d06c5b004a1fea97dec63659be866643de14f9a1c188e2b2ffab971e1"
+  },
+  "artifacts": {
+    "user-journey": {
+      "owner_invocation_id": "head-connection-check-20261008-742062612927-user-journey",
+      "content_hash": "e37e4813947b0347b4240e7be81c69b94d47b156732c2542cefd32bc0cbb398b",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "head-connection-scoped-document-review",
+        "reviewed_at": "2026-10-08T14:36:50.416768+00:00",
+        "executor": "Codex inline to-user-journey",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      },
+      "prior_dispatch_invocation_id": "head-connection-check-20261008-742062612927-user-journey",
+      "changed_source_hashes": {
+        "docs/prd.md": {
+          "before": "5b9afb24bcf0ed61495302d6e7bc615f5ff994b8cd6a6df3b41cc0f2143e4e6b",
+          "after": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4"
+        }
+      }
+    }
+  }
+}

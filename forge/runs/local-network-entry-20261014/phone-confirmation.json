@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "event": "physical_iphone_public_entry_confirmed",
+  "recorded_at": "2026-10-14T16:50:18.216794+00:00",
+  "source": "Owner reply in the active conversation after refreshing the local Wi-Fi address.",
+  "owner_report": "Відкрилася сторінка входу",
+  "observed_request": {
+    "tls": true,
+    "privatePeer": true,
+    "hostAllowed": true,
+    "origin": "absent",
+    "site": "none",
+    "mode": "navigate",
+    "destination": "document",
+    "allowed": true
+  },
+  "scope": "Public login-page entry on the physical iPhone only. This does not establish authenticated consultation or provider behavior.",
+  "causality_limit": "The initial rejected phone request was not captured; do not infer its rejection reason from the successful later request.",
+  "diagnostic_cleanup": "Stopped the task-owned diagnostic server gracefully, removed its verified private preloader and both diagnostic logs, and restarted the normal entrypoint without instrumentation.",
+  "normal_server_health": "HTTPS /healthz verified against the existing local CA: HTTP 200."
+}

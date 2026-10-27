@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "event": "explicit_existing_change_correction",
+  "role": "user",
+  "recorded_at": "2026-09-22T21:42:36.304228+00:00",
+  "timestamp_basis": "Tool-recording time; original user-message transport timestamp is unavailable.",
+  "source": "Current explicit screenshot-error repair request relayed by the root operator to this delegated implementation/SDD owner.",
+  "message_summary": "Fix the Claude Code model/reasoning unavailable error shown in the current consultation.",
+  "reported_error": "The selected Claude Code model and reasoning configuration is unavailable on this route. Your question remains saved.",
+  "scope": "Repair the local prompt-size rejection and portable full-context transport without changing selected models, reasoning, subscription authorization or saved consultation data.",
+  "standing_constraints": [
+    "Do not interrupt, stop, reload or restart an active consultation.",
+    "After a terminal run, idle activation must separately verify no active run, no unsent draft or attachments, and preserved saved records/settings.",
+    "Keep exact model/effort choices, text-only tool denial, native/explicit-token authentication, private data and frozen Electric A v8."
+  ],
+  "confirmed_implementation_decision": "Send the complete reconstructed UTF-8 prompt through bounded child stdin, not argv; allow up to 1 MiB including retry text. Preserve existing consultation context construction. Categorize local input overflow separately from model compatibility.",
+  "evidence_limits": [
+    "The read-only diagnosis observed the local 128 KiB guard could reject the saved context before any CLI invocation; no private text is copied into this receipt.",
+    "Focused tests and a public synthetic exact-model adapter probe are separate runtime evidence, not a full consultation or formal release pass.",
+    "Current server activation and physical sound audibility remain separately evidenced by the root operator."
+  ]
+}

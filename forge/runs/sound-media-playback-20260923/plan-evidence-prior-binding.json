@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-09-22T21:30:02.858767+00:00",
+  "scope": "Preserve plan/source binding before making old scoped evidence limits date-specific.",
+  "artifact": {
+    "path": "docs/development-plan.md",
+    "owner_skill": "to-development-plan",
+    "owner_invocation_id": "sound-media-playback-20260923-development-plan",
+    "declared_output_set": [
+      "docs/development-plan.md"
+    ],
+    "source_version": "sound-media-playback-20260923-development-plan",
+    "source_usage": {
+      "docs/prd.md": "full",
+      "docs/project-context.md": "full",
+      "docs/canonical-terms.md": "full",
+      "docs/guardrails.md": "full",
+      "docs/user-journey.md": "full",
+      "docs/screen-map.md": "full",
+      "docs/wireframes.md": "full",
+      "docs/design-brief.md": "full",
+      "docs/architecture.md": "full",
+      "docs/dod-evals.md": "full",
+      "docs/qa-checklist.md": "full",
+      "docs/model-settings.md": "full",
+      "package.json": "full"
+    },
+    "source_hashes": {
+      "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
+      "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
+      "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
+      "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
+      "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
+      "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
+      "docs/wireframes.md": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
+      "docs/design-brief.md": "fb1581811b291051e2315404c0c8bc00da2043e2949e4ada783fb2289a0ae421",
+      "docs/architecture.md": "5b2790bbb56ca31d5f2152804217efeca57e299339f747aa6a6cbc3639f7c8f8",
+      "docs/dod-evals.md": "fd73d395eaddbd975420f6a73371bad428269508aa100c31b0a60136f294f59a",
+      "docs/qa-checklist.md": "50472771ae215279ad7659a3ea44e6f095917c90adb7657cb49cd64bb8f9a7eb",
+      "docs/model-settings.md": "c58fed0a9606f231ac8086c669b859cb58e372efdcd538ed2fee33cb091c8ecc",
+      "package.json": "094e408c16c3a8369b9f21a343bb562dc0cd20160e26b6c01f144bd83712a568"
+    },
+    "content_hash": "5fc4b3fe829f46f2678de414e950abd12c3694a0dd70c50fdf8219c79cebfa21",
+    "validation": {
+      "result": "passed",
+      "working_language": "en",
+      "kind": "persistent-media-audio-owner-reconciliation",
+      "reviewed_at": "2026-09-22T21:28:59.311148+00:00",
+      "executor": "Codex inline to-development-plan",
+      "scope": "Replace the existing sound mechanism with one persistent media element while preserving exact assets/preferences and the uninterrupted live consultation. Playback events are not audibility proof; no runtime result or formal QA pass is inferred."
+    },
+    "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
+  },
+  "dispatch": {
+    "invocation_id": "sound-media-playback-20260923-development-plan",
+    "outputs": [
+      "docs/development-plan.md"
+    ],
+    "source_hashes": {
+      "docs/prd.md": "852b9ae81d6f77610968c5a7bef57e0325bcfa6774e3b7482d73c3fba327c6a5",
+      "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
+      "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
+      "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
+      "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
+      "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
+      "docs/wireframes.md": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
+      "docs/design-brief.md": "fb1581811b291051e2315404c0c8bc00da2043e2949e4ada783fb2289a0ae421",
+      "docs/architecture.md": "5b2790bbb56ca31d5f2152804217efeca57e299339f747aa6a6cbc3639f7c8f8",
+      "docs/dod-evals.md": "fd73d395eaddbd975420f6a73371bad428269508aa100c31b0a60136f294f59a",
+      "docs/qa-checklist.md": "50472771ae215279ad7659a3ea44e6f095917c90adb7657cb49cd64bb8f9a7eb",
+      "docs/model-settings.md": "c58fed0a9606f231ac8086c669b859cb58e372efdcd538ed2fee33cb091c8ecc",
+      "package.json": "094e408c16c3a8369b9f21a343bb562dc0cd20160e26b6c01f144bd83712a568"
+    }
+  },
+  "implementation_gate": {
+    "state": "authorized_for_phase3",
+    "development_plan_hash": "5fc4b3fe829f46f2678de414e950abd12c3694a0dd70c50fdf8219c79cebfa21",
+    "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
+    "awaiting_at": "2026-09-14T20:13:37+03:00",
+    "prompt_id": "sound-media-playback-20260923",
+    "prompt_received_at": "2026-09-22T21:28:56.017322+00:00",
+    "released_at": "2026-09-22T21:28:59.702938+00:00",
+    "product_scope_hash": "defc5e24f0dd91be42b984888b157137f4f1ed361459e70f42b832e18c957bd4",
+    "prompt_receipt": {
+      "path": "forge/runs/sound-media-playback-20260923/implementation-prompt.json",
+      "content_hash": "8292b6649381ffac540da6ec91821e1835e3d97e3dccdfb1ee454a87a3d31b5b"
+    },
+    "reason": "The explicit request authorizes the existing sound repair while preserving the current consultation, saved choices and frozen design; no current-tab reload or server restart."
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "unit": "U-12",
+  "baseline": "bbef4bd",
+  "checks": {
+    "node": {
+      "total": 216,
+      "passed": 214,
+      "skipped": 2,
+      "failed": 0
+    },
+    "browsers": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ]
+  },
+  "measurementMethod": "Identical corrected harness using current buildProviderContext. Baseline coordinator and consultation module loaded from bbef4bd; other fixtures and shared modules held constant.",
+  "limits": [
+    "Synthetic workload bytes are not measured tokens",
+    "Single nonrandomized live sample; cache/search variability uncontrolled",
+    "No subscription-cost inference",
+    "Whole-product release readiness remains not_evaluated",
+    "No private consultation replay"
+  ]
+}

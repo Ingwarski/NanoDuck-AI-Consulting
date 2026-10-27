@@ -1,0 +1,2411 @@
+{
+  "recorded_at": "2026-10-08T13:18:15.218075+00:00",
+  "kind": "superseded_owner_metadata",
+  "artifacts": {
+    "prd": {
+      "traceability": {
+        "definitions": [
+          {
+            "id": "UC-001",
+            "kind": "use_case",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### UC-001 — Sign in and return"
+            }
+          },
+          {
+            "id": "UC-002",
+            "kind": "use_case",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### UC-002 — Consult and decide"
+            }
+          },
+          {
+            "id": "UC-003",
+            "kind": "use_case",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### UC-003 — Steer, stop and continue"
+            }
+          },
+          {
+            "id": "UC-004",
+            "kind": "use_case",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### UC-004 — Inspect and control the record"
+            }
+          },
+          {
+            "id": "UC-005",
+            "kind": "use_case",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### UC-005 — Set preferences and understand limits"
+            }
+          },
+          {
+            "id": "UC-006",
+            "kind": "use_case",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### UC-006 — Dictate and review"
+            }
+          },
+          {
+            "id": "UC-007",
+            "kind": "use_case",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### UC-007 — Research and evaluate a claim"
+            }
+          },
+          {
+            "id": "FR-01.1",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Access"
+            }
+          },
+          {
+            "id": "FR-01.2",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Access"
+            }
+          },
+          {
+            "id": "FR-02.1",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "id": "FR-02.2",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "id": "FR-02.3",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "id": "FR-02.4",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "id": "FR-02.5",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "id": "FR-02.6",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "id": "FR-02.7",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "id": "FR-02.8",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "id": "FR-03.1",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Discussion and control"
+            }
+          },
+          {
+            "id": "FR-03.2",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Discussion and control"
+            }
+          },
+          {
+            "id": "FR-03.3",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Discussion and control"
+            }
+          },
+          {
+            "id": "FR-03.4",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Discussion and control"
+            }
+          },
+          {
+            "id": "FR-03.5",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Discussion and control"
+            }
+          },
+          {
+            "id": "FR-03.6",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Discussion and control"
+            }
+          },
+          {
+            "id": "FR-04.1",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Research"
+            }
+          },
+          {
+            "id": "FR-04.2",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Research"
+            }
+          },
+          {
+            "id": "FR-04.3",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Research"
+            }
+          },
+          {
+            "id": "FR-05.1",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Settings and limits"
+            }
+          },
+          {
+            "id": "FR-05.2",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Settings and limits"
+            }
+          },
+          {
+            "id": "FR-05.3",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Settings and limits"
+            }
+          },
+          {
+            "id": "FR-05.4",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Settings and limits"
+            }
+          },
+          {
+            "id": "FR-05.5",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Settings and limits"
+            }
+          },
+          {
+            "id": "FR-06.1",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### History"
+            }
+          },
+          {
+            "id": "FR-06.2",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### History"
+            }
+          },
+          {
+            "id": "FR-06.3",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### History"
+            }
+          },
+          {
+            "id": "FR-07.1",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Voice"
+            }
+          },
+          {
+            "id": "FR-07.2",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Voice"
+            }
+          },
+          {
+            "id": "FR-07.3",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Voice"
+            }
+          },
+          {
+            "id": "FR-07.4",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Voice"
+            }
+          },
+          {
+            "id": "FR-07.5",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Voice"
+            }
+          },
+          {
+            "id": "FR-08.1",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Required design behavior"
+            }
+          },
+          {
+            "id": "FR-08.2",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Required design behavior"
+            }
+          },
+          {
+            "id": "FR-08.3",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Required design behavior"
+            }
+          },
+          {
+            "id": "NFR-01.1",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Continuity and bounded work"
+            }
+          },
+          {
+            "id": "NFR-01.2",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Continuity and bounded work"
+            }
+          },
+          {
+            "id": "NFR-01.3",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Continuity and bounded work"
+            }
+          },
+          {
+            "id": "NFR-01.4",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Continuity and bounded work"
+            }
+          },
+          {
+            "id": "NFR-02.1",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Accessible browser use"
+            }
+          },
+          {
+            "id": "NFR-02.2",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Accessible browser use"
+            }
+          },
+          {
+            "id": "NFR-02.3",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Accessible browser use"
+            }
+          },
+          {
+            "id": "NFR-10.1",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-10.1 — Owner identity"
+            }
+          },
+          {
+            "id": "NFR-10.2",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-10.2 — Session control"
+            }
+          },
+          {
+            "id": "NFR-10.3",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-10.3 — Private resource authorization"
+            }
+          },
+          {
+            "id": "NFR-11.1",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-11.1 — Untrusted input and execution"
+            }
+          },
+          {
+            "id": "NFR-11.2",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-11.2 — State and resource abuse"
+            }
+          },
+          {
+            "id": "NFR-11.3",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-11.3 — Browser and HTTP boundaries"
+            }
+          },
+          {
+            "id": "NFR-12.1",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-12.1 — Restricted research reach"
+            }
+          },
+          {
+            "id": "NFR-12.2",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-12.2 — Safe attachments and browser voice"
+            }
+          },
+          {
+            "id": "NFR-12.3",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-12.3 — Bounded AI authority"
+            }
+          },
+          {
+            "id": "NFR-13.1",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-13.1 — Cryptographic protection"
+            }
+          },
+          {
+            "id": "NFR-13.2",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-13.2 — Protected transport and service identity"
+            }
+          },
+          {
+            "id": "NFR-14.1",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-14.1 — Private data classification and transfer"
+            }
+          },
+          {
+            "id": "NFR-14.2",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-14.2 — Client and voice privacy"
+            }
+          },
+          {
+            "id": "NFR-14.3",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-14.3 — Retention, deletion and restore"
+            }
+          },
+          {
+            "id": "NFR-15.1",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-15.1 — Secure delivery and maintenance"
+            }
+          },
+          {
+            "id": "NFR-16.1",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-16.1 — Useful protected evidence"
+            }
+          },
+          {
+            "id": "NFR-16.2",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-16.2 — Secure degraded operation"
+            }
+          },
+          {
+            "id": "FR-05.6",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Settings and limits"
+            }
+          },
+          {
+            "id": "FR-02.9",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "id": "FR-02.10",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "id": "FR-02.11",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "id": "FR-02.12",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "id": "FR-02.13",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "id": "FR-02.14",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "id": "FR-02.15",
+            "kind": "requirement",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          }
+        ],
+        "links": [
+          {
+            "from": "UC-001",
+            "to": "JOB-003",
+            "relation": "realizes_job",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### UC-001 — Sign in and return"
+            }
+          },
+          {
+            "from": "UC-002",
+            "to": "JOB-001",
+            "relation": "realizes_job",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### UC-002 — Consult and decide"
+            }
+          },
+          {
+            "from": "UC-003",
+            "to": "JOB-002",
+            "relation": "realizes_job",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### UC-003 — Steer, stop and continue"
+            }
+          },
+          {
+            "from": "UC-004",
+            "to": "JOB-004",
+            "relation": "realizes_job",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### UC-004 — Inspect and control the record"
+            }
+          },
+          {
+            "from": "UC-005",
+            "to": "JOB-003",
+            "relation": "realizes_job",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### UC-005 — Set preferences and understand limits"
+            }
+          },
+          {
+            "from": "UC-005",
+            "to": "JOB-005",
+            "relation": "realizes_job",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### UC-005 — Set preferences and understand limits"
+            }
+          },
+          {
+            "from": "UC-006",
+            "to": "JOB-006",
+            "relation": "realizes_job",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### UC-006 — Dictate and review"
+            }
+          },
+          {
+            "from": "UC-007",
+            "to": "JOB-001",
+            "relation": "realizes_job",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### UC-007 — Research and evaluate a claim"
+            }
+          },
+          {
+            "from": "UC-007",
+            "to": "JOB-002",
+            "relation": "realizes_job",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### UC-007 — Research and evaluate a claim"
+            }
+          },
+          {
+            "from": "FR-01.1",
+            "to": "UC-001",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Access"
+            }
+          },
+          {
+            "from": "FR-01.2",
+            "to": "UC-001",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Access"
+            }
+          },
+          {
+            "from": "FR-02.1",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "from": "FR-02.2",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "from": "FR-02.3",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "from": "FR-02.4",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "from": "FR-02.5",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "from": "FR-02.6",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "from": "FR-02.7",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "from": "FR-02.8",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "from": "FR-03.1",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Discussion and control"
+            }
+          },
+          {
+            "from": "FR-03.2",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Discussion and control"
+            }
+          },
+          {
+            "from": "FR-03.3",
+            "to": "UC-003",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Discussion and control"
+            }
+          },
+          {
+            "from": "FR-03.4",
+            "to": "UC-003",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Discussion and control"
+            }
+          },
+          {
+            "from": "FR-03.5",
+            "to": "UC-003",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Discussion and control"
+            }
+          },
+          {
+            "from": "FR-03.6",
+            "to": "UC-003",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Discussion and control"
+            }
+          },
+          {
+            "from": "FR-04.1",
+            "to": "UC-007",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Research"
+            }
+          },
+          {
+            "from": "FR-04.2",
+            "to": "UC-007",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Research"
+            }
+          },
+          {
+            "from": "FR-04.3",
+            "to": "UC-007",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Research"
+            }
+          },
+          {
+            "from": "FR-05.1",
+            "to": "UC-005",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Settings and limits"
+            }
+          },
+          {
+            "from": "FR-05.2",
+            "to": "UC-005",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Settings and limits"
+            }
+          },
+          {
+            "from": "FR-05.3",
+            "to": "UC-005",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Settings and limits"
+            }
+          },
+          {
+            "from": "FR-05.4",
+            "to": "UC-005",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Settings and limits"
+            }
+          },
+          {
+            "from": "FR-05.5",
+            "to": "UC-005",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Settings and limits"
+            }
+          },
+          {
+            "from": "FR-06.1",
+            "to": "UC-004",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### History"
+            }
+          },
+          {
+            "from": "FR-06.2",
+            "to": "UC-004",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### History"
+            }
+          },
+          {
+            "from": "FR-06.3",
+            "to": "UC-004",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### History"
+            }
+          },
+          {
+            "from": "FR-07.1",
+            "to": "UC-006",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Voice"
+            }
+          },
+          {
+            "from": "FR-07.2",
+            "to": "UC-006",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Voice"
+            }
+          },
+          {
+            "from": "FR-07.3",
+            "to": "UC-006",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Voice"
+            }
+          },
+          {
+            "from": "FR-07.4",
+            "to": "UC-006",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Voice"
+            }
+          },
+          {
+            "from": "FR-07.5",
+            "to": "UC-006",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Voice"
+            }
+          },
+          {
+            "from": "FR-08.1",
+            "to": "UC-001",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Required design behavior"
+            }
+          },
+          {
+            "from": "FR-08.1",
+            "to": "UC-003",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Required design behavior"
+            }
+          },
+          {
+            "from": "FR-08.1",
+            "to": "UC-005",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Required design behavior"
+            }
+          },
+          {
+            "from": "FR-08.2",
+            "to": "UC-005",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Required design behavior"
+            }
+          },
+          {
+            "from": "FR-08.3",
+            "to": "UC-001",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Required design behavior"
+            }
+          },
+          {
+            "from": "FR-08.3",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Required design behavior"
+            }
+          },
+          {
+            "from": "FR-08.3",
+            "to": "UC-003",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Required design behavior"
+            }
+          },
+          {
+            "from": "FR-08.3",
+            "to": "UC-004",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Required design behavior"
+            }
+          },
+          {
+            "from": "FR-08.3",
+            "to": "UC-005",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Required design behavior"
+            }
+          },
+          {
+            "from": "FR-08.3",
+            "to": "UC-006",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Required design behavior"
+            }
+          },
+          {
+            "from": "FR-08.3",
+            "to": "UC-007",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Required design behavior"
+            }
+          },
+          {
+            "from": "NFR-01.1",
+            "to": "UC-003",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Continuity and bounded work"
+            }
+          },
+          {
+            "from": "NFR-01.2",
+            "to": "UC-003",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Continuity and bounded work"
+            }
+          },
+          {
+            "from": "NFR-01.3",
+            "to": "UC-003",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Continuity and bounded work"
+            }
+          },
+          {
+            "from": "NFR-01.4",
+            "to": "UC-003",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Continuity and bounded work"
+            }
+          },
+          {
+            "from": "NFR-02.1",
+            "to": "UC-001",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Accessible browser use"
+            }
+          },
+          {
+            "from": "NFR-02.1",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Accessible browser use"
+            }
+          },
+          {
+            "from": "NFR-02.1",
+            "to": "UC-003",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Accessible browser use"
+            }
+          },
+          {
+            "from": "NFR-02.1",
+            "to": "UC-004",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Accessible browser use"
+            }
+          },
+          {
+            "from": "NFR-02.1",
+            "to": "UC-005",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Accessible browser use"
+            }
+          },
+          {
+            "from": "NFR-02.1",
+            "to": "UC-006",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Accessible browser use"
+            }
+          },
+          {
+            "from": "NFR-02.1",
+            "to": "UC-007",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Accessible browser use"
+            }
+          },
+          {
+            "from": "NFR-02.2",
+            "to": "UC-001",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Accessible browser use"
+            }
+          },
+          {
+            "from": "NFR-02.2",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Accessible browser use"
+            }
+          },
+          {
+            "from": "NFR-02.2",
+            "to": "UC-003",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Accessible browser use"
+            }
+          },
+          {
+            "from": "NFR-02.2",
+            "to": "UC-004",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Accessible browser use"
+            }
+          },
+          {
+            "from": "NFR-02.2",
+            "to": "UC-005",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Accessible browser use"
+            }
+          },
+          {
+            "from": "NFR-02.2",
+            "to": "UC-006",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Accessible browser use"
+            }
+          },
+          {
+            "from": "NFR-02.2",
+            "to": "UC-007",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Accessible browser use"
+            }
+          },
+          {
+            "from": "NFR-02.3",
+            "to": "UC-001",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Accessible browser use"
+            }
+          },
+          {
+            "from": "NFR-02.3",
+            "to": "UC-006",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Accessible browser use"
+            }
+          },
+          {
+            "from": "NFR-10.1",
+            "to": "UC-001",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-10.1 — Owner identity"
+            }
+          },
+          {
+            "from": "NFR-10.2",
+            "to": "UC-001",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-10.2 — Session control"
+            }
+          },
+          {
+            "from": "NFR-10.2",
+            "to": "UC-005",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-10.2 — Session control"
+            }
+          },
+          {
+            "from": "NFR-10.3",
+            "to": "UC-001",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-10.3 — Private resource authorization"
+            }
+          },
+          {
+            "from": "NFR-10.3",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-10.3 — Private resource authorization"
+            }
+          },
+          {
+            "from": "NFR-10.3",
+            "to": "UC-003",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-10.3 — Private resource authorization"
+            }
+          },
+          {
+            "from": "NFR-10.3",
+            "to": "UC-004",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-10.3 — Private resource authorization"
+            }
+          },
+          {
+            "from": "NFR-10.3",
+            "to": "UC-005",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-10.3 — Private resource authorization"
+            }
+          },
+          {
+            "from": "NFR-10.3",
+            "to": "UC-006",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-10.3 — Private resource authorization"
+            }
+          },
+          {
+            "from": "NFR-11.1",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-11.1 — Untrusted input and execution"
+            }
+          },
+          {
+            "from": "NFR-11.1",
+            "to": "UC-004",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-11.1 — Untrusted input and execution"
+            }
+          },
+          {
+            "from": "NFR-11.1",
+            "to": "UC-005",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-11.1 — Untrusted input and execution"
+            }
+          },
+          {
+            "from": "NFR-11.1",
+            "to": "UC-006",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-11.1 — Untrusted input and execution"
+            }
+          },
+          {
+            "from": "NFR-11.1",
+            "to": "UC-007",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-11.1 — Untrusted input and execution"
+            }
+          },
+          {
+            "from": "NFR-11.2",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-11.2 — State and resource abuse"
+            }
+          },
+          {
+            "from": "NFR-11.2",
+            "to": "UC-003",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-11.2 — State and resource abuse"
+            }
+          },
+          {
+            "from": "NFR-11.2",
+            "to": "UC-005",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-11.2 — State and resource abuse"
+            }
+          },
+          {
+            "from": "NFR-11.2",
+            "to": "UC-006",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-11.2 — State and resource abuse"
+            }
+          },
+          {
+            "from": "NFR-11.2",
+            "to": "UC-007",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-11.2 — State and resource abuse"
+            }
+          },
+          {
+            "from": "NFR-11.3",
+            "to": "UC-001",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-11.3 — Browser and HTTP boundaries"
+            }
+          },
+          {
+            "from": "NFR-11.3",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-11.3 — Browser and HTTP boundaries"
+            }
+          },
+          {
+            "from": "NFR-11.3",
+            "to": "UC-003",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-11.3 — Browser and HTTP boundaries"
+            }
+          },
+          {
+            "from": "NFR-11.3",
+            "to": "UC-004",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-11.3 — Browser and HTTP boundaries"
+            }
+          },
+          {
+            "from": "NFR-11.3",
+            "to": "UC-005",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-11.3 — Browser and HTTP boundaries"
+            }
+          },
+          {
+            "from": "NFR-11.3",
+            "to": "UC-006",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-11.3 — Browser and HTTP boundaries"
+            }
+          },
+          {
+            "from": "NFR-12.1",
+            "to": "UC-007",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-12.1 — Restricted research reach"
+            }
+          },
+          {
+            "from": "NFR-12.2",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-12.2 — Safe attachments and browser voice"
+            }
+          },
+          {
+            "from": "NFR-12.2",
+            "to": "UC-004",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-12.2 — Safe attachments and browser voice"
+            }
+          },
+          {
+            "from": "NFR-12.2",
+            "to": "UC-006",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-12.2 — Safe attachments and browser voice"
+            }
+          },
+          {
+            "from": "NFR-12.3",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-12.3 — Bounded AI authority"
+            }
+          },
+          {
+            "from": "NFR-12.3",
+            "to": "UC-005",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-12.3 — Bounded AI authority"
+            }
+          },
+          {
+            "from": "NFR-12.3",
+            "to": "UC-007",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-12.3 — Bounded AI authority"
+            }
+          },
+          {
+            "from": "NFR-13.1",
+            "to": "UC-001",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-13.1 — Cryptographic protection"
+            }
+          },
+          {
+            "from": "NFR-13.1",
+            "to": "UC-004",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-13.1 — Cryptographic protection"
+            }
+          },
+          {
+            "from": "NFR-13.1",
+            "to": "UC-005",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-13.1 — Cryptographic protection"
+            }
+          },
+          {
+            "from": "NFR-13.2",
+            "to": "UC-001",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-13.2 — Protected transport and service identity"
+            }
+          },
+          {
+            "from": "NFR-13.2",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-13.2 — Protected transport and service identity"
+            }
+          },
+          {
+            "from": "NFR-13.2",
+            "to": "UC-004",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-13.2 — Protected transport and service identity"
+            }
+          },
+          {
+            "from": "NFR-13.2",
+            "to": "UC-005",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-13.2 — Protected transport and service identity"
+            }
+          },
+          {
+            "from": "NFR-13.2",
+            "to": "UC-006",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-13.2 — Protected transport and service identity"
+            }
+          },
+          {
+            "from": "NFR-13.2",
+            "to": "UC-007",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-13.2 — Protected transport and service identity"
+            }
+          },
+          {
+            "from": "NFR-14.1",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-14.1 — Private data classification and transfer"
+            }
+          },
+          {
+            "from": "NFR-14.1",
+            "to": "UC-004",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-14.1 — Private data classification and transfer"
+            }
+          },
+          {
+            "from": "NFR-14.1",
+            "to": "UC-006",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-14.1 — Private data classification and transfer"
+            }
+          },
+          {
+            "from": "NFR-14.1",
+            "to": "UC-007",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-14.1 — Private data classification and transfer"
+            }
+          },
+          {
+            "from": "NFR-14.2",
+            "to": "UC-001",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-14.2 — Client and voice privacy"
+            }
+          },
+          {
+            "from": "NFR-14.2",
+            "to": "UC-004",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-14.2 — Client and voice privacy"
+            }
+          },
+          {
+            "from": "NFR-14.2",
+            "to": "UC-006",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-14.2 — Client and voice privacy"
+            }
+          },
+          {
+            "from": "NFR-14.3",
+            "to": "UC-003",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-14.3 — Retention, deletion and restore"
+            }
+          },
+          {
+            "from": "NFR-14.3",
+            "to": "UC-004",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-14.3 — Retention, deletion and restore"
+            }
+          },
+          {
+            "from": "NFR-15.1",
+            "to": "UC-001",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-15.1 — Secure delivery and maintenance"
+            }
+          },
+          {
+            "from": "NFR-15.1",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-15.1 — Secure delivery and maintenance"
+            }
+          },
+          {
+            "from": "NFR-15.1",
+            "to": "UC-004",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-15.1 — Secure delivery and maintenance"
+            }
+          },
+          {
+            "from": "NFR-16.1",
+            "to": "UC-001",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-16.1 — Useful protected evidence"
+            }
+          },
+          {
+            "from": "NFR-16.1",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-16.1 — Useful protected evidence"
+            }
+          },
+          {
+            "from": "NFR-16.1",
+            "to": "UC-003",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-16.1 — Useful protected evidence"
+            }
+          },
+          {
+            "from": "NFR-16.1",
+            "to": "UC-004",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-16.1 — Useful protected evidence"
+            }
+          },
+          {
+            "from": "NFR-16.1",
+            "to": "UC-005",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-16.1 — Useful protected evidence"
+            }
+          },
+          {
+            "from": "NFR-16.1",
+            "to": "UC-006",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-16.1 — Useful protected evidence"
+            }
+          },
+          {
+            "from": "NFR-16.1",
+            "to": "UC-007",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-16.1 — Useful protected evidence"
+            }
+          },
+          {
+            "from": "NFR-16.2",
+            "to": "UC-001",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-16.2 — Secure degraded operation"
+            }
+          },
+          {
+            "from": "NFR-16.2",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-16.2 — Secure degraded operation"
+            }
+          },
+          {
+            "from": "NFR-16.2",
+            "to": "UC-003",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-16.2 — Secure degraded operation"
+            }
+          },
+          {
+            "from": "NFR-16.2",
+            "to": "UC-004",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-16.2 — Secure degraded operation"
+            }
+          },
+          {
+            "from": "NFR-16.2",
+            "to": "UC-005",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-16.2 — Secure degraded operation"
+            }
+          },
+          {
+            "from": "NFR-16.2",
+            "to": "UC-006",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-16.2 — Secure degraded operation"
+            }
+          },
+          {
+            "from": "NFR-16.2",
+            "to": "UC-007",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-16.2 — Secure degraded operation"
+            }
+          },
+          {
+            "from": "FR-05.6",
+            "to": "UC-005",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Settings and limits"
+            }
+          },
+          {
+            "from": "FR-02.9",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "from": "FR-02.10",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "from": "FR-02.11",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "from": "FR-02.12",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "from": "FR-02.13",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "from": "FR-02.14",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          },
+          {
+            "from": "FR-02.15",
+            "to": "UC-002",
+            "relation": "specifies",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### Useful consultation"
+            }
+          }
+        ]
+      },
+      "security_review": {
+        "version": 1,
+        "asvs_version": "5.0.0",
+        "scope": "web-api",
+        "level": 2,
+        "status": "complete",
+        "rationale": "Sensitive single-owner local browser/API application with private LAN access; explicit local single-factor authentication adaptation, not a compliance claim.",
+        "definition_ref": {
+          "path": "docs/prd.md",
+          "heading": "## Security Requirements"
+        },
+        "requirements": [
+          {
+            "requirement_id": "NFR-10.1",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-10.1 — Owner identity"
+            },
+            "asvs_ids": [
+              "v5.0.0-11.4.2",
+              "v5.0.0-11.4.4",
+              "v5.0.0-6.1.1",
+              "v5.0.0-6.1.3",
+              "v5.0.0-6.2.1",
+              "v5.0.0-6.2.10",
+              "v5.0.0-6.2.5",
+              "v5.0.0-6.2.6",
+              "v5.0.0-6.2.7",
+              "v5.0.0-6.2.8",
+              "v5.0.0-6.2.9",
+              "v5.0.0-6.3.1",
+              "v5.0.0-6.3.2",
+              "v5.0.0-6.3.3",
+              "v5.0.0-6.3.4"
+            ]
+          },
+          {
+            "requirement_id": "NFR-10.2",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-10.2 — Session control"
+            },
+            "asvs_ids": [
+              "v5.0.0-7.1.1",
+              "v5.0.0-7.1.2",
+              "v5.0.0-7.2.1",
+              "v5.0.0-7.2.2",
+              "v5.0.0-7.2.3",
+              "v5.0.0-7.2.4",
+              "v5.0.0-7.3.1",
+              "v5.0.0-7.3.2",
+              "v5.0.0-7.4.1",
+              "v5.0.0-7.4.4",
+              "v5.0.0-7.4.5",
+              "v5.0.0-7.6.2"
+            ]
+          },
+          {
+            "requirement_id": "NFR-10.3",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-10.3 — Private resource authorization"
+            },
+            "asvs_ids": [
+              "v5.0.0-15.3.1",
+              "v5.0.0-15.3.3",
+              "v5.0.0-8.1.1",
+              "v5.0.0-8.1.2",
+              "v5.0.0-8.2.1",
+              "v5.0.0-8.2.2",
+              "v5.0.0-8.2.3",
+              "v5.0.0-8.3.1"
+            ]
+          },
+          {
+            "requirement_id": "NFR-11.1",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-11.1 — Untrusted input and execution"
+            },
+            "asvs_ids": [
+              "v5.0.0-1.1.1",
+              "v5.0.0-1.1.2",
+              "v5.0.0-1.2.1",
+              "v5.0.0-1.2.2",
+              "v5.0.0-1.2.3",
+              "v5.0.0-1.2.4",
+              "v5.0.0-1.2.5",
+              "v5.0.0-1.2.9",
+              "v5.0.0-1.3.1",
+              "v5.0.0-1.3.10",
+              "v5.0.0-1.3.2",
+              "v5.0.0-1.3.3",
+              "v5.0.0-1.3.5",
+              "v5.0.0-1.3.7",
+              "v5.0.0-1.4.1",
+              "v5.0.0-1.4.2",
+              "v5.0.0-1.4.3",
+              "v5.0.0-1.5.2",
+              "v5.0.0-15.3.5",
+              "v5.0.0-15.3.6",
+              "v5.0.0-15.3.7",
+              "v5.0.0-2.1.1",
+              "v5.0.0-2.1.2",
+              "v5.0.0-2.2.1",
+              "v5.0.0-2.2.2",
+              "v5.0.0-2.2.3",
+              "v5.0.0-3.2.1",
+              "v5.0.0-3.2.2"
+            ]
+          },
+          {
+            "requirement_id": "NFR-11.2",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-11.2 — State and resource abuse"
+            },
+            "asvs_ids": [
+              "v5.0.0-15.1.3",
+              "v5.0.0-15.2.2",
+              "v5.0.0-2.1.3",
+              "v5.0.0-2.3.1",
+              "v5.0.0-2.3.2",
+              "v5.0.0-2.3.3",
+              "v5.0.0-2.3.4",
+              "v5.0.0-2.4.1"
+            ]
+          },
+          {
+            "requirement_id": "NFR-11.3",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-11.3 — Browser and HTTP boundaries"
+            },
+            "asvs_ids": [
+              "v5.0.0-15.3.4",
+              "v5.0.0-3.3.1",
+              "v5.0.0-3.3.2",
+              "v5.0.0-3.3.3",
+              "v5.0.0-3.3.4",
+              "v5.0.0-3.4.1",
+              "v5.0.0-3.4.2",
+              "v5.0.0-3.4.4",
+              "v5.0.0-3.4.5",
+              "v5.0.0-3.4.6",
+              "v5.0.0-3.5.1",
+              "v5.0.0-3.5.2",
+              "v5.0.0-3.5.3",
+              "v5.0.0-3.5.4",
+              "v5.0.0-3.7.1",
+              "v5.0.0-3.7.2",
+              "v5.0.0-4.1.1",
+              "v5.0.0-4.1.2",
+              "v5.0.0-4.1.3",
+              "v5.0.0-4.2.1"
+            ]
+          },
+          {
+            "requirement_id": "NFR-12.1",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-12.1 — Restricted research reach"
+            },
+            "asvs_ids": [
+              "v5.0.0-1.3.6",
+              "v5.0.0-13.1.1",
+              "v5.0.0-13.2.4",
+              "v5.0.0-13.2.5",
+              "v5.0.0-15.3.2"
+            ]
+          },
+          {
+            "requirement_id": "NFR-12.2",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-12.2 — Safe attachments and browser voice"
+            },
+            "asvs_ids": [
+              "v5.0.0-5.1.1",
+              "v5.0.0-5.2.1",
+              "v5.0.0-5.2.2",
+              "v5.0.0-5.2.3",
+              "v5.0.0-5.3.1",
+              "v5.0.0-5.3.2",
+              "v5.0.0-5.4.1",
+              "v5.0.0-5.4.2",
+              "v5.0.0-5.4.3"
+            ]
+          },
+          {
+            "requirement_id": "NFR-12.3",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-12.3 — Bounded AI authority"
+            },
+            "asvs_ids": [],
+            "rationale": "Supplemental AI authority and subscription-use constraints come from the product brief and do not map to a specific ASVS control."
+          },
+          {
+            "requirement_id": "NFR-13.1",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-13.1 — Cryptographic protection"
+            },
+            "asvs_ids": [
+              "v5.0.0-11.1.1",
+              "v5.0.0-11.1.2",
+              "v5.0.0-11.2.1",
+              "v5.0.0-11.2.2",
+              "v5.0.0-11.2.3",
+              "v5.0.0-11.3.1",
+              "v5.0.0-11.3.2",
+              "v5.0.0-11.3.3",
+              "v5.0.0-11.4.1",
+              "v5.0.0-11.4.3",
+              "v5.0.0-11.5.1",
+              "v5.0.0-11.6.1",
+              "v5.0.0-13.3.1",
+              "v5.0.0-13.3.2"
+            ]
+          },
+          {
+            "requirement_id": "NFR-13.2",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-13.2 — Protected transport and service identity"
+            },
+            "asvs_ids": [
+              "v5.0.0-12.1.1",
+              "v5.0.0-12.1.2",
+              "v5.0.0-12.2.1",
+              "v5.0.0-12.2.2",
+              "v5.0.0-12.3.1",
+              "v5.0.0-12.3.2",
+              "v5.0.0-12.3.3",
+              "v5.0.0-12.3.4",
+              "v5.0.0-13.2.2",
+              "v5.0.0-13.2.3"
+            ]
+          },
+          {
+            "requirement_id": "NFR-14.1",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-14.1 — Private data classification and transfer"
+            },
+            "asvs_ids": [
+              "v5.0.0-14.1.1",
+              "v5.0.0-14.1.2",
+              "v5.0.0-14.2.1",
+              "v5.0.0-14.2.2",
+              "v5.0.0-14.2.3",
+              "v5.0.0-14.2.4"
+            ]
+          },
+          {
+            "requirement_id": "NFR-14.2",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-14.2 — Client and voice privacy"
+            },
+            "asvs_ids": [
+              "v5.0.0-14.3.1",
+              "v5.0.0-14.3.2",
+              "v5.0.0-14.3.3"
+            ]
+          },
+          {
+            "requirement_id": "NFR-14.3",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-14.3 — Retention, deletion and restore"
+            },
+            "asvs_ids": [],
+            "rationale": "Supplemental indefinite retention and deletion-aware recovery constraints come from the product brief and do not map to a specific ASVS control."
+          },
+          {
+            "requirement_id": "NFR-15.1",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-15.1 — Secure delivery and maintenance"
+            },
+            "asvs_ids": [
+              "v5.0.0-13.4.1",
+              "v5.0.0-13.4.2",
+              "v5.0.0-13.4.3",
+              "v5.0.0-13.4.4",
+              "v5.0.0-13.4.5",
+              "v5.0.0-15.1.1",
+              "v5.0.0-15.1.2",
+              "v5.0.0-15.2.1",
+              "v5.0.0-15.2.3"
+            ]
+          },
+          {
+            "requirement_id": "NFR-16.1",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-16.1 — Useful protected evidence"
+            },
+            "asvs_ids": [
+              "v5.0.0-16.1.1",
+              "v5.0.0-16.2.1",
+              "v5.0.0-16.2.2",
+              "v5.0.0-16.2.3",
+              "v5.0.0-16.2.4",
+              "v5.0.0-16.2.5",
+              "v5.0.0-16.3.1",
+              "v5.0.0-16.3.2",
+              "v5.0.0-16.3.3",
+              "v5.0.0-16.3.4",
+              "v5.0.0-16.4.1",
+              "v5.0.0-16.4.2",
+              "v5.0.0-16.4.3"
+            ]
+          },
+          {
+            "requirement_id": "NFR-16.2",
+            "definition_ref": {
+              "path": "docs/prd.md",
+              "heading": "### NFR-16.2 — Secure degraded operation"
+            },
+            "asvs_ids": [
+              "v5.0.0-16.5.1",
+              "v5.0.0-16.5.2",
+              "v5.0.0-16.5.3"
+            ]
+          }
+        ]
+      },
+      "path": "docs/prd.md",
+      "owner_skill": "to-sdd-prd",
+      "owner_invocation_id": "white-theme-20261008-prd",
+      "declared_output_set": [
+        "docs/prd.md"
+      ],
+      "status": "validated",
+      "mission_control_status": "Done",
+      "source_version": "usage-activity-20260926",
+      "source_usage": {
+        "docs/product-idea.md": "full",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "full",
+        "forge/runs/critic-usage-20260925/scope.json": "full",
+        "forge/runs/reading-mode-20260926/scope.json": "full",
+        "forge/runs/context-cache-20260926/scope.json": "full",
+        "forge/runs/chat-jumps-20260926/scope.json": "full",
+        "forge/runs/research-economy-20260926/scope.json": "full",
+        "forge/runs/critic-cache-usage-20260926/scope.json": "full",
+        "forge/runs/upstream-usage-20260926/scope.json": "full",
+        "forge/runs/usage-dashboard-20260926/scope.json": "full",
+        "forge/runs/usage-reasoning-20260926/scope.json": "full",
+        "forge/runs/usage-activity-20260926/scope.json": "full",
+        "forge/runs/gpt-6-1-sol-20260930/scope.json": "full",
+        "forge/runs/white-theme-20261008/scoped-override.json": "full"
+      },
+      "source_hashes": {
+        "docs/product-idea.md": "374f7b44390a87a1147335a333b6a438ae38389ea4a07b4cdff9b8472e278c77",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
+        "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
+        "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
+        "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
+        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
+        "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
+        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
+        "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
+        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
+        "forge/runs/gpt-6-1-sol-20260930/scope.json": "fb82662f17f70537117703d4fcc7c91b98b005fa191176fd95b3cd0effb75c42",
+        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e"
+      },
+      "dependencies": [
+        "product-idea"
+      ],
+      "content_hash": "3521e84c7f751759f784fe75a80c5fb5de692ad0c6b240ad09cce3835c547814",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "white-theme-scoped-reconciliation",
+        "reviewed_at": "2026-10-08T11:50:20.451334+00:00",
+        "executor": "Codex inline to-sdd-prd",
+        "scope": "Owner-reviewed accepted white appearance; preserves IDs/security/frozen baseline. No full-unit or release verification inferred."
+      },
+      "open_questions": []
+    }
+  },
+  "dispatches": {
+    "prd": {
+      "invocation_id": "white-theme-20261008-prd",
+      "outputs": [
+        "docs/prd.md"
+      ],
+      "source_hashes": {
+        "docs/product-idea.md": "374f7b44390a87a1147335a333b6a438ae38389ea4a07b4cdff9b8472e278c77",
+        "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
+        "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
+        "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
+        "forge/runs/context-cache-20260926/scope.json": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
+        "forge/runs/chat-jumps-20260926/scope.json": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
+        "forge/runs/research-economy-20260926/scope.json": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
+        "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+        "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
+        "forge/runs/usage-dashboard-20260926/scope.json": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
+        "forge/runs/usage-reasoning-20260926/scope.json": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+        "forge/runs/usage-activity-20260926/scope.json": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
+        "forge/runs/gpt-6-1-sol-20260930/scope.json": "fb82662f17f70537117703d4fcc7c91b98b005fa191176fd95b3cd0effb75c42",
+        "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e"
+      }
+    }
+  }
+}

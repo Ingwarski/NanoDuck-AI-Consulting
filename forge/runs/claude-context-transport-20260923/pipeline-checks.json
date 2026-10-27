@@ -1,0 +1,502 @@
+{
+  "schema_version": 1,
+  "scope": "Affected Claude context transport and idle activation wording; document checks only, no formal QA execution.",
+  "checks": [
+    {
+      "recorded_at": "2026-09-22T21:42:36.303432+00:00",
+      "mode": "--before",
+      "node": "implementation",
+      "exit_code": 0,
+      "result": {
+        "result": "passed",
+        "node": "implementation",
+        "mode": "before",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "development-plan",
+          "dod-evals",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "qa-checklist",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    },
+    {
+      "recorded_at": "2026-09-22T21:42:36.497306+00:00",
+      "mode": "--before",
+      "node": "architecture",
+      "exit_code": 0,
+      "result": {
+        "result": "passed",
+        "node": "architecture",
+        "mode": "before",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "canonical-terms",
+          "design-brief",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    },
+    {
+      "recorded_at": "2026-09-22T21:42:36.704521+00:00",
+      "mode": "--after",
+      "node": "architecture",
+      "exit_code": 0,
+      "result": {
+        "result": "passed",
+        "node": "architecture",
+        "mode": "after",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    },
+    {
+      "recorded_at": "2026-09-22T21:42:36.891919+00:00",
+      "mode": "--before",
+      "node": "architecture-approved",
+      "exit_code": 0,
+      "result": {
+        "result": "passed",
+        "node": "architecture-approved",
+        "mode": "before",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "canonical-terms",
+          "design-brief",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    },
+    {
+      "recorded_at": "2026-09-22T21:42:37.096557+00:00",
+      "mode": "--after",
+      "node": "architecture-approved",
+      "exit_code": 0,
+      "result": {
+        "result": "passed",
+        "node": "architecture-approved",
+        "mode": "after",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    },
+    {
+      "recorded_at": "2026-09-22T21:42:37.301075+00:00",
+      "mode": "--before",
+      "node": "dod-evals",
+      "exit_code": 0,
+      "result": {
+        "result": "passed",
+        "node": "dod-evals",
+        "mode": "before",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    },
+    {
+      "recorded_at": "2026-09-22T21:42:37.548884+00:00",
+      "mode": "--after",
+      "node": "dod-evals",
+      "exit_code": 0,
+      "result": {
+        "result": "passed",
+        "node": "dod-evals",
+        "mode": "after",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "dod-evals",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    },
+    {
+      "recorded_at": "2026-09-22T21:42:37.754866+00:00",
+      "mode": "--before",
+      "node": "dod-evals-approved",
+      "exit_code": 0,
+      "result": {
+        "result": "passed",
+        "node": "dod-evals-approved",
+        "mode": "before",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    },
+    {
+      "recorded_at": "2026-09-22T21:42:37.964796+00:00",
+      "mode": "--after",
+      "node": "dod-evals-approved",
+      "exit_code": 0,
+      "result": {
+        "result": "passed",
+        "node": "dod-evals-approved",
+        "mode": "after",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "dod-evals",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    },
+    {
+      "recorded_at": "2026-09-22T21:42:38.171220+00:00",
+      "mode": "--before",
+      "node": "qa-checklist",
+      "exit_code": 0,
+      "result": {
+        "result": "passed",
+        "node": "qa-checklist",
+        "mode": "before",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "dod-evals",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    },
+    {
+      "recorded_at": "2026-09-22T21:42:38.555512+00:00",
+      "mode": "--after",
+      "node": "qa-checklist",
+      "exit_code": 0,
+      "result": {
+        "result": "passed",
+        "node": "qa-checklist",
+        "mode": "after",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "dod-evals",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "qa-checklist",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    },
+    {
+      "recorded_at": "2026-09-22T21:42:38.754035+00:00",
+      "mode": "--before",
+      "node": "qa-checklist-approved",
+      "exit_code": 0,
+      "result": {
+        "result": "passed",
+        "node": "qa-checklist-approved",
+        "mode": "before",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "dod-evals",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    },
+    {
+      "recorded_at": "2026-09-22T21:42:39.107497+00:00",
+      "mode": "--after",
+      "node": "qa-checklist-approved",
+      "exit_code": 0,
+      "result": {
+        "result": "passed",
+        "node": "qa-checklist-approved",
+        "mode": "after",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "dod-evals",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "qa-checklist",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    },
+    {
+      "recorded_at": "2026-09-22T21:42:39.464543+00:00",
+      "mode": "--before",
+      "node": "development-plan",
+      "exit_code": 0,
+      "result": {
+        "result": "passed",
+        "node": "development-plan",
+        "mode": "before",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "dod-evals",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "qa-checklist",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    },
+    {
+      "recorded_at": "2026-09-22T21:42:39.874595+00:00",
+      "mode": "--after",
+      "node": "development-plan",
+      "exit_code": 0,
+      "result": {
+        "result": "passed",
+        "node": "development-plan",
+        "mode": "after",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "development-plan",
+          "dod-evals",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "qa-checklist",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    },
+    {
+      "recorded_at": "2026-09-22T21:42:40.278982+00:00",
+      "mode": "--before",
+      "node": "implementation",
+      "exit_code": 0,
+      "result": {
+        "result": "passed",
+        "node": "implementation",
+        "mode": "before",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "development-plan",
+          "dod-evals",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "qa-checklist",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    },
+    {
+      "recorded_at": "2026-09-22T21:42:40.678486+00:00",
+      "mode": "--audit",
+      "node": null,
+      "exit_code": 0,
+      "result": {
+        "result": "passed",
+        "node": "audit",
+        "mode": "audit",
+        "skipped_artifacts": [],
+        "checked_artifacts": [
+          "architecture",
+          "canonical-terms",
+          "design-brief",
+          "development-plan",
+          "dod-evals",
+          "guardrails",
+          "prd",
+          "product-idea",
+          "project-context",
+          "qa-checklist",
+          "screen-map",
+          "user-journey",
+          "wireframes"
+        ],
+        "affected_artifacts": [],
+        "issues": [],
+        "warnings": [],
+        "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement."
+      }
+    }
+  ]
+}

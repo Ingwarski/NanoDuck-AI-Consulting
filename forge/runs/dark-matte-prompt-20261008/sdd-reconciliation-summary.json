@@ -1,0 +1,74 @@
+{
+  "result": "scoped_documents_reconciled_with_existing_unit_migration_limitation",
+  "recorded_at": "2026-10-08T18:20:46.280930+00:00",
+  "reports": [
+    {
+      "node": "product-idea",
+      "before": "passed",
+      "after": "passed"
+    },
+    {
+      "node": "prd",
+      "before": "passed",
+      "after": "passed"
+    },
+    {
+      "node": "project-context-bundle",
+      "before": "passed",
+      "after": "passed"
+    },
+    {
+      "node": "guardrails",
+      "before": "passed",
+      "after": "passed"
+    },
+    {
+      "node": "user-journey",
+      "before": "passed",
+      "after": "passed"
+    },
+    {
+      "node": "screen-map",
+      "before": "passed",
+      "after": "passed"
+    },
+    {
+      "node": "wireframes",
+      "before": "passed",
+      "after": "passed"
+    },
+    {
+      "node": "design-brief",
+      "before": "passed",
+      "after": "passed"
+    },
+    {
+      "node": "architecture-approved",
+      "before": "passed",
+      "after": "passed"
+    },
+    {
+      "node": "dod-evals-approved",
+      "before": "passed",
+      "after": "passed"
+    },
+    {
+      "node": "qa-checklist-approved",
+      "before": "passed",
+      "after": "passed"
+    },
+    {
+      "node": "development-plan",
+      "before": "passed",
+      "after": "migration_required"
+    }
+  ],
+  "scope_receipt": {
+    "path": "forge/runs/dark-matte-prompt-20261008/scoped-override.json",
+    "content_hash": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3"
+  },
+  "legacy_unit_migration": "Not performed. The actual development-plan after report remains migration_required.",
+  "runtime_execution": "Not run or reconstructed by this helper",
+  "frozen_baseline": "Preserved",
+  "prior_git_commit": "c5b228e55f98f377b1d42a0009602df51a7babdb"
+}

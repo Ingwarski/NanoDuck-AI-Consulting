@@ -1,0 +1,27 @@
+{
+  "recorded_at": "2026-10-08T18:20:40.639623+00:00",
+  "kind": "compact_owner_metadata_delta",
+  "prior_git_commit": "c5b228e55f98f377b1d42a0009602df51a7babdb",
+  "prior_manifest_path": "forge/sdd-manifest.json",
+  "artifacts": {
+    "guardrails": {
+      "owner_invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-guardrails",
+      "content_hash": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "head-connection-prd-clarification",
+        "reviewed_at": "2026-10-08T14:46:57.518869+00:00",
+        "executor": "Codex inline to-guardrails",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      },
+      "prior_dispatch_invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-guardrails",
+      "changed_source_hashes": {
+        "docs/prd.md": {
+          "before": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4",
+          "after": "0c478e89ae78ae4e6bb2b1c02559957bac7dd5f78992406aae5da06dd76c920a"
+        }
+      }
+    }
+  }
+}

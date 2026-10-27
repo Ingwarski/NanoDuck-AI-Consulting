@@ -1,0 +1,20 @@
+{
+  "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-guardrails",
+  "node": "guardrails",
+  "returned_at": "2026-10-08T13:18:16.150920+00:00",
+  "outputs": {
+    "guardrails": {
+      "path": "docs/guardrails.md",
+      "content_hash": "1de85198884cd3fa89c23a13cc82c5728585da8637261092b3171b0fedc1e8c6",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "glass-controls-scoped-document-review",
+        "reviewed_at": "2026-10-08T13:18:16.121359+00:00",
+        "executor": "Codex inline to-guardrails",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      }
+    }
+  },
+  "evidence_limit": "Document definitions only; actual product checks belong to the root's separately inspected evidence."
+}

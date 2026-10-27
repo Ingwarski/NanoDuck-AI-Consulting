@@ -1,0 +1,147 @@
+{
+  "invocation_id": "sdd-reconciliation-20261017-product-idea",
+  "outputs": [
+    "docs/product-idea.md"
+  ],
+  "output_hashes": {
+    "docs/product-idea.md": "30749b389cf516d13165daacc69194f15b873f63a0a7759adc09fa41d65775c6"
+  },
+  "existing_artifact_basis": {
+    "path": "docs/product-idea.md",
+    "sha256": "865898f0c5af6711d3f6efe3e90e57161de5d7366eba4214a3427ca97d1f2e89",
+    "read": "full"
+  },
+  "source_usage": {
+    "docs/model-settings.md": "full",
+    "forge/design/evidence/electric-v8-approval-20260914.json": "full",
+    "forge/runs/sdd-reconciliation-20261017/scope.json": "full",
+    "forge/runs/parallel-consultants-plan-20260924/scope.json": "full",
+    "forge/runs/reading-mode-20260926/scope.json": "full",
+    "forge/runs/critic-cache-usage-20260926/scope.json": "full",
+    "forge/runs/critic-cache-usage-20260926/implementation-prompt.json": "full",
+    "forge/runs/upstream-usage-20260926/scope.json": "full",
+    "forge/runs/upstream-usage-20260926/implementation-prompt.json": "full",
+    "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full",
+    "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "full",
+    "forge/runs/chat-arrow-position-20261008/scoped-override.json": "full",
+    "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "full",
+    "forge/runs/white-theme-20261008/scoped-override.json": "full"
+  },
+  "consumed_hashes": {
+    "docs/model-settings.md": "aef42b6f74eabcdcc32835f6ef7d52099bdcaa5fab2112a184e500dd95338989",
+    "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2",
+    "forge/runs/sdd-reconciliation-20261017/scope.json": "82eeb2e3fa2559e055ab04aa135ad90ca90f776562377069d6415d18c78ab37f",
+    "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
+    "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
+    "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+    "forge/runs/critic-cache-usage-20260926/implementation-prompt.json": "2d95221cb2f84e924114500538865a4aeb370aa77f13e429cdb751b0d708a296",
+    "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
+    "forge/runs/upstream-usage-20260926/implementation-prompt.json": "b88c8f780d1cee48c2654c9e926356a81c4b33b44170646d5a225252b1ecf11c",
+    "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
+    "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3",
+    "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
+    "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
+    "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e"
+  },
+  "executor": "Codex product-idea domain owner; explicit lead dispatch; current-session explicit skill, shared-contract and revision=2 project-policy reads",
+  "validation": "Passed owner self-review: seven bounded correction regions; reversing assigned edits reproduces original text exactly; all JOB/UC identifiers, model settings, capability scope and product locales preserved; reading-mode prose faithfully translated to English; all 15 relative Markdown references resolve; dated U-12 scope/implementation receipts replace present-tense authorization claims. Document validation only; no runtime, provider, browser, security or release acceptance claimed. Lead owns after-checker and manifest.",
+  "source_mode": "existing-file",
+  "working_language": "en",
+  "language_selection_source": "lead invocation",
+  "product_locales": [
+    "en",
+    "uk"
+  ],
+  "changed_decisions": [
+    "No product decisions changed; current documentation-only authority separated from historical implementation scopes; historical reading-mode wording translated faithfully."
+  ],
+  "assumptions": [
+    "Existing browser-speech progressive-enhancement assumption retained; no new assumptions."
+  ],
+  "non_blocking_questions": [],
+  "product_scope": {
+    "profile": "existing_change",
+    "capabilities": {
+      "ui": true,
+      "api": true,
+      "persistence": true,
+      "payments": false,
+      "sensitive_data": true
+    }
+  },
+  "product_scope_hash": "defc5e24f0dd91be42b984888b157137f4f1ed361459e70f42b832e18c957bd4",
+  "instruction_basis": {
+    "path": "AGENTS.md",
+    "revision": 2,
+    "sha256": "9e9de3772e818710fd36a0b9861b80fd14f2a219553ee219d3431c68fcf5deea",
+    "verification": "current-session explicit read; fresh-session automatic loading not tested"
+  },
+  "skill_source_hashes": {
+    "to-product-idea/SKILL.md": "9e04ea35a3f95cd68652399aeefa94e10b2390b679e41121e4479d06020d6acc",
+    "to-sdd-pipeline/references/common-contract.md": "69f62e49921adaf32e1f7e0f175c4a5f769bddfcc05d9b1ed34da62dfe6b6d57",
+    "to-sdd-pipeline/references/scope-and-execution.md": "37b78dc6b9666ca466c48491648153a54ecc76d1f7d3fc4302eabd80bd1bf927",
+    "to-sdd-pipeline/references/traceability-contract.md": "f27cc009170e473782b0c7ab38ffe46a3f92a11e4380a7035e39fda95fe2842e"
+  },
+  "checked_at": "2026-10-17T11:37:04.187958+00:00",
+  "cleanup": "No browsers, profiles, processes or services created; atomic temporary artifact removed.",
+  "ownership_released": true,
+  "traceability": {
+    "definitions": [
+      {
+        "id": "JOB-001",
+        "kind": "job",
+        "required": true,
+        "definition_ref": {
+          "path": "docs/product-idea.md",
+          "heading": "Jobs"
+        }
+      },
+      {
+        "id": "JOB-002",
+        "kind": "job",
+        "required": true,
+        "definition_ref": {
+          "path": "docs/product-idea.md",
+          "heading": "Jobs"
+        }
+      },
+      {
+        "id": "JOB-003",
+        "kind": "job",
+        "required": true,
+        "definition_ref": {
+          "path": "docs/product-idea.md",
+          "heading": "Jobs"
+        }
+      },
+      {
+        "id": "JOB-004",
+        "kind": "job",
+        "required": true,
+        "definition_ref": {
+          "path": "docs/product-idea.md",
+          "heading": "Jobs"
+        }
+      },
+      {
+        "id": "JOB-005",
+        "kind": "job",
+        "required": true,
+        "definition_ref": {
+          "path": "docs/product-idea.md",
+          "heading": "Jobs"
+        }
+      },
+      {
+        "id": "JOB-006",
+        "kind": "job",
+        "required": true,
+        "definition_ref": {
+          "path": "docs/product-idea.md",
+          "heading": "Jobs"
+        }
+      }
+    ],
+    "links": []
+  }
+}

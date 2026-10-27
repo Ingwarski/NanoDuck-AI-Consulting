@@ -1,0 +1,58 @@
+{
+  "observedAt": "2026-09-26T13:55:39.630Z",
+  "sourceHashes": {
+    "src/client/app.js": "640c927a8edfdeb20d7d63ba4ba0b1fc17feb9376ea26e84280a55102a7c5ea6",
+    "public/index.html": "7e537b74b5e415c10852fb06be85485117195bbb4ccf4f57a4759f62d5df50f4",
+    "public/styles.css": "e21c12ad8b41e2cb5d7aa2cdcb78e4446487df0aff02e0ae5dd521129c891abf",
+    "scripts/browser-reading-mode.mjs": "51adf8ff17ae81f868edeb2dd5d588b4269994199d06fb0f34adf2e9a0ad0b9d",
+    "scripts/browser-check.mjs": "a6370bc1cb7f970331e1646a9aa561a23c39a9ea8f42ad7a1529c4e0715ee4d6",
+    "scripts/browser-usage.mjs": "8194c0e235d5d6ebdd420b5ff08d3f8d067a7d5c37f00cd7b8efb7366f87a712",
+    "scripts/browser-send-retry.mjs": "2a900f211de10f8669d9e0effb624d14c330b3d3b8341f9a122dff475d247b96",
+    "scripts/browser-active-discussion.mjs": "cb93325fd53b451dc5065cbfac02c4dbd9173ee81a0cfada4f9ae7cd96bb082e"
+  },
+  "checks": {
+    "unitSuite": {
+      "passed": 202,
+      "skipped": 2,
+      "failed": 0
+    },
+    "readingMode": {
+      "engines": [
+        "Chromium",
+        "Firefox",
+        "WebKit"
+      ],
+      "viewports": [
+        320,
+        390,
+        768,
+        1280
+      ],
+      "result": "passed",
+      "scope": "Authenticated isolated app: folding/reopening, draft retention, focused input, completion retains selected view, explicit Outcome, desktop side panel, mobile selector, no horizontal overflow, keyboard navigation and reload"
+    },
+    "regression": {
+      "engines": [
+        "Chromium",
+        "Firefox",
+        "WebKit"
+      ],
+      "result": "passed",
+      "scope": "Active Stop/Continue, late polls, preserved attachments/drafts, failed-run Retry, lost acceptance retry and Usage navigation"
+    },
+    "sdd": "passed",
+    "live": {
+      "health": 200,
+      "htmlIncludesReadingControls": true,
+      "clientIncludesReadingState": true,
+      "stylesIncludeReadingLayout": true,
+      "restartRequired": false
+    }
+  },
+  "limits": [
+    "Browser runs use isolated synthetic providers, not real consultation content",
+    "Physical iPhone, Windows/Linux and representative-user tests not performed",
+    "Full broad browser run stopped at outdated cleanup assertion; repaired cleanup passed in targeted reading/control regressions",
+    "Formal release readiness remains not_evaluated"
+  ]
+}

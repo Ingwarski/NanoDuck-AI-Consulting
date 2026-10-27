@@ -1,0 +1,43 @@
+{
+  "recorded_at": "2026-10-08T14:36:52.443994+00:00",
+  "kind": "compact_owner_metadata_delta",
+  "prior_git_commit": "36f9165142eba0931f6c0cc35a0eaad6aa6d921f",
+  "prior_manifest_path": "forge/sdd-manifest.json",
+  "artifacts": {
+    "architecture": {
+      "owner_invocation_id": "chat-arrow-open-prompt-20261008-d0a388ad7b72-architecture-approved",
+      "content_hash": "f2ae10de945426511203ba2ee82ff8da2189f9891ef3d3019612f99648b00a40",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "arrow-open-prompt-scoped-document-review",
+        "reviewed_at": "2026-10-08T14:02:17.150704+00:00",
+        "executor": "Codex inline to-architecture",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      },
+      "prior_dispatch_invocation_id": "chat-arrow-open-prompt-20261008-d0a388ad7b72-architecture-approved",
+      "changed_source_hashes": {
+        "docs/prd.md": {
+          "before": "261b64273d88f06a85f44731d2d07301bb7358c96c073079753d89725ed71384",
+          "after": "5b9afb24bcf0ed61495302d6e7bc615f5ff994b8cd6a6df3b41cc0f2143e4e6b"
+        },
+        "docs/user-journey.md": {
+          "before": "c59072492e4ca0eb46b0efd4bccf9b32b2e0a711c997d21bc1175dc9ea9ad5e9",
+          "after": "e37e4813947b0347b4240e7be81c69b94d47b156732c2542cefd32bc0cbb398b"
+        },
+        "docs/wireframes.md": {
+          "before": "c7cfcc01b65fe670e8854ac571b4c2a2011f250f3180b2ba03b4bd061c8c0936",
+          "after": "244be8f2d5c10983e45d46ca477beec7a46304a2580afb02f1ce788c713009d6"
+        },
+        "docs/design-brief.md": {
+          "before": "6a712e95a9b58b9b8ecf98638fe71e68e31f4dd9b7c1f4f6b5248cfdb2febe79",
+          "after": "926e6d199fba7f27dd4a3f8c8b4876d2ff0c6c06cbe9d0b48dd252bf07a1b7f8"
+        },
+        "docs/model-settings.md": {
+          "before": "caa4571a344f32c74fea04822b0a2435ad86e2f40efa1215c3b4b8cc75275d7b",
+          "after": "aef42b6f74eabcdcc32835f6ef7d52099bdcaa5fab2112a184e500dd95338989"
+        }
+      }
+    }
+  }
+}

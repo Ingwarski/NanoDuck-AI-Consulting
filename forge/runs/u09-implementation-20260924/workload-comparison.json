@@ -1,0 +1,127 @@
+{
+  "method": "synthetic_two_consultants_fixed_one_round_same_guidance_and_settings",
+  "cases": [
+    {
+      "scenario": "clean",
+      "legacy": {
+        "calls": 16,
+        "promptBytes": 353124,
+        "outputKinds": [
+          "owner_deliverables",
+          "auto_team",
+          "head_task",
+          "head_task",
+          "research_query",
+          "specialist_position",
+          "specialist_position",
+          "critic_challenge",
+          "specialist_reply",
+          "critic_challenge",
+          "specialist_reply",
+          "head_review",
+          "specialist_final",
+          "specialist_final",
+          "critic_final",
+          "head_final"
+        ],
+        "tokenUsage": "unavailable_in_synthetic_provider"
+      },
+      "parallel": {
+        "calls": 5,
+        "promptBytes": 87128,
+        "outputKinds": [
+          "head_plan",
+          "specialist_position",
+          "specialist_position",
+          "team_review",
+          "head_final"
+        ],
+        "tokenUsage": "unavailable_in_synthetic_provider"
+      },
+      "callReduction": 11,
+      "promptByteReduction": 265996
+    },
+    {
+      "scenario": "targeted_rework",
+      "legacy": {
+        "calls": 16,
+        "promptBytes": 353124,
+        "outputKinds": [
+          "owner_deliverables",
+          "auto_team",
+          "head_task",
+          "head_task",
+          "research_query",
+          "specialist_position",
+          "specialist_position",
+          "critic_challenge",
+          "specialist_reply",
+          "critic_challenge",
+          "specialist_reply",
+          "head_review",
+          "specialist_final",
+          "specialist_final",
+          "critic_final",
+          "head_final"
+        ],
+        "tokenUsage": "unavailable_in_synthetic_provider"
+      },
+      "parallel": {
+        "calls": 7,
+        "promptBytes": 115542,
+        "outputKinds": [
+          "head_plan",
+          "specialist_position",
+          "specialist_position",
+          "team_review",
+          "specialist_reply",
+          "critic_order_assessment",
+          "head_final"
+        ],
+        "tokenUsage": "unavailable_in_synthetic_provider"
+      },
+      "callReduction": 9,
+      "promptByteReduction": 237582
+    },
+    {
+      "scenario": "long_request",
+      "legacy": {
+        "calls": 16,
+        "promptBytes": 706436,
+        "outputKinds": [
+          "owner_deliverables",
+          "auto_team",
+          "head_task",
+          "head_task",
+          "research_query",
+          "specialist_position",
+          "specialist_position",
+          "critic_challenge",
+          "specialist_reply",
+          "critic_challenge",
+          "specialist_reply",
+          "head_review",
+          "specialist_final",
+          "specialist_final",
+          "critic_final",
+          "head_final"
+        ],
+        "tokenUsage": "unavailable_in_synthetic_provider"
+      },
+      "parallel": {
+        "calls": 5,
+        "promptBytes": 142333,
+        "outputKinds": [
+          "head_plan",
+          "specialist_position",
+          "specialist_position",
+          "team_review",
+          "head_final"
+        ],
+        "tokenUsage": "unavailable_in_synthetic_provider"
+      },
+      "callReduction": 11,
+      "promptByteReduction": 564103
+    }
+  ]
+}

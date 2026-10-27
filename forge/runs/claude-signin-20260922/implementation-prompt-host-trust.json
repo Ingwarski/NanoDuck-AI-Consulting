@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "event": "implementation_prompt",
+  "role": "user",
+  "intent": "start_production_implementation",
+  "prompt_id": "claude-signin-20260922",
+  "received_at": "2026-09-22T20:15:22.931040+00:00",
+  "timestamp_basis": "Tool-recording time of the current explicit repair request, not reconstructed transport time. Existing completed-plan pause is retained; user instructions govern the affected change.",
+  "message": "There's an error: Claude Code needs its managed sign-in before it can be selected. Fix it.",
+  "scope": "Recognize ordinary native Claude Code subscription sign-in for the optional Critic, retain explicit isolated subscription-token mode, and provide truthful local sign-in guidance with Check connection recovery preserving unsaved Settings. No model/default, tool-authority, billing or visual-baseline change.",
+  "development_plan_hash": "7da38ce225b9d0d60f2c40ce1618ab0c2af4df93420b36c22957d8902d5042a0",
+  "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
+  "product_scope_hash": "defc5e24f0dd91be42b984888b157137f4f1ed361459e70f42b832e18c957bd4",
+  "source_receipt": {
+    "path": "forge/runs/claude-signin-20260922/scope.json",
+    "content_hash": "e668531a6ffbdb53d1a51b844109828e71d73e37712ce308e90a8e82751e3559"
+  },
+  "binding_reconciled_at": "2026-09-22T20:23:34.318870+00:00",
+  "binding_reconciliation": "Removed owner-inferred proactive managed-policy inspection; retained original user auth-repair scope and existing trusted-administrator boundary.",
+  "supersedes_binding": {
+    "path": "forge/runs/claude-signin-20260922/implementation-prompt.json",
+    "content_hash": "2748940f848309a5c729b810d3b67d07b1d5adbf161c0a30331a1543f1b31755"
+  }
+}

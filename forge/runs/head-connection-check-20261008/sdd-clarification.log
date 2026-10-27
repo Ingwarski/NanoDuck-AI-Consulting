@@ -1,0 +1,11 @@
+prd: passed
+project-context-bundle: passed
+guardrails: passed
+user-journey: passed
+screen-map: passed
+wireframes: passed
+design-brief: passed
+architecture-approved: passed
+dod-evals-approved: passed
+qa-checklist-approved: passed
+development-plan: migration_required

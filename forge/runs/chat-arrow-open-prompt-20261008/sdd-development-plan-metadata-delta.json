@@ -1,0 +1,43 @@
+{
+  "recorded_at": "2026-10-08T14:02:19.184863+00:00",
+  "kind": "compact_owner_metadata_delta",
+  "prior_git_commit": "c276ddb6dd16b7e593c62af420e913acbfaf89ea",
+  "prior_manifest_path": "forge/sdd-manifest.json",
+  "artifacts": {
+    "development-plan": {
+      "owner_invocation_id": "chat-arrow-position-20261008-8c51b7b0934b-development-plan",
+      "content_hash": "80298e5b1ef244d5615f13c7a4d99c7b9d560135771e123b4c2ececfd317f244",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "arrow-position-scoped-document-review",
+        "reviewed_at": "2026-10-08T13:50:44.830184+00:00",
+        "executor": "Codex inline to-development-plan",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      },
+      "prior_dispatch_invocation_id": "chat-arrow-position-20261008-8c51b7b0934b-development-plan",
+      "changed_source_hashes": {
+        "docs/prd.md": {
+          "before": "0eee53c36dfac2a04f10a6f4fa08f97382b01852ba4bfe3b4626b7739900bbc3",
+          "after": "261b64273d88f06a85f44731d2d07301bb7358c96c073079753d89725ed71384"
+        },
+        "docs/wireframes.md": {
+          "before": "9efccc68fcc34ec0d95793b836c2779f4a8e78cb5bf66b90d9828a5a8095a9b7",
+          "after": "c7cfcc01b65fe670e8854ac571b4c2a2011f250f3180b2ba03b4bd061c8c0936"
+        },
+        "docs/design-brief.md": {
+          "before": "a91cc3e8069cbce099b0ebf7b03f514800b3e3181151118cf5f01578145e473e",
+          "after": "6a712e95a9b58b9b8ecf98638fe71e68e31f4dd9b7c1f4f6b5248cfdb2febe79"
+        },
+        "docs/architecture.md": {
+          "before": "585a51e2316f49678f6df498a8f547e1b83a2988e7fd12f26c362d6d887d550a",
+          "after": "f2ae10de945426511203ba2ee82ff8da2189f9891ef3d3019612f99648b00a40"
+        },
+        "docs/qa-checklist.md": {
+          "before": "75b9bae4b14a0d3e82baec5534142f80c035ce681720376a1f557d9e1e78d498",
+          "after": "5b9cbb5c1bd36052171cc21c1656d932b92cd82b461f1334990b43ca2a4fee51"
+        }
+      }
+    }
+  }
+}

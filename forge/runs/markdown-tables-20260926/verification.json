@@ -1,0 +1,43 @@
+{
+  "observedAt": "2026-09-26T13:40:49.912Z",
+  "sourceHashes": {
+    "src/client/markdown.js": "d46640cebfab47f13ddb2924488ba67f5ff4e4e9af692dcc00df69cb64dba403",
+    "src/client/app.js": "ef2f3c0950c2b93cc380ff5e5968c81e7c4f07c8b5c8adc909fcd23689836dac",
+    "public/styles.css": "cc9804e9d23d7f43dc3ef19e5daa8578ef653a8dc6663fc297276cfc43ee4cbf",
+    "src/server/conversation-export.mjs": "56a746b317f2d846b771ce28230ebdba7a3d3469c5b92a954957e5a22528feeb",
+    "test/markdown.test.mjs": "0f62f50e952354344ca24c9206c16e0575c9d26e0e8602460d22e6d5845b6ddd",
+    "test/markdown-table-export.test.mjs": "a0132f7322958ecf1f3f52f494607e25efceeb2c71fc5e396f3859a7fc1cd06e",
+    "scripts/browser-markdown-tables.mjs": "c361c2a8038deff9a42f8924d3222c44e826a5173e4bfcc6973aff5ea735aa87"
+  },
+  "checks": {
+    "suite": {
+      "passed": 202,
+      "skipped": 2,
+      "failed": 0
+    },
+    "browsers": {
+      "engines": [
+        "Chromium",
+        "Firefox",
+        "WebKit"
+      ],
+      "widths": [
+        320,
+        390,
+        1280
+      ],
+      "result": "passed",
+      "scope": "Actual DOM renderer and styles, synthetic isolated harness; semantic cells, inert HTML, contained overflow and keyboard focus"
+    },
+    "rtf": {
+      "result": "passed",
+      "scope": "Native row/cell encoding plus macOS textutil RTF-to-HTML roundtrip retained table and Ukrainian text"
+    },
+    "sdd": "passed"
+  },
+  "limits": [
+    "Word, Pages and LibreOffice not individually tested",
+    "Physical iPhone and Windows/Linux devices not tested",
+    "Formal release readiness remains not_evaluated"
+  ]
+}

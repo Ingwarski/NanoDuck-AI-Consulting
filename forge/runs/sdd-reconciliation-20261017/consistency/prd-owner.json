@@ -1,0 +1,37 @@
+{
+  "invocation_id": "sdd-reconciliation-20261017-consistency-prd",
+  "outputs": [
+    "docs/prd.md"
+  ],
+  "source_usage": {
+    "docs/model-settings.md": "full",
+    "docs/product-idea.md": "full",
+    "forge/design/evidence/electric-v8-approval-20260914.json": "full",
+    "forge/runs/critic-cache-usage-20260926/implementation-prompt.json": "full",
+    "forge/runs/critic-cache-usage-20260926/scope.json": "full",
+    "forge/runs/sdd-reconciliation-20261017/prd-owner.json": "full",
+    "forge/runs/sdd-reconciliation-20261017/scope.json": "full",
+    "forge/runs/upstream-usage-20260926/implementation-prompt.json": "full",
+    "forge/runs/upstream-usage-20260926/scope.json": "full"
+  },
+  "consumed_hashes": {
+    "docs/model-settings.md": "aef42b6f74eabcdcc32835f6ef7d52099bdcaa5fab2112a184e500dd95338989",
+    "docs/product-idea.md": "3090712b248cae4f5aa6649c301c37fdb0ef7e69eae2cb53517b7f44daf5d056",
+    "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2",
+    "forge/runs/critic-cache-usage-20260926/implementation-prompt.json": "2d95221cb2f84e924114500538865a4aeb370aa77f13e429cdb751b0d708a296",
+    "forge/runs/critic-cache-usage-20260926/scope.json": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+    "forge/runs/sdd-reconciliation-20261017/prd-owner.json": "cf62d076322560989c71c8be6e935381d8cd72d4b5610adc973c9048b9fcfd16",
+    "forge/runs/sdd-reconciliation-20261017/scope.json": "82eeb2e3fa2559e055ab04aa135ad90ca90f776562377069d6415d18c78ab37f",
+    "forge/runs/upstream-usage-20260926/implementation-prompt.json": "b88c8f780d1cee48c2654c9e926356a81c4b33b44170646d5a225252b1ecf11c",
+    "forge/runs/upstream-usage-20260926/scope.json": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a"
+  },
+  "output_hashes": {
+    "docs/prd.md": "79a015d132b6eb65a288e2f80fd86fd5a5d5a9b7e81fbb41dd3faa1e4530e56f"
+  },
+  "executor": "Codex lead acting inline as to-sdd-prd",
+  "validation": "Default depth terminology is one team review round, consistent with FR05.3. Rechecked current product delta against FR03.4 and the reading correction; all67 clauses, use cases, acceptance IDs and unchanged17-clause pinned security review remain valid. No security/runtime test claimed. Final delta review uses the retained first-pass owner review and current source identities; document validation only.",
+  "prior_owner_return": "forge/runs/sdd-reconciliation-20261017/prd-owner.json",
+  "unchanged_source_review": "First-pass owner consumption/provenance retained; integrity rechecked. Current source changes are the explicit completion/depth/accounting/appearance corrections reviewed in this return.",
+  "ownership_released": true,
+  "cleanup": "No browsers, servers, profiles or provider calls created."
+}

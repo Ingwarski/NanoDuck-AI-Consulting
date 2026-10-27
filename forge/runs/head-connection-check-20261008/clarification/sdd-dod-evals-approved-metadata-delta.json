@@ -1,0 +1,31 @@
+{
+  "recorded_at": "2026-10-08T14:47:00.620330+00:00",
+  "kind": "compact_owner_metadata_delta",
+  "prior_git_commit": "36f9165142eba0931f6c0cc35a0eaad6aa6d921f",
+  "prior_manifest_path": "forge/sdd-manifest.json",
+  "prior_owner_return": {
+    "path": "forge/runs/head-connection-check-20261008/sdd-dod-evals-approved-owner-return.json",
+    "content_hash": "9d62260426ffbb20ac1026397aa869f373e7a463aaeb3bf108dedc585e75280f"
+  },
+  "artifacts": {
+    "dod-evals": {
+      "owner_invocation_id": "head-connection-check-20261008-742062612927-dod-evals-approved",
+      "content_hash": "c31804e680531cad85e2441045ca859f3424886989f9be57e49c0fdb8afa42fe",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "head-connection-scoped-document-review",
+        "reviewed_at": "2026-10-08T14:36:53.060571+00:00",
+        "executor": "Codex inline to-dod-evals",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      },
+      "prior_dispatch_invocation_id": "head-connection-check-20261008-742062612927-dod-evals-approved",
+      "changed_source_hashes": {
+        "docs/prd.md": {
+          "before": "5b9afb24bcf0ed61495302d6e7bc615f5ff994b8cd6a6df3b41cc0f2143e4e6b",
+          "after": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4"
+        }
+      }
+    }
+  }
+}

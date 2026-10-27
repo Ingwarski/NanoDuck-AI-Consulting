@@ -1,0 +1,27 @@
+{
+  "recorded_at": "2026-10-08T14:36:48.806873+00:00",
+  "kind": "compact_owner_metadata_delta",
+  "prior_git_commit": "36f9165142eba0931f6c0cc35a0eaad6aa6d921f",
+  "prior_manifest_path": "forge/sdd-manifest.json",
+  "artifacts": {
+    "product-idea": {
+      "owner_invocation_id": "chat-arrow-open-prompt-20261008-d0a388ad7b72-product-idea",
+      "content_hash": "dc5f9384802ed005d5bf11475e924b3b66753cb76781401b1c975b71523edc88",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "arrow-open-prompt-scoped-document-review",
+        "reviewed_at": "2026-10-08T14:02:13.366203+00:00",
+        "executor": "Codex inline to-product-idea",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      },
+      "prior_dispatch_invocation_id": "chat-arrow-open-prompt-20261008-d0a388ad7b72-product-idea",
+      "changed_source_hashes": {
+        "docs/model-settings.md": {
+          "before": "caa4571a344f32c74fea04822b0a2435ad86e2f40efa1215c3b4b8cc75275d7b",
+          "after": "aef42b6f74eabcdcc32835f6ef7d52099bdcaa5fab2112a184e500dd95338989"
+        }
+      }
+    }
+  }
+}

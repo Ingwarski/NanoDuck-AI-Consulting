@@ -1,0 +1,104 @@
+{
+  "recorded_at": "2026-10-27T20:17:41.871783+00:00",
+  "scope": "Owner-authorized clean republication with personal-use licensing; business use requires prior written permission",
+  "source_revision": "c80b44e2832f1d727d91ca854950237eb2ae3451",
+  "publication_history": "New independent Git root; original history and repository assets privately backed up",
+  "first_party_license": "NanoDuck Personal Use License 1.0",
+  "first_party_package_license": "SEE LICENSE IN LICENSE",
+  "runtime_changed": false,
+  "private_application_state_touched": false,
+  "other_repositories_changed": false,
+  "checks_status": "prepared_publication_verified",
+  "sdd_status": {
+    "current_checker_result": "blocked; no fresh SDD pass claimed",
+    "inherited_issues": [
+      {
+        "code": "migration_required",
+        "target": "manifest",
+        "detail": "resume with the latest tested workflow: preserve existing work and approvals, migrate legacy records, and reverify before continuing"
+      },
+      {
+        "code": "intake_progress",
+        "target": "product-idea",
+        "detail": "handed-off intake retains unresolved current_request_id; reconcile through its owner"
+      }
+    ],
+    "publication_issues": [
+      {
+        "code": "migration_required",
+        "target": "manifest",
+        "detail": "resume with the latest tested workflow: preserve existing work and approvals, migrate legacy records, and reverify before continuing"
+      },
+      {
+        "code": "stale_observation",
+        "target": "qa-checklist",
+        "detail": "missing/changed hash: README.md"
+      },
+      {
+        "code": "stale_observation",
+        "target": "qa-checklist",
+        "detail": "missing/changed hash: package-lock.json"
+      },
+      {
+        "code": "stale_observation",
+        "target": "qa-checklist",
+        "detail": "missing/changed hash: package.json"
+      },
+      {
+        "code": "stale_source",
+        "target": "development-plan",
+        "detail": "missing/changed hash: package.json"
+      },
+      {
+        "code": "intake_progress",
+        "target": "product-idea",
+        "detail": "handed-off intake retains unresolved current_request_id; reconcile through its owner"
+      }
+    ],
+    "explanation": "Existing version1 records require version2 migration and current intake metadata. Licensing-only README/package metadata changes also leave the preserved QA repository observations and development-plan consumed-source bindings stale. These engineering records and original receipts remain historical, not newly executed acceptance or implementation authorization. Full canonical-owner reconciliation/migration was not performed as part of clean licensing republication.",
+    "inherited_report": "forge/runs/clean-republication-20261027/inherited-sdd-audit.json",
+    "publication_report": "forge/runs/clean-republication-20261027/publication-sdd-audit.json"
+  },
+  "resources": {
+    "browsers": [],
+    "profiles": [],
+    "servers": [],
+    "provider_calls": []
+  },
+  "checks": {
+    "source_preservation": {
+      "original_file_count": 909,
+      "byte_identical_file_count": 905,
+      "changed_existing_files": [
+        "LICENSE",
+        "README.md",
+        "package-lock.json",
+        "package.json"
+      ],
+      "runtime_model_dependency_workflow_and_frozen_design_bytes": "unchanged"
+    },
+    "package_metadata": "Only own-project license changed; dependency data and licenses unchanged",
+    "private_backups": {
+      "verified_file_count": 1175,
+      "git_fsck": "passed for local and remote mirrors",
+      "bundle_verify": "passed",
+      "all_local_and_remote_refs": "preserved",
+      "pull_request_records": 3,
+      "release_count": 0
+    },
+    "independent_review": {
+      "executor": "republication_readonly",
+      "result": "No blocking licensing or preservation findings; requested final verification record now completed"
+    },
+    "artifact_check": {
+      "command": "node scripts/check-artifacts.mjs",
+      "result": "passed",
+      "scope": "33 Markdown files,110JavaScript syntax checks,3active candidates;links,path hygiene,static HTML references; no runtime-flow acceptance"
+    },
+    "diff_check": {
+      "command": "git diff --cached --check",
+      "result": "passed before initial commit"
+    }
+  },
+  "publication_verification_boundary": "This record verifies prepared publication contents before the GitHub cutover; remote identity, fresh graph and access are verified separately after publication. No previous license grant is declared revoked."
+}

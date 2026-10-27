@@ -1,0 +1,525 @@
+{
+  "recorded_at": "2026-10-17T12:14:03.945179+00:00",
+  "result": "passed",
+  "scope": "Documentation/metadata preservation assertions only; no product execution",
+  "base_commit": "48af7c8a83228e55b1504a1d618bb7ed05eb44e8",
+  "checks": [
+    {
+      "check": "canonical independent Git root",
+      "result": "passed"
+    },
+    {
+      "check": "canonical Git origin",
+      "result": "passed"
+    },
+    {
+      "check": "documentation branch",
+      "result": "passed"
+    },
+    {
+      "check": "unchanged PRD typed requirement and use-case definitions",
+      "result": "passed"
+    },
+    {
+      "check": "unchanged screen and state typed definitions",
+      "result": "passed"
+    },
+    {
+      "check": "111 required clauses and states retained",
+      "result": "passed"
+    },
+    {
+      "check": "17 PRD security mappings unchanged",
+      "result": "passed"
+    },
+    {
+      "check": "architecture retains all security mapping IDs",
+      "result": "passed"
+    },
+    {
+      "check": "dod-evals retains all security mapping IDs",
+      "result": "passed"
+    },
+    {
+      "check": "qa-checklist retains all security mapping IDs",
+      "result": "passed"
+    },
+    {
+      "check": "development-plan retains all security mapping IDs",
+      "result": "passed"
+    },
+    {
+      "check": "original 90 formal checks retain gate/phase/status/evidence/findings",
+      "result": "passed"
+    },
+    {
+      "check": "91 checks all remain prepared and not run",
+      "result": "passed"
+    },
+    {
+      "check": "six required active gates retained",
+      "result": "passed"
+    },
+    {
+      "check": "original gate/check membership retained: product_functional_requirements",
+      "result": "passed"
+    },
+    {
+      "check": "original gate/check membership retained: product_security_requirements",
+      "result": "passed"
+    },
+    {
+      "check": "original gate/check membership retained: approved_visual_baseline_fidelity",
+      "result": "passed"
+    },
+    {
+      "check": "original gate/check membership retained: heuristic_usability_review",
+      "result": "passed"
+    },
+    {
+      "check": "original gate/check membership retained: representative_user_task_validation",
+      "result": "passed"
+    },
+    {
+      "check": "original gate/check membership retained: lifecycle_and_continuity",
+      "result": "passed"
+    },
+    {
+      "check": "exact active unit order and pending records",
+      "result": "passed"
+    },
+    {
+      "check": "C01 only bounded acceptance at U14",
+      "result": "passed"
+    },
+    {
+      "check": "all original90 real-consumer acceptances at U15",
+      "result": "passed"
+    },
+    {
+      "check": "full111 have required integration/release coverage",
+      "result": "passed"
+    },
+    {
+      "check": "plan and QA exact canonical JSON projections",
+      "result": "passed"
+    },
+    {
+      "check": "strict sequential U14 before U15 and no forward dependencies",
+      "result": "passed"
+    },
+    {
+      "check": "existing explicit unit and QA source inventories resolve",
+      "result": "passed"
+    },
+    {
+      "check": "legacy plan archived byte for byte",
+      "result": "passed"
+    },
+    {
+      "check": "all13 legacy mappings and prior typed allocations retained",
+      "result": "passed"
+    },
+    {
+      "check": "approved visual baseline section byte unchanged",
+      "result": "passed"
+    },
+    {
+      "check": "active visual baseline and original approval binding unchanged",
+      "result": "passed"
+    },
+    {
+      "check": "exact model settings unchanged",
+      "result": "passed"
+    },
+    {
+      "check": "original verification reports retained byte for byte",
+      "result": "passed"
+    },
+    {
+      "check": "all8 original portable handoff bodies retained",
+      "result": "passed"
+    },
+    {
+      "check": "tracked changes confined to instructions/docs/manifest",
+      "result": "passed"
+    },
+    {
+      "check": "all original source/runtime/frozen evidence paths unchanged",
+      "result": "passed"
+    },
+    {
+      "check": "new files confined to current public documentation evidence",
+      "result": "passed"
+    },
+    {
+      "check": "root instruction section single and byte-idempotent",
+      "result": "passed"
+    },
+    {
+      "check": "current implementation authorization awaits a later prompt",
+      "result": "passed"
+    },
+    {
+      "check": "all122 reviewed repository observation hashes remain current",
+      "result": "passed"
+    },
+    {
+      "check": "fresh audit uses original current toolchain digest",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/screen-map-owner.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/dod-evals-owner.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/user-journey-after.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/prd-after.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/architecture-owner.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/guardrails-owner.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/qa-source-observation.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/dod-evals-before.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/implementation-boundary-check.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/independent-review.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/guardrails-after.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/checkpoint.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/source-inventory.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/initial-audit.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/screen-map-after.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/dod-evals-after.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/user-journey-owner.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/prd-owner.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/architecture-after.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/scope.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/legacy-development-plan.md.txt",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/wireframes-after.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/design-brief-owner.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/wireframes-owner.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/prd-before.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/design-brief-before.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/design-brief-after.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/intake-handoff.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/project-context-bundle-after.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/wireframes-before.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/architecture-before.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/preservation-checks.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/qa-checklist-before.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/product-idea-before.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/product-idea-owner.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/qa-checklist-after.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/prior-bindings.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/product-idea-after.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/qa-checklist-owner.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/project-context-bundle-owner.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/project-context-bundle-before.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/verification.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/qa-owner-projection.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/plan-migration.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/instruction-setup.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/final-audit.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/screen-map-before.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/guardrails-before.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/user-journey-before.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/screen-map-owner.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/dod-evals-owner.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/user-journey-after.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/prd-after.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/architecture-owner.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/development-plan-after.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/guardrails-owner.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/dod-evals-before.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/development-plan-owner.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/guardrails-after.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/screen-map-after.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/dod-evals-after.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/user-journey-owner.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/prd-owner.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/architecture-after.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/wireframes-after.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/design-brief-owner.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/wireframes-owner.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/prd-before.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/design-brief-before.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/design-brief-after.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/development-plan-before.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/project-context-bundle-after.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/wireframes-before.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/architecture-before.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/qa-checklist-before.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/product-idea-before.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/product-idea-owner.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/qa-checklist-after.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/product-idea-after.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/qa-checklist-owner.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/project-context-bundle-owner.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/project-context-bundle-before.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/screen-map-before.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/guardrails-before.json",
+      "result": "passed"
+    },
+    {
+      "check": "public relative paths: forge/runs/sdd-reconciliation-20261017/consistency/user-journey-before.json",
+      "result": "passed"
+    }
+  ],
+  "qa_counts": {
+    "original": 90,
+    "current": 91,
+    "clauses_and_states": 111,
+    "security_obligations": 17,
+    "required_gates": 6
+  },
+  "runtime_resources": {
+    "browsers": [],
+    "profiles": [],
+    "servers": [],
+    "provider_calls": []
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "invocation_id": "sdd-reconciliation-20261017-architecture",
+  "outputs": [
+    "docs/architecture.md"
+  ],
+  "source_usage": {
+    "docs/prd.md": "full",
+    "docs/project-context.md": "full",
+    "docs/canonical-terms.md": "full",
+    "docs/guardrails.md": "full",
+    "docs/user-journey.md": "full",
+    "docs/screen-map.md": "full",
+    "docs/wireframes.md": "full",
+    "docs/design-brief.md": "full",
+    "docs/model-settings.md": "full",
+    "forge/runs/sdd-reconciliation-20261017/scope.json": "full",
+    "src/server/index.mjs": "full",
+    "src/server/consultation.mjs": "full",
+    "src/server/local-request.mjs": "full",
+    "src/server/provider-context.mjs": "full",
+    "src/client/app.js": "full",
+    "src/client/theme.js": "full",
+    "public/styles.css": "full",
+    "instructions/AGENTS.md": "full"
+  },
+  "executor": "Codex lead acting inline as to-architecture",
+  "validation": "Reconciled one-process/encrypted-store/provider architecture against the unchanged Electric baseline, current PRD/state/layout and path-scoped static code observations. All17 security enforcement mappings retained; exact model/effort/authentication and egress controls unchanged. Corrected stale sequential/current-authority, immutable request isolation, reading/arrow/RTF mechanisms, public-shell-only navigation exception and white matte opacity. Recorded packaged guidance discrepancy without modifying runtime inputs. No test, running-service, provider, OS/device, security or release acceptance inferred."
+}

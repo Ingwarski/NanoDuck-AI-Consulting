@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-10-08T14:59:47.793000+00:00",
+  "executor": "Codex with isolated synthetic Playwright fixtures and independent read-only review",
+  "result": "passed",
+  "scope": "Head and specialists Check connection with existing Critic reconnection preserved",
+  "implementation_hashes": {
+    "src/client/app.js": "72df3c4f2d63ba1b49b441fdf2ab6823eaf8bc9f713fb58dd7215e553c807c99",
+    "public/styles.css": "b9c1c603dbf71232e3c8c1a4a1be1bdf4e7ca9f556112422ecf4e0fe8587eb29",
+    "scripts/browser-provider-connection.mjs": "ef60f8d95e759117719af673e97bfa80cb16a33657414a56c3d2cf6460bf6464",
+    "scripts/browser-check.mjs": "d4d3ea4aeb011139462ed234128d4bb578268de41d5909a5ab02cb0931611fe4",
+    "docs/model-settings.md": "aef42b6f74eabcdcc32835f6ef7d52099bdcaa5fab2112a184e500dd95338989"
+  },
+  "commands": [
+    "node scripts/browser-check.mjs --provider-connection-only",
+    "node scripts/browser-check.mjs --engine=chromium",
+    "npm run check",
+    "node scripts/check-artifacts.mjs",
+    "git diff --check"
+  ],
+  "browser_engines": [
+    "chromium",
+    "firefox",
+    "webkit"
+  ],
+  "tests": {
+    "passed": 230,
+    "skipped": 2,
+    "failed": 0
+  },
+  "observations": [
+    "Head checks Codex readiness and exact selected model/effort",
+    "Ready, auth-required, quota, incompatible, unavailable, request failure and missing model/effort cases verified",
+    "Checks serialize and preserve edits made while pending, including both models/efforts and private instruction/document text",
+    "Connection checks perform no API writes and never save settings",
+    "Changing Head choice clears stale result; starting another check clears superseded sibling feedback",
+    "320px/390px controls remain reachable and reflow; statuses use role=status",
+    "Existing Critic Claude reconnect/recovery remains functional",
+    "Full Chromium regression preserves authentication, consent, active work, drafts, immutable choices, retries and private logoff"
+  ],
+  "visual_evidence": {
+    "forge/runs/head-connection-check-20261008/chromium-320-head-connection.png": "a4e069b707601d1470c9dd5427b95ad5c28d19382425aa62686a5762cbfd2cdf",
+    "forge/runs/head-connection-check-20261008/webkit-390-head-connection.png": "09dc2426f21779d09ac10219de7b4c28199d298074b5c537b09dce91b9cbe522"
+  },
+  "review": "No actionable new issues in diagnostics",
+  "server": "Existing local server left running; no real consultation or provider inference invoked",
+  "limitations": [
+    "Subscription/provider states in browser tests are synthetic; no live model response or entitlement proof",
+    "Existing Codex initial-auth discovery requires restarting after first setup if auth was absent at startup; backend unchanged",
+    "Existing legacy full-unit SDD metadata migration remains pending; no full-product release evaluation"
+  ]
+}

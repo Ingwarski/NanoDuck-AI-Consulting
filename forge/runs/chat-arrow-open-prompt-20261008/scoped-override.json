@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "event": "accepted_scoped_baseline_override",
+  "actor": "user",
+  "approved_at": "2026-10-08T14:01:24.696618+00:00",
+  "timestamp_basis": "Tool-recording time in this active task; original message transport timestamp unavailable.",
+  "prompt_id": "chat-arrow-open-prompt-20261008",
+  "request": "well, raise the down button to above the prompt only when the prompt is open.",
+  "baseline_id": "nanoduck-electric-a-v8-20260914",
+  "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
+  "tree_hash": "1de020dcfe48f3feb80db0e58ba911b821825b48730d32c72d9518ad512eb0d9",
+  "scope": "Raise the horizontally centered down arrow above the visible open prompt only. With the prompt collapsed or hidden, including active work, return to the original fixed bottom16px plus safe-area inset. Continue conversation height never raises the arrow. Preserve liquid glass, readable-area jumps/hiding and mobile action separation.",
+  "evidence_limit": "Explicit bounded placement refinement; original frozen design retained. No full-unit migration or whole-product release claim."
+}

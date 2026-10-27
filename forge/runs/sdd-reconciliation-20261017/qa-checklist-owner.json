@@ -1,0 +1,154 @@
+{
+  "invocation_id": "sdd-reconciliation-20261017-qa-checklist",
+  "owner_skill": "to-qa-checklist",
+  "outputs": [
+    "docs/qa-checklist.md"
+  ],
+  "declared_output_set": [
+    "docs/qa-checklist.md"
+  ],
+  "source_usage": {
+    "docs/prd.md": "full",
+    "docs/project-context.md": "full",
+    "docs/canonical-terms.md": "full",
+    "docs/guardrails.md": "full",
+    "docs/user-journey.md": "full",
+    "docs/screen-map.md": "full",
+    "docs/wireframes.md": "full",
+    "docs/design-brief.md": "full",
+    "docs/architecture.md": "full",
+    "docs/dod-evals.md": "full",
+    "docs/model-settings.md": "full",
+    "forge/runs/sdd-reconciliation-20261017/scope.json": "full"
+  },
+  "consumed_hashes": {
+    "docs/prd.md": "6929cbd6c2758380e8482cb8937474caf0e2833b823e06c0a8b6cdab2d048220",
+    "docs/project-context.md": "837ddd8ebb87c7a2b4dbfc8b236f136aef93f69e690a50e3b2b61d155f7b9ff6",
+    "docs/canonical-terms.md": "b4cccec813b16ed3824ad34d05f1bae58934b1711216ba569ec582d839c4cceb",
+    "docs/guardrails.md": "f79f3abb88b8ac9c7c2c4ee95834e47cf6b8046c0c23b8155eb233a487439fe7",
+    "docs/user-journey.md": "4ec4f00f722863dea5b68675e9ef3931756460e7710733a119b95029ce4b0e4d",
+    "docs/screen-map.md": "29596b2f1ca042f482de225363c7bf64cc57f79a4b6b4d897dbcbcd7b190b9f5",
+    "docs/wireframes.md": "dcd05d7ec1defa865adaa373afadbe8afa2e6f1fab94267354ba11e8fd2d0664",
+    "docs/design-brief.md": "5f8561e831c72b9890e69e78f65216438b5f65a8a7e7623d7e9814374ab4bcbf",
+    "docs/architecture.md": "ad2a2375f4902f07cd04bd8c806a0ebc2d51f7a573b7a04d0c449ba8fc69d5fb",
+    "docs/dod-evals.md": "0151985b445aec4c02320da6a84765144c058e7a79d4792f136c647021817b99",
+    "docs/model-settings.md": "aef42b6f74eabcdcc32835f6ef7d52099bdcaa5fab2112a184e500dd95338989",
+    "forge/runs/sdd-reconciliation-20261017/scope.json": "82eeb2e3fa2559e055ab04aa135ad90ca90f776562377069d6415d18c78ab37f"
+  },
+  "source_hashes": {
+    "docs/prd.md": "6929cbd6c2758380e8482cb8937474caf0e2833b823e06c0a8b6cdab2d048220",
+    "docs/project-context.md": "837ddd8ebb87c7a2b4dbfc8b236f136aef93f69e690a50e3b2b61d155f7b9ff6",
+    "docs/canonical-terms.md": "b4cccec813b16ed3824ad34d05f1bae58934b1711216ba569ec582d839c4cceb",
+    "docs/guardrails.md": "f79f3abb88b8ac9c7c2c4ee95834e47cf6b8046c0c23b8155eb233a487439fe7",
+    "docs/user-journey.md": "4ec4f00f722863dea5b68675e9ef3931756460e7710733a119b95029ce4b0e4d",
+    "docs/screen-map.md": "29596b2f1ca042f482de225363c7bf64cc57f79a4b6b4d897dbcbcd7b190b9f5",
+    "docs/wireframes.md": "dcd05d7ec1defa865adaa373afadbe8afa2e6f1fab94267354ba11e8fd2d0664",
+    "docs/design-brief.md": "5f8561e831c72b9890e69e78f65216438b5f65a8a7e7623d7e9814374ab4bcbf",
+    "docs/architecture.md": "ad2a2375f4902f07cd04bd8c806a0ebc2d51f7a573b7a04d0c449ba8fc69d5fb",
+    "docs/dod-evals.md": "0151985b445aec4c02320da6a84765144c058e7a79d4792f136c647021817b99",
+    "docs/model-settings.md": "aef42b6f74eabcdcc32835f6ef7d52099bdcaa5fab2112a184e500dd95338989",
+    "forge/runs/sdd-reconciliation-20261017/scope.json": "82eeb2e3fa2559e055ab04aa135ad90ca90f776562377069d6415d18c78ab37f"
+  },
+  "consumed_source_fragments": {},
+  "output_hashes": {
+    "docs/qa-checklist.md": "ebd764142bc9a6ad8283e96bee92d16ce4b43d62b979730eaff8aaa91b8df7c4"
+  },
+  "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
+  "executor": "Codex delegated to-qa-checklist owner",
+  "validation": {
+    "result": "passed",
+    "working_language": "en",
+    "scope": "Document authoring validation only: original90 IDs/gates/phases/statuses/security/baseline retained,91 canonical acceptance records match projection,12 bounded contribution targets,existing required source paths/local links/unique headings verified; product tests not run."
+  },
+  "security_coverage": {
+    "NFR-10.1": {
+      "path": "docs/qa-checklist.md",
+      "heading": "## Product acceptance"
+    },
+    "NFR-10.2": {
+      "path": "docs/qa-checklist.md",
+      "heading": "## Product acceptance"
+    },
+    "NFR-10.3": {
+      "path": "docs/qa-checklist.md",
+      "heading": "## Product acceptance"
+    },
+    "NFR-11.1": {
+      "path": "docs/qa-checklist.md",
+      "heading": "## Product acceptance"
+    },
+    "NFR-11.2": {
+      "path": "docs/qa-checklist.md",
+      "heading": "## Product acceptance"
+    },
+    "NFR-11.3": {
+      "path": "docs/qa-checklist.md",
+      "heading": "## Product acceptance"
+    },
+    "NFR-12.1": {
+      "path": "docs/qa-checklist.md",
+      "heading": "## Product acceptance"
+    },
+    "NFR-12.2": {
+      "path": "docs/qa-checklist.md",
+      "heading": "## Product acceptance"
+    },
+    "NFR-12.3": {
+      "path": "docs/qa-checklist.md",
+      "heading": "## Product acceptance"
+    },
+    "NFR-13.1": {
+      "path": "docs/qa-checklist.md",
+      "heading": "## Product acceptance"
+    },
+    "NFR-13.2": {
+      "path": "docs/qa-checklist.md",
+      "heading": "## Product acceptance"
+    },
+    "NFR-14.1": {
+      "path": "docs/qa-checklist.md",
+      "heading": "## Product acceptance"
+    },
+    "NFR-14.2": {
+      "path": "docs/qa-checklist.md",
+      "heading": "## Product acceptance"
+    },
+    "NFR-14.3": {
+      "path": "docs/qa-checklist.md",
+      "heading": "## Product acceptance"
+    },
+    "NFR-15.1": {
+      "path": "docs/qa-checklist.md",
+      "heading": "## Product acceptance"
+    },
+    "NFR-16.1": {
+      "path": "docs/qa-checklist.md",
+      "heading": "## Product acceptance"
+    },
+    "NFR-16.2": {
+      "path": "docs/qa-checklist.md",
+      "heading": "## Product acceptance"
+    }
+  },
+  "qa_acceptance_ref": {
+    "path": "docs/qa-checklist.md",
+    "heading": "## Acceptance definitions"
+  },
+  "projection_filename": "nanoduck-qa-checklist-projection.json",
+  "repository_observation_id": "sdd-reconciliation-20261017-qa-source-inventory",
+  "repository_observation_filename": "nanoduck-qa-repository-observation.json",
+  "changes": [
+    "Preserved all90 original formal check IDs/gates/phases/not_run status and17 security mappings; corrected QA-R14 accepted rail/completion-collapse, QA-R63 new-Send context isolation and QA-R51 current-request context; documented existing public-shell exception under QA-R48.",
+    "Added QA-C01 as one bounded controlled accepted-request lifecycle through actual local consumers,12 supported contribution clauses only,without full requirement/state acceptance or current provider/device/user claims.",
+    "Added canonical Acceptance definitions JSON with91 required entries,explicit claim-specific verified code/config/test paths,full originals real_consumers and bounded QA-C01 component mode.",
+    "Converted duplicated feature/appearance instructions into QA procedures; translated retained table/reading checks into English;superseded outdated horizontal/transparent/bevel treatments while retaining historical results/receipts and current liquid-glass/matte behavior.",
+    "Separated current evidence freshness and unrun formal checks from historical scoped results;retained unknown/partial upstream counts when cumulative totals are absent."
+  ],
+  "evidence_status": "Checks prepared; tests not run. All91 current executions not_run;release_readiness not_evaluated. No browsers/providers/runtime/code/Git/manifest writes.",
+  "open_questions": [],
+  "limitations": [
+    "Plan owner still allocates acceptance/dependencies and full integrated unit source inventory; root alone integrates gates/projection and runs checker.",
+    "Queued upstream wording corrections will receive root-controlled owner revalidation/rebinding after this initial handoff;current input hashes were unchanged during QA authoring.",
+    "Packaged WORKING_CONTEXT guidance discrepancy remains recorded by architecture for later authorized implementation;this owner changes no runtime instructions."
+  ]
+}

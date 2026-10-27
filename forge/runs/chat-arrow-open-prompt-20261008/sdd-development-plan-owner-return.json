@@ -1,0 +1,20 @@
+{
+  "invocation_id": "chat-arrow-open-prompt-20261008-d0a388ad7b72-development-plan",
+  "node": "development-plan",
+  "returned_at": "2026-10-08T14:02:19.249962+00:00",
+  "outputs": {
+    "development-plan": {
+      "path": "docs/development-plan.md",
+      "content_hash": "80298e5b1ef244d5615f13c7a4d99c7b9d560135771e123b4c2ececfd317f244",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "arrow-open-prompt-scoped-document-review",
+        "reviewed_at": "2026-10-08T14:02:19.220460+00:00",
+        "executor": "Codex inline to-development-plan",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      }
+    }
+  },
+  "evidence_limit": "Document definitions only; actual product checks belong to the root's separately inspected evidence."
+}

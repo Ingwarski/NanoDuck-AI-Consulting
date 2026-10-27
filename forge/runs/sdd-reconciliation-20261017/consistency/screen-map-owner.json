@@ -1,0 +1,33 @@
+{
+  "invocation_id": "sdd-reconciliation-20261017-consistency-screen-map",
+  "outputs": [
+    "docs/screen-map.md"
+  ],
+  "source_usage": {
+    "docs/canonical-terms.md": "full",
+    "docs/guardrails.md": "full",
+    "docs/prd.md": "full",
+    "docs/project-context.md": "full",
+    "docs/user-journey.md": "full",
+    "forge/runs/sdd-reconciliation-20261017/scope.json": "full",
+    "forge/runs/sdd-reconciliation-20261017/screen-map-owner.json": "full"
+  },
+  "consumed_hashes": {
+    "docs/canonical-terms.md": "5d14a5d99c33f744ef4a741f5dcf4a03d1a83c5883978a3eecfa33c728f5fa4f",
+    "docs/guardrails.md": "f79f3abb88b8ac9c7c2c4ee95834e47cf6b8046c0c23b8155eb233a487439fe7",
+    "docs/prd.md": "79a015d132b6eb65a288e2f80fd86fd5a5d5a9b7e81fbb41dd3faa1e4530e56f",
+    "docs/project-context.md": "837ddd8ebb87c7a2b4dbfc8b236f136aef93f69e690a50e3b2b61d155f7b9ff6",
+    "docs/user-journey.md": "4ec4f00f722863dea5b68675e9ef3931756460e7710733a119b95029ce4b0e4d",
+    "forge/runs/sdd-reconciliation-20261017/scope.json": "82eeb2e3fa2559e055ab04aa135ad90ca90f776562377069d6415d18c78ab37f",
+    "forge/runs/sdd-reconciliation-20261017/screen-map-owner.json": "ae2d572143259d4e180d5d2a096efbfbb40e63d0c5cc40108b8b2c4148f3e0a0"
+  },
+  "output_hashes": {
+    "docs/screen-map.md": "29596b2f1ca042f482de225363c7bf64cc57f79a4b6b4d897dbcbcd7b190b9f5"
+  },
+  "executor": "Codex lead acting inline as to-screen-map",
+  "validation": "Reviewed all nine surfaces and44 states against corrected journey/vocabulary. Existing complete/stopped/failure and Usage variants remain correct; no route/state or security boundary changes. Current appearance is delegated downstream. Final delta review uses the retained first-pass owner review and current source identities; document validation only.",
+  "prior_owner_return": "forge/runs/sdd-reconciliation-20261017/screen-map-owner.json",
+  "unchanged_source_review": "First-pass owner consumption/provenance retained; integrity rechecked. Current source changes are the explicit completion/depth/accounting/appearance corrections reviewed in this return.",
+  "ownership_released": true,
+  "cleanup": "No browsers, servers, profiles or provider calls created."
+}

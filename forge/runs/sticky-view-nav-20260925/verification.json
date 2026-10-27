@@ -1,0 +1,37 @@
+{
+  "recorded_at": "2026-09-25T20:39:23.490297+00:00",
+  "executor": "Codex",
+  "scope": "Sticky consultation view navigation",
+  "source_hashes": {
+    "public/index.html": "fb1a0dda68b849f6de926ffb600eda43284d14dd753b075c9856eec79a873a01",
+    "public/styles.css": "4cbe20e16612272b2c2cc3fbc968c348716b36644b9f51b7b23cff13a2391aec",
+    "scripts/browser-usage.mjs": "959ab2eeced13b6e1ee0d36cca870f1aacba41ed30a911159f920f6b527e4119"
+  },
+  "results": [
+    {
+      "command": "node scripts/browser-check.mjs --usage-only",
+      "engines": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "result": "passed",
+      "coverage": "Desktop/320px scrolling, persistent tabs, scope switching, keyboard and logout"
+    },
+    {
+      "command": "node scripts/browser-check.mjs --engine=webkit",
+      "result": "passed",
+      "coverage": "Full suite including active Stop geometry and reachability, audio, retry, usage and privacy"
+    },
+    {
+      "command": "node scripts/check-artifacts.mjs",
+      "result": "passed"
+    },
+    {
+      "command": "sdd_check.py --project . --audit",
+      "result": "passed"
+    }
+  ],
+  "activation": "Updated HTML and CSS confirmed served by the existing local HTTPS server without restart. The real consultation was not interrupted.",
+  "limits": "Synthetic browser fixtures; no claim of representative-user validation or whole-product release."
+}

@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-10-08T13:17:51.235749+00:00",
+  "executor": "Codex with isolated Playwright fixtures and independent read-only review",
+  "scope": "Requested glass chat controls, removed Read outcome and sticky white matte prompt in both themes",
+  "implementation_hashes": {
+    "public/index.html": "9e5d7062d2a89a7959d151415d1587a92e7014a6c2cdce17c86b503b0319f71a",
+    "public/styles.css": "2b511a382e9def458fe598e17db1253a5b8ab7d752e9a6edd969c368c61b6342",
+    "src/client/app.js": "cf8fcfc416d9c2dba5d5358893cc517d1108d111d404d3e212080f9943b5f895",
+    "src/client/navbar-glass.js": "1402acc8312a3e7c4319be14a9a063c68b9720b07c527e8798e7a73aee70152c",
+    "scripts/browser-check.mjs": "50faade655fe214a8d94255f396bfec968bded04de26eca25fd0a5f38792527e",
+    "scripts/browser-reading-mode.mjs": "5364e2a220bd75fe81ef4e39ca550aba5d249a06e9244f7bfc0cd2a96ff0b34b",
+    "scripts/browser-navbar-glass.mjs": "6e401f02fe6a20acfb3b59b1d4173bc3bbac1ab3c67ce0d4bf8408e34803e446",
+    "scripts/browser-floating-glass.mjs": "d465e6063d30c0146fd8db17537595f98d55c8058f83e4899fe2b5bf96401e8c"
+  },
+  "commands": [
+    {
+      "command": "npm run check",
+      "result": "passed",
+      "log": "forge/runs/glass-chat-controls-20261008/checks.log",
+      "log_sha256": "abfd7af5880e5335c038eac1baa35aa776fa7b0932b790a49a407e8405185e27"
+    },
+    {
+      "command": "node scripts/browser-check.mjs --reading-regression",
+      "result": "passed",
+      "log": "forge/runs/glass-chat-controls-20261008/reading-regression.log",
+      "log_sha256": "6bcdf12974ab21f4bceef018bfbd4d13640eddb6770bdc592e6bc0fa83e16b1f"
+    },
+    {
+      "command": "node scripts/browser-check.mjs --reading-only",
+      "result": "passed",
+      "log": "forge/runs/glass-chat-controls-20261008/reading-viewport.log",
+      "log_sha256": "9cc71df5b609ad2f6ece63a8d249c697944183e08d718a29fd4181bd01f6214a"
+    },
+    {
+      "command": "node scripts/browser-check.mjs --theme-only",
+      "result": "passed",
+      "log": "forge/runs/glass-chat-controls-20261008/themes.log",
+      "log_sha256": "0fc864b2447d1b669315061c674cd0df9c3a853c230ced9345dd6677d6423ef8"
+    },
+    {
+      "command": "node scripts/browser-navbar-glass.mjs",
+      "result": "passed",
+      "log": "forge/runs/glass-chat-controls-20261008/navbar-optics.log",
+      "log_sha256": "1a90622f5d62ba07500b3f333913d413d0a4a61fcbc1f6d01a71a9a2c3431527"
+    },
+    {
+      "command": "node scripts/browser-floating-glass.mjs",
+      "result": "passed",
+      "log": "forge/runs/glass-chat-controls-20261008/floating-optics.log",
+      "log_sha256": "4cb7390f63bc34db53311d333e51363fce42d6b744067c8d7058e300df31f793"
+    },
+    {
+      "command": "node scripts/browser-check.mjs --engine=chromium",
+      "result": "passed",
+      "log": "forge/runs/glass-chat-controls-20261008/full-browser-chromium.log",
+      "log_sha256": "69ece0656bc518ceb0d3bea33e1b9c72b326bfb85d2778492d776421b5f9c11f"
+    },
+    {
+      "command": "npm run check (after SDD reconciliation)",
+      "result": "passed",
+      "log": "forge/runs/glass-chat-controls-20261008/checks-final.log",
+      "log_sha256": "24bcd2a8ee736647bc2a822f8d0492004934c5d13dc11ec98d477db47b5aab62"
+    }
+  ],
+  "tests": {
+    "passed": 230,
+    "skipped": 2,
+    "failed": 0
+  },
+  "browser_engines": [
+    "chromium",
+    "firefox",
+    "webkit"
+  ],
+  "functional_observations": [
+    "Read outcome removed; existing Outcome navigation works",
+    "Draft, completion collapse, active-run hiding, Stop/retry and selected view preserved",
+    "44px circular arrows retain centered placement and hide at boundaries",
+    "Bottom arrow and final messages stay above prompt/Continue overlay",
+    "Sticky prompt uses white matte glass and dark input text in both themes",
+    "Shortened visual viewport and pinch zoom distinction verified with synthetic viewport metrics",
+    "Four glass hosts refract source pixels only at curved edges and have transparent centres",
+    "Form values and native glass controls remain unsampled",
+    "Every source and target buffer clears synchronously on privacy changes; forced colours clear lenses",
+    "No perpetual renderer mutation feedback loop"
+  ],
+  "visual_evidence": {
+    "forge/runs/glass-chat-controls-20261008/chromium-sticky-prompt-desktop.png": "82a9881d8ad7713fbb7103c022c476679bf68cfefb8b42e69527ae8f8985f75f",
+    "forge/runs/glass-chat-controls-20261008/webkit-sticky-prompt-mobile.png": "db970dd0b678f8543d2d0b7fa74974dd208bb829d8e4f763501e2650bf671ace",
+    "forge/runs/glass-chat-controls-20261008/chromium-floating-glass-arrow.png": "34fb60d2f8cdae1f0abbb7130fc917788d58c4ade5fb9568bb67f20a003a3d1f",
+    "forge/runs/glass-chat-controls-20261008/chromium-floating-glass-continue.png": "2a86f13290fbe6cef963a9a82556c6e90e1e537dd6192e4e33d34e95e759be62",
+    "forge/runs/glass-chat-controls-20261008/webkit-floating-glass-light.png": "55e2b1c46060084bc346fde526e93aefb0b6c9574dc23e10c910be0f4e45d920"
+  },
+  "live_server": "Existing process left running; no restart or consultation interaction",
+  "review": "Independent read-only review found no actionable new issues",
+  "limitations": [
+    "Synthetic consultation/provider fixtures; no live inference",
+    "Physical phone/tablet keyboard and actual reduced-transparency device setting not exercised",
+    "Standing whole-product release and representative-user gates not evaluated",
+    "Existing legacy full-unit manifest migration remains outside this scoped UI correction"
+  ],
+  "sdd_result": {
+    "document_validation": "Passed through approved QA with matching current hashes",
+    "development_plan_checker": "migration_required \u2014 retained existing legacy unit metadata limitation; no full-unit migration or release certification",
+    "report": "forge/runs/glass-chat-controls-20261008/sdd-reconciliation-summary.json"
+  }
+}

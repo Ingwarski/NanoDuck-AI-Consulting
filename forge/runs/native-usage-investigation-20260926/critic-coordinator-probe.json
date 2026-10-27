@@ -1,0 +1,46 @@
+{
+  "method": "Actual parallel coordinator with synthetic owner and stubbed Head/consultants; real Claude Critic review and order assessment. No private user content.",
+  "stages": [
+    "head_plan",
+    "specialist_position",
+    "specialist_position",
+    "team_review",
+    "specialist_reply",
+    "critic_order_assessment",
+    "head_final"
+  ],
+  "usages": [
+    {
+      "stage": "team_review",
+      "usage": [
+        {
+          "model": "claude-opus-5-5",
+          "tokens": {
+            "input": 4561,
+            "output": 344,
+            "total": 4905,
+            "cachedInput": 0,
+            "cacheWriteInput": 4559,
+            "reasoningOutput": null
+          }
+        }
+      ]
+    },
+    {
+      "stage": "critic_order_assessment",
+      "usage": [
+        {
+          "model": "claude-opus-5-5",
+          "tokens": {
+            "input": 4627,
+            "output": 373,
+            "total": 5000,
+            "cachedInput": 3717,
+            "cacheWriteInput": 908,
+            "reasoningOutput": null
+          }
+        }
+      ]
+    }
+  ]
+}

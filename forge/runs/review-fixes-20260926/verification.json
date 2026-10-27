@@ -1,0 +1,79 @@
+{
+  "recorded_at": "2026-09-26T12:54:26.040761+00:00",
+  "executor": "Codex; isolated synthetic Node and Playwright fixtures",
+  "base_commit": "31bb3c8566a36d02f2b822041dc88364ef0a21a4",
+  "branch": "codex/consultation-review-fixes",
+  "implementation_files": {
+    "src/server/consultation-parallel.mjs": "ef8ee082210243a66e9fd2755469dbe13bb2f32ec0cbd05d8b43495f2ec99986",
+    "src/server/parallel-contract.mjs": "6ed57e8ce9a6f1bc17739a48de0627baa0a14a083901f0136bae430cd62d2c15",
+    "src/client/app.js": "26623cdf2b6d01023d7f8a7bc3ec4d4c122002fe6670bd9b50b6dcadf2ca6df0",
+    "public/index.html": "f0b0279efee9fa371fdb1d2708e77303f51148738247bb0a3a636a2583c1d9e1",
+    "scripts/browser-check.mjs": "db60e39b364a20b44f85f0c08101bb03167db66f632bc0a41c5632b6958bc629",
+    "scripts/browser-progress-recovery.mjs": "aa0ed7258ea1f11ca8dcfcd11addbb48180aa6022e5303cfa50fad8ad374cc5a",
+    "test/review-fixes.test.mjs": "5b9462f25e72ad39144fd8bb39c5c4b7a21943158a5fd5e780509571339e40f4",
+    "docs/review-fixes-port.md": "18eff37508918a9b67c14022c41b896f950abe268ee8ef06736edfb79d49a41e",
+    "docs/consultation-orchestration-port.md": "6dc3aa0553336127335b443d01ded4f502a861846d13f19cfb269f1b84a7b3ee"
+  },
+  "checks": [
+    {
+      "command": "npm run check",
+      "result": "passed",
+      "tests": 201,
+      "passed": 199,
+      "skipped": 2,
+      "failed": 0,
+      "skips": "Two Windows-only ACL/helper tests on macOS."
+    },
+    {
+      "command": "node scripts/browser-check.mjs",
+      "result": "passed",
+      "engines": [
+        "Chromium",
+        "Firefox",
+        "WebKit"
+      ],
+      "scope": "Full existing authentication/settings/audio/consultation/Stop/history/logout suite plus reconnect and slow usage."
+    },
+    {
+      "command": "node scripts/browser-check.mjs --usage-only",
+      "result": "passed",
+      "engines": [
+        "Chromium",
+        "Firefox",
+        "WebKit"
+      ],
+      "scope": "Final-source verification of usage/navigation, network recovery, source claims sharing a URL, final usage refresh after Stop, no overlapping same-scope reads, cancellation of progress polling."
+    },
+    {
+      "command": "sdd_check.py --project . --audit",
+      "result": "passed",
+      "issues": 0,
+      "warnings": 0,
+      "scope": "Declared artifact hashes, bindings and retained frozen baseline; not product release."
+    },
+    {
+      "command": "git diff --check",
+      "result": "passed"
+    }
+  ],
+  "targeted_regressions": [
+    "Linked correction attempts carry old and new defects; Critic resolution, immutable history and tampered links",
+    "Dependency readiness without unrelated-worker barrier",
+    "64-character and reserved role metadata; preserved exact task; legacy owner-role filtering",
+    "Saved specialist position/reply and selected private role guidance",
+    "Secret-like output rejected before persistence/forwarding; ordinary phone numbers permitted",
+    "Source metadata and Critic summaries reach consumers and RTF export",
+    "Isolated Head-mediated follow-up research; unsafe queries withheld",
+    "Encrypted restart after research/reply before assessment without replay",
+    "Browser reconnect, delayed/final usage, distinct source claims, Stop fencing"
+  ],
+  "limitations": [
+    "Synthetic provider processes only; no live model calls or private conversation replay.",
+    "No server restart or running-session interruption; backend activation requires a later safe restart.",
+    "No sister repository or remote branch modified.",
+    "No physical Safari/iPhone audio, Windows/Linux execution or representative-user observation claimed.",
+    "Full-suite Chromium ran before the final source-claim renderer refinement; final focused tests reverified the final client in all three engines.",
+    "Older readers may reject linked-order closure; the port prompt documents backup/rollback compatibility."
+  ],
+  "release_readiness": "not_evaluated"
+}

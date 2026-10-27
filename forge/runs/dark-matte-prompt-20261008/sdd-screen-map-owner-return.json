@@ -1,0 +1,20 @@
+{
+  "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-screen-map",
+  "node": "screen-map",
+  "returned_at": "2026-10-08T18:20:41.645413+00:00",
+  "outputs": {
+    "screen-map": {
+      "path": "docs/screen-map.md",
+      "content_hash": "82a982d74a08c36369a297e01d077b05dfaa94cc58d773b73ecf0d2a55e734f7",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "dark-matte-prompt-scoped-document-review",
+        "reviewed_at": "2026-10-08T18:20:41.614099+00:00",
+        "executor": "Codex inline to-screen-map",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      }
+    }
+  },
+  "evidence_limit": "Document definitions only; actual product checks belong to the root's separately inspected evidence."
+}

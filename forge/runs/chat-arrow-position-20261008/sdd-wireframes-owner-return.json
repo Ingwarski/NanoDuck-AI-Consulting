@@ -1,0 +1,20 @@
+{
+  "invocation_id": "chat-arrow-position-20261008-8c51b7b0934b-wireframes",
+  "node": "wireframes",
+  "returned_at": "2026-10-08T13:50:41.461359+00:00",
+  "outputs": {
+    "wireframes": {
+      "path": "docs/wireframes.md",
+      "content_hash": "9efccc68fcc34ec0d95793b836c2779f4a8e78cb5bf66b90d9828a5a8095a9b7",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "arrow-position-scoped-document-review",
+        "reviewed_at": "2026-10-08T13:50:41.431552+00:00",
+        "executor": "Codex inline to-wireframes",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      }
+    }
+  },
+  "evidence_limit": "Document definitions only; actual product checks belong to the root's separately inspected evidence."
+}

@@ -1,0 +1,20 @@
+{
+  "invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-development-plan",
+  "node": "development-plan",
+  "returned_at": "2026-10-08T14:47:02.274789+00:00",
+  "outputs": {
+    "development-plan": {
+      "path": "docs/development-plan.md",
+      "content_hash": "f8ccce6e544aa53424181e477795d110bd4b680114ffc320bdca6e6b72bc9714",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "head-connection-prd-clarification",
+        "reviewed_at": "2026-10-08T14:47:02.242588+00:00",
+        "executor": "Codex inline to-development-plan",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      }
+    }
+  },
+  "evidence_limit": "Document definitions only; actual product checks belong to the root's separately inspected evidence."
+}

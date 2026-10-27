@@ -1,0 +1,108 @@
+{
+  "result": "blocked",
+  "node": "audit",
+  "mode": "audit",
+  "unit_action": null,
+  "unit_id": null,
+  "skipped_artifacts": [],
+  "checked_artifacts": [
+    "architecture",
+    "canonical-terms",
+    "design-brief",
+    "development-plan",
+    "dod-evals",
+    "guardrails",
+    "prd",
+    "product-idea",
+    "project-context",
+    "qa-checklist",
+    "screen-map",
+    "user-journey",
+    "wireframes"
+  ],
+  "affected_artifacts": [
+    "development-plan",
+    "product-idea",
+    "qa-checklist"
+  ],
+  "issues": [
+    {
+      "code": "migration_required",
+      "target": "manifest",
+      "detail": "resume with the latest tested workflow: preserve existing work and approvals, migrate legacy records, and reverify before continuing"
+    },
+    {
+      "code": "stale_observation",
+      "target": "qa-checklist",
+      "detail": "missing/changed hash: README.md"
+    },
+    {
+      "code": "stale_observation",
+      "target": "qa-checklist",
+      "detail": "missing/changed hash: package-lock.json"
+    },
+    {
+      "code": "stale_observation",
+      "target": "qa-checklist",
+      "detail": "missing/changed hash: package.json"
+    },
+    {
+      "code": "stale_source",
+      "target": "development-plan",
+      "detail": "missing/changed hash: package.json"
+    },
+    {
+      "code": "intake_progress",
+      "target": "product-idea",
+      "detail": "handed-off intake retains unresolved current_request_id; reconcile through its owner"
+    }
+  ],
+  "warnings": [],
+  "implementation_progress": {
+    "total_units": 2,
+    "accepted_complete": null,
+    "accepted_unit_ids": null,
+    "just_worked_unit": null,
+    "next_eligible_unit": null,
+    "blockers": [
+      {
+        "code": "migration_required",
+        "target": "manifest",
+        "detail": "resume with the latest tested workflow: preserve existing work and approvals, migrate legacy records, and reverify before continuing"
+      },
+      {
+        "code": "stale_observation",
+        "target": "qa-checklist",
+        "detail": "missing/changed hash: README.md"
+      },
+      {
+        "code": "stale_observation",
+        "target": "qa-checklist",
+        "detail": "missing/changed hash: package-lock.json"
+      },
+      {
+        "code": "stale_observation",
+        "target": "qa-checklist",
+        "detail": "missing/changed hash: package.json"
+      },
+      {
+        "code": "stale_source",
+        "target": "development-plan",
+        "detail": "missing/changed hash: package.json"
+      },
+      {
+        "code": "intake_progress",
+        "target": "product-idea",
+        "detail": "handed-off intake retains unresolved current_request_id; reconcile through its owner"
+      }
+    ],
+    "blocked_units": []
+  },
+  "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement.",
+  "toolchain": {
+    "algorithm": "sdd-toolchain-sha256-v1",
+    "checker_sha256": "de1a243d0de38262305d31dcf8f187ba52bd72e8e2328cd6eedd9b642eb077ff",
+    "skillset_sha256": "92d3bc5e81399daa77df638ffb3e182ad745819147baa938a829b3cf40a5c913",
+    "source_file_count": 75
+  }
+}

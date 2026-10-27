@@ -1,0 +1,20 @@
+{
+  "invocation_id": "head-connection-check-20261008-742062612927-user-journey",
+  "node": "user-journey",
+  "returned_at": "2026-10-08T14:36:50.447529+00:00",
+  "outputs": {
+    "user-journey": {
+      "path": "docs/user-journey.md",
+      "content_hash": "e37e4813947b0347b4240e7be81c69b94d47b156732c2542cefd32bc0cbb398b",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "head-connection-scoped-document-review",
+        "reviewed_at": "2026-10-08T14:36:50.416768+00:00",
+        "executor": "Codex inline to-user-journey",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      }
+    }
+  },
+  "evidence_limit": "Document definitions only; actual product checks belong to the root's separately inspected evidence."
+}

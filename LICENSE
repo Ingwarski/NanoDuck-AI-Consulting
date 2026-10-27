@@ -1,0 +1,82 @@
+NanoDuck Personal Use License 1.0
+Publication date: 27 October 2026
+
+Copyright (c) 2026 NanoDuck Consulting Group contributors
+
+1. Scope and licensor
+
+This license applies to the NanoDuck Consulting Group software, associated
+first-party documentation and other first-party material distributed with this
+LICENSE (the "Software"), except material expressly identified as separately
+licensed. The licensor is the repository owner, Ingwarski, acting only to the
+extent of the rights the owner holds or is authorized to license.
+Repository: https://github.com/Ingwarski/NanoDuck-AI-Consulting
+Owner: https://github.com/Ingwarski
+
+2. Personal-use permission
+
+Subject to these terms, you may download, copy, study, run and modify the Software
+without a license fee solely for your own personal, noncommercial purposes.
+Personal use means use by an individual in a private capacity, such as personal
+learning, hobbies or private noncommercial projects, outside business,
+professional or organizational activities.
+
+You may share copies or modifications without charge solely for these permitted
+personal purposes. Every shared copy or substantial portion must retain this
+LICENSE and applicable copyright and attribution notices. You may not grant
+broader rights to the licensed material than this license grants. Nothing here
+limits rights independently granted by GitHub's Terms of Service.
+
+3. Prior written permission for business use
+
+Business, commercial, professional or organizational use is NOT permitted under
+this license without the repository owner's PRIOR WRITTEN PERMISSION.
+
+This includes use by or on behalf of a business, employer, client or organization;
+internal business operations or decision-making; self-employment and freelance
+work; paid consulting or client services; and incorporation into, or operation as
+part of, a product, service, hosted offering or other business activity. Charging
+no fee, making no profit, or running the Software locally does not by itself make
+such use personal.
+
+Permission must be obtained before the relevant use begins. A request, silence,
+a public repository, or the ability to download or fork the Software is not
+written permission for business use. Any separate written permission governs
+only the uses and scope it expressly authorizes.
+
+4. Requesting permission
+
+Contact the repository owner, Ingwarski, through a licensing request at:
+https://github.com/Ingwarski/NanoDuck-AI-Consulting/issues/new?title=Business%20use%20permission%20request
+
+Identify the proposed user or organization, intended use, distribution or hosting
+arrangements, and requested scope. Do not include secrets or confidential business
+information in a public issue. The owner may provide an appropriate private
+channel for further discussion. Only written authorization from the owner or an
+authorized representative constitutes permission.
+
+5. Other rights and third-party material
+
+All rights not expressly granted are reserved. No right to use trademarks or to
+claim endorsement is granted. Third-party dependencies and separately licensed
+assets remain governed by their own licenses; preserve their required notices.
+This license does not change those licenses or override rights independently
+available under applicable law or a separate valid agreement or license.
+
+6. Termination
+
+The permissions granted here terminate upon a material violation of these terms,
+to the extent permitted by applicable law. Termination does not affect a separate
+written permission or independently available rights except as its own terms or
+applicable law provide. No maintenance, support, updates or service availability
+are promised by this license.
+
+7. Warranty and liability
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. TO THE MAXIMUM EXTENT PERMITTED
+BY APPLICABLE LAW, THE COPYRIGHT HOLDERS AND CONTRIBUTORS ARE NOT LIABLE FOR
+ANY CLAIM, DAMAGES OR OTHER LIABILITY ARISING FROM THE SOFTWARE OR ITS USE.
+NOTHING IN THIS LICENSE EXCLUDES LIABILITY OR RIGHTS THAT CANNOT LAWFULLY BE
+EXCLUDED.

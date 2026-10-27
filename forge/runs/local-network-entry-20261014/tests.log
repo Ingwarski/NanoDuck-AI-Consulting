@@ -1,0 +1,21 @@
+✔ HTTPS rejects DNS rebinding and anonymous cross-origin login while password sessions revoke cleanly (497.361542ms)
+✔ the local HTTP flow protects data, saves settings and preserves a truthful unavailable-provider message (1188.962167ms)
+✔ owner image attachments validate bytes, link only on message acceptance and download safely (387.673709ms)
+✔ the authenticated discussion shows parallel specialist answers and a targeted Critic correction before synthesis (685.835208ms)
+✔ HTTPS login works through an actual private LAN interface (1197.900542ms)
+✔ setup creates independent durable keys and a private CA-signed HTTPS identity (324.595708ms)
+✔ first setup is exclusive and existing/corrupt/missing keys never get silently replaced (124.638709ms)
+✔ password reset invalidates sessions without changing data keys and certificate renewal keeps the CA (387.763542ms)
+✔ config preserves subscription-only settings and pinned executables without requiring sign-in (144.409875ms)
+✔ TLS local-network boundary pins exact hosts and per-request origins, including anonymous mutations (130.090292ms)
+✔ public app navigation from another site preserves local and private-route boundaries (0.242917ms)
+✔ password sessions require consent and CSRF, keep fixed expiry, and revoke on logoff (256.327333ms)
+✔ password guessing is limited before expensive verification, including concurrent attempts (281.408292ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4193.838125

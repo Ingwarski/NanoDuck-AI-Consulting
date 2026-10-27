@@ -1,0 +1,57 @@
+{
+  "invocation_id": "sdd-reconciliation-20261017-consistency-architecture",
+  "outputs": [
+    "docs/architecture.md"
+  ],
+  "source_usage": {
+    "docs/canonical-terms.md": "full",
+    "docs/design-brief.md": "full",
+    "docs/guardrails.md": "full",
+    "docs/model-settings.md": "full",
+    "docs/prd.md": "full",
+    "docs/project-context.md": "full",
+    "docs/screen-map.md": "full",
+    "docs/user-journey.md": "full",
+    "docs/wireframes.md": "full",
+    "forge/runs/sdd-reconciliation-20261017/architecture-owner.json": "full",
+    "forge/runs/sdd-reconciliation-20261017/scope.json": "full",
+    "instructions/AGENTS.md": "full",
+    "public/styles.css": "full",
+    "src/client/app.js": "full",
+    "src/client/theme.js": "full",
+    "src/server/consultation.mjs": "full",
+    "src/server/index.mjs": "full",
+    "src/server/local-request.mjs": "full",
+    "src/server/provider-context.mjs": "full"
+  },
+  "consumed_hashes": {
+    "docs/canonical-terms.md": "5d14a5d99c33f744ef4a741f5dcf4a03d1a83c5883978a3eecfa33c728f5fa4f",
+    "docs/design-brief.md": "2c4039509fbb03b223fea2eee869f1e9282fb4d6890b175891f7440314311b9c",
+    "docs/guardrails.md": "f79f3abb88b8ac9c7c2c4ee95834e47cf6b8046c0c23b8155eb233a487439fe7",
+    "docs/model-settings.md": "aef42b6f74eabcdcc32835f6ef7d52099bdcaa5fab2112a184e500dd95338989",
+    "docs/prd.md": "79a015d132b6eb65a288e2f80fd86fd5a5d5a9b7e81fbb41dd3faa1e4530e56f",
+    "docs/project-context.md": "837ddd8ebb87c7a2b4dbfc8b236f136aef93f69e690a50e3b2b61d155f7b9ff6",
+    "docs/screen-map.md": "29596b2f1ca042f482de225363c7bf64cc57f79a4b6b4d897dbcbcd7b190b9f5",
+    "docs/user-journey.md": "4ec4f00f722863dea5b68675e9ef3931756460e7710733a119b95029ce4b0e4d",
+    "docs/wireframes.md": "6f5cf5dfda1a78fb72f0168ee8274b23076f14b4ae12985a0683b8dd8db0424d",
+    "forge/runs/sdd-reconciliation-20261017/architecture-owner.json": "331dc6c49be38d4648d066b5d7ca5908b05c8c86fa20e2c8d7bc3ce7e4fae576",
+    "forge/runs/sdd-reconciliation-20261017/scope.json": "82eeb2e3fa2559e055ab04aa135ad90ca90f776562377069d6415d18c78ab37f",
+    "instructions/AGENTS.md": "9e5cd883fcf88d7c1dfa0f24510f1b0f6a9d5152fdb42bcce55fbeb2c907adbf",
+    "public/styles.css": "f7e0580575a7592ac1d07a4975ed892c573b731e60e6837ec0f252ea95060553",
+    "src/client/app.js": "aa51d56cc61eedf536bef7911acf9922e3503a23ceadb6f673855e53f8e2ba31",
+    "src/client/theme.js": "a57731bc8c54b963e40935b0b9d09a86021fae00a3119f2aad109fd8e4fbae39",
+    "src/server/consultation.mjs": "c398ed2c6059ba33d5498bab4a6e248a243ac5fd01998374a5f568d27e37a6be",
+    "src/server/index.mjs": "fa70bce682bb212a21d64b85c74cdb0f692824f41731d8c190a4dd70aaf70c18",
+    "src/server/local-request.mjs": "a33f62e799c09cbb32ca826bae0924732c25e5ee74b1a53123bd4bbf2f8ecbf7",
+    "src/server/provider-context.mjs": "e330b379fda22422cc0e3c255a695d0f2fa0dcd842c4ede1d55503a7262275fe"
+  },
+  "output_hashes": {
+    "docs/architecture.md": "a005d1d80b7a5b041b6bf0ef26d3874dfe35302845f6f43ac203a78c09385324"
+  },
+  "executor": "Codex lead acting inline as to-architecture",
+  "validation": "Rechecked scoped source/model/privacy contracts against corrected upstream terms and design. Current arrows use design-owned liquid glass rather than a conflicting transparent-only directive; upstream counts explicitly retain partial coverage without cumulative totals. All17 security mappings and existing mechanisms remain unchanged. Final delta review uses the retained first-pass owner review and current source identities; document validation only.",
+  "prior_owner_return": "forge/runs/sdd-reconciliation-20261017/architecture-owner.json",
+  "unchanged_source_review": "First-pass owner consumption/provenance retained; integrity rechecked. Current source changes are the explicit completion/depth/accounting/appearance corrections reviewed in this return.",
+  "ownership_released": true,
+  "cleanup": "No browsers, servers, profiles or provider calls created."
+}

@@ -1,0 +1,3235 @@
+{
+  "recorded_at": "2026-09-22T18:23:08.600909+00:00",
+  "artifacts": {
+    "architecture": {
+      "security_coverage": {
+        "NFR-10.1": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-10.2": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-10.3": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-11.1": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-11.2": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-11.3": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-12.1": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-12.2": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-12.3": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-13.1": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-13.2": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-14.1": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-14.2": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-14.3": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-15.1": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-16.1": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        },
+        "NFR-16.2": {
+          "path": "docs/architecture.md",
+          "heading": "## Security enforcement map"
+        }
+      },
+      "path": "docs/architecture.md",
+      "owner_skill": "to-architecture",
+      "owner_invocation_id": "browser-research-claude-20260922-final-architecture",
+      "declared_output_set": [
+        "docs/architecture.md"
+      ],
+      "status": "validated",
+      "mission_control_status": "Done",
+      "source_version": "browser-research-claude-20260922-final-architecture",
+      "source_usage": {
+        "docs/prd.md": "full",
+        "docs/project-context.md": "full",
+        "docs/canonical-terms.md": "full",
+        "docs/guardrails.md": "full",
+        "docs/user-journey.md": "full",
+        "docs/screen-map.md": "full",
+        "docs/wireframes.md": "full",
+        "docs/design-brief.md": "full",
+        "docs/model-settings.md": "full"
+      },
+      "source_hashes": {
+        "docs/prd.md": "36b8c567f5b94898eac434c7fb608d27f8427be6f959c77a19d3a3c157ebab0e",
+        "docs/project-context.md": "2b2131e372040c682fd60759cb5207cf184cf8ddc92e4d8fcf9b599303f18f6c",
+        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
+        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
+        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
+        "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
+        "docs/design-brief.md": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
+        "docs/model-settings.md": "8bd22ba01f797242321e3aa7540c2d0409ad53cf540a28d760187ad7469fd9d9"
+      },
+      "dependencies": [
+        "prd",
+        "project-context",
+        "canonical-terms",
+        "guardrails",
+        "user-journey",
+        "screen-map",
+        "wireframes",
+        "design-brief"
+      ],
+      "content_hash": "0b8cd07273bf2111d726494456ac79dcef616e271e56eb582641b81ab86e0523",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "affected-existing-change-owner-reconciliation",
+        "reviewed_at": "2026-09-22T18:11:22.057946+00:00",
+        "executor": "Codex inline to-architecture",
+        "scope": "Reviewed current repair semantics and source bindings; preserved security obligations, IDs, frozen baseline and evidence limits. No product verification claim."
+      },
+      "open_questions": [],
+      "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
+    },
+    "dod-evals": {
+      "security_coverage": {
+        "NFR-10.1": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-10.2": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-10.3": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-11.1": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-11.2": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-11.3": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-12.1": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-12.2": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-12.3": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-13.1": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-13.2": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-14.1": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-14.2": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-14.3": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-15.1": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-16.1": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        },
+        "NFR-16.2": {
+          "path": "docs/dod-evals.md",
+          "heading": "### Product security membership"
+        }
+      },
+      "path": "docs/dod-evals.md",
+      "owner_skill": "to-dod-evals",
+      "owner_invocation_id": "browser-research-claude-20260922-final-dod-evals",
+      "declared_output_set": [
+        "docs/dod-evals.md"
+      ],
+      "status": "validated",
+      "mission_control_status": "Done",
+      "source_version": "browser-research-claude-20260922-final-dod-evals",
+      "source_usage": {
+        "docs/prd.md": "full",
+        "docs/project-context.md": "full",
+        "docs/canonical-terms.md": "full",
+        "docs/guardrails.md": "full",
+        "docs/user-journey.md": "full",
+        "docs/screen-map.md": "full",
+        "docs/wireframes.md": "full",
+        "docs/design-brief.md": "full",
+        "docs/architecture.md": "full"
+      },
+      "source_hashes": {
+        "docs/prd.md": "36b8c567f5b94898eac434c7fb608d27f8427be6f959c77a19d3a3c157ebab0e",
+        "docs/project-context.md": "2b2131e372040c682fd60759cb5207cf184cf8ddc92e4d8fcf9b599303f18f6c",
+        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
+        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
+        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
+        "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
+        "docs/design-brief.md": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
+        "docs/architecture.md": "0b8cd07273bf2111d726494456ac79dcef616e271e56eb582641b81ab86e0523"
+      },
+      "dependencies": [
+        "prd",
+        "project-context",
+        "canonical-terms",
+        "guardrails",
+        "user-journey",
+        "screen-map",
+        "wireframes",
+        "design-brief",
+        "architecture"
+      ],
+      "content_hash": "fd73d395eaddbd975420f6a73371bad428269508aa100c31b0a60136f294f59a",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "affected-existing-change-owner-reconciliation",
+        "reviewed_at": "2026-09-22T18:11:22.867380+00:00",
+        "executor": "Codex inline to-dod-evals",
+        "scope": "Reviewed current repair semantics and source bindings; preserved security obligations, IDs, frozen baseline and evidence limits. No product verification claim."
+      },
+      "open_questions": [],
+      "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
+    },
+    "qa-checklist": {
+      "traceability": {
+        "definitions": [
+          {
+            "id": "QA-R01",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R02",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R03",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R04",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R05",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R06",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R07",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R08",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R09",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R10",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R11",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R12",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R13",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R14",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R15",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R16",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R17",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R18",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R19",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R20",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R21",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R22",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R23",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R24",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R25",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R26",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R27",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R28",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R29",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R30",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R31",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R32",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R33",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R34",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R35",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R36",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R37",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R38",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R39",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R40",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R41",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R42",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R43",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R44",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R45",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R46",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R47",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R48",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R49",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R50",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R51",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R52",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R53",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R54",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R55",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R56",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R57",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R58",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-R59",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "id": "QA-S01",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "id": "QA-S02",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "id": "QA-S03",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "id": "QA-S04",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "id": "QA-S05",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "id": "QA-S06",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "id": "QA-S07",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "id": "QA-S08",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "id": "QA-S09",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "id": "QA-H01",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Heuristic usability checks"
+            }
+          },
+          {
+            "id": "QA-H02",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Heuristic usability checks"
+            }
+          },
+          {
+            "id": "QA-H03",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Heuristic usability checks"
+            }
+          },
+          {
+            "id": "QA-H04",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Heuristic usability checks"
+            }
+          },
+          {
+            "id": "QA-H05",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Heuristic usability checks"
+            }
+          },
+          {
+            "id": "QA-H06",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Heuristic usability checks"
+            }
+          },
+          {
+            "id": "QA-H07",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Heuristic usability checks"
+            }
+          },
+          {
+            "id": "QA-H08",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Heuristic usability checks"
+            }
+          },
+          {
+            "id": "QA-H09",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Heuristic usability checks"
+            }
+          },
+          {
+            "id": "QA-H10",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Heuristic usability checks"
+            }
+          },
+          {
+            "id": "QA-U01",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Usability validation checks"
+            }
+          },
+          {
+            "id": "QA-U02",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Usability validation checks"
+            }
+          },
+          {
+            "id": "QA-U03",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Usability validation checks"
+            }
+          },
+          {
+            "id": "QA-U04",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Usability validation checks"
+            }
+          },
+          {
+            "id": "QA-R60",
+            "kind": "check",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          }
+        ],
+        "links": [
+          {
+            "from": "QA-R01",
+            "to": "FR-01.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R02",
+            "to": "FR-01.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R03",
+            "to": "FR-02.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R04",
+            "to": "FR-02.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R05",
+            "to": "FR-02.3",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R06",
+            "to": "FR-02.4",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R07",
+            "to": "FR-02.5",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R08",
+            "to": "FR-02.6",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R09",
+            "to": "FR-02.7",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R10",
+            "to": "FR-02.8",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R11",
+            "to": "FR-03.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R12",
+            "to": "FR-03.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R13",
+            "to": "FR-03.3",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R14",
+            "to": "FR-03.4",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R15",
+            "to": "FR-03.5",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R16",
+            "to": "FR-03.6",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R17",
+            "to": "FR-04.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R18",
+            "to": "FR-04.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R19",
+            "to": "FR-04.3",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R20",
+            "to": "FR-05.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R21",
+            "to": "FR-05.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R22",
+            "to": "FR-05.3",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R23",
+            "to": "FR-05.4",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R24",
+            "to": "FR-05.5",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R25",
+            "to": "FR-06.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R26",
+            "to": "FR-06.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R27",
+            "to": "FR-06.3",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R28",
+            "to": "FR-07.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R29",
+            "to": "FR-07.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R30",
+            "to": "FR-07.3",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R31",
+            "to": "FR-07.4",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R32",
+            "to": "FR-07.5",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R33",
+            "to": "FR-08.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R34",
+            "to": "FR-08.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R35",
+            "to": "FR-08.3",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R36",
+            "to": "NFR-01.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R37",
+            "to": "NFR-01.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R38",
+            "to": "NFR-01.3",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R39",
+            "to": "NFR-01.4",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R40",
+            "to": "NFR-02.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R41",
+            "to": "NFR-02.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R42",
+            "to": "NFR-02.3",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R43",
+            "to": "NFR-10.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R44",
+            "to": "NFR-10.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R45",
+            "to": "NFR-10.3",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R46",
+            "to": "NFR-11.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R47",
+            "to": "NFR-11.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R48",
+            "to": "NFR-11.3",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R49",
+            "to": "NFR-12.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R50",
+            "to": "NFR-12.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R51",
+            "to": "NFR-12.3",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R52",
+            "to": "NFR-13.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R53",
+            "to": "NFR-13.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R54",
+            "to": "NFR-14.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R55",
+            "to": "NFR-14.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R56",
+            "to": "NFR-14.3",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R57",
+            "to": "NFR-15.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R58",
+            "to": "NFR-16.1",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-R59",
+            "to": "NFR-16.2",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          },
+          {
+            "from": "QA-S01",
+            "to": "ST-01",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S01",
+            "to": "ST-02",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S01",
+            "to": "ST-03",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S01",
+            "to": "ST-04",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S02",
+            "to": "ST-05",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S02",
+            "to": "ST-06",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S02",
+            "to": "ST-07",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S02",
+            "to": "ST-08",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S02",
+            "to": "ST-09",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S02",
+            "to": "ST-10",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S02",
+            "to": "ST-11",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S02",
+            "to": "ST-12",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S02",
+            "to": "ST-13",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S02",
+            "to": "ST-14",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S02",
+            "to": "ST-15",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S02",
+            "to": "ST-16",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S02",
+            "to": "ST-17",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S03",
+            "to": "ST-18",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S03",
+            "to": "ST-19",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S03",
+            "to": "ST-20",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S04",
+            "to": "ST-21",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S04",
+            "to": "ST-22",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S04",
+            "to": "ST-23",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S04",
+            "to": "ST-24",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S04",
+            "to": "ST-25",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S05",
+            "to": "ST-26",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S05",
+            "to": "ST-27",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S05",
+            "to": "ST-28",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S05",
+            "to": "ST-29",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S05",
+            "to": "ST-30",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S05",
+            "to": "ST-31",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S05",
+            "to": "ST-32",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S05",
+            "to": "ST-33",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S06",
+            "to": "ST-34",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S06",
+            "to": "ST-35",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S06",
+            "to": "ST-36",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S07",
+            "to": "ST-37",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S07",
+            "to": "ST-38",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S08",
+            "to": "ST-39",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S08",
+            "to": "ST-40",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S08",
+            "to": "ST-41",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S08",
+            "to": "ST-42",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S09",
+            "to": "ST-43",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-S09",
+            "to": "ST-44",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Screen and state checks"
+            }
+          },
+          {
+            "from": "QA-R60",
+            "to": "FR-05.6",
+            "relation": "verifies",
+            "definition_ref": {
+              "path": "docs/qa-checklist.md",
+              "heading": "## Product acceptance"
+            }
+          }
+        ]
+      },
+      "security_coverage": {
+        "NFR-10.1": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-10.2": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-10.3": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-11.1": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-11.2": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-11.3": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-12.1": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-12.2": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-12.3": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-13.1": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-13.2": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-14.1": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-14.2": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-14.3": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-15.1": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-16.1": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        },
+        "NFR-16.2": {
+          "path": "docs/qa-checklist.md",
+          "heading": "## Product acceptance"
+        }
+      },
+      "path": "docs/qa-checklist.md",
+      "owner_skill": "to-qa-checklist",
+      "owner_invocation_id": "browser-research-claude-20260922-final-qa-checklist",
+      "declared_output_set": [
+        "docs/qa-checklist.md"
+      ],
+      "status": "validated",
+      "mission_control_status": "Done",
+      "source_version": "browser-research-claude-20260922-final-qa-checklist",
+      "source_usage": {
+        "docs/prd.md": "full",
+        "docs/project-context.md": "full",
+        "docs/canonical-terms.md": "full",
+        "docs/guardrails.md": "full",
+        "docs/user-journey.md": "full",
+        "docs/screen-map.md": "full",
+        "docs/wireframes.md": "full",
+        "docs/design-brief.md": "full",
+        "docs/architecture.md": "full",
+        "docs/dod-evals.md": "full"
+      },
+      "source_hashes": {
+        "docs/prd.md": "36b8c567f5b94898eac434c7fb608d27f8427be6f959c77a19d3a3c157ebab0e",
+        "docs/project-context.md": "2b2131e372040c682fd60759cb5207cf184cf8ddc92e4d8fcf9b599303f18f6c",
+        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
+        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
+        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
+        "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
+        "docs/design-brief.md": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
+        "docs/architecture.md": "0b8cd07273bf2111d726494456ac79dcef616e271e56eb582641b81ab86e0523",
+        "docs/dod-evals.md": "fd73d395eaddbd975420f6a73371bad428269508aa100c31b0a60136f294f59a"
+      },
+      "dependencies": [
+        "prd",
+        "project-context",
+        "canonical-terms",
+        "guardrails",
+        "user-journey",
+        "screen-map",
+        "wireframes",
+        "design-brief",
+        "architecture",
+        "dod-evals"
+      ],
+      "content_hash": "f7975f712aff95f675f09cf1a9cff5b5e09554841f97fdbb1e2a141d4e8a0467",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "affected-existing-change-owner-reconciliation",
+        "reviewed_at": "2026-09-22T18:11:23.868133+00:00",
+        "executor": "Codex inline to-qa-checklist",
+        "scope": "Reviewed current repair semantics and source bindings; preserved security obligations, IDs, frozen baseline and evidence limits. No product verification claim."
+      },
+      "open_questions": [],
+      "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
+    },
+    "development-plan": {
+      "traceability": {
+        "definitions": [
+          {
+            "id": "U-01",
+            "kind": "unit",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-01 — Verify the runtime and preserved provider capabilities"
+            }
+          },
+          {
+            "id": "U-02",
+            "kind": "unit",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-02 — Build the private application and durable data foundation"
+            }
+          },
+          {
+            "id": "U-03",
+            "kind": "unit",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-03 — Promote the approved presentation and connect Settings"
+            }
+          },
+          {
+            "id": "U-04",
+            "kind": "unit",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-04 — Implement real discussion, control and recovery"
+            }
+          },
+          {
+            "id": "U-05",
+            "kind": "unit",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-05 — Connect live research and inspectable sources"
+            }
+          },
+          {
+            "id": "U-06",
+            "kind": "unit",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-06 — Implement voice and safe attachments"
+            }
+          },
+          {
+            "id": "U-07",
+            "kind": "unit",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-07 — Finish record ownership, export, deletion and restore"
+            }
+          },
+          {
+            "id": "U-08",
+            "kind": "unit",
+            "required": true,
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "### U-08 — Verify the integrated app and prepare the scoped release"
+            }
+          }
+        ],
+        "links": [
+          {
+            "from": "U-02",
+            "to": "FR-01.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "FR-01.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-02.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "FR-02.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-02.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-02.4",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-02.5",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-02.6",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-02.7",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-02.8",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-03.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-03.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-03.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-03.4",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-03.5",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "FR-03.6",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-05",
+            "to": "FR-04.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-05",
+            "to": "FR-04.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-05",
+            "to": "FR-04.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "FR-05.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "FR-05.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "FR-05.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "FR-05.4",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "FR-05.5",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "FR-06.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "FR-06.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "FR-06.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "FR-07.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "FR-07.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "FR-07.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "FR-07.4",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "FR-07.5",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "FR-08.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "FR-08.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "FR-08.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "NFR-01.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "NFR-01.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "NFR-01.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "NFR-01.4",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "NFR-02.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "NFR-02.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "NFR-02.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "NFR-10.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "NFR-10.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "NFR-10.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "NFR-11.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "NFR-11.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "NFR-11.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-05",
+            "to": "NFR-12.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "NFR-12.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-05",
+            "to": "NFR-12.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "NFR-13.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "NFR-13.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-05",
+            "to": "NFR-14.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "NFR-14.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "NFR-14.3",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-08",
+            "to": "NFR-15.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "NFR-16.1",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "NFR-16.2",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "ST-01",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "ST-02",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "ST-03",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-02",
+            "to": "ST-04",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-05",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-06",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-07",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-08",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-09",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-10",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-11",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-12",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-13",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-14",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-15",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-16",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-17",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "ST-18",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "ST-19",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "ST-20",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "ST-21",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "ST-22",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "ST-23",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "ST-24",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "ST-25",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "ST-26",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "ST-27",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "ST-28",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "ST-29",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "ST-30",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "ST-31",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "ST-32",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-06",
+            "to": "ST-33",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-05",
+            "to": "ST-34",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-05",
+            "to": "ST-35",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-05",
+            "to": "ST-36",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-37",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-04",
+            "to": "ST-38",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "ST-39",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "ST-40",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "ST-41",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-07",
+            "to": "ST-42",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "ST-43",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "ST-44",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Surface and state coverage"
+            }
+          },
+          {
+            "from": "U-03",
+            "to": "FR-05.6",
+            "relation": "implements",
+            "definition_ref": {
+              "path": "docs/development-plan.md",
+              "heading": "## Clause coverage"
+            }
+          }
+        ]
+      },
+      "security_coverage": {
+        "NFR-10.1": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-10.2": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-10.3": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-11.1": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-11.2": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-11.3": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-12.1": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-12.2": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-12.3": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-13.1": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-13.2": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-14.1": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-14.2": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-14.3": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-15.1": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-16.1": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        },
+        "NFR-16.2": {
+          "path": "docs/development-plan.md",
+          "heading": "## Clause coverage"
+        }
+      },
+      "path": "docs/development-plan.md",
+      "owner_skill": "to-development-plan",
+      "owner_invocation_id": "browser-research-claude-20260922-final-development-plan",
+      "declared_output_set": [
+        "docs/development-plan.md"
+      ],
+      "status": "validated",
+      "mission_control_status": "Done",
+      "source_version": "browser-research-claude-20260922-final-development-plan",
+      "source_usage": {
+        "docs/prd.md": "full",
+        "docs/project-context.md": "full",
+        "docs/canonical-terms.md": "full",
+        "docs/guardrails.md": "full",
+        "docs/user-journey.md": "full",
+        "docs/screen-map.md": "full",
+        "docs/wireframes.md": "full",
+        "docs/design-brief.md": "full",
+        "docs/architecture.md": "full",
+        "docs/dod-evals.md": "full",
+        "docs/qa-checklist.md": "full",
+        "docs/model-settings.md": "full",
+        "package.json": "full"
+      },
+      "source_hashes": {
+        "docs/prd.md": "36b8c567f5b94898eac434c7fb608d27f8427be6f959c77a19d3a3c157ebab0e",
+        "docs/project-context.md": "2b2131e372040c682fd60759cb5207cf184cf8ddc92e4d8fcf9b599303f18f6c",
+        "docs/canonical-terms.md": "654f1bf9814bcf4cf8c59e0d3bc19b645f2b2491a1a674d9f820e6ae2cd309b8",
+        "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
+        "docs/user-journey.md": "1007a278e9226d693bad82ce7d51c0fe4a6906b812385166a567bdaa469f831c",
+        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
+        "docs/wireframes.md": "e335d77b532dd075acc11826520ccc703118d53b6e65520ea5f46307f07263a2",
+        "docs/design-brief.md": "9dbee9267da25cc3a2588cd86036473281d4da620944f9ace694a3f26b932d6f",
+        "docs/architecture.md": "0b8cd07273bf2111d726494456ac79dcef616e271e56eb582641b81ab86e0523",
+        "docs/dod-evals.md": "fd73d395eaddbd975420f6a73371bad428269508aa100c31b0a60136f294f59a",
+        "docs/qa-checklist.md": "f7975f712aff95f675f09cf1a9cff5b5e09554841f97fdbb1e2a141d4e8a0467",
+        "docs/model-settings.md": "8bd22ba01f797242321e3aa7540c2d0409ad53cf540a28d760187ad7469fd9d9",
+        "package.json": "67e6c8365947e61385a51d3f5d60bcbc3c46e6643e90c3abfff0d18a29850a36"
+      },
+      "dependencies": [
+        "prd",
+        "project-context",
+        "canonical-terms",
+        "guardrails",
+        "user-journey",
+        "screen-map",
+        "wireframes",
+        "design-brief",
+        "architecture",
+        "dod-evals",
+        "qa-checklist"
+      ],
+      "content_hash": "afe2990d3499bd415e96a917265d08df821b30094b6dd8b73930b6f5a098036d",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "affected-existing-change-owner-reconciliation",
+        "reviewed_at": "2026-09-22T18:11:25.294325+00:00",
+        "executor": "Codex inline to-development-plan",
+        "scope": "Reviewed current repair semantics and source bindings; preserved security obligations, IDs, frozen baseline and evidence limits. No product verification claim."
+      },
+      "open_questions": [],
+      "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
+    }
+  },
+  "implementation_gate": {
+    "state": "authorized_for_phase3",
+    "development_plan_hash": "afe2990d3499bd415e96a917265d08df821b30094b6dd8b73930b6f5a098036d",
+    "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
+    "awaiting_at": "2026-09-14T20:13:37+03:00",
+    "prompt_id": "browser-research-claude-20260922",
+    "prompt_received_at": "2026-09-22T18:08:40.724511+00:00",
+    "released_at": "2026-09-22T18:11:25.724380+00:00",
+    "product_scope_hash": "defc5e24f0dd91be42b984888b157137f4f1ed361459e70f42b832e18c957bd4",
+    "prompt_receipt": {
+      "path": "forge/runs/browser-research-claude-20260922/implementation-prompt.json",
+      "content_hash": "824897b77be70f92eb9da8c73179ee9b0fdaa81d4686e0bbc6b4ed4b4a86814e"
+    },
+    "reason": "Current explicit repair request authorizes the affected existing change while preserving frozen design, saved choices and security boundaries."
+  }
+}

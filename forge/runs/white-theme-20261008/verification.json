@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-10-08T11:55:10.641091+00:00",
+  "evaluated_from_commit": "1238b81",
+  "scope": "White-theme implementation in the working tree; isolated local HTTPS app with synthetic records, no live provider inference or private conversations.",
+  "source_hashes": {
+    "public/index.html": "8e430a82dcd1f5654abe82e18d1a0bf0aec4e542acf66c6a60f633d5a839aed6",
+    "public/styles.css": "66e9c47bd501e509a50c9498dd7c71235718c5411d7be32a6b35c76189e3e32c",
+    "public/conversation-list.css": "31e233e7eb831f12fdf0a2b0fae569bb2061181a1fb7386a7e39310ca4a9f189",
+    "src/client/theme.js": "a57731bc8c54b963e40935b0b9d09a86021fae00a3119f2aad109fd8e4fbae39",
+    "src/client/navbar-glass.js": "28fea082f611378eb7649f1f8f6bf48fc5f0a7ab8f5b88c57aed9e5f0e4e003e",
+    "scripts/browser-check.mjs": "81add4cc1c3bd4a946c422dcf09653a487f39cbf61002a2aee7901265f3294f0",
+    "scripts/browser-theme.mjs": "c5584e052cfcd5acc66ce20455c7ac1e7374e7fdb1a0a53b01ac97ae24a4e8c8"
+  },
+  "checks": {
+    "npm run check": {
+      "passed": 230,
+      "skipped": 2,
+      "failed": 0
+    },
+    "node scripts/browser-check.mjs --theme-only": {
+      "result": "passed",
+      "engines": [
+        "Chromium",
+        "Firefox",
+        "WebKit"
+      ],
+      "widths": [
+        320,
+        390,
+        768,
+        980,
+        1280
+      ],
+      "observations": [
+        "dark default and saved light on reload",
+        "menu and keyboard activation",
+        "cross-tab synchronization",
+        "blocked and invalid storage",
+        "active run and draft preservation",
+        "correct logo selection",
+        "glass edge data and repaint in Settings/Conversations",
+        "forced-color fallback",
+        "synthetic login/discussion/Settings/history/Usage screenshot inspection"
+      ]
+    },
+    "public HTTP": {
+      "healthz": 200,
+      "client/theme.js": 200
+    }
+  },
+  "visual_evidence": [
+    {
+      "path": "forge/runs/white-theme-20261008/white-discussion.png",
+      "sha256": "8a61bc35d4054840edf0f616d925245c5ad2d8ee85c04b011f8c3ecccdde5d05",
+      "data": "synthetic fixture only"
+    },
+    {
+      "path": "forge/runs/white-theme-20261008/white-mobile-menu.png",
+      "sha256": "80d56466ed1e2c29a5283b9b0b8135989eed1586acd67c93a09386114c0faaaf",
+      "data": "synthetic fixture only"
+    }
+  ],
+  "sdd": "Owner checks passed through QA authoring. Post-plan checker remains migration_required for legacy unit metadata; not a full-unit or product-release pass.",
+  "limits": [
+    "No physical iPhone/iPad or native Safari device test",
+    "No representative-owner usability session or complete WCAG evaluation",
+    "Formal full QA/unit/release statuses unchanged"
+  ]
+}

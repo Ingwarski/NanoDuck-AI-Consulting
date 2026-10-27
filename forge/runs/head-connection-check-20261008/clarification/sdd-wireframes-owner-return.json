@@ -1,0 +1,20 @@
+{
+  "invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-wireframes",
+  "node": "wireframes",
+  "returned_at": "2026-10-08T14:46:59.022622+00:00",
+  "outputs": {
+    "wireframes": {
+      "path": "docs/wireframes.md",
+      "content_hash": "244be8f2d5c10983e45d46ca477beec7a46304a2580afb02f1ce788c713009d6",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "head-connection-prd-clarification",
+        "reviewed_at": "2026-10-08T14:46:58.992849+00:00",
+        "executor": "Codex inline to-wireframes",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      }
+    }
+  },
+  "evidence_limit": "Document definitions only; actual product checks belong to the root's separately inspected evidence."
+}

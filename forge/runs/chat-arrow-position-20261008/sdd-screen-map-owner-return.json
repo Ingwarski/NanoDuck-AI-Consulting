@@ -1,0 +1,20 @@
+{
+  "invocation_id": "chat-arrow-position-20261008-8c51b7b0934b-screen-map",
+  "node": "screen-map",
+  "returned_at": "2026-10-08T13:50:40.948449+00:00",
+  "outputs": {
+    "screen-map": {
+      "path": "docs/screen-map.md",
+      "content_hash": "f9411130af8e831add03b119060e8dd078f5457898011f40c6dcaf176c81a588",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "arrow-position-scoped-document-review",
+        "reviewed_at": "2026-10-08T13:50:40.918879+00:00",
+        "executor": "Codex inline to-screen-map",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      }
+    }
+  },
+  "evidence_limit": "Document definitions only; actual product checks belong to the root's separately inspected evidence."
+}

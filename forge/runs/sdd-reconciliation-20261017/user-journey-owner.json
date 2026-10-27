@@ -1,0 +1,62 @@
+{
+  "invocation_id": "sdd-reconciliation-20261017-user-journey",
+  "outputs": [
+    "docs/user-journey.md"
+  ],
+  "output_hashes": {
+    "docs/user-journey.md": "4ec4f00f722863dea5b68675e9ef3931756460e7710733a119b95029ce4b0e4d"
+  },
+  "existing_artifact_basis": {
+    "path": "docs/user-journey.md",
+    "sha256": "579addc67c6a87024f79c968141c35202e0fe168fbd8e28e62b66b06ef5158ca",
+    "read": "full"
+  },
+  "source_usage": {
+    "docs/prd.md": "full",
+    "docs/project-context.md": "full",
+    "docs/canonical-terms.md": "full",
+    "docs/guardrails.md": "full",
+    "forge/runs/sdd-reconciliation-20261017/scope.json": "full",
+    "docs/product-idea.md": "full",
+    "forge/runs/reading-mode-20260926/scope.json": "full"
+  },
+  "consumed_hashes": {
+    "docs/prd.md": "6929cbd6c2758380e8482cb8937474caf0e2833b823e06c0a8b6cdab2d048220",
+    "docs/project-context.md": "837ddd8ebb87c7a2b4dbfc8b236f136aef93f69e690a50e3b2b61d155f7b9ff6",
+    "docs/canonical-terms.md": "b4cccec813b16ed3824ad34d05f1bae58934b1711216ba569ec582d839c4cceb",
+    "docs/guardrails.md": "f79f3abb88b8ac9c7c2c4ee95834e47cf6b8046c0c23b8155eb233a487439fe7",
+    "forge/runs/sdd-reconciliation-20261017/scope.json": "82eeb2e3fa2559e055ab04aa135ad90ca90f776562377069d6415d18c78ab37f",
+    "docs/product-idea.md": "30749b389cf516d13165daacc69194f15b873f63a0a7759adc09fa41d65775c6",
+    "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89"
+  },
+  "executor": "Codex user-journey domain owner under explicit lead invocation; installed skill/shared contract and current prerequisites read",
+  "validation": "Passed owner self-review: all seven J stages and JOB/UC/security IDs retained; every Send is independent while Continue/Retry retains accepted work; completion collapses input and Stop/failure restores it; current reading controls are described as owner actions. Replaced cloned U12/U13 implementation and accounting directives with user decisions, inspection, friction and outcomes; removed misleading no-provider-setup promise. English prose, representative-owner evidence limits and security boundaries retained. All 6 relative links resolve. Reversing assigned edits reconstructs original text exactly; consumed source hashes remained unchanged. No runtime/browser/provider/user-research or release results claimed. Lead owns after-checker and manifest.",
+  "working_language": "en",
+  "product_locales": [
+    "en",
+    "uk"
+  ],
+  "changed_journey_decisions": [
+    "No new product intent; current recovery, independent-Send and usage-inspection experience reconciled to existing PRD."
+  ],
+  "open_questions": [
+    "Representative-owner validation of local-network phone/desktop, critical voice and control tasks remains required before release."
+  ],
+  "instruction_basis": {
+    "path": "AGENTS.md",
+    "revision": 2,
+    "sha256": "9e9de3772e818710fd36a0b9861b80fd14f2a219553ee219d3431c68fcf5deea",
+    "verification": "current-session explicit read"
+  },
+  "skill_source_hashes": {
+    "to-user-journey/SKILL.md": "e5fff9bb0e34789d215dbcc931e8ff667b086e591aba8664089d4b086639794e"
+  },
+  "usage_check": {
+    "ordinaryUsageAllowed": true,
+    "applicable_window_used_percent": 11,
+    "extra_spending_authorized": false
+  },
+  "checked_at": "2026-10-17T11:42:25.873994+00:00",
+  "cleanup": "No browsers, profiles, processes or services created; atomic-write temporary file removed.",
+  "ownership_released": true
+}

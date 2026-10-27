@@ -1,0 +1,50 @@
+{
+  "recorded_at": "2026-10-08T14:46:57.026919+00:00",
+  "kind": "compact_owner_metadata_delta",
+  "prior_git_commit": "36f9165142eba0931f6c0cc35a0eaad6aa6d921f",
+  "prior_manifest_path": "forge/sdd-manifest.json",
+  "prior_owner_return": {
+    "path": "forge/runs/head-connection-check-20261008/sdd-project-context-bundle-owner-return.json",
+    "content_hash": "4470b12ba562c08c7559e97ea8f6195aea712e35355bf86701cb7a072b464055"
+  },
+  "artifacts": {
+    "project-context": {
+      "owner_invocation_id": "head-connection-check-20261008-742062612927-project-context-bundle",
+      "content_hash": "7847e740b1b69b88942911ada1a175dd4c0305c26f6f7f26623d6520339ae53e",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "head-connection-scoped-document-review",
+        "reviewed_at": "2026-10-08T14:36:49.494399+00:00",
+        "executor": "Codex inline to-project-context",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      },
+      "prior_dispatch_invocation_id": "head-connection-check-20261008-742062612927-project-context-bundle",
+      "changed_source_hashes": {
+        "docs/prd.md": {
+          "before": "5b9afb24bcf0ed61495302d6e7bc615f5ff994b8cd6a6df3b41cc0f2143e4e6b",
+          "after": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4"
+        }
+      }
+    },
+    "canonical-terms": {
+      "owner_invocation_id": "head-connection-check-20261008-742062612927-project-context-bundle",
+      "content_hash": "8010ca67db052daf345b38eaf31f060499872c1fd9055232e206cacf1b86d523",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "head-connection-scoped-document-review",
+        "reviewed_at": "2026-10-08T14:36:49.494552+00:00",
+        "executor": "Codex inline to-project-context",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      },
+      "prior_dispatch_invocation_id": "head-connection-check-20261008-742062612927-project-context-bundle",
+      "changed_source_hashes": {
+        "docs/prd.md": {
+          "before": "5b9afb24bcf0ed61495302d6e7bc615f5ff994b8cd6a6df3b41cc0f2143e4e6b",
+          "after": "a36c25d0545c730e5baed1579ba63448be5d3f60fbbf2a322e4fa823836904f4"
+        }
+      }
+    }
+  }
+}

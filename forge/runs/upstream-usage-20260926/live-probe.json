@@ -1,0 +1,25 @@
+{
+  "method": "Final production adapter synthetic public subscription probe. No private content.",
+  "diagnostics": {
+    "usageSource": "upstream_responses",
+    "responseCount": 1,
+    "usageCoverage": "reconciled",
+    "stage": "head_final",
+    "promptBytes": 784,
+    "prefixBytes": 517,
+    "webSearchCount": 0
+  },
+  "usage": [
+    {
+      "model": "gpt-6-sol",
+      "tokens": {
+        "input": 4941,
+        "output": 37,
+        "total": 4978,
+        "cachedInput": 0,
+        "cacheWriteInput": 0,
+        "reasoningOutput": 23
+      }
+    }
+  ]
+}

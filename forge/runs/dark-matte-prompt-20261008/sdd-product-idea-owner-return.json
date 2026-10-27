@@ -1,0 +1,20 @@
+{
+  "invocation_id": "dark-matte-prompt-20261008-63a2bc8675b5-product-idea",
+  "node": "product-idea",
+  "returned_at": "2026-10-08T18:20:39.566934+00:00",
+  "outputs": {
+    "product-idea": {
+      "path": "docs/product-idea.md",
+      "content_hash": "865898f0c5af6711d3f6efe3e90e57161de5d7366eba4214a3427ca97d1f2e89",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "dark-matte-prompt-scoped-document-review",
+        "reviewed_at": "2026-10-08T18:20:39.535716+00:00",
+        "executor": "Codex inline to-product-idea",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      }
+    }
+  },
+  "evidence_limit": "Document definitions only; actual product checks belong to the root's separately inspected evidence."
+}

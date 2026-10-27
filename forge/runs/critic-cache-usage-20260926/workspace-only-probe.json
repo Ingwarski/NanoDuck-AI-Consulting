@@ -1,0 +1,73 @@
+{
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "method": "Two consecutive different assignments with identical synthetic owner context and stable isolated workspace. No guarantee for other durations, cache routing or private workloads.",
+  "reports": [
+    {
+      "round": 1,
+      "ok": true,
+      "elapsedMs": 3393,
+      "attempts": [
+        {
+          "provider": "claude_code",
+          "model": "claude-opus-5-5",
+          "diagnostics": {
+            "stage": "team_review",
+            "promptBytes": 26606,
+            "prefixBytes": 26286,
+            "webSearchCount": null
+          },
+          "status": "completed",
+          "startedAt": "2026-09-26T16:18:32.315Z",
+          "finishedAt": "2026-09-26T16:18:35.179Z",
+          "usage": [
+            {
+              "model": "claude-opus-5-5",
+              "tokens": {
+                "input": 8903,
+                "output": 89,
+                "total": 8992,
+                "cachedInput": 0,
+                "cacheWriteInput": 8901,
+                "reasoningOutput": null
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "ok": true,
+      "elapsedMs": 2707,
+      "attempts": [
+        {
+          "provider": "claude_code",
+          "model": "claude-opus-5-5",
+          "diagnostics": {
+            "stage": "team_review",
+            "promptBytes": 26606,
+            "prefixBytes": 26286,
+            "webSearchCount": null
+          },
+          "status": "completed",
+          "startedAt": "2026-09-26T16:18:35.345Z",
+          "finishedAt": "2026-09-26T16:18:37.888Z",
+          "usage": [
+            {
+              "model": "claude-opus-5-5",
+              "tokens": {
+                "input": 8903,
+                "output": 93,
+                "total": 8996,
+                "cachedInput": 0,
+                "cacheWriteInput": 8901,
+                "reasoningOutput": null
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

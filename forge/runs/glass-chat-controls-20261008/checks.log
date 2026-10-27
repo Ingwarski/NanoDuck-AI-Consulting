@@ -1,0 +1,365 @@
+
+> nanoduck-ai-consulting@1.0.0 check
+> node scripts/check-artifacts.mjs && node scripts/test.mjs
+
+Passed: 32 Markdown files, 108 JavaScript syntax checks, 3 active candidates and 3 total versioned entry pages; links, public paths and static HTML references. Runtime flows require browser review.
+✔ account windows retain zero, prefer named buckets and discard unsafe metadata (0.873875ms)
+✔ account refresh coalesces requests, expires and preserves stale readings after failure (5.51925ms)
+✔ Claude process receives a large multilingual prompt through a closed UTF-8 pipe (80.56275ms)
+✔ a child closing its input cannot report success after a partial prompt write (41.026709ms)
+✔ cancellation terminates a process that never reads its pending prompt (108.804667ms)
+✔ Claude process decoding preserves split Ukrainian UTF-8 output (86.011208ms)
+✔ Claude process output remains byte-bounded (110.042292ms)
+✔ Claude process deadline terminates a hanging process (160.853459ms)
+✔ cancellation closes parent and inherited-output child processes (1150.255333ms)
+{"event":"nanoduck.claude.call_finished","durationMs":5,"outcome":"completed"}
+✔ Claude transports accepted multilingual context above 128 KiB intact through stdin, never argv (22.593917ms)
+✔ Claude reports its bounded context limit separately from model incompatibility before launching (21.93625ms)
+{"event":"nanoduck.claude.call_finished","durationMs":14,"outcome":"completed"}
+✔ the text-only retry cannot exceed the same context byte bound (103.78175ms)
+{"event":"nanoduck.claude.call_finished","durationMs":2,"outcome":"completed"}
+✔ Claude Code exposes only authenticated configured models and returns safe completion text (14.924458ms)
+{"event":"nanoduck.claude.call_finished","durationMs":1,"outcome":"completed"}
+✔ Claude Critic can return structured team review without file tools (3.04475ms)
+{"event":"nanoduck.claude.call_finished","durationMs":1,"outcome":"completed"}
+{"event":"nanoduck.provider.output_policy","outputKind":"critic_challenge","reason":"unapproved_url_omitted","count":1}
+✔ Claude keeps English criticism when an unsuitable citation must be omitted (3.794042ms)
+{"event":"nanoduck.claude.call_finished","durationMs":1,"outcome":"completed"}
+{"event":"nanoduck.provider.output_policy","outputKind":"critic_challenge","reason":"prohibited_fragment_omitted","count":1}
+✔ Claude withholds a prohibited-language fragment while preserving the Critic's specific objection (6.742834ms)
+{"event":"nanoduck.claude.call_finished","durationMs":2,"outcome":"completed"}
+{"event":"nanoduck.claude.call_finished","durationMs":3,"outcome":"completed"}
+✔ Claude Code withholds an internal tool trace and retries once for text-only output (7.356083ms)
+{"event":"nanoduck.claude.call_finished","durationMs":2,"outcome":"completed"}
+{"event":"nanoduck.claude.call_finished","durationMs":1,"outcome":"completed"}
+✔ Claude Code never returns an internal tool trace after its bounded retry (4.526458ms)
+✔ Claude Code cannot be selected without a configured credential location (0.485959ms)
+{"event":"nanoduck.claude.call_finished","durationMs":1,"outcome":"completed"}
+✔ valid Ukrainian Critic prose survives Claude output validation (4.883833ms)
+{"event":"nanoduck.claude.call_finished","durationMs":1,"outcome":"completed"}
+{"event":"nanoduck.claude.call_finished","durationMs":1,"outcome":"completed"}
+{"event":"nanoduck.claude.call_finished","durationMs":1,"outcome":"completed"}
+{"event":"nanoduck.claude.call_finished","durationMs":1,"outcome":"completed"}
+{"event":"nanoduck.claude.call_finished","durationMs":2,"outcome":"completed"}
+✔ Opus 5.5 uses its exact model ID at every supported effort without enabling Fast mode or API keys (11.004875ms)
+{"event":"nanoduck.claude.call_finished","durationMs":1,"outcome":"completed"}
+{"event":"nanoduck.claude.call_finished","durationMs":1,"outcome":"completed"}
+{"event":"nanoduck.claude.call_finished","durationMs":1,"outcome":"completed"}
+{"event":"nanoduck.claude.call_finished","durationMs":2,"outcome":"completed"}
+✔ Claude refuses unreported, substituted, or mixed model identities (10.14175ms)
+{"event":"nanoduck.claude.call_finished","durationMs":0,"outcome":"completed"}
+✔ native Claude subscription sign-in keeps the CLI credential identity and suppresses customizations (8.2655ms)
+✔ explicit Claude OAuth token overrides native sign-in without sharing its home (1.874125ms)
+✔ Claude sign-in can recover without recreating the provider (5.448542ms)
+✔ Claude refuses paid credential sources and distinguishes connection failures before any model call (24.584458ms)
+{"event":"nanoduck.claude.call_finished","durationMs":1,"outcome":"completed"}
+{"event":"nanoduck.claude.call_finished","durationMs":1,"outcome":"completed"}
+{"event":"nanoduck.claude.call_finished","durationMs":1,"outcome":"provider_timeout"}
+{"event":"nanoduck.claude.call_finished","durationMs":1,"outcome":"provider_unavailable"}
+✔ Claude records each internal retry and error usage before rejecting output, with truthful timeout status (7.445625ms)
+{"event":"nanoduck.claude.call_finished","durationMs":1,"outcome":"completed"}
+✔ Claude preserves distinct claims from one source URL (3.874208ms)
+{"event":"nanoduck.claude.call_finished","durationMs":4,"outcome":"completed"}
+{"event":"nanoduck.claude.call_finished","durationMs":4,"outcome":"completed"}
+{"event":"nanoduck.claude.call_finished","durationMs":2,"outcome":"completed"}
+✔ Claude reuses only the accepted request workspace, keeps history disabled and cleans up (16.685ms)
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"max"}
+{"event":"nanoduck.provider.turn_completed","outputKind":"discussion","completionSource":"notification","durationMs":651,"webSearchCount":0}
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"max"}
+{"event":"nanoduck.provider.turn_failed","outputKind":"discussion","code":"provider_idle_timeout","category":"provider_idle_timeout","durationMs":301,"idleMs":301,"progressCount":0}
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"max"}
+{"event":"nanoduck.provider.turn_failed","outputKind":"discussion","code":"provider_timeout","category":"provider_timeout","durationMs":551,"idleMs":16,"progressCount":13}
+✔ Codex allows a progressing answer past its idle budget, but bounds silence and total duration (1746.382708ms)
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"xhigh"}
+{"event":"nanoduck.provider.turn_completed","outputKind":"discussion","completionSource":"turn_start","durationMs":0,"webSearchCount":0}
+✔ Codex turns use an owned workspace and deny local tool channels (179.373458ms)
+✔ Codex lists only exact supported models and their reported efforts (228.748958ms)
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"medium"}
+{"event":"nanoduck.provider.turn_completed","outputKind":"discussion","completionSource":"turn_start","durationMs":0,"webSearchCount":0}
+✔ Codex forwards the exact Sol model and selected effort without substituting Astra (44.888084ms)
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"max"}
+{"event":"nanoduck.provider.turn_completed","outputKind":"discussion","completionSource":"turn_start","durationMs":0,"webSearchCount":0}
+✔ Codex forwards GPT-6.1 Sol with the selected effort (51.266458ms)
+✔ Codex local auth input exists only in the private app-server home (88.654ms)
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":true,"effort":"xhigh"}
+{"event":"nanoduck.provider.turn_completed","outputKind":"discussion","completionSource":"turn_start","durationMs":0,"webSearchCount":0}
+✔ live research keeps source metadata out of natural agent prose (64.792458ms)
+✔ research diagnostics count matching completed tool calls without logging queries (70.9785ms)
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":true,"effort":"xhigh"}
+{"event":"nanoduck.provider.turn_completed","outputKind":"discussion","completionSource":"turn_start","durationMs":0,"webSearchCount":0}
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"xhigh"}
+{"event":"nanoduck.provider.turn_completed","outputKind":"discussion","completionSource":"turn_start","durationMs":0,"webSearchCount":0}
+{"event":"nanoduck.provider.output_policy","outputKind":"discussion","reason":"prohibited_fragment_omitted","count":1}
+{"event":"nanoduck.provider.output_policy","outputKind":"discussion","reason":"prohibited_language"}
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"xhigh"}
+{"event":"nanoduck.provider.turn_completed","outputKind":"discussion","completionSource":"turn_start","durationMs":0,"webSearchCount":0}
+{"event":"nanoduck.provider.output_policy","outputKind":"discussion","reason":"prohibited_fragment_omitted","count":1}
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"xhigh"}
+{"event":"nanoduck.provider.turn_completed","outputKind":"discussion","completionSource":"turn_start","durationMs":0,"webSearchCount":0}
+{"event":"nanoduck.provider.output_policy","outputKind":"discussion","reason":"unapproved_url_omitted","count":1}
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"xhigh"}
+{"event":"nanoduck.provider.turn_completed","outputKind":"discussion","completionSource":"turn_start","durationMs":0,"webSearchCount":0}
+{"event":"nanoduck.provider.output_policy","outputKind":"discussion","reason":"unapproved_url_omitted","count":1}
+{"event":"nanoduck.provider.output_policy","outputKind":"discussion","reason":"no_usable_content"}
+✔ prohibited sources and isolated language fragments are withheld without losing useful advice (230.44075ms)
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"xhigh"}
+{"event":"nanoduck.provider.turn_completed","outputKind":"discussion","completionSource":"notification","durationMs":11,"webSearchCount":0}
+✔ a completed provider notification clears its deadline waiter (53.666333ms)
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"xhigh"}
+{"event":"nanoduck.provider.turn_completed","outputKind":"discussion","completionSource":"turn_start","durationMs":0,"webSearchCount":0}
+✔ valid Ukrainian prose and source metadata survive Codex output validation (49.87875ms)
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"xhigh"}
+{"event":"nanoduck.provider.turn_completed","outputKind":"discussion","completionSource":"notification","durationMs":2800,"webSearchCount":0}
+✔ a slow ephemeral turn uses matching completed items and terminal events without reading stored history (2843.233417ms)
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"xhigh"}
+{"event":"nanoduck.provider.turn_completed","outputKind":"discussion","completionSource":"notification","durationMs":0,"webSearchCount":0}
+✔ a completion received before the start response is retained (47.937125ms)
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"xhigh"}
+{"event":"nanoduck.provider.turn_failed","outputKind":"discussion","code":"rpc_unknown","category":"quota_blocked","request":"turn/completed","durationMs":1,"idleMs":1,"progressCount":0}
+✔ a failed turn never accepts a previously completed message item (35.476125ms)
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"xhigh"}
+{"event":"nanoduck.provider.turn_failed","outputKind":"discussion","code":"app_server_closed","category":"provider_unavailable","durationMs":13,"idleMs":13,"progressCount":0}
+✔ a provider connection closing without completion releases the invocation (45.2715ms)
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"xhigh"}
+{"event":"nanoduck.provider.turn_failed","outputKind":"discussion","code":"cancelled","category":"cancelled","durationMs":67,"idleMs":67,"progressCount":0}
+✔ provider RPC failures retain a safe category and failed operation without logging the raw response (45.999542ms)
+✔ failed initialization kills the child and removes its private credential directory (50.280375ms)
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"medium"}
+{"event":"nanoduck.provider.turn_completed","outputKind":"discussion","completionSource":"turn_start","durationMs":1,"webSearchCount":0}
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"medium"}
+{"event":"nanoduck.provider.turn_failed","outputKind":"discussion","code":"rpc_unknown","category":"quota_blocked","request":"turn/completed","durationMs":0,"idleMs":0,"progressCount":0}
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"medium"}
+{"event":"nanoduck.provider.turn_failed","outputKind":"discussion","code":"cancelled","category":"cancelled","durationMs":166,"idleMs":166,"progressCount":0}
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"medium"}
+{"event":"nanoduck.provider.turn_completed","outputKind":"discussion","completionSource":"turn_start","durationMs":0,"webSearchCount":0}
+✔ Codex usage captures cumulative matching-turn counts once, including failed and cancelled turns (313.52425ms)
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"high"}
+{"event":"nanoduck.provider.turn_completed","outputKind":"discussion","completionSource":"turn_start","durationMs":0,"webSearchCount":0}
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"high"}
+{"event":"nanoduck.provider.turn_completed","outputKind":"discussion","completionSource":"turn_start","durationMs":0,"webSearchCount":0}
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"high"}
+{"event":"nanoduck.provider.turn_completed","outputKind":"discussion","completionSource":"turn_start","durationMs":0,"webSearchCount":0}
+✔ request workspaces are stable within one request, distinct between requests and removed after release (76.1605ms)
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"high"}
+{"event":"nanoduck.provider.turn_completed","outputKind":"discussion","completionSource":"turn_start","durationMs":0,"webSearchCount":0}
+✔ Codex preserves distinct claims from one source URL (39.582417ms)
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"high"}
+{"event":"nanoduck.provider.turn_completed","outputKind":"discussion","completionSource":"turn_start","durationMs":0,"webSearchCount":0}
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"high"}
+{"event":"nanoduck.provider.turn_completed","outputKind":"discussion","completionSource":"turn_start","durationMs":0,"webSearchCount":0}
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"high"}
+{"event":"nanoduck.provider.turn_completed","outputKind":"discussion","completionSource":"turn_start","durationMs":0,"webSearchCount":0}
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"high"}
+{"event":"nanoduck.provider.turn_completed","outputKind":"discussion","completionSource":"turn_start","durationMs":0,"webSearchCount":0}
+✔ upstream response accounting preserves explicit cache writes, zero and missing fields without duplicate events or payloads (191.424917ms)
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"high"}
+{"event":"nanoduck.provider.turn_failed","outputKind":"discussion","code":"rpc_unknown","category":"quota_blocked","request":"turn/completed","durationMs":0,"idleMs":0,"progressCount":0}
+✔ raw usage survives a failed turn without cumulative counters and is explicitly partial (41.415375ms)
+✔ Codex account allowance read does not start a model turn (38.108667ms)
+{"event":"nanoduck.consultation.failed","provider":"codex","phase":"specialist_final","code":"provider_unavailable","durationMs":3}
+✔ Head synthesis waits for both closing positions and the Critic's joint review (20.331083ms)
+{"event":"nanoduck.consultation.failed","provider":"codex","phase":"critic_final","code":"provider_unavailable","durationMs":2}
+▶ failure in a closing contribution prevents Head synthesis and preserves the confirmed prefix
+  ✔ specialist_final (5.044916ms)
+{"event":"nanoduck.consultation.failed","provider":"codex","phase":"critic_final","code":"provider_unavailable","durationMs":1}
+  ✔ critic_final (5.950875ms)
+✔ failure in a closing contribution prevents Head synthesis and preserves the confirmed prefix (11.567292ms)
+✔ Continue resumes an interrupted closing stage without repeating a saved position (14.307125ms)
+✔ Head chooses actual roles and its exact full assignments are delivered without fallback or retries (14.346834ms)
+✔ Head can select the entire permitted pool, including entrepreneurship and data (7.425917ms)
+✔ Continue recovers a former run's committed roster without replacing confirmed Head tasks (7.10125ms)
+✔ all roles see the current isolated request, its ledger and untrimmed current discussion (20.413458ms)
+✔ Critic can direct a rework and the consultant gets the exact criticism (6.4905ms)
+▶ discussion depth is a ceiling and Head closes when further rounds add no value
+  ✔ 1 (6.698542ms)
+  ✔ 3 (6.088041ms)
+  ✔ 5 (6.878375ms)
+  ✔ auto (4.793208ms)
+✔ discussion depth is a ceiling and Head closes when further rounds add no value (25.254708ms)
+✔ Head can request another targeted round but the configured ceiling still applies (5.833166ms)
+✔ phone numbers in private context do not suppress isolated public research or leak into its prompt (5.790958ms)
+✔ Head tasks remain visible during slow research and a failed search becomes an evidence limitation (12.038167ms)
+✔ unsafe public query is withheld without blocking the consultation (6.208833ms)
+✔ a tool-free Claude Critic's evidence gap can trigger isolated Codex follow-up research (6.82825ms)
+{"event":"nanoduck.consultation.failed","provider":"codex","phase":"specialist_reply","code":"provider_unavailable","durationMs":1}
+✔ complete long final is saved without an arbitrary character trim (6.304291ms)
+{"event":"nanoduck.consultation.failed","provider":"codex","phase":"specialist_position","code":"provider_idle_timeout","durationMs":1}
+✔ a failed specialist reply resumes after the confirmed challenge without repeating it (12.772208ms)
+{"event":"nanoduck.consultation.failed","provider":"codex","phase":"specialist_position","code":"provider_timeout","durationMs":0}
+✔ a Codex timeout names the cause and Retry preserves the confirmed work and exact settings (25.604125ms)
+{"event":"nanoduck.consultation.failed","provider":"codex","phase":"consultation_step","code":"incompatible","durationMs":0}
+✔ content-free policy output retries the same role without losing confirmed work (9.240167ms)
+✔ a provider failure never silently substitutes another model or a generic Head task (7.440417ms)
+✔ cacheable prefix precedes varying assignments, excludes memory and separates request scopes (4.642584ms)
+✔ request binding survives Continue and rejects rebinding or previous request sources (14.13925ms)
+✔ Head control decisions avoid full answer replay while final synthesis retains complete results (8.923833ms)
+✔ RTF export preserves ordered speakers, recipients, local timestamps, paragraphs and sources (36.719084ms)
+✔ RTF escaping keeps Unicode and document-control injection inert (1.272625ms)
+✔ RTF export selects only transcript fields and preserves attachment references (0.315875ms)
+✔ RTF timestamps default to explicit UTC and reject malformed time zones (2.153208ms)
+✔ a completed consultation title keeps the decision question rather than its generic lead-in (1.475708ms)
+✔ a generated conversation title has a stable readable bound (0.28925ms)
+✔ new consultations default to the current saved Codex settings (0.975875ms)
+✔ encrypted message values authenticate before decryption (0.779084ms)
+✔ image containers accept encoder-produced raster formats without decoding them (0.500667ms)
+✔ encrypted recovery restores confirmed records but never resurrects a deletion (8.3965ms)
+✔ multiple selected conversations are tombstoned together (0.762291ms)
+✔ accepted owner messages are idempotent and a stopped run fences later agent output (0.543ms)
+✔ only one consultation can be active across the owner's conversations (0.288125ms)
+✔ adding Opus 5.5 preserves independent saved Critic choices and existing defaults (0.329167ms)
+✔ Sol settings preserve defaults, validate each role and retain inactive Critic choices (0.265042ms)
+✔ GPT-6.1 Sol settings require the exact catalog entry and supported effort (0.215833ms)
+✔ settings and message validation reject unsupported model values and malformed ids (5.6485ms)
+✔ Ukrainian shared words are allowed without permitting distinctive prohibited language (2.896625ms)
+✔ provider prose omits unapproved links without discarding otherwise useful advice (0.314833ms)
+✔ provider prose withholds only detected prohibited-language fragments (1.430667ms)
+✔ source links accept only public HTTPS destinations (2.596459ms)
+✔ HTTPS rejects DNS rebinding and anonymous cross-origin login while password sessions revoke cleanly (678.018834ms)
+✔ the local HTTP flow protects data, saves settings and preserves a truthful unavailable-provider message (1137.270875ms)
+✔ owner image attachments validate bytes, link only on message acceptance and download safely (497.284083ms)
+✔ the authenticated discussion shows parallel specialist answers and a targeted Critic correction before synthesis (707.280083ms)
+✔ HTTPS login works through an actual private LAN interface (1200.056042ms)
+✔ real encoder output, progressive JPEG and static/animated WebP retain their media type (7.243666ms)
+✔ bare signatures and forged terminal markers are not images (0.470333ms)
+✔ binary identifiers reject high-bit lookalikes (0.126625ms)
+✔ PNG requires bounded chunks, valid CRC, nonzero dimensions and image data (0.130542ms)
+✔ JPEG requires complete frame and scan segments, entropy bytes and final EOI (0.135916ms)
+✔ WebP rejects chunks beyond the envelope, missing bitstreams and overflowing animation frames (0.101125ms)
+✔ image metadata remains opaque bytes and receives no decoding or execution (2.115917ms)
+✔ setup creates independent durable keys and a private CA-signed HTTPS identity (432.136417ms)
+✔ first setup is exclusive and existing/corrupt/missing keys never get silently replaced (259.716417ms)
+✔ password reset invalidates sessions without changing data keys and certificate renewal keeps the CA (533.287333ms)
+✔ config preserves subscription-only settings and pinned executables without requiring sign-in (130.826042ms)
+✔ TLS local-network boundary pins exact hosts and per-request origins, including anonymous mutations (177.059333ms)
+✔ password sessions require consent and CSRF, keep fixed expiry, and revoke on logoff (295.566458ms)
+✔ password guessing is limited before expensive verification, including concurrent attempts (335.752083ms)
+✔ complete state survives reopen, including pending attachments, run fencing, sessions and instruction histories (139.830291ms)
+✔ parallel acceptance is idempotent and returned snapshots cannot mutate storage (24.9855ms)
+✔ parallel work checkpoints are atomic, reject wrong recipients and survive reopen (87.291792ms)
+✔ failed commits restore memory and leave disk unchanged (12.3945ms)
+✔ deletion purges content and idempotency references, and tombstones survive old recovery (34.239333ms)
+✔ missing/wrong keys and authenticated structural corruption fail closed (37.876833ms)
+✔ private permissions and rejected symlink paths protect local state (34.625083ms)
+✔ SQLite lifetime ownership excludes a second process and survives SIGKILL (119.5455ms)
+✔ RTF uses native bounded table cells and escapes untrusted Unicode content (29.168834ms)
+✔ restricted Markdown preserves Ember-style emphasis, lists and quotations as structured content (3.652959ms)
+✔ escaped syntax and unsafe links remain inert text (0.688583ms)
+✔ tables preserve alignment, inline formatting, escaped pipes and malformed trailing rows (2.458292ms)
+✔ Off and notifications before activation allocate no output (4.492583ms)
+✔ gesture play is synchronous and primes only a finite all-zero WAV through natural completion (2.002458ms)
+✔ incoming Knock replays the exact stable asset on the gesture-authorized element (3.397083ms)
+✔ unsaved Preview reuses the element and restores the saved source for incoming alerts (27.785167ms)
+✔ Preview while Off plays on request then releases its source and Blob resources (4.642625ms)
+✔ explicitly setting Off also cancels a Preview started while the saved choice was already Off (7.982791ms)
+✔ incoming alert waits for the primer and coalesces simultaneous waiters (1.214959ms)
+✔ Off during priming cancels its queued alert without late playback (0.356292ms)
+✔ a preference change after primer completion invalidates an already-queued alert (5.269833ms)
+✔ autoplay rejection reports blocked and explicit Preview recovers on the same element (1.187625ms)
+✔ Off aborts pending native playback before delayed media becomes available (1.025958ms)
+✔ a superseded play promise cannot overwrite a newer Preview or its status (5.432125ms)
+✔ no-end and media-error failures are bounded and explicit Preview recovers (2.118708ms)
+✔ disposal cancels playback, revokes sources, and stays terminal (5.592625ms)
+{"event":"nanoduck.consultation.failed","provider":"codex","phase":"team_review","code":"quota_blocked","durationMs":12}
+✔ failed runs remain recoverable when their System notice exceeds storage capacity (31.982208ms)
+✔ Head creates unlisted roles; independent consultants overlap and faster results appear first (12.607083ms)
+✔ an unusual long Head task reaches its recipient byte-for-byte (6.561083ms)
+{"event":"nanoduck.consultation.failed","provider":"codex","phase":"specialist_position","code":"provider_unavailable","durationMs":1}
+✔ a repeated answer cannot satisfy a Critic order; final answer remains provisional (6.232125ms)
+✔ retry keeps a successful sibling and runs only the missing consultant (12.872291ms)
+✔ fixed depth performs all selected team reviews without forced replies (5.67975ms)
+✔ five-review setting remains a fixed owner choice (7.13025ms)
+✔ stopping fences all in-flight consultant results (8.122417ms)
+✔ a dependent consultant waits for its declared prerequisite (12.114666ms)
+✔ Auto depth closes on Head decision after one team review (9.246542ms)
+✔ Auto never exceeds ten reviews even when Head keeps requesting more (5.811167ms)
+✔ Critic alone records blocked_evidence against the addressed answer (5.943666ms)
+✔ Critic alone records resolved_objection_upheld against the addressed answer (7.143875ms)
+✔ a new owner send is isolated from the earlier request even in the same chat (13.130292ms)
+✔ multiple Critic findings for one consultant become one complete order and one reply (6.978583ms)
+{"event":"nanoduck.consultation.failed","provider":"codex","phase":"team_review","code":"team_review_contract","durationMs":1}
+✔ malformed Critic review is repaired once; repair success=true (6.701709ms)
+✔ malformed Critic review is repaired once; repair success=false (14.022625ms)
+✔ preflight inspects a synthetic local subscription catalog without a model turn (506.378042ms)
+✔ private permissions preserve regular contents and reject hard links before mutation (12.664ms)
+▶ private paths reject directory links and file links without altering targets
+  ✔ file symlinks when supported by the OS (0.661334ms)
+✔ private paths reject directory links and file links without altering targets (9.741125ms)
+▶ POSIX permission changes stay bound to the opened file after pathname replacement
+  ✔ regular replacement (1.617583ms)
+  ✔ symbolic replacement (3.818833ms)
+✔ POSIX permission changes stay bound to the opened file after pathname replacement (5.759542ms)
+✔ POSIX directory permissions use the validated descriptor after replacement (1.245917ms)
+▶ POSIX descriptors close after metadata or permission failure
+  ✔ fstatSync (0.755791ms)
+  ✔ fchmodSync (0.836375ms)
+✔ POSIX descriptors close after metadata or permission failure (1.824709ms)
+✔ POSIX FIFOs fail promptly without a writer (15.235ms)
+﹣ Windows ACL updates hold a handle that denies pathname replacement (0.0745ms) # SKIP
+﹣ Windows helper works with an isolated profile and a minimal environment (0.0305ms) # SKIP
+✔ Markdown bootstrap preserves owner edits and immutable accepted versions (18.277292ms)
+✔ full backup retains settings and all document versions without overriding configuration by default (12.475ms)
+✔ a database bootstrap contract parses into the complete contract (1.534458ms)
+✔ runtime instructions reject a missing required placeholder (0.897542ms)
+✔ consolidation migration preserves owner edits and is idempotent and reviewable (9.273583ms)
+✔ saved former public defaults migrate without retaining task wrappers or answer caps (1.174ms)
+✔ Critic defaults become evidence-based and owner-edited guidance remains intact (0.464416ms)
+✔ a saved Markdown contract renders the customised text for the model (0.327ms)
+✔ a legacy direct-answer section becomes an enforced consultation-routing revision (0.267208ms)
+✔ a restarted legacy run snapshot uses consultation routing (0.233542ms)
+✔ a routing migration creates a new current encrypted-document revision without losing review history (2.358ms)
+✔ the database bootstrap, history and restore never overwrite a newer revision (1.027625ms)
+▶ regular-file reads preserve empty, binary, multi-chunk and symlinked files
+  ✔ symbolic-link read when the OS permits file links (2.694917ms)
+✔ regular-file reads preserve empty, binary, multi-chunk and symlinked files (39.41ms)
+▶ pathname and symlink replacement after validation cannot replace the opened contents
+  ✔ pathname replacement (14.884417ms)
+  ✔ symlink replacement (6.231ms)
+✔ pathname and symlink replacement after validation cannot replace the opened contents (27.59625ms)
+✔ bounded reads reject growth of the opened file and close its descriptor (6.447625ms)
+✔ recovery reads accept the exact 32 MiB limit and reject one byte more (219.963042ms)
+✔ bounded recovery reads preserve authenticated envelopes and reject tampering (7.049792ms)
+✔ directories, missing files and failed reads do not leak open descriptors (6.276083ms)
+✔ a FIFO is rejected without waiting for a writer (17.232292ms)
+✔ offline recovery CLI restores encrypted records without TLS, preserves deletion and requires configuration confirmation (897.356208ms)
+✔ recovery CLI refuses an active workspace owner and creates no partial backup (356.270333ms)
+✔ same-tab refresh state retains only a valid view, optional record id and scroll position (2.349334ms)
+✔ same-tab refresh state rejects malformed or out-of-range browser data (0.330125ms)
+✔ evidence references preserve distinct claims, dates, qualifications, JSON validity and reject unknown IDs (2.865625ms)
+✔ Head routes evidence, explicitly reuses it across rounds and visible references resolve before storage (19.560666ms)
+✔ Stop during follow-up search preserves formed query through restored state; fresh search is not replaced by reuse (49.375208ms)
+✔ unknown citation gets one repair with unchanged owner context and known table (2.965125ms)
+✔ unresolved directives receive linked attempts; new defects survive; Critic alone resolves the latest attempt (28.293334ms)
+✔ dependent worker starts before an unrelated slow worker finishes (6.633667ms)
+✔ role transport accepts 64 characters, repairs longer/reserved names, and preserves task text (1.718ms)
+✔ saved position/reply and selected role guidance reach both specialist calls (4.224625ms)
+✔ secret-like output is neither persisted nor forwarded, while ordinary phone numbers remain allowed (4.781542ms)
+✔ Critic requests isolated follow-up research; source metadata reaches review, correction, assessment and final export record (12.817458ms)
+✔ Auto Head receives Critic summary even when there are no correction orders (3.629458ms)
+✔ checkpointed follow-up evidence and replies survive an encrypted restart without replay (75.807125ms)
+✔ unsafe Head follow-up queries never reach public research (2.92125ms)
+✔ metadata repair preserves Head task and legacy generated owner roles do not become owner context (1.414375ms)
+{"event":"nanoduck.provider.turn_started","outputKind":"discussion","research":false,"effort":"high"}
+{"event":"nanoduck.provider.turn_completed","outputKind":"discussion","completionSource":"turn_start","durationMs":0,"webSearchCount":0}
+✔ provider source titles and claims survive durable consultation, restart and encrypted recovery without truncation (117.905041ms)
+✔ only nonempty matching-turn work renews the inactivity deadline (0.477875ms)
+✔ deadline disposal cancels both timers and cannot be restarted by late progress (42.86825ms)
+✔ provider categories include Claude cache input once and Codex reasoning only as an output subset (2.584125ms)
+✔ usage is idempotent per attempt, includes retries/failures, separates models, and stays unknown for old calls (8.531542ms)
+✔ encrypted usage survives restart and recovery, interrupts stale calls and honors deletion tombstones (67.365292ms)
+✔ stage diagnostics contain only bounded metadata and stage totals do not duplicate overall counts (0.635333ms)
+✔ research-step diagnostics keep only numeric snapshots and known action names (0.417375ms)
+✔ failed Claude results preserve positive native usage but crash-zero placeholders remain unknown (0.288167ms)
+✔ attempt breakdown preserves all models, statuses and unknown fields without double counting (0.746833ms)
+✔ running usage snapshots stay ordered and final usage cannot be overwritten by a delayed update (17.143333ms)
+✔ dashboard attribution groups requests and participants and counts overlapping repeat work once (0.948875ms)
+✔ usage separates the same model at different reasoning levels (0.304917ms)
+✔ historical reasoning uses only a matching single-request snapshot (0.153375ms)
+✔ activity counts distinguish issued work, research attempts and partial web telemetry (1.145917ms)
+ℹ tests 232
+ℹ suites 0
+ℹ pass 230
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 2
+ℹ todo 0
+ℹ duration_ms 6808.270083

@@ -1,0 +1,121 @@
+{
+  "scope": "Critic reliability and durable per-model usage",
+  "recorded_at": "2026-09-25T20:14:34.312582+00:00",
+  "executor": "Codex",
+  "environment": "macOS, Node v24.16.0",
+  "source_hashes": {
+    "public/index.html": "8691c690ccba3b91b10b32b91574fe7ddb19880125146a0abc99307bd1181329",
+    "public/styles.css": "b15f60fb5ea9eef559c964fe568c684bcad94d0f59d1d9e50d2a5db04194e333",
+    "scripts/browser-check.mjs": "a4ac28f33402acf0068bd642a2b7c145a3f5d81acf0cdf9adda257b1d4aec405",
+    "src/client/app.js": "473ef24dd53c31ce8a57cacd5505231f4f87209962507de52c0f1c221c1dfbef",
+    "src/client/refresh-state.js": "809077228b374cd38a4affe7c2831d674c981259b1d975082f64df3bbb298e95",
+    "src/server/claude-provider.mjs": "bea0f8fb4ffbd31c72ab965ad9ebc52baeba22056f53523aac7ff73ff597d6f3",
+    "src/server/codex-provider.mjs": "b8cb6de1bfebdbbbd186955d7f951821bde641350d6c4edc8bf5b7528bf0ed67",
+    "src/server/consultation-parallel.mjs": "ce8334c5ae9d880b749f3e881a665cf889948a29690feaa3ce1880efc7ea0137",
+    "src/server/consultation.mjs": "360a8a0bf048d4fadc374710f70939e5a8a922e815e2987adf656f7fd81ae7e7",
+    "src/server/index.mjs": "5aa81dcec862782346b54abbcb2ec85559f3ce3c2f7ddadab7ff92fce0b66e7b",
+    "src/server/local-state.mjs": "a587108cb4a67a80b8d4c69b3a20f2b32d6d3f8e5b10a89a9d9fdedbdeb4fe95",
+    "src/server/local-store.mjs": "6c32bf7ea86cc953bb56c7c00b2c044ed5bf853e263ceb5bb730b2ff822937d9",
+    "src/server/parallel-contract.mjs": "9af489c82d89786f5474d247d4f84b20f45d3f5698e749b43a9bc5608515b8c5",
+    "src/server/recovery.mjs": "d32421f1d96b8769c49b86cc7deee1b443168e0591372591c2f786392a79ecc9",
+    "src/server/store.mjs": "5f2896fe93b7eadb20ce03ed0d00d832e536df3ca703c30fc5a8821b2a3c7c54",
+    "test/claude-provider.test.mjs": "f05a06b6d727b2b51e90219b0212ba56063e753c6e10e473165dfe4f18f43944",
+    "test/codex-provider.test.mjs": "8e0087d137e1361fd7cf126d113764733a7b0a16fd5c0eadf172570919251543",
+    "test/fixtures/fake-codex.mjs": "7f4f2f5db7b3968cb7deb846658abd31b0ee43cf39cc8f8e60d7137723b3507f",
+    "test/parallel-consultation.test.mjs": "fd4f71802cffb62b6699b5e819a11ee2d1a27ba7a6710882a983c3b4027f78c1",
+    "scripts/browser-usage.mjs": "ee0bf762ba428f9bd20456f17a3e526fb6a274cd988eb0299e67f18fa0b6f9bd",
+    "src/server/usage.mjs": "c53f9ac81837eaaf43e53b62dd9fe0d1a99dbceac0c6d61cc0d8b4ec184bcc60",
+    "test/usage.test.mjs": "5e0ccd9f39841b80619d8f9c1e57720ca5098c9d3147e9350ed4136953d40e6d"
+  },
+  "checks": [
+    {
+      "command": "npm run check",
+      "result": "passed",
+      "tests": 191,
+      "passed": 189,
+      "skipped": 2,
+      "failed": 0
+    },
+    {
+      "command": "node scripts/browser-check.mjs",
+      "result": "passed",
+      "engines": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "scope": "Existing full functional/browser suite plus model Usage panel"
+    },
+    {
+      "command": "node scripts/browser-check.mjs --usage-only",
+      "result": "passed",
+      "engines": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "scope": "Final additive Usage view, 320px reflow, native 44px scope control, keyboard, scope, error/retry, refresh, logout clearing and unauthenticated denial"
+    }
+  ],
+  "live_synthetic_provider_probes": [
+    {
+      "probe": "codex",
+      "model": "gpt-6-astra",
+      "ok": true,
+      "code": null,
+      "durationMs": 4810,
+      "usageReported": true,
+      "usageModels": [
+        "gpt-6-astra"
+      ],
+      "lifecycle": [
+        "running",
+        "completed"
+      ]
+    },
+    {
+      "probe": "claude_code",
+      "model": "claude-opus-5-5",
+      "ok": true,
+      "code": null,
+      "durationMs": 4844,
+      "usageReported": true,
+      "usageModels": [
+        "claude-opus-5-5"
+      ],
+      "lifecycle": [
+        "running",
+        "completed"
+      ]
+    }
+  ],
+  "runtime_activation": {
+    "scope": "This checkout only",
+    "health": "CA-verified loopback and private LAN HTTPS both 200 with SQLite alive",
+    "usage_markup_served": true,
+    "unauthenticated_usage_status": 401,
+    "active_consultations_before_restart": 0,
+    "saved_consultant_answers_preserved": 5,
+    "saved_state_after_restart": "stopped"
+  },
+  "visual_evidence": [
+    {
+      "path": "forge/runs/critic-usage-20260925/chromium-usage-desktop.png",
+      "sha256": "f43be50796eaf4fda95c2fdd5dd6b4a028833803aa84d7967c334a9a08058609",
+      "fixture": "Synthetic isolated workspace, not owner data"
+    },
+    {
+      "path": "forge/runs/critic-usage-20260925/webkit-usage-mobile.png",
+      "sha256": "461a58eab1874aaa71817708f386b8222d777360559b2ccc9675f5b4a4ce7fa5",
+      "fixture": "Synthetic isolated workspace, not owner data"
+    }
+  ],
+  "evidence_limits": [
+    "No original private consultation replay or new Critic review was requested after the stopped checkpoint.",
+    "Short live calls prove current connectivity and native usage emission; no real 30-minute wait was performed.",
+    "Cross-browser tests use synthetic providers and disposable local storage.",
+    "No physical iPhone audio or Windows/Linux runtime verification, representative-user study or whole-product release evaluation in this scope.",
+    "Earlier usage was not recorded and is not reconstructed."
+  ],
+  "release_readiness": "not_evaluated"
+}

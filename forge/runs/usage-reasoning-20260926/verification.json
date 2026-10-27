@@ -1,0 +1,15 @@
+{
+  "unit": "U-13 reasoning attribution",
+  "tests": {
+    "passed": 226,
+    "skipped": 2,
+    "failed": 0
+  },
+  "browsers": [
+    "chromium",
+    "firefox",
+    "webkit"
+  ],
+  "saved_record_validation": "Matched immutable single-request snapshots recovered the expected high and medium model rows. No private conversation data copied to source.",
+  "limits": "Observed runs differ in Head decisions and are not a controlled causal or answer-quality benchmark."
+}

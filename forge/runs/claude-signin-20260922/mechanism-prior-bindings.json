@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-09-22T20:18:36.596107+00:00",
+  "scope": "Preserve initial auth-mechanism bindings before precise native-config and status-evidence clarification.",
+  "artifacts": {
+    "architecture": {
+      "path": "docs/architecture.md",
+      "owner_skill": "to-architecture",
+      "owner_invocation_id": "claude-signin-20260922-architecture",
+      "declared_output_set": [
+        "docs/architecture.md"
+      ],
+      "source_version": "claude-signin-20260922-architecture",
+      "source_usage": {
+        "docs/prd.md": "full",
+        "docs/project-context.md": "full",
+        "docs/canonical-terms.md": "full",
+        "docs/guardrails.md": "full",
+        "docs/user-journey.md": "full",
+        "docs/screen-map.md": "full",
+        "docs/wireframes.md": "full",
+        "docs/design-brief.md": "full",
+        "docs/model-settings.md": "full",
+        "forge/runs/claude-signin-20260922/source-review.json": "full"
+      },
+      "source_hashes": {
+        "docs/prd.md": "8cc3bdd8d2f4968fa5b00e1b34e33bc7c0ff8e147872ef1d18aa5d3bb709328a",
+        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
+        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
+        "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
+        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
+        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
+        "docs/wireframes.md": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
+        "docs/design-brief.md": "4f1e5931f5afa976ac798e36932b8b68ff41a6602d4b50732a56cd44765730fb",
+        "docs/model-settings.md": "c58fed0a9606f231ac8086c669b859cb58e372efdcd538ed2fee33cb091c8ecc",
+        "forge/runs/claude-signin-20260922/source-review.json": "ad878d853b9c6f30da817167e1db6dffaad9c2c2863354ad3331294d7b269def"
+      },
+      "content_hash": "1ebbee84b29480d12bd7844c0c1a55b26800ed45aca3b4cf74a4be5131f39d7b",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "native-subscription-signin-owner-reconciliation",
+        "reviewed_at": "2026-09-22T20:15:25.710994+00:00",
+        "executor": "Codex inline to-architecture",
+        "scope": "Recognize native Claude subscription sign-in without weakening tools, private credentials or billing boundaries; Check connection preserves unsaved settings. Preserve exact models, frozen baseline and formal unrun statuses; no authentication or model-execution result is inferred."
+      },
+      "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
+    },
+    "dod-evals": {
+      "path": "docs/dod-evals.md",
+      "owner_skill": "to-dod-evals",
+      "owner_invocation_id": "claude-signin-20260922-dod-evals",
+      "declared_output_set": [
+        "docs/dod-evals.md"
+      ],
+      "source_version": "claude-signin-20260922-dod-evals",
+      "source_usage": {
+        "docs/prd.md": "full",
+        "docs/project-context.md": "full",
+        "docs/canonical-terms.md": "full",
+        "docs/guardrails.md": "full",
+        "docs/user-journey.md": "full",
+        "docs/screen-map.md": "full",
+        "docs/wireframes.md": "full",
+        "docs/design-brief.md": "full",
+        "docs/architecture.md": "full"
+      },
+      "source_hashes": {
+        "docs/prd.md": "8cc3bdd8d2f4968fa5b00e1b34e33bc7c0ff8e147872ef1d18aa5d3bb709328a",
+        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
+        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
+        "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
+        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
+        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
+        "docs/wireframes.md": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
+        "docs/design-brief.md": "4f1e5931f5afa976ac798e36932b8b68ff41a6602d4b50732a56cd44765730fb",
+        "docs/architecture.md": "1ebbee84b29480d12bd7844c0c1a55b26800ed45aca3b4cf74a4be5131f39d7b"
+      },
+      "content_hash": "fd73d395eaddbd975420f6a73371bad428269508aa100c31b0a60136f294f59a",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "native-subscription-signin-owner-reconciliation",
+        "reviewed_at": "2026-09-22T20:15:26.432893+00:00",
+        "executor": "Codex inline to-dod-evals",
+        "scope": "Recognize native Claude subscription sign-in without weakening tools, private credentials or billing boundaries; Check connection preserves unsaved settings. Preserve exact models, frozen baseline and formal unrun statuses; no authentication or model-execution result is inferred."
+      },
+      "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
+    },
+    "qa-checklist": {
+      "path": "docs/qa-checklist.md",
+      "owner_skill": "to-qa-checklist",
+      "owner_invocation_id": "claude-signin-20260922-qa-checklist",
+      "declared_output_set": [
+        "docs/qa-checklist.md"
+      ],
+      "source_version": "claude-signin-20260922-qa-checklist",
+      "source_usage": {
+        "docs/prd.md": "full",
+        "docs/project-context.md": "full",
+        "docs/canonical-terms.md": "full",
+        "docs/guardrails.md": "full",
+        "docs/user-journey.md": "full",
+        "docs/screen-map.md": "full",
+        "docs/wireframes.md": "full",
+        "docs/design-brief.md": "full",
+        "docs/architecture.md": "full",
+        "docs/dod-evals.md": "full"
+      },
+      "source_hashes": {
+        "docs/prd.md": "8cc3bdd8d2f4968fa5b00e1b34e33bc7c0ff8e147872ef1d18aa5d3bb709328a",
+        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
+        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
+        "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
+        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
+        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
+        "docs/wireframes.md": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
+        "docs/design-brief.md": "4f1e5931f5afa976ac798e36932b8b68ff41a6602d4b50732a56cd44765730fb",
+        "docs/architecture.md": "1ebbee84b29480d12bd7844c0c1a55b26800ed45aca3b4cf74a4be5131f39d7b",
+        "docs/dod-evals.md": "fd73d395eaddbd975420f6a73371bad428269508aa100c31b0a60136f294f59a"
+      },
+      "content_hash": "8fd8b59d43c10f09c18604a410534f1d7c1034ad3740375f6fbe98e63e1c08ca",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "native-subscription-signin-owner-reconciliation",
+        "reviewed_at": "2026-09-22T20:15:27.167707+00:00",
+        "executor": "Codex inline to-qa-checklist",
+        "scope": "Recognize native Claude subscription sign-in without weakening tools, private credentials or billing boundaries; Check connection preserves unsaved settings. Preserve exact models, frozen baseline and formal unrun statuses; no authentication or model-execution result is inferred."
+      },
+      "validated_baseline_id": "nanoduck-electric-a-v8-20260914"
+    }
+  },
+  "dispatches": {
+    "architecture": {
+      "invocation_id": "claude-signin-20260922-architecture",
+      "outputs": [
+        "docs/architecture.md"
+      ],
+      "source_hashes": {
+        "docs/prd.md": "8cc3bdd8d2f4968fa5b00e1b34e33bc7c0ff8e147872ef1d18aa5d3bb709328a",
+        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
+        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
+        "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
+        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
+        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
+        "docs/wireframes.md": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
+        "docs/design-brief.md": "4f1e5931f5afa976ac798e36932b8b68ff41a6602d4b50732a56cd44765730fb",
+        "docs/model-settings.md": "c58fed0a9606f231ac8086c669b859cb58e372efdcd538ed2fee33cb091c8ecc",
+        "forge/runs/claude-signin-20260922/source-review.json": "ad878d853b9c6f30da817167e1db6dffaad9c2c2863354ad3331294d7b269def"
+      }
+    },
+    "dod-evals": {
+      "invocation_id": "claude-signin-20260922-dod-evals",
+      "outputs": [
+        "docs/dod-evals.md"
+      ],
+      "source_hashes": {
+        "docs/prd.md": "8cc3bdd8d2f4968fa5b00e1b34e33bc7c0ff8e147872ef1d18aa5d3bb709328a",
+        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
+        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
+        "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
+        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
+        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
+        "docs/wireframes.md": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
+        "docs/design-brief.md": "4f1e5931f5afa976ac798e36932b8b68ff41a6602d4b50732a56cd44765730fb",
+        "docs/architecture.md": "1ebbee84b29480d12bd7844c0c1a55b26800ed45aca3b4cf74a4be5131f39d7b"
+      }
+    },
+    "qa-checklist": {
+      "invocation_id": "claude-signin-20260922-qa-checklist",
+      "outputs": [
+        "docs/qa-checklist.md"
+      ],
+      "source_hashes": {
+        "docs/prd.md": "8cc3bdd8d2f4968fa5b00e1b34e33bc7c0ff8e147872ef1d18aa5d3bb709328a",
+        "docs/project-context.md": "acc4ebd3c0abf0fda78aba85e1914ca395e2644665494ff0cb8758d50beb9dfa",
+        "docs/canonical-terms.md": "d0088c7601c4f39e3c3ddb4d4371e5596925988ef017ba1317620f75809c3e16",
+        "docs/guardrails.md": "6982d013ff2f5f408016ab5f722667d016a7c865ab791d950187df267eed6214",
+        "docs/user-journey.md": "1b6717e070b70c1f57b2d1edb7b4b8e5916c70330b4577321846f0f3e3b54517",
+        "docs/screen-map.md": "416575c5775d625c6dcd9a6a2fa47feb19d9a0a1b8b15f7af65590c26a557dd0",
+        "docs/wireframes.md": "677b178d26d5da35662286401798d35d62f8992508fa5a853e847e6878dea41b",
+        "docs/design-brief.md": "4f1e5931f5afa976ac798e36932b8b68ff41a6602d4b50732a56cd44765730fb",
+        "docs/architecture.md": "1ebbee84b29480d12bd7844c0c1a55b26800ed45aca3b4cf74a4be5131f39d7b",
+        "docs/dod-evals.md": "fd73d395eaddbd975420f6a73371bad428269508aa100c31b0a60136f294f59a"
+      }
+    }
+  }
+}

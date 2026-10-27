@@ -1,0 +1,20 @@
+{
+  "invocation_id": "glass-chat-controls-20261008-b72cd48cba57-architecture-approved",
+  "node": "architecture-approved",
+  "returned_at": "2026-10-08T13:18:18.673932+00:00",
+  "outputs": {
+    "architecture": {
+      "path": "docs/architecture.md",
+      "content_hash": "de94ca48ca6e4b2f93ff4f875725c790c91fac6a2f4a08e0e3d8648529f5c641",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "glass-controls-scoped-document-review",
+        "reviewed_at": "2026-10-08T13:18:18.644204+00:00",
+        "executor": "Codex inline to-architecture",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      }
+    }
+  },
+  "evidence_limit": "Document definitions only; actual product checks belong to the root's separately inspected evidence."
+}

@@ -1,0 +1,20 @@
+{
+  "invocation_id": "head-connection-prd-clarification-20261008-b7706d75e458-design-brief",
+  "node": "design-brief",
+  "returned_at": "2026-10-08T14:46:59.558505+00:00",
+  "outputs": {
+    "design-brief": {
+      "path": "docs/design-brief.md",
+      "content_hash": "926e6d199fba7f27dd4a3f8c8b4876d2ff0c6c06cbe9d0b48dd252bf07a1b7f8",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "head-connection-prd-clarification",
+        "reviewed_at": "2026-10-08T14:46:59.527310+00:00",
+        "executor": "Codex inline to-design-brief",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      }
+    }
+  },
+  "evidence_limit": "Document definitions only; actual product checks belong to the root's separately inspected evidence."
+}

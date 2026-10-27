@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-08T14:12:50.618939+00:00",
+  "executor": "Codex with isolated synthetic Playwright fixtures and independent read-only review",
+  "implementation_hashes": {
+    "public/styles.css": "dbcfd573cf8607610aab667863e9877f13c4d71994f3b95f780b1811a8621886",
+    "src/client/app.js": "d442d9f7c3ad1765c52a0c5c367f04e515facf40409f39455120cd62237aeaa1",
+    "scripts/browser-reading-mode.mjs": "b58059fdef6d514c0f68ad68c8f03b09d60dfa94f722e31bf1ba880ce8fc268c"
+  },
+  "result": "passed",
+  "commands": [
+    "node scripts/browser-check.mjs --reading-only",
+    "npm run check",
+    "git diff --check"
+  ],
+  "browser_engines": [
+    "chromium",
+    "firefox",
+    "webkit"
+  ],
+  "checks": [
+    "Open prompt raises down arrow16px above its top",
+    "Collapsed or hidden/active prompt clears its arrow offset",
+    "Continue conversation never raises down arrow",
+    "Collapsed arrow stays16px above viewport bottom at320/390/768px",
+    "Theme ink remains legible above the white matte prompt",
+    "480px simulated keyboard viewport keeps arrows separate;240px temporarily shows only down if both cannot fit; up returns when space returns",
+    "Draft, active-run hiding, completion collapse, end jump, boundary hiding and glass hosts remain working"
+  ],
+  "tests": {
+    "passed": 230,
+    "skipped": 2,
+    "failed": 0
+  },
+  "review": "Resolved short-viewport collision identified by independent reviewer",
+  "server": "Existing process left running, no live consultation interaction",
+  "limitations": [
+    "Physical-device keyboard/notch safe-area testing not performed",
+    "Existing legacy SDD full-unit metadata migration remains pending; no full-unit or whole-product release certification"
+  ]
+}

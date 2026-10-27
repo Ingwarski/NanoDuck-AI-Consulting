@@ -1,0 +1,20 @@
+{
+  "invocation_id": "chat-arrow-position-20261008-8c51b7b0934b-architecture-approved",
+  "node": "architecture-approved",
+  "returned_at": "2026-10-08T13:50:42.561272+00:00",
+  "outputs": {
+    "architecture": {
+      "path": "docs/architecture.md",
+      "content_hash": "585a51e2316f49678f6df498a8f547e1b83a2988e7fd12f26c362d6d887d550a",
+      "validation": {
+        "result": "passed",
+        "working_language": "en",
+        "kind": "arrow-position-scoped-document-review",
+        "reviewed_at": "2026-10-08T13:50:42.527456+00:00",
+        "executor": "Codex inline to-architecture",
+        "scope": "Current owner definitions/no-change revalidation only; IDs, security and frozen evidence retained. No full-unit, runtime, release or historical-evidence certification."
+      }
+    }
+  },
+  "evidence_limit": "Document definitions only; actual product checks belong to the root's separately inspected evidence."
+}

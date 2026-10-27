@@ -1,0 +1,35 @@
+{
+  "unit": "U-12 Critic cache and usage follow-up",
+  "tests": {
+    "total": 220,
+    "passed": 218,
+    "skipped": 2,
+    "failed": 0
+  },
+  "browsers": [
+    "Chromium",
+    "Firefox",
+    "WebKit"
+  ],
+  "liveProbe": {
+    "model": "claude-opus-5-5",
+    "effort": "high",
+    "secondInput": 9197,
+    "secondCacheRead": 8722,
+    "secondCacheWrite": 473
+  },
+  "sourceHashes": {
+    "src/server/claude-provider.mjs": "229325f8cda4216b3b7c7c0e516e556aa9b050eae40bcaeb5b2b62f5a00326f4",
+    "src/server/codex-provider.mjs": "b30097075fd9f05892d7ed9242369704144c93719f53806e3269440fd5e1c360",
+    "src/server/providers.mjs": "8b0c99bd71c752bdb836cf65cd857af468f3e747706e557e57cf71bcea8a849b",
+    "src/server/provider-context.mjs": "e330b379fda22422cc0e3c255a695d0f2fa0dcd842c4ede1d55503a7262275fe",
+    "src/server/usage.mjs": "9b2ce82b5731f71ed7cb871f228c1bbe2913069471efcfa6d6f42c78d6c3af34",
+    "src/client/app.js": "8599e0f7792a186ce37d91e559e3a03267cdb04a8eaed65049566ff60b7a1abd"
+  },
+  "limits": [
+    "Synthetic public probe only; no guaranteed hit rate or subscription-cost savings",
+    "Unreported provider usage remains unknown",
+    "Two platform-specific tests skipped",
+    "Whole-product release readiness not_evaluated"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "result": "passed",
+  "node": "design-brief",
+  "mode": "before",
+  "unit_action": null,
+  "unit_id": null,
+  "skipped_artifacts": [],
+  "checked_artifacts": [
+    "canonical-terms",
+    "guardrails",
+    "prd",
+    "product-idea",
+    "project-context",
+    "screen-map",
+    "user-journey",
+    "wireframes"
+  ],
+  "affected_artifacts": [],
+  "issues": [],
+  "warnings": [],
+  "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement.",
+  "toolchain": {
+    "algorithm": "sdd-toolchain-sha256-v1",
+    "checker_sha256": "06ba030effe15fbdfe7df1058039125603e867c8843aabc8418158f43cca69b8",
+    "skillset_sha256": "3d2ab29ca262690051c283da199b096529244c344df3e59dd46554ae2bf6e945",
+    "source_file_count": 37
+  }
+}

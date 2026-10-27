@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "event": "implementation_prompt",
+  "role": "user",
+  "intent": "start_production_implementation",
+  "prompt_id": "consultation-orchestration-20260923",
+  "received_at": "2026-09-22T23:35:42.480352+00:00",
+  "timestamp_basis": "Tool-recording time for the explicit current implementation request; original transport timestamp unavailable.",
+  "message": "Fix this local repository according to the agreed consultation changes and track them as a portable prompt for two sister repositories.",
+  "message_is_summary": true,
+  "scope": "Implement Head-led orchestration, complete owner context, targeted Critic rework, useful review depth, isolated safe public research, complete outputs and source links in this checkout only. Reconcile SDD and prepare a portable handoff without editing sister repositories.",
+  "standing_constraints": [
+    "Preserve the approved Electric A v8 visual baseline.",
+    "Do not interrupt an active consultation or copy private owner content into public source.",
+    "Keep exact model, subscription, authentication and privacy boundaries."
+  ],
+  "development_plan_hash": "dd8202f67d7efb80bca3a239eec17dee653018442309cfc53ec45f0e1b678afd",
+  "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
+  "product_scope_hash": "defc5e24f0dd91be42b984888b157137f4f1ed361459e70f42b832e18c957bd4"
+}
