@@ -5,13 +5,20 @@ import { png } from '../test/fixtures/images.mjs';
 
 export { recordNotificationPlayback } from './browser-notification-audio.mjs';
 
-async function openNewConversation(page) {
-  const loaded = page.waitForResponse(response => response.request().method() === 'GET' && /\/api\/conversations\/[^/]+$/u.test(new URL(response.url()).pathname));
-  await page.locator('#new-conversation').click();
-  await (await loaded).finished();
-  // A click only dispatches New. Wait for its returned record to replace the
-  // preceding stopped/failed record before the next fixture can press Send.
-  await page.waitForFunction(() => document.querySelector('#thread .empty') && document.querySelector('#run-status').textContent === 'Describe the decision you want to make.');
+export async function openNewConversation(page) {
+  const previous = await page.locator('#thread > :first-child').elementHandle();
+  assert.ok(previous, 'The preceding conversation has rendered before New');
+  try {
+    const loaded = page.waitForResponse(response => response.request().method() === 'GET' && /\/api\/conversations\/[^/]+$/u.test(new URL(response.url()).pathname));
+    await page.locator('#new-conversation').click();
+    const response = await loaded;
+    assert.equal(response.status(), 200);
+    await response.finished();
+    // Empty markup may already belong to the preceding record. Wait for the
+    // actual render replacement before the next fixture can press Send.
+    await page.waitForFunction(element => !element.isConnected, previous);
+    await page.waitForFunction(() => document.querySelector('#thread .empty') && document.querySelector('#run-status').textContent === 'Describe the decision you want to make.');
+  } finally { await previous.dispose(); }
 }
 
 export async function verifyActiveDiscussion(page, name, root) {

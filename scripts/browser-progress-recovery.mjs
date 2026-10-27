@@ -1,12 +1,13 @@
 import assert from 'node:assert/strict';
+import { openNewConversation } from './browser-active-discussion.mjs';
 
 export async function verifyProgressRecovery(page) {
-  await page.locator('#new-conversation').click();
-  await page.waitForFunction(() => document.querySelector('#thread .empty'));
+  await openNewConversation(page);
   await page.locator('#message').fill('Synthetic progress recovery. Wait until cancelled');
   const acceptance = page.waitForResponse(response => response.request().method() === 'POST' && response.url().endsWith('/messages'));
   await page.locator('#send').click();
   const accepted = await acceptance;
+  assert.equal(accepted.status(), 202);
   const url = accepted.url().replace(/\/messages$/u, '');
   await page.locator('#stop').waitFor({ state: 'visible' });
   let polls = 0;
@@ -50,6 +51,5 @@ export async function verifyProgressRecovery(page) {
   await page.unroute('**/api/usage*');
   await page.getByRole('tab', { name: 'Discussion', exact: true }).click();
   // Leave a fresh fixture so the next test does not inherit the held request.
-  await page.locator('#new-conversation').click();
-  await page.waitForFunction(() => document.querySelector('#thread .empty'));
+  await openNewConversation(page);
 }
