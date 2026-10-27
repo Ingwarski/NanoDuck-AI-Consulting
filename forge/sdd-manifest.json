@@ -1,6 +1,6 @@
 {
   "pipeline_version": "design-first-sdd-2026",
-  "checker_contract_version": 1,
+  "checker_contract_version": 2,
   "traceability_version": 1,
   "artifacts": {
     "product-idea": {
@@ -2494,14 +2494,14 @@
     "project-context": {
       "path": "docs/project-context.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "sdd-reconciliation-20261017-consistency-project-context-bundle",
+      "owner_invocation_id": "sdd-migration-20261028-context-bundle",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "sdd-reconciliation-20261017-consistency",
+      "source_version": "sdd-migration-20261028-context-bundle",
       "source_usage": {
         "docs/model-settings.md": "full",
         "docs/prd.md": "full",
@@ -2520,7 +2520,7 @@
         "forge/runs/sdd-reconciliation-20261017/project-context-bundle-owner.json": "86debe0fdee79ad7f202e563ab82eb2ef46e5a836f322885bcf7215edf9c6fca",
         "forge/runs/sdd-reconciliation-20261017/scope.json": "82eeb2e3fa2559e055ab04aa135ad90ca90f776562377069d6415d18c78ab37f",
         "src/client/app.js": "aa51d56cc61eedf536bef7911acf9922e3503a23ceadb6f673855e53f8e2ba31",
-        "src/server/codex-provider.mjs": "e62f3036c14ae24e5ee0f8ec3a9acc123ed814258cff0d70bf642961c031744d"
+        "src/server/codex-provider.mjs": "edc58feea851d5fb051d02bcb2302cec1e6ab07833ddbb2fd0149da7ac1fcbfa"
       },
       "dependencies": [
         "product-idea",
@@ -2530,10 +2530,10 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "owner-reviewed-document-reconciliation",
-        "reviewed_at": "2026-10-17T11:59:06.291647+00:00",
+        "kind": "owner-reviewed-no-change-revalidation",
+        "reviewed_at": "2026-10-27T22:49:00.935338+00:00",
         "executor": "Codex lead acting inline as to-project-context",
-        "scope": "Applied current product/PRD source deltas without changing local/LAN users, permissions, models or locales. Upstream accounting provenance now explicitly permits reconciled or partial coverage, grounded in inspected codex-provider and client display branches. Coverage and provenance are distinct. No downstream decision imported. Final delta review uses the retained first-pass owner review and current source identities; document validation only."
+        "scope": "Re-read both current bundle documents and review the only changed consumed source: Codex cancellation observes the existing promise before a pre-aborted return. No change to participants, models/efforts, private storage, subscription routes, terminology, permission, or product locales. Current publication license is governed by LICENSE and the README/republication notices. Both canonical documents remain byte-identical; this validates documents and bindings, not product execution."
       },
       "open_questions": [],
       "consumed_source_fragments": {}
@@ -2541,14 +2541,14 @@
     "canonical-terms": {
       "path": "docs/canonical-terms.md",
       "owner_skill": "to-project-context",
-      "owner_invocation_id": "sdd-reconciliation-20261017-consistency-project-context-bundle",
+      "owner_invocation_id": "sdd-migration-20261028-context-bundle",
       "declared_output_set": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "sdd-reconciliation-20261017-consistency",
+      "source_version": "sdd-migration-20261028-context-bundle",
       "source_usage": {
         "docs/model-settings.md": "full",
         "docs/prd.md": "full",
@@ -2567,7 +2567,7 @@
         "forge/runs/sdd-reconciliation-20261017/project-context-bundle-owner.json": "86debe0fdee79ad7f202e563ab82eb2ef46e5a836f322885bcf7215edf9c6fca",
         "forge/runs/sdd-reconciliation-20261017/scope.json": "82eeb2e3fa2559e055ab04aa135ad90ca90f776562377069d6415d18c78ab37f",
         "src/client/app.js": "aa51d56cc61eedf536bef7911acf9922e3503a23ceadb6f673855e53f8e2ba31",
-        "src/server/codex-provider.mjs": "e62f3036c14ae24e5ee0f8ec3a9acc123ed814258cff0d70bf642961c031744d"
+        "src/server/codex-provider.mjs": "edc58feea851d5fb051d02bcb2302cec1e6ab07833ddbb2fd0149da7ac1fcbfa"
       },
       "dependencies": [
         "product-idea",
@@ -2577,10 +2577,10 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "owner-reviewed-document-reconciliation",
-        "reviewed_at": "2026-10-17T11:59:06.292241+00:00",
+        "kind": "owner-reviewed-no-change-revalidation",
+        "reviewed_at": "2026-10-27T22:49:00.935338+00:00",
         "executor": "Codex lead acting inline as to-project-context",
-        "scope": "Applied current product/PRD source deltas without changing local/LAN users, permissions, models or locales. Upstream accounting provenance now explicitly permits reconciled or partial coverage, grounded in inspected codex-provider and client display branches. Coverage and provenance are distinct. No downstream decision imported. Final delta review uses the retained first-pass owner review and current source identities; document validation only."
+        "scope": "Re-read both current bundle documents and review the only changed consumed source: Codex cancellation observes the existing promise before a pre-aborted return. No change to participants, models/efforts, private storage, subscription routes, terminology, permission, or product locales. Current publication license is governed by LICENSE and the README/republication notices. Both canonical documents remain byte-identical; this validates documents and bindings, not product execution."
       },
       "open_questions": [],
       "consumed_source_fragments": {}
@@ -6200,13 +6200,13 @@
       },
       "path": "docs/qa-checklist.md",
       "owner_skill": "to-qa-checklist",
-      "owner_invocation_id": "sdd-reconciliation-20261017-consistency-qa-checklist",
+      "owner_invocation_id": "sdd-migration-20261028-qa",
       "declared_output_set": [
         "docs/qa-checklist.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "sdd-reconciliation-20261017-consistency",
+      "source_version": "sdd-migration-20261028-qa",
       "source_usage": {
         "docs/architecture.md": "full",
         "docs/canonical-terms.md": "full",
@@ -6253,15 +6253,15 @@
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "owner-reviewed-document-reconciliation",
-        "reviewed_at": "2026-10-17T11:59:17.255371+00:00",
+        "kind": "owner-reviewed-no-change-revalidation",
+        "reviewed_at": "2026-10-27T22:49:59.082602+00:00",
         "executor": "Codex lead acting inline as to-qa-checklist",
-        "scope": "Re-reviewed the QA owner authored91 definitions/projection against final source deltas. Current rail/completion, independent Send, liquid glass and partial upstream accounting expectations remain consistent. All original90 full real-consumer obligations, gate/phase/status memberships, controlled QA-C01 subset and evidence classes remain required/prepared/not_run. Final delta review uses the retained first-pass owner review and current source identities; document validation only."
+        "scope": "Retained all 91 exact canonical QA definitions, required membership/evidence modes and 17 security obligations, with unchanged document bytes. Current scoped sources re-observed after CI/licensing/migration-maintenance changes. Cancellation, browser recovery and credential controls are supplementary executed regressions, not a fresh pass of QA-C01 or the 90 full real-consumer checks. All formal checks remain prepared/not_run and release readiness not_evaluated."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
       "consumed_source_fragments": {},
-      "repository_observation_id": "sdd-reconciliation-20261017-qa-source-inventory"
+      "repository_observation_id": "sdd-migration-20261028-qa-source-inventory"
     },
     "development-plan": {
       "traceability": {
@@ -8358,13 +8358,13 @@
       },
       "path": "docs/development-plan.md",
       "owner_skill": "to-development-plan",
-      "owner_invocation_id": "sdd-reconciliation-20261017-consistency-development-plan",
+      "owner_invocation_id": "sdd-migration-20261028-development-plan",
       "declared_output_set": [
         "docs/development-plan.md"
       ],
       "status": "validated",
       "mission_control_status": "Done",
-      "source_version": "sdd-reconciliation-20261017-consistency",
+      "source_version": "sdd-migration-20261028-development-plan",
       "source_usage": {
         "docs/prd.md": "full",
         "docs/project-context.md": "full",
@@ -8425,7 +8425,7 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2",
         "forge/design/candidates/a/v8/index.html": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
         "forge/design/candidates/a/v8/styles.css": "f8fd6e8832671b05dc8b7a2a034ee41fb2aad4f085468965feaf1c34a3b57d43",
-        "package.json": "d74c25d2b4d04b4fc3f2f51c333a2333b8f64efa62ed254220e967b5c3ca764c",
+        "package.json": "4be5b11501e7f23c7a9702bcc8285e324e8e918b9d8f5c07817fc2f41c468a8d",
         "public/index.html": "9e5d7062d2a89a7959d151415d1587a92e7014a6c2cdce17c86b503b0319f71a",
         "public/styles.css": "f7e0580575a7592ac1d07a4975ed892c573b731e60e6837ec0f252ea95060553",
         "src/server/start.mjs": "18c323b0b8b3e8d3eb5b003b99414d822cecfcb0aa7f5a5168284372dd864dda",
@@ -8436,7 +8436,7 @@
         "src/server/instruction-bootstrap.mjs": "1ab76d71e6cdae69924d9b40f47eea7c5eeb076d879113906433fb4066a09a79",
         "src/server/instruction-documents.mjs": "175267da30c8b1ad109bd6f10d86306d0a41694c7a57aa37617c40efd60abad7",
         "src/client/app.js": "aa51d56cc61eedf536bef7911acf9922e3503a23ceadb6f673855e53f8e2ba31",
-        "scripts/browser-check.mjs": "3b25348dcac098bcbf41fec84d9e2088787382edf08d4329c69db07433d61672",
+        "scripts/browser-check.mjs": "66bb2b073c407effb4c3067f598e4f276ede8ea4e2287bc524cc59b6a99ab51b",
         "scripts/test.mjs": "e8d1ecf30e14c106672ed1e0480f2137e54bd4afe46865f88f6739017c1e3b74",
         "instructions/AGENTS.md": "9e5cd883fcf88d7c1dfa0f24510f1b0f6a9d5152fdb42bcce55fbeb2c907adbf",
         "docs/source-provenance.json": "606658e8664e688340efea633184aa4899ca7bf27122aa9e7698aa3c703a5f33"
@@ -8454,14 +8454,14 @@
         "dod-evals",
         "qa-checklist"
       ],
-      "content_hash": "3d5544fd74655a931c424c8ea802c4e350fa8c9d8a0486bd85473d9a6703822a",
+      "content_hash": "10fa5ffb33df222c3a9d7e297fc0ab91dc55f249ecfb186c353bf2d78dc32556",
       "validation": {
         "result": "passed",
         "working_language": "en",
-        "kind": "owner-reviewed-document-reconciliation",
-        "reviewed_at": "2026-10-17T12:10:02.704106+00:00",
-        "executor": "Codex development-plan domain owner under explicit lead dispatch; current canonical source/QA schema and static existing-consumer review; no runtime execution",
-        "scope": "Passed owner mechanical/semantic review: canonical QA acceptance object equals QA owner projection for91 required prepared/not_run checks; original90 real-consumer checks owned once by U15, only C01 owned by U14; exact verifies maps retained, all111 clauses/states have required full integration/release acceptance; U14 contribution links do not claim full acceptance. Strict-sequential construction/acceptance/check graph U14->U15 is acyclic and each boundary is independently feasible with later units absent; all17 security obligations and6 gates retained. Explicit existing regular-file footprints include actual QA and import/test consumers; no globs/invented modules. Full exact legacy archive/prior allocations/history and13-row migration map retained; all ten U09 duties visible. All current canonical sources remain unchanged during authoring, one canonical JSON fence matches return, no code/provider/browser/user/security/release execution or new approval claimed. Root owns after-checker/manifest/version/gate/run transitions."
+        "kind": "owner-reviewed-record-format-reconciliation",
+        "reviewed_at": "2026-10-27T22:50:51.272883+00:00",
+        "executor": "Codex lead acting inline as to-development-plan",
+        "scope": "Changed only the prose unit_contract_version from 1 to 2. Re-reviewed license-only package metadata and the browser harness synchronization/catalog-matrix budget; exact models, capabilities, canonical unit_plan JSON, U-14/U-15 identities, all111 clause/state obligations,91 required QA checks,17 security obligations and6 gates are unchanged. No completed unit or formal product acceptance is created. U-14 and U-15 remain pending and require a later separate implementation prompt for this current plan."
       },
       "open_questions": [],
       "validated_baseline_id": "nanoduck-electric-a-v8-20260914",
@@ -14089,11 +14089,11 @@
   },
   "implementation_gate": {
     "state": "awaiting_implementation_prompt",
-    "development_plan_hash": "3d5544fd74655a931c424c8ea802c4e350fa8c9d8a0486bd85473d9a6703822a",
+    "development_plan_hash": "10fa5ffb33df222c3a9d7e297fc0ab91dc55f249ecfb186c353bf2d78dc32556",
     "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
     "awaiting_at": "2026-10-17T12:10:02.596693+00:00",
     "product_scope_hash": "defc5e24f0dd91be42b984888b157137f4f1ed361459e70f42b832e18c957bd4",
-    "reason": "Documentation-only reconciliation adopted the current owner-reviewed plan; a separate later explicit implementation prompt is required. No application implementation or unit run is authorized by this documentation task."
+    "reason": "Authorized v2 record-format correction preserves the awaiting-prompt boundary. No U-14/U-15 implementation or product/release acceptance is granted by CI maintenance or migration."
   },
   "dispatches": {
     "product-idea": {
@@ -14145,7 +14145,7 @@
       "skill_hash": "87276141bf44d3c3ec4d78cec8c192eb0bbb379e7f4065f117988981ebe43ec3"
     },
     "project-context": {
-      "invocation_id": "sdd-reconciliation-20261017-consistency-project-context-bundle",
+      "invocation_id": "sdd-migration-20261028-context-bundle",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
@@ -14158,15 +14158,15 @@
         "forge/runs/sdd-reconciliation-20261017/project-context-bundle-owner.json": "86debe0fdee79ad7f202e563ab82eb2ef46e5a836f322885bcf7215edf9c6fca",
         "forge/runs/sdd-reconciliation-20261017/scope.json": "82eeb2e3fa2559e055ab04aa135ad90ca90f776562377069d6415d18c78ab37f",
         "src/client/app.js": "aa51d56cc61eedf536bef7911acf9922e3503a23ceadb6f673855e53f8e2ba31",
-        "src/server/codex-provider.mjs": "e62f3036c14ae24e5ee0f8ec3a9acc123ed814258cff0d70bf642961c031744d"
+        "src/server/codex-provider.mjs": "edc58feea851d5fb051d02bcb2302cec1e6ab07833ddbb2fd0149da7ac1fcbfa"
       },
       "consumed_source_fragments": {},
-      "invoked_at": "2026-10-17T11:59:06.190790+00:00",
+      "invoked_at": "2026-10-27T22:49:00.935338+00:00",
       "owner_skill": "to-project-context",
-      "skill_hash": "0efe9ef7f537a30546f991fe56376adee6f62d6ab191096b34951c3a84ea69be"
+      "skill_hash": "03fa6266f986dfab2e19a3373de565a287d4af87dbf07e9a1f2b7b3b5a19a33b"
     },
     "canonical-terms": {
-      "invocation_id": "sdd-reconciliation-20261017-consistency-project-context-bundle",
+      "invocation_id": "sdd-migration-20261028-context-bundle",
       "outputs": [
         "docs/project-context.md",
         "docs/canonical-terms.md"
@@ -14179,12 +14179,12 @@
         "forge/runs/sdd-reconciliation-20261017/project-context-bundle-owner.json": "86debe0fdee79ad7f202e563ab82eb2ef46e5a836f322885bcf7215edf9c6fca",
         "forge/runs/sdd-reconciliation-20261017/scope.json": "82eeb2e3fa2559e055ab04aa135ad90ca90f776562377069d6415d18c78ab37f",
         "src/client/app.js": "aa51d56cc61eedf536bef7911acf9922e3503a23ceadb6f673855e53f8e2ba31",
-        "src/server/codex-provider.mjs": "e62f3036c14ae24e5ee0f8ec3a9acc123ed814258cff0d70bf642961c031744d"
+        "src/server/codex-provider.mjs": "edc58feea851d5fb051d02bcb2302cec1e6ab07833ddbb2fd0149da7ac1fcbfa"
       },
       "consumed_source_fragments": {},
-      "invoked_at": "2026-10-17T11:59:06.191036+00:00",
+      "invoked_at": "2026-10-27T22:49:00.935338+00:00",
       "owner_skill": "to-project-context",
-      "skill_hash": "0efe9ef7f537a30546f991fe56376adee6f62d6ab191096b34951c3a84ea69be"
+      "skill_hash": "03fa6266f986dfab2e19a3373de565a287d4af87dbf07e9a1f2b7b3b5a19a33b"
     },
     "guardrails": {
       "invocation_id": "sdd-reconciliation-20261017-consistency-guardrails",
@@ -14361,7 +14361,7 @@
       "skill_hash": "166ed460b0bded6b5324f298b7ec434f9be1fcfa1524869d6dbb3f13879e1094"
     },
     "qa-checklist": {
-      "invocation_id": "sdd-reconciliation-20261017-consistency-qa-checklist",
+      "invocation_id": "sdd-migration-20261028-qa",
       "outputs": [
         "docs/qa-checklist.md"
       ],
@@ -14381,12 +14381,12 @@
         "forge/runs/sdd-reconciliation-20261017/scope.json": "82eeb2e3fa2559e055ab04aa135ad90ca90f776562377069d6415d18c78ab37f"
       },
       "consumed_source_fragments": {},
-      "invoked_at": "2026-10-17T11:59:17.158102+00:00",
+      "invoked_at": "2026-10-27T22:49:59.082602+00:00",
       "owner_skill": "to-qa-checklist",
-      "skill_hash": "0f2b9e3578ddb0aadb24fd306acfec3e3a944774f8ba7bea71df044e241628d6"
+      "skill_hash": "1d532f4aa4f57a8e0f4d91aef4a8144021b24b26c0232618e660c57885eaf576"
     },
     "development-plan": {
-      "invocation_id": "sdd-reconciliation-20261017-consistency-development-plan",
+      "invocation_id": "sdd-migration-20261028-development-plan",
       "outputs": [
         "docs/development-plan.md"
       ],
@@ -14412,7 +14412,7 @@
         "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2",
         "forge/design/candidates/a/v8/index.html": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
         "forge/design/candidates/a/v8/styles.css": "f8fd6e8832671b05dc8b7a2a034ee41fb2aad4f085468965feaf1c34a3b57d43",
-        "package.json": "d74c25d2b4d04b4fc3f2f51c333a2333b8f64efa62ed254220e967b5c3ca764c",
+        "package.json": "4be5b11501e7f23c7a9702bcc8285e324e8e918b9d8f5c07817fc2f41c468a8d",
         "public/index.html": "9e5d7062d2a89a7959d151415d1587a92e7014a6c2cdce17c86b503b0319f71a",
         "public/styles.css": "f7e0580575a7592ac1d07a4975ed892c573b731e60e6837ec0f252ea95060553",
         "src/server/start.mjs": "18c323b0b8b3e8d3eb5b003b99414d822cecfcb0aa7f5a5168284372dd864dda",
@@ -14423,15 +14423,15 @@
         "src/server/instruction-bootstrap.mjs": "1ab76d71e6cdae69924d9b40f47eea7c5eeb076d879113906433fb4066a09a79",
         "src/server/instruction-documents.mjs": "175267da30c8b1ad109bd6f10d86306d0a41694c7a57aa37617c40efd60abad7",
         "src/client/app.js": "aa51d56cc61eedf536bef7911acf9922e3503a23ceadb6f673855e53f8e2ba31",
-        "scripts/browser-check.mjs": "3b25348dcac098bcbf41fec84d9e2088787382edf08d4329c69db07433d61672",
+        "scripts/browser-check.mjs": "66bb2b073c407effb4c3067f598e4f276ede8ea4e2287bc524cc59b6a99ab51b",
         "scripts/test.mjs": "e8d1ecf30e14c106672ed1e0480f2137e54bd4afe46865f88f6739017c1e3b74",
         "instructions/AGENTS.md": "9e5cd883fcf88d7c1dfa0f24510f1b0f6a9d5152fdb42bcce55fbeb2c907adbf",
         "docs/source-provenance.json": "606658e8664e688340efea633184aa4899ca7bf27122aa9e7698aa3c703a5f33"
       },
       "consumed_source_fragments": {},
-      "invoked_at": "2026-10-17T11:59:24.510888+00:00",
+      "invoked_at": "2026-10-27T22:50:51.272883+00:00",
       "owner_skill": "to-development-plan",
-      "skill_hash": "390fef752ee70a4a925109d1fce8d57a4e5d3be9c8a580fec2754f1e89e496a0"
+      "skill_hash": "855d03f12f6871abe4fbe1bfce25db139350d2f02209f9f6d8d8827ef5e3894c"
     }
   },
   "prototype_candidate_history": [],
@@ -53000,6 +53000,14 @@
       "invocation_id": "sdd-reconciliation-20261017-consistency-development-plan",
       "owner_return": "forge/runs/sdd-reconciliation-20261017/consistency/development-plan-owner.json",
       "prior_bindings": "forge/runs/sdd-reconciliation-20261017/prior-bindings.json"
+    },
+    {
+      "event": "intake_projection_recovered",
+      "recorded_at": "2026-10-27T22:47:21.031167+00:00",
+      "receipt_ref": {
+        "path": "forge/runs/sdd-migration-20261028/intake-recovery.json",
+        "content_hash": "57796d35de6cb9c5925f83d028eb623d9f40f942b9a2b4e1e3ef6a1467d81dfc"
+      }
     }
   ],
   "input_requests": [],
@@ -53011,7 +53019,7 @@
     "source_mode": "existing-file",
     "handoff_receipt_path": "forge/runs/sdd-reconciliation-20261017/intake-handoff.json",
     "product_idea_hash": "3090712b248cae4f5aa6649c301c37fdb0ef7e69eae2cb53517b7f44daf5d056",
-    "current_request_id": "sdd-reconciliation-20261017"
+    "current_request_id": null
   },
   "affected_feature_units": [
     "U-14",
@@ -53153,9 +53161,149 @@
       ],
       "observed_at": "2026-10-17T11:56:48.676046+00:00",
       "scope": "Source path/type/hash inventory and named current interfaces only; no runtime, browser, provider, private-data or product-test observation."
+    },
+    "sdd-migration-20261028-qa-source-inventory": {
+      "observation_id": "sdd-migration-20261028-qa-source-inventory",
+      "observed_at": "2026-10-27T22:49:59.082602+00:00",
+      "commit": "ed52bf12a7f07d451717cbdd80a2fe37d25964ba",
+      "working_tree_state": "dirty",
+      "paths": {
+        ".github/dependabot.yml": "f201ff38f23860bfa27310f327849ff65dbf6edd07f61f185b9729c5728f89b8",
+        ".github/workflows/ci.yml": "130430570de804d16172f36af664e03b3162d181fc1fdb1f438fd4b1ec42bb74",
+        ".github/workflows/runtime-checks.yml": "3a54acf01ece2fb674a10c438bc0d1535b3443b46422bed25c6fd78d2f078068",
+        ".github/workflows/security.yml": "68208d4d39ae45facd86a7176d40cacb1c396b15c831da502ee4c3035e0740fc",
+        "README.md": "8030b5a8ac8573431ab96212147b7b3992c66733807fbe675506deab3ec269bb",
+        "docs/model-settings.md": "aef42b6f74eabcdcc32835f6ef7d52099bdcaa5fab2112a184e500dd95338989",
+        "forge/design/candidates/a/v8/app.js": "d7ac2287ce8496772592d42d134fc530affcb9147f0a7641655a56c6cf83775f",
+        "forge/design/candidates/a/v8/index.html": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
+        "forge/design/candidates/a/v8/styles.css": "f8fd6e8832671b05dc8b7a2a034ee41fb2aad4f085468965feaf1c34a3b57d43",
+        "instructions/AGENTS.md": "9e5cd883fcf88d7c1dfa0f24510f1b0f6a9d5152fdb42bcce55fbeb2c907adbf",
+        "instructions/CONSILIUM.md": "3db326b9650cd84c7849440e9444b1766698a7846a2ffad6c32f9dbabf581f28",
+        "instructions/CONSULTING_PLAYBOOK.md": "ceab28f86e6f5fd30e00cd0d191c3ae182323805adbd63bbb89bcb8032818e8e",
+        "instructions/RUNTIME_PROMPTS.md": "77059c713922a54d6f794561c9ace76769e2c8b5a26e9f1db0582204e64054cb",
+        "instructions/WORKING_CONTEXT.md": "4b4d17ce461ea197e38dc974222017529b68cded78b4a5d3d5b8c6d53ecf0796",
+        "package-lock.json": "3145f2dbbfb81ddaec849b67a415939dcbca39fc6c66ffbaa9c1fe02d23a83f0",
+        "package.json": "4be5b11501e7f23c7a9702bcc8285e324e8e918b9d8f5c07817fc2f41c468a8d",
+        "public/conversation-list.css": "31e233e7eb831f12fdf0a2b0fae569bb2061181a1fb7386a7e39310ca4a9f189",
+        "public/index.html": "9e5d7062d2a89a7959d151415d1587a92e7014a6c2cdce17c86b503b0319f71a",
+        "public/nanoduck-original.svg": "e8b786961dc9a3b4d5450d3d20c3fd25cb6b2a9e7dc3034d23202d1a6dd2f528",
+        "public/nanoduck.svg": "723d3b4201c5fc6ffa3d30a1e5ed5151f616d436919d15f3642827a16ed7021d",
+        "public/sounds/table-taps-250ms-v5.wav": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
+        "public/styles.css": "f7e0580575a7592ac1d07a4975ed892c573b731e60e6837ec0f252ea95060553",
+        "scripts/benchmark-critic-cache.mjs": "cfa8f27a6e5f03046a4359b578e184f8c2159bffba440e738ae7b921668d8f5d",
+        "scripts/benchmark-research.mjs": "9869bdf326abe2296e6c2158dcabef237efbdf957660fd1a60ff2f81db376c96",
+        "scripts/browser-active-discussion.mjs": "ce8dc71d83dd230eddf6fea90c487dc1d154127abb2f8b051efcb4a4822d5985",
+        "scripts/browser-check.mjs": "66bb2b073c407effb4c3067f598e4f276ede8ea4e2287bc524cc59b6a99ab51b",
+        "scripts/browser-local-entry.mjs": "2821d3324226190a8ec06578ecad447a24aebab768477bd6b003b26e7c7cf8ea",
+        "scripts/browser-logoff.mjs": "c061c7c26c931f40c98dc2afe8179122badb91cb64b3ebd5d4f8b6b4acac46a0",
+        "scripts/browser-markdown-tables.mjs": "c361c2a8038deff9a42f8924d3222c44e826a5173e4bfcc6973aff5ea735aa87",
+        "scripts/browser-model-settings.mjs": "d4ae30740be8ee38c14fe4c6b27996479deb145d590a50c20b9abb00c3985e45",
+        "scripts/browser-navbar-glass.mjs": "6e401f02fe6a20acfb3b59b1d4173bc3bbac1ab3c67ce0d4bf8408e34803e446",
+        "scripts/browser-notification-audio.mjs": "f65d58432c3416be4fd9fc1c496a59d8e42283d16cedacb2af415e393e04fff8",
+        "scripts/browser-progress-recovery.mjs": "65b6dd6f888c761b60da5576d40bb02ebc0df6d401a04ef07df9a907774a0ce1",
+        "scripts/browser-provider-connection.mjs": "cc1e98aeb71d3aa3971ed8d40b90a54f0c5934010f54a55f995ec85c4910e5ca",
+        "scripts/browser-reading-mode.mjs": "688268698e39b71dd4228ad8c143bb9c7e490b618182fc49c11a78dc28ec0acc",
+        "scripts/browser-send-retry.mjs": "2a900f211de10f8669d9e0effb624d14c330b3d3b8341f9a122dff475d247b96",
+        "scripts/browser-theme.mjs": "c5584e052cfcd5acc66ce20455c7ac1e7374e7fdb1a0a53b01ac97ae24a4e8c8",
+        "scripts/browser-usage.mjs": "f9086de53d4c614e34a1f91008b1947f7199f4fae9f063d2bdab170974764d61",
+        "scripts/check-artifacts.mjs": "5078a5f385c7e59a475152cae16e5a9f8b7b2656417d45b5a133118ceae7a73c",
+        "scripts/claude-login.mjs": "c6c164a2461ae9e0ef862b9ed6c9a2573ff1f7151f407407a033fcef8c9be339",
+        "scripts/measure-consultation-workload.mjs": "bed0ad4c7e722fff9d8dbe30cb405d2431d846f6344facee209b0bee1648cf2f",
+        "scripts/test.mjs": "e8d1ecf30e14c106672ed1e0480f2137e54bd4afe46865f88f6739017c1e3b74",
+        "src/client/app.js": "aa51d56cc61eedf536bef7911acf9922e3503a23ceadb6f673855e53f8e2ba31",
+        "src/client/markdown.js": "d46640cebfab47f13ddb2924488ba67f5ff4e4e9af692dcc00df69cb64dba403",
+        "src/client/navbar-glass.js": "1402acc8312a3e7c4319be14a9a063c68b9720b07c527e8798e7a73aee70152c",
+        "src/client/notification-audio.js": "74ff9dc7b165078dac275207f25fff4274168912228f686730d8f27bb922653c",
+        "src/client/refresh-state.js": "809077228b374cd38a4affe7c2831d674c981259b1d975082f64df3bbb298e95",
+        "src/client/theme.js": "a57731bc8c54b963e40935b0b9d09a86021fae00a3119f2aad109fd8e4fbae39",
+        "src/server/account-usage.mjs": "c1c765f6f0529a6dbd9b9ef1dc3aa9649c15e6f5988755ddc5d6d189fc3b4500",
+        "src/server/attachments.mjs": "f87e7b6c1ec9e5726c584cb7e794df32a20bb17cd0d5307156f7a6911c8a6c38",
+        "src/server/auth.mjs": "1ff7afa261556efb4644f88cd4a386dbe4bb02ce235b8def20a5bede7622f563",
+        "src/server/child-process.mjs": "70b6e1136b18205a7e38b71086014773e06513f49b9147e8a26f68ff56b92fd9",
+        "src/server/claude-provider.mjs": "cb089a10008b187aa28b097d368bdb973e4b5b91bb132167853179e98dabcb83",
+        "src/server/claude-runtime.mjs": "61f17d17096497db5b19cf08a512d2f7de7f39734a8409078868eefb281a0490",
+        "src/server/codex-provider.mjs": "edc58feea851d5fb051d02bcb2302cec1e6ab07833ddbb2fd0149da7ac1fcbfa",
+        "src/server/config.mjs": "5e244f99a4897fbf26c78650061d6bfd8c83dfb0fe4fa18b77e06618e25d8cdb",
+        "src/server/configuration-recovery.mjs": "a8eb806c8e9e6c3064f1a050fe4856b8f36e073f7488ef6a9e3637446ab600f6",
+        "src/server/consultation-parallel.mjs": "4f45da9a07b8a8f656038ebebd9aef22a18a9390d43886f631fdb0a0e7b616ea",
+        "src/server/consultation.mjs": "c398ed2c6059ba33d5498bab4a6e248a243ac5fd01998374a5f568d27e37a6be",
+        "src/server/content-policy.mjs": "9ceedf022c493a1558c634f8c3a1d7911d81d819fff030068e1e87563857ca6c",
+        "src/server/conversation-export.mjs": "56a746b317f2d846b771ce28230ebdba7a3d3469c5b92a954957e5a22528feeb",
+        "src/server/conversation-title.mjs": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
+        "src/server/crypto.mjs": "e52eaf0dfb7dc2d7cf8a02a6c5cd4016b998137790927d7f386dda2b02618a3b",
+        "src/server/forbidden-environment.mjs": "24be12b0b9e80fd1440d0211af334482417bf68fc5d97fce16b98e021f84da34",
+        "src/server/image-structure.mjs": "be601c75542ed0bd6b3d7f94d22ffb4fb9556d62fcc958f3b127d714b2b5e80b",
+        "src/server/index.mjs": "fa70bce682bb212a21d64b85c74cdb0f692824f41731d8c190a4dd70aaf70c18",
+        "src/server/instruction-bootstrap.mjs": "1ab76d71e6cdae69924d9b40f47eea7c5eeb076d879113906433fb4066a09a79",
+        "src/server/instruction-documents.mjs": "175267da30c8b1ad109bd6f10d86306d0a41694c7a57aa37617c40efd60abad7",
+        "src/server/local-request.mjs": "a33f62e799c09cbb32ca826bae0924732c25e5ee74b1a53123bd4bbf2f8ecbf7",
+        "src/server/local-setup.mjs": "9c55d4fad8deab40d2734497acf45996ab23248516d63a5440872abc7b8f956a",
+        "src/server/local-state.mjs": "e771922fbf3ee6dd14539da9c33387a86d3c8f5890d8cdbd8a4774e4a60a213c",
+        "src/server/local-store.mjs": "6c32bf7ea86cc953bb56c7c00b2c044ed5bf853e263ceb5bb730b2ff822937d9",
+        "src/server/output-safety.mjs": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
+        "src/server/parallel-contract.mjs": "367d9c650068ed15501831d6939481983b76d319f1bde28c5a88b9e09400a464",
+        "src/server/password.mjs": "0d258702a65d1c859ebbd81f7f42dcf3fe81256aa29a23178b1439fc92dbc419",
+        "src/server/private-files.mjs": "46c816cc38aed94204121d5d1270d5d6e09203af9d77e5cc97e822387f247e66",
+        "src/server/prompt-contracts.mjs": "fb06c1e7ea8a623323ffd4182d63fd89293eaa0e1aa0f092205c5c68a3ce8c0e",
+        "src/server/provider-context.mjs": "e330b379fda22422cc0e3c255a695d0f2fa0dcd842c4ede1d55503a7262275fe",
+        "src/server/providers.mjs": "fe48bc59ef1217ade5f8cd4e6b593a7c0c27b142e69b70a86dd92ff0ee167e8e",
+        "src/server/read-regular-file.mjs": "8149de11cc060bf2f3b1d7799b54d1904e92255bba2cb470770125e230c056fd",
+        "src/server/recovery-cli.mjs": "0df268689521002c5bacb8193b7814c5ab325bbe6d5cdab0f1057734c0c00fae",
+        "src/server/recovery.mjs": "8c75b955aec826a4689a761a873f4c9751f432548458911bddba84988af7a925",
+        "src/server/research-evidence.mjs": "cca923c81f5f93902255031af867e66905fb7b4f096acf6ad352458842bed219",
+        "src/server/setup.mjs": "655b06b47545a85b81fde59d2b32c9cfd8a0335d9b958f02e591cf750d835776",
+        "src/server/start.mjs": "18c323b0b8b3e8d3eb5b003b99414d822cecfcb0aa7f5a5168284372dd864dda",
+        "src/server/store.mjs": "79075ee0de88e5c768d41e31035b01ea921b7d186a99795db9381dc6ec7eea35",
+        "src/server/turn-deadline.mjs": "96fc6912beb7b7c8c6f788b88bed7c889a459d814257763ff565ec3f61374a61",
+        "src/server/usage.mjs": "3773a29ea567300598c63d81e67aeb970902682c4813d9a1dda651ffee49cf05",
+        "src/server/validation.mjs": "ac9efcf737e41723f7084f47653de5daee840f3988ce6e1c0d012dd25fc34c23",
+        "test/account-usage.test.mjs": "a2b52d6b66c69790acacfaf0880dd6fc2f8ca59d860d2f125d5b875a435fedd9",
+        "test/claude-process.test.mjs": "93bacb2236c1cc25834df51fe5187d7b53f4509af35c5bb42a6f30b2d07452fc",
+        "test/claude-provider.test.mjs": "33c76334df6202d86713b5f6fdca4c46a426adc776614a801ae09981aba3f0b5",
+        "test/codex-provider.test.mjs": "8674cde154e6c810860eeb7d1cf43ea1952ccd50c25824fb20471e4568271cc8",
+        "test/consultation.test.mjs": "b0d4a54478edcb566804f786c2175bcac76bb858ae684fd96d3d25672c43923d",
+        "test/context-economy.test.mjs": "fcdcbe012e5333312dbf6d2eb7009cee39ad68455e0b26206a6aa39da81536d5",
+        "test/conversation-export.test.mjs": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
+        "test/conversation-title.test.mjs": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
+        "test/core.test.mjs": "d1dfbde26432e2ce20821222e51e58fdf7e70d65607b511cfb0709d2edb9d343",
+        "test/fixtures/fake-codex.mjs": "5478378fb1cd967cd09e098c8ff76d8c8321ff594b5a66e976f8a45d467485da",
+        "test/fixtures/images.mjs": "40c0da0adb57105e9913aa5d3a6c8e7a3952aced06c63a824f66902c2df05110",
+        "test/fixtures/local-runtime.mjs": "0d1d37053581b4541e7a8d7a13fbfd25c5ecc72729175df1980ffb9900c47d7f",
+        "test/fixtures/local-store-owner.mjs": "fecf8b534107a55e8c286f7b61bf7a3f281fc0b57e7bb275ef96f9c5bc7a926d",
+        "test/fixtures/runtime-instructions.mjs": "bbbbbad81efb9ce46718d43c37f3117b0ab03b8b2976319f2c9fc88854f0a4ec",
+        "test/http.test.mjs": "34496720bf70a272bc527e424970b747811c2fafe9f5277226502c1a80cd35ee",
+        "test/image-structure.test.mjs": "d41f39be42f7cff977e88fdbbc8e35f0d5e1e9f316ce0ab444d5ef6d28bae8a9",
+        "test/local-config-auth.test.mjs": "ab45104a750e37c33f3956361c7e840219a8c224f0bada37321887e3750464f2",
+        "test/local-store.test.mjs": "e06bfa54615b9583465ab8a4e6e91f6cb37dcf710f76cb8ab9ee2c610ee5b65b",
+        "test/markdown-table-export.test.mjs": "a0132f7322958ecf1f3f52f494607e25efceeb2c71fc5e396f3859a7fc1cd06e",
+        "test/markdown.test.mjs": "0f62f50e952354344ca24c9206c16e0575c9d26e0e8602460d22e6d5845b6ddd",
+        "test/notification-audio.test.mjs": "c05d85dba03ba292890c363c3f2221834e38ca2c85d1eb80145bb180147234d9",
+        "test/parallel-consultation.test.mjs": "a2037f5898141f6e121ab7819aaf682d15f4be86c37b20dfc6ad571fa2ca3503",
+        "test/preflight.test.mjs": "eb0749f9ec74918ec80d6dfdec9cb7ed3fb4044526f1bb26dc0dc2b3e84b7cdd",
+        "test/private-files.test.mjs": "c6805a119991b0c6e16c3162cbe34de1e10cc600633a408126209a13fc1d5752",
+        "test/project-consolidation.test.mjs": "dcdb2681a740b65685906e5d38f2a3d437dfc1fb2f27acbc259ad19e6bac7988",
+        "test/prompt-contracts.test.mjs": "3d80672647e6c0a384fed773a76755b98ae1ccd19ca6089a1f2accd00392c5fb",
+        "test/recovery-cli.test.mjs": "68de8337f7951630e729c8198968a90f716dae7554742336a7b13b5f7ff445c9",
+        "test/refresh-state.test.mjs": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
+        "test/research-evidence.test.mjs": "32d6609cafb7f4444179ccf1affef0b5fe5604c49dfff43e2fd6dd31cf38a40f",
+        "test/review-fixes.test.mjs": "5bcf4fc0ad0372e3509ef798dc358d5a341e139a60911e656467113193712bfc",
+        "test/source-persistence.test.mjs": "7ff580a89068bb94afc423b8d474a56bb2ab0e16ad59d4c1bc988fdaeaf7bf15",
+        "test/turn-deadline.test.mjs": "df517be82eca7f99dc93b33e3637b34e8f03dadf370a1b0e4da24e9b5b91d244",
+        "test/usage.test.mjs": "fae3cf00ec2a2e274421c114800e8b808c110ca0b04ac40845f065627ea238d3",
+        "scripts/artifact-history.mjs": "e4ff2e4a33480eed8850d7f251c56c4873317bae7067b4a8c883059e2d7fb8c7",
+        "test/artifact-history.test.mjs": "57eba66dced929689f895216b8f99b8f6b2e66e9dbbd422317e86a12a811dce0",
+        ".gitleaks.toml": "4589ab2179e8d032d5b2b801d16a94587b769f46e58640e2d78d51f415ea52ff",
+        ".github/scripts/test-gitleaks.py": "82ecbbcc6c988cb2e18bcbbd3680f35f624365f658e7d35e4368abac5e82a2bd",
+        "forge/evidence-policy.json": "cbd0af721a3003283b7f943c5703f1fb48a7c7be4d401b2ab16e765318741912"
+      },
+      "commands": [
+        "git diff --name-status ed52bf12a7f07d451717cbdd80a2fe37d25964ba",
+        "Python hashlib.sha256 observation of the retained scoped paths and five new maintenance/storage inputs"
+      ],
+      "scope": "Current static source inventory only. Reviewed license-only package/README changes, cancellation rejection observation, deterministic browser fixture synchronization, bounded catalog test budget, narrow Gitleaks controls and immutable-history link validation. No product acceptance is inferred."
     }
   },
-  "unit_contract_version": 1,
+  "unit_contract_version": 2,
   "unit_plan": {
     "definition_ref": {
       "path": "docs/development-plan.md",
@@ -54598,5 +54746,11 @@
       "status": "pending"
     }
   },
-  "unit_sequence_exceptions": []
+  "unit_sequence_exceptions": [],
+  "legacy_history": [
+    {
+      "content_hash": "e78c28874ea065307af489c621c3bd46f95945b6cfa467fc8b207afd92d8ba72",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/record.json"
+    }
+  ]
 }

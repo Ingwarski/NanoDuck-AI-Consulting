@@ -15,7 +15,11 @@ id = "generic-api-key"
 description = "Ordinary public-query safety prose in the reviewed handoff"
 condition = "AND"
 regexTarget = "match"
-paths = ['''^docs/review-fixes-port\.md$''']
+paths = [
+  '''^docs/review-fixes-port\.md$''',
+  '''^forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/docs/review-fixes-port\.md$''',
+  '''^forge/unit-history/blobs/8067cd3d1cdabdd363562b979024d7a94fefbab4507ea058683a26c9c0727e69$''',
+]
 regexes = ['''^credentials, private/unsafe $''']
 
 [[rules.allowlists]]
@@ -25,6 +29,10 @@ regexTarget = "match"
 paths = [
   '''^forge/sdd-manifest\.json$''',
   '''^forge/runs/sdd-reconciliation-20261017/qa-source-observation\.json$''',
+  '''^forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/manifest\.json$''',
+  '''^forge/unit-history/candidates/767b74e5913c4d5087ea48cd5a03bab7/record\.json$''',
+  '''^forge/unit-history/activations/4a4ce399cb54496a999290e214d7cb38/before\.json$''',
+  '''^forge/unit-history/activations/4a4ce399cb54496a999290e214d7cb38/after\.json$''',
 ]
 regexes = ['''^auth\.mjs": "1ff7afa261556efb4644f88cd4a386dbe4bb02ce235b8def20a5bede7622f563"$''']
 
@@ -35,6 +43,10 @@ regexTarget = "match"
 paths = [
   '''^forge/sdd-manifest\.json$''',
   '''^forge/runs/sdd-reconciliation-20261017/qa-source-observation\.json$''',
+  '''^forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/manifest\.json$''',
+  '''^forge/unit-history/candidates/767b74e5913c4d5087ea48cd5a03bab7/record\.json$''',
+  '''^forge/unit-history/activations/4a4ce399cb54496a999290e214d7cb38/before\.json$''',
+  '''^forge/unit-history/activations/4a4ce399cb54496a999290e214d7cb38/after\.json$''',
 ]
 regexes = ['''^password\.mjs": "0d258702a65d1c859ebbd81f7f42dcf3fe81256aa29a23178b1439fc92dbc419"$''']
 
@@ -46,5 +58,16 @@ paths = [
   '''^forge/sdd-manifest\.json$''',
   '''^forge/runs/sdd-reconciliation-20261017/qa-source-observation\.json$''',
   '''^forge/runs/local-network-entry-20261014/verification\.json$''',
+  '''^forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/manifest\.json$''',
+  '''^forge/unit-history/candidates/767b74e5913c4d5087ea48cd5a03bab7/record\.json$''',
+  '''^forge/unit-history/activations/4a4ce399cb54496a999290e214d7cb38/before\.json$''',
+  '''^forge/unit-history/activations/4a4ce399cb54496a999290e214d7cb38/after\.json$''',
 ]
 regexes = ['''^local-config-auth\.test\.mjs": "ab45104a750e37c33f3956361c7e840219a8c224f0bada37321887e3750464f2"$''']
+
+[[rules.allowlists]]
+description = "Reviewed Codex auth fixture source SHA-256 in this migration candidate"
+condition = "AND"
+regexTarget = "match"
+paths = ['''^forge/unit-history/candidates/767b74e5913c4d5087ea48cd5a03bab7/record\.json$''']
+regexes = ['''^auth-file-codex\.mjs": "71cfd531d94320710a8f45b54845ebbc28e358671dca61f7a752393cdb88aa86"$''']

@@ -1,0 +1,32 @@
+{
+  "observed_at": "2026-09-24T13:00:20.203238+00:00",
+  "commit": "99427c234fc777935ec52de66a69896591adc55b",
+  "working_tree_state": "clean",
+  "paths": {
+    "src/server/consultation.mjs": "21f70db96c3e0f9ddbc8c668f3c55781f3f5179fd9e17dd39cf499b48105fe30",
+    "src/server/prompt-contracts.mjs": "6f4278d914b174b74a36de45390ee8c5cb3bb91c5826b423a0c9d34d27b71c7b",
+    "src/server/codex-provider.mjs": "2df0689d14d37ecc3df5b677f53f5c8c63e031f4b7a0300915541a958c85eb12",
+    "src/server/claude-provider.mjs": "fb8d6e1b4e866fd5358888cae0edd90d27ae8928092766c2804822f756ec5a47",
+    "src/server/store.mjs": "4452027e151aa2d929a4af8d11c4b5ed5b2fd5b39a29881875e02f2273911a7d",
+    "src/server/local-store.mjs": "3d87bd372d7e2fd96e25b65181e729ff48298c28d676b5bb47a5cf495af7df29",
+    "src/server/local-state.mjs": "d7bd756877c4ea496bb5fed320fa3f8f6133557b6a59afcbb8a8f4a5d0cda87f",
+    "instructions/RUNTIME_PROMPTS.md": "a2bcfbc3e2577f7c9e718c98da39bde2cda3699b7c34677efa16afb306a63522",
+    "instructions/AGENTS.md": "34ca8b01845a9c6a292cc93aa3ba2ce2656814c52d4391a10878e823106d6d62",
+    "public/index.html": "bd98dbb3b3315b9a4726e8ba59bd263567f944a9767051818d74bc651c612a7b",
+    "package.json": "094e408c16c3a8369b9f21a343bb562dc0cd20160e26b6c01f144bd83712a568"
+  },
+  "commands": [
+    "git rev-parse --show-toplevel",
+    "git remote -v",
+    "git status --short",
+    "rg --files instructions src/server public test",
+    "Read consultation coordinator, prompt contracts and Codex/Claude context construction"
+  ],
+  "findings": [
+    "Current coordinator awaits sequential role invocations and resumes by message position.",
+    "Critic rework and consultant obedience are present as instructions; there is no persisted directive-resolution lifecycle.",
+    "Both adapters separately include owner text and discussion containing those same owner messages.",
+    "Head role selection currently requires candidate-list exact names; Claude tools are denied."
+  ],
+  "limits": "Read-only source inspection, not live provider/concurrency evidence."
+}

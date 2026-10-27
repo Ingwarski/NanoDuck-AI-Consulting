@@ -1,7 +1,8 @@
 import { readFile, readdir, access } from 'node:fs/promises';
-import { resolve, dirname, join, relative, sep } from 'node:path';
+import { join, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
+import { createMarkdownLinkChecker } from './artifact-history.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const repositoryPath = path => relative(root, path).split(sep).join('/');
@@ -16,6 +17,9 @@ async function files(dir) {
 }
 const errors = [], inventory = await files(root);
 const manifest = JSON.parse(await readFile(join(root, 'forge/sdd-manifest.json'), 'utf8'));
+let checkMarkdownLinks = await createMarkdownLinkChecker(root, {});
+try { checkMarkdownLinks = await createMarkdownLinkChecker(root, manifest); }
+catch (error) { errors.push(error.message); }
 const packageMetadata = JSON.parse(await readFile(join(root, 'package.json'), 'utf8'));
 const semver = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?(?:\+[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?$/;
 for (const field of ['name', 'version', 'main']) {
@@ -59,12 +63,8 @@ for (const path of inventory) {
   if (/\/Users\/[A-Za-z]/.test(source)) errors.push(`${name}: local user path in publishable file`);
   if (path.endsWith('.md')) {
     documents++;
-    for (const match of source.matchAll(/\[[^\]]*\]\(([^)]+)\)/g)) {
-      const target = match[1];
-      if (/^(https?:|#|mailto:)/.test(target)) continue;
-      try { await access(resolve(dirname(path), decodeURIComponent(target.split('#')[0]))); }
-      catch { errors.push(`${name}: missing link ${target}`); }
-    }
+    try { errors.push(...await checkMarkdownLinks(path, source)); }
+    catch (error) { errors.push(error.message); }
   }
   if (/\.(m?js)$/.test(path)) {
     scripts++;

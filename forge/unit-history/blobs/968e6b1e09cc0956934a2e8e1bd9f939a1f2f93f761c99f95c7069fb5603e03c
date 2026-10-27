@@ -1,0 +1,70 @@
+# Port U-12: research execution and request-scoped evidence economy
+
+## Handoff status · 17 October 2026
+
+This preserves the September 26 U-12 handoff and successive accounting refinements.
+Later upstream-usage sections take precedence over intermediate normalized-cache
+wording. Codex `0.155.1` protocol observations below are version-specific; recheck
+the target's installed protocol before adapting them.
+[Usage dashboard](usage-dashboard-port.md) and the
+[combined follow-up](combined-updates-after-review-port.md) provide the subsequent
+display/attribution contract. Source measurements remain dated samples, not current
+provider access, repeatable cache-hit rates or subscription savings.
+
+The 17 October update changes documentation only. Apply this handoff within
+separately authorized target work under current instructions, requirements,
+approved design and hosting/storage boundaries. It grants no new deployment,
+restart, provider-call or spending authority. Instructions below to verify a live
+call apply only after explicit probe authorization and an included-allowance check;
+extra credits, API billing and resets require their own explicit approval.
+Otherwise record the live seam as untested and continue independent authorized
+work. The [evidence index](verification.md) keeps existing scoped results separate
+from target verification and formal release acceptance.
+
+Implement this unit in the target sister repository only. Verify its Git root, remote, current branch, instructions and architecture first. Map the files below to equivalent modules; preserve the target's hosting, authentication, storage and provider configuration. Do not copy local runtime data or alter another repository. Reconcile affected SDD documents through their owners and checker. Use a branch, verify, and follow the target's publication authorization.
+
+## Required behavior
+
+Keep the full accepted owner request and corrections, exact selected models/effort, user-selected discussion depth, cancellation and independent-Send isolation. Head remains the orchestrator and authors each assignment. Do not introduce generic assignments, cross-request evidence reuse, automatic model substitution, truncation or arbitrary research limits. A Continue restores only its accepted request.
+
+1. **Preserve distinct claims.** In `src/server/codex-provider.mjs` and `claude-provider.mjs`, deduplicate sources by URL plus claim, not URL alone. Preserve title, claim, retrieval and publication dates. Keep the target's source safety validation. Test two distinct claims from the same URL through both adapters and persistence.
+2. **Create `src/server/research-evidence.mjs`.** Derive stable `S-` references from a SHA-256 digest of JSON `[url, claim]`. Build one deduplicated metadata table per invocation. Replace only exact repeated metadata blocks and known Markdown link targets; retain prose, qualifications and dates. Never compact the owner request. Resolve references against the invocation's supplied table before visible storage/export, including nested JSON string values. Reject unknown references; allow one bounded regeneration using the same full context. Do not fabricate links. Keep legacy ordinary links valid.
+3. **Integrate in `consultation-parallel.mjs`.** Add the table and relevant research body to the stable shared prefix used by `buildProviderContext`. Consultant-specific instructions follow it. Gather referenced event metadata only inside the current accepted request boundary; do not expose private event context to public research. Apply shared evidence consistently to specialists, Critic, correction assessment, final Head and repair calls. Merge resolved source metadata into the result before normal validation/storage.
+4. **Let Head route evidence.** Extend `parseHeadPlan` in `parallel-contract.mjs` with optional `researchFor`, mapping Head's assignment indices to durable IDs. Omission means all assignments for backward compatibility; explicit empty list is valid when only Critic/final needs research. Each specialist gets only Head-selected research. Critic and final Head can inspect all current-request evidence.
+5. **Head decides reuse or fresh research.** Parse a structured follow-up plan `{query, reuseRecord, fresh, researchFor}`. Give Head the actual Critic gap, assignment IDs, existing record keys/status/query and available evidence. Record keys are `initial` and `round:N`; assign the key after spreading saved data to prevent inherited key overrides. Reuse must reference completed initial/earlier-round research. Disallow query plus reuse and fresh plus reuse. Validate recipients. A fresh instruction must trigger research. Do not equate an identical query string with adequate evidence.
+6. **Checkpoint before execution.** Validate the public query with existing privacy checks, then persist `round.researchPlan` before searching. Continue uses that plan without regenerating it. A cancelled search may run again; a completed reused result must not. Save `assignmentIds` and `reusedFrom` on research records; deduplicate reused bodies when building context. Validate added fields and make committed plans/results immutable in `validateParallelTransition`. Legacy ledgers without optional fields must still load. Never edit private storage files to migrate data.
+7. **Content-free diagnostics.** In the Codex adapter, collect completed web-search actions per expected turn, deduplicate item IDs and record action enum, elapsed milliseconds, latest cumulative input/cached-input snapshots and repeated-action ordinal. Fingerprint raw action payloads only in invocation memory. Strip fingerprints, queries, URLs and raw text before persistence. In `usage.mjs`, allowlist numeric/null fields and action enums. Ignore wrong-thread/turn events; handle terminal-only items. Cumulative snapshots may be missing or delayed: never sum them or label their difference as exact tool cost. Existing authoritative token totals remain unchanged.
+8. **Measure actual context.** Correct `scripts/measure-consultation-workload.mjs` to invoke the actual shared provider-context builder with current instructions. Cover clean, correction, long request, initial research, follow-up, repeated gap, Stop/Continue and evidence-heavy cases. Report stages, calls, search/query calls, prefix/discussion/total bytes. Bytes are not measured tokens.
+9. **Optional live experiment.** Port `scripts/benchmark-research.mjs` as an explicit opt-in command requiring model/effort and an output path. Compare one combined public research request with concurrent focused requests using identical deliverables/settings and isolated workspaces. Record native input/cached/output totals, latency, actions and factual coverage. Do not automatically split production research based on hypothetical savings; preserve existing production timeouts and settings.
+
+## Acceptance and evidence
+
+Port `test/research-evidence.test.mjs` and provider/usage fixtures. Verify stable reference resolution, JSON quoting, unknown/foreign reference repair, multiple claims, target routing, explicit reuse across multiple rounds, explicit fresh search and immutable plans. Exercise Stop, encrypted store close/reopen and Continue: query planning runs once, cancelled search retries, full owner context remains. Seed other-request markers and ensure none enter prompts or sources. Diagnostics must contain no raw query or fingerprint. Run the target's full suite and real browser regression flows (Chromium, Firefox, WebKit), including Usage, Stop, retry and existing reading navigation. Do not restart an active consultation.
+
+Reference result in the source repository: 214 tests passed, two platform-specific tests skipped; three browser engines passed. Evidence-heavy synthetic prompts fell from 111,075 to 97,835 bytes (11.9%). Small cases grew 0.1–1.2% from explicit routing metadata. Repeated-gap searches fell from two to one; recovery query-planning calls from two to one. These are fixtures, not production cost guarantees.
+
+A single nonrandomized GPT-6 Sol/high public experiment used 58,450 input tokens for combined research versus 93,670 for two focused calls; cache and search variability were uncontrolled. Both covered requested facts. Consequently automatic splitting was not enabled. Repeat measurement on the target rather than promising the same savings. Record scoped verification separately from whole-product release readiness.
+
+Deliver a reviewed diff, test evidence, measured tradeoffs and deployment status. Preserve all hosting-specific lifecycle logic of the sister repository. Do not copy this local application's server launcher into a hosted target.
+
+## U-12 follow-up: Critic cache and complete reported usage
+
+In `claude-provider.mjs`, keep one private temporary workspace per accepted request scope and expose `releaseScope`; have `providers.mjs` release both adapters. Continue to disable sessions, memories and tools. A stable directory alone was insufficient in a live test. Extend `provider-context.mjs` to expose the stable policy/owner prefix separately from changing evidence, output contract, assignment and discussion. For scoped Claude calls, pass trusted application policy and JSON-quoted, explicitly untrusted owner context through a private mode-0600 `--system-prompt-file`; send the changing suffix through stdin. Never place owner text in argv, enable file tools, resume CLI history or share request workspaces across Send. Remove the context file after every call, including failure, and release the directory at scope completion. Do not classify the trusted application policy itself as untrusted owner text. Preserve complete owner wording and original application policy. The pinned CLI supports `--system-prompt-file`; verify the target CLI before porting.
+
+In `usage.mjs`, preserve positive per-model counts even from Claude `error_during_execution`; all-zero crash placeholders remain unknown. Keep each provider-reported model, retry, failed and cancelled attempt. Serialize usage callbacks so delayed running updates cannot overwrite terminal totals. In `codex-provider.mjs`, persist the expected turn's latest cumulative usage while running (throttled), then the terminal snapshot; never sum successive cumulative events. Keep wrong-thread/turn rejection.
+
+Expose content-free per-attempt records in the authenticated usage summary. In `src/client/app.js`, add an expandable All call attempts section with stage, model, status, times and all six existing token fields. Clearly label aggregate partial coverage and unavailable counts. Explain that Codex-reported cache-write zero is not proof of no cache creation, Claude input already includes read/write tokens, and reasoning is an output subset. Do not invent counts missing from the provider or claim these are subscription charges. Keep unknown metrics unknown and preserve old saved records.
+
+Port tests for workspace reuse/isolation, private context transport and cleanup, positive failed-call usage, partial multi-model totals, serialized updates, and real-browser rendering at 320px. `scripts/benchmark-critic-cache.mjs` is an explicit opt-in, public synthetic two-call probe with fixed model/effort. Source result on Opus 5.5/high: second call read 8,722 of 9,197 input tokens and wrote 473, versus zero reads with a stable workspace alone. This is not a guaranteed hit rate; changed prefixes, cache expiry and provider routing still matter. Never replay private consultations to benchmark.
+
+## Upstream Codex accounting verification
+
+Pinned Codex 0.155.1 exposes `thread/start.experimentalRawEvents: true` (initialize with experimental API capability). Listen for `rawResponse/completed` and read `params.usageMetadata.metadata`: the pinned SSE parser clones original `response.usage` there before normalizing absent fields to zero. This experimental interface must remain version-bound and cannot be assumed on arbitrary CLI versions.
+
+Extract only numeric `input_tokens`, `output_tokens`, `total_tokens`, `input_tokens_details.cached_tokens`, `input_tokens_details.cache_write_tokens` and `output_tokens_details.reasoning_tokens`. Preserve explicit zero versus omission. Ignore raw item content and all attribution/response metadata outside the allowlist. Use response IDs only in memory to deduplicate per matching thread/turn; never persist raw events or IDs. Sum individual upstream completions and reconcile input/output/total against cumulative Codex totals when available. Never sum these two representations. If telemetry is missing or inconsistent, keep the original normalized accounting with truthful provenance and do not fail the consultation.
+
+Persist `usageSource` and numeric `responseCount` in usage diagnostics; expose them in each attempt. Old records remain normalized and cannot be retroactively verified. Test positive writes, explicit zero, omitted fields, duplicate/foreign events, partial upstream coverage and removal of raw payloads. Verify through a real signed-in public synthetic call.
+
+Actual subscription probe explicitly contained cache_write_tokens:0 upstream; it was not a parser default. Official Codex credit documentation states there is no separate cache-write charge: https://learn.chatgpt.com/docs/pricing#token-rates . This is an accounting distinction, not evidence of no physical cache storage, and credit rates alone do not determine included subscription usage. Do not apply API-key billing semantics or calculate imaginary cache writes from input minus reads.
+
+If a raw response is available but cumulative totals never arrive (for example, transport failure), retain its measured counts as a partial lower bound. Persist `usageCoverage: partial` and include it in partial-coverage UI counts even when status is failed or cancelled. Matching cumulative totals permit `reconciled`; legacy fallback remains `normalized`. Cover the raw-only failed-turn case separately from partial raw data with complete cumulative counters.

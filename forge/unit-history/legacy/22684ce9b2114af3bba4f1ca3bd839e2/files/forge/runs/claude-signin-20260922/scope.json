@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "event": "explicit_existing_change_correction",
+  "role": "user",
+  "recorded_at": "2026-09-22T20:15:22.931040+00:00",
+  "timestamp_basis": "Tool-recording time during the current turn; original user-message transport timestamp is unavailable.",
+  "source": "Current task user correction, relayed verbatim by the root operator to the SDD owner.",
+  "message": "There's an error: Claude Code needs its managed sign-in before it can be selected. Fix it.",
+  "scope": "Recognize ordinary native Claude Code subscription sign-in for the optional Critic, retain explicit isolated subscription-token mode, and provide truthful local sign-in guidance with Check connection recovery preserving unsaved Settings. No model/default, tool-authority, billing or visual-baseline change.",
+  "preserved": [
+    "Exact saved model/effort choices and default Astra/xhigh",
+    "Optional Claude Opus 5 and Opus 5.5 selections",
+    "Subscription-only first-party provider authorization",
+    "Text-only Critic with all tools denied and exact response identity",
+    "Private application data, protected LAN access and frozen Electric A v8"
+  ],
+  "limitations": [
+    "Actual authentication completion requires the owner’s official Claude sign-in; this repair does not fabricate a grant.",
+    "Native sign-in, token checks, synthetic tests and model invocation are separate evidence categories.",
+    "No API-key or Console billing fallback and no credential form in NanoDuck."
+  ]
+}

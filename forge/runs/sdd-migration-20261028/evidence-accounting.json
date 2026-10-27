@@ -1,0 +1,19 @@
+{
+  "accounting_complete": true,
+  "incomplete": false,
+  "pending_generation_intents": {},
+  "policy_sha256": "cbd0af721a3003283b7f943c5703f1fb48a7c7be4d401b2ab16e765318741912",
+  "project_id": "f1529de7-d1a9-4743-bb3f-9bc05edd21c5",
+  "runs": {
+    "sdd-records-migration-20261028-final": {
+      "gross_generated_bytes": 124800,
+      "original_logical_files": 4,
+      "pending_reservations": 0,
+      "status": "complete",
+      "unit_id": "sdd-records-maintenance",
+      "unreconciled_outputs": 0
+    }
+  },
+  "totals_are_lower_bounds": false,
+  "version": 1
+}

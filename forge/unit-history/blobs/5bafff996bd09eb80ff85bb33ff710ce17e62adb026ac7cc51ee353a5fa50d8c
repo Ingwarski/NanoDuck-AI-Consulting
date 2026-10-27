@@ -1,0 +1,17 @@
+{
+  "invocation_id": "sdd-reconciliation-20261017-wireframes",
+  "outputs": [
+    "docs/wireframes.md"
+  ],
+  "source_usage": {
+    "docs/prd.md": "full",
+    "docs/project-context.md": "full",
+    "docs/canonical-terms.md": "full",
+    "docs/guardrails.md": "full",
+    "docs/user-journey.md": "full",
+    "docs/screen-map.md": "full",
+    "forge/runs/sdd-reconciliation-20261017/scope.json": "full"
+  },
+  "executor": "Codex lead acting inline as to-wireframes",
+  "validation": "Reviewed all 9 blueprints and recovery variants against current source surface/44-state inventory. Principal S-02 structure now reflects accepted desktop rail/narrow picker and sticky open composer, completion-collapse and independent-Send semantics. Retained older horizontal placement as explicitly superseded history. Converted copied accounting/implementation commands to bounded content hierarchy. English language; no tokens, new screens, changed permission or runtime claim."
+}

@@ -1,0 +1,9 @@
+{
+  "event": "accepted_scoped_baseline_override",
+  "actor": "user",
+  "request": "Add a visible glass effect near the edges of the bar. Preserve the running session.",
+  "accepted_proposal": "Refine the existing clear-glass bar with a polished rim and hollow inner bevel.",
+  "recorded_at": "2026-09-26T19:17:42.427361+00:00",
+  "baseline": "nanoduck-electric-a-v8-20260914",
+  "limits": "Existing local repository only; preserve full current request, auth, Stop, exact models, depth and approved visual foundation. No guaranteed provider cache hit or subscription-cost claim."
+}

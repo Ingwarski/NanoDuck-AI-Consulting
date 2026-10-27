@@ -1,0 +1,16 @@
+{
+  "event": "documentation_reconciliation",
+  "role": "user",
+  "message": "reconcile all documentation with updated to-sdd-pipeline",
+  "recorded_at": "2026-10-17T11:34:39.861011+00:00",
+  "base_commit": "48af7c8a83228e55b1504a1d618bb7ed05eb44e8",
+  "branch": "codex/sdd-reconciliation-20261017",
+  "authority": "Existing-change documentation reconciliation and narrow root instruction setup only; no production implementation, private-state migration, server restart, provider invocation or new visual approval.",
+  "included_usage": "Only included subscription allowance; no extra credits, separately billed API routes or automatic limit reset authorized.",
+  "preserve": [
+    "Frozen Electric A v8 baseline and approval",
+    "Existing scoped receipts and historical results",
+    "All 90 original formal checks remain not_run",
+    "Independent repository boundary"
+  ]
+}

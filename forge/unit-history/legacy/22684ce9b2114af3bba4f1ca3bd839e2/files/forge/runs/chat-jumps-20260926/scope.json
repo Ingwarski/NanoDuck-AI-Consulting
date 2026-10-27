@@ -1,0 +1,9 @@
+{
+  "event": "accepted_scoped_baseline_override",
+  "actor": "user",
+  "request": "Add two transparent circular arrow buttons for the beginning and end of chat.",
+  "accepted_proposal": "The user explicitly requested two transparent outlined circular arrow buttons to jump to the beginning and end of the chat. This is a scoped addition to existing S-02 navigation under UC-003/JOB-001; preserve Stop, drafts and ongoing work.",
+  "recorded_at": "2026-09-26T15:11:41.309958+00:00",
+  "baseline": "nanoduck-electric-a-v8-20260914",
+  "limits": "Existing local repository only; preserve full current request, auth, Stop, exact models, depth and approved visual foundation. No guaranteed provider cache hit or subscription-cost claim."
+}

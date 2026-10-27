@@ -242,7 +242,7 @@ Before each actual start/resume, the authorized lead applies the installed unit-
 
 ## Unit execution contract
 
-This is the sole canonical unit_plan JSON fence. The orchestrator records the identical object with unit_contract_version 1; definitions/required_check_ids and acceptance ownership agree exactly. Explicit implementation_paths are the source/configuration/test freshness footprint. Frozen inputs and per-check QA paths remain required even when not writable. Human/device/access prerequisites live in canonical QA rather than invented source files.
+This is the sole canonical unit_plan JSON fence. The orchestrator records the identical object with unit_contract_version 2; definitions/required_check_ids and acceptance ownership agree exactly. Explicit implementation_paths are the source/configuration/test freshness footprint. Frozen inputs and per-check QA paths remain required even when not writable. Human/device/access prerequisites live in canonical QA rather than invented source files.
 
 ```json
 {

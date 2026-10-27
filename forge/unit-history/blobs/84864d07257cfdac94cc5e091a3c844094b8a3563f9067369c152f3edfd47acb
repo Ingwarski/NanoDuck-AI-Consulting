@@ -1,0 +1,31 @@
+{
+  "tests": {
+    "total": 222,
+    "passed": 220,
+    "skipped": 2,
+    "failed": 0
+  },
+  "browsers": [
+    "Chromium",
+    "Firefox",
+    "WebKit"
+  ],
+  "sources": {
+    "rawField": "https://github.com/openai/codex/blob/rust-v0.155.1/codex-rs/codex-api/src/sse/responses.rs#L483-L498",
+    "billing": "https://learn.chatgpt.com/docs/pricing#token-rates"
+  },
+  "live": "live-probe.json",
+  "sourceHashes": {
+    "src/server/codex-provider.mjs": "e7baca065fe2efecac5ca0e4d20abf4cc2a78a770356824630767620a9245bd8",
+    "src/server/usage.mjs": "2bf487bebedf540ae7357fb86ca53db446e652361a4c006e78cbf449c6290634",
+    "src/client/app.js": "c1338c5a8e8107639aea97d0ee316ca06aa7529194a1fea964e343748a4dc92d"
+  },
+  "limits": [
+    "Experimental opt-in tied to pinned Codex version",
+    "Provider-reported zero is not a measure of physical cache storage",
+    "Historical normalized counters cannot be retroactively verified",
+    "Initial full run had one output_policy failure in an unchanged review fixture; targeted rerun and final full run passed; initial cause not conclusively established",
+    "No private conversation replay or claim of guaranteed cache hits",
+    "Whole-product release readiness not_evaluated"
+  ]
+}

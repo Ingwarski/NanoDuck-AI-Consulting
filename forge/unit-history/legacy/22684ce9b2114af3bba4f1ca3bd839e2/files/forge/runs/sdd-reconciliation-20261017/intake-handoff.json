@@ -1,0 +1,18 @@
+{
+  "event": "existing_product_idea_revalidation_handoff",
+  "recorded_at": "2026-10-17T12:01:34.490655+00:00",
+  "scope_ref": "forge/runs/sdd-reconciliation-20261017/scope.json",
+  "owner_return": "forge/runs/sdd-reconciliation-20261017/consistency/product-idea-owner.json",
+  "source_mode": "existing-file",
+  "working_language": "en",
+  "language_selection_source": "recorded-preference",
+  "product_content_locales": [
+    "en",
+    "uk"
+  ],
+  "product_idea_path": "docs/product-idea.md",
+  "product_idea_hash": "3090712b248cae4f5aa6649c301c37fdb0ef7e69eae2cb53517b7f44daf5d056",
+  "material_product_decisions_changed": false,
+  "design_materials": "Previously supplied; Electric A v8 approval and scoped overrides retained; no new intake question.",
+  "implementation_authorized": false
+}

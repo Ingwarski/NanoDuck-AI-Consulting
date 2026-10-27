@@ -1,0 +1,22 @@
+{
+  "owner_skill": "to-project-context",
+  "invocation_id": "sdd-migration-20261028-context-bundle",
+  "reviewed_at": "2026-10-27T22:49:00.935338+00:00",
+  "outputs": [
+    {
+      "path": "docs/project-context.md",
+      "content_hash": "837ddd8ebb87c7a2b4dbfc8b236f136aef93f69e690a50e3b2b61d155f7b9ff6",
+      "result": "passed"
+    },
+    {
+      "path": "docs/canonical-terms.md",
+      "content_hash": "5d14a5d99c33f744ef4a741f5dcf4a03d1a83c5883978a3eecfa33c728f5fa4f",
+      "result": "passed"
+    }
+  ],
+  "changed_consumed_sources": [
+    "src/server/codex-provider.mjs"
+  ],
+  "canonical_document_bytes_changed": false,
+  "product_tests_executed_by_owner": false
+}

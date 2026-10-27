@@ -1,0 +1,21 @@
+{
+  "owner_skill": "to-product-idea",
+  "scope": "bounded intake metadata recovery from the actual retained completed handoff",
+  "reviewed_at": "2026-10-27T22:47:21.031167+00:00",
+  "source_ref": {
+    "path": "forge/runs/sdd-reconciliation-20261017/intake-handoff.json",
+    "content_hash": "cc09e03647bd9e8a2535fb3f46872c10f1f6d15fdd0c830181c11be6ec095e3b"
+  },
+  "previous_intake": {
+    "current_request_id": "sdd-reconciliation-20261017",
+    "handoff_receipt_path": "forge/runs/sdd-reconciliation-20261017/intake-handoff.json",
+    "intake_id": "documentation-reconciliation-20261017",
+    "product_idea_hash": "3090712b248cae4f5aa6649c301c37fdb0ef7e69eae2cb53517b7f44daf5d056",
+    "source_mode": "existing-file",
+    "status": "handed_off"
+  },
+  "current_request_id": null,
+  "material_decisions_changed": false,
+  "document_bytes_changed": false,
+  "reason": "The recorded request was already handed off on 17 October; no pending question or unresolved decision remains. Keep original receipt, dates and document bytes; clear only the stale current-request projection. Current publication terms remain governed by LICENSE and README/republication notices, not a reconstructed grant."
+}

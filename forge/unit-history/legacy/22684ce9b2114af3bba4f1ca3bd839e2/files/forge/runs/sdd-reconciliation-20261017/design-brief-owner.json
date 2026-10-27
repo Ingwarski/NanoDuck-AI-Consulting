@@ -1,0 +1,119 @@
+{
+  "invocation_id": "sdd-reconciliation-20261017-design-brief",
+  "outputs": [
+    "docs/design-brief.md"
+  ],
+  "output_hashes": {
+    "docs/design-brief.md": "5f8561e831c72b9890e69e78f65216438b5f65a8a7e7623d7e9814374ab4bcbf"
+  },
+  "existing_artifact_basis": {
+    "path": "docs/design-brief.md",
+    "sha256": "15f959501a3f60acdce4e33e156ece22639fbc4887e94a137ab543abdf97db9b",
+    "read": "full"
+  },
+  "source_usage": {
+    "docs/prd.md": "full",
+    "docs/project-context.md": "full",
+    "docs/canonical-terms.md": "full",
+    "docs/guardrails.md": "full",
+    "docs/user-journey.md": "full",
+    "docs/screen-map.md": "full",
+    "docs/wireframes.md": "full",
+    "docs/product-idea.md": "full",
+    "forge/design/candidates/a/v8/index.html": "full",
+    "forge/design/candidates/a/v8/styles.css": "full",
+    "forge/design/evidence/electric-v8-approval-20260914.json": "full",
+    "forge/design/evidence/nanoduck-supplied-logo.jpeg": "full",
+    "forge/design/candidates/a/v8/nanoduck.svg": "full",
+    "forge/design/candidates/a/v8/nanoduck-original.svg": "full",
+    "public/styles.css": "full",
+    "forge/runs/sdd-reconciliation-20261017/scope.json": "full",
+    "forge/runs/composer-sound-20260922/scoped-override.json": "full",
+    "forge/runs/critic-usage-20260925/scope.json": "full",
+    "forge/runs/white-theme-20261008/scoped-override.json": "full",
+    "forge/runs/glass-chat-controls-20261008/scoped-override.json": "full",
+    "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "full",
+    "forge/runs/chat-arrow-position-20261008/scoped-override.json": "full",
+    "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "full",
+    "forge/runs/head-connection-check-20261008/scoped-override.json": "full",
+    "forge/runs/porcelain-stop-20260924/scoped-override.json": "full",
+    "forge/runs/parallel-consultants-plan-20260924/scope.json": "full",
+    "forge/runs/sticky-view-nav-20260925/scope.json": "full",
+    "forge/runs/reading-mode-20260926/scope.json": "full",
+    "forge/runs/clear-glass-navbar-20260926/scope.json": "full",
+    "forge/runs/glass-rim-20260926/scope.json": "full",
+    "forge/runs/navbar-refraction-20260926/scope.json": "full"
+  },
+  "consumed_hashes": {
+    "docs/prd.md": "6929cbd6c2758380e8482cb8937474caf0e2833b823e06c0a8b6cdab2d048220",
+    "docs/project-context.md": "837ddd8ebb87c7a2b4dbfc8b236f136aef93f69e690a50e3b2b61d155f7b9ff6",
+    "docs/canonical-terms.md": "b4cccec813b16ed3824ad34d05f1bae58934b1711216ba569ec582d839c4cceb",
+    "docs/guardrails.md": "f79f3abb88b8ac9c7c2c4ee95834e47cf6b8046c0c23b8155eb233a487439fe7",
+    "docs/user-journey.md": "4ec4f00f722863dea5b68675e9ef3931756460e7710733a119b95029ce4b0e4d",
+    "docs/screen-map.md": "29596b2f1ca042f482de225363c7bf64cc57f79a4b6b4d897dbcbcd7b190b9f5",
+    "docs/wireframes.md": "dcd05d7ec1defa865adaa373afadbe8afa2e6f1fab94267354ba11e8fd2d0664",
+    "docs/product-idea.md": "30749b389cf516d13165daacc69194f15b873f63a0a7759adc09fa41d65775c6",
+    "forge/design/candidates/a/v8/index.html": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
+    "forge/design/candidates/a/v8/styles.css": "f8fd6e8832671b05dc8b7a2a034ee41fb2aad4f085468965feaf1c34a3b57d43",
+    "forge/design/evidence/electric-v8-approval-20260914.json": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2",
+    "forge/design/evidence/nanoduck-supplied-logo.jpeg": "4e4e83b85f1baaaa4bc1d680dce4a3df2c68e75e73edb8b1308dc751b8719629",
+    "forge/design/candidates/a/v8/nanoduck.svg": "723d3b4201c5fc6ffa3d30a1e5ed5151f616d436919d15f3642827a16ed7021d",
+    "forge/design/candidates/a/v8/nanoduck-original.svg": "e8b786961dc9a3b4d5450d3d20c3fd25cb6b2a9e7dc3034d23202d1a6dd2f528",
+    "public/styles.css": "f7e0580575a7592ac1d07a4975ed892c573b731e60e6837ec0f252ea95060553",
+    "forge/runs/sdd-reconciliation-20261017/scope.json": "82eeb2e3fa2559e055ab04aa135ad90ca90f776562377069d6415d18c78ab37f",
+    "forge/runs/composer-sound-20260922/scoped-override.json": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b",
+    "forge/runs/critic-usage-20260925/scope.json": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
+    "forge/runs/white-theme-20261008/scoped-override.json": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e",
+    "forge/runs/glass-chat-controls-20261008/scoped-override.json": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
+    "forge/runs/dark-matte-prompt-20261008/scoped-override.json": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3",
+    "forge/runs/chat-arrow-position-20261008/scoped-override.json": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
+    "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
+    "forge/runs/head-connection-check-20261008/scoped-override.json": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371",
+    "forge/runs/porcelain-stop-20260924/scoped-override.json": "df8177ecc6e68c658ff5672b14e7def000ba241f9932639711885a4ba17afc74",
+    "forge/runs/parallel-consultants-plan-20260924/scope.json": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
+    "forge/runs/sticky-view-nav-20260925/scope.json": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e",
+    "forge/runs/reading-mode-20260926/scope.json": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
+    "forge/runs/clear-glass-navbar-20260926/scope.json": "1ecd5cba668f465c3e89a198ed8b9e62e9bcc4266e8b713f38d814cf3eb65a95",
+    "forge/runs/glass-rim-20260926/scope.json": "dd29bb641922975a8af41782051645e3cf49d3f780df4e99684d84e49719cf8b",
+    "forge/runs/navbar-refraction-20260926/scope.json": "b80bb023523a4eaf95752f92b2cd42347a84b8a66e30f5537a0347e802910efd"
+  },
+  "executor": "Codex design-brief domain owner; explicit lead dispatch; static source review and local supplied-logo viewing; no browser or generation",
+  "validation": "Passed mechanical and judgment document review: current MAT01..08 hashes; unchanged MAT09..11, full Approved Visual Baseline section and frozen tree; named materials inventoried; ten H rows explicitly planned/applicable; existing representative-owner limits retained. Current design rules reconcile desktop rail/narrow picker, unchanged P5 dimensions, completion collapse, sticky dark opaque/white translucent matte input and current glass controls. Historical horizontal/plain-transparent/metallic instructions marked superseded. Cloned U12/U13 execution/provider directives replaced with appearance/interaction guidance; all existing color tokens and JOB/UC/J/S/ST IDs retained. All 17 relative links resolve. No browser, provider, accessibility conformance, user-test, security or release result claimed; all formal checks remain not_run. Lead owns after-checker and manifest.",
+  "working_language": "en",
+  "product_locales": [
+    "en",
+    "uk"
+  ],
+  "changed_design_decisions": [
+    "No new design decision or approval; accepted scoped overrides now have explicit precedence in principal rules."
+  ],
+  "open_questions": [
+    "Representative-owner tasks, actual cross-browser optical/privacy verification, accessibility and real runtime/provider evidence remain unobserved by this documentation run."
+  ],
+  "baseline_preservation": {
+    "baseline_id": "nanoduck-electric-a-v8-20260914",
+    "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
+    "prototype_tree_hash": "1de020dcfe48f3feb80db0e58ba911b821825b48730d32c72d9518ad512eb0d9",
+    "hash_algorithm": "sdd-tree-sha256-v1",
+    "approval_receipt": "forge/design/evidence/electric-v8-approval-20260914.json",
+    "approval_receipt_hash": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2",
+    "canonical_baseline_section_byte_identical": true
+  },
+  "instruction_basis": {
+    "path": "AGENTS.md",
+    "revision": 2,
+    "sha256": "9e9de3772e818710fd36a0b9861b80fd14f2a219553ee219d3431c68fcf5deea",
+    "verification": "current-session explicit read"
+  },
+  "skill_source_hashes": {
+    "to-design-brief/SKILL.md": "9f2f287e5b8ad4bcda534efa0b4a2e772d0f51e5ce178493936b2e6b7713b8af",
+    "to-sdd-pipeline/references/common-contract.md": "69f62e49921adaf32e1f7e0f175c4a5f769bddfcc05d9b1ed34da62dfe6b6d57",
+    "to-sdd-pipeline/references/heuristic-usability-review.md": "263a7335bcf242a907c3341e9fc477a497beb3ad3d589ea4dd0787b5e8160cac",
+    "to-sdd-pipeline/references/verification-contract.md": "9733044e15b0fe300d8c127fbc697d885c9806bb189be2297799bfa729432e69",
+    "to-sdd-pipeline/references/freeze-contract.md": "2a6b8123122d6abef72b7759013dddb6bb6dcc2eed3115a8662c81574dbc6f6c",
+    "to-sdd-pipeline/references/accessibility-policy.md": "c77d86278c9de70a135ae28e2eb209ff4ac4661c342750903b241fb2533bdcaa"
+  },
+  "checked_at": "2026-10-17T11:48:15.854117+00:00",
+  "cleanup": "No browsers, profiles, helper processes, services or generated images; atomic-write temporary file removed.",
+  "ownership_released": true
+}

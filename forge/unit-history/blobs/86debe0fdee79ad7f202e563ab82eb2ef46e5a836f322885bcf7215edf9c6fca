@@ -1,0 +1,16 @@
+{
+  "invocation_id": "sdd-reconciliation-20261017-project-context-bundle",
+  "outputs": [
+    "docs/project-context.md",
+    "docs/canonical-terms.md"
+  ],
+  "source_usage": {
+    "docs/product-idea.md": "full",
+    "docs/prd.md": "full",
+    "docs/model-settings.md": "full",
+    "forge/design/evidence/electric-v8-approval-20260914.json": "full",
+    "forge/runs/sdd-reconciliation-20261017/scope.json": "full"
+  },
+  "executor": "Codex lead acting inline as to-project-context",
+  "validation": "Both bundle members reviewed against current product intent: English documentation and independent en/uk product locales, exact models, one-owner local/LAN constraints, fragment filtering, immutable isolated requests and truthful unknown telemetry. Corrected baseline date and separated historical authority from current docs-only scope. Replaced repeated implementation directives with contextual facts or vocabulary; no downstream decisions imported and no runtime acceptance inferred."
+}

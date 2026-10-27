@@ -1,0 +1,29 @@
+{
+  "owner_skill": "to-qa-checklist",
+  "invocation_id": "sdd-migration-20261028-qa",
+  "reviewed_at": "2026-10-27T22:49:59.082602+00:00",
+  "path": "docs/qa-checklist.md",
+  "content_hash": "ebd764142bc9a6ad8283e96bee92d16ce4b43d62b979730eaff8aaa91b8df7c4",
+  "repository_observation_id": "sdd-migration-20261028-qa-source-inventory",
+  "changed_observed_paths": [
+    ".github/workflows/security.yml",
+    "README.md",
+    "package-lock.json",
+    "package.json",
+    "scripts/browser-active-discussion.mjs",
+    "scripts/browser-check.mjs",
+    "scripts/browser-progress-recovery.mjs",
+    "scripts/check-artifacts.mjs",
+    "src/server/codex-provider.mjs",
+    "test/codex-provider.test.mjs",
+    "scripts/artifact-history.mjs",
+    "test/artifact-history.test.mjs",
+    ".gitleaks.toml",
+    ".github/scripts/test-gitleaks.py",
+    "forge/evidence-policy.json"
+  ],
+  "document_bytes_changed": false,
+  "canonical_check_count": 91,
+  "product_tests_executed_by_owner": false,
+  "release_readiness": "not_evaluated"
+}

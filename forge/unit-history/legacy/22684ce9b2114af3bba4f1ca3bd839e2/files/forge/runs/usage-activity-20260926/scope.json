@@ -1,0 +1,9 @@
+{
+  "event": "accepted_scoped_baseline_override",
+  "actor": "user",
+  "request": "Show counts of consultants, review rounds, correction orders, research calls and web actions",
+  "accepted_proposal": "Show five consultation activity counts with truthful scope and missing-data coverage.",
+  "recorded_at": "2026-09-26T18:31:17.948890+00:00",
+  "baseline": "nanoduck-electric-a-v8-20260914",
+  "limits": "Existing local repository only; preserve full current request, auth, Stop, exact models, depth and approved visual foundation. No guaranteed provider cache hit or subscription-cost claim."
+}

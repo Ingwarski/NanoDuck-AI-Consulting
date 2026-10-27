@@ -1,0 +1,977 @@
+{
+  "acceptance": "unverified_not_reusable",
+  "archived_at": "2026-10-27T22:43:12.942862+00:00",
+  "event": "legacy_execution_archive",
+  "files": {
+    ".github/dependabot.yml": {
+      "content_hash": "f201ff38f23860bfa27310f327849ff65dbf6edd07f61f185b9729c5728f89b8",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/.github/dependabot.yml"
+    },
+    ".github/workflows/ci.yml": {
+      "content_hash": "130430570de804d16172f36af664e03b3162d181fc1fdb1f438fd4b1ec42bb74",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/.github/workflows/ci.yml"
+    },
+    ".github/workflows/runtime-checks.yml": {
+      "content_hash": "3a54acf01ece2fb674a10c438bc0d1535b3443b46422bed25c6fd78d2f078068",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/.github/workflows/runtime-checks.yml"
+    },
+    ".github/workflows/security.yml": {
+      "content_hash": "68208d4d39ae45facd86a7176d40cacb1c396b15c831da502ee4c3035e0740fc",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/.github/workflows/security.yml"
+    },
+    "AGENTS.md": {
+      "content_hash": "9e9de3772e818710fd36a0b9861b80fd14f2a219553ee219d3431c68fcf5deea",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/AGENTS.md"
+    },
+    "README.md": {
+      "content_hash": "8030b5a8ac8573431ab96212147b7b3992c66733807fbe675506deab3ec269bb",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/README.md"
+    },
+    "docs/architecture.md": {
+      "content_hash": "a005d1d80b7a5b041b6bf0ef26d3874dfe35302845f6f43ac203a78c09385324",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/docs/architecture.md"
+    },
+    "docs/canonical-terms.md": {
+      "content_hash": "5d14a5d99c33f744ef4a741f5dcf4a03d1a83c5883978a3eecfa33c728f5fa4f",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/docs/canonical-terms.md"
+    },
+    "docs/combined-updates-after-review-port.md": {
+      "content_hash": "8a0ef9da0537464a07bf0ecacb360360563c575ddd4d6f975e6347cab086848f",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/docs/combined-updates-after-review-port.md"
+    },
+    "docs/consultation-orchestration-port.md": {
+      "content_hash": "aa82f95a9fe48751c5335f6b388a0fbe3a923d32c4bc34f9d11ba2cde9e9d1be",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/docs/consultation-orchestration-port.md"
+    },
+    "docs/context-cache-isolation-port.md": {
+      "content_hash": "b3cbf39226a05b2d19fc78ab8da5010ab93cc0189c7147867ae8a92bc4079296",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/docs/context-cache-isolation-port.md"
+    },
+    "docs/design-brief.md": {
+      "content_hash": "2c4039509fbb03b223fea2eee869f1e9282fb4d6890b175891f7440314311b9c",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/docs/design-brief.md"
+    },
+    "docs/development-plan.md": {
+      "content_hash": "3d5544fd74655a931c424c8ea802c4e350fa8c9d8a0486bd85473d9a6703822a",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/docs/development-plan.md"
+    },
+    "docs/dod-evals.md": {
+      "content_hash": "0151985b445aec4c02320da6a84765144c058e7a79d4792f136c647021817b99",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/docs/dod-evals.md"
+    },
+    "docs/guardrails.md": {
+      "content_hash": "f79f3abb88b8ac9c7c2c4ee95834e47cf6b8046c0c23b8155eb233a487439fe7",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/docs/guardrails.md"
+    },
+    "docs/head-first-response-port.md": {
+      "content_hash": "930a88f6e6a73ba58d1081e4b1d7ffbe00a51e96b8bee9790fd4d1db49008ec7",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/docs/head-first-response-port.md"
+    },
+    "docs/model-settings.md": {
+      "content_hash": "aef42b6f74eabcdcc32835f6ef7d52099bdcaa5fab2112a184e500dd95338989",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/docs/model-settings.md"
+    },
+    "docs/porcelain-stop-port.md": {
+      "content_hash": "4acdcddbe2873074358a1fcf43456ee7cdf421cc50b03bdd186f02fed5a77837",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/docs/porcelain-stop-port.md"
+    },
+    "docs/prd.md": {
+      "content_hash": "79a015d132b6eb65a288e2f80fd86fd5a5d5a9b7e81fbb41dd3faa1e4530e56f",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/docs/prd.md"
+    },
+    "docs/product-idea.md": {
+      "content_hash": "3090712b248cae4f5aa6649c301c37fdb0ef7e69eae2cb53517b7f44daf5d056",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/docs/product-idea.md"
+    },
+    "docs/project-context.md": {
+      "content_hash": "837ddd8ebb87c7a2b4dbfc8b236f136aef93f69e690a50e3b2b61d155f7b9ff6",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/docs/project-context.md"
+    },
+    "docs/qa-checklist.md": {
+      "content_hash": "ebd764142bc9a6ad8283e96bee92d16ce4b43d62b979730eaff8aaa91b8df7c4",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/docs/qa-checklist.md"
+    },
+    "docs/research-evidence-economy-port.md": {
+      "content_hash": "968e6b1e09cc0956934a2e8e1bd9f939a1f2f93f761c99f95c7069fb5603e03c",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/docs/research-evidence-economy-port.md"
+    },
+    "docs/review-fixes-port.md": {
+      "content_hash": "8067cd3d1cdabdd363562b979024d7a94fefbab4507ea058683a26c9c0727e69",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/docs/review-fixes-port.md"
+    },
+    "docs/screen-map.md": {
+      "content_hash": "29596b2f1ca042f482de225363c7bf64cc57f79a4b6b4d897dbcbcd7b190b9f5",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/docs/screen-map.md"
+    },
+    "docs/source-provenance.json": {
+      "content_hash": "606658e8664e688340efea633184aa4899ca7bf27122aa9e7698aa3c703a5f33",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/docs/source-provenance.json"
+    },
+    "docs/usage-dashboard-port.md": {
+      "content_hash": "b12971fe588e7dc1534f9eeec57967107486bc8b87437bdde55756d2c459cf8d",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/docs/usage-dashboard-port.md"
+    },
+    "docs/user-journey.md": {
+      "content_hash": "4ec4f00f722863dea5b68675e9ef3931756460e7710733a119b95029ce4b0e4d",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/docs/user-journey.md"
+    },
+    "docs/wireframes.md": {
+      "content_hash": "6f5cf5dfda1a78fb72f0168ee8274b23076f14b4ae12985a0683b8dd8db0424d",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/docs/wireframes.md"
+    },
+    "forge/design/candidate-sets/web-nanoduck-equal-nodes-20260913/v8/shared/comparison.css": {
+      "content_hash": "9c5245d6beb09bab1d70d930f65519ff91d7aa3f06ad764b7bb661c7adfb84e0",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/design/candidate-sets/web-nanoduck-equal-nodes-20260913/v8/shared/comparison.css"
+    },
+    "forge/design/candidate-sets/web-nanoduck-equal-nodes-20260913/v8/shared/index.html": {
+      "content_hash": "e4fee9326663c9411fb1108c9e09ba2a829b0ef57c8e7d6e99d917ee666171d6",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/design/candidate-sets/web-nanoduck-equal-nodes-20260913/v8/shared/index.html"
+    },
+    "forge/design/candidates/a/v8/app.js": {
+      "content_hash": "d7ac2287ce8496772592d42d134fc530affcb9147f0a7641655a56c6cf83775f",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/design/candidates/a/v8/app.js"
+    },
+    "forge/design/candidates/a/v8/index.html": {
+      "content_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/design/candidates/a/v8/index.html"
+    },
+    "forge/design/candidates/a/v8/nanoduck-original.svg": {
+      "content_hash": "e8b786961dc9a3b4d5450d3d20c3fd25cb6b2a9e7dc3034d23202d1a6dd2f528",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/design/candidates/a/v8/nanoduck-original.svg"
+    },
+    "forge/design/candidates/a/v8/nanoduck.svg": {
+      "content_hash": "723d3b4201c5fc6ffa3d30a1e5ed5151f616d436919d15f3642827a16ed7021d",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/design/candidates/a/v8/nanoduck.svg"
+    },
+    "forge/design/candidates/a/v8/styles.css": {
+      "content_hash": "f8fd6e8832671b05dc8b7a2a034ee41fb2aad4f085468965feaf1c34a3b57d43",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/design/candidates/a/v8/styles.css"
+    },
+    "forge/design/candidates/b/v8/app.js": {
+      "content_hash": "4e136b51a2cb58e6984ae2f6bbae57b646ba9db7287db7786f4a1c3041026a5e",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/design/candidates/b/v8/app.js"
+    },
+    "forge/design/candidates/b/v8/index.html": {
+      "content_hash": "edd8a54d08ab4f404793599d81326f6b5abe2812089a3a7759b3b0fdd52b3ea0",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/design/candidates/b/v8/index.html"
+    },
+    "forge/design/candidates/b/v8/nanoduck-original.svg": {
+      "content_hash": "e8b786961dc9a3b4d5450d3d20c3fd25cb6b2a9e7dc3034d23202d1a6dd2f528",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/design/candidates/b/v8/nanoduck-original.svg"
+    },
+    "forge/design/candidates/b/v8/nanoduck.svg": {
+      "content_hash": "723d3b4201c5fc6ffa3d30a1e5ed5151f616d436919d15f3642827a16ed7021d",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/design/candidates/b/v8/nanoduck.svg"
+    },
+    "forge/design/candidates/b/v8/styles.css": {
+      "content_hash": "9e37802dd048f62801406d11a97f1fed1bcd06d0b68eacf79c25391eda196d98",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/design/candidates/b/v8/styles.css"
+    },
+    "forge/design/candidates/c/v8/app.js": {
+      "content_hash": "e10a0d15804f6568932dbbb4ac781e4e70c4ddf1c32b3b963fd3d47ddd88ec3f",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/design/candidates/c/v8/app.js"
+    },
+    "forge/design/candidates/c/v8/index.html": {
+      "content_hash": "1b4d60a75898a98c154128a3e3fedd857a49d7e72ff604e718c7fc48aa447ed4",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/design/candidates/c/v8/index.html"
+    },
+    "forge/design/candidates/c/v8/nanoduck-original.svg": {
+      "content_hash": "e8b786961dc9a3b4d5450d3d20c3fd25cb6b2a9e7dc3034d23202d1a6dd2f528",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/design/candidates/c/v8/nanoduck-original.svg"
+    },
+    "forge/design/candidates/c/v8/nanoduck.svg": {
+      "content_hash": "723d3b4201c5fc6ffa3d30a1e5ed5151f616d436919d15f3642827a16ed7021d",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/design/candidates/c/v8/nanoduck.svg"
+    },
+    "forge/design/candidates/c/v8/styles.css": {
+      "content_hash": "78b9ef3da80511b359ec109d163211421ad916862b359d50e787da7ff65c9366",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/design/candidates/c/v8/styles.css"
+    },
+    "forge/design/evidence/a-v8-browser.json": {
+      "content_hash": "6ecde63ff5f1717d95f735aa877bed00f3b58b54f058b3557a68927d25894e47",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/design/evidence/a-v8-browser.json"
+    },
+    "forge/design/evidence/a-v8-visual-qa.json": {
+      "content_hash": "02ca19382d5607943511d3eeb9cf2339317ee439c2adde28bb6f048c5006ce61",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/design/evidence/a-v8-visual-qa.json"
+    },
+    "forge/design/evidence/b-v8-browser.json": {
+      "content_hash": "d510b532d8c4a1e623644909cab36287ed968a0e4bc68ad8b858764b4889747a",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/design/evidence/b-v8-browser.json"
+    },
+    "forge/design/evidence/b-v8-visual-qa.json": {
+      "content_hash": "b6ff1c3906124fc1be85c6379f8dd7c5d64b9c73fed596bc19dc5728f0a28014",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/design/evidence/b-v8-visual-qa.json"
+    },
+    "forge/design/evidence/c-v8-browser.json": {
+      "content_hash": "f45c3b78ec53108d760686b8b85506935d52943119884c040b34dbb057e5cec0",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/design/evidence/c-v8-browser.json"
+    },
+    "forge/design/evidence/c-v8-visual-qa.json": {
+      "content_hash": "f07243719d6107310a386d22671f62f3a8b6dc6a071465ad27e0957754e0ac7e",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/design/evidence/c-v8-visual-qa.json"
+    },
+    "forge/design/evidence/electric-v8-approval-20260914.json": {
+      "content_hash": "d1bf320c0b5631fd3a0fb77f48c858ad609eee05fc59b8d5bb6fc9a358595ee2",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/design/evidence/electric-v8-approval-20260914.json"
+    },
+    "forge/design/evidence/nanoduck-supplied-logo.jpeg": {
+      "content_hash": "4e4e83b85f1baaaa4bc1d680dce4a3df2c68e75e73edb8b1308dc751b8719629",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/design/evidence/nanoduck-supplied-logo.jpeg"
+    },
+    "forge/runs/browser-research-claude-20260922/scope.json": {
+      "content_hash": "be36b8b0a9fb8470cbcf50a612765c82b4c53698d01c81108d172f8fd884342f",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/browser-research-claude-20260922/scope.json"
+    },
+    "forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json": {
+      "content_hash": "757d7d974af0d3c808b11eb39b3b8309669a60cdc9424e1cd347c465820307f5",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/chat-arrow-open-prompt-20261008/scoped-override.json"
+    },
+    "forge/runs/chat-arrow-position-20261008/scoped-override.json": {
+      "content_hash": "3203d74096834957392715cc6ca3a89a29e3858490830905785a17dc383ad31a",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/chat-arrow-position-20261008/scoped-override.json"
+    },
+    "forge/runs/chat-boundaries-20260926/scope.json": {
+      "content_hash": "08e4fb98611833bcc9314a492457e00925b488363408d7c8d07105186f5998d6",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/chat-boundaries-20260926/scope.json"
+    },
+    "forge/runs/chat-center-20260926/scope.json": {
+      "content_hash": "c9df24147feca20d36881d6ee508be68a898cd32d241eec6cde54e9d473131cb",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/chat-center-20260926/scope.json"
+    },
+    "forge/runs/chat-jumps-20260926/scope.json": {
+      "content_hash": "d300ed09bb009289a154dad74b02f008dafde92d82e98d27043c8765753b1853",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/chat-jumps-20260926/scope.json"
+    },
+    "forge/runs/claude-context-transport-20260923/scope.json": {
+      "content_hash": "fe3385b19c01e4130c67b97665c7491b5d620146c6ab03fcd228a133ec13e318",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/claude-context-transport-20260923/scope.json"
+    },
+    "forge/runs/claude-signin-20260922/scope.json": {
+      "content_hash": "e668531a6ffbdb53d1a51b844109828e71d73e37712ce308e90a8e82751e3559",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/claude-signin-20260922/scope.json"
+    },
+    "forge/runs/claude-signin-20260922/source-review.json": {
+      "content_hash": "ad878d853b9c6f30da817167e1db6dffaad9c2c2863354ad3331294d7b269def",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/claude-signin-20260922/source-review.json"
+    },
+    "forge/runs/clear-glass-navbar-20260926/scope.json": {
+      "content_hash": "1ecd5cba668f465c3e89a198ed8b9e62e9bcc4266e8b713f38d814cf3eb65a95",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/clear-glass-navbar-20260926/scope.json"
+    },
+    "forge/runs/clear-glass-navbar-20260926/verification.json": {
+      "content_hash": "1f33c347f79ba126ad5d06db972aa14b8a28c73bcd24a1009fdd63f6500f685a",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/clear-glass-navbar-20260926/verification.json"
+    },
+    "forge/runs/composer-sound-20260922/scoped-override.json": {
+      "content_hash": "86c38b2c23bbb807cdc7ea4e22af0cf7713ed9041803661db5808564c5351f3b",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/composer-sound-20260922/scoped-override.json"
+    },
+    "forge/runs/context-cache-20260926/scope.json": {
+      "content_hash": "67cf8dd21503e01f8853a8aa63bf47532168775cc3c947ae5a119e86f492a265",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/context-cache-20260926/scope.json"
+    },
+    "forge/runs/critic-cache-usage-20260926/implementation-prompt.json": {
+      "content_hash": "2d95221cb2f84e924114500538865a4aeb370aa77f13e429cdb751b0d708a296",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/critic-cache-usage-20260926/implementation-prompt.json"
+    },
+    "forge/runs/critic-cache-usage-20260926/scope.json": {
+      "content_hash": "df904905810303cc044470966345d4ec19f3c8afbfba16f5e2bc82fef5c0eb76",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/critic-cache-usage-20260926/scope.json"
+    },
+    "forge/runs/critic-cache-usage-20260926/verification.json": {
+      "content_hash": "b4ddc11dd37a3b557bda3c59faca0b59c6494d75044849b4b0dcd4d71517c77f",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/critic-cache-usage-20260926/verification.json"
+    },
+    "forge/runs/critic-usage-20260925/chromium-usage-desktop.png": {
+      "content_hash": "f43be50796eaf4fda95c2fdd5dd6b4a028833803aa84d7967c334a9a08058609",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/critic-usage-20260925/chromium-usage-desktop.png"
+    },
+    "forge/runs/critic-usage-20260925/scope.json": {
+      "content_hash": "c63fc0b0ab159ef0279a1ca3c247fad3541922961be2fea5c635c525cd09a4e4",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/critic-usage-20260925/scope.json"
+    },
+    "forge/runs/critic-usage-20260925/verification.json": {
+      "content_hash": "3bb9e18d641a3053af6a0206de3eb4b0859b9a096199b96eae3cd3b06a79df13",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/critic-usage-20260925/verification.json"
+    },
+    "forge/runs/critic-usage-20260925/webkit-usage-mobile.png": {
+      "content_hash": "461a58eab1874aaa71817708f386b8222d777360559b2ccc9675f5b4a4ce7fa5",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/critic-usage-20260925/webkit-usage-mobile.png"
+    },
+    "forge/runs/dark-matte-prompt-20261008/scoped-override.json": {
+      "content_hash": "dac977746acc9e42d9e3fb1266748cf35818273a372219c548883a0d7beee8f3",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/dark-matte-prompt-20261008/scoped-override.json"
+    },
+    "forge/runs/glass-chat-controls-20261008/scoped-override.json": {
+      "content_hash": "a789bd6867fb2f699b7e8f2637f240d2c4ae3ed4b8028daabcea9958238ab78d",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/glass-chat-controls-20261008/scoped-override.json"
+    },
+    "forge/runs/glass-rim-20260926/scope.json": {
+      "content_hash": "dd29bb641922975a8af41782051645e3cf49d3f780df4e99684d84e49719cf8b",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/glass-rim-20260926/scope.json"
+    },
+    "forge/runs/glass-rim-20260926/verification.json": {
+      "content_hash": "1eaa88a6f0aca0b28ffba8ac51ae13b5cb1fb76f46c2a082ed14aa79688a5225",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/glass-rim-20260926/verification.json"
+    },
+    "forge/runs/gpt-6-1-sol-20260930/implementation-prompt.json": {
+      "content_hash": "c9978c187aa8943c091f335978f3e430f3ab9deca2c87e9f3703b36c48a45565",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/gpt-6-1-sol-20260930/implementation-prompt.json"
+    },
+    "forge/runs/gpt-6-1-sol-20260930/scope.json": {
+      "content_hash": "fb82662f17f70537117703d4fcc7c91b98b005fa191176fd95b3cd0effb75c42",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/gpt-6-1-sol-20260930/scope.json"
+    },
+    "forge/runs/gpt-6-sol-20260922/catalog-observation.json": {
+      "content_hash": "264f3452fd4e21cbe78454ef98b807f6a5b55b90bbe9463e4c5423ddc3bd5092",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/gpt-6-sol-20260922/catalog-observation.json"
+    },
+    "forge/runs/gpt-6-sol-20260922/scope.json": {
+      "content_hash": "3ac0b3c942ad3ca32fca5da4bb59296417819d81d45f9d0d903ba395f8d1b538",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/gpt-6-sol-20260922/scope.json"
+    },
+    "forge/runs/head-connection-check-20261008/scoped-override.json": {
+      "content_hash": "f1578c277f150d1e660a85a719f498b831b8bb878038be5b4cca459077bfc371",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/head-connection-check-20261008/scoped-override.json"
+    },
+    "forge/runs/navbar-refraction-20260926/scope.json": {
+      "content_hash": "b80bb023523a4eaf95752f92b2cd42347a84b8a66e30f5537a0347e802910efd",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/navbar-refraction-20260926/scope.json"
+    },
+    "forge/runs/navbar-refraction-20260926/verification.json": {
+      "content_hash": "266314b430e9b090cda22eb38af6c69e85f4160f5424e43972fdb1d357a2b264",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/navbar-refraction-20260926/verification.json"
+    },
+    "forge/runs/parallel-consultants-plan-20260924/repository-observation.json": {
+      "content_hash": "76930bc48e23a9d650e5b394b513a9cd895ccae11804942ffb69cff8c9f8094d",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/parallel-consultants-plan-20260924/repository-observation.json"
+    },
+    "forge/runs/parallel-consultants-plan-20260924/scope.json": {
+      "content_hash": "ae3b047de94d3e5453e5bab5548b3e535e8817e2e7a55f03e1c400d323aad952",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/parallel-consultants-plan-20260924/scope.json"
+    },
+    "forge/runs/porcelain-stop-20260924/scoped-override.json": {
+      "content_hash": "df8177ecc6e68c658ff5672b14e7def000ba241f9932639711885a4ba17afc74",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/porcelain-stop-20260924/scoped-override.json"
+    },
+    "forge/runs/reading-mode-20260926/scope.json": {
+      "content_hash": "9be58e88cc61b3fde705579d5f2db0533b13a1149c56532dfc1000866266df89",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/reading-mode-20260926/scope.json"
+    },
+    "forge/runs/research-economy-20260926/scope.json": {
+      "content_hash": "7657f8a4fbbb7be5706c033a7dc690db01c75cbdc10095970a212a3f6c0dde80",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/research-economy-20260926/scope.json"
+    },
+    "forge/runs/research-economy-20260926/verification.json": {
+      "content_hash": "59b0b21c0d488353b459b752172658d347f67193a6cded3af8cb75c16acc3625",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/research-economy-20260926/verification.json"
+    },
+    "forge/runs/review-fixes-20260926/scope.json": {
+      "content_hash": "18c049356e8569c428ac0b5572dbfa8c2841ad1c4345683c0c49653c55dc78e2",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/review-fixes-20260926/scope.json"
+    },
+    "forge/runs/sdd-reconciliation-20261017/architecture-owner.json": {
+      "content_hash": "331dc6c49be38d4648d066b5d7ca5908b05c8c86fa20e2c8d7bc3ce7e4fae576",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/sdd-reconciliation-20261017/architecture-owner.json"
+    },
+    "forge/runs/sdd-reconciliation-20261017/design-brief-owner.json": {
+      "content_hash": "c1b5e90fc70db924b7a77909e15e7bdd6027d70360df9a76a159b1f4f96093dc",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/sdd-reconciliation-20261017/design-brief-owner.json"
+    },
+    "forge/runs/sdd-reconciliation-20261017/dod-evals-owner.json": {
+      "content_hash": "f2ecb65341490513823e654ce98e1af0656b743a4c7e65b53bdf85d1ce387081",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/sdd-reconciliation-20261017/dod-evals-owner.json"
+    },
+    "forge/runs/sdd-reconciliation-20261017/guardrails-owner.json": {
+      "content_hash": "25dd7bbb55df271ab4c4f7b143d1bcda776179a42622336db4c5dcf6280309b6",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/sdd-reconciliation-20261017/guardrails-owner.json"
+    },
+    "forge/runs/sdd-reconciliation-20261017/intake-handoff.json": {
+      "content_hash": "cc09e03647bd9e8a2535fb3f46872c10f1f6d15fdd0c830181c11be6ec095e3b",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/sdd-reconciliation-20261017/intake-handoff.json"
+    },
+    "forge/runs/sdd-reconciliation-20261017/legacy-development-plan.md.txt": {
+      "content_hash": "59106bb01bd0df2d4f5290134abb1668e4c188eb0f267e3072d9d2dd24dda9b0",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/sdd-reconciliation-20261017/legacy-development-plan.md.txt"
+    },
+    "forge/runs/sdd-reconciliation-20261017/prd-owner.json": {
+      "content_hash": "cf62d076322560989c71c8be6e935381d8cd72d4b5610adc973c9048b9fcfd16",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/sdd-reconciliation-20261017/prd-owner.json"
+    },
+    "forge/runs/sdd-reconciliation-20261017/prior-bindings.json": {
+      "content_hash": "a3122431491fa297179b7a8cafb25051d218ca34bb83434dc1bc3fb4a4113a2e",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/sdd-reconciliation-20261017/prior-bindings.json"
+    },
+    "forge/runs/sdd-reconciliation-20261017/product-idea-owner.json": {
+      "content_hash": "5ced7b921739580c6213efb1ef11857d99d224113affa3711049409425da0fc3",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/sdd-reconciliation-20261017/product-idea-owner.json"
+    },
+    "forge/runs/sdd-reconciliation-20261017/project-context-bundle-owner.json": {
+      "content_hash": "86debe0fdee79ad7f202e563ab82eb2ef46e5a836f322885bcf7215edf9c6fca",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/sdd-reconciliation-20261017/project-context-bundle-owner.json"
+    },
+    "forge/runs/sdd-reconciliation-20261017/qa-checklist-owner.json": {
+      "content_hash": "4e7a11641c4b6db2897c011442300acf79db149f4b393e4e33be5a5302839ca2",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/sdd-reconciliation-20261017/qa-checklist-owner.json"
+    },
+    "forge/runs/sdd-reconciliation-20261017/qa-owner-projection.json": {
+      "content_hash": "0ab5391353150d85ff61f24cd7b5d345ad5513f32060aa58f522a2ae29b2609c",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/sdd-reconciliation-20261017/qa-owner-projection.json"
+    },
+    "forge/runs/sdd-reconciliation-20261017/scope.json": {
+      "content_hash": "82eeb2e3fa2559e055ab04aa135ad90ca90f776562377069d6415d18c78ab37f",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/sdd-reconciliation-20261017/scope.json"
+    },
+    "forge/runs/sdd-reconciliation-20261017/screen-map-owner.json": {
+      "content_hash": "ae2d572143259d4e180d5d2a096efbfbb40e63d0c5cc40108b8b2c4148f3e0a0",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/sdd-reconciliation-20261017/screen-map-owner.json"
+    },
+    "forge/runs/sdd-reconciliation-20261017/source-inventory.json": {
+      "content_hash": "998915b40945321525779adbc2778659c12cd3020bacd5d7c9f694b4dee87baf",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/sdd-reconciliation-20261017/source-inventory.json"
+    },
+    "forge/runs/sdd-reconciliation-20261017/user-journey-owner.json": {
+      "content_hash": "21a8e256bc84eb3de472c4d073108dc66105a7ffdd3ba9c7ae8210f6cfe96f48",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/sdd-reconciliation-20261017/user-journey-owner.json"
+    },
+    "forge/runs/sdd-reconciliation-20261017/wireframes-owner.json": {
+      "content_hash": "5bafff996bd09eb80ff85bb33ff710ce17e62adb026ac7cc51ee353a5fa50d8c",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/sdd-reconciliation-20261017/wireframes-owner.json"
+    },
+    "forge/runs/sound-media-playback-20260923/scope.json": {
+      "content_hash": "7a5aa70bf52fa77a4dea9e39e5a49453c6be40c5b1a347632f4da4f5294455a0",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/sound-media-playback-20260923/scope.json"
+    },
+    "forge/runs/source-persistence-20260926/scope.json": {
+      "content_hash": "d0a6d9c8e2b513a16d634dea61dff1b76f260a9591cc8187ead7a3e2c3bf69aa",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/source-persistence-20260926/scope.json"
+    },
+    "forge/runs/sticky-view-nav-20260925/scope.json": {
+      "content_hash": "1c435ac11b0ebfa820d965c4576cbef0eb92ea7cfccfa4cffc864d4971b0e15e",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/sticky-view-nav-20260925/scope.json"
+    },
+    "forge/runs/upstream-usage-20260926/implementation-prompt.json": {
+      "content_hash": "b88c8f780d1cee48c2654c9e926356a81c4b33b44170646d5a225252b1ecf11c",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/upstream-usage-20260926/implementation-prompt.json"
+    },
+    "forge/runs/upstream-usage-20260926/scope.json": {
+      "content_hash": "af637049a6931518b49e9fdf30049230783dd68c9f6e4aa40b70d42227b3e79a",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/upstream-usage-20260926/scope.json"
+    },
+    "forge/runs/upstream-usage-20260926/verification.json": {
+      "content_hash": "84864d07257cfdac94cc5e091a3c844094b8a3563f9067369c152f3edfd47acb",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/upstream-usage-20260926/verification.json"
+    },
+    "forge/runs/usage-activity-20260926/scope.json": {
+      "content_hash": "cb08739ee831e1d9cc029f64c361c9730d520ec62927d60da6f0eb942be3460f",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/usage-activity-20260926/scope.json"
+    },
+    "forge/runs/usage-activity-20260926/verification.json": {
+      "content_hash": "c675305666e04d18abce7e7c47c44e49ac7522c8dd6e3c2c482ad38e996b6d4d",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/usage-activity-20260926/verification.json"
+    },
+    "forge/runs/usage-dashboard-20260926/scope.json": {
+      "content_hash": "f7e2476068a56bd607414ea9eb8a6872ee3342f8825486e998486dd479767bc5",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/usage-dashboard-20260926/scope.json"
+    },
+    "forge/runs/usage-dashboard-20260926/verification.json": {
+      "content_hash": "19051abd9a48836e3126b27196fce580d85376b37bdf11eb70498c5130e4ff25",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/usage-dashboard-20260926/verification.json"
+    },
+    "forge/runs/usage-reasoning-20260926/scope.json": {
+      "content_hash": "ec5aec1e57e72734da70d9ac2c1758fdfd0d5b12faa1f0f807f8ae5d24826156",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/usage-reasoning-20260926/scope.json"
+    },
+    "forge/runs/usage-reasoning-20260926/verification.json": {
+      "content_hash": "bea2d0246df65c85c4fd8134f2b5f6eba754767776d6816ef6d5c203556dc6d6",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/usage-reasoning-20260926/verification.json"
+    },
+    "forge/runs/white-theme-20261008/scoped-override.json": {
+      "content_hash": "fbf2f984cc8d987473e6ac0afce836fcc7aa03877ebdd33a129d7bc4a979089e",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/forge/runs/white-theme-20261008/scoped-override.json"
+    },
+    "instructions/AGENTS.md": {
+      "content_hash": "9e5cd883fcf88d7c1dfa0f24510f1b0f6a9d5152fdb42bcce55fbeb2c907adbf",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/instructions/AGENTS.md"
+    },
+    "instructions/CONSILIUM.md": {
+      "content_hash": "3db326b9650cd84c7849440e9444b1766698a7846a2ffad6c32f9dbabf581f28",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/instructions/CONSILIUM.md"
+    },
+    "instructions/CONSULTING_PLAYBOOK.md": {
+      "content_hash": "ceab28f86e6f5fd30e00cd0d191c3ae182323805adbd63bbb89bcb8032818e8e",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/instructions/CONSULTING_PLAYBOOK.md"
+    },
+    "instructions/RUNTIME_PROMPTS.md": {
+      "content_hash": "77059c713922a54d6f794561c9ace76769e2c8b5a26e9f1db0582204e64054cb",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/instructions/RUNTIME_PROMPTS.md"
+    },
+    "instructions/WORKING_CONTEXT.md": {
+      "content_hash": "4b4d17ce461ea197e38dc974222017529b68cded78b4a5d3d5b8c6d53ecf0796",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/instructions/WORKING_CONTEXT.md"
+    },
+    "package-lock.json": {
+      "content_hash": "3145f2dbbfb81ddaec849b67a415939dcbca39fc6c66ffbaa9c1fe02d23a83f0",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/package-lock.json"
+    },
+    "package.json": {
+      "content_hash": "4be5b11501e7f23c7a9702bcc8285e324e8e918b9d8f5c07817fc2f41c468a8d",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/package.json"
+    },
+    "public/conversation-list.css": {
+      "content_hash": "31e233e7eb831f12fdf0a2b0fae569bb2061181a1fb7386a7e39310ca4a9f189",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/public/conversation-list.css"
+    },
+    "public/index.html": {
+      "content_hash": "9e5d7062d2a89a7959d151415d1587a92e7014a6c2cdce17c86b503b0319f71a",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/public/index.html"
+    },
+    "public/nanoduck-original.svg": {
+      "content_hash": "e8b786961dc9a3b4d5450d3d20c3fd25cb6b2a9e7dc3034d23202d1a6dd2f528",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/public/nanoduck-original.svg"
+    },
+    "public/nanoduck.svg": {
+      "content_hash": "723d3b4201c5fc6ffa3d30a1e5ed5151f616d436919d15f3642827a16ed7021d",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/public/nanoduck.svg"
+    },
+    "public/sounds/table-taps-250ms-v5.wav": {
+      "content_hash": "5b05430aee3fc5b4462deef39a0d2209905a13f464524f547f36d894e7097eb4",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/public/sounds/table-taps-250ms-v5.wav"
+    },
+    "public/styles.css": {
+      "content_hash": "f7e0580575a7592ac1d07a4975ed892c573b731e60e6837ec0f252ea95060553",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/public/styles.css"
+    },
+    "scripts/benchmark-critic-cache.mjs": {
+      "content_hash": "cfa8f27a6e5f03046a4359b578e184f8c2159bffba440e738ae7b921668d8f5d",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/scripts/benchmark-critic-cache.mjs"
+    },
+    "scripts/benchmark-research.mjs": {
+      "content_hash": "9869bdf326abe2296e6c2158dcabef237efbdf957660fd1a60ff2f81db376c96",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/scripts/benchmark-research.mjs"
+    },
+    "scripts/browser-active-discussion.mjs": {
+      "content_hash": "ce8dc71d83dd230eddf6fea90c487dc1d154127abb2f8b051efcb4a4822d5985",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/scripts/browser-active-discussion.mjs"
+    },
+    "scripts/browser-check.mjs": {
+      "content_hash": "66bb2b073c407effb4c3067f598e4f276ede8ea4e2287bc524cc59b6a99ab51b",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/scripts/browser-check.mjs"
+    },
+    "scripts/browser-floating-glass.mjs": {
+      "content_hash": "d465e6063d30c0146fd8db17537595f98d55c8058f83e4899fe2b5bf96401e8c",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/scripts/browser-floating-glass.mjs"
+    },
+    "scripts/browser-local-entry.mjs": {
+      "content_hash": "2821d3324226190a8ec06578ecad447a24aebab768477bd6b003b26e7c7cf8ea",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/scripts/browser-local-entry.mjs"
+    },
+    "scripts/browser-logoff.mjs": {
+      "content_hash": "c061c7c26c931f40c98dc2afe8179122badb91cb64b3ebd5d4f8b6b4acac46a0",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/scripts/browser-logoff.mjs"
+    },
+    "scripts/browser-markdown-tables.mjs": {
+      "content_hash": "c361c2a8038deff9a42f8924d3222c44e826a5173e4bfcc6973aff5ea735aa87",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/scripts/browser-markdown-tables.mjs"
+    },
+    "scripts/browser-model-settings.mjs": {
+      "content_hash": "d4ae30740be8ee38c14fe4c6b27996479deb145d590a50c20b9abb00c3985e45",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/scripts/browser-model-settings.mjs"
+    },
+    "scripts/browser-navbar-glass.mjs": {
+      "content_hash": "6e401f02fe6a20acfb3b59b1d4173bc3bbac1ab3c67ce0d4bf8408e34803e446",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/scripts/browser-navbar-glass.mjs"
+    },
+    "scripts/browser-notification-audio.mjs": {
+      "content_hash": "f65d58432c3416be4fd9fc1c496a59d8e42283d16cedacb2af415e393e04fff8",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/scripts/browser-notification-audio.mjs"
+    },
+    "scripts/browser-progress-recovery.mjs": {
+      "content_hash": "65b6dd6f888c761b60da5576d40bb02ebc0df6d401a04ef07df9a907774a0ce1",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/scripts/browser-progress-recovery.mjs"
+    },
+    "scripts/browser-provider-connection.mjs": {
+      "content_hash": "cc1e98aeb71d3aa3971ed8d40b90a54f0c5934010f54a55f995ec85c4910e5ca",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/scripts/browser-provider-connection.mjs"
+    },
+    "scripts/browser-reading-mode.mjs": {
+      "content_hash": "688268698e39b71dd4228ad8c143bb9c7e490b618182fc49c11a78dc28ec0acc",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/scripts/browser-reading-mode.mjs"
+    },
+    "scripts/browser-send-retry.mjs": {
+      "content_hash": "2a900f211de10f8669d9e0effb624d14c330b3d3b8341f9a122dff475d247b96",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/scripts/browser-send-retry.mjs"
+    },
+    "scripts/browser-theme.mjs": {
+      "content_hash": "c5584e052cfcd5acc66ce20455c7ac1e7374e7fdb1a0a53b01ac97ae24a4e8c8",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/scripts/browser-theme.mjs"
+    },
+    "scripts/browser-usage.mjs": {
+      "content_hash": "f9086de53d4c614e34a1f91008b1947f7199f4fae9f063d2bdab170974764d61",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/scripts/browser-usage.mjs"
+    },
+    "scripts/check-artifacts.mjs": {
+      "content_hash": "5078a5f385c7e59a475152cae16e5a9f8b7b2656417d45b5a133118ceae7a73c",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/scripts/check-artifacts.mjs"
+    },
+    "scripts/claude-login.mjs": {
+      "content_hash": "c6c164a2461ae9e0ef862b9ed6c9a2573ff1f7151f407407a033fcef8c9be339",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/scripts/claude-login.mjs"
+    },
+    "scripts/measure-consultation-workload.mjs": {
+      "content_hash": "bed0ad4c7e722fff9d8dbe30cb405d2431d846f6344facee209b0bee1648cf2f",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/scripts/measure-consultation-workload.mjs"
+    },
+    "scripts/test.mjs": {
+      "content_hash": "e8d1ecf30e14c106672ed1e0480f2137e54bd4afe46865f88f6739017c1e3b74",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/scripts/test.mjs"
+    },
+    "src/client/app.js": {
+      "content_hash": "aa51d56cc61eedf536bef7911acf9922e3503a23ceadb6f673855e53f8e2ba31",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/client/app.js"
+    },
+    "src/client/markdown.js": {
+      "content_hash": "d46640cebfab47f13ddb2924488ba67f5ff4e4e9af692dcc00df69cb64dba403",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/client/markdown.js"
+    },
+    "src/client/navbar-glass.js": {
+      "content_hash": "1402acc8312a3e7c4319be14a9a063c68b9720b07c527e8798e7a73aee70152c",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/client/navbar-glass.js"
+    },
+    "src/client/notification-audio.js": {
+      "content_hash": "74ff9dc7b165078dac275207f25fff4274168912228f686730d8f27bb922653c",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/client/notification-audio.js"
+    },
+    "src/client/refresh-state.js": {
+      "content_hash": "809077228b374cd38a4affe7c2831d674c981259b1d975082f64df3bbb298e95",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/client/refresh-state.js"
+    },
+    "src/client/theme.js": {
+      "content_hash": "a57731bc8c54b963e40935b0b9d09a86021fae00a3119f2aad109fd8e4fbae39",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/client/theme.js"
+    },
+    "src/server/account-usage.mjs": {
+      "content_hash": "c1c765f6f0529a6dbd9b9ef1dc3aa9649c15e6f5988755ddc5d6d189fc3b4500",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/account-usage.mjs"
+    },
+    "src/server/attachments.mjs": {
+      "content_hash": "f87e7b6c1ec9e5726c584cb7e794df32a20bb17cd0d5307156f7a6911c8a6c38",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/attachments.mjs"
+    },
+    "src/server/auth.mjs": {
+      "content_hash": "1ff7afa261556efb4644f88cd4a386dbe4bb02ce235b8def20a5bede7622f563",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/auth.mjs"
+    },
+    "src/server/child-process.mjs": {
+      "content_hash": "70b6e1136b18205a7e38b71086014773e06513f49b9147e8a26f68ff56b92fd9",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/child-process.mjs"
+    },
+    "src/server/claude-provider.mjs": {
+      "content_hash": "cb089a10008b187aa28b097d368bdb973e4b5b91bb132167853179e98dabcb83",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/claude-provider.mjs"
+    },
+    "src/server/claude-runtime.mjs": {
+      "content_hash": "61f17d17096497db5b19cf08a512d2f7de7f39734a8409078868eefb281a0490",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/claude-runtime.mjs"
+    },
+    "src/server/codex-provider.mjs": {
+      "content_hash": "edc58feea851d5fb051d02bcb2302cec1e6ab07833ddbb2fd0149da7ac1fcbfa",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/codex-provider.mjs"
+    },
+    "src/server/config.mjs": {
+      "content_hash": "5e244f99a4897fbf26c78650061d6bfd8c83dfb0fe4fa18b77e06618e25d8cdb",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/config.mjs"
+    },
+    "src/server/configuration-recovery.mjs": {
+      "content_hash": "a8eb806c8e9e6c3064f1a050fe4856b8f36e073f7488ef6a9e3637446ab600f6",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/configuration-recovery.mjs"
+    },
+    "src/server/consultation-parallel.mjs": {
+      "content_hash": "4f45da9a07b8a8f656038ebebd9aef22a18a9390d43886f631fdb0a0e7b616ea",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/consultation-parallel.mjs"
+    },
+    "src/server/consultation.mjs": {
+      "content_hash": "c398ed2c6059ba33d5498bab4a6e248a243ac5fd01998374a5f568d27e37a6be",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/consultation.mjs"
+    },
+    "src/server/content-policy.mjs": {
+      "content_hash": "9ceedf022c493a1558c634f8c3a1d7911d81d819fff030068e1e87563857ca6c",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/content-policy.mjs"
+    },
+    "src/server/conversation-export.mjs": {
+      "content_hash": "56a746b317f2d846b771ce28230ebdba7a3d3469c5b92a954957e5a22528feeb",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/conversation-export.mjs"
+    },
+    "src/server/conversation-title.mjs": {
+      "content_hash": "5cffbf51b0db74911be9e6130ec4902f16cfa456d965122e819d5049bf0fa4a5",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/conversation-title.mjs"
+    },
+    "src/server/crypto.mjs": {
+      "content_hash": "e52eaf0dfb7dc2d7cf8a02a6c5cd4016b998137790927d7f386dda2b02618a3b",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/crypto.mjs"
+    },
+    "src/server/forbidden-environment.mjs": {
+      "content_hash": "24be12b0b9e80fd1440d0211af334482417bf68fc5d97fce16b98e021f84da34",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/forbidden-environment.mjs"
+    },
+    "src/server/image-structure.mjs": {
+      "content_hash": "be601c75542ed0bd6b3d7f94d22ffb4fb9556d62fcc958f3b127d714b2b5e80b",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/image-structure.mjs"
+    },
+    "src/server/index.mjs": {
+      "content_hash": "fa70bce682bb212a21d64b85c74cdb0f692824f41731d8c190a4dd70aaf70c18",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/index.mjs"
+    },
+    "src/server/instruction-bootstrap.mjs": {
+      "content_hash": "1ab76d71e6cdae69924d9b40f47eea7c5eeb076d879113906433fb4066a09a79",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/instruction-bootstrap.mjs"
+    },
+    "src/server/instruction-documents.mjs": {
+      "content_hash": "175267da30c8b1ad109bd6f10d86306d0a41694c7a57aa37617c40efd60abad7",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/instruction-documents.mjs"
+    },
+    "src/server/local-request.mjs": {
+      "content_hash": "a33f62e799c09cbb32ca826bae0924732c25e5ee74b1a53123bd4bbf2f8ecbf7",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/local-request.mjs"
+    },
+    "src/server/local-setup.mjs": {
+      "content_hash": "9c55d4fad8deab40d2734497acf45996ab23248516d63a5440872abc7b8f956a",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/local-setup.mjs"
+    },
+    "src/server/local-state.mjs": {
+      "content_hash": "e771922fbf3ee6dd14539da9c33387a86d3c8f5890d8cdbd8a4774e4a60a213c",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/local-state.mjs"
+    },
+    "src/server/local-store.mjs": {
+      "content_hash": "6c32bf7ea86cc953bb56c7c00b2c044ed5bf853e263ceb5bb730b2ff822937d9",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/local-store.mjs"
+    },
+    "src/server/output-safety.mjs": {
+      "content_hash": "38fdf623cffa210c94f1340cab8860eb339e8a8afdcafb4df07455d9ea0b6d84",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/output-safety.mjs"
+    },
+    "src/server/parallel-contract.mjs": {
+      "content_hash": "367d9c650068ed15501831d6939481983b76d319f1bde28c5a88b9e09400a464",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/parallel-contract.mjs"
+    },
+    "src/server/password.mjs": {
+      "content_hash": "0d258702a65d1c859ebbd81f7f42dcf3fe81256aa29a23178b1439fc92dbc419",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/password.mjs"
+    },
+    "src/server/preflight.mjs": {
+      "content_hash": "6d5c678af68e997cf1cb90db13e4ceff86e66272d30107f5c843ce4c79eca236",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/preflight.mjs"
+    },
+    "src/server/private-files.mjs": {
+      "content_hash": "46c816cc38aed94204121d5d1270d5d6e09203af9d77e5cc97e822387f247e66",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/private-files.mjs"
+    },
+    "src/server/prompt-contracts.mjs": {
+      "content_hash": "fb06c1e7ea8a623323ffd4182d63fd89293eaa0e1aa0f092205c5c68a3ce8c0e",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/prompt-contracts.mjs"
+    },
+    "src/server/provider-context.mjs": {
+      "content_hash": "e330b379fda22422cc0e3c255a695d0f2fa0dcd842c4ede1d55503a7262275fe",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/provider-context.mjs"
+    },
+    "src/server/providers.mjs": {
+      "content_hash": "fe48bc59ef1217ade5f8cd4e6b593a7c0c27b142e69b70a86dd92ff0ee167e8e",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/providers.mjs"
+    },
+    "src/server/read-regular-file.mjs": {
+      "content_hash": "8149de11cc060bf2f3b1d7799b54d1904e92255bba2cb470770125e230c056fd",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/read-regular-file.mjs"
+    },
+    "src/server/recovery-cli.mjs": {
+      "content_hash": "0df268689521002c5bacb8193b7814c5ab325bbe6d5cdab0f1057734c0c00fae",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/recovery-cli.mjs"
+    },
+    "src/server/recovery.mjs": {
+      "content_hash": "8c75b955aec826a4689a761a873f4c9751f432548458911bddba84988af7a925",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/recovery.mjs"
+    },
+    "src/server/research-evidence.mjs": {
+      "content_hash": "cca923c81f5f93902255031af867e66905fb7b4f096acf6ad352458842bed219",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/research-evidence.mjs"
+    },
+    "src/server/setup.mjs": {
+      "content_hash": "655b06b47545a85b81fde59d2b32c9cfd8a0335d9b958f02e591cf750d835776",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/setup.mjs"
+    },
+    "src/server/start.mjs": {
+      "content_hash": "18c323b0b8b3e8d3eb5b003b99414d822cecfcb0aa7f5a5168284372dd864dda",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/start.mjs"
+    },
+    "src/server/store.mjs": {
+      "content_hash": "79075ee0de88e5c768d41e31035b01ea921b7d186a99795db9381dc6ec7eea35",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/store.mjs"
+    },
+    "src/server/turn-deadline.mjs": {
+      "content_hash": "96fc6912beb7b7c8c6f788b88bed7c889a459d814257763ff565ec3f61374a61",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/turn-deadline.mjs"
+    },
+    "src/server/usage.mjs": {
+      "content_hash": "3773a29ea567300598c63d81e67aeb970902682c4813d9a1dda651ffee49cf05",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/usage.mjs"
+    },
+    "src/server/validation.mjs": {
+      "content_hash": "ac9efcf737e41723f7084f47653de5daee840f3988ce6e1c0d012dd25fc34c23",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/src/server/validation.mjs"
+    },
+    "test/account-usage.test.mjs": {
+      "content_hash": "a2b52d6b66c69790acacfaf0880dd6fc2f8ca59d860d2f125d5b875a435fedd9",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/account-usage.test.mjs"
+    },
+    "test/claude-process.test.mjs": {
+      "content_hash": "93bacb2236c1cc25834df51fe5187d7b53f4509af35c5bb42a6f30b2d07452fc",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/claude-process.test.mjs"
+    },
+    "test/claude-provider.test.mjs": {
+      "content_hash": "33c76334df6202d86713b5f6fdca4c46a426adc776614a801ae09981aba3f0b5",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/claude-provider.test.mjs"
+    },
+    "test/codex-provider.test.mjs": {
+      "content_hash": "8674cde154e6c810860eeb7d1cf43ea1952ccd50c25824fb20471e4568271cc8",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/codex-provider.test.mjs"
+    },
+    "test/consolidation.test.mjs": {
+      "content_hash": "3184b7d1ecc4b62577becfa7cac7834aa568a51ae3d0ec3de4bf1f0a0ffb77f9",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/consolidation.test.mjs"
+    },
+    "test/consultation.test.mjs": {
+      "content_hash": "b0d4a54478edcb566804f786c2175bcac76bb858ae684fd96d3d25672c43923d",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/consultation.test.mjs"
+    },
+    "test/context-economy.test.mjs": {
+      "content_hash": "fcdcbe012e5333312dbf6d2eb7009cee39ad68455e0b26206a6aa39da81536d5",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/context-economy.test.mjs"
+    },
+    "test/conversation-export.test.mjs": {
+      "content_hash": "e9599a89d4064abc978dd29e930005b733a9e3a38a80b20fc1fdec1d7f5d2259",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/conversation-export.test.mjs"
+    },
+    "test/conversation-title.test.mjs": {
+      "content_hash": "b94ece6788681ecff3c5d05f7178ff235125b5789907827283f1a77384ac633a",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/conversation-title.test.mjs"
+    },
+    "test/core.test.mjs": {
+      "content_hash": "d1dfbde26432e2ce20821222e51e58fdf7e70d65607b511cfb0709d2edb9d343",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/core.test.mjs"
+    },
+    "test/fixtures/auth-file-codex.mjs": {
+      "content_hash": "71cfd531d94320710a8f45b54845ebbc28e358671dca61f7a752393cdb88aa86",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/fixtures/auth-file-codex.mjs"
+    },
+    "test/fixtures/fake-codex.mjs": {
+      "content_hash": "5478378fb1cd967cd09e098c8ff76d8c8321ff594b5a66e976f8a45d467485da",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/fixtures/fake-codex.mjs"
+    },
+    "test/fixtures/images.mjs": {
+      "content_hash": "40c0da0adb57105e9913aa5d3a6c8e7a3952aced06c63a824f66902c2df05110",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/fixtures/images.mjs"
+    },
+    "test/fixtures/local-runtime.mjs": {
+      "content_hash": "0d1d37053581b4541e7a8d7a13fbfd25c5ecc72729175df1980ffb9900c47d7f",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/fixtures/local-runtime.mjs"
+    },
+    "test/fixtures/local-store-owner.mjs": {
+      "content_hash": "fecf8b534107a55e8c286f7b61bf7a3f281fc0b57e7bb275ef96f9c5bc7a926d",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/fixtures/local-store-owner.mjs"
+    },
+    "test/fixtures/private-permissions-child.mjs": {
+      "content_hash": "7e67494a57bf1f4805af633337d9baa6a2c6bd737160327edf06bb039d38600d",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/fixtures/private-permissions-child.mjs"
+    },
+    "test/fixtures/runtime-instructions.mjs": {
+      "content_hash": "bbbbbad81efb9ce46718d43c37f3117b0ab03b8b2976319f2c9fc88854f0a4ec",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/fixtures/runtime-instructions.mjs"
+    },
+    "test/http.test.mjs": {
+      "content_hash": "34496720bf70a272bc527e424970b747811c2fafe9f5277226502c1a80cd35ee",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/http.test.mjs"
+    },
+    "test/image-structure.test.mjs": {
+      "content_hash": "d41f39be42f7cff977e88fdbbc8e35f0d5e1e9f316ce0ab444d5ef6d28bae8a9",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/image-structure.test.mjs"
+    },
+    "test/local-config-auth.test.mjs": {
+      "content_hash": "ab45104a750e37c33f3956361c7e840219a8c224f0bada37321887e3750464f2",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/local-config-auth.test.mjs"
+    },
+    "test/local-store.test.mjs": {
+      "content_hash": "e06bfa54615b9583465ab8a4e6e91f6cb37dcf710f76cb8ab9ee2c610ee5b65b",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/local-store.test.mjs"
+    },
+    "test/markdown-table-export.test.mjs": {
+      "content_hash": "a0132f7322958ecf1f3f52f494607e25efceeb2c71fc5e396f3859a7fc1cd06e",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/markdown-table-export.test.mjs"
+    },
+    "test/markdown.test.mjs": {
+      "content_hash": "0f62f50e952354344ca24c9206c16e0575c9d26e0e8602460d22e6d5845b6ddd",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/markdown.test.mjs"
+    },
+    "test/notification-audio.test.mjs": {
+      "content_hash": "c05d85dba03ba292890c363c3f2221834e38ca2c85d1eb80145bb180147234d9",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/notification-audio.test.mjs"
+    },
+    "test/parallel-consultation.test.mjs": {
+      "content_hash": "a2037f5898141f6e121ab7819aaf682d15f4be86c37b20dfc6ad571fa2ca3503",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/parallel-consultation.test.mjs"
+    },
+    "test/preflight.test.mjs": {
+      "content_hash": "eb0749f9ec74918ec80d6dfdec9cb7ed3fb4044526f1bb26dc0dc2b3e84b7cdd",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/preflight.test.mjs"
+    },
+    "test/private-files.test.mjs": {
+      "content_hash": "c6805a119991b0c6e16c3162cbe34de1e10cc600633a408126209a13fc1d5752",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/private-files.test.mjs"
+    },
+    "test/project-consolidation.test.mjs": {
+      "content_hash": "dcdb2681a740b65685906e5d38f2a3d437dfc1fb2f27acbc259ad19e6bac7988",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/project-consolidation.test.mjs"
+    },
+    "test/prompt-contracts.test.mjs": {
+      "content_hash": "3d80672647e6c0a384fed773a76755b98ae1ccd19ca6089a1f2accd00392c5fb",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/prompt-contracts.test.mjs"
+    },
+    "test/read-regular-file.test.mjs": {
+      "content_hash": "13c3c95ceabf2b1414a9196aa30c160d581effaa63421859499ce1a310a3e9b1",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/read-regular-file.test.mjs"
+    },
+    "test/recovery-cli.test.mjs": {
+      "content_hash": "68de8337f7951630e729c8198968a90f716dae7554742336a7b13b5f7ff445c9",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/recovery-cli.test.mjs"
+    },
+    "test/refresh-state.test.mjs": {
+      "content_hash": "1fde145d479b7f7fa20de7ecd47c428bc7eb16608b32632fbee8958ffc87b3b9",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/refresh-state.test.mjs"
+    },
+    "test/research-evidence.test.mjs": {
+      "content_hash": "32d6609cafb7f4444179ccf1affef0b5fe5604c49dfff43e2fd6dd31cf38a40f",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/research-evidence.test.mjs"
+    },
+    "test/review-fixes.test.mjs": {
+      "content_hash": "5bcf4fc0ad0372e3509ef798dc358d5a341e139a60911e656467113193712bfc",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/review-fixes.test.mjs"
+    },
+    "test/source-persistence.test.mjs": {
+      "content_hash": "7ff580a89068bb94afc423b8d474a56bb2ab0e16ad59d4c1bc988fdaeaf7bf15",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/source-persistence.test.mjs"
+    },
+    "test/turn-deadline.test.mjs": {
+      "content_hash": "df517be82eca7f99dc93b33e3637b34e8f03dadf370a1b0e4da24e9b5b91d244",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/turn-deadline.test.mjs"
+    },
+    "test/usage.test.mjs": {
+      "content_hash": "fae3cf00ec2a2e274421c114800e8b808c110ca0b04ac40845f065627ea238d3",
+      "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files/test/usage.test.mjs"
+    }
+  },
+  "manifest_ref": {
+    "content_hash": "e55ba4969b227cf163258cde3541436e04cb4fe021b4b619df6cb1d85e67840b",
+    "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/manifest.json"
+  },
+  "snapshot_root": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/files",
+  "version": 2
+}

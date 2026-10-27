@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "event": "explicit_existing_change_addition",
+  "role": "user",
+  "recorded_at": "2026-09-22T18:53:57.350592+00:00",
+  "timestamp_basis": "Tool-recording time during this active turn; original user-message transport timestamp is unavailable.",
+  "source": "Current task user request, relayed verbatim by the root operator to the SDD owner.",
+  "message": "Додай ще одну модель до всіх налаштувань - GPT-6 Sol.",
+  "scope": "Add exact gpt-6-sol as an additional model for Head/shared specialists and the Codex Critic. Preserve saved/default selections, independent provider branches and subscription-only authorization. Selectability and efforts require the current authenticated catalog.",
+  "preserved": [
+    "Saved/default Astra/xhigh choices",
+    "Existing optional Claude choices",
+    "Electric A v8 and all frozen evidence",
+    "Private local data, current authentication and no API billing fallback",
+    "Existing security requirements and formal QA execution states"
+  ],
+  "limitations": [
+    "Catalog presence is not a successful model invocation, entitlement or quota proof.",
+    "No model substitution, inferred effort support or new whole-design approval is authorized."
+  ],
+  "working_language": "Retain the recorded English canonical-document language; preserve the Ukrainian request verbatim and both product locales."
+}

@@ -1,0 +1,82 @@
+# Model settings
+
+22 September 2026. These are preserved user selections, not proof of current
+provider availability or a completed model call.
+
+| Role | Provider | Model | Reasoning |
+|---|---|---|---|
+| Head and specialists | Codex | `gpt-6-astra` | `xhigh` |
+| Critic | Codex | `gpt-6-astra` | `xhigh` |
+
+GPT-6 Sol (`gpt-6-sol`) is an additional explicit Codex choice for both
+Head/shared specialists and Critic. The authenticated Codex `0.155.1` catalog
+reports `low`, `medium`, `high`, `xhigh`, `max` and `ultra`, with `medium` as the
+provider default. These supported choices do not change NanoDuck’s preserved
+Astra / `xhigh` selections or any saved preference. The earlier `0.153.1` catalog
+did not expose this exact model; `gpt-5.6-sol` is distinct and is never a substitute.
+See the [bounded catalog observation](../forge/runs/gpt-6-sol-20260922/catalog-observation.json).
+Show the requested model as unavailable if the current authenticated catalog
+omits it, and never invent an effort list or infer a completed model call from
+catalog presence.
+
+GPT-6.1 Sol (`gpt-6.1-sol`) is a further explicit Codex choice for Head/shared
+specialists and the Codex Critic. [OpenAI's model reference](https://developers.openai.com/api/docs/models/gpt-6.1-sol)
+lists `low`, `medium`, `high`, `xhigh` and `max` reasoning. The app accepts only
+the intersection of that set and the current authenticated Codex app-server
+catalog. The first Codex `0.159.2` catalog inspection on 30 September 2026 did not
+advertise this model. A later authenticated inspection at 15:17 UTC listed the
+exact model with all five efforts. Settings follows the current catalog, so the
+choice can now be selected on this connection. Neither the API reference nor
+catalog presence proves a completed model call or durable entitlement. No saved
+choice, default, billing route or active consultation changes automatically.
+
+The optional Claude Code Critic branch has no inferred saved preference. When
+first selected, it offers Opus 5 (`claude-opus-5`) with High as its initial effort;
+available effort labels are Low, Medium, High, Extra and Max. At the isolated CLI
+boundary, preserve the exact model ID and map only Extra to `xhigh`. Opus 5.5
+(`claude-opus-5-5`) is an additional explicit choice with the same five efforts.
+Existing Opus 5 / High and saved Codex selections remain unchanged; adding a model
+never selects it automatically. Anthropic defaults Opus 5.5 to Medium, distinct
+from NanoDuck’s retained High initial preference. Successful Claude output must
+report exactly the selected model in `modelUsage`; missing, mixed or substituted
+model identities are rejected. Current packages are pinned to Codex `0.159.2`
+and Claude Code `2.1.280`, the minimum documented version for Opus 5.5.
+
+Sources checked on 22 September 2026: [Anthropic release](https://www.anthropic.com/claude-opus-5-5)
+and [Claude Code model configuration](https://code.claude.com/docs/en/model-config).
+The CLI `opus` alias changes across releases and must not stand in for a saved
+exact model ID. An authenticated catalog is not proof of model entitlement,
+quota or a completed model call.
+
+Use authenticated subscription capabilities to validate a selected tuple before
+accepting it. An unavailable model or expired subscription stays unavailable;
+never silently substitute a model or effort. Preserve independent consultant and
+Critic settings. Provider authorization belongs to the local CLI, not a browser
+form containing credentials. The optional Claude route accepts the current local
+user’s ordinary Claude Code subscription sign-in, established with
+`npm run claude:login` on the server computer. `CLAUDE_CONFIG_DIR`, when set,
+must identify the same native credential location for login and NanoDuck. An
+explicit `CLAUDE_CODE_OAUTH_TOKEN` remains a separate isolated mode. Check native
+first-party subscription status before selection and each invocation; API-key,
+Console-billed and third-party routes cannot qualify. After official sign-in,
+Settings → Check connection refreshes availability while preserving unsaved
+choices; it neither creates a grant nor proves a model call. See the official
+[authentication guide](https://code.claude.com/docs/en/authentication) and
+[CLI reference](https://code.claude.com/docs/en/cli-reference). No API-key billing fallback, automatic credits or
+Claude Fast Mode is permitted.
+
+Head and specialists has a separate Check connection button for the Codex
+account/catalog and its current exact model/reasoning selection. Critic retains
+its Claude reconnection check. Both preserve unsaved settings and document edits;
+their results describe inspected capabilities, not a completed model response.
+If NanoDuck started before Codex sign-in was configured, restart it after that
+local setup so the runtime can discover the new authorization.
+
+Specialist count and discussion depth are separate preferences. Count supports
+1, 2, 3, 5 and Auto, excluding Head and Critic. Auto selects one through five
+specialists. For the U-09 contract, fixed depth selects 1, 3 or 5 team review rounds; Auto lets Head close when useful, up to ten. Only consultants with material findings must reply, and Critic explicitly assesses correction fulfillment. Defaults remain two specialists and one review round. Existing accepted legacy runs retain their original exchange/depth semantics until terminal; repository implementation is present; live verification remains separate. Codex uses a 540,000 ms inactivity budget renewed only by matching-turn progress, with a 1,800,000 ms absolute ceiling. Claude uses a 1,800,000 ms absolute inference deadline, including silent Max reasoning. Subscription sign-in inspection retains its separate 20,000 ms deadline. Exact selected model and reasoning settings never change to work around a timeout.
+
+Each accepted consultation snapshots its exact model, effort, specialist count,
+depth and effective instructions. Later preference or instruction changes affect
+future work only. Saved local data survives application restarts; this refactor
+does not read or import another installation's private records.

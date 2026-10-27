@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "event": "accepted_scoped_baseline_override",
+  "actor": "user",
+  "approved_at": "2026-10-08T18:16:12.783598+00:00",
+  "timestamp_basis": "Tool-recording time in this active task; original message transport timestamp unavailable.",
+  "prompt_id": "dark-matte-prompt-20261008",
+  "request": "make prompt in the black theme blacked matt background.",
+  "baseline_id": "nanoduck-electric-a-v8-20260914",
+  "target_hash": "93231814431a1bbbf8a0ba07f515eefcfd63193534189898b70766ed45938cbc",
+  "tree_hash": "1de020dcfe48f3feb80db0e58ba911b821825b48730d32c72d9518ad512eb0d9",
+  "scope": "Matte black composer in the dark theme with readable light text and controls. Retain matte white in the white theme. Preserve sticky geometry, keyboard clearance, draft preservation, reading controls and theme-aware opaque/system-color accessibility fallbacks.",
+  "evidence_limit": "Explicit color-only scoped correction; frozen Electric A v8 retained. No whole-product release claim or full-unit metadata migration."
+}

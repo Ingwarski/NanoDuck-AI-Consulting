@@ -1,0 +1,153 @@
+{
+  "refs": [
+    {
+      "artifact_id": "a5c46e2a02f6832c8652fd43597ef9cfa12efc78ba33b1ce4724e8a0d0b1b59d",
+      "bindings": {
+        "base_revision": "ed52bf12a7f07d451717cbdd80a2fe37d25964ba",
+        "evaluated_plan_hash": "10fa5ffb33df222c3a9d7e297fc0ab91dc55f249ecfb186c353bf2d78dc32556",
+        "purpose": "CI maintenance and SDD record migration"
+      },
+      "kind": "verification",
+      "locator": {
+        "key": "projects/f1529de7-d1a9-4743-bb3f-9bc05edd21c5/packs/097b28da0832954ad37e90ae9ffe43a8438ee8197ee80d8a0aad6f2fbda040ae.zip",
+        "length": 38573,
+        "member": "objects/632e4dfb2093e3f7236debe7c74ce73ee042928a0aeb8394e790427f37494fb0",
+        "object_id": "1GjvBllMxKdJHpJkoyhHzp3D1JzWCBE-i",
+        "offset": 0,
+        "pack_sha256": "097b28da0832954ad37e90ae9ffe43a8438ee8197ee80d8a0aad6f2fbda040ae",
+        "pack_size": 125782,
+        "provider": "google-drive",
+        "sha256": "632e4dfb2093e3f7236debe7c74ce73ee042928a0aeb8394e790427f37494fb0",
+        "store_id": "da4d8f6e-9337-44f1-845b-599720f6331f"
+      },
+      "original_path": "producer.log",
+      "provenance": {
+        "executed_at": "2026-10-27T22:58:36.798878+00:00",
+        "executor": "Codex lead through the managed verification producer",
+        "run_id": "sdd-records-migration-20261028-final",
+        "unit_id": "sdd-records-maintenance"
+      },
+      "retention": {
+        "class": "current_acceptance",
+        "protections": [],
+        "sealed_at": "2026-10-27T22:59:00.876255+00:00"
+      },
+      "schema": "evidence-bytes-v1",
+      "sha256": "632e4dfb2093e3f7236debe7c74ce73ee042928a0aeb8394e790427f37494fb0",
+      "size": 38573,
+      "version": 1
+    },
+    {
+      "artifact_id": "d840debc961e190ab011ad817f1718c7c0c86ed13fbcb583cf06308e879181f9",
+      "bindings": {
+        "base_revision": "ed52bf12a7f07d451717cbdd80a2fe37d25964ba",
+        "evaluated_plan_hash": "10fa5ffb33df222c3a9d7e297fc0ab91dc55f249ecfb186c353bf2d78dc32556",
+        "purpose": "CI maintenance and SDD record migration"
+      },
+      "kind": "verification",
+      "locator": {
+        "key": "projects/f1529de7-d1a9-4743-bb3f-9bc05edd21c5/packs/097b28da0832954ad37e90ae9ffe43a8438ee8197ee80d8a0aad6f2fbda040ae.zip",
+        "length": 1540,
+        "member": "objects/45396d4328b2b1d1708a6aed78293be3f4fbfe47e7c974bfaeb0a888c332907a",
+        "object_id": "1GjvBllMxKdJHpJkoyhHzp3D1JzWCBE-i",
+        "offset": 0,
+        "pack_sha256": "097b28da0832954ad37e90ae9ffe43a8438ee8197ee80d8a0aad6f2fbda040ae",
+        "pack_size": 125782,
+        "provider": "google-drive",
+        "sha256": "45396d4328b2b1d1708a6aed78293be3f4fbfe47e7c974bfaeb0a888c332907a",
+        "store_id": "da4d8f6e-9337-44f1-845b-599720f6331f"
+      },
+      "original_path": "sdd-audit.json",
+      "provenance": {
+        "executed_at": "2026-10-27T22:58:36.798878+00:00",
+        "executor": "Codex lead through the managed verification producer",
+        "run_id": "sdd-records-migration-20261028-final",
+        "unit_id": "sdd-records-maintenance"
+      },
+      "retention": {
+        "class": "current_acceptance",
+        "protections": [],
+        "sealed_at": "2026-10-27T22:59:00.876255+00:00"
+      },
+      "schema": "evidence-json-v1",
+      "sha256": "45396d4328b2b1d1708a6aed78293be3f4fbfe47e7c974bfaeb0a888c332907a",
+      "size": 1540,
+      "version": 1
+    },
+    {
+      "artifact_id": "98a28ede4156f2b84164f1f550322f3a008af4cbbded4ee5603aa262ea0c8537",
+      "bindings": {
+        "base_revision": "ed52bf12a7f07d451717cbdd80a2fe37d25964ba",
+        "evaluated_plan_hash": "10fa5ffb33df222c3a9d7e297fc0ab91dc55f249ecfb186c353bf2d78dc32556",
+        "purpose": "CI maintenance and SDD record migration"
+      },
+      "kind": "verification",
+      "locator": {
+        "key": "projects/f1529de7-d1a9-4743-bb3f-9bc05edd21c5/packs/097b28da0832954ad37e90ae9ffe43a8438ee8197ee80d8a0aad6f2fbda040ae.zip",
+        "length": 84183,
+        "member": "objects/d42c6ec684bdc4ab74be8255aadae5a29b18d790da7bb3d37573589fb4746944",
+        "object_id": "1GjvBllMxKdJHpJkoyhHzp3D1JzWCBE-i",
+        "offset": 0,
+        "pack_sha256": "097b28da0832954ad37e90ae9ffe43a8438ee8197ee80d8a0aad6f2fbda040ae",
+        "pack_size": 125782,
+        "provider": "google-drive",
+        "sha256": "d42c6ec684bdc4ab74be8255aadae5a29b18d790da7bb3d37573589fb4746944",
+        "store_id": "da4d8f6e-9337-44f1-845b-599720f6331f"
+      },
+      "original_path": "source-inventory.json",
+      "provenance": {
+        "executed_at": "2026-10-27T22:58:36.798878+00:00",
+        "executor": "Codex lead through the managed verification producer",
+        "run_id": "sdd-records-migration-20261028-final",
+        "unit_id": "sdd-records-maintenance"
+      },
+      "retention": {
+        "class": "current_acceptance",
+        "protections": [],
+        "sealed_at": "2026-10-27T22:59:00.876255+00:00"
+      },
+      "schema": "evidence-json-v1",
+      "sha256": "d42c6ec684bdc4ab74be8255aadae5a29b18d790da7bb3d37573589fb4746944",
+      "size": 84183,
+      "version": 1
+    },
+    {
+      "artifact_id": "ff1e7093f2592d8ab7046eaf1ec22f6d56a7f06f17c5c1b6d1a79ec098458989",
+      "bindings": {
+        "base_revision": "ed52bf12a7f07d451717cbdd80a2fe37d25964ba",
+        "evaluated_plan_hash": "10fa5ffb33df222c3a9d7e297fc0ab91dc55f249ecfb186c353bf2d78dc32556",
+        "purpose": "CI maintenance and SDD record migration"
+      },
+      "kind": "verification",
+      "locator": {
+        "key": "projects/f1529de7-d1a9-4743-bb3f-9bc05edd21c5/packs/097b28da0832954ad37e90ae9ffe43a8438ee8197ee80d8a0aad6f2fbda040ae.zip",
+        "length": 504,
+        "member": "objects/30445165ae4370ea7d7180083052e7e35ef7c884b5a2a28a36338b910b37784d",
+        "object_id": "1GjvBllMxKdJHpJkoyhHzp3D1JzWCBE-i",
+        "offset": 0,
+        "pack_sha256": "097b28da0832954ad37e90ae9ffe43a8438ee8197ee80d8a0aad6f2fbda040ae",
+        "pack_size": 125782,
+        "provider": "google-drive",
+        "sha256": "30445165ae4370ea7d7180083052e7e35ef7c884b5a2a28a36338b910b37784d",
+        "store_id": "da4d8f6e-9337-44f1-845b-599720f6331f"
+      },
+      "original_path": "verification-results.json",
+      "provenance": {
+        "executed_at": "2026-10-27T22:58:36.798878+00:00",
+        "executor": "Codex lead through the managed verification producer",
+        "run_id": "sdd-records-migration-20261028-final",
+        "unit_id": "sdd-records-maintenance"
+      },
+      "retention": {
+        "class": "current_acceptance",
+        "protections": [],
+        "sealed_at": "2026-10-27T22:59:00.876255+00:00"
+      },
+      "schema": "evidence-json-v1",
+      "sha256": "30445165ae4370ea7d7180083052e7e35ef7c884b5a2a28a36338b910b37784d",
+      "size": 504,
+      "version": 1
+    }
+  ],
+  "version": 1
+}

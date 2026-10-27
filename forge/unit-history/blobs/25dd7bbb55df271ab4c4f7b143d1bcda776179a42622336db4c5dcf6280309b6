@@ -1,0 +1,14 @@
+{
+  "invocation_id": "sdd-reconciliation-20261017-guardrails",
+  "outputs": [
+    "docs/guardrails.md"
+  ],
+  "source_usage": {
+    "docs/prd.md": "full",
+    "docs/project-context.md": "full",
+    "docs/canonical-terms.md": "full",
+    "forge/runs/sdd-reconciliation-20261017/scope.json": "full"
+  },
+  "executor": "Codex lead acting inline as to-guardrails",
+  "validation": "Reviewed current PRD/context/terms and authority. Kept project privacy, security, roles, exact-model, no-paid-fallback and repository boundaries. Clarified historical versus current authority, narrow orchestrator setup and AGENTS execution-policy ownership. Replaced cloned work instructions with project-specific restrictions; no downstream gate/check/architecture changes or runtime claims."
+}

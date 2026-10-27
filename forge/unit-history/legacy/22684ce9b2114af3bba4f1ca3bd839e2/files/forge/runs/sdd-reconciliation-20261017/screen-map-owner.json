@@ -1,0 +1,16 @@
+{
+  "invocation_id": "sdd-reconciliation-20261017-screen-map",
+  "outputs": [
+    "docs/screen-map.md"
+  ],
+  "source_usage": {
+    "docs/prd.md": "full",
+    "docs/project-context.md": "full",
+    "docs/canonical-terms.md": "full",
+    "docs/guardrails.md": "full",
+    "docs/user-journey.md": "full",
+    "forge/runs/sdd-reconciliation-20261017/scope.json": "full"
+  },
+  "executor": "Codex lead acting inline as to-screen-map",
+  "validation": "Reviewed all 9 surfaces and 44 stable states against PRD/journey and context/terms. Preserved routes/denied-state/security closure, corrected completion versus Stop/failure transitions and new-Send independence, translated reading mode into English, and removed duplicated implementation directives/style ownership from variants. Usage remains an S-02 inspection panel; no new product state or runtime acceptance."
+}

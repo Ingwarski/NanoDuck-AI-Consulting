@@ -1,0 +1,20 @@
+{
+  "owner_skill": "to-development-plan",
+  "invocation_id": "sdd-migration-20261028-development-plan",
+  "reviewed_at": "2026-10-27T22:50:51.272883+00:00",
+  "old_content_hash": "3d5544fd74655a931c424c8ea802c4e350fa8c9d8a0486bd85473d9a6703822a",
+  "content_hash": "10fa5ffb33df222c3a9d7e297fc0ab91dc55f249ecfb186c353bf2d78dc32556",
+  "changed_prose": "unit_contract_version 1 -> unit_contract_version 2",
+  "unit_plan_json_changed": false,
+  "units": [
+    "U-14",
+    "U-15"
+  ],
+  "required_check_count": 91,
+  "implementation_gate": "awaiting_implementation_prompt",
+  "changed_consumed_sources": [
+    "package.json",
+    "scripts/browser-check.mjs"
+  ],
+  "product_tests_executed_by_owner": false
+}

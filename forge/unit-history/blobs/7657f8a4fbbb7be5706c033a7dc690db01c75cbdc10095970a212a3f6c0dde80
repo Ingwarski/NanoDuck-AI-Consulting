@@ -1,0 +1,9 @@
+{
+  "event": "accepted_scoped_baseline_override",
+  "actor": "user",
+  "request": "form and implement this unit",
+  "accepted_proposal": "U-12 research and evidence economy: preserve every distinct supported claim, full accepted owner input, exact models/effort and user-selected depth. Reuse evidence only inside the accepted request, including Continue/Retry. No cross-Send cache. Measure actual prompt construction and research stages before claiming savings.",
+  "recorded_at": "2026-09-26T15:26:57.952808+00:00",
+  "baseline": "nanoduck-electric-a-v8-20260914",
+  "limits": "Existing local repository only; preserve full current request, auth, Stop, exact models, depth and approved visual foundation. No guaranteed provider cache hit or subscription-cost claim."
+}

@@ -1,0 +1,20 @@
+{
+  "invocation_id": "sdd-reconciliation-20261017-dod-evals",
+  "outputs": [
+    "docs/dod-evals.md"
+  ],
+  "source_usage": {
+    "docs/prd.md": "full",
+    "docs/project-context.md": "full",
+    "docs/canonical-terms.md": "full",
+    "docs/guardrails.md": "full",
+    "docs/user-journey.md": "full",
+    "docs/screen-map.md": "full",
+    "docs/wireframes.md": "full",
+    "docs/design-brief.md": "full",
+    "docs/architecture.md": "full",
+    "forge/runs/sdd-reconciliation-20261017/scope.json": "full"
+  },
+  "executor": "Codex lead acting inline as to-dod-evals",
+  "validation": "All six existing required gates and17 security obligations retained against the same baseline. Separated bounded contributions from required full real-consumer acceptance, added current source/run/evidence freshness requirements, and referenced AGENTS for coding/Git behavior. Replaced cloned feature work/presentation directives with gate evidence criteria and supersession notes. QA/plan are later allocation references, not creation dependencies. Definitions prepared; tests not run; release not_evaluated."
+}

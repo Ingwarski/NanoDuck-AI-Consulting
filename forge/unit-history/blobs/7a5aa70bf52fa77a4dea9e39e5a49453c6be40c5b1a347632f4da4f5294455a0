@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "event": "explicit_existing_change_correction",
+  "role": "user",
+  "recorded_at": "2026-09-22T21:28:56.017322+00:00",
+  "timestamp_basis": "Tool-recording time during the current turn; original user-message transport timestamp is unavailable.",
+  "source": "Current task user request relayed verbatim by the root operator to the SDD owner; standing constraints and mechanism decision relayed in the same task.",
+  "message": "I need the sound problem to be fixed!",
+  "scope": "Repair Preview and incoming-message sound through browser media-element playback while preserving the current consultation and saved preferences.",
+  "standing_constraints": [
+    "Do not interrupt the current consultation.",
+    "Do not reload the running application tab or restart the server.",
+    "Preserve the exact accepted Knock v5 asset, model/effort choices, private authentication/state and frozen Electric A v8."
+  ],
+  "confirmed_implementation_decision": "Use one persistent HTMLAudioElement per session across supported browsers. A trusted gesture plays a finite 50 ms all-zero WAV to natural completion, then stages the saved sound on that same element. Incoming alerts rewind/replay it; an unsaved Preview temporarily changes its source and restores the saved source without changing preferences. Remove Web Audio and AudioSession overrides.",
+  "evidence_limits": [
+    "The owner reports silent Preview and incoming sound in native Safari despite internal Web Audio activity; internal events are not proof of audibility.",
+    "The mechanism is an authorized implementation decision; actual browser checks and any current-tab recovery are recorded separately.",
+    "No physical-device listening success, unchanged-consultation runtime result or formal QA pass is inferred."
+  ]
+}

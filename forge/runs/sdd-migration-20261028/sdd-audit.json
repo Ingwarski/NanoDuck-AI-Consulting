@@ -1,0 +1,56 @@
+{
+  "result": "passed",
+  "node": "audit",
+  "mode": "audit",
+  "unit_action": null,
+  "unit_id": null,
+  "skipped_artifacts": [],
+  "checked_artifacts": [
+    "architecture",
+    "canonical-terms",
+    "design-brief",
+    "development-plan",
+    "dod-evals",
+    "guardrails",
+    "prd",
+    "product-idea",
+    "project-context",
+    "qa-checklist",
+    "screen-map",
+    "user-journey",
+    "wireframes"
+  ],
+  "affected_artifacts": [],
+  "issues": [],
+  "warnings": [],
+  "implementation_progress": {
+    "total_units": 2,
+    "accepted_complete": 0,
+    "accepted_unit_ids": [],
+    "just_worked_unit": null,
+    "next_eligible_unit": "U-14",
+    "blockers": [],
+    "blocked_units": []
+  },
+  "unit_history": {
+    "units": {}
+  },
+  "execution_authority": {
+    "status": "not_authorized",
+    "issues": [
+      {
+        "code": "implementation_not_authorized",
+        "target": "implementation",
+        "detail": "separate prompt must match current plan and baseline"
+      }
+    ],
+    "scope": "current implementation prompt only; prerequisites, evidence and release gates remain separate"
+  },
+  "limits": "Checks declared metadata, file integrity, stages and evidence references; not semantic quality, research authenticity or runner enforcement.",
+  "toolchain": {
+    "algorithm": "sdd-toolchain-sha256-v1",
+    "checker_sha256": "1b820582208d07a50f4a0444b8b105c8bf5539880ec07ec0714b60587fdc543f",
+    "skillset_sha256": "7cbd32e634cb54c34552782b35ea180d352841d5bbc9aa3a0dd1b8670f8b7b51",
+    "source_file_count": 69
+  }
+}

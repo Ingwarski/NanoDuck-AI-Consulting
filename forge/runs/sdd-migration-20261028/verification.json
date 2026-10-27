@@ -1,0 +1,86 @@
+{
+  "event": "sdd_records_v2_migration_verified",
+  "recorded_at": "2026-10-27T23:17:08.127737+00:00",
+  "executor": "Codex lead; separate read-only integrated review",
+  "base_revision": "ed52bf12a7f07d451717cbdd80a2fe37d25964ba",
+  "stable_toolchain_revision": "82cf3979f2a4c77101a9413b0d68277e23fe3f8b",
+  "toolchain": {
+    "algorithm": "sdd-toolchain-sha256-v1",
+    "checker_sha256": "1b820582208d07a50f4a0444b8b105c8bf5539880ec07ec0714b60587fdc543f",
+    "skillset_sha256": "7cbd32e634cb54c34552782b35ea180d352841d5bbc9aa3a0dd1b8670f8b7b51",
+    "source_file_count": 69
+  },
+  "format": {
+    "checker_contract_version": 2,
+    "unit_contract_version": 2,
+    "traceability_version": 1
+  },
+  "legacy_archive_ref": {
+    "content_hash": "e78c28874ea065307af489c621c3bd46f95945b6cfa467fc8b207afd92d8ba72",
+    "path": "forge/unit-history/legacy/22684ce9b2114af3bba4f1ca3bd839e2/record.json"
+  },
+  "preserved": {
+    "source_snapshot_count": 241,
+    "canonical_unit_plan_unchanged": true,
+    "formal_check_count": 91,
+    "formal_check_definitions_statuses_gates_unchanged": true,
+    "approved_baseline_id": "nanoduck-electric-a-v8-20260914",
+    "unit_runs": {
+      "U-14": {
+        "status": "pending"
+      },
+      "U-15": {
+        "status": "pending"
+      }
+    },
+    "implementation_gate_state": "awaiting_implementation_prompt",
+    "release_readiness": "not_evaluated"
+  },
+  "current_document_change": "development-plan prose records unit_contract_version 2; canonical unit_plan JSON remains identical",
+  "checks": {
+    "application_regression": {
+      "passed": 253,
+      "skipped": 2,
+      "failed": 0,
+      "scope": "controlled automated regression; not full product acceptance"
+    },
+    "sdd_audit": {
+      "result": "passed",
+      "issues": 0
+    },
+    "artifact_inventory": {
+      "markdown_files": 62,
+      "javascript_syntax_checks": 221,
+      "active_candidates": 3
+    },
+    "independent_review": "No actionable findings; archive/source/observation hashes, all91 checks and6 gates inspected"
+  },
+  "storage": {
+    "provider": "google-drive",
+    "retention_days": 30,
+    "setup_original_byte_probe": "passed",
+    "archive_original_byte_readback": "passed",
+    "evidence_refs_path": "forge/runs/sdd-migration-20261028/evidence-refs.json",
+    "accounting_receipt_path": "forge/runs/sdd-migration-20261028/evidence-accounting.json",
+    "managed_output_bytes": 124800,
+    "managed_output_files": 4,
+    "producer_reexecuted_for_archiving": false
+  },
+  "git_size_review": {
+    "review_target_per_blob_bytes": 1048576,
+    "review_target_range_bytes": 52428800,
+    "staged_unique_content_bytes_before_these_compact_results": 11190111,
+    "large_blob_count": 4,
+    "disposition": "Reviewed: current canonical manifest and exact immutable before/after/candidate records preserve required provenance. No truncation, artificial splitting or source/evidence removal to meet soft targets."
+  },
+  "instruction_basis": {
+    "path": "AGENTS.md",
+    "content_hash": "9e9de3772e818710fd36a0b9861b80fd14f2a219553ee219d3431c68fcf5deea",
+    "policy_revision": 2,
+    "verification": "User-supplied project instructions and explicit saved-file reading; no claim of fresh-session automatic host enforcement."
+  },
+  "limits": [
+    "Migration and CI regression do not complete QA-C01, U-14/U-15 or product release acceptance.",
+    "No provider settings, private application records, live server or other repositories changed."
+  ]
+}
