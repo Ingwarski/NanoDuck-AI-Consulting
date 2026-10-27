@@ -21,9 +21,10 @@ const waitFor = (promise, milliseconds, label, signal = undefined) => new Promis
   };
   const abort = () => finish(reject, new Error("cancelled"));
   const timer = milliseconds === undefined ? undefined : setTimeout(() => finish(reject, new Error(label)), milliseconds);
+  // The operation already exists, so observe its rejection even after cancellation.
+  Promise.resolve(promise).then(value => finish(resolve, value), error => finish(reject, error));
   if (signal?.aborted) return abort();
   signal?.addEventListener("abort", abort, { once: true });
-  Promise.resolve(promise).then(value => finish(resolve, value), error => finish(reject, error));
 });
 const record = value => typeof value === "object" && value !== null && !Array.isArray(value);
 const allowedModelEfforts = new Map([

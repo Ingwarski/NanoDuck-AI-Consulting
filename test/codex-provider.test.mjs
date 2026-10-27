@@ -198,20 +198,45 @@ createInterface({ input: process.stdin }).on('line', line => { const message = J
   } finally { await rm(root, { recursive: true, force: true }); }
  });
 
-test("Codex usage captures cumulative matching-turn counts once, including failed and cancelled turns", async () => {
+test("Codex usage captures cumulative matching-turn counts once, including failed and cancelled turns", { timeout: 30_000 }, async () => {
   for (const assignment of ["Give a practical answer.", "Fail after a completed item", "Wait until cancelled", "Without token usage"]) {
     const records = []; const controller = new AbortController();
     const provider = createCodexProvider({ readyForProvider: true, codexCommand: process.execPath, codexCommandArgs: [fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url))] });
-    const timer = assignment === "Wait until cancelled" ? setTimeout(() => controller.abort(), 200) : null;
+    const originalWrite = process.stdout.write;
+    if (assignment === "Wait until cancelled") process.stdout.write = function (chunk, ...args) {
+      const written = originalWrite.call(this, chunk, ...args);
+      // The fixture publishes cumulative usage before the turn-start response.
+      // Wait for that response instead of racing platform-specific startup time.
+      if (typeof chunk === "string" && chunk.startsWith('{"event":"nanoduck.provider.turn_started"')) queueMicrotask(() => controller.abort());
+      return written;
+    };
     try {
-      await provider.invoke({ assignment, model: "gpt-6-sol", effort: "medium", evidence: { owner: "Synthetic usage check", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions, signal: controller.signal, onUsage: value => records.push(value) });
+      const result = await provider.invoke({ assignment, model: "gpt-6-sol", effort: "medium", evidence: { owner: "Synthetic usage check", discussion: "" }, research: false, runtimeInstructions: initialRuntimeInstructions, signal: controller.signal, onUsage: value => records.push(value) });
+      if (assignment === "Wait until cancelled") assert.deepEqual(result, { ok: false, code: "cancelled" });
       assert.equal(records.length, 2); assert.equal(records[0].id, records[1].id);
       assert.equal(records[0].status, "running");
       if (assignment === "Without token usage") assert.deepEqual(records[1].usage, []);
       else assert.equal(records[1].usage[0].tokens.total, 140, "Do not sum total+last, duplicate events or other turns");
       assert.equal(records[1].status, assignment.includes("cancelled") ? "cancelled" : assignment.startsWith("Fail") ? "failed" : "completed");
-    } finally { clearTimeout(timer); }
+    } finally { process.stdout.write = originalWrite; }
   }
+});
+
+test("cancellation during asynchronous usage persistence observes pending provider failures", { timeout: 30_000 }, async () => {
+  const records = []; const controller = new AbortController();
+  const provider = createCodexProvider({ readyForProvider: true, codexCommand: process.execPath, codexCommandArgs: [fileURLToPath(new URL("./fixtures/fake-codex.mjs", import.meta.url))] });
+  const result = await provider.invoke({
+    assignment: "Wait until cancelled", model: "gpt-6-sol", effort: "medium", evidence: { owner: "Synthetic usage persistence", discussion: "" },
+    research: false, runtimeInstructions: initialRuntimeInstructions, signal: controller.signal,
+    onUsage: async value => {
+      records.push(value);
+      if (value.status === "running") await new Promise(resolve => setImmediate(() => { controller.abort(); resolve(); }));
+    }
+  });
+  assert.deepEqual(result, { ok: false, code: "cancelled" });
+  assert.equal(records.length, 2); assert.equal(records[0].id, records[1].id);
+  assert.equal(records[0].status, "running"); assert.equal(records[1].status, "cancelled");
+  assert.deepEqual(records[1].usage, []);
 });
 
 test("request workspaces are stable within one request, distinct between requests and removed after release", async () => {

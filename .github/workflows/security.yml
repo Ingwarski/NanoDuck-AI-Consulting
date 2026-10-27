@@ -39,8 +39,10 @@ jobs:
             '551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb' \
             "$archive" | sha256sum --check --status
           tar -xzf "$archive" -C "$tool_dir" gitleaks
+          python3 .github/scripts/test-gitleaks.py "${tool_dir}/gitleaks"
           scan_status=0
           "${tool_dir}/gitleaks" git . \
+            --config=.gitleaks.toml \
             --log-opts='--all' --redact=100 --no-banner --exit-code=2 \
             --report-format=json --report-path="${tool_dir}/report.json" \
             >"${tool_dir}/scan.log" 2>&1 || scan_status=$?

@@ -1,0 +1,50 @@
+title = "NanoDuck reviewed false positives"
+
+[extend]
+useDefault = true
+
+# Keep every built-in rule, including generic-api-key. These exceptions apply
+# only when BOTH the exact reviewed path and the complete scanner match agree.
+# The source digests were recomputed from the files in the initial publication
+# commit 2d12abb74cfac595cf05b96b4f6ce2c05307d944. Do not generalize to hex strings,
+# whole files, receipts, commits or credentials that happen to share a line.
+[[rules]]
+id = "generic-api-key"
+
+[[rules.allowlists]]
+description = "Ordinary public-query safety prose in the reviewed handoff"
+condition = "AND"
+regexTarget = "match"
+paths = ['''^docs/review-fixes-port\.md$''']
+regexes = ['''^credentials, private/unsafe $''']
+
+[[rules.allowlists]]
+description = "Reviewed auth.mjs source SHA-256, not an authentication credential"
+condition = "AND"
+regexTarget = "match"
+paths = [
+  '''^forge/sdd-manifest\.json$''',
+  '''^forge/runs/sdd-reconciliation-20261017/qa-source-observation\.json$''',
+]
+regexes = ['''^auth\.mjs": "1ff7afa261556efb4644f88cd4a386dbe4bb02ce235b8def20a5bede7622f563"$''']
+
+[[rules.allowlists]]
+description = "Reviewed password.mjs source SHA-256, not a password"
+condition = "AND"
+regexTarget = "match"
+paths = [
+  '''^forge/sdd-manifest\.json$''',
+  '''^forge/runs/sdd-reconciliation-20261017/qa-source-observation\.json$''',
+]
+regexes = ['''^password\.mjs": "0d258702a65d1c859ebbd81f7f42dcf3fe81256aa29a23178b1439fc92dbc419"$''']
+
+[[rules.allowlists]]
+description = "Reviewed local-config-auth test source SHA-256, not an API key"
+condition = "AND"
+regexTarget = "match"
+paths = [
+  '''^forge/sdd-manifest\.json$''',
+  '''^forge/runs/sdd-reconciliation-20261017/qa-source-observation\.json$''',
+  '''^forge/runs/local-network-entry-20261014/verification\.json$''',
+]
+regexes = ['''^local-config-auth\.test\.mjs": "ab45104a750e37c33f3956361c7e840219a8c224f0bada37321887e3750464f2"$''']

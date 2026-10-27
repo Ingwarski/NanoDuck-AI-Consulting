@@ -11,6 +11,15 @@ This configuration belongs to `Ingwarski/NanoDuck-AI-Consulting`.
 - Gitleaks scans complete reachable Git history. Its executable is pinned and
   checksum verified. Findings fail the job; public summaries contain counts and
   locations only. Raw reports and logs are temporary, redacted and deleted.
+  The configuration extends every built-in rule. Four `generic-api-key`
+  exceptions require both an exact reviewed file path and the complete matched
+  prose or source digest. The seven digest occurrences were checked against
+  their source bytes in the initial publication; historical receipts stay intact.
+  Any changed digest, new receipt path or additional credential still requires
+  review. Before each history scan, synthetic regression controls verify that
+  these false positives pass while adjacent credentials, changed values and
+  matches outside the reviewed paths still fail, including a provider-specific
+  token rule. Controls use temporary files and never contact a provider.
 - zizmor reviews workflows and uploads findings to GitHub code scanning.
   A successful upload does not mean a report contains no findings.
 
